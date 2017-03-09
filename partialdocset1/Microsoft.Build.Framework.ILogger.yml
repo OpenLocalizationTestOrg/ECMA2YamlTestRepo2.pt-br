@@ -1,0 +1,179 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Framework.ILogger
+  id: ILogger
+  children:
+  - Microsoft.Build.Framework.ILogger.Initialize(Microsoft.Build.Framework.IEventSource)
+  - Microsoft.Build.Framework.ILogger.Parameters
+  - Microsoft.Build.Framework.ILogger.Shutdown
+  - Microsoft.Build.Framework.ILogger.Verbosity
+  langs:
+  - csharp
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Build.Framework.ILogger
+  type: Interface
+  summary: "Define um [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] agente, que assina os eventos de sistema de compilação."
+  remarks: "Todas as classes de agente de log devem implementar essa interface seja reconhecida pelo [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] mecanismo.       Em vez de implementar essa interface diretamente, você também pode derivar a classe da classe auxiliar, <xref:Microsoft.Build.Utilities.Logger>, que fornece implementações padrão de alguns membros ILogger.</xref:Microsoft.Build.Utilities.Logger>"
+  example:
+  - "The following example shows how to write a basic logger.  \n  \n [!code-cs[msbuild_BasicLogger#1](~/add/codesnippet/csharp/msbuild_BasicLogger/msbuild_BasicLogger.cs#1)]"
+  syntax:
+    content: >-
+      [System.Runtime.InteropServices.ComVisible(true)]
+
+      public interface ILogger
+  implements: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Initialize(Microsoft.Build.Framework.IEventSource)
+  id: Initialize(Microsoft.Build.Framework.IEventSource)
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Initialize(IEventSource)
+  nameWithType: ILogger.Initialize(IEventSource)
+  fullName: Microsoft.Build.Framework.ILogger.Initialize(IEventSource)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Assina os agentes de log de eventos específicos. Este método é chamado quando o agente é registrado com o mecanismo de compilação antes de todos os eventos são gerados."
+  syntax:
+    content: public void Initialize (Microsoft.Build.Framework.IEventSource eventSource);
+    parameters:
+    - id: eventSource
+      type: Microsoft.Build.Framework.IEventSource
+      description: "Os eventos disponíveis para agentes de log."
+  overload: Microsoft.Build.Framework.ILogger.Initialize*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Parameters
+  id: Parameters
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Parameters
+  nameWithType: ILogger.Parameters
+  fullName: Microsoft.Build.Framework.ILogger.Parameters
+  type: Property
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Obtém ou define os parâmetros definidos pelo usuário do agente de log."
+  remarks: "Parâmetros podem ser representados nessa propriedade em qualquer formato. Por exemplo, para representar dois parâmetros e valores, você pode usar a cadeia de caracteres &quot;parameter1 = value1; parameter2 = value2&quot;.       Esta propriedade pode ser uma referência nula (`Nothing` em [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)])."
+  syntax:
+    content: public string Parameters { get; set; }
+    return:
+      type: System.String
+      description: "Os parâmetros de agente de log."
+  overload: Microsoft.Build.Framework.ILogger.Parameters*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Shutdown
+  id: Shutdown
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Shutdown()
+  nameWithType: ILogger.Shutdown()
+  fullName: Microsoft.Build.Framework.ILogger.Shutdown()
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Libera os recursos alocados para o agente de log no momento da inicialização ou durante a compilação. Este método é chamado quando o agente de log é cancelado do mecanismo, depois que todos os eventos são gerados. Um host de [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] normalmente cancela o registro de agentes de log imediatamente antes de sair."
+  syntax:
+    content: public void Shutdown ();
+    parameters: []
+  overload: Microsoft.Build.Framework.ILogger.Shutdown*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.ILogger.Verbosity
+  id: Verbosity
+  parent: Microsoft.Build.Framework.ILogger
+  langs:
+  - csharp
+  name: Verbosity
+  nameWithType: ILogger.Verbosity
+  fullName: Microsoft.Build.Framework.ILogger.Verbosity
+  type: Property
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Obtém ou define o nível de detalhe para mostrar no log de eventos."
+  remarks: "Embora um agente de log está livre para escolher os eventos de logon, as diretrizes de detalhamento a seguir cria uma experiência de usuário consistente."
+  syntax:
+    content: public Microsoft.Build.Framework.LoggerVerbosity Verbosity { get; set; }
+    return:
+      type: Microsoft.Build.Framework.LoggerVerbosity
+      description: "Um dos valores de enumeração. O padrão é <xref href=&quot;Microsoft.Build.Framework.LoggerVerbosity&quot;> </xref>."
+  overload: Microsoft.Build.Framework.ILogger.Verbosity*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: Microsoft.Build.Framework.ILogger.Initialize(Microsoft.Build.Framework.IEventSource)
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Initialize(IEventSource)
+  nameWithType: ILogger.Initialize(IEventSource)
+  fullName: Microsoft.Build.Framework.ILogger.Initialize(IEventSource)
+- uid: Microsoft.Build.Framework.IEventSource
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: IEventSource
+  nameWithType: IEventSource
+  fullName: Microsoft.Build.Framework.IEventSource
+- uid: Microsoft.Build.Framework.ILogger.Parameters
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Parameters
+  nameWithType: ILogger.Parameters
+  fullName: Microsoft.Build.Framework.ILogger.Parameters
+- uid: System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Microsoft.Build.Framework.ILogger.Shutdown
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Shutdown()
+  nameWithType: ILogger.Shutdown()
+  fullName: Microsoft.Build.Framework.ILogger.Shutdown()
+- uid: Microsoft.Build.Framework.ILogger.Verbosity
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Verbosity
+  nameWithType: ILogger.Verbosity
+  fullName: Microsoft.Build.Framework.ILogger.Verbosity
+- uid: Microsoft.Build.Framework.LoggerVerbosity
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: LoggerVerbosity
+  nameWithType: LoggerVerbosity
+  fullName: Microsoft.Build.Framework.LoggerVerbosity
+- uid: Microsoft.Build.Framework.ILogger.Initialize*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Initialize
+  nameWithType: ILogger.Initialize
+- uid: Microsoft.Build.Framework.ILogger.Parameters*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Parameters
+  nameWithType: ILogger.Parameters
+- uid: Microsoft.Build.Framework.ILogger.Shutdown*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Shutdown
+  nameWithType: ILogger.Shutdown
+- uid: Microsoft.Build.Framework.ILogger.Verbosity*
+  parent: Microsoft.Build.Framework.ILogger
+  isExternal: false
+  name: Verbosity
+  nameWithType: ILogger.Verbosity

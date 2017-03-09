@@ -1,0 +1,541 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Execution.BuildManager
+  id: BuildManager
+  children:
+  - Microsoft.Build.Execution.BuildManager.#ctor
+  - Microsoft.Build.Execution.BuildManager.#ctor(System.String)
+  - Microsoft.Build.Execution.BuildManager.BeginBuild(Microsoft.Build.Execution.BuildParameters)
+  - Microsoft.Build.Execution.BuildManager.Build(Microsoft.Build.Execution.BuildParameters,Microsoft.Build.Execution.BuildRequestData)
+  - Microsoft.Build.Execution.BuildManager.BuildRequest(Microsoft.Build.Execution.BuildRequestData)
+  - Microsoft.Build.Execution.BuildManager.CancelAllSubmissions
+  - Microsoft.Build.Execution.BuildManager.DefaultBuildManager
+  - Microsoft.Build.Execution.BuildManager.Dispose
+  - Microsoft.Build.Execution.BuildManager.EndBuild
+  - Microsoft.Build.Execution.BuildManager.Finalize
+  - Microsoft.Build.Execution.BuildManager.GetProjectInstanceForBuild(Microsoft.Build.Evaluation.Project)
+  - Microsoft.Build.Execution.BuildManager.PendBuildRequest(Microsoft.Build.Execution.BuildRequestData)
+  - Microsoft.Build.Execution.BuildManager.ResetCaches
+  langs:
+  - csharp
+  name: BuildManager
+  nameWithType: BuildManager
+  fullName: Microsoft.Build.Execution.BuildManager
+  type: Class
+  summary: "Essa classe é o ponto de entrada pública para executar compilações."
+  syntax:
+    content: 'public class BuildManager : IDisposable'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.#ctor
+  id: '#ctor'
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: BuildManager()
+  nameWithType: BuildManager.BuildManager()
+  fullName: Microsoft.Build.Execution.BuildManager.BuildManager()
+  type: Constructor
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Obtém um novo Gerenciador de compilação sem especificar um nome."
+  syntax:
+    content: public BuildManager ();
+    parameters: []
+  overload: Microsoft.Build.Execution.BuildManager.#ctor*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: BuildManager(String)
+  nameWithType: BuildManager.BuildManager(String)
+  fullName: Microsoft.Build.Execution.BuildManager.BuildManager(String)
+  type: Constructor
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Cria uma nova compilação sem nome manager."
+  remarks: "Crie um novo BuildManager. Não há suporte para criar compilação com reconhecimento de multiprocessador vários gerenciadores de devido a conflitos no NodeManager."
+  syntax:
+    content: public BuildManager (string hostName);
+    parameters:
+    - id: hostName
+      type: System.String
+      description: "O host para o Gerenciador de compilação."
+  overload: Microsoft.Build.Execution.BuildManager.#ctor*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.BeginBuild(Microsoft.Build.Execution.BuildParameters)
+  id: BeginBuild(Microsoft.Build.Execution.BuildParameters)
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: BeginBuild(BuildParameters)
+  nameWithType: BuildManager.BeginBuild(BuildParameters)
+  fullName: Microsoft.Build.Execution.BuildManager.BeginBuild(BuildParameters)
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Prepara o BuildManager para receber solicitações de compilação."
+  syntax:
+    content: public void BeginBuild (Microsoft.Build.Execution.BuildParameters parameters);
+    parameters:
+    - id: parameters
+      type: Microsoft.Build.Execution.BuildParameters
+      description: "Os parâmetros de compilação. Pode ser nulo."
+  overload: Microsoft.Build.Execution.BuildManager.BeginBuild*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: "Lançado se já houver uma compilação em andamento."
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.Build(Microsoft.Build.Execution.BuildParameters,Microsoft.Build.Execution.BuildRequestData)
+  id: Build(Microsoft.Build.Execution.BuildParameters,Microsoft.Build.Execution.BuildRequestData)
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: Build(BuildParameters,BuildRequestData)
+  nameWithType: BuildManager.Build(BuildParameters,BuildRequestData)
+  fullName: Microsoft.Build.Execution.BuildManager.Build(BuildParameters,BuildRequestData)
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Envia uma solicitação de compilação solitário e bloqueia até que os resultados estão disponíveis."
+  remarks: "Método de conveniência."
+  syntax:
+    content: public Microsoft.Build.Execution.BuildResult Build (Microsoft.Build.Execution.BuildParameters parameters, Microsoft.Build.Execution.BuildRequestData requestData);
+    parameters:
+    - id: parameters
+      type: Microsoft.Build.Execution.BuildParameters
+      description: "Parâmetros de compilação."
+    - id: requestData
+      type: Microsoft.Build.Execution.BuildRequestData
+      description: "Crie dados de solicitação."
+    return:
+      type: Microsoft.Build.Execution.BuildResult
+      description: "Retorna o resultado da compilação."
+  overload: Microsoft.Build.Execution.BuildManager.Build*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: "Lançado se já houver uma compilação em andamento."
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.BuildRequest(Microsoft.Build.Execution.BuildRequestData)
+  id: BuildRequest(Microsoft.Build.Execution.BuildRequestData)
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: BuildRequest(BuildRequestData)
+  nameWithType: BuildManager.BuildRequest(BuildRequestData)
+  fullName: Microsoft.Build.Execution.BuildManager.BuildRequest(BuildRequestData)
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Envia uma solicitação de compilação e bloqueia até que os resultados estão disponíveis."
+  remarks: "Método de conveniência."
+  syntax:
+    content: public Microsoft.Build.Execution.BuildResult BuildRequest (Microsoft.Build.Execution.BuildRequestData requestData);
+    parameters:
+    - id: requestData
+      type: Microsoft.Build.Execution.BuildRequestData
+      description: "Solicitação de criação."
+    return:
+      type: Microsoft.Build.Execution.BuildResult
+      description: "Retorna o resultado da compilação."
+  overload: Microsoft.Build.Execution.BuildManager.BuildRequest*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: "Lançado se StartBuild não foi chamado ou se EndBuild tiver sido chamado."
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.CancelAllSubmissions
+  id: CancelAllSubmissions
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: CancelAllSubmissions()
+  nameWithType: BuildManager.CancelAllSubmissions()
+  fullName: Microsoft.Build.Execution.BuildManager.CancelAllSubmissions()
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Cancela todos os envios pendentes assincronamente."
+  syntax:
+    content: public void CancelAllSubmissions ();
+    parameters: []
+  overload: Microsoft.Build.Execution.BuildManager.CancelAllSubmissions*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.DefaultBuildManager
+  id: DefaultBuildManager
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: DefaultBuildManager
+  nameWithType: BuildManager.DefaultBuildManager
+  fullName: Microsoft.Build.Execution.BuildManager.DefaultBuildManager
+  type: Property
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Obtém a instância singleton do Gerenciador de compilação."
+  syntax:
+    content: public static Microsoft.Build.Execution.BuildManager DefaultBuildManager { get; }
+    return:
+      type: Microsoft.Build.Execution.BuildManager
+      description: "Retorna a instância singleton do Gerenciador de compilação."
+  overload: Microsoft.Build.Execution.BuildManager.DefaultBuildManager*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.Dispose
+  id: Dispose
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: Dispose()
+  nameWithType: BuildManager.Dispose()
+  fullName: Microsoft.Build.Execution.BuildManager.Dispose()
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Descarte o Gerenciador de compilação."
+  syntax:
+    content: public void Dispose ();
+    parameters: []
+  overload: Microsoft.Build.Execution.BuildManager.Dispose*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.EndBuild
+  id: EndBuild
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: EndBuild()
+  nameWithType: BuildManager.EndBuild()
+  fullName: Microsoft.Build.Execution.BuildManager.EndBuild()
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Sinais que mais solicitações de compilação são esperadas (ou permitidas) e o BuildManager pode limpar."
+  remarks: "Blocos essa chamada até que todas as solicitações pendentes no momento estão completos."
+  syntax:
+    content: public void EndBuild ();
+    parameters: []
+  overload: Microsoft.Build.Execution.BuildManager.EndBuild*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: "Lançado se não houver nenhuma compilação em andamento."
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.Finalize
+  id: Finalize
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: Finalize()
+  nameWithType: BuildManager.Finalize()
+  fullName: Microsoft.Build.Execution.BuildManager.Finalize()
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Finalize o Gerenciador de construção."
+  syntax:
+    content: ~BuildManager ();
+    parameters: []
+  overload: Microsoft.Build.Execution.BuildManager.Finalize*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.GetProjectInstanceForBuild(Microsoft.Build.Evaluation.Project)
+  id: GetProjectInstanceForBuild(Microsoft.Build.Evaluation.Project)
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: GetProjectInstanceForBuild(Project)
+  nameWithType: BuildManager.GetProjectInstanceForBuild(Project)
+  fullName: Microsoft.Build.Execution.BuildManager.GetProjectInstanceForBuild(Project)
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Obtém um ProjectInstance correspondente do cache BuildManager projetos criados anteriormente."
+  syntax:
+    content: public Microsoft.Build.Execution.ProjectInstance GetProjectInstanceForBuild (Microsoft.Build.Evaluation.Project project);
+    parameters:
+    - id: project
+      type: Microsoft.Build.Evaluation.Project
+      description: "O projeto para o qual uma instância deve ser recuperada."
+    return:
+      type: Microsoft.Build.Execution.ProjectInstance
+      description: "Retorna um ProjectInstance correspondente do cache BuildManager projetos criados anteriormente. Se não houver nenhum, uma nova instância do projeto será criada a partir do projeto especificado."
+  overload: Microsoft.Build.Execution.BuildManager.GetProjectInstanceForBuild*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.PendBuildRequest(Microsoft.Build.Execution.BuildRequestData)
+  id: PendBuildRequest(Microsoft.Build.Execution.BuildRequestData)
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: PendBuildRequest(BuildRequestData)
+  nameWithType: BuildManager.PendBuildRequest(BuildRequestData)
+  fullName: Microsoft.Build.Execution.BuildManager.PendBuildRequest(BuildRequestData)
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Envia uma solicitação de compilação a compilação atual, mas não inicia imediatamente. Permite que o usuário realizar execução assíncrona ou acessar a ID de envio antes de executar a solicitação."
+  syntax:
+    content: public Microsoft.Build.Execution.BuildSubmission PendBuildRequest (Microsoft.Build.Execution.BuildRequestData requestData);
+    parameters:
+    - id: requestData
+      type: Microsoft.Build.Execution.BuildRequestData
+      description: "Crie dados de solicitação."
+    return:
+      type: Microsoft.Build.Execution.BuildSubmission
+      description: "Retorna o envio será criado."
+  overload: Microsoft.Build.Execution.BuildManager.PendBuildRequest*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: "Lançado se StartBuild não foi chamado ou se EndBuild tiver sido chamado."
+  platform:
+  - net462
+- uid: Microsoft.Build.Execution.BuildManager.ResetCaches
+  id: ResetCaches
+  parent: Microsoft.Build.Execution.BuildManager
+  langs:
+  - csharp
+  name: ResetCaches()
+  nameWithType: BuildManager.ResetCaches()
+  fullName: Microsoft.Build.Execution.BuildManager.ResetCaches()
+  type: Method
+  assemblies:
+  - Microsoft.Build
+  namespace: Microsoft.Build.Execution
+  summary: "Limpa todo o Gerenciador de compilação informações armazenadas em cache."
+  syntax:
+    content: public void ResetCaches ();
+    parameters: []
+  overload: Microsoft.Build.Execution.BuildManager.ResetCaches*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: System.Object
+  isExternal: false
+  name: System.Object
+- uid: System.InvalidOperationException
+  isExternal: true
+  name: System.InvalidOperationException
+- uid: Microsoft.Build.Execution.BuildManager.#ctor
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: BuildManager()
+  nameWithType: BuildManager.BuildManager()
+  fullName: Microsoft.Build.Execution.BuildManager.BuildManager()
+- uid: Microsoft.Build.Execution.BuildManager.#ctor(System.String)
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: BuildManager(String)
+  nameWithType: BuildManager.BuildManager(String)
+  fullName: Microsoft.Build.Execution.BuildManager.BuildManager(String)
+- uid: System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Microsoft.Build.Execution.BuildManager.BeginBuild(Microsoft.Build.Execution.BuildParameters)
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: BeginBuild(BuildParameters)
+  nameWithType: BuildManager.BeginBuild(BuildParameters)
+  fullName: Microsoft.Build.Execution.BuildManager.BeginBuild(BuildParameters)
+- uid: Microsoft.Build.Execution.BuildParameters
+  parent: Microsoft.Build.Execution
+  isExternal: false
+  name: BuildParameters
+  nameWithType: BuildParameters
+  fullName: Microsoft.Build.Execution.BuildParameters
+- uid: Microsoft.Build.Execution.BuildManager.Build(Microsoft.Build.Execution.BuildParameters,Microsoft.Build.Execution.BuildRequestData)
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: Build(BuildParameters,BuildRequestData)
+  nameWithType: BuildManager.Build(BuildParameters,BuildRequestData)
+  fullName: Microsoft.Build.Execution.BuildManager.Build(BuildParameters,BuildRequestData)
+- uid: Microsoft.Build.Execution.BuildResult
+  parent: Microsoft.Build.Execution
+  isExternal: false
+  name: BuildResult
+  nameWithType: BuildResult
+  fullName: Microsoft.Build.Execution.BuildResult
+- uid: Microsoft.Build.Execution.BuildRequestData
+  parent: Microsoft.Build.Execution
+  isExternal: false
+  name: BuildRequestData
+  nameWithType: BuildRequestData
+  fullName: Microsoft.Build.Execution.BuildRequestData
+- uid: Microsoft.Build.Execution.BuildManager.BuildRequest(Microsoft.Build.Execution.BuildRequestData)
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: BuildRequest(BuildRequestData)
+  nameWithType: BuildManager.BuildRequest(BuildRequestData)
+  fullName: Microsoft.Build.Execution.BuildManager.BuildRequest(BuildRequestData)
+- uid: Microsoft.Build.Execution.BuildManager.CancelAllSubmissions
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: CancelAllSubmissions()
+  nameWithType: BuildManager.CancelAllSubmissions()
+  fullName: Microsoft.Build.Execution.BuildManager.CancelAllSubmissions()
+- uid: Microsoft.Build.Execution.BuildManager.DefaultBuildManager
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: DefaultBuildManager
+  nameWithType: BuildManager.DefaultBuildManager
+  fullName: Microsoft.Build.Execution.BuildManager.DefaultBuildManager
+- uid: Microsoft.Build.Execution.BuildManager
+  parent: Microsoft.Build.Execution
+  isExternal: false
+  name: BuildManager
+  nameWithType: BuildManager
+  fullName: Microsoft.Build.Execution.BuildManager
+- uid: Microsoft.Build.Execution.BuildManager.Dispose
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: Dispose()
+  nameWithType: BuildManager.Dispose()
+  fullName: Microsoft.Build.Execution.BuildManager.Dispose()
+- uid: Microsoft.Build.Execution.BuildManager.EndBuild
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: EndBuild()
+  nameWithType: BuildManager.EndBuild()
+  fullName: Microsoft.Build.Execution.BuildManager.EndBuild()
+- uid: Microsoft.Build.Execution.BuildManager.Finalize
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: Finalize()
+  nameWithType: BuildManager.Finalize()
+  fullName: Microsoft.Build.Execution.BuildManager.Finalize()
+- uid: Microsoft.Build.Execution.BuildManager.GetProjectInstanceForBuild(Microsoft.Build.Evaluation.Project)
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: GetProjectInstanceForBuild(Project)
+  nameWithType: BuildManager.GetProjectInstanceForBuild(Project)
+  fullName: Microsoft.Build.Execution.BuildManager.GetProjectInstanceForBuild(Project)
+- uid: Microsoft.Build.Execution.ProjectInstance
+  parent: Microsoft.Build.Execution
+  isExternal: false
+  name: ProjectInstance
+  nameWithType: ProjectInstance
+  fullName: Microsoft.Build.Execution.ProjectInstance
+- uid: Microsoft.Build.Evaluation.Project
+  parent: Microsoft.Build.Evaluation
+  isExternal: false
+  name: Project
+  nameWithType: Project
+  fullName: Microsoft.Build.Evaluation.Project
+- uid: Microsoft.Build.Execution.BuildManager.PendBuildRequest(Microsoft.Build.Execution.BuildRequestData)
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: PendBuildRequest(BuildRequestData)
+  nameWithType: BuildManager.PendBuildRequest(BuildRequestData)
+  fullName: Microsoft.Build.Execution.BuildManager.PendBuildRequest(BuildRequestData)
+- uid: Microsoft.Build.Execution.BuildSubmission
+  parent: Microsoft.Build.Execution
+  isExternal: false
+  name: BuildSubmission
+  nameWithType: BuildSubmission
+  fullName: Microsoft.Build.Execution.BuildSubmission
+- uid: Microsoft.Build.Execution.BuildManager.ResetCaches
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: ResetCaches()
+  nameWithType: BuildManager.ResetCaches()
+  fullName: Microsoft.Build.Execution.BuildManager.ResetCaches()
+- uid: Microsoft.Build.Execution.BuildManager.#ctor*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: BuildManager
+  nameWithType: BuildManager.BuildManager
+- uid: Microsoft.Build.Execution.BuildManager.BeginBuild*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: BeginBuild
+  nameWithType: BuildManager.BeginBuild
+- uid: Microsoft.Build.Execution.BuildManager.Build*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: Build
+  nameWithType: BuildManager.Build
+- uid: Microsoft.Build.Execution.BuildManager.BuildRequest*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: BuildRequest
+  nameWithType: BuildManager.BuildRequest
+- uid: Microsoft.Build.Execution.BuildManager.CancelAllSubmissions*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: CancelAllSubmissions
+  nameWithType: BuildManager.CancelAllSubmissions
+- uid: Microsoft.Build.Execution.BuildManager.DefaultBuildManager*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: DefaultBuildManager
+  nameWithType: BuildManager.DefaultBuildManager
+- uid: Microsoft.Build.Execution.BuildManager.Dispose*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: Dispose
+  nameWithType: BuildManager.Dispose
+- uid: Microsoft.Build.Execution.BuildManager.EndBuild*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: EndBuild
+  nameWithType: BuildManager.EndBuild
+- uid: Microsoft.Build.Execution.BuildManager.Finalize*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: Finalize
+  nameWithType: BuildManager.Finalize
+- uid: Microsoft.Build.Execution.BuildManager.GetProjectInstanceForBuild*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: GetProjectInstanceForBuild
+  nameWithType: BuildManager.GetProjectInstanceForBuild
+- uid: Microsoft.Build.Execution.BuildManager.PendBuildRequest*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: PendBuildRequest
+  nameWithType: BuildManager.PendBuildRequest
+- uid: Microsoft.Build.Execution.BuildManager.ResetCaches*
+  parent: Microsoft.Build.Execution.BuildManager
+  isExternal: false
+  name: ResetCaches
+  nameWithType: BuildManager.ResetCaches

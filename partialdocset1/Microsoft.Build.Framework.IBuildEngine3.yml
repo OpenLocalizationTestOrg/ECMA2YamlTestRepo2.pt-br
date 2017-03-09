@@ -1,0 +1,201 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Framework.IBuildEngine3
+  id: IBuildEngine3
+  children:
+  - Microsoft.Build.Framework.IBuildEngine3.BuildProjectFilesInParallel(System.String[],System.String[],System.Collections.IDictionary[],System.Collections.Generic.IList{System.String}[],System.String[],System.Boolean)
+  - Microsoft.Build.Framework.IBuildEngine3.Reacquire
+  - Microsoft.Build.Framework.IBuildEngine3.Yield
+  langs:
+  - csharp
+  name: IBuildEngine3
+  nameWithType: IBuildEngine3
+  fullName: Microsoft.Build.Framework.IBuildEngine3
+  type: Interface
+  summary: "Essa interface estende IBuildEngine para fornecer um projeto de construção método que permite que arquivos em paralelo."
+  syntax:
+    content: 'public interface IBuildEngine3 : Microsoft.Build.Framework.IBuildEngine2'
+  implements:
+  - Microsoft.Build.Framework.IBuildEngine2
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.IBuildEngine3.BuildProjectFilesInParallel(System.String[],System.String[],System.Collections.IDictionary[],System.Collections.Generic.IList{System.String}[],System.String[],System.Boolean)
+  id: BuildProjectFilesInParallel(System.String[],System.String[],System.Collections.IDictionary[],System.Collections.Generic.IList{System.String}[],System.String[],System.Boolean)
+  parent: Microsoft.Build.Framework.IBuildEngine3
+  langs:
+  - csharp
+  name: BuildProjectFilesInParallel(String[],String[],IDictionary[],IList<String>,String[],Boolean)
+  nameWithType: IBuildEngine3.BuildProjectFilesInParallel(String[],String[],IDictionary[],IList<String>,String[],Boolean)
+  fullName: Microsoft.Build.Framework.IBuildEngine3.BuildProjectFilesInParallel(String[],String[],IDictionary[],IList<String>,String[],Boolean)
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Permite que as tarefas iniciar uma compilação em um arquivo de projeto"
+  syntax:
+    content: public Microsoft.Build.Framework.BuildEngineResult BuildProjectFilesInParallel (string[] projectFileNames, string[] targetNames, System.Collections.IDictionary[] globalProperties, System.Collections.Generic.IList<string>[] removeGlobalProperties, string[] toolsVersion, bool returnTargetOutputs);
+    parameters:
+    - id: projectFileNames
+      type: System.String[]
+      description: "O projeto seja compilado."
+    - id: targetNames
+      type: System.String[]
+      description: "As metas do projeto para criar (pode ser nulo)."
+    - id: globalProperties
+      type: System.Collections.IDictionary[]
+      description: "Uma matriz de <xref:System.Collections.IDictionary>de propriedades adicionais de global para aplicar ao projeto filho (entradas de matriz podem ser nulas).</xref:System.Collections.IDictionary>       As chaves e devem ser cadeias de caracteres."
+    - id: removeGlobalProperties
+      type: System.Collections.Generic.IList{System.String}[]
+      description: "Uma lista de propriedades globais que devem ser removidos."
+    - id: toolsVersion
+      type: System.String[]
+      description: "Uma versão das ferramentas reconhecido pelo mecanismo de que será utilizado durante essa compilação (pode ser nulo)."
+    - id: returnTargetOutputs
+      type: System.Boolean
+      description: "As saídas de destino devem ser retornadas no BuildEngineResult."
+    return:
+      type: Microsoft.Build.Framework.BuildEngineResult
+      description: "Se a compilação for bem-sucedida, as saídas de destinos especificados serão retornadas."
+  overload: Microsoft.Build.Framework.IBuildEngine3.BuildProjectFilesInParallel*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.IBuildEngine3.Reacquire
+  id: Reacquire
+  parent: Microsoft.Build.Framework.IBuildEngine3
+  langs:
+  - csharp
+  name: Reacquire()
+  nameWithType: IBuildEngine3.Reacquire()
+  fullName: Microsoft.Build.Framework.IBuildEngine3.Reacquire()
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Espera para readquirir controle depois da concessão."
+  syntax:
+    content: public void Reacquire ();
+    parameters: []
+  overload: Microsoft.Build.Framework.IBuildEngine3.Reacquire*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Framework.IBuildEngine3.Yield
+  id: Yield
+  parent: Microsoft.Build.Framework.IBuildEngine3
+  langs:
+  - csharp
+  name: Yield()
+  nameWithType: IBuildEngine3.Yield()
+  fullName: Microsoft.Build.Framework.IBuildEngine3.Yield()
+  type: Method
+  assemblies:
+  - Microsoft.Build.Framework
+  namespace: Microsoft.Build.Framework
+  summary: "Informa o sistema que esta tarefa tem um componente de fora do processo de execução longa e outro trabalho pode ser feito na compilação, enquanto que o trabalho for concluído."
+  remarks: "Há apenas um nó (processo msbuild.exe) por CPU. Podem criar apenas um projeto, destino e tarefas a qualquer momento em um nó. Se uma tarefa está esperando, por exemplo, para uma ferramenta gerada ou algum outro evento para ser concluída, a tarefa pode chamar Yield, que retorna imediatamente. Isso permite que o nó compilar um destino em outro projeto, se estiverem disponíveis.  Quando a tarefa estiver pronta para continuar, é necessário chamar <xref:Microsoft.Build.Framework.IBuildEngine3.Reacquire%2A>.</xref:Microsoft.Build.Framework.IBuildEngine3.Reacquire%2A> Como regra aproximada, se uma tarefa espera que uma operação levará mais de 20 ou 30 segundos, ele poderá optar por chamar `Yield` antes de iniciar a operação, e `Reaquire` quando a operação for concluída."
+  syntax:
+    content: public void Yield ();
+    parameters: []
+  overload: Microsoft.Build.Framework.IBuildEngine3.Yield*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: Microsoft.Build.Framework.IBuildEngine3.BuildProjectFilesInParallel(System.String[],System.String[],System.Collections.IDictionary[],System.Collections.Generic.IList{System.String}[],System.String[],System.Boolean)
+  parent: Microsoft.Build.Framework.IBuildEngine3
+  isExternal: false
+  name: BuildProjectFilesInParallel(String[],String[],IDictionary[],IList<String>,String[],Boolean)
+  nameWithType: IBuildEngine3.BuildProjectFilesInParallel(String[],String[],IDictionary[],IList<String>,String[],Boolean)
+  fullName: Microsoft.Build.Framework.IBuildEngine3.BuildProjectFilesInParallel(String[],String[],IDictionary[],IList<String>,String[],Boolean)
+- uid: Microsoft.Build.Framework.BuildEngineResult
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: BuildEngineResult
+  nameWithType: BuildEngineResult
+  fullName: Microsoft.Build.Framework.BuildEngineResult
+- uid: System.String[]
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String[]
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: String[]
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+- uid: System.Collections.IDictionary[]
+  parent: System.Collections
+  isExternal: true
+  name: IDictionary
+  nameWithType: IDictionary
+  fullName: System.Collections.IDictionary[]
+  spec.csharp:
+  - uid: System.Collections.IDictionary
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: IDictionary[]
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+- uid: System.Collections.Generic.IList{System.String}[]
+  parent: System.Collections.Generic
+  isExternal: true
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: System.Collections.Generic.IList<System.String>[]
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: IList<System.String>[]
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: String
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+- uid: System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Microsoft.Build.Framework.IBuildEngine3.Reacquire
+  parent: Microsoft.Build.Framework.IBuildEngine3
+  isExternal: false
+  name: Reacquire()
+  nameWithType: IBuildEngine3.Reacquire()
+  fullName: Microsoft.Build.Framework.IBuildEngine3.Reacquire()
+- uid: Microsoft.Build.Framework.IBuildEngine3.Yield
+  parent: Microsoft.Build.Framework.IBuildEngine3
+  isExternal: false
+  name: Yield()
+  nameWithType: IBuildEngine3.Yield()
+  fullName: Microsoft.Build.Framework.IBuildEngine3.Yield()
+- uid: Microsoft.Build.Framework.IBuildEngine3.BuildProjectFilesInParallel*
+  parent: Microsoft.Build.Framework.IBuildEngine3
+  isExternal: false
+  name: BuildProjectFilesInParallel
+  nameWithType: IBuildEngine3.BuildProjectFilesInParallel
+- uid: Microsoft.Build.Framework.IBuildEngine3.Reacquire*
+  parent: Microsoft.Build.Framework.IBuildEngine3
+  isExternal: false
+  name: Reacquire
+  nameWithType: IBuildEngine3.Reacquire
+- uid: Microsoft.Build.Framework.IBuildEngine3.Yield*
+  parent: Microsoft.Build.Framework.IBuildEngine3
+  isExternal: false
+  name: Yield
+  nameWithType: IBuildEngine3.Yield

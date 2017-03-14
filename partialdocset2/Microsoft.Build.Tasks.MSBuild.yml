@@ -1,0 +1,630 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Build.Tasks.MSBuild
+  id: MSBuild
+  children:
+  - Microsoft.Build.Tasks.MSBuild.#ctor
+  - Microsoft.Build.Tasks.MSBuild.BuildInParallel
+  - Microsoft.Build.Tasks.MSBuild.Execute
+  - Microsoft.Build.Tasks.MSBuild.Projects
+  - Microsoft.Build.Tasks.MSBuild.Properties
+  - Microsoft.Build.Tasks.MSBuild.RebaseOutputs
+  - Microsoft.Build.Tasks.MSBuild.RemoveProperties
+  - Microsoft.Build.Tasks.MSBuild.RunEachTargetSeparately
+  - Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjects
+  - Microsoft.Build.Tasks.MSBuild.StopOnFirstFailure
+  - Microsoft.Build.Tasks.MSBuild.TargetAndPropertyListSeparators
+  - Microsoft.Build.Tasks.MSBuild.TargetOutputs
+  - Microsoft.Build.Tasks.MSBuild.Targets
+  - Microsoft.Build.Tasks.MSBuild.ToolsVersion
+  - Microsoft.Build.Tasks.MSBuild.UnloadProjectsOnCompletion
+  - Microsoft.Build.Tasks.MSBuild.UseResultsCache
+  langs:
+  - csharp
+  name: MSBuild
+  nameWithType: MSBuild
+  fullName: Microsoft.Build.Tasks.MSBuild
+  type: Class
+  summary: "Implementa o `MSBuild` tarefa. Use o `MSBuild` elemento em seu arquivo de projeto para criar e executar essa tarefa. Para obter informações de uso e parâmetro, consulte [tarefa MSBuild](~/add/includes/ajax-current-ext-md.md)."
+  remarks: "Essa classe implementa a tarefa &quot;MSBuild&quot;, que transmite arquivos de projeto filho para o mecanismo do MSBuild a ser criado.       Marcado RunInMTA porque não há nenhuma razão tarefas MSBuild devem ser executado em um thread diferente do que o RequestBuilder que gerado-los."
+  syntax:
+    content: >-
+      [Microsoft.Build.Framework.RunInMTA]
+
+      public class MSBuild : Microsoft.Build.Tasks.TaskExtension
+  inheritance:
+  - System.Object
+  - Microsoft.Build.Utilities.Task
+  - Microsoft.Build.Tasks.TaskExtension
+  implements: []
+  inheritedMembers:
+  - Microsoft.Build.Tasks.TaskExtension.Log
+  - Microsoft.Build.Utilities.Task.BuildEngine
+  - Microsoft.Build.Utilities.Task.BuildEngine2
+  - Microsoft.Build.Utilities.Task.BuildEngine3
+  - Microsoft.Build.Utilities.Task.BuildEngine4
+  - Microsoft.Build.Utilities.Task.HelpKeywordPrefix
+  - Microsoft.Build.Utilities.Task.HostObject
+  - Microsoft.Build.Utilities.Task.TaskResources
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.#ctor
+  id: '#ctor'
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: MSBuild()
+  nameWithType: MSBuild.MSBuild()
+  fullName: Microsoft.Build.Tasks.MSBuild.MSBuild()
+  type: Constructor
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Inicializa uma nova instância de <xref href=&quot;Microsoft.Build.Tasks.MSBuild&quot;> </xref> classe."
+  syntax:
+    content: public MSBuild ();
+    parameters: []
+  overload: Microsoft.Build.Tasks.MSBuild.#ctor*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.BuildInParallel
+  id: BuildInParallel
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: BuildInParallel
+  nameWithType: MSBuild.BuildInParallel
+  fullName: Microsoft.Build.Tasks.MSBuild.BuildInParallel
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define um valor booleano que especifica se os projetos especificados no <xref:Microsoft.Build.Tasks.MSBuild.Projects*>propriedade são criados em paralelo, se possível.</xref:Microsoft.Build.Tasks.MSBuild.Projects*>"
+  remarks: "O valor padrão é `true`."
+  syntax:
+    content: public bool BuildInParallel { get; set; }
+    return:
+      type: System.Boolean
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se os projetos especificados no <xref:Microsoft.Build.Tasks.MSBuild.Projects*>propriedade são criados em paralelo, se possível; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:Microsoft.Build.Tasks.MSBuild.Projects*>"
+  overload: Microsoft.Build.Tasks.MSBuild.BuildInParallel*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.Execute
+  id: Execute
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: Execute()
+  nameWithType: MSBuild.Execute()
+  fullName: Microsoft.Build.Tasks.MSBuild.Execute()
+  type: Method
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Instrui o mecanismo do MSBuild para criar um ou mais arquivos de projeto cujos locais são especificadas pelo <xref:Microsoft.Build.Tasks.MSBuild.Projects*>propriedade.</xref:Microsoft.Build.Tasks.MSBuild.Projects*>"
+  syntax:
+    content: public override bool Execute ();
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se todos os projetos são compilados com êxito; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
+  overload: Microsoft.Build.Tasks.MSBuild.Execute*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.Projects
+  id: Projects
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: Projects
+  nameWithType: MSBuild.Projects
+  fullName: Microsoft.Build.Tasks.MSBuild.Projects
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define os arquivos de projeto para criar."
+  syntax:
+    content: public Microsoft.Build.Framework.ITaskItem[] Projects { get; set; }
+    return:
+      type: Microsoft.Build.Framework.ITaskItem[]
+      description: "Os arquivos de projeto para criar."
+  overload: Microsoft.Build.Tasks.MSBuild.Projects*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.Properties
+  id: Properties
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: Properties
+  nameWithType: MSBuild.Properties
+  fullName: Microsoft.Build.Tasks.MSBuild.Properties
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define uma lista delimitada por ponto e vírgula de pares de nome/valor de propriedade para aplicar como propriedades globais para o projeto filho."
+  remarks: "Quando você especificar esse parâmetro, ele é funcionalmente equivalente à definição de propriedades que têm o **/property** alternar quando você compila com."
+  syntax:
+    content: public string[] Properties { get; set; }
+    return:
+      type: System.String[]
+      description: "Uma lista delimitada por ponto e vírgula de pares de nome/valor de propriedade para aplicar como propriedades globais para o projeto filho."
+  overload: Microsoft.Build.Tasks.MSBuild.Properties*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.RebaseOutputs
+  id: RebaseOutputs
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: RebaseOutputs
+  nameWithType: MSBuild.RebaseOutputs
+  fullName: Microsoft.Build.Tasks.MSBuild.RebaseOutputs
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define um valor booleano que especifica se os caminhos relativos do destino de saída de itens de projetos criados de tem seus caminhos ajustados para ser relativo ao projeto de chamada."
+  remarks: "O padrão é `false`."
+  syntax:
+    content: public bool RebaseOutputs { get; set; }
+    return:
+      type: System.Boolean
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se os caminhos relativos dos itens de saída de destino dos projetos incorporados possuem os caminhos ajustados para ser relativo ao projeto de chamada."
+  overload: Microsoft.Build.Tasks.MSBuild.RebaseOutputs*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.RemoveProperties
+  id: RemoveProperties
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: RemoveProperties
+  nameWithType: MSBuild.RemoveProperties
+  fullName: Microsoft.Build.Tasks.MSBuild.RemoveProperties
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define o conjunto de propriedades globais para remover."
+  syntax:
+    content: public string RemoveProperties { get; set; }
+    return:
+      type: System.String
+      description: "Retorna o conjunto de propriedades globais para remover."
+  overload: Microsoft.Build.Tasks.MSBuild.RemoveProperties*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.RunEachTargetSeparately
+  id: RunEachTargetSeparately
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: RunEachTargetSeparately
+  nameWithType: MSBuild.RunEachTargetSeparately
+  fullName: Microsoft.Build.Tasks.MSBuild.RunEachTargetSeparately
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define um valor booleano que especifica se o [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] tarefa chama cada destino na lista passado para [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] um de cada vez, em vez de ao mesmo tempo."
+  remarks: "Definir essa propriedade como `true` garante que os destinos subsequentes são chamados mesmo que falhou anteriormente chamado de destinos. Caso contrário, um erro de compilação pararia invocação de todos os destinos subsequentes. O valor padrão é `false`."
+  syntax:
+    content: public bool RunEachTargetSeparately { get; set; }
+    return:
+      type: System.Boolean
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] tarefa chama cada destino na lista passado para [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] um de cada vez; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se o [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] tarefa invoca todos os destinos na lista ao mesmo tempo."
+  overload: Microsoft.Build.Tasks.MSBuild.RunEachTargetSeparately*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjects
+  id: SkipNonexistentProjects
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: SkipNonexistentProjects
+  nameWithType: MSBuild.SkipNonexistentProjects
+  fullName: Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjects
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define um valor booleano que especifica se os arquivos de projeto que não existem no disco serão ignorados."
+  remarks: "Se os arquivos de projeto que não existem no disco não são ignorados, eles causará um erro de compilação."
+  syntax:
+    content: public string SkipNonexistentProjects { get; set; }
+    return:
+      type: System.String
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se os arquivos de projeto que não existem no disco serão ignorados; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
+  overload: Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjects*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.StopOnFirstFailure
+  id: StopOnFirstFailure
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: StopOnFirstFailure
+  nameWithType: MSBuild.StopOnFirstFailure
+  fullName: Microsoft.Build.Tasks.MSBuild.StopOnFirstFailure
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define um valor booleano que especifica se a tarefa deve parar criação de projetos restantes, assim como qualquer um deles pode não funcionar."
+  syntax:
+    content: public bool StopOnFirstFailure { get; set; }
+    return:
+      type: System.Boolean
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a tarefa deve parar a criação de projetos restantes, assim como qualquer um deles pode não funcionar; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
+  overload: Microsoft.Build.Tasks.MSBuild.StopOnFirstFailure*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.TargetAndPropertyListSeparators
+  id: TargetAndPropertyListSeparators
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: TargetAndPropertyListSeparators
+  nameWithType: MSBuild.TargetAndPropertyListSeparators
+  fullName: Microsoft.Build.Tasks.MSBuild.TargetAndPropertyListSeparators
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define os caracteres de escape seja sem escape especificado <> </> *> e <> </> *>."
+  remarks: "Essa propriedade deve ser definida como um valor diferente de `null` para o `MSBuild` tarefa sem escape propriedades e destinos."
+  syntax:
+    content: public string[] TargetAndPropertyListSeparators { get; set; }
+    return:
+      type: System.String[]
+      description: "Os caracteres de escape seja sem escape especificado <> </> *> e <> </> *>."
+  overload: Microsoft.Build.Tasks.MSBuild.TargetAndPropertyListSeparators*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.TargetOutputs
+  id: TargetOutputs
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: TargetOutputs
+  nameWithType: MSBuild.TargetOutputs
+  fullName: Microsoft.Build.Tasks.MSBuild.TargetOutputs
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Retorna as saídas dos destinos compilados de todos os arquivos de projeto. Somente as saídas de destinos que foram especificados são retornados, não as saídas que podem existir em destinos que dependem dos destinos."
+  syntax:
+    content: public Microsoft.Build.Framework.ITaskItem[] TargetOutputs { get; }
+    return:
+      type: Microsoft.Build.Framework.ITaskItem[]
+      description: "As saídas dos destinos compilados de todos os arquivos de projeto."
+  overload: Microsoft.Build.Tasks.MSBuild.TargetOutputs*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.Targets
+  id: Targets
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: Targets
+  nameWithType: MSBuild.Targets
+  fullName: Microsoft.Build.Tasks.MSBuild.Targets
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define o destino ou destinos de compilação nos arquivos de projeto. Use um ponto e vírgula para separar uma lista de nomes de destino."
+  remarks: "Se nenhum destino for especificado no `MSBuild` tarefas, destinos padrão especificados nos arquivos de projeto são criados."
+  syntax:
+    content: public string[] Targets { get; set; }
+    return:
+      type: System.String[]
+      description: "O destino ou destinos de compilação nos arquivos de projeto."
+  overload: Microsoft.Build.Tasks.MSBuild.Targets*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.ToolsVersion
+  id: ToolsVersion
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: ToolsVersion
+  nameWithType: MSBuild.ToolsVersion
+  fullName: Microsoft.Build.Tasks.MSBuild.ToolsVersion
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define um destino [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] versão para compilar o projeto, que permite que um [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] tarefas para criar um projeto que tem como alvo uma versão diferente de [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] daquele especificado no projeto. Valid values are <code>2.0</code>, <code>3.0</code> and <code>3.5</code>."
+  remarks: "O valor padrão é `3.5.`"
+  syntax:
+    content: public string ToolsVersion { get; set; }
+    return:
+      type: System.String
+      description: "O destino [!INCLUDE[dnprdnshort](~/add/includes/dnprdnshort-md.md)] versão para compilar o projeto."
+  overload: Microsoft.Build.Tasks.MSBuild.ToolsVersion*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.UnloadProjectsOnCompletion
+  id: UnloadProjectsOnCompletion
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: UnloadProjectsOnCompletion
+  nameWithType: MSBuild.UnloadProjectsOnCompletion
+  fullName: Microsoft.Build.Tasks.MSBuild.UnloadProjectsOnCompletion
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define um valor booleano que especifica se o projeto será descarregado quando a operação é concluída."
+  syntax:
+    content: public bool UnloadProjectsOnCompletion { get; set; }
+    return:
+      type: System.Boolean
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o projeto será descarregado quando a operação é concluída; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. Essa propriedade não é mais usada na versão 4.0"
+  overload: Microsoft.Build.Tasks.MSBuild.UnloadProjectsOnCompletion*
+  exceptions: []
+  platform:
+  - net462
+- uid: Microsoft.Build.Tasks.MSBuild.UseResultsCache
+  id: UseResultsCache
+  parent: Microsoft.Build.Tasks.MSBuild
+  langs:
+  - csharp
+  name: UseResultsCache
+  nameWithType: MSBuild.UseResultsCache
+  fullName: Microsoft.Build.Tasks.MSBuild.UseResultsCache
+  type: Property
+  assemblies:
+  - Microsoft.Build.Tasks.v4.0
+  namespace: Microsoft.Build.Tasks
+  summary: "Obtém ou define um valor booleano que indica se o mecanismo do MSBuild retornará destinos compilados do cache."
+  remarks: "O escopo de destinos compilados em dinheiro é (GlobalProperties ProjectFileName) [TargetNames] como uma lista de itens de compilação.       Essa propriedade não é usada na versão 4.0."
+  syntax:
+    content: public bool UseResultsCache { get; set; }
+    return:
+      type: System.Boolean
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o mecanismo do MSBuild retornará destinos compilados do cache; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
+  overload: Microsoft.Build.Tasks.MSBuild.UseResultsCache*
+  exceptions: []
+  platform:
+  - net462
+references:
+- uid: Microsoft.Build.Tasks.TaskExtension
+  isExternal: false
+  name: Microsoft.Build.Tasks.TaskExtension
+- uid: Microsoft.Build.Tasks.MSBuild.#ctor
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: MSBuild()
+  nameWithType: MSBuild.MSBuild()
+  fullName: Microsoft.Build.Tasks.MSBuild.MSBuild()
+- uid: Microsoft.Build.Tasks.MSBuild.BuildInParallel
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: BuildInParallel
+  nameWithType: MSBuild.BuildInParallel
+  fullName: Microsoft.Build.Tasks.MSBuild.BuildInParallel
+- uid: System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Microsoft.Build.Tasks.MSBuild.Execute
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: Execute()
+  nameWithType: MSBuild.Execute()
+  fullName: Microsoft.Build.Tasks.MSBuild.Execute()
+- uid: Microsoft.Build.Tasks.MSBuild.Projects
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: Projects
+  nameWithType: MSBuild.Projects
+  fullName: Microsoft.Build.Tasks.MSBuild.Projects
+- uid: Microsoft.Build.Framework.ITaskItem[]
+  parent: Microsoft.Build.Framework
+  isExternal: false
+  name: ITaskItem
+  nameWithType: ITaskItem
+  fullName: Microsoft.Build.Framework.ITaskItem[]
+  spec.csharp:
+  - uid: Microsoft.Build.Framework.ITaskItem
+    name: ITaskItem
+    nameWithType: ITaskItem
+    fullName: ITaskItem[]
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+- uid: Microsoft.Build.Tasks.MSBuild.Properties
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: Properties
+  nameWithType: MSBuild.Properties
+  fullName: Microsoft.Build.Tasks.MSBuild.Properties
+- uid: System.String[]
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String[]
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: String[]
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+- uid: Microsoft.Build.Tasks.MSBuild.RebaseOutputs
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: RebaseOutputs
+  nameWithType: MSBuild.RebaseOutputs
+  fullName: Microsoft.Build.Tasks.MSBuild.RebaseOutputs
+- uid: Microsoft.Build.Tasks.MSBuild.RemoveProperties
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: RemoveProperties
+  nameWithType: MSBuild.RemoveProperties
+  fullName: Microsoft.Build.Tasks.MSBuild.RemoveProperties
+- uid: System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Microsoft.Build.Tasks.MSBuild.RunEachTargetSeparately
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: RunEachTargetSeparately
+  nameWithType: MSBuild.RunEachTargetSeparately
+  fullName: Microsoft.Build.Tasks.MSBuild.RunEachTargetSeparately
+- uid: Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjects
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: SkipNonexistentProjects
+  nameWithType: MSBuild.SkipNonexistentProjects
+  fullName: Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjects
+- uid: Microsoft.Build.Tasks.MSBuild.StopOnFirstFailure
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: StopOnFirstFailure
+  nameWithType: MSBuild.StopOnFirstFailure
+  fullName: Microsoft.Build.Tasks.MSBuild.StopOnFirstFailure
+- uid: Microsoft.Build.Tasks.MSBuild.TargetAndPropertyListSeparators
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: TargetAndPropertyListSeparators
+  nameWithType: MSBuild.TargetAndPropertyListSeparators
+  fullName: Microsoft.Build.Tasks.MSBuild.TargetAndPropertyListSeparators
+- uid: Microsoft.Build.Tasks.MSBuild.TargetOutputs
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: TargetOutputs
+  nameWithType: MSBuild.TargetOutputs
+  fullName: Microsoft.Build.Tasks.MSBuild.TargetOutputs
+- uid: Microsoft.Build.Tasks.MSBuild.Targets
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: Targets
+  nameWithType: MSBuild.Targets
+  fullName: Microsoft.Build.Tasks.MSBuild.Targets
+- uid: Microsoft.Build.Tasks.MSBuild.ToolsVersion
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: ToolsVersion
+  nameWithType: MSBuild.ToolsVersion
+  fullName: Microsoft.Build.Tasks.MSBuild.ToolsVersion
+- uid: Microsoft.Build.Tasks.MSBuild.UnloadProjectsOnCompletion
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: UnloadProjectsOnCompletion
+  nameWithType: MSBuild.UnloadProjectsOnCompletion
+  fullName: Microsoft.Build.Tasks.MSBuild.UnloadProjectsOnCompletion
+- uid: Microsoft.Build.Tasks.MSBuild.UseResultsCache
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: UseResultsCache
+  nameWithType: MSBuild.UseResultsCache
+  fullName: Microsoft.Build.Tasks.MSBuild.UseResultsCache
+- uid: Microsoft.Build.Tasks.MSBuild.#ctor*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: MSBuild
+  nameWithType: MSBuild.MSBuild
+- uid: Microsoft.Build.Tasks.MSBuild.BuildInParallel*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: BuildInParallel
+  nameWithType: MSBuild.BuildInParallel
+- uid: Microsoft.Build.Tasks.MSBuild.Execute*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: Execute
+  nameWithType: MSBuild.Execute
+- uid: Microsoft.Build.Tasks.MSBuild.Projects*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: Projects
+  nameWithType: MSBuild.Projects
+- uid: Microsoft.Build.Tasks.MSBuild.Properties*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: Properties
+  nameWithType: MSBuild.Properties
+- uid: Microsoft.Build.Tasks.MSBuild.RebaseOutputs*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: RebaseOutputs
+  nameWithType: MSBuild.RebaseOutputs
+- uid: Microsoft.Build.Tasks.MSBuild.RemoveProperties*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: RemoveProperties
+  nameWithType: MSBuild.RemoveProperties
+- uid: Microsoft.Build.Tasks.MSBuild.RunEachTargetSeparately*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: RunEachTargetSeparately
+  nameWithType: MSBuild.RunEachTargetSeparately
+- uid: Microsoft.Build.Tasks.MSBuild.SkipNonexistentProjects*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: SkipNonexistentProjects
+  nameWithType: MSBuild.SkipNonexistentProjects
+- uid: Microsoft.Build.Tasks.MSBuild.StopOnFirstFailure*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: StopOnFirstFailure
+  nameWithType: MSBuild.StopOnFirstFailure
+- uid: Microsoft.Build.Tasks.MSBuild.TargetAndPropertyListSeparators*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: TargetAndPropertyListSeparators
+  nameWithType: MSBuild.TargetAndPropertyListSeparators
+- uid: Microsoft.Build.Tasks.MSBuild.TargetOutputs*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: TargetOutputs
+  nameWithType: MSBuild.TargetOutputs
+- uid: Microsoft.Build.Tasks.MSBuild.Targets*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: Targets
+  nameWithType: MSBuild.Targets
+- uid: Microsoft.Build.Tasks.MSBuild.ToolsVersion*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: ToolsVersion
+  nameWithType: MSBuild.ToolsVersion
+- uid: Microsoft.Build.Tasks.MSBuild.UnloadProjectsOnCompletion*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: UnloadProjectsOnCompletion
+  nameWithType: MSBuild.UnloadProjectsOnCompletion
+- uid: Microsoft.Build.Tasks.MSBuild.UseResultsCache*
+  parent: Microsoft.Build.Tasks.MSBuild
+  isExternal: false
+  name: UseResultsCache
+  nameWithType: MSBuild.UseResultsCache

@@ -12,8 +12,8 @@ items:
   nameWithType: ApplicationSecurityManager
   fullName: System.Security.Policy.ApplicationSecurityManager
   type: Class
-  summary: "Manages trust decisions for manifest-activated applications."
-  remarks: "The ApplicationSecurityManager class provides essential information for the execution of a manifest-based application. The <xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A> property identifies the trust manager responsible for determining whether an application is trusted. The <xref:System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust%2A> method calls the application trust manager to determine whether an application is trusted. The <xref:System.Security.Policy.ApplicationSecurityManager.UserApplicationTrusts%2A> property contains the cached trust decisions for the user."
+  summary: "Gerencia as decisões de confiança para aplicativos ativados pelo manifesto."
+  remarks: "A classe ApplicationSecurityManager fornece informações essenciais para a execução de um aplicativo baseado no manifesto. O <xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A>propriedade identifica o Gerenciador de confiança responsável por determinar se um aplicativo é confiável.</xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A> O <xref:System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust%2A>método chama a relação de confiança do aplicativo Gerenciador para determinar se um aplicativo é confiável.</xref:System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust%2A> O <xref:System.Security.Policy.ApplicationSecurityManager.UserApplicationTrusts%2A>propriedade contém as decisões de confiança em cache para o usuário.</xref:System.Security.Policy.ApplicationSecurityManager.UserApplicationTrusts%2A>"
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,18 +37,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the current application trust manager."
-  remarks: "In the current release there is only one trust manager, which can be a custom implementation of the <xref:System.Security.Policy.IApplicationTrustManager> interface. The default trust manager implementation prompts the user for permission to install the application and elevate the permissions granted to the application. Other trust manager implementations might have different user experiences. For example, an implementation might check an enterprise list for trusted applications, rather than prompting the user for that information."
+  summary: "Obtém o Gerenciador de confiança do aplicativo atual."
+  remarks: "Na versão atual, há apenas um Gerenciador de confiança, que pode ser uma implementação personalizada do <xref:System.Security.Policy.IApplicationTrustManager>interface.</xref:System.Security.Policy.IApplicationTrustManager> A implementação do Gerenciador de confiança padrão solicita ao usuário permissão para instalar o aplicativo e elevar as permissões concedidas ao aplicativo. Outras implementações do Gerenciador de confiança podem ter experiências de usuário diferente. Por exemplo, uma implementação pode consultar uma lista de enterprise para aplicativos confiáveis, em vez de solicitar ao usuário essas informações."
   syntax:
     content: public static System.Security.Policy.IApplicationTrustManager ApplicationTrustManager { get; }
     return:
       type: System.Security.Policy.IApplicationTrustManager
-      description: "An <xref href=&quot;System.Security.Policy.IApplicationTrustManager&quot;></xref> that represents the current trust manager."
+      description: "Um <xref href=&quot;System.Security.Policy.IApplicationTrustManager&quot;> </xref> que representa o Gerenciador de confiança atual."
   overload: System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager*
   exceptions:
   - type: System.Security.Policy.PolicyException
     commentId: T:System.Security.Policy.PolicyException
-    description: "The policy on this application does not have a trust manager."
+    description: "A política sobre este aplicativo não tem um Gerenciador de confiança."
   platform:
   - net462
 - uid: System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust(System.ActivationContext,System.Security.Policy.TrustManagerContext)
@@ -63,20 +63,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the user approves the specified application to execute with the requested permission set."
-  remarks: "DetermineApplicationTrust uses the configured <xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A> property to determine whether to allow execution of the specified application with the permission set requested in the application manifest. The trust manager&quot;s behavior is dependent on the trust manager implementation and the information passed in the `context` parameter. The default behavior of the trust manager is to establish a user interface (UI) dialog box to determine the user&quot;s approval. However, a trust manager can also determine an application&quot;s trust status based on other criteria, such as decisions provided by a corporate database. The trust decision can be persisted, depending upon the `context` parameters properties and the trust manager implementation. If the trust for the application is persisted for a decision based on a user dialog box, future calls to the <xref:System.Security.Policy.ApplicationSecurityManager> will not present the UI dialog box for every request for that application. DetermineApplicationTrust is called after the manifest, but before the application has been downloaded to the local system."
+  summary: "Determina se o usuário aprovar o aplicativo especificado seja executado com o conjunto de permissões solicitado."
+  remarks: "DetermineApplicationTrust usa configurado <xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A>propriedade para determinar se deve permitir a execução do aplicativo especificado com a permissão definida solicitada no manifesto do aplicativo.</xref:System.Security.Policy.ApplicationSecurityManager.ApplicationTrustManager%2A> Comportamento do Gerenciador de confiança depende a implementação do Gerenciador de confiança e as informações transmitidas no `context` parâmetro. O comportamento padrão do Gerenciador de confiança é estabelecer uma caixa de diálogo de interface de usuário para determinar a aprovação do usuário. No entanto, um Gerenciador de confiança também pode determinar o status de confiança de um aplicativo com base em outros critérios, como decisões fornecidos por um banco de dados corporativo. A decisão de confiança pode ser persistente, dependendo de `context` propriedades de parâmetros e a implementação do Gerenciador de confiança. Se a relação de confiança para o aplicativo é mantida para uma decisão com base em uma caixa de diálogo do usuário, futuras chamadas para o <xref:System.Security.Policy.ApplicationSecurityManager>não apresentará a caixa de diálogo de interface do usuário para cada solicitação para o aplicativo.</xref:System.Security.Policy.ApplicationSecurityManager> DetermineApplicationTrust é chamado após o manifesto, mas antes que o aplicativo foi baixado para o sistema local."
   syntax:
     content: public static bool DetermineApplicationTrust (ActivationContext activationContext, System.Security.Policy.TrustManagerContext context);
     parameters:
     - id: activationContext
       type: System.ActivationContext
-      description: "An <xref href=&quot;System.ActivationContext&quot;></xref> identifying the activation context for the application."
+      description: "Um <xref href=&quot;System.ActivationContext&quot;> </xref> identifica o contexto de ativação para o aplicativo."
     - id: context
       type: System.Security.Policy.TrustManagerContext
-      description: "A <xref href=&quot;System.Security.Policy.TrustManagerContext&quot;></xref> identifying the trust manager context for the application."
+      description: "Um <xref href=&quot;System.Security.Policy.TrustManagerContext&quot;> </xref> identifica o contexto do Gerenciador de confiança para o aplicativo."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to execute the specified application; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para executar o aplicativo especificado; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.ApplicationSecurityManager.DetermineApplicationTrust*
   exceptions:
   - type: System.ArgumentNullException
@@ -96,13 +96,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets an application trust collection that contains the cached trust decisions for the user."
-  remarks: "The trust decisions in the collection are maintained using the methods of the collection, such as the <xref:System.Security.Policy.ApplicationTrustCollection.Add%2A> method or the <xref:System.Security.Policy.ApplicationTrustCollection.Remove%2A> method."
+  summary: "Obtém uma coleção de relação de confiança do aplicativo que contém as decisões de confiança em cache para o usuário."
+  remarks: "As decisões de confiança na coleção são mantidas usando os métodos de coleção, como o <xref:System.Security.Policy.ApplicationTrustCollection.Add%2A>método ou o <xref:System.Security.Policy.ApplicationTrustCollection.Remove%2A>método.</xref:System.Security.Policy.ApplicationTrustCollection.Remove%2A> </xref:System.Security.Policy.ApplicationTrustCollection.Add%2A>"
   syntax:
     content: public static System.Security.Policy.ApplicationTrustCollection UserApplicationTrusts { get; }
     return:
       type: System.Security.Policy.ApplicationTrustCollection
-      description: "An <xref href=&quot;System.Security.Policy.ApplicationTrustCollection&quot;></xref> that contains the cached trust decisions for the user."
+      description: "Um <xref href=&quot;System.Security.Policy.ApplicationTrustCollection&quot;> </xref> que contém as decisões de confiança em cache para o usuário."
   overload: System.Security.Policy.ApplicationSecurityManager.UserApplicationTrusts*
   exceptions: []
   platform:

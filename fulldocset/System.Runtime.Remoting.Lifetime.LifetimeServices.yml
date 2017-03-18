@@ -14,8 +14,8 @@ items:
   nameWithType: LifetimeServices
   fullName: System.Runtime.Remoting.Lifetime.LifetimeServices
   type: Class
-  summary: "Controls the.NET remoting lifetime services."
-  remarks: "Distributed garbage collection is responsible for controlling the lifetimes of server applications, and for deleting them when their lifetimes have expired. Traditionally, distributed garbage collection uses reference counts and pinging for control. This works well when there are a few clients per object, but does not work well when there are thousands of clients per each object. The lifetime service can assume the function of a traditional distributed garbage collector, and scales well when the number of clients increases.       The lifetime service associates a lease with each remotely activated object. When the lease expires, the object is removed.      > [!NOTE] >  This class makes a link demand. A SecurityException is thrown if the immediate caller does not have infrastructure permission. See [Link Demands](~/add/includes/ajax-current-ext-md.md) for more information."
+  summary: "Controla os serviços de tempo de vida de comunicação remota do.NET."
+  remarks: "Coleta de lixo distribuído é responsável para controlar os tempos de vida de aplicativos de servidor e excluí-los quando seus tempos de vida expiraram. Tradicionalmente, a coleta de lixo distribuída usa contagens de referência e executar o ping para o controle. Isso funciona bem quando há alguns clientes por objeto, mas não funciona bem quando há milhares de clientes por cada objeto. O serviço de tempo de vida pode assumir a função de um coletor de lixo distribuído tradicional e escalas bem quando o número de clientes aumenta.       O serviço de tempo de vida associa uma concessão de cada objeto ativado remotamente. Quando a concessão expirar, o objeto é removido.      > [!NOTE] > Essa classe faz uma demanda de link. Um SecurityException é gerada se o chamador imediato não tem permissão de infraestrutura. Consulte [demandas de Link](~/add/includes/ajax-current-ext-md.md) para obter mais informações."
   example:
   - >-
     [!code-cpp[System.Runtime.Remoting.Lifetime#2](~/add/codesnippet/cpp/t-system.runtime.remotin_69_1.cpp)]
@@ -46,7 +46,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Lifetime
-  summary: "Creates an instance of <xref href=&quot;System.Runtime.Remoting.Lifetime.LifetimeServices&quot;></xref>."
+  summary: "Cria uma instância de <xref href=&quot;System.Runtime.Remoting.Lifetime.LifetimeServices&quot;> </xref>."
   syntax:
     content: public LifetimeServices ();
     parameters: []
@@ -66,18 +66,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Lifetime
-  summary: "Gets or sets the time interval between each activation of the lease manager to clean up expired leases."
-  remarks: "The current property defines the frequency at which the lease manager becomes active to clean up expired leases. For example, if LeaseManagerPollTime is set to 100 seconds, the lease list is inspected for cleanups and renewals every 100 seconds.       The default value of the LeaseManagerPollTime property is 10 seconds."
+  summary: "Obtém ou define o intervalo de tempo entre cada ativação do Gerenciador de concessão para limpar as concessões expiradas."
+  remarks: "A propriedade atual define a frequência na qual o Gerenciador de concessão se torna ativo para limpar as concessões expiradas. Por exemplo, se LeaseManagerPollTime for definido como 100 segundos, a lista de concessão é inspecionada para limpezas e renovações cada 100 segundos.       O valor padrão da propriedade LeaseManagerPollTime é 10 segundos."
   syntax:
     content: public static TimeSpan LeaseManagerPollTime { get; set; }
     return:
       type: System.TimeSpan
-      description: "The default amount of time the lease manager sleeps after checking for expired leases."
+      description: "A quantidade de tempo padrão que o Gerenciador de concessão suspenso após verificação de expiração concessões."
   overload: System.Runtime.Remoting.Lifetime.LifetimeServices.LeaseManagerPollTime*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels. This exception is thrown only when setting the property value."
+    description: "Pelo menos um dos chamadores mais acima na pilha de chamadas não tem permissão para configurar canais e tipos de comunicação remota. Essa exceção é gerada apenas ao definir o valor da propriedade."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Lifetime.LifetimeServices.LeaseTime
@@ -92,18 +92,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Lifetime
-  summary: "Gets or sets the initial lease time span for an <xref href=&quot;System.AppDomain&quot;></xref>."
-  remarks: "The default lease time span is 5 minutes."
+  summary: "Obtém ou define o período de tempo de concessão inicial para uma <xref href=&quot;System.AppDomain&quot;> </xref>."
+  remarks: "O período de tempo de concessão padrão é 5 minutos."
   syntax:
     content: public static TimeSpan LeaseTime { get; set; }
     return:
       type: System.TimeSpan
-      description: "The initial lease <xref:System.TimeSpan> for objects that can have leases in the <xref href=&quot;System.AppDomain&quot;></xref>."
+      description: "A concessão inicial <xref:System.TimeSpan>para objetos que podem ter concessões a <xref href=&quot;System.AppDomain&quot;> </xref>.</xref:System.TimeSpan>"
   overload: System.Runtime.Remoting.Lifetime.LifetimeServices.LeaseTime*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels. This exception is thrown only when setting the property value."
+    description: "Pelo menos um dos chamadores mais acima na pilha de chamadas não tem permissão para configurar canais e tipos de comunicação remota. Essa exceção é gerada apenas ao definir o valor da propriedade."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Lifetime.LifetimeServices.RenewOnCallTime
@@ -118,8 +118,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Lifetime
-  summary: "Gets or sets the amount of time by which the lease is extended every time a call comes in on the server object."
-  remarks: "The default renewal time by which a lifetime lease is extended is 2 minutes."
+  summary: "Obtém ou define a quantidade de tempo pelo qual a concessão é estendida toda vez que uma chamada é fornecido no objeto de servidor."
+  remarks: "O tempo de renovação padrão pelo qual uma concessão de tempo de vida é estendida é 2 minutos."
   example:
   - >-
     [!code-cpp[ILease_ILease#3](~/add/codesnippet/cpp/p-system.runtime.remotin_103_1.cpp)]
@@ -129,12 +129,12 @@ items:
     content: public static TimeSpan RenewOnCallTime { get; set; }
     return:
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> by which a lifetime lease in the current <xref href=&quot;System.AppDomain&quot;></xref> is extended after each call."
+      description: "O <xref:System.TimeSpan>pelo qual um tempo de vida da concessão atual <xref href=&quot;System.AppDomain&quot;> </xref> é estendido após cada chamada.</xref:System.TimeSpan>"
   overload: System.Runtime.Remoting.Lifetime.LifetimeServices.RenewOnCallTime*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels. This exception is thrown only when setting the property value."
+    description: "Pelo menos um dos chamadores mais acima na pilha de chamadas não tem permissão para configurar canais e tipos de comunicação remota. Essa exceção é gerada apenas ao definir o valor da propriedade."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Lifetime.LifetimeServices.SponsorshipTimeout
@@ -149,8 +149,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Lifetime
-  summary: "Gets or sets the amount of time the lease manager waits for a sponsor to return with a lease renewal time."
-  remarks: "The default time until a call to a sponsor is timed out is 2 minutes."
+  summary: "Obtém ou define a quantidade de tempo que o Gerenciador de concessão aguarda um patrocinador retornar com um tempo de renovação da concessão."
+  remarks: "O tempo padrão até que uma chamada para um patrocinador é atingiu o tempo limite é 2 minutos."
   example:
   - >-
     [!code-cpp[ILease_ILease#3](~/add/codesnippet/cpp/p-system.runtime.remotin_75_1.cpp)]
@@ -160,12 +160,12 @@ items:
     content: public static TimeSpan SponsorshipTimeout { get; set; }
     return:
       type: System.TimeSpan
-      description: "The initial sponsorship time-out."
+      description: "O tempo limite de apoio inicial."
   overload: System.Runtime.Remoting.Lifetime.LifetimeServices.SponsorshipTimeout*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "At least one of the callers higher in the callstack does not have permission to configure remoting types and channels. This exception is thrown only when setting the property value."
+    description: "Pelo menos um dos chamadores mais acima na pilha de chamadas não tem permissão para configurar canais e tipos de comunicação remota. Essa exceção é gerada apenas ao definir o valor da propriedade."
   platform:
   - net462
 references:

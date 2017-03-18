@@ -10,8 +10,8 @@ items:
   nameWithType: IContributeServerContextSink
   fullName: System.Runtime.Remoting.Contexts.IContributeServerContextSink
   type: Interface
-  summary: "Contributes an interception sink at the context boundary on the server end of a remoting call."
-  remarks: "The IContributeServerContextSink interface is implemented by context properties in a <xref:System.Runtime.Remoting.Contexts.Context> class that want to contribute an interception sink at the context boundary on the server end of a remoting call.       The server context chain is composed from those properties in the server context that implement IContributeServerContextSink and which contribute a sink by using the <xref:System.Runtime.Remoting.Contexts.IContributeServerContextSink.GetServerContextSink%2A> method call.       Serialization is an example of such a context property. In this case, the message sink would involve taking a synchronization primitive lock before processing a call any further."
+  summary: "Contribui com um coletor de interceptação no limite de contexto na extremidade do servidor de uma chamada de comunicação remota."
+  remarks: "A interface IContributeServerContextSink é implementada por propriedades de contexto em um <xref:System.Runtime.Remoting.Contexts.Context>classe que deseja contribuir um coletor de interceptação no limite de contexto na extremidade do servidor de uma chamada de comunicação remota.</xref:System.Runtime.Remoting.Contexts.Context>       A cadeia de contexto do servidor é composta dessas propriedades no contexto do servidor que implementam IContributeServerContextSink e que contribuem um coletor usando o <xref:System.Runtime.Remoting.Contexts.IContributeServerContextSink.GetServerContextSink%2A>chamada de método.</xref:System.Runtime.Remoting.Contexts.IContributeServerContextSink.GetServerContextSink%2A>       A serialização é um exemplo de uma propriedade de contexto. Nesse caso, o coletor de mensagem envolve colocar um bloqueio de primitivos de sincronização antes de processar uma chamada de qualquer adicional."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -32,16 +32,16 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Contexts
-  summary: "Takes the first sink in the chain of sinks composed so far, and then chains its message sink in front of the chain already formed."
+  summary: "Usa o primeiro coletor da cadeia de Coletores composto até o momento e, em seguida, o coletor de mensagem na frente da cadeia já formada se encadeia."
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessageSink GetServerContextSink (System.Runtime.Remoting.Messaging.IMessageSink nextSink);
     parameters:
     - id: nextSink
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The chain of sinks composed so far."
+      description: "A cadeia de Coletores composto até o momento."
     return:
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The composite sink chain."
+      description: "A cadeia de composição de coletor."
   overload: System.Runtime.Remoting.Contexts.IContributeServerContextSink.GetServerContextSink*
   exceptions: []
   platform:

@@ -12,8 +12,8 @@ items:
   nameWithType: IMessageSink
   fullName: System.Runtime.Remoting.Messaging.IMessageSink
   type: Interface
-  summary: "Defines the interface for a message sink."
-  remarks: "When a method call is made on the proxy, the remoting infrastructure provides the necessary support for passing the arguments to the actual object across the remoting boundaries, calling the actual object method with the arguments, and returning the results back to the client of the proxy object.       A remote method call is a message that goes from the client end to the server end and possibly back again. As it crosses remoting boundaries on the way, the remote method call passes through a chain of `IMessageSink` objects. Each sink in the chain receives the message object, performs a specific operation, and delegates to the next sink in the chain. The proxy object contains a reference to the first `IMessageSink` it needs to use to start off the chain.       For asynchronous calls, at the time of delegation, each sink provides a reply sink (another `IMessageSink`) that will be called by the next sink when the reply is on its way back.       Different types of sinks perform different operations, depending on the type of message object received. For example, one sink could cause a lock to be taken, another could enforce call security, another could perform flow call control and reliability services, and yet another could transport the call to a different <xref:System.AppDomain>, process, or computer. Two or more message sinks in the chain can interact with each other in regard to each specific action."
+  summary: "Define a interface para um coletor de mensagem."
+  remarks: "Quando é feita uma chamada de método no proxy, a infraestrutura de comunicação remota fornece o suporte necessário para passar os argumentos para o objeto real entre os limites de comunicação remota, chamando o método do objeto real com os argumentos e retornar os resultados de volta para o cliente do objeto de proxy.       Uma chamada de método remoto é uma mensagem que vai do lado do cliente para o final do servidor e possivelmente novamente. Como cruzar os limites de comunicação remota no caminho, a chamada de método remoto passa por uma cadeia de `IMessageSink` objetos. Cada coletor na cadeia recebe o objeto de mensagem, executa uma operação específica e delega para o coletor Avançar na cadeia. O objeto proxy contém uma referência ao primeiro `IMessageSink` precisa usar para começar a cadeia.       Chamadas assíncronas, no momento da delegação, cada coletor fornece um coletor de resposta (outro `IMessageSink`) que será chamado pelo coletor próxima quando a resposta foi enviado novamente.       Diferentes tipos de Coletores de executam operações diferentes, dependendo do tipo de objeto de mensagem recebido. Por exemplo, um coletor pode causar um bloqueio a ser executada, outro pode impor a segurança de chamada, outra pode executar serviços de controle e confiabilidade de chamada de fluxo e ainda outro pode transportar a chamada para outra <xref:System.AppDomain>, processo ou computador.</xref:System.AppDomain> Dois ou mais Coletores de mensagem da cadeia podem interagem entre si em termos de cada ação específica."
   example:
   - "The following code example shows the implementation of the IMessageSink interface. Note that the sample assumes type definitions and assembly references that must be provided for the sample to compile.  \n  \n [!code-cs[IMessageSink_Client#3](~/add/codesnippet/csharp/t-system.runtime.remotin_40_1.cs)]\n [!code-vb[IMessageSink_Client#3](~/add/codesnippet/visualbasic/t-system.runtime.remotin_40_1.vb)]\n [!code-cpp[IMessageSink_Client#3](~/add/codesnippet/cpp/t-system.runtime.remotin_40_1.cpp)]"
   syntax:
@@ -36,25 +36,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
-  summary: "Asynchronously processes the given message."
-  remarks: "This method is invoked on the message sink by the remoting infrastructure or by a previous sink for asynchronous messages."
+  summary: "Processa a mensagem determinada de maneira assíncrona."
+  remarks: "Esse método é chamado no coletor de mensagem pela infraestrutura de comunicação remota ou por um coletor anterior para mensagens assíncronas."
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessageCtrl AsyncProcessMessage (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Messaging.IMessageSink replySink);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to process."
+      description: "A mensagem a processar."
     - id: replySink
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The reply sink for the reply message."
+      description: "O coletor de resposta para a mensagem de resposta."
     return:
       type: System.Runtime.Remoting.Messaging.IMessageCtrl
-      description: "Returns an <xref href=&quot;System.Runtime.Remoting.Messaging.IMessageCtrl&quot;></xref> interface that provides a way to control asynchronous messages after they have been dispatched."
+      description: "Retorna um <xref href=&quot;System.Runtime.Remoting.Messaging.IMessageCtrl&quot;> </xref> interface que fornece uma maneira de controlar mensagens assíncronas depois que eles foram despachados."
   overload: System.Runtime.Remoting.Messaging.IMessageSink.AsyncProcessMessage*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller makes the call through a reference to the interface and does not have infrastructure permission."
+    description: "O chamador imediato faz a chamada por meio de uma referência para a interface e não tem permissão de infraestrutura."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Messaging.IMessageSink.NextSink
@@ -69,17 +69,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
-  summary: "Gets the next message sink in the sink chain."
+  summary: "Obtém o próximo coletor de mensagem da cadeia de coletor."
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessageSink NextSink { get; }
     return:
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The next message sink in the sink chain."
+      description: "A próxima mensagem coletor na cadeia de coletor."
   overload: System.Runtime.Remoting.Messaging.IMessageSink.NextSink*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller makes the call through a reference to the interface and does not have infrastructure permission."
+    description: "O chamador imediato faz a chamada por meio de uma referência para a interface e não tem permissão de infraestrutura."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Messaging.IMessageSink.SyncProcessMessage(System.Runtime.Remoting.Messaging.IMessage)
@@ -94,22 +94,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Messaging
-  summary: "Synchronously processes the given message."
-  remarks: "The SyncProcessMessage method is invoked on the message sink by the remoting infrastructure or by a previous sink for synchronous messages."
+  summary: "Forma síncrona processa a mensagem determinada."
+  remarks: "O método SyncProcessMessage é invocado no coletor de mensagem pela infraestrutura de comunicação remota ou por um coletor anterior para mensagens síncronas."
   syntax:
     content: public System.Runtime.Remoting.Messaging.IMessage SyncProcessMessage (System.Runtime.Remoting.Messaging.IMessage msg);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to process."
+      description: "A mensagem a processar."
     return:
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "A reply message in response to the request."
+      description: "Uma mensagem de resposta em resposta à solicitação."
   overload: System.Runtime.Remoting.Messaging.IMessageSink.SyncProcessMessage*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller makes the call through a reference to the interface and does not have infrastructure permission."
+    description: "O chamador imediato faz a chamada por meio de uma referência para a interface e não tem permissão de infraestrutura."
   platform:
   - net462
 references:

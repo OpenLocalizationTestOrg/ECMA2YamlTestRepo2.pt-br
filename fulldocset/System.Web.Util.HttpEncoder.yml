@@ -19,8 +19,8 @@ items:
   nameWithType: HttpEncoder
   fullName: System.Web.Util.HttpEncoder
   type: Class
-  summary: "Provides encoding and decoding logic."
-  remarks: "The class contains encoding and decoding logic that is used by methods in classes such as <xref:System.Web.HttpUtility>, <xref:System.Web.HttpServerUtility>, and <xref:System.Net.HttpResponseHeader>.       You can inherit from the HttpEncoder class and override its behavior to customize the default encoding and decoding behavior of ASP.NET. You then set the <xref:System.Web.Configuration.HttpRuntimeSection.EncoderType%2A> property of the <xref:System.Web.Configuration.HttpRuntimeSection> class to configure your custom class.       A custom class for encoding and decoding that derives from HttpEncoder can override the built-in ASP.NET encoding and decoding behavior or change only selected aspects of it.       You can configure the custom encoding type for in ASP.NET to replace or supplement the following encoding behavior:      -   HTML encoding      -   HTML attribute encoding      -   URL encoding      -   URL path encoding      -   HTTP header name and header value encoding       By default, ASP.NET applications are configured to use the <xref:System.Web.Security.AntiXss.AntiXssEncoder> type for all output encoding.       The following example from an application-level Web.config file shows how the <xref:System.Web.Security.AntiXss.AntiXssEncoder> type is set for an ASP.NET application:       `<httpRuntime requestValidationMode=&quot;4.5&quot; encoderType=&quot;System.Web.Security.AntiXss.AntiXssEncoder, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&quot;/>`       The configuration setting in the example sets the <xref:System.Web.Security.AntiXss.AntiXssEncoder> class to perform all output encoding in the application. For more information, see the <xref:System.Web.Security.AntiXss.AntiXssEncoder> class overview."
+  summary: "Fornece codificação e decodificação de lógica."
+  remarks: "A classe contém codificação e decodificação de lógica que é usada por métodos em classes, como <xref:System.Web.HttpUtility>, <xref:System.Web.HttpServerUtility>e <xref:System.Net.HttpResponseHeader>.</xref:System.Net.HttpResponseHeader> </xref:System.Web.HttpServerUtility> </xref:System.Web.HttpUtility>       Você pode herdar da classe HttpEncoder e substituir seu comportamento para personalizar o padrão de codificação e decodificação de comportamento do ASP.NET. Você, em seguida, defina a <xref:System.Web.Configuration.HttpRuntimeSection.EncoderType%2A>propriedade da <xref:System.Web.Configuration.HttpRuntimeSection>classe para configurar sua classe personalizada</xref:System.Web.Configuration.HttpRuntimeSection> </xref:System.Web.Configuration.HttpRuntimeSection.EncoderType%2A>       Uma classe personalizada para codificar e decodificar que deriva de HttpEncoder pode substituir a codificação e decodificação de comportamento do ASP.NET internos ou alteração selecionado apenas aspectos dele.       Você pode configurar o tipo de codificação personalizado no ASP.NET para substituir ou complementar o seguinte comportamento de codificação: - HTML codificação de URL - codificação do atributo HTML - codificação - codificação de caminho de URL - nome do cabeçalho HTTP e a codificação de valor de cabeçalho por padrão, os aplicativos ASP.NET são configurados para usar o <xref:System.Web.Security.AntiXss.AntiXssEncoder>tipo para codificação de saída.</xref:System.Web.Security.AntiXss.AntiXssEncoder>       O exemplo a seguir de um mostra do nível do aplicativo Web. config arquivo como o <xref:System.Web.Security.AntiXss.AntiXssEncoder>tipo é definido para um aplicativo ASP.NET: `<httpRuntime requestValidationMode=&quot;4.5&quot; encoderType=&quot;System.Web.Security.AntiXss.AntiXssEncoder, System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&quot;/>` a configuração de exemplo define o <xref:System.Web.Security.AntiXss.AntiXssEncoder>codificação no aplicativo de saída de classe para realizar todas.</xref:System.Web.Security.AntiXss.AntiXssEncoder> </xref:System.Web.Security.AntiXss.AntiXssEncoder> Para obter mais informações, consulte o <xref:System.Web.Security.AntiXss.AntiXssEncoder>Visão geral da classe.</xref:System.Web.Security.AntiXss.AntiXssEncoder>"
   syntax:
     content: public class HttpEncoder
   inheritance:
@@ -41,7 +41,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Util.HttpEncoder&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.Util.HttpEncoder&quot;> </xref> classe."
   syntax:
     content: public HttpEncoder ();
     parameters: []
@@ -61,18 +61,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Gets or set the <xref href=&quot;System.Web.Util.HttpEncoder&quot;></xref> type that will be used in an application."
-  remarks: "If a derived <xref:System.Web.Util.HttpEncoder> type is specified in the configuration file, the Current property returns a reference to the custom type. However, if no custom encoder is used, the property returns a reference to the default ASP.NET <xref:System.Web.Util.HttpEncoder> instance.       The Current property is not thread-safe. Set this property only in the application&quot;s `Application_Start` method, because `Application_Start` runs on a single thread."
+  summary: "Obtém ou define o <xref href=&quot;System.Web.Util.HttpEncoder&quot;> </xref> tipo que será usado em um aplicativo."
+  remarks: "Se um derivado <xref:System.Web.Util.HttpEncoder>tipo é especificado no arquivo de configuração, a propriedade Current retorna uma referência para o tipo personalizado.</xref:System.Web.Util.HttpEncoder> No entanto, se nenhum codificador personalizado for usado, a propriedade retorna uma referência para o padrão ASP.NET <xref:System.Web.Util.HttpEncoder>instância.</xref:System.Web.Util.HttpEncoder>       A propriedade atual não é thread-safe. Defina essa propriedade apenas do aplicativo `Application_Start` método, porque `Application_Start` é executado em um único thread."
   syntax:
     content: public static System.Web.Util.HttpEncoder Current { get; set; }
     return:
       type: System.Web.Util.HttpEncoder
-      description: "A reference to the encoder/decoder type that will be used."
+      description: "Uma referência para o tipo de codificador/decodificador que será usado."
   overload: System.Web.Util.HttpEncoder.Current*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The encoder instance that is being assigned to this property is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "A instância do codificador que está sendo atribuída a essa propriedade é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Web.Util.HttpEncoder.Default
@@ -87,13 +87,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Gets a reference to the default encoder for ASP.NET."
-  remarks: "A common encoding issue is that the default ASP.NET <xref:System.Web.Util.HttpEncoder.UrlEncode%2A> behavior converts spaces into the &quot;+&quot; character. Historically, the &quot;+&quot; character has been an Internet convention for encoding space characters in a URL into a more human-readable manner. However, according to standards, the space character is supposed to be encoded as &quot;%20&quot; and instead of as the &quot;+&quot; character. ASP.NET lets you implement a more standards compliant encoding algorithm."
+  summary: "Obtém uma referência para o codificador padrão do ASP.NET."
+  remarks: "Um problema de codificação comuns é que o padrão ASP.NET <xref:System.Web.Util.HttpEncoder.UrlEncode%2A>comportamento converte espaços no caractere &quot;+&quot;.</xref:System.Web.Util.HttpEncoder.UrlEncode%2A> Historicamente, o caractere &quot;+&quot; foi uma convenção de Internet para codificação de caracteres de espaço em uma URL em uma maneira mais legível. No entanto, de acordo com os padrões, o caractere de espaço deve ser codificado como &quot;%&20;&quot; e, em vez de como o caractere &quot;+&quot;. ASP.NET permite implementar um mais algoritmo codificação compatível com padrões."
   syntax:
     content: public static System.Web.Util.HttpEncoder Default { get; }
     return:
       type: System.Web.Util.HttpEncoder
-      description: "A reference to the default encoder."
+      description: "Uma referência para o codificador padrão."
   overload: System.Web.Util.HttpEncoder.Default*
   exceptions: []
   platform:
@@ -110,23 +110,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Encodes a header name and value into a string that can be used as an HTTP header."
-  remarks: "The HeaderNameValueEncode method takes input strings from the `headerName` and `headerValue` parameters and encodes them. The encoded values are returned as out parameters.       The HeaderNameValueEncode method uses the following logic to encode header names and values:      -   All characters whose Unicode value is less than ASCII character 32, except ASCII character 9, are URL-encoded into a format of `%NN` where the `N` characters represent hexadecimal values.      -   ASCII character 9 (the horizontal tab character) is not URL-encoded.      -   ASCII character 127 is encoded as `%7F`.      -   All other characters are not encoded.          > [!NOTE]     >  Although this method can be used for Unicode values, it is typically used for values in the ASCII range.       The default implementation of the HeaderNameValueEncode method returns the value of `headerValue` in `encodedHeaderValue` if `headerValue` is `null` or is an empty string. Similarly, the default implementation returns the value of `headerName` in `encodedHeaderName` if `headerName` is `null` or is an empty string."
+  summary: "Codifica um nome de cabeçalho e um valor em uma cadeia de caracteres que pode ser usada como um cabeçalho HTTP."
+  remarks: "O método aceita entrado de HeaderNameValueEncode cadeias de caracteres da `headerName` e `headerValue` parâmetros e irá codificá-los. Os valores codificados são retornados como parâmetros de saída.       O método HeaderNameValueEncode usa a seguinte lógica para codificar valores e nomes de cabeçalho:-cujo valor Unicode é menor que o caractere ASCII 32, exceto o caractere ASCII 9, de todos os caracteres são codificados de URL em um formato de `%NN` onde o `N` caracteres representam valores hexadecimais.      -Caractere ASCII 9 (o caractere de tabulação horizontal) não é codificado de URL.      -Caractere ASCII 127 é codificado como `%7F`.      -Todos os outros caracteres não são codificados.          > [!NOTE] > Embora esse método pode ser usado para valores Unicode, ele é normalmente usado para valores no intervalo ASCII.       A implementação padrão do método HeaderNameValueEncode retorna o valor de `headerValue` na `encodedHeaderValue` se `headerValue` é `null` ou é uma cadeia de caracteres vazia. Da mesma forma, a implementação padrão retorna o valor de `headerName` na `encodedHeaderName` se `headerName` é `null` ou é uma cadeia de caracteres vazia."
   syntax:
     content: protected virtual void HeaderNameValueEncode (string headerName, string headerValue, out string encodedHeaderName, out string encodedHeaderValue);
     parameters:
     - id: headerName
       type: System.String
-      description: "The HTTP header name to encode."
+      description: "O nome do cabeçalho HTTP para codificar."
     - id: headerValue
       type: System.String
-      description: "The HTTP header value to encode."
+      description: "O valor do cabeçalho HTTP para codificar."
     - id: encodedHeaderName
       type: System.String
-      description: "When this method returns, contains the encoded name to use for an HTTP header. This parameter is passed uninitialized."
+      description: "Quando este método retorna, contém o nome codificado para usar um cabeçalho HTTP. Esse parâmetro é passado não inicializado."
     - id: encodedHeaderValue
       type: System.String
-      description: "When this method returns, contains the encoded value to use for an HTTP header. This parameter is passed uninitialized."
+      description: "Quando este método retorna, contém o valor codificado para usar em um cabeçalho HTTP. Esse parâmetro é passado não inicializado."
   overload: System.Web.Util.HttpEncoder.HeaderNameValueEncode*
   exceptions: []
   platform:
@@ -143,17 +143,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Encodes an incoming value into a string that can be inserted into an HTML attribute that is delimited by using single or double quotation marks."
+  summary: "Codifica um valor de entrada em uma cadeia de caracteres que pode ser inserida em um atributo HTML que é delimitado com aspas simples ou duplas."
   remarks: "The HtmlAttributeEncode method encodes characters by using the standard HTML entities. For example, the `<` (left angle bracket) is encoded as `<` and the `\\` (backslash) is encoded as `\\`.  \n  \n It is safe to use HtmlAttributeEncode within single-quoted and double-quoted attributes. The values must be quoted."
   syntax:
     content: protected virtual void HtmlAttributeEncode (string value, System.IO.TextWriter output);
     parameters:
     - id: value
       type: System.String
-      description: "The string to encode."
+      description: "A cadeia de caracteres para codificar."
     - id: output
       type: System.IO.TextWriter
-      description: "The text writer to write the encoded value to."
+      description: "O gravador de texto para gravar o valor codificado para."
   overload: System.Web.Util.HttpEncoder.HtmlAttributeEncode*
   exceptions:
   - type: System.ArgumentNullException
@@ -173,17 +173,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Decodes a value from an HTML-encoded string."
-  remarks: "The following table lists the character sequences that the ASP.NET decoding logic can decode.      |Character sequence|Rule|   |------------------------|----------|   |`&#NNN;` (decimal codes for ASCII characters).|Decoded as the specified ASCII character. The character sequence starts at the first digit after the # character and finishes at the semicolon.|   |`&#xZZ;` (hexadecimal codes for ASCII characters).|Decoded as the specified ASCII character. The encoded form specifies the character by using hexadecimal characters instead of a decimal value. The character sequence starts at the first digit after the # character and finishes at the semicolon.|   |Named HTML entities.|Decoded as the equivalent ASCII character.|"
+  summary: "Decodifica um valor de uma cadeia de caracteres codificada em HTML."
+  remarks: "A tabela a seguir lista as sequências de caracteres que pode decodificar a lógica de decodificação do ASP.NET.      | Sequência de caracteres | Regra |   |------------------------|----------|   | `&#NNN;` (códigos de decimais para caracteres ASCII). | Decodificar como o caractere ASCII especificado. A sequência de caracteres começa no primeiro dígito após o caractere # e termina no ponto e vírgula. |   | `&#xZZ;` (códigos hexadecimais para caracteres ASCII). | Decodificar como o caractere ASCII especificado. O formulário codificado Especifica o caractere usando caracteres hexadecimais, em vez de um valor decimal. A sequência de caracteres começa no primeiro dígito após o caractere # e termina no ponto e vírgula. |   | HTML entidades nomeadas. | Decodificar como equivalente de caracteres ASCII. |"
   syntax:
     content: protected virtual void HtmlDecode (string value, System.IO.TextWriter output);
     parameters:
     - id: value
       type: System.String
-      description: "The string to decode."
+      description: "A cadeia de caracteres para decodificar."
     - id: output
       type: System.IO.TextWriter
-      description: "The text writer to write the decoded value to."
+      description: "O gravador de texto para gravar o valor a ser decodificado."
   overload: System.Web.Util.HttpEncoder.HtmlDecode*
   exceptions:
   - type: System.ArgumentNullException
@@ -203,17 +203,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Encodes a string into an HTML-encoded string."
+  summary: "Codifica uma cadeia de caracteres em uma cadeia de caracteres codificada em HTML."
   remarks: "The following table lists the character sequences that the ASP.NET encoding logic can decode.  \n  \n|Character|Encoded as|  \n|---------------|----------------|  \n|`<` (left angle bracket)|`<`|  \n|`>` (right angle bracket)|`>`|  \n|`\"` (double quotation marks)|`\"`|  \n|`&` (ampersand)|`&`|  \n|`\\` (backslash)|`\\`|  \n|ASCII characters from 160 to 255|`&#NNN;`, where `NNN` is the three-digit decimal character code|  \n  \n If you override the HtmlEncode method, you must produce output that is also safe within double-quoted or single-quoted HTML attributes. This accommodates parsing by the Razor engine, where markup and code can be combined, such as \\<tag attr=\"@value\">. In addition, the @ operator is not context-aware when processed by the Razor engine, therefore it calls HtmlEncode rather than <xref:System.Web.Util.HttpEncoder.HtmlAttributeEncode%2A>."
   syntax:
     content: protected virtual void HtmlEncode (string value, System.IO.TextWriter output);
     parameters:
     - id: value
       type: System.String
-      description: "The string to encode."
+      description: "A cadeia de caracteres para codificar."
     - id: output
       type: System.IO.TextWriter
-      description: "The text writer to write the encoded value to."
+      description: "O gravador de texto para gravar o valor codificado para."
   overload: System.Web.Util.HttpEncoder.HtmlEncode*
   exceptions:
   - type: System.ArgumentNullException
@@ -233,17 +233,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Encodes a string."
-  remarks: "URL encoding makes sure that all browsers correctly transmit text in URL strings. Characters such as a question mark (?), ampersand (&), slash (/), and spaces might be truncated or corrupted by some browsers. Therefore, these characters must be encoded."
+  summary: "Codifica uma cadeia de caracteres."
+  remarks: "Codificação de URL certifica-se de que todos os navegadores corretamente transmitam texto em cadeias de caracteres de URL. Caracteres como um ponto de interrogação (?), e comercial (&), barra (/), e podem estar truncados ou corrompidos por alguns navegadores espaços. Portanto, esses caracteres devem ser codificados."
   syntax:
     content: protected virtual string JavaScriptStringEncode (string value);
     parameters:
     - id: value
       type: System.String
-      description: "The string to encode."
+      description: "A cadeia de caracteres para codificar."
     return:
       type: System.String
-      description: "An encoded string."
+      description: "Uma cadeia de caracteres codificada."
   overload: System.Web.Util.HttpEncoder.JavaScriptStringEncode*
   exceptions: []
   platform:
@@ -260,31 +260,31 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Encodes an array of characters that are not allowed in a URL into a hexadecimal character-entity equivalent."
-  remarks: "The UrlEncode method is called by several URL encoding methods in the <xref:System.Web.HttpUtility> class.       The UrlEncode method URL-encodes any character that is not in the set of ASCII characters that is considered to be URL-safe. Spaces are encoded as the ASCII &quot;`+&quot;` character. URL-safe ASCII characters include the ASCI characters (A to Z and a to z), numerals (0 to 9), and some punctuation marks. The following table lists the punctuation marks that are considered URL-safe ASCII characters.      |Character|Description|   |---------------|-----------------|   |-|Hyphen|   |_|Underscore|   |.|Period (dot)|   |!|Exclamation mark|   |*|Asterisk (star)|   |(|Opening parenthesis|   |)|Closing parenthesis|"
+  summary: "Codifica uma matriz de caracteres que não são permitidos em uma URL em um equivalente de entidade de caractere hexadecimal."
+  remarks: "O método UrlEncode é chamado por vários métodos de codificação de URL em que a <xref:System.Web.HttpUtility>classe.</xref:System.Web.HttpUtility>       O método UrlEncode codifica a URL de qualquer caractere que não está no que conjunto de ASCII caracteres que é considerada URL segura. Espaços são codificados como o ASCII &quot;`+&quot;` caracteres. Caracteres ASCII de URL seguro incluem os caracteres ASCI (À Z e à z), numerais (0 a 9) e alguns sinais de pontuação. A tabela a seguir lista as marcas de pontuação são consideradas caracteres ASCII de URL seguro.      | Caractere | Descrição |   |---------------|-----------------|   |-| Hífen |   |_| Sublinhado |   |.| (Ponto) |   |!| Ponto de exclamação |   |*| O asterisco (estrela) |   | (| Parêntese de abertura |   |)| Parêntese de fechamento |"
   syntax:
     content: protected virtual byte[] UrlEncode (byte[] bytes, int offset, int count);
     parameters:
     - id: bytes
       type: System.Byte[]
-      description: "An array of bytes to encode."
+      description: "Uma matriz de bytes para codificar."
     - id: offset
       type: System.Int32
-      description: "The position in the `bytes` array at which to begin encoding."
+      description: "A posição na `bytes` matriz na qual iniciar a codificação."
     - id: count
       type: System.Int32
-      description: "The number of items in the `bytes` array to encode."
+      description: "O número de itens a `bytes` matriz para codificar."
     return:
       type: System.Byte[]
-      description: "An array of encoded characters."
+      description: "Uma matriz de caracteres codificados."
   overload: System.Web.Util.HttpEncoder.UrlEncode*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> is less than zero or greater than the length of the <code>bytes</code> array.       -or-       <code>count</code> is less than zero or <code>count</code> plus <code>offset</code> is greater than the length of the <code>bytes</code> array."
+    description: "<code>offset</code>é menor que zero ou maior que o comprimento da <code>bytes</code> matriz.       - ou - <code>count</code> é menor que zero ou <code>count</code> mais <code>offset</code> é maior que o comprimento do <code>bytes</code> matriz."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>bytes</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>bytes</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Util.HttpEncoder.UrlPathEncode(System.String)
@@ -299,17 +299,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Util
-  summary: "Encodes a subsection of a URL."
-  remarks: "The UrlPathEncode method is called by the <xref:System.Web.HttpUtility.UrlPathEncode%2A> method. The <xref:System.Web.HttpUtility.UrlPathEncode%2A> method performs the following steps:      -   Applies the encoding logic of the UrlPathEncode method to only the path part of the URL (which excludes the query string). The method assumes that the URL is encoded as a UTF-8 string.      -   Encodes non-spaces so that only a subset of the first 128 ASCII characters is used in the resulting encoded string. Any characters at Unicode value 128 and greater, or 32 and less, are URL-encoded.      -   Encodes spaces as %20."
+  summary: "Codifica uma subseção de uma URL."
+  remarks: "O método UrlPathEncode é chamado pelo <xref:System.Web.HttpUtility.UrlPathEncode%2A>método.</xref:System.Web.HttpUtility.UrlPathEncode%2A> O <xref:System.Web.HttpUtility.UrlPathEncode%2A>método executa as seguintes etapas:-aplica a lógica de codificação do método UrlPathEncode para somente a parte do caminho da URL (o que exclui a cadeia de caracteres de consulta).</xref:System.Web.HttpUtility.UrlPathEncode%2A> O método pressupõe que a URL é codificada como uma cadeia de caracteres UTF-8.      -Codifica não espaços para que somente um subconjunto dos primeiros 128 caracteres ASCII é usado na cadeia de caracteres codificada resultante. Qualquer caractere no valor Unicode 128 e maior, ou 32 e menor, é codificados de URL.      -Codifica espaços como %&20;."
   syntax:
     content: protected virtual string UrlPathEncode (string value);
     parameters:
     - id: value
       type: System.String
-      description: "The string to encode."
+      description: "A cadeia de caracteres para codificar."
     return:
       type: System.String
-      description: "A URL-encoded string."
+      description: "Uma cadeia de caracteres codificados de URL."
   overload: System.Web.Util.HttpEncoder.UrlPathEncode*
   exceptions: []
   platform:

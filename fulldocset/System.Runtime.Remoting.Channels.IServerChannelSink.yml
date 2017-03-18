@@ -13,8 +13,8 @@ items:
   nameWithType: IServerChannelSink
   fullName: System.Runtime.Remoting.Channels.IServerChannelSink
   type: Interface
-  summary: "Provides methods used for security and transport sinks."
-  remarks: "Channel sinks provide a plug-in point that allows access to the underlying messages flowing through the channel as well as the stream used by the transport mechanism to send messages to a remote object. Channel sinks are linked together in a chain of channel sink providers, and all channel messages flow through this chain of sinks before the message is serialized and transported."
+  summary: "Fornece métodos usados para Coletores de transporte e segurança."
+  remarks: "Coletores de canal fornecem um ponto de plug-in que permite o acesso às mensagens subjacentes que fluem através do canal, bem como o fluxo usado pelo mecanismo de transporte para enviar mensagens para um objeto remoto. Coletores de canal vinculadas em uma cadeia de provedores de coletor de canal, e todas as mensagens de canal fluem por meio dessa cadeia de Coletores antes que a mensagem seja serializada e transportada."
   example:
   - "The following code example illustrates an implementation of the IServerChannelSink interface.  \n  \n [!code-cs[Remoting_Sinks#60](~/add/codesnippet/csharp/t-system.runtime.remotin_17_1.cs)]\n [!code-cpp[Remoting_Sinks#60](~/add/codesnippet/cpp/t-system.runtime.remotin_17_1.cpp)]  \n  \n See the <xref:System.Runtime.Remoting.Channels.IServerChannelSinkProvider> interface documentation for an example of the corresponding server sink provider implementation."
   syntax:
@@ -38,8 +38,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests processing from the current sink of the response from a method call sent asynchronously."
-  remarks: "The `state` parameter contains information that was pushed onto the channel sink stack and associated with the current sink."
+  summary: "Solicitações de processamento do coletor atual da resposta de uma chamada de método enviada de forma assíncrona."
+  remarks: "O `state` parâmetro contém informações que foi inseridas na pilha de coletor de canal e associadas com o coletor atual."
   example:
   - >-
     [!code-cpp[CommonTransportKeys#1](~/add/codesnippet/cpp/c6d0c233-95cd-4d1f-b4f8-_1.cpp)]
@@ -50,24 +50,24 @@ items:
     parameters:
     - id: sinkStack
       type: System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack
-      description: "A stack of sinks leading back to the server transport sink."
+      description: "Uma pilha de Coletores à esquerda para o coletor de transporte do servidor."
     - id: state
       type: System.Object
-      description: "Information generated on the request side that is associated with this sink."
+      description: "Informações geradas no lado de solicitação que está associado este coletor."
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The response message."
+      description: "A mensagem de resposta."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers to add to the return message heading to the client."
+      description: "Os cabeçalhos para adicionar ao cabeçalho da mensagem de retorno ao cliente."
     - id: stream
       type: System.IO.Stream
-      description: "The stream heading back to the transport sink."
+      description: "O cabeçalho de fluxo de volta para o coletor de transporte."
   overload: System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "O chamador imediato não tem permissão de infraestrutura."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream(System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack,System.Object,System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Channels.ITransportHeaders)
@@ -82,31 +82,31 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Returns the <xref:System.IO.Stream> onto which the provided response message is to be serialized."
-  remarks: "This method is called when a response stream needs to be created."
+  summary: "Retorna o <xref:System.IO.Stream>até que a mensagem de resposta fornecida é a ser serializado.</xref:System.IO.Stream>"
+  remarks: "Esse método é chamado quando um fluxo de resposta deve ser criada."
   syntax:
     content: public System.IO.Stream GetResponseStream (System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack sinkStack, object state, System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Channels.ITransportHeaders headers);
     parameters:
     - id: sinkStack
       type: System.Runtime.Remoting.Channels.IServerResponseChannelSinkStack
-      description: "A stack of sinks leading back to the server transport sink."
+      description: "Uma pilha de Coletores à esquerda para o coletor de transporte do servidor."
     - id: state
       type: System.Object
-      description: "The state that has been pushed to the stack by this sink."
+      description: "O estado que foi introduzido para a pilha por esse coletor."
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The response message to serialize."
+      description: "A mensagem de resposta para serializar."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers to put in the response stream to the client."
+      description: "Os cabeçalhos para colocar no fluxo de resposta ao cliente."
     return:
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> onto which the provided response message is to be serialized."
+      description: "O <xref:System.IO.Stream>até que a mensagem de resposta fornecida é a ser serializado.</xref:System.IO.Stream>"
   overload: System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "O chamador imediato não tem permissão de infraestrutura."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IServerChannelSink.NextChannelSink
@@ -121,18 +121,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Gets the next server channel sink in the server sink chain."
-  remarks: "Channel sinks are linked together in a chain of sink providers, and all channel messages flow through this chain before the message is serialized and transported."
+  summary: "Obtém o próximo servidor coletor de canal da cadeia de coletor do servidor."
+  remarks: "Coletores de canal vinculadas em uma cadeia de provedores de coletor, e todas as mensagens de canal fluem por meio dessa cadeia antes que a mensagem seja serializada e transportada."
   syntax:
     content: public System.Runtime.Remoting.Channels.IServerChannelSink NextChannelSink { get; }
     return:
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "The next server channel sink in the server sink chain."
+      description: "O próximo canal do servidor do coletor da cadeia de coletor do servidor."
   overload: System.Runtime.Remoting.Channels.IServerChannelSink.NextChannelSink*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have the required <xref href=&quot;System.Security.Permissions.SecurityPermissionFlag&quot;></xref> permission."
+    description: "O chamador imediato não tem necessários <xref href=&quot;System.Security.Permissions.SecurityPermissionFlag&quot;> </xref> permissão."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage(System.Runtime.Remoting.Channels.IServerChannelSinkStack,System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Channels.ITransportHeaders,System.IO.Stream,System.Runtime.Remoting.Messaging.IMessage@,System.Runtime.Remoting.Channels.ITransportHeaders@,System.IO.Stream@)
@@ -147,40 +147,40 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests message processing from the current sink."
-  remarks: "The job of a proxy is to convert a method call invoked on it into a message object. This message object, which implements the <xref:System.Runtime.Remoting.Messaging.IMessage> interface, is passed from the client end to the server end by invoking ProcessMessage on message sink objects. Message sinks are chained together in the sense that every message sink is responsible for calling ProcessMessage on the next message sink after it has performed its work. For instance, a synchronization-related message sink can cause a lock to be acquired or released, and then delegated further to the downstream message sink."
+  summary: "Mensagem de solicitações de processamento do coletor atual."
+  remarks: "O trabalho de um proxy é converter uma chamada de método invocada nela em um objeto de mensagem. Este objeto de mensagem, que implementa o <xref:System.Runtime.Remoting.Messaging.IMessage>interface, é passado do lado do cliente para o final do servidor invocando ProcessMessage em objetos de coletor de mensagem.</xref:System.Runtime.Remoting.Messaging.IMessage> Coletores de mensagem são encadeadas no sentido de que o coletor de cada mensagem é responsável por chamar ProcessMessage no coletor próxima mensagem depois que ele tiver executado seu trabalho. Por exemplo, um coletor de mensagens relacionadas a sincronização pode causar um bloqueio adquirido ou liberado e, em seguida, delegado para o coletor de mensagem downstream."
   syntax:
     content: public System.Runtime.Remoting.Channels.ServerProcessing ProcessMessage (System.Runtime.Remoting.Channels.IServerChannelSinkStack sinkStack, System.Runtime.Remoting.Messaging.IMessage requestMsg, System.Runtime.Remoting.Channels.ITransportHeaders requestHeaders, System.IO.Stream requestStream, out System.Runtime.Remoting.Messaging.IMessage responseMsg, out System.Runtime.Remoting.Channels.ITransportHeaders responseHeaders, out System.IO.Stream responseStream);
     parameters:
     - id: sinkStack
       type: System.Runtime.Remoting.Channels.IServerChannelSinkStack
-      description: "A stack of channel sinks that called the current sink."
+      description: "Uma pilha de canal coletores que chamou o coletor atual."
     - id: requestMsg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message that contains the request."
+      description: "A mensagem que contém a solicitação."
     - id: requestHeaders
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "Headers retrieved from the incoming message from the client."
+      description: "Cabeçalhos recuperado da mensagem de entrada do cliente."
     - id: requestStream
       type: System.IO.Stream
-      description: "The stream that needs to be to processed and passed on to the deserialization sink."
+      description: "O fluxo que precisa ser para processar e passados para o coletor de desserialização."
     - id: responseMsg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "When this method returns, contains a <xref href=&quot;System.Runtime.Remoting.Messaging.IMessage&quot;></xref> that holds the response message. This parameter is passed uninitialized."
+      description: "Quando este método retorna, contém um <xref href=&quot;System.Runtime.Remoting.Messaging.IMessage&quot;> </xref> que contém a mensagem de resposta. Esse parâmetro é passado não inicializado."
     - id: responseHeaders
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "When this method returns, contains a <xref href=&quot;System.Runtime.Remoting.Channels.ITransportHeaders&quot;></xref> that holds the headers that are to be added to return message heading to the client. This parameter is passed uninitialized."
+      description: "Quando este método retorna, contém um <xref href=&quot;System.Runtime.Remoting.Channels.ITransportHeaders&quot;> </xref> que contém os cabeçalhos que devem ser adicionadas para retornar o cabeçalho da mensagem ao cliente. Esse parâmetro é passado não inicializado."
     - id: responseStream
       type: System.IO.Stream
-      description: "When this method returns, contains a <xref:System.IO.Stream> that is heading back to the transport sink. This parameter is passed uninitialized."
+      description: "Quando este método retorna, contém um <xref:System.IO.Stream>que é o título para o coletor de transporte.</xref:System.IO.Stream> Esse parâmetro é passado não inicializado."
     return:
       type: System.Runtime.Remoting.Channels.ServerProcessing
-      description: "A <xref href=&quot;System.Runtime.Remoting.Channels.ServerProcessing&quot;></xref> status value that provides information about how message was processed."
+      description: "Um <xref href=&quot;System.Runtime.Remoting.Channels.ServerProcessing&quot;> </xref> valor de status que fornece informações sobre como a mensagem foi processada."
   overload: System.Runtime.Remoting.Channels.IServerChannelSink.ProcessMessage*
   exceptions:
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The immediate caller does not have infrastructure permission."
+    description: "O chamador imediato não tem permissão de infraestrutura."
   platform:
   - net462
 references:

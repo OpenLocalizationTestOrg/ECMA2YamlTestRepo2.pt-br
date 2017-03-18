@@ -32,8 +32,8 @@ items:
   nameWithType: CodeGroup
   fullName: System.Security.Policy.CodeGroup
   type: Class
-  summary: "Represents the abstract base class from which all implementations of code groups must derive."
-  remarks: "Code groups are the building blocks of code access security policy. Each policy level consists of a root code group that can have child code groups. Each child code group can have their own child code groups; this behavior extends to any number of levels, forming a tree. Each code group has a membership condition that determines if a given assembly belongs to it based on the evidence for that assembly.       Only those code groups whose membership conditions match a given assembly&quot;s evidence will be applied. If a matching code group has child code groups, then those children whose membership conditions also match the supplied evidence will likewise be applied."
+  summary: "Representa a classe base abstrata da qual todas as implementações de código grupos devem derivar."
+  remarks: "Grupos de código são blocos de construção de política de segurança de acesso do código. Cada nível de política consiste em um grupo de códigos de raiz que pode ter grupos de códigos filho. Cada grupo de códigos filho pode ter seus próprios grupos de códigos filho; Esse comportamento se estende para qualquer número de níveis, formando uma árvore. Cada grupo de código tem uma condição de associação que determina se um determinado assembly pertence a ele com base na evidência de assembly.       Somente os grupos de código cujas condições de associação correspondem a evidência de um determinado assembly serão aplicados. Se um grupo de código correspondente tiver grupos de códigos filho, os filhos cujas condições de associação também correspondem a evidência fornecida da mesma forma serão aplicados."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -57,17 +57,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Initializes a new instance of <xref href=&quot;System.Security.Policy.CodeGroup&quot;></xref>."
-  remarks: "This constructor creates a basic code group and should be called from the constructors of custom code groups. You can add child code groups using the <xref:System.Security.Policy.CodeGroup.AddChild%2A> method."
+  summary: "Inicializa uma nova instância da <xref href=&quot;System.Security.Policy.CodeGroup&quot;> </xref>."
+  remarks: "Este construtor cria um grupo de código básico e deve ser chamado a partir de construtores de grupos de código personalizado. Você pode adicionar grupos de códigos filho usando o <xref:System.Security.Policy.CodeGroup.AddChild%2A>método.</xref:System.Security.Policy.CodeGroup.AddChild%2A>"
   syntax:
     content: protected CodeGroup (System.Security.Policy.IMembershipCondition membershipCondition, System.Security.Policy.PolicyStatement policy);
     parameters:
     - id: membershipCondition
       type: System.Security.Policy.IMembershipCondition
-      description: "A membership condition that tests evidence to determine whether this code group applies policy."
+      description: "Uma condição de associação que testa a evidência para determinar se este grupo de códigos se aplica a política."
     - id: policy
       type: System.Security.Policy.PolicyStatement
-      description: "The policy statement for the code group in the form of a permission set and attributes to grant code that matches the membership condition."
+      description: "A declaração de política para o grupo de códigos na forma de um conjunto de permissões e os atributos conceder ao código que corresponde à condição de associação."
   overload: System.Security.Policy.CodeGroup.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -75,7 +75,7 @@ items:
     description: "The <code>membershipCondition</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The type of the <code>membershipCondition</code> parameter is not valid.       -or-       The type of the <code>policy</code> parameter is not valid."
+    description: "O tipo do <code> membershipCondition </code> parâmetro não é válido.       o tipo de - ou - o <code> policy </code> parâmetro não é válido."
   platform:
   - net462
 - uid: System.Security.Policy.CodeGroup.AddChild(System.Security.Policy.CodeGroup)
@@ -90,13 +90,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Adds a child code group to the current code group."
+  summary: "Adiciona um grupo de códigos filho para o grupo de código atual."
   syntax:
     content: public void AddChild (System.Security.Policy.CodeGroup group);
     parameters:
     - id: group
       type: System.Security.Policy.CodeGroup
-      description: "The code group to be added as a child. This new child code group is added to the end of the list."
+      description: "O grupo de código a ser adicionado como um filho. Esse novo grupo de códigos filho é adicionado ao final da lista."
   overload: System.Security.Policy.CodeGroup.AddChild*
   exceptions:
   - type: System.ArgumentNullException
@@ -104,7 +104,7 @@ items:
     description: "The <code>group</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>group</code> parameter is not a valid code group."
+    description: "O <code> group </code> parâmetro não é um grupo de código válido."
   platform:
   - net462
 - uid: System.Security.Policy.CodeGroup.AttributeString
@@ -119,13 +119,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets a string representation of the attributes of the policy statement for the code group."
-  remarks: "The string representation is not localized."
+  summary: "Obtém uma representação de cadeia de caracteres dos atributos da declaração de política para o grupo de códigos."
+  remarks: "A representação de cadeia de caracteres não está localizada."
   syntax:
     content: public virtual string AttributeString { get; }
     return:
       type: System.String
-      description: "A string representation of the attributes of the policy statement for the code group."
+      description: "Uma representação de cadeia de caracteres dos atributos da declaração de política para o grupo de códigos."
   overload: System.Security.Policy.CodeGroup.AttributeString*
   exceptions: []
   platform:
@@ -142,21 +142,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets or sets an ordered list of the child code groups of a code group."
-  remarks: "The order of child code groups is significant for certain code groups.      > [!NOTE] >  The return value is a copy of the child code list. Do not use the returned list to add a child code group; instead, use the <xref:System.Security.Policy.CodeGroup.AddChild%2A> method."
+  summary: "Obtém ou define uma lista ordenada de grupos de código filho de um grupo de códigos."
+  remarks: "A ordem dos grupos de códigos filho é significativa para determinados grupos de código.      > [!NOTE] > O valor de retorno é uma cópia da lista de código de filhos. Não use a lista retornada para adicionar um grupo de códigos filho; em vez disso, use o <xref:System.Security.Policy.CodeGroup.AddChild%2A>método.</xref:System.Security.Policy.CodeGroup.AddChild%2A>"
   syntax:
     content: public System.Collections.IList Children { get; set; }
     return:
       type: System.Collections.IList
-      description: "A list of child code groups."
+      description: "Uma lista de grupos de códigos filho."
   overload: System.Security.Policy.CodeGroup.Children*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt is made to set this property to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "É feita uma tentativa de definir essa propriedade como <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An attempt is made to set this property with a list of children that are not <xref href=&quot;System.Security.Policy.CodeGroup&quot;></xref> objects."
+    description: "É feita uma tentativa de definir essa propriedade com uma lista de filhos que não são <xref href=&quot;System.Security.Policy.CodeGroup&quot;> </xref> objetos."
   platform:
   - net462
 - uid: System.Security.Policy.CodeGroup.Copy
@@ -171,14 +171,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "When overridden in a derived class, makes a deep copy of the current code group."
-  remarks: "This method makes a deep copy of the code group, so that copies of all objects the code group contains are also made."
+  summary: "Quando substituído em uma classe derivada, faz uma cópia em profundidade do grupo de código atual."
+  remarks: "Este método faz uma cópia em profundidade do grupo de código, para que também são feitas cópias de todos os objetos que contém o grupo de códigos."
   syntax:
     content: public abstract System.Security.Policy.CodeGroup Copy ();
     parameters: []
     return:
       type: System.Security.Policy.CodeGroup
-      description: "An equivalent copy of the current code group, including its membership conditions and child code groups."
+      description: "Uma cópia equivalente do grupo de código atual, incluindo suas condições de associação e os grupos de códigos filho."
   overload: System.Security.Policy.CodeGroup.Copy*
   exceptions: []
   platform:
@@ -195,17 +195,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "When overridden in a derived class, serializes properties and internal state specific to a derived code group and adds the serialization to the specified <xref href=&quot;System.Security.SecurityElement&quot;></xref>."
-  remarks: "<xref:System.Security.Policy.CodeGroup.ToXml%2A> cannot be overridden. If you need to serialize members specific to a particular implementation of <xref:System.Security.Policy.CodeGroup>, you must override CreateXml and serialize your members there. When the code group is serialized, <xref:System.Security.Policy.CodeGroup.ToXml%2A> calls CreateXml and adds your serialization to the <xref:System.Security.SecurityElement> created by <xref:System.Security.Policy.CodeGroup.ToXml%2A>.       The XML created using this method is deserialized by the <xref:System.Security.Policy.CodeGroup.ParseXml%2A> method."
+  summary: "Quando substituído em uma classe derivada, serializa as propriedades e o estado interno específico a um grupo de código derivado e adiciona a serialização especificado <xref href=&quot;System.Security.SecurityElement&quot;> </xref>."
+  remarks: "<xref:System.Security.Policy.CodeGroup.ToXml%2A>não pode ser substituído.</xref:System.Security.Policy.CodeGroup.ToXml%2A> Se você precisa serializar membros específicos a uma implementação específica de <xref:System.Security.Policy.CodeGroup>, você deve substituir CreateXML chamado e serializar seus membros existe.</xref:System.Security.Policy.CodeGroup> Quando o grupo de códigos é serializado, <xref:System.Security.Policy.CodeGroup.ToXml%2A>chama CreateXML chamado e adiciona a serialização para o <xref:System.Security.SecurityElement>criado pelo <xref:System.Security.Policy.CodeGroup.ToXml%2A>.</xref:System.Security.Policy.CodeGroup.ToXml%2A> </xref:System.Security.SecurityElement> </xref:System.Security.Policy.CodeGroup.ToXml%2A>       O XML criado usando esse método é desserializado o <xref:System.Security.Policy.CodeGroup.ParseXml%2A>método.</xref:System.Security.Policy.CodeGroup.ParseXml%2A>"
   syntax:
     content: protected virtual void CreateXml (System.Security.SecurityElement element, System.Security.Policy.PolicyLevel level);
     parameters:
     - id: element
       type: System.Security.SecurityElement
-      description: "The XML encoding to which to add the serialization."
+      description: "A codificação XML ao qual adicionar a serialização."
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "The policy level within which the code group exists."
+      description: "O nível de política no qual existe o grupo de códigos."
   overload: System.Security.Policy.CodeGroup.CreateXml*
   exceptions: []
   platform:
@@ -222,12 +222,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets or sets the description of the code group."
+  summary: "Obtém ou define a descrição do grupo de códigos."
   syntax:
     content: public string Description { get; set; }
     return:
       type: System.String
-      description: "The description of the code group."
+      description: "A descrição do grupo de códigos."
   overload: System.Security.Policy.CodeGroup.Description*
   exceptions: []
   platform:
@@ -244,17 +244,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the specified code group is equivalent to the current code group."
-  remarks: "Two code groups are equivalent if they have the same <xref:System.Security.Policy.CodeGroup.Name%2A>, <xref:System.Security.Policy.CodeGroup.Description%2A>, and <xref:System.Security.Policy.CodeGroup.MembershipCondition%2A>.       This method tests the top-level code group only, not its child code groups."
+  summary: "Determina se o grupo de código especificado é equivalente ao grupo de código atual."
+  remarks: "Dois grupos de código são equivalentes, se eles tiverem o mesmo <xref:System.Security.Policy.CodeGroup.Name%2A>, <xref:System.Security.Policy.CodeGroup.Description%2A>e <xref:System.Security.Policy.CodeGroup.MembershipCondition%2A>.</xref:System.Security.Policy.CodeGroup.MembershipCondition%2A> </xref:System.Security.Policy.CodeGroup.Description%2A> </xref:System.Security.Policy.CodeGroup.Name%2A>       Este método testa o grupo de códigos de nível superior, não seus grupos de códigos filho."
   syntax:
     content: public override bool Equals (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "The code group to compare with the current code group."
+      description: "O grupo de códigos para comparar com o grupo de código atual."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified code group is equivalent to the current code group; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o grupo de código especificada for equivalente ao grupo de código atual; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.CodeGroup.Equals*
   exceptions: []
   platform:
@@ -271,20 +271,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether the specified code group is equivalent to the current code group, checking the child code groups as well, if specified."
-  remarks: "Two code groups are equivalent if they have the same <xref:System.Security.Policy.CodeGroup.Name%2A>, <xref:System.Security.Policy.CodeGroup.Description%2A>, and <xref:System.Security.Policy.CodeGroup.MembershipCondition%2A>.       If the `compareChildren` parameter is `true`, this method will only return `true` if the current code group and all its child code groups are equivalent to the specified code group and all its child code groups."
+  summary: "Determina se o grupo de código especificado é equivalente ao grupo de código atual, verificando os grupos de códigos filho, se especificado."
+  remarks: "Dois grupos de código são equivalentes, se eles tiverem o mesmo <xref:System.Security.Policy.CodeGroup.Name%2A>, <xref:System.Security.Policy.CodeGroup.Description%2A>e <xref:System.Security.Policy.CodeGroup.MembershipCondition%2A>.</xref:System.Security.Policy.CodeGroup.MembershipCondition%2A> </xref:System.Security.Policy.CodeGroup.Description%2A> </xref:System.Security.Policy.CodeGroup.Name%2A>       Se o `compareChildren` parâmetro é `true`, esse método retornará apenas `true` se o grupo de código atual e todos os seus grupos de código filho são equivalentes ao grupo de código especificada e todos os seus grupos de código filho."
   syntax:
     content: public bool Equals (System.Security.Policy.CodeGroup cg, bool compareChildren);
     parameters:
     - id: cg
       type: System.Security.Policy.CodeGroup
-      description: "The code group to compare with the current code group."
+      description: "O grupo de códigos para comparar com o grupo de código atual."
     - id: compareChildren
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to compare child code groups, as well; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para comparar os grupos de códigos filho, Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the specified code group is equivalent to the current code group; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o grupo de código especificada for equivalente ao grupo de código atual; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Policy.CodeGroup.Equals*
   exceptions: []
   platform:
@@ -301,13 +301,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Reconstructs a security object with a given state from an XML encoding."
+  summary: "Reconstrói um objeto de segurança com um determinado estado de uma codificação de XML."
   syntax:
     content: public void FromXml (System.Security.SecurityElement e);
     parameters:
     - id: e
       type: System.Security.SecurityElement
-      description: "The XML encoding to use to reconstruct the security object."
+      description: "O XML de codificação a ser usada para reconstruir o objeto de segurança."
   overload: System.Security.Policy.CodeGroup.FromXml*
   exceptions:
   - type: System.ArgumentNullException
@@ -327,17 +327,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Reconstructs a security object with a given state and policy level from an XML encoding."
-  remarks: "The policy level context is provided for resolution of named permission sets."
+  summary: "Reconstrói um objeto de segurança com um determinado estado e o nível de política de uma codificação de XML."
+  remarks: "O contexto do nível de política é fornecido para resolução de conjuntos de permissões nomeadas."
   syntax:
     content: public void FromXml (System.Security.SecurityElement e, System.Security.Policy.PolicyLevel level);
     parameters:
     - id: e
       type: System.Security.SecurityElement
-      description: "The XML encoding to use to reconstruct the security object."
+      description: "O XML de codificação a ser usada para reconstruir o objeto de segurança."
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "The policy level within which the code group exists."
+      description: "O nível de política no qual existe o grupo de códigos."
   overload: System.Security.Policy.CodeGroup.FromXml*
   exceptions:
   - type: System.ArgumentNullException
@@ -357,13 +357,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the hash code of the current code group."
+  summary: "Obtém o código hash do grupo de código atual."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "The hash code of the current code group."
+      description: "O código hash do grupo de código atual."
   overload: System.Security.Policy.CodeGroup.GetHashCode*
   exceptions: []
   platform:
@@ -380,18 +380,18 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets or sets the code group&quot;s membership condition."
-  remarks: "A membership condition tests evidence and returns a Boolean value that tells whether there is a match."
+  summary: "Obtém ou define a condição de associação do grupo de códigos."
+  remarks: "Uma condição de associação testa evidência e retorna um valor booliano que indica se há uma correspondência."
   syntax:
     content: public System.Security.Policy.IMembershipCondition MembershipCondition { get; set; }
     return:
       type: System.Security.Policy.IMembershipCondition
-      description: "The membership condition that determines to which evidence the code group is applicable."
+      description: "A condição de associação que determina a evidência de que o grupo de códigos é aplicável."
   overload: System.Security.Policy.CodeGroup.MembershipCondition*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "An attempt is made to set this parameter to <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "É feita uma tentativa de definir esse parâmetro como <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.Policy.CodeGroup.MergeLogic
@@ -406,12 +406,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "When overridden in a derived class, gets the merge logic for the code group."
+  summary: "Quando substituído em uma classe derivada, obtém a lógica de mesclagem para o grupo de códigos."
   syntax:
     content: public abstract string MergeLogic { get; }
     return:
       type: System.String
-      description: "A description of the merge logic for the code group."
+      description: "Uma descrição da lógica de mesclagem para o grupo de códigos."
   overload: System.Security.Policy.CodeGroup.MergeLogic*
   exceptions: []
   platform:
@@ -428,12 +428,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets or sets the name of the code group."
+  summary: "Obtém ou define o nome do grupo de códigos."
   syntax:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "The name of the code group."
+      description: "O nome do grupo de códigos."
   overload: System.Security.Policy.CodeGroup.Name*
   exceptions: []
   platform:
@@ -450,17 +450,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "When overridden in a derived class, reconstructs properties and internal state specific to a derived code group from the specified <xref href=&quot;System.Security.SecurityElement&quot;></xref>."
-  remarks: "<xref:System.Security.Policy.CodeGroup.FromXml%2A> cannot be overridden. If you need to deserialize members specific to a particular implementation of <xref:System.Security.Policy.CodeGroup>, you must override ParseXml and deserialize your members there. When the code group is deserialized, <xref:System.Security.Policy.CodeGroup.FromXml%2A> calls ParseXml and reconstructs your members from the <xref:System.Security.SecurityElement>.       This method deserializes XML created using <xref:System.Security.Policy.CodeGroup.CreateXml%2A>."
+  summary: "Quando substituído em uma classe derivada, reconstrói propriedades e o estado interno específico a um grupo de código derivado especificado <xref href=&quot;System.Security.SecurityElement&quot;> </xref>."
+  remarks: "<xref:System.Security.Policy.CodeGroup.FromXml%2A>não pode ser substituído.</xref:System.Security.Policy.CodeGroup.FromXml%2A> Se você precisa desserializar membros específicos a uma implementação específica de <xref:System.Security.Policy.CodeGroup>, você deve substituir ParseXml e desserializar os membros existe.</xref:System.Security.Policy.CodeGroup> Quando o grupo de códigos é desserializado, <xref:System.Security.Policy.CodeGroup.FromXml%2A>chama ParseXml e reconstrói os membros de <xref:System.Security.SecurityElement>.</xref:System.Security.SecurityElement> </xref:System.Security.Policy.CodeGroup.FromXml%2A>       Esse método desserializa XML criado usando <xref:System.Security.Policy.CodeGroup.CreateXml%2A>.</xref:System.Security.Policy.CodeGroup.CreateXml%2A>"
   syntax:
     content: protected virtual void ParseXml (System.Security.SecurityElement e, System.Security.Policy.PolicyLevel level);
     parameters:
     - id: e
       type: System.Security.SecurityElement
-      description: "The XML encoding to use to reconstruct the security object."
+      description: "O XML de codificação a ser usada para reconstruir o objeto de segurança."
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "The policy level within which the code group exists."
+      description: "O nível de política no qual existe o grupo de códigos."
   overload: System.Security.Policy.CodeGroup.ParseXml*
   exceptions: []
   platform:
@@ -477,13 +477,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets the name of the named permission set for the code group."
-  remarks: "This property can be `null` if the code group contains an unnamed permission set."
+  summary: "Obtém o nome do conjunto de permissões nomeadas para o grupo de códigos."
+  remarks: "Essa propriedade pode ser `null` se o grupo de códigos contém um conjunto de permissões sem nome."
   syntax:
     content: public virtual string PermissionSetName { get; }
     return:
       type: System.String
-      description: "The name of a named permission set of the policy level."
+      description: "O nome de um conjunto de permissões nomeadas de nível de política."
   overload: System.Security.Policy.CodeGroup.PermissionSetName*
   exceptions: []
   platform:
@@ -500,15 +500,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Gets or sets the policy statement associated with the code group."
-  remarks: "The policy statement applies to code in assemblies when evidence matches the membership condition.       This property can also be set by passing a policy statement to the constructor."
+  summary: "Obtém ou define a política associada ao grupo de código."
+  remarks: "A declaração de política se aplica ao código em assemblies quando evidência corresponde a condição de associação.       Essa propriedade também pode ser definida passando uma declaração de diretiva para o construtor."
   example:
   - "The following example sets the <xref:System.Security.Policy.PolicyStatement> for a code group.  \n  \n [!code-cs[Classic CodeGroup.PolicyStatement Example#1](~/add/codesnippet/csharp/p-system.security.policy_7_1.cs)]\n [!code-cpp[Classic CodeGroup.PolicyStatement Example#1](~/add/codesnippet/cpp/p-system.security.policy_7_1.cpp)]\n [!code-vb[Classic CodeGroup.PolicyStatement Example#1](~/add/codesnippet/visualbasic/p-system.security.policy_7_1.vb)]"
   syntax:
     content: public System.Security.Policy.PolicyStatement PolicyStatement { get; set; }
     return:
       type: System.Security.Policy.PolicyStatement
-      description: "The policy statement for the code group."
+      description: "A declaração de política para o grupo de códigos."
   overload: System.Security.Policy.CodeGroup.PolicyStatement*
   exceptions: []
   platform:
@@ -525,19 +525,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Removes the specified child code group."
-  remarks: "Only immediate child code groups can be removed with this method."
+  summary: "Remove o grupo de códigos filho especificado."
+  remarks: "Somente os grupos de códigos filho imediato podem ser removidos com esse método."
   syntax:
     content: public void RemoveChild (System.Security.Policy.CodeGroup group);
     parameters:
     - id: group
       type: System.Security.Policy.CodeGroup
-      description: "The code group to be removed as a child."
+      description: "O grupo de código a ser removido como um filho."
   overload: System.Security.Policy.CodeGroup.RemoveChild*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>group</code> parameter is not an immediate child code group of the current code group."
+    description: "O <code> group </code> parâmetro não é um grupo de códigos filho imediato do grupo de código atual."
   platform:
   - net462
 - uid: System.Security.Policy.CodeGroup.Resolve(System.Security.Policy.Evidence)
@@ -552,17 +552,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "When overridden in a derived class, resolves policy for the code group and its descendants for a set of evidence."
-  remarks: "Given evidence for an assembly to be loaded, this method evaluates the code group by checking the membership condition against the specified evidence. If there is a match, this method returns a policy statement for the code group, including evaluation of child code groups.       For a <xref:System.Security.Policy.UnionCodeGroup>, all child code groups whose membership condition match the specified evidence are also resolved, and all resulting policy statements are combined with the policy statement of the parent union code group. Each child code group type determines how all child groups under it are applied, depending on how the Resolve methods of these child groups work.       The .NET Framework security system uses Resolve on the policy levels to determine which permissions to grant to loaded code from the resulting policy statements and the code request on the assembly."
+  summary: "Quando substituído em uma classe derivada, resolve a política para o grupo de códigos e seus descendentes de um conjunto de evidência."
+  remarks: "Dada a evidência para um assembly a ser carregado, esse método avalia o grupo de códigos, verificando a condição de associação em relação a evidência especificada. Se houver uma correspondência, esse método retorna uma instrução de política para o grupo de código, incluindo avaliação do filho de grupos de código.       Para um <xref:System.Security.Policy.UnionCodeGroup>, todos os grupos de códigos filho cuja condição corresponde a evidência especificada são também resolvidos e todas as instruções de políticas resultante são combinadas com a declaração de política de grupo de códigos de união pai.</xref:System.Security.Policy.UnionCodeGroup> Cada tipo de grupo de códigos filho determina como todos os grupos filho abaixo dele são aplicados, dependendo de como funcionam os métodos de resolução desses grupos filho.       O sistema de segurança do .NET Framework usa resolver nos níveis de política para determinar quais permissões conceder ao código carregado das instruções de políticas resultante e a solicitação de código no assembly."
   syntax:
     content: public abstract System.Security.Policy.PolicyStatement Resolve (System.Security.Policy.Evidence evidence);
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The evidence for the assembly."
+      description: "A evidência do assembly."
     return:
       type: System.Security.Policy.PolicyStatement
-      description: "A policy statement that consists of the permissions granted by the code group with optional attributes, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the code group does not apply (the membership condition does not match the specified evidence)."
+      description: "Uma instrução de política que consiste nas permissões concedidas pelo grupo de código com atributos opcionais, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se o grupo de códigos não se aplica (a condição de associação não corresponde a evidência especificada)."
   overload: System.Security.Policy.CodeGroup.Resolve*
   exceptions: []
   platform:
@@ -579,17 +579,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "When overridden in a derived class, resolves matching code groups."
-  remarks: "This method has the same evaluation characteristics as <xref:System.Security.Policy.CodeGroup.Resolve%2A>. The code group that is returned contains child code groups, which in turn can have child code groups as necessary to reflect the complete set of code groups that were matched by the evidence provided."
+  summary: "Quando substituído em uma classe derivada, resolve os grupos de código correspondentes."
+  remarks: "Esse método tem as mesmas características de avaliação de <xref:System.Security.Policy.CodeGroup.Resolve%2A>.</xref:System.Security.Policy.CodeGroup.Resolve%2A> O grupo de códigos que é retornado contém grupos de códigos filho, que por sua vez, podem ter grupos de códigos filho conforme necessário para refletir o conjunto completo de grupos de códigos que corresponderam a evidência fornecida."
   syntax:
     content: public abstract System.Security.Policy.CodeGroup ResolveMatchingCodeGroups (System.Security.Policy.Evidence evidence);
     parameters:
     - id: evidence
       type: System.Security.Policy.Evidence
-      description: "The evidence for the assembly."
+      description: "A evidência do assembly."
     return:
       type: System.Security.Policy.CodeGroup
-      description: "A <xref href=&quot;System.Security.Policy.CodeGroup&quot;></xref> that is the root of the tree of matching code groups."
+      description: "Um <xref href=&quot;System.Security.Policy.CodeGroup&quot;> </xref> que é a raiz da árvore de grupos de código correspondentes."
   overload: System.Security.Policy.CodeGroup.ResolveMatchingCodeGroups*
   exceptions: []
   platform:
@@ -606,13 +606,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates an XML encoding of the security object and its current state."
+  summary: "Cria uma codificação de XML do objeto de segurança e seu estado atual."
   syntax:
     content: public System.Security.SecurityElement ToXml ();
     parameters: []
     return:
       type: System.Security.SecurityElement
-      description: "An XML encoding of the security object, including any state information."
+      description: "Uma codificação de XML do objeto de segurança, incluindo quaisquer informações de estado."
   overload: System.Security.Policy.CodeGroup.ToXml*
   exceptions: []
   platform:
@@ -629,17 +629,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Creates an XML encoding of the security object, its current state, and the policy level within which the code exists."
-  remarks: "The policy level context is provided for resolution of named permission sets."
+  summary: "Cria uma codificação de XML do objeto de segurança, seu estado atual e o nível de política na qual o código existente."
+  remarks: "O contexto do nível de política é fornecido para resolução de conjuntos de permissões nomeadas."
   syntax:
     content: public System.Security.SecurityElement ToXml (System.Security.Policy.PolicyLevel level);
     parameters:
     - id: level
       type: System.Security.Policy.PolicyLevel
-      description: "The policy level within which the code group exists."
+      description: "O nível de política no qual existe o grupo de códigos."
     return:
       type: System.Security.SecurityElement
-      description: "An XML encoding of the security object, including any state information."
+      description: "Uma codificação de XML do objeto de segurança, incluindo quaisquer informações de estado."
   overload: System.Security.Policy.CodeGroup.ToXml*
   exceptions: []
   platform:

@@ -38,8 +38,8 @@ items:
   nameWithType: MemoryMappedFile
   fullName: System.IO.MemoryMappedFiles.MemoryMappedFile
   type: Class
-  summary: "Represents a memory-mapped file."
-  remarks: "A memory-mapped file maps the contents of a file to an application’s logical address space. Memory-mapped files enable programmers to work with extremely large files because memory can be managed concurrently, and they allow complete, random access to a file without the need for seeking. Memory-mapped files can also be shared across multiple processes.       The <xref:System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile%2A> methods create a memory-mapped file from a specified path or a <xref:System.IO.FileStream> of an existing file on disk. Changes are automatically propagated to disk when the file is unmapped.       The <xref:System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew%2A> methods create a memory-mapped file that is not mapped to an existing file on disk; and are suitable for creating shared memory for interprocess communication (IPC).       A memory-mapped file is associated with a name.       You can create multiple views of the memory-mapped file, including views of parts of the file. You can map the same part of a file to more than one address to create concurrent memory. For two views to remain concurrent, they have to be created from the same memory-mapped file. Creating two file mappings of the same file with two views does not provide concurrency."
+  summary: "Representa um arquivo de mapeamento de memória."
+  remarks: "Um arquivo de memória mapeada mapeia o conteúdo de um arquivo para o espaço de endereçamento lógico de um aplicativo. Arquivos mapeados na memória permitem aos programadores trabalhar com arquivos muito grandes, porque a memória pode ser gerenciada simultaneamente e permitir acesso aleatório, completo para um arquivo sem a necessidade de busca. Arquivos mapeados na memória também podem ser compartilhados entre vários processos.       O <xref:System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile%2A>métodos de criam um arquivo de mapeamento de memória de um caminho especificado ou um <xref:System.IO.FileStream>de um arquivo existente no disco.</xref:System.IO.FileStream> </xref:System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile%2A> As alterações são propagadas automaticamente para disco quando o arquivo não está mapeado.       O <xref:System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew%2A>métodos criam um arquivo de mapeamento de memória que não está mapeado para um arquivo existente no disco; e são adequados para a criação de memória compartilhada para comunicação entre processos (IPC).</xref:System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew%2A>       Um arquivo de mapeamento de memória está associado um nome.       Você pode criar vários modos de exibição do arquivo mapeado em memória, incluindo modos de exibição de partes do arquivo. Você pode mapear a mesma parte de um arquivo para mais de um endereço para criar simultâneas de memória. Dois modos de exibição permanecer simultâneas, precisam ser criados a partir do mesmo arquivo de memória mapeada. Criar mapeamentos de dois arquivos do mesmo arquivo de dois modos de exibição não fornece a simultaneidade."
   example:
   - "The following example creates a memory-mapped view of a part of an extremely large file and manipulates a portion of it.  \n  \n [!code-vb[MemoryMappedFiles.MemoryMappedFile.CreateFromFile#1](~/add/codesnippet/visualbasic/t-system.io.memorymapped_0_1.vb)]\n [!code-cs[MemoryMappedFiles.MemoryMappedFile.CreateFromFile#1](~/add/codesnippet/csharp/t-system.io.memorymapped_0_1.cs)]"
   syntax:
@@ -63,7 +63,7 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file from a file on disk."
+  summary: "Cria um arquivo de mapeamento de memória de um arquivo no disco."
   remarks: ''
   example:
   - "The following example uses the CreateFromFile method to create a memory-mapped file, and then creates a memory-mapped view to a portion of an extremely large file.  \n  \n [!code-vb[MemoryMappedFiles.MemoryMappedFile.CreateFromFile#1](~/add/codesnippet/visualbasic/m-system.io.memorymapped_0_1.vb)]\n [!code-cs[MemoryMappedFiles.MemoryMappedFile.CreateFromFile#1](~/add/codesnippet/csharp/m-system.io.memorymapped_0_1.cs)]"
@@ -72,27 +72,27 @@ items:
     parameters:
     - id: path
       type: System.String
-      description: "The path to file to map."
+      description: "O caminho para o arquivo de mapa."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file."
+      description: "Um arquivo de mapeamento de memória."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>path</code> is an empty string, contains only white space, or has one or more invalid characters, as defined by the &lt;xref:System.IO.Path.GetInvalidFileNameChars%2A?displayProperty=fullName&gt; method.       -or-       <code>path</code> refers to an invalid device."
+    description: "<code>path</code>é uma cadeia de caracteres vazia, contém somente espaços em branco ou tem um ou mais caracteres inválidos, conforme definido pelo &lt;xref:System.IO.Path.GetInvalidFileNameChars%2A?displayProperty=fullName&gt; método.       - ou - <code>path</code> refere-se a um dispositivo inválido."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred."
+    description: "Ocorreu um erro de e/s."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "<code>path</code> exceeds the maximum length defined by the operating system. In Windows, paths must contain fewer than 248 characters, and file names must contain fewer than 260 characters."
+    description: "<code>path</code>excede o comprimento máximo definido pelo sistema operacional. No Windows, os caminhos devem conter menos de 248 caracteres e nomes de arquivo devem conter menos de 260 caracteres."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permissions for the file."
+    description: "O chamador não tem as permissões necessárias para o arquivo."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile(System.String,System.IO.FileMode)
@@ -107,37 +107,37 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file that has the specified access mode from a file on disk."
-  remarks: "The `mode` parameter pertains to the source file on disk. You can use only the <xref:System.IO.FileMode> enumeration value to create the memory-mapped file from the source file on disk."
+  summary: "Cria um arquivo de mapeamento de memória que tem o modo de acesso especificado de um arquivo no disco."
+  remarks: "O `mode` parâmetro está relacionado ao arquivo de origem no disco. Você pode usar apenas o <xref:System.IO.FileMode>valor de enumeração para criar o arquivo de memória mapeada do arquivo de origem no disco.</xref:System.IO.FileMode>"
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateFromFile (string path, System.IO.FileMode mode);
     parameters:
     - id: path
       type: System.String
-      description: "The path to file to map."
+      description: "O caminho para o arquivo de mapa."
     - id: mode
       type: System.IO.FileMode
-      description: "Access mode; must be <xref href=&quot;System.IO.FileMode&quot;></xref>."
+      description: "Modo de acesso; must be <xref href=&quot;System.IO.FileMode&quot;></xref>."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified access mode."
+      description: "Um arquivo de memória mapeada que tem o modo de acesso especificado."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>path</code> is an empty string, contains only white space, or has one or more invalid characters, as defined by the &lt;xref:System.IO.Path.GetInvalidFileNameChars%2A?displayProperty=fullName&gt; method.       -or-       <code>path</code> refers to an invalid device.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>."
+    description: "<code>path</code>é uma cadeia de caracteres vazia, contém somente espaços em branco ou tem um ou mais caracteres inválidos, conforme definido pelo &lt;xref:System.IO.Path.GetInvalidFileNameChars%2A?displayProperty=fullName&gt; método.       - ou - <code>path</code> refere-se a um dispositivo inválido.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "<code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>, <xref href=&quot;System.IO.FileMode&quot;></xref>, or <xref href=&quot;System.IO.FileMode&quot;></xref>.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref> and the file on disk does not exist.       -or-       An I/O error occurred."
+    description: "<code>mode</code>is <xref href=&quot;System.IO.FileMode&quot;></xref>, <xref href=&quot;System.IO.FileMode&quot;></xref>, or <xref href=&quot;System.IO.FileMode&quot;></xref>.       - ou - <code>mode</code> é <xref href=&quot;System.IO.FileMode&quot;> </xref> e o arquivo no disco não existe.       - ou - erro de uma e/s."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "<code>path</code> exceeds the maximum length defined by the operating system. In Windows, paths must contain fewer than 248 characters, and file names must contain fewer than 260 characters."
+    description: "<code>path</code>excede o comprimento máximo definido pelo sistema operacional. No Windows, os caminhos devem conter menos de 248 caracteres e nomes de arquivo devem conter menos de 260 caracteres."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permissions for the file."
+    description: "O chamador não tem as permissões necessárias para o arquivo."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile(System.String,System.IO.FileMode,System.String)
@@ -152,40 +152,40 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file that has the specified access mode and name from a file on disk."
-  remarks: "The `mode` parameter pertains to the source file on disk. You can use only the <xref:System.IO.FileMode> enumeration value to create the memory-mapped file from the source file on disk."
+  summary: "Cria um arquivo de mapeamento de memória que tem o modo de acesso especificado e o nome de um arquivo no disco."
+  remarks: "O `mode` parâmetro está relacionado ao arquivo de origem no disco. Você pode usar apenas o <xref:System.IO.FileMode>valor de enumeração para criar o arquivo de memória mapeada do arquivo de origem no disco.</xref:System.IO.FileMode>"
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateFromFile (string path, System.IO.FileMode mode, string mapName);
     parameters:
     - id: path
       type: System.String
-      description: "The path to the file to map."
+      description: "O caminho para o arquivo de mapa."
     - id: mode
       type: System.IO.FileMode
-      description: "Access mode; must be <xref href=&quot;System.IO.FileMode&quot;></xref>."
+      description: "Modo de acesso; must be <xref href=&quot;System.IO.FileMode&quot;></xref>."
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified name and access mode."
+      description: "Um arquivo de memória mapeada que tem o modo de acesso e do nome especificado."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>path</code> is an empty string, contains only white space, or has one or more invalid characters, as defined by the &lt;xref:System.IO.Path.GetInvalidFileNameChars%2A?displayProperty=fullName&gt; method.       -or-       <code>path</code> refers to an invalid device.       -or-       <code>mapName</code> is an empty string.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>."
+    description: "<code>path</code>é uma cadeia de caracteres vazia, contém somente espaços em branco ou tem um ou mais caracteres inválidos, conforme definido pelo &lt;xref:System.IO.Path.GetInvalidFileNameChars%2A?displayProperty=fullName&gt; método.       - ou - <code>path</code> refere-se a um dispositivo inválido.       - ou - <code>mapName</code> é uma cadeia de caracteres vazia.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> or <code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>or <code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "<code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>, <xref href=&quot;System.IO.FileMode&quot;></xref>, or <xref href=&quot;System.IO.FileMode&quot;></xref>.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref> and the file on disk does not exist.       -or-       An I/O error occurred."
+    description: "<code>mode</code>is <xref href=&quot;System.IO.FileMode&quot;></xref>, <xref href=&quot;System.IO.FileMode&quot;></xref>, or <xref href=&quot;System.IO.FileMode&quot;></xref>.       - ou - <code>mode</code> é <xref href=&quot;System.IO.FileMode&quot;> </xref> e o arquivo no disco não existe.       - ou - erro de uma e/s."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "<code>path</code> exceeds the maximum length defined by the operating system. In Windows, paths must contain fewer than 248 characters, and file names must contain fewer than 260 characters."
+    description: "<code>path</code>excede o comprimento máximo definido pelo sistema operacional. No Windows, os caminhos devem conter menos de 248 caracteres e nomes de arquivo devem conter menos de 260 caracteres."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permissions for the file."
+    description: "O chamador não tem as permissões necessárias para o arquivo."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile(System.String,System.IO.FileMode,System.String,System.Int64)
@@ -200,46 +200,46 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file that has the specified access mode, name, and capacity from a file on disk."
-  remarks: "The `mode` parameter pertains to the source file on disk.       If `capacity` is larger than the size of the file on disk, the file on disk is increased to match the specified capacity even if no data is written to the memory-mapped file. To prevent this from occurring, specify 0 (zero) for the default capacity, which will internally set `capacity` to the size of the file on disk."
+  summary: "Cria um arquivo de mapeamento de memória que tem o modo de acesso especificado, o nome e a capacidade de um arquivo no disco."
+  remarks: "O `mode` parâmetro está relacionado ao arquivo de origem no disco.       Se `capacity` é maior do que o tamanho do arquivo no disco, o arquivo no disco é aumentado para corresponder a capacidade especificada, mesmo que nenhum dado é gravado no arquivo de mapeamento de memória. Para evitar que isso ocorra, especifique 0 (zero) para a capacidade padrão, que definirá internamente `capacity` para o tamanho do arquivo no disco."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateFromFile (string path, System.IO.FileMode mode, string mapName, long capacity);
     parameters:
     - id: path
       type: System.String
-      description: "The path to the file to map."
+      description: "O caminho para o arquivo de mapa."
     - id: mode
       type: System.IO.FileMode
-      description: "Access mode; can be any of the <xref href=&quot;System.IO.FileMode&quot;></xref> enumeration values except <xref href=&quot;System.IO.FileMode&quot;></xref>."
+      description: "Modo de acesso; pode ser qualquer o <xref href=&quot;System.IO.FileMode&quot;> </xref> valores de enumeração exceto <xref href=&quot;System.IO.FileMode&quot;> </xref>."
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file. Specify 0 to set the capacity to the size of the file on disk."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória. Especifique 0 para definir a capacidade para o tamanho do arquivo no disco."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>path</code> is an empty string, contains only white space, or has one or more invalid characters, as defined by the &lt;xref:System.IO.Path.GetInvalidFileNameChars%2A?displayProperty=fullName&gt; method.       -or-       <code>path</code> refers to an invalid device.       -or-       <code>mapName</code> is an empty string.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>."
+    description: "<code>path</code>é uma cadeia de caracteres vazia, contém somente espaços em branco ou tem um ou mais caracteres inválidos, conforme definido pelo &lt;xref:System.IO.Path.GetInvalidFileNameChars%2A?displayProperty=fullName&gt; método.       - ou - <code>path</code> refere-se a um dispositivo inválido.       - ou - <code>mapName</code> é uma cadeia de caracteres vazia.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> or <code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>or <code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is greater than the size of the logical address space.       -or-       <code>capacity</code> is less than zero.       -or-       <code>capacity</code> is less than the file size (but not zero).       -or-       <code>capacity</code> is zero, and the size of the file on disk is also zero."
+    description: "<code>capacity</code>é maior que o tamanho do espaço de endereço lógico.       - ou - <code>capacity</code> é menor que zero.       - ou - <code>capacity</code> é menor que o tamanho do arquivo (mas não zero).       - ou - <code>capacity</code> é zero, e o tamanho do arquivo em disco também é zero."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred."
+    description: "Ocorreu um erro de e/s."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "<code>path</code> exceeds the maximum length defined by the operating system. In Windows, paths must contain fewer than 248 characters, and file names must contain fewer than 260 characters."
+    description: "<code>path</code>excede o comprimento máximo definido pelo sistema operacional. No Windows, os caminhos devem conter menos de 248 caracteres e nomes de arquivo devem conter menos de 260 caracteres."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permissions for the file."
+    description: "O chamador não tem as permissões necessárias para o arquivo."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile(System.String,System.IO.FileMode,System.String,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess)
@@ -254,49 +254,49 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file that has the specified access mode, name, capacity, and access type from a file on disk."
-  remarks: "The `mode` parameter pertains to the source file on disk.       If `capacity` is larger than the size of the file on disk, the file on disk is increased to match the specified capacity even if no data is written to the memory-mapped file. To prevent this from occurring, specify 0 (zero) for the default capacity, which will internally set `capacity` to the size of the file on disk."
+  summary: "Cria um arquivo de mapeamento de memória que tem o modo de acesso especificado, o nome, a capacidade e o tipo de acesso de um arquivo no disco."
+  remarks: "O `mode` parâmetro está relacionado ao arquivo de origem no disco.       Se `capacity` é maior do que o tamanho do arquivo no disco, o arquivo no disco é aumentado para corresponder a capacidade especificada, mesmo que nenhum dado é gravado no arquivo de mapeamento de memória. Para evitar que isso ocorra, especifique 0 (zero) para a capacidade padrão, que definirá internamente `capacity` para o tamanho do arquivo no disco."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateFromFile (string path, System.IO.FileMode mode, string mapName, long capacity, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access);
     parameters:
     - id: path
       type: System.String
-      description: "The path to the file to map."
+      description: "O caminho para o arquivo de mapa."
     - id: mode
       type: System.IO.FileMode
-      description: "Access mode; can be any of the <xref href=&quot;System.IO.FileMode&quot;></xref> enumeration values except <xref href=&quot;System.IO.FileMode&quot;></xref>."
+      description: "Modo de acesso; pode ser qualquer o <xref href=&quot;System.IO.FileMode&quot;> </xref> valores de enumeração exceto <xref href=&quot;System.IO.FileMode&quot;> </xref>."
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file. Specify 0 to set the capacity to the size of the file on disk."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória. Especifique 0 para definir a capacidade para o tamanho do arquivo no disco."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string.       -or-       <code>access</code> is not an allowed value.       -or-       <code>path</code> specifies an empty file.       -or-       <code>access</code> is specified as <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> and capacity is greater than the size of the file indicated by <code>path</code>.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia.       - ou - <code>access</code> não é um valor permitido.       - ou - <code>path</code> Especifica um arquivo vazio.       - ou - <code>access</code> é especificado como <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> e a capacidade é maior que o tamanho do arquivo indicado pelo <code>path</code>.       -or-       <code>mode</code> is <xref href=&quot;System.IO.FileMode&quot;></xref>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> or <code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>or <code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is greater than the size of the logical address space.       -or-       <code>capacity</code> is less than zero.       -or-       <code>capacity</code> is less than the file size (but not zero).       -or-       <code>capacity</code> is zero, and the size of the file on disk is also zero.       -or-       <code>access</code> is not a defined <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> value.       -or-       The size of the file indicated by <code>path</code> is greater than <code>capacity</code>."
+    description: "<code>capacity</code>é maior que o tamanho do espaço de endereço lógico.       - ou - <code>capacity</code> é menor que zero.       - ou - <code>capacity</code> é menor que o tamanho do arquivo (mas não zero).       - ou - <code>capacity</code> é zero, e o tamanho do arquivo em disco também é zero.       - ou - <code>access</code> não está definido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor.       o tamanho do arquivo indicado pelo - ou - <code>path</code> é maior do que <code>capacity</code>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "-or-       An I/O error occurred."
+    description: "- ou - erro de uma e/s."
   - type: System.IO.PathTooLongException
     commentId: T:System.IO.PathTooLongException
-    description: "<code>path</code> exceeds the maximum length defined by the operating system. In Windows, paths must contain fewer than 248 characters, and file names must contain fewer than 260 characters."
+    description: "<code>path</code>excede o comprimento máximo definido pelo sistema operacional. No Windows, os caminhos devem conter menos de 248 caracteres e nomes de arquivo devem conter menos de 260 caracteres."
   - type: System.Security.SecurityException
     commentId: T:System.Security.SecurityException
-    description: "The caller does not have the required permissions for the file."
+    description: "O chamador não tem as permissões necessárias para o arquivo."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile(System.IO.FileStream,System.String,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess,System.IO.HandleInheritability,System.Boolean)
@@ -311,42 +311,42 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file from an existing file with the specified access mode, name, inheritability, and capacity."
+  summary: "Cria um arquivo de mapeamento de memória de um arquivo existente com o modo de acesso especificado, o nome, a inheritability e a capacidade."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateFromFile (System.IO.FileStream fileStream, string mapName, long capacity, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access, System.IO.HandleInheritability inheritability, bool leaveOpen);
     parameters:
     - id: fileStream
       type: System.IO.FileStream
-      description: "The file stream of the existing file."
+      description: "O fluxo de arquivos do arquivo existente."
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file. Specify 0 to set the capacity to the size of `filestream`."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória. Especifique 0 para definir a capacidade para o tamanho do `filestream`."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file.       This parameter can’t be set to <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória.       Esse parâmetro não pode ser definido como <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     - id: inheritability
       type: System.IO.HandleInheritability
-      description: "One of the enumeration values that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is <xref:System.IO.HandleInheritability>."
+      description: "Um dos valores de enumeração que especifica se um identificador para o arquivo de mapeamento de memória pode ser herdado por um processo filho. O padrão é <xref:System.IO.HandleInheritability>.</xref:System.IO.HandleInheritability>"
     - id: leaveOpen
       type: System.Boolean
-      description: "A value that indicates whether to close the source file stream when the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFile&quot;></xref> is disposed."
+      description: "Um valor que indica se deve fechar o arquivo de origem de fluxo quando o <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFile&quot;> </xref> é descartado."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string.       -or-       <code>capacity</code> and the length of the file are zero.       -or-       <code>access</code> is set to <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> or <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value, which is not allowed.       -or-       <code>access</code> is set to <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> and <code>capacity</code> is larger than the length of <xref uid=&quot;langword_csharp_filestream&quot; name=&quot;filestream&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> ou uma cadeia de caracteres vazia.       - ou - <code>capacity</code> e o tamanho do arquivo é zero.       - ou - <code>access</code> é definido como <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> ou <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> o valor de enumeração, que não é permitido.       - ou - <code>access</code> é definido como <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> e <code>capacity</code> é maior do que o comprimento de <xref uid=&quot;langword_csharp_filestream&quot; name=&quot;filestream&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>fileStream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>fileStream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is less than zero.       -or-       <code>capacity</code> is less than the file size.       -or-       <code>access</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value.       -or-       <code>inheritability</code> is not a valid <xref:System.IO.HandleInheritability> enumeration value."
+    description: "<code>capacity</code>é menor que zero.       - ou - <code>capacity</code> é menor que o tamanho do arquivo.       - ou - <code>access</code> não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração.       - ou - <code>inheritability</code> não é válido <xref:System.IO.HandleInheritability> valor de enumeração."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile(System.IO.FileStream,System.String,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess,System.IO.MemoryMappedFiles.MemoryMappedFileSecurity,System.IO.HandleInheritability,System.Boolean)
@@ -361,55 +361,55 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file that has the specified name, capacity, access type, security permissions, inheritability, and disposal requirement from a file on disk."
-  remarks: "If `capacity` is larger than the size of the file on disk, the file on disk is increased to match the specified capacity even if no data is written to the memory-mapped file. To prevent this from occurring, specify 0 (zero) for the default capacity, which will internally set `capacity` to the size of the file on disk."
+  summary: "Cria um arquivo de mapeamento de memória que tem o nome especificado, capacidade, tipo de acesso, permissões de segurança, inheritability e requisito de descarte de um arquivo no disco."
+  remarks: "Se `capacity` é maior do que o tamanho do arquivo no disco, o arquivo no disco é aumentado para corresponder a capacidade especificada, mesmo que nenhum dado é gravado no arquivo de mapeamento de memória. Para evitar que isso ocorra, especifique 0 (zero) para a capacidade padrão, que definirá internamente `capacity` para o tamanho do arquivo no disco."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateFromFile (System.IO.FileStream fileStream, string mapName, long capacity, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access, System.IO.MemoryMappedFiles.MemoryMappedFileSecurity memoryMappedFileSecurity, System.IO.HandleInheritability inheritability, bool leaveOpen);
     parameters:
     - id: fileStream
       type: System.IO.FileStream
-      description: "The `fileStream` to the file to map."
+      description: "O `fileStream` para o arquivo de mapa."
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file. Specify 0 to set the capacity to the size of the file on disk."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória. Especifique 0 para definir a capacidade para o tamanho do arquivo no disco."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file.       This parameter can’t be set to <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória.       Esse parâmetro não pode ser definido como <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     - id: memoryMappedFileSecurity
       type: System.IO.MemoryMappedFiles.MemoryMappedFileSecurity
-      description: "The permissions that can be granted for file access and operations on memory-mapped files.       This parameter can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "As permissões que podem ser concedidas para acesso a arquivos e operações em arquivos mapeados na memória.       Esse parâmetro pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     - id: inheritability
       type: System.IO.HandleInheritability
-      description: "One of the enumeration values that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is <xref:System.IO.HandleInheritability>."
+      description: "Um dos valores de enumeração que especifica se um identificador para o arquivo de mapeamento de memória pode ser herdado por um processo filho. O padrão é <xref:System.IO.HandleInheritability>.</xref:System.IO.HandleInheritability>"
     - id: leaveOpen
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to not dispose `fileStream` after the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFile&quot;></xref> is closed; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to dispose `fileStream`."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para descartar `fileStream` depois que o <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFile&quot;> </xref> é fechado; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to dispose `fileStream`."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string.       -or-       <code>capacity</code> and the length of the file are zero.       -or-       <code>access</code> is set to the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> or <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value, which is not allowed."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia.       - ou - <code>capacity</code> e o tamanho do arquivo é zero.       - ou - <code>access</code> é definido como o <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> ou <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> o valor de enumeração, que não é permitido."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>fileStream</code> or <code>mapname</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>fileStream</code>or <code>mapname</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is less than zero.       -or-       <code>capacity</code> is less than the file size.       -or-       <code>access</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value.       -or-       <code>inheritability</code> is not a valid <xref:System.IO.HandleInheritability> enumeration value."
+    description: "<code>capacity</code>é menor que zero.       - ou - <code>capacity</code> é menor que o tamanho do arquivo.       - ou - <code>access</code> não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração.       - ou - <code>inheritability</code> não é válido <xref:System.IO.HandleInheritability> valor de enumeração."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<code>fileStream</code> was closed."
+    description: "<code>fileStream</code>foi fechada."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "<code>access</code> is set to <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> when <code>fileStream</code>&quot;s access is set to <xref href=&quot;System.IO.FileAccess&quot;></xref> or <xref href=&quot;System.IO.FileAccess&quot;></xref>."
+    description: "<code>access</code>is set to <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> when <code>fileStream</code>&quot;s access is set to <xref href=&quot;System.IO.FileAccess&quot;></xref> or <xref href=&quot;System.IO.FileAccess&quot;></xref>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "<code>mapName</code> already exists."
+    description: "<code>mapName</code>já existe."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew(System.String,System.Int64)
@@ -424,8 +424,8 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file that has the specified capacity in system memory."
-  remarks: "Use this method to create a memory-mapped file that is not persisted (that is, not associated with a file on disk), which you can use to share data between processes."
+  summary: "Cria um arquivo de memória mapeada que tem a capacidade especificada na memória do sistema."
+  remarks: "Use esse método para criar um arquivo de mapeamento de memória que não é persistido (ou seja, não associado com um arquivo no disco), que pode ser usado para compartilhar dados entre processos."
   example:
   - "The following example is composed of three separate processes (console applications) that write `Boolean` values to a memory-mapped file. The following sequence of actions occur:  \n  \n1.  Process A creates the memory-mapped file and writes a value to it.  \n  \n2.  Process B opens the memory-mapped file and writes a value to it.  \n  \n3.  Process C opens the memory-mapped file and writes a value to it.  \n  \n4.  Process A reads and displays the values from the memory-mapped file.  \n  \n5.  After Process A is finished with the memory-mapped file, the file is immediately reclaimed by garbage collection.  \n  \n To run this example, do the following:  \n  \n1.  Compile the applications and open three Command windows.  \n  \n2.  In the first Command window, run Process A.  \n  \n3.  In the second Command window, run Process B.  \n  \n4.  Return to Process A and press ENTER.  \n  \n5.  In the third Command window, run Process C.  \n  \n6.  Return to Process A and press ENTER.  \n  \n The output of Process A is as follows:  \n  \n```  \nStart Process B and press ENTER to continue.  \nStart Process C and press ENTER to continue.  \nProcess A says: True  \nProcess B says: False  \nProcess C says: True  \n```  \n  \n **Process A**  \n  \n [!code-vb[System.IO.MemoryMappedFiles_IPC_X#1](~/add/codesnippet/visualbasic/2726e3da-0984-4dfa-b22c-_1.vb)]\n [!code-cs[System.IO.MemoryMappedFiles_IPC_X#1](~/add/codesnippet/csharp/2726e3da-0984-4dfa-b22c-_1.cs)]  \n  \n **Process B**  \n  \n [!code-vb[System.IO.MemoryMappedFiles_IPC_A#1](~/add/codesnippet/visualbasic/2726e3da-0984-4dfa-b22c-_2.vb)]\n [!code-cs[System.IO.MemoryMappedFiles_IPC_A#1](~/add/codesnippet/csharp/2726e3da-0984-4dfa-b22c-_2.cs)]  \n  \n **Process C**  \n  \n [!code-cs[System.IO.MemoryMappedFiles_IPC_B#1](~/add/codesnippet/csharp/2726e3da-0984-4dfa-b22c-_3.cs)]\n [!code-vb[System.IO.MemoryMappedFiles_IPC_B#1](~/add/codesnippet/visualbasic/2726e3da-0984-4dfa-b22c-_3.vb)]"
   syntax:
@@ -433,24 +433,24 @@ items:
     parameters:
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified name and capacity."
+      description: "Um arquivo de memória mapeada que tem o nome especificado e a capacidade."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is less than or equal to zero."
+    description: "<code>capacity</code>é menor ou igual a zero."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew(System.String,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess)
@@ -465,34 +465,34 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file that has the specified capacity and access type in system memory."
-  remarks: "Use this method to create a memory-mapped file that is not persisted (that is, not associated with a file on disk), which you can use to share data between processes."
+  summary: "Cria um arquivo de memória mapeada que tem a capacidade especificada e o tipo de acesso na memória do sistema."
+  remarks: "Use esse método para criar um arquivo de mapeamento de memória que não é persistido (ou seja, não associado com um arquivo no disco), que pode ser usado para compartilhar dados entre processos."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateNew (string mapName, long capacity, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access);
     parameters:
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória. O padrão é <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string.       -or-       <code>access</code> is set to write-only with the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia.       - ou - <code>access</code> está definida como somente gravação com o <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is less than or equal to zero.       -or-       <code>access</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value."
+    description: "<code>capacity</code>é menor ou igual a zero.       - ou - <code>access</code> não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew(System.String,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess,System.IO.MemoryMappedFiles.MemoryMappedFileOptions,System.IO.HandleInheritability)
@@ -507,39 +507,39 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file that has the specified name, capacity, access type, memory allocation options and inheritability."
+  summary: "Cria um arquivo de mapeamento de memória que tem o nome especificado, capacidade, tipo de acesso, as opções de alocação de memória e inheritability."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateNew (string mapName, long capacity, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access, System.IO.MemoryMappedFiles.MemoryMappedFileOptions options, System.IO.HandleInheritability inheritability);
     parameters:
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória. O padrão é <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     - id: options
       type: System.IO.MemoryMappedFiles.MemoryMappedFileOptions
-      description: "A bitwise combination of enumeration values that specifies memory allocation options for the memory-mapped file."
+      description: "Uma combinação bit a bit dos valores de enumeração que especifica as opções de alocação de memória para o arquivo de mapeamento de memória."
     - id: inheritability
       type: System.IO.HandleInheritability
-      description: "A value that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is <xref:System.IO.HandleInheritability>."
+      description: "Um valor que especifica se um identificador para o arquivo de mapeamento de memória pode ser herdado por um processo filho. O padrão é <xref:System.IO.HandleInheritability>.</xref:System.IO.HandleInheritability>"
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string.       -or-       <code>access</code> is set to write-only with the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia.       - ou - <code>access</code> está definida como somente gravação com o <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is less than or equal to zero.       -or-       <code>access</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value.       -or-       <code>inheritability</code> is not a valid <xref:System.IO.HandleInheritability> value."
+    description: "<code>capacity</code>é menor ou igual a zero.       - ou - <code>access</code> não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração.       - ou - <code>inheritability</code> não é válido <xref:System.IO.HandleInheritability> valor."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew(System.String,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess,System.IO.MemoryMappedFiles.MemoryMappedFileOptions,System.IO.MemoryMappedFiles.MemoryMappedFileSecurity,System.IO.HandleInheritability)
@@ -554,43 +554,43 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a memory-mapped file that has the specified capacity, access type, memory allocation, security permissions, and inheritability in system memory."
-  remarks: "Use this method to create a memory-mapped file that is not persisted (that is, not associated with a file on disk), which you can use to share data between processes."
+  summary: "Cria um arquivo de memória mapeada que tem a capacidade especificada, o tipo de acesso, a alocação de memória, a permissões de segurança e o inheritability na memória do sistema."
+  remarks: "Use esse método para criar um arquivo de mapeamento de memória que não é persistido (ou seja, não associado com um arquivo no disco), que pode ser usado para compartilhar dados entre processos."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateNew (string mapName, long capacity, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access, System.IO.MemoryMappedFiles.MemoryMappedFileOptions options, System.IO.MemoryMappedFiles.MemoryMappedFileSecurity memoryMappedFileSecurity, System.IO.HandleInheritability inheritability);
     parameters:
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória. O padrão é <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     - id: options
       type: System.IO.MemoryMappedFiles.MemoryMappedFileOptions
-      description: "A bitwise combination of enumeration values that specifies memory allocation options for the memory-mapped file."
+      description: "Uma combinação bit a bit dos valores de enumeração que especifica as opções de alocação de memória para o arquivo de mapeamento de memória."
     - id: memoryMappedFileSecurity
       type: System.IO.MemoryMappedFiles.MemoryMappedFileSecurity
-      description: "The permissions that can be granted for file access and operations on memory-mapped files.       This parameter can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "As permissões que podem ser concedidas para acesso a arquivos e operações em arquivos mapeados na memória.       Esse parâmetro pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     - id: inheritability
       type: System.IO.HandleInheritability
-      description: "One of the enumeration values that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is <xref:System.IO.HandleInheritability>."
+      description: "Um dos valores de enumeração que especifica se um identificador para o arquivo de mapeamento de memória pode ser herdado por um processo filho. O padrão é <xref:System.IO.HandleInheritability>.</xref:System.IO.HandleInheritability>"
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string.       -or-       <code>access</code> is set to write-only with the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia.       - ou - <code>access</code> está definida como somente gravação com o <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is less than or equal to zero.       -or-       <code>access</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value.       -or-       <code>inheritability</code> is not a valid <xref:System.IO.HandleInheritability> enumeration value."
+    description: "<code>capacity</code>é menor ou igual a zero.       - ou - <code>access</code> não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração.       - ou - <code>inheritability</code> não é válido <xref:System.IO.HandleInheritability> valor de enumeração."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateOrOpen(System.String,System.Int64)
@@ -605,31 +605,31 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates or opens a memory-mapped file that has the specified capacity in system memory."
-  remarks: "Use this method to create or open a memory-mapped file that is not persisted (that is, not associated with a file on disk), which you can use to share data between processes."
+  summary: "Cria ou abre um arquivo de memória mapeada que tem a capacidade especificada na memória do sistema."
+  remarks: "Use esse método para criar ou abrir um arquivo de mapeamento de memória que não é persistido (ou seja, não associado com um arquivo no disco), que pode ser usado para compartilhar dados entre processos."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateOrOpen (string mapName, long capacity);
     parameters:
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified name and size."
+      description: "Um arquivo de memória mapeada que tem o nome especificado e o tamanho."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateOrOpen*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is greater than the size of the logical address space.       -or-       <code>capacity</code> is less than or equal to zero."
+    description: "<code>capacity</code>é maior que o tamanho do espaço de endereço lógico.       - ou - <code>capacity</code> é menor ou igual a zero."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateOrOpen(System.String,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess)
@@ -644,37 +644,37 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates or opens a memory-mapped file that has the specified capacity and access type in system memory."
-  remarks: "Use this method to create or open a memory-mapped file that is not persisted (that is, not associated with a file on disk), which you can use to share data between processes."
+  summary: "Cria ou abre um arquivo de memória mapeada que tem a capacidade especificada e o tipo de acesso na memória do sistema."
+  remarks: "Use esse método para criar ou abrir um arquivo de mapeamento de memória que não é persistido (ou seja, não associado com um arquivo no disco), que pode ser usado para compartilhar dados entre processos."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateOrOpen (string mapName, long capacity, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access);
     parameters:
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória. O padrão é <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateOrOpen*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string.       -or-       <code>access</code> is set to write-only with the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia.       - ou - <code>access</code> está definida como somente gravação com o <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is greater than the size of the logical address space.       -or-       <code>capacity</code> is less than or equal to zero.       -or-       <code>access</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value."
+    description: "<code>capacity</code>é maior que o tamanho do espaço de endereço lógico.       - ou - <code>capacity</code> é menor ou igual a zero.       - ou - <code>access</code> não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The operating system denied the specified access to the file; for example, access is set to <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> or <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>, but the file or directory is read-only."
+    description: "O sistema operacional negou o acesso especificado no arquivo; Por exemplo, o acesso é definido como <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> ou <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>, mas o arquivo ou diretório é somente leitura."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateOrOpen(System.String,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess,System.IO.MemoryMappedFiles.MemoryMappedFileOptions,System.IO.HandleInheritability)
@@ -689,42 +689,42 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a new empty memory mapped file or opens an existing memory mapped file if one exists with the same name. If opening an existing file, the capacity, options, and memory arguments will be ignored."
+  summary: "Cria um novo arquivo mapeada de memória vazia ou abre um arquivo de memória mapeada existente, se existir um com o mesmo nome. Se abrir um arquivo existente, os argumentos de capacidade e opções de memória serão ignorados."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateOrOpen (string mapName, long capacity, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access, System.IO.MemoryMappedFiles.MemoryMappedFileOptions options, System.IO.HandleInheritability inheritability);
     parameters:
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória. O padrão é <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     - id: options
       type: System.IO.MemoryMappedFiles.MemoryMappedFileOptions
-      description: "A bitwise combination of values that indicate the memory allocation options to apply to the file."
+      description: "Uma combinação bit a bit de valores que indicam as opções de alocação de memória para aplicar ao arquivo."
     - id: inheritability
       type: System.IO.HandleInheritability
-      description: "A value that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is <xref:System.IO.HandleInheritability>."
+      description: "Um valor que especifica se um identificador para o arquivo de mapeamento de memória pode ser herdado por um processo filho. O padrão é <xref:System.IO.HandleInheritability>.</xref:System.IO.HandleInheritability>"
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateOrOpen*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string.       -or-       <code>access</code> is set to write-only with the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia.       - ou - <code>access</code> está definida como somente gravação com o <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is greater than the size of the logical address space.       -or-       <code>capacity</code> is less than or equal to zero.       -or-       <code>access</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value.       -or-       <code>inheritability</code> is not a valid <xref:System.IO.HandleInheritability> enumeration value."
+    description: "<code>capacity</code>é maior que o tamanho do espaço de endereço lógico.       - ou - <code>capacity</code> é menor ou igual a zero.       - ou - <code>access</code> não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração.       - ou - <code>inheritability</code> não é válido <xref:System.IO.HandleInheritability> valor de enumeração."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The operating system denied the specified access to the file; for example, access is set to <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> or <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>, but the file or directory is read-only."
+    description: "O sistema operacional negou o acesso especificado no arquivo; Por exemplo, o acesso é definido como <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> ou <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>, mas o arquivo ou diretório é somente leitura."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateOrOpen(System.String,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess,System.IO.MemoryMappedFiles.MemoryMappedFileOptions,System.IO.MemoryMappedFiles.MemoryMappedFileSecurity,System.IO.HandleInheritability)
@@ -739,46 +739,46 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates or opens a memory-mapped file that has the specified capacity, access type, memory allocation, security permissions, and inheritability in system memory."
-  remarks: "Use this method to create or open a memory-mapped file that is not persisted (that is, not associated with a file on disk), which you can use to share data between processes."
+  summary: "Cria ou abre um arquivo de memória mapeada que tem a capacidade especificada, o tipo de acesso, a alocação de memória, a permissões de segurança e o inheritability na memória do sistema."
+  remarks: "Use esse método para criar ou abrir um arquivo de mapeamento de memória que não é persistido (ou seja, não associado com um arquivo no disco), que pode ser usado para compartilhar dados entre processos."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile CreateOrOpen (string mapName, long capacity, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access, System.IO.MemoryMappedFiles.MemoryMappedFileOptions options, System.IO.MemoryMappedFiles.MemoryMappedFileSecurity memoryMappedFileSecurity, System.IO.HandleInheritability inheritability);
     parameters:
     - id: mapName
       type: System.String
-      description: "A name to assign to the memory-mapped file."
+      description: "Um nome a ser atribuído ao arquivo de mapeamento de memória."
     - id: capacity
       type: System.Int64
-      description: "The maximum size, in bytes, to allocate to the memory-mapped file."
+      description: "O tamanho máximo, em bytes, para alocar para o arquivo de mapeamento de memória."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória. O padrão é <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     - id: options
       type: System.IO.MemoryMappedFiles.MemoryMappedFileOptions
-      description: "A bitwise combination of enumeration values that specifies memory allocation options for the memory-mapped file."
+      description: "Uma combinação bit a bit dos valores de enumeração que especifica as opções de alocação de memória para o arquivo de mapeamento de memória."
     - id: memoryMappedFileSecurity
       type: System.IO.MemoryMappedFiles.MemoryMappedFileSecurity
-      description: "The permissions that can be granted for file access and operations on memory-mapped files.       This parameter can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "As permissões que podem ser concedidas para acesso a arquivos e operações em arquivos mapeados na memória.       Esse parâmetro pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     - id: inheritability
       type: System.IO.HandleInheritability
-      description: "One of the enumeration values that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is <xref:System.IO.HandleInheritability>."
+      description: "Um dos valores de enumeração que especifica se um identificador para o arquivo de mapeamento de memória pode ser herdado por um processo filho. O padrão é <xref:System.IO.HandleInheritability>.</xref:System.IO.HandleInheritability>"
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateOrOpen*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string.       -or-       <code>access</code> is set to write-only with the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia.       - ou - <code>access</code> está definida como somente gravação com o <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>capacity</code> is greater than the size of the logical address space.       -or-       <code>capacity</code> is less than or equal to zero.       -or-       <code>access</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value.       -or-       <code>inheritability</code> is not a valid <xref:System.IO.HandleInheritability> enumeration value."
+    description: "<code>capacity</code>é maior que o tamanho do espaço de endereço lógico.       - ou - <code>capacity</code> é menor ou igual a zero.       - ou - <code>access</code> não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração.       - ou - <code>inheritability</code> não é válido <xref:System.IO.HandleInheritability> valor de enumeração."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The operating system denied the specified <code>access</code> to the file; for example, <code>access</code> is set to <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> or <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>, but the file or directory is read-only."
+    description: "O sistema operacional negado <code> access </code> no arquivo; por exemplo, <code> access </code> é definido como <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> ou <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>, mas o arquivo ou diretório é somente leitura."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewAccessor
@@ -793,19 +793,19 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedViewAccessor&quot;></xref> that maps to a view of the memory-mapped file."
-  remarks: "You can use the view returned by this method for random access to a memory-mapped file."
+  summary: "Cria um <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedViewAccessor&quot;> </xref> que mapeia para um modo de exibição do arquivo de mapeamento de memória."
+  remarks: "Você pode usar o modo de exibição retornado por este método para acesso aleatório em um arquivo de mapeamento de memória."
   syntax:
     content: public System.IO.MemoryMappedFiles.MemoryMappedViewAccessor CreateViewAccessor ();
     parameters: []
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedViewAccessor
-      description: "A randomly accessible block of memory."
+      description: "Um bloco aleatoriamente acessível de memória."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewAccessor*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access to the memory-mapped file is unauthorized."
+    description: "Não está autorizado a acessar o arquivo de mapeamento de memória."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewAccessor(System.Int64,System.Int64)
@@ -820,8 +820,8 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedViewAccessor&quot;></xref> that maps to a view of the memory-mapped file, and that has the specified offset and size."
-  remarks: "You can use the view returned by this method for random access to a memory-mapped file.       To create a complete view of the memory-mapped file, specify 0 (zero) for the `size` parameter. If you do this, the size of the view might be smaller or larger than the size of the source file on disk. This is because views are provided in units of system pages, and the size of the view is rounded up to the next system page size."
+  summary: "Cria um <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedViewAccessor&quot;> </xref> que mapeia para um modo de exibição do arquivo de mapeamento de memória e que tenham o tamanho e o deslocamento especificado."
+  remarks: "Você pode usar o modo de exibição retornado por este método para acesso aleatório em um arquivo de mapeamento de memória.       Para criar uma exibição completa do arquivo de memória mapeada, especifique 0 (zero) para o `size` parâmetro. Se você fizer isso, o tamanho do modo de exibição pode ser menor ou maior que o tamanho do arquivo de origem no disco. Isso ocorre porque os modos de exibição são fornecidos em unidades de páginas de sistema e o tamanho da exibição é arredondado para o próximo tamanho de página do sistema."
   example:
   - "The following example creates a view of a memory-mapped file and edits it. This code example is part of a larger example provided for the <xref:System.IO.MemoryMappedFiles.MemoryMappedFile> class.  \n  \n [!code-vb[MemoryMappedFiles.MemoryMappedFile.CreateFromFile#2](~/add/codesnippet/visualbasic/eabd93aa-7563-4639-a698-_1.vb)]\n [!code-cs[MemoryMappedFiles.MemoryMappedFile.CreateFromFile#2](~/add/codesnippet/csharp/eabd93aa-7563-4639-a698-_1.cs)]"
   syntax:
@@ -829,24 +829,24 @@ items:
     parameters:
     - id: offset
       type: System.Int64
-      description: "The byte at which to start the view."
+      description: "Bytes no qual iniciar o modo de exibição."
     - id: size
       type: System.Int64
-      description: "The size of the view. Specify 0 (zero) to create a view that starts at `offset` and ends approximately at the end of the memory-mapped file."
+      description: "O tamanho da exibição. Especificar zero (0) para criar uma exibição que começa em `offset` e termina aproximadamente no final do arquivo de mapeamento de memória."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedViewAccessor
-      description: "A randomly accessible block of memory."
+      description: "Um bloco aleatoriamente acessível de memória."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewAccessor*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>size</code> is a negative value.       -or-       <code>size</code> is greater than the logical address space."
+    description: "<code>offset</code>ou <code>size</code> é um valor negativo.       - ou - <code>size</code> é maior que o espaço de endereçamento lógico."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access to the memory-mapped file is unauthorized."
+    description: "Não está autorizado a acessar o arquivo de mapeamento de memória."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred."
+    description: "Ocorreu um erro de e/s."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewAccessor(System.Int64,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess)
@@ -861,34 +861,34 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedViewAccessor&quot;></xref> that maps to a view of the memory-mapped file, and that has the specified offset, size, and access restrictions."
-  remarks: "You can use the view returned by this method for random access to a memory-mapped file.       To create a complete view of the memory-mapped file, specify 0 (zero) for the `size` parameter. If you do this, the size of the view might be smaller or larger than the size of the source file on disk. This is because views are provided in units of system pages, and the size of the view is rounded up to the next system page size."
+  summary: "Cria um <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedViewAccessor&quot;> </xref> que mapeia para um modo de exibição do arquivo de mapeamento de memória e que foi especificado deslocamento, tamanho e restrições de acesso."
+  remarks: "Você pode usar o modo de exibição retornado por este método para acesso aleatório em um arquivo de mapeamento de memória.       Para criar uma exibição completa do arquivo de memória mapeada, especifique 0 (zero) para o `size` parâmetro. Se você fizer isso, o tamanho do modo de exibição pode ser menor ou maior que o tamanho do arquivo de origem no disco. Isso ocorre porque os modos de exibição são fornecidos em unidades de páginas de sistema e o tamanho da exibição é arredondado para o próximo tamanho de página do sistema."
   syntax:
     content: public System.IO.MemoryMappedFiles.MemoryMappedViewAccessor CreateViewAccessor (long offset, long size, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access);
     parameters:
     - id: offset
       type: System.Int64
-      description: "The byte at which to start the view."
+      description: "Bytes no qual iniciar o modo de exibição."
     - id: size
       type: System.Int64
-      description: "The size of the view. Specify 0 (zero) to create a view that starts at `offset` and ends approximately at the end of the memory-mapped file."
+      description: "O tamanho da exibição. Especificar zero (0) para criar uma exibição que começa em `offset` e termina aproximadamente no final do arquivo de mapeamento de memória."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória. O padrão é <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedViewAccessor
-      description: "A randomly accessible block of memory."
+      description: "Um bloco aleatoriamente acessível de memória."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewAccessor*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>size</code> is a negative value.       -or-       <code>size</code> is greater than the logical address space."
+    description: "<code>offset</code>ou <code>size</code> é um valor negativo.       - ou - <code>size</code> é maior que o espaço de endereçamento lógico."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "<code>access</code> is invalid for the memory-mapped file."
+    description: "<code>access</code>é inválido para o arquivo de mapeamento de memória."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurred."
+    description: "Ocorreu um erro de e/s."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewStream
@@ -903,8 +903,8 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a stream that maps to a view of the memory-mapped file."
-  remarks: "You can use the stream returned by this method for sequential access to a memory-mapped file, such as for inter-process communications."
+  summary: "Cria um fluxo que é mapeado para um modo de exibição do arquivo de mapeamento de memória."
+  remarks: "Você pode usar o fluxo retornado por esse método de acesso sequencial para um arquivo de mapeamento de memória, como para comunicações entre processos."
   example:
   - "The following example creates a stream and writes a value to it. This code example is part of a larger example provided for the <xref:System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew%2A> method.  \n  \n [!code-vb[System.IO.MemoryMappedFiles_IPC_X#2](~/add/codesnippet/visualbasic/m-system.io.memorymapped_1_1.vb)]\n [!code-cs[System.IO.MemoryMappedFiles_IPC_X#2](~/add/codesnippet/csharp/m-system.io.memorymapped_1_1.cs)]"
   syntax:
@@ -912,12 +912,12 @@ items:
     parameters: []
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedViewStream
-      description: "A stream of memory."
+      description: "Um fluxo de memória."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewStream*
   exceptions:
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access to the memory-mapped file is unauthorized."
+    description: "Não está autorizado a acessar o arquivo de mapeamento de memória."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewStream(System.Int64,System.Int64)
@@ -932,31 +932,31 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a stream that maps to a view of the memory-mapped file, and that has the specified offset and size."
-  remarks: "You can use the stream returned by this method for sequential access to a memory-mapped file, such as for inter-process communications.       To create a complete view of the memory-mapped file, specify 0 (zero) for the `size` parameter. If you do this, the size of the view might be smaller or larger than the size of the source file on disk. This is because views are provided in units of system pages, and the size of the view is rounded up to the next system page size."
+  summary: "Cria um fluxo que é mapeado para um modo de exibição do arquivo de mapeamento de memória e que tenham o tamanho e o deslocamento especificado."
+  remarks: "Você pode usar o fluxo retornado por esse método de acesso sequencial para um arquivo de mapeamento de memória, como para comunicações entre processos.       Para criar uma exibição completa do arquivo de memória mapeada, especifique 0 (zero) para o `size` parâmetro. Se você fizer isso, o tamanho do modo de exibição pode ser menor ou maior que o tamanho do arquivo de origem no disco. Isso ocorre porque os modos de exibição são fornecidos em unidades de páginas de sistema e o tamanho da exibição é arredondado para o próximo tamanho de página do sistema."
   syntax:
     content: public System.IO.MemoryMappedFiles.MemoryMappedViewStream CreateViewStream (long offset, long size);
     parameters:
     - id: offset
       type: System.Int64
-      description: "The byte at which to start the view."
+      description: "Bytes no qual iniciar o modo de exibição."
     - id: size
       type: System.Int64
-      description: "The size of the view. Specify 0 (zero) to create a view that starts at `offset` and ends approximately at the end of the memory-mapped file."
+      description: "O tamanho da exibição. Especificar zero (0) para criar uma exibição que começa em `offset` e termina aproximadamente no final do arquivo de mapeamento de memória."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedViewStream
-      description: "A stream of memory that has the specified offset and size."
+      description: "Um fluxo de memória que tem o tamanho e o deslocamento especificado."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewStream*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>size</code> is a negative value.       -or-       <code>size</code> is greater than the logical address space."
+    description: "<code>offset</code>ou <code>size</code> é um valor negativo.       - ou - <code>size</code> é maior que o espaço de endereçamento lógico."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access to the memory-mapped file is unauthorized."
+    description: "Não está autorizado a acessar o arquivo de mapeamento de memória."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "<code>size</code> is greater than the total virtual memory."
+    description: "<code>size</code>é maior que o total de memória virtual."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewStream(System.Int64,System.Int64,System.IO.MemoryMappedFiles.MemoryMappedFileAccess)
@@ -971,34 +971,34 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Creates a stream that maps to a view of the memory-mapped file, and that has the specified offset, size, and access type."
-  remarks: "You can use the stream returned by this method for sequential access to a memory-mapped file, such as for inter-process communications.       To create a complete view of the memory-mapped file, specify 0 (zero) for the `size` parameter. If you do this, the size of the view might be smaller or larger than the size of the source file on disk. This is because views are provided in units of system pages, and the size of the view is rounded up to the next system page size."
+  summary: "Cria um fluxo que é mapeado para um modo de exibição do arquivo de mapeamento de memória e que tem o deslocamento especificado, o tamanho e o tipo de acesso."
+  remarks: "Você pode usar o fluxo retornado por esse método de acesso sequencial para um arquivo de mapeamento de memória, como para comunicações entre processos.       Para criar uma exibição completa do arquivo de memória mapeada, especifique 0 (zero) para o `size` parâmetro. Se você fizer isso, o tamanho do modo de exibição pode ser menor ou maior que o tamanho do arquivo de origem no disco. Isso ocorre porque os modos de exibição são fornecidos em unidades de páginas de sistema e o tamanho da exibição é arredondado para o próximo tamanho de página do sistema."
   syntax:
     content: public System.IO.MemoryMappedFiles.MemoryMappedViewStream CreateViewStream (long offset, long size, System.IO.MemoryMappedFiles.MemoryMappedFileAccess access);
     parameters:
     - id: offset
       type: System.Int64
-      description: "The byte at which to start the view."
+      description: "Bytes no qual iniciar o modo de exibição."
     - id: size
       type: System.Int64
-      description: "The size of the view. Specify 0 (zero) to create a view that starts at `offset` and ends approximately at the end of the memory-mapped file."
+      description: "O tamanho da exibição. Especificar zero (0) para criar uma exibição que começa em `offset` e termina aproximadamente no final do arquivo de mapeamento de memória."
     - id: access
       type: System.IO.MemoryMappedFiles.MemoryMappedFileAccess
-      description: "One of the enumeration values that specifies the type of access allowed to the memory-mapped file. The default is <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref>."
+      description: "Um dos valores de enumeração que especifica o tipo de acesso permitido para o arquivo de mapeamento de memória. O padrão é <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref>."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedViewStream
-      description: "A stream of memory that has the specified characteristics."
+      description: "Um fluxo de memória que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.CreateViewStream*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>offset</code> or <code>size</code> is a negative value.       -or-       <code>size</code> is greater than the logical address space.       -or-       <code>access </code>is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> enumeration value."
+    description: "<code>offset</code>ou <code>size</code> é um valor negativo.       - ou - <code>size</code> é maior que o espaço de endereçamento lógico.       - ou - <code>access </code>não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> valor de enumeração."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "<code>access</code> is invalid for the memory-mapped file."
+    description: "<code>access</code>é inválido para o arquivo de mapeamento de memória."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "<code>size</code> is greater than the total virtual memory.       -or-       <code>access</code> is invalid for the memory-mapped file."
+    description: "<code>size</code>é maior que o total de memória virtual.       - ou - <code>access</code> é inválido para o arquivo de mapeamento de memória."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.Dispose
@@ -1013,7 +1013,7 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Releases all resources used by the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFile&quot;></xref>."
+  summary: "Libera todos os recursos usados pelo <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFile&quot;> </xref>."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -1033,13 +1033,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFile&quot;></xref> and optionally releases the managed resources."
+  summary: "Libera os recursos não gerenciados usados pelo <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFile&quot;> </xref> e, opcionalmente, libera os recursos gerenciados."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para liberar recursos gerenciados e não gerenciados; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> para liberar apenas recursos não gerenciados."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.Dispose*
   exceptions: []
   platform:
@@ -1056,30 +1056,30 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Gets the access control to the memory-mapped file resource."
+  summary: "Obtém o controle de acesso para o recurso de arquivos mapeados na memória."
   syntax:
     content: public System.IO.MemoryMappedFiles.MemoryMappedFileSecurity GetAccessControl ();
     parameters: []
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFileSecurity
-      description: "The permissions that can be granted for file access and operations on memory-mapped files."
+      description: "As permissões que podem ser concedidas para acesso a arquivos e operações em arquivos mapeados na memória."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.GetAccessControl*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An underlying call to set security information failed."
+    description: "Falha em uma chamada subjacente ao definir informações de segurança."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "An underlying call to set security information failed."
+    description: "Falha em uma chamada subjacente ao definir informações de segurança."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The memory-mapped file is closed."
+    description: "O arquivo de mapeamento de memória é fechado."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The current platform is Windows 98 or earlier."
+    description: "A plataforma atual é o Windows 98 ou anterior."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "An underlying call to set security information failed.       -or-       The memory-mapped file was opened as <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;></xref> only."
+    description: "Falha em uma chamada subjacente ao definir informações de segurança.       - ou - o arquivo de mapeamento de memória foi aberto como <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileAccess&quot;> </xref> somente."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.OpenExisting(System.String)
@@ -1094,8 +1094,8 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Opens an existing memory-mapped file that has the specified name in system memory."
-  remarks: "The memory-mapped file can be either a persisted memory-mapped file (associated with a file on disk) or non persisted."
+  summary: "Abre um arquivo de mapeamento de memória existente que tem o nome especificado na memória do sistema."
+  remarks: "O arquivo de mapeamento de memória pode ser um persistente mapeados por memória arquivo (associado a um arquivo no disco) ou não persistente."
   example:
   - "**Opening a Persisted Memory-Mapped File**  \n  \n The following example opens a memory-mapped file named `ImgA` that has already been created from a file on disk (as shown in the example for the <xref:System.IO.MemoryMappedFiles.MemoryMappedFile.CreateFromFile%28System.String%29> method).  \n  \n [!code-cs[memorymappedfiles.memorymappedfile.openexisting#1](~/add/codesnippet/csharp/m-system.io.memorymapped_2_1.cs)]\n [!code-vb[memorymappedfiles.memorymappedfile.openexisting#1](~/add/codesnippet/visualbasic/m-system.io.memorymapped_2_1.vb)]  \n  \n **Opening a Non-Persisted Memory-Mapped File**  \n  \n The following example opens a memory-mapped file used for inter-process communication. This code example is part of a larger example provided for the <xref:System.IO.MemoryMappedFiles.MemoryMappedFile.CreateNew%28System.String%2CSystem.Int64%29> method."
   syntax:
@@ -1103,21 +1103,21 @@ items:
     parameters:
     - id: mapName
       type: System.String
-      description: "The name of the memory-mapped file to open."
+      description: "O nome do arquivo de memória mapeada para abrir."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified name."
+      description: "Um arquivo de mapeamento de memória que tem o nome especificado."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.OpenExisting*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file specified for <code>mapName</code> does not exist."
+    description: "O arquivo especificado para <code> mapName </code> não existe."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.OpenExisting(System.String,System.IO.MemoryMappedFiles.MemoryMappedFileRights)
@@ -1132,33 +1132,33 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Opens an existing memory-mapped file that has the specified name and access rights in system memory."
+  summary: "Abre um arquivo de mapeamento de memória existente que tem os direitos de acesso e do nome especificados na memória do sistema."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile OpenExisting (string mapName, System.IO.MemoryMappedFiles.MemoryMappedFileRights desiredAccessRights);
     parameters:
     - id: mapName
       type: System.String
-      description: "The name of the memory-mapped file to open."
+      description: "O nome do arquivo de memória mapeada para abrir."
     - id: desiredAccessRights
       type: System.IO.MemoryMappedFiles.MemoryMappedFileRights
-      description: "One of the enumeration values that specifies the access rights to apply to the memory-mapped file."
+      description: "Um dos valores de enumeração que especifica os direitos de acesso para aplicar ao arquivo de mapeamento de memória."
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.OpenExisting*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>desiredAccessRights</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileRights&quot;></xref> enumeration value."
+    description: "<code>desiredAccessRights</code>não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileRights&quot;> </xref> valor de enumeração."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file specified for <code>mapName</code> does not exist."
+    description: "O arquivo especificado para <code> mapName </code> não existe."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.OpenExisting(System.String,System.IO.MemoryMappedFiles.MemoryMappedFileRights,System.IO.HandleInheritability)
@@ -1173,39 +1173,39 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Opens an existing memory-mapped file that has the specified name, access rights, and inheritability in system memory."
+  summary: "Abre um arquivo de mapeamento de memória existente que tem o nome especificado, direitos de acesso e inheritability na memória do sistema."
   syntax:
     content: public static System.IO.MemoryMappedFiles.MemoryMappedFile OpenExisting (string mapName, System.IO.MemoryMappedFiles.MemoryMappedFileRights desiredAccessRights, System.IO.HandleInheritability inheritability);
     parameters:
     - id: mapName
       type: System.String
-      description: "The name of the memory-mapped file to open."
+      description: "O nome do arquivo de memória mapeada para abrir."
     - id: desiredAccessRights
       type: System.IO.MemoryMappedFiles.MemoryMappedFileRights
-      description: "One of the enumeration values that specifies the access rights to apply to the memory-mapped file."
+      description: "Um dos valores de enumeração que especifica os direitos de acesso para aplicar ao arquivo de mapeamento de memória."
     - id: inheritability
       type: System.IO.HandleInheritability
-      description: "One of the enumeration values that specifies whether a handle to the memory-mapped file can be inherited by a child process. The default is <xref:System.IO.HandleInheritability>."
+      description: "Um dos valores de enumeração que especifica se um identificador para o arquivo de mapeamento de memória pode ser herdado por um processo filho. O padrão é <xref:System.IO.HandleInheritability>.</xref:System.IO.HandleInheritability>"
     return:
       type: System.IO.MemoryMappedFiles.MemoryMappedFile
-      description: "A memory-mapped file that has the specified characteristics."
+      description: "Um arquivo de memória mapeada que tem as características especificadas."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.OpenExisting*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>mapName</code> is an empty string."
+    description: "<code>mapName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>mapName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>mapName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>desiredAccessRights</code> is not a valid <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileRights&quot;></xref> enumeration value.       -or-       <code>inheritability</code> is not a valid <xref:System.IO.HandleInheritability> enumeration value."
+    description: "<code>desiredAccessRights</code>não é válido <xref href=&quot;System.IO.MemoryMappedFiles.MemoryMappedFileRights&quot;> </xref> valor de enumeração.       - ou - <code>inheritability</code> não é válido <xref:System.IO.HandleInheritability> valor de enumeração."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The requested access is invalid for the memory-mapped file."
+    description: "O acesso solicitado é inválido para o arquivo de mapeamento de memória."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file specified for <code>mapName</code> does not exist."
+    description: "O arquivo especificado para <code> mapName </code> não existe."
   platform:
   - net462
 - uid: System.IO.MemoryMappedFiles.MemoryMappedFile.SafeMemoryMappedFileHandle
@@ -1220,12 +1220,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Gets the file handle of a memory-mapped file."
+  summary: "Obtém o identificador de arquivo de um arquivo de mapeamento de memória."
   syntax:
     content: public Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle SafeMemoryMappedFileHandle { get; }
     return:
       type: Microsoft.Win32.SafeHandles.SafeMemoryMappedFileHandle
-      description: "The handle to the memory-mapped file."
+      description: "O identificador para o arquivo de mapeamento de memória."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.SafeMemoryMappedFileHandle*
   exceptions: []
   platform:
@@ -1242,27 +1242,27 @@ items:
   assemblies:
   - System.Core
   namespace: System.IO.MemoryMappedFiles
-  summary: "Sets the access control to the memory-mapped file resource."
+  summary: "Define o controle de acesso para o recurso de arquivos mapeados na memória."
   syntax:
     content: public void SetAccessControl (System.IO.MemoryMappedFiles.MemoryMappedFileSecurity memoryMappedFileSecurity);
     parameters:
     - id: memoryMappedFileSecurity
       type: System.IO.MemoryMappedFiles.MemoryMappedFileSecurity
-      description: "The permissions that can be granted for file access and operations on memory-mapped files."
+      description: "As permissões que podem ser concedidas para acesso a arquivos e operações em arquivos mapeados na memória."
   overload: System.IO.MemoryMappedFiles.MemoryMappedFile.SetAccessControl*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>memoryMappedFileSecurity</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>memoryMappedFileSecurity</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An underlying call to set security information failed."
+    description: "Falha em uma chamada subjacente ao definir informações de segurança."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "An underlying call to set security information failed."
+    description: "Falha em uma chamada subjacente ao definir informações de segurança."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "An underlying call to set security information failed."
+    description: "Falha em uma chamada subjacente ao definir informações de segurança."
   platform:
   - net462
 references:

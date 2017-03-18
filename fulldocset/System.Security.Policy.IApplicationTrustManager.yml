@@ -10,8 +10,8 @@ items:
   nameWithType: IApplicationTrustManager
   fullName: System.Security.Policy.IApplicationTrustManager
   type: Interface
-  summary: "Determines whether an application should be executed and which set of permissions should be granted to it."
-  remarks: "Trust managers must implement the IApplicationTrustManager interface. The host calls the <xref:System.Security.Policy.IApplicationTrustManager.DetermineApplicationTrust%2A?displayProperty=fullName> method to determine whether an application should be executed and which permissions should be granted to the application.       In the [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] and later, there is only one trust manager, which can be a custom implementation of the IApplicationTrustManager interface. The default trust manager implementation prompts the user for permission to install the application and to elevate the permissions granted to the application. Other trust manager implementations might provide different user experiences. For example, an implementation might check an enterprise list for trusted applications instead of prompting the user for that information."
+  summary: "Determina se um aplicativo deve ser executado e qual conjunto de permissões deve ser concedido a ele."
+  remarks: "Gerenciadores de confiança devem implementar a interface IApplicationTrustManager. O host chama o <xref:System.Security.Policy.IApplicationTrustManager.DetermineApplicationTrust%2A?displayProperty=fullName>método para determinar se um aplicativo deve ser executado e quais permissões devem ser concedidas ao aplicativo.</xref:System.Security.Policy.IApplicationTrustManager.DetermineApplicationTrust%2A?displayProperty=fullName>       No [!INCLUDE[net_v40_long](~/add/includes/net-v40-long-md.md)] e posterior, há apenas um Gerenciador de confiança, que pode ser uma implementação personalizada da interface IApplicationTrustManager. A implementação do Gerenciador de confiança padrão solicita ao usuário permissão para instalar o aplicativo e elevar as permissões concedidas ao aplicativo. Outras implementações do Gerenciador de confiança podem fornecer experiências de usuário diferente. Por exemplo, uma implementação pode consultar uma lista de enterprise para aplicativos confiáveis em vez de solicitar ao usuário essas informações."
   example:
   - "The following example shows a simple implementation of IApplicationTrustManager.  \n  \n [!code-cs[System.Security.Policy.IApplicationTrustManager#1](~/add/codesnippet/csharp/t-system.security.policy_3_1.cs)]\n [!code-vb[System.Security.Policy.IApplicationTrustManager#1](~/add/codesnippet/visualbasic/t-system.security.policy_3_1.vb)]"
   syntax:
@@ -35,8 +35,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Policy
-  summary: "Determines whether an application should be executed and which set of permissions should be granted to it."
-  remarks: "The DetermineApplicationTrust method is called by the host to determine whether an application should be executed and which set of permissions it should be granted. DetermineApplicationTrust returns an <xref:System.Security.Policy.ApplicationTrust> object with a <xref:System.Security.Policy.ApplicationTrust.DefaultGrantSet%2A> property that contains a permission set representing the permissions to be granted to each assembly executing within the context of the application. The granted permissions do not apply to assemblies in the global assembly cache. The <xref:System.Security.Policy.ApplicationTrust> object also has an <xref:System.Security.Policy.ApplicationTrust.IsApplicationTrustedToRun%2A> property that the trust manager sets to indicate whether the application should be trusted. If the trust manager indicates that the application can be trusted, the host activates the application and grants its assemblies the set of permissions provided in the <xref:System.Security.Policy.ApplicationTrust> collection."
+  summary: "Determina se um aplicativo deve ser executado e qual conjunto de permissões deve ser concedido a ele."
+  remarks: "O método DetermineApplicationTrust é chamado pelo host para determinar se um aplicativo deve ser executado e o conjunto de permissões que ele deve ser concedido. DetermineApplicationTrust retorna um <xref:System.Security.Policy.ApplicationTrust>do objeto com um <xref:System.Security.Policy.ApplicationTrust.DefaultGrantSet%2A>que contém uma permissão definida que representa as permissões para ser concedida a cada assembly em execução dentro do contexto do aplicativo.</xref:System.Security.Policy.ApplicationTrust.DefaultGrantSet%2A> </xref:System.Security.Policy.ApplicationTrust> Não se aplicam as permissões concedidas a assemblies no cache de assembly global. O <xref:System.Security.Policy.ApplicationTrust>objeto também tem um <xref:System.Security.Policy.ApplicationTrust.IsApplicationTrustedToRun%2A>propriedade que define o Gerenciador de confiança para indicar se o aplicativo deve ser confiável.</xref:System.Security.Policy.ApplicationTrust.IsApplicationTrustedToRun%2A> </xref:System.Security.Policy.ApplicationTrust> Se o Gerenciador de confiança indica que o aplicativo pode ser confiável, o host ativa o aplicativo e concede o conjunto de permissões fornecidas de seus assemblies de <xref:System.Security.Policy.ApplicationTrust>coleção.</xref:System.Security.Policy.ApplicationTrust>"
   example:
   - "The following example shows an implementation of the DetermineApplicationTrust method for a custom trust manager. This code example is part of a larger example provided for the <xref:System.Security.Policy.IApplicationTrustManager> interface.  \n  \n [!code-cs[System.Security.Policy.IApplicationTrustManager#2](~/add/codesnippet/csharp/24b6db65-f82b-47e4-ac93-_1.cs)]\n [!code-vb[System.Security.Policy.IApplicationTrustManager#2](~/add/codesnippet/visualbasic/24b6db65-f82b-47e4-ac93-_1.vb)]"
   syntax:
@@ -44,13 +44,13 @@ items:
     parameters:
     - id: activationContext
       type: System.ActivationContext
-      description: "The activation context for the application."
+      description: "O contexto de ativação para o aplicativo."
     - id: context
       type: System.Security.Policy.TrustManagerContext
-      description: "The trust manager context for the application."
+      description: "O contexto do Gerenciador de confiança para o aplicativo."
     return:
       type: System.Security.Policy.ApplicationTrust
-      description: "An object that contains security decisions about the application."
+      description: "Um objeto que contém as decisões de segurança sobre o aplicativo."
   overload: System.Security.Policy.IApplicationTrustManager.DetermineApplicationTrust*
   exceptions: []
   platform:

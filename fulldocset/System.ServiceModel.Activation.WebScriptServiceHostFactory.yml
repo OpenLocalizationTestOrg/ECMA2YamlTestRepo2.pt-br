@@ -11,8 +11,8 @@ items:
   nameWithType: WebScriptServiceHostFactory
   fullName: System.ServiceModel.Activation.WebScriptServiceHostFactory
   type: Class
-  summary: "Automatically adds an ASP.NET AJAX endpoint to a service, without requiring configuration, in a managed hosting environment that dynamically activates host instances for the service in response to incoming messages."
-  remarks: "This factory provides a way to add an ASP.NET AJAX endpoint to a service without requiring configuration. The endpoint is added to any other endpoints that are defined in configuration, if any. The managed hosting environments that support this type of dynamic host activation are Internet Information Services (IIS) and Windows Process Activation Services (WAS).       To use this factory, specify the WebScriptServiceHostFactory in the `Factory` attribute of the [@ServiceHost](~/add/includes/ajax-current-ext-md.md) directive.       The ASP.NET AJAX endpoint created by this factory is configured with the <xref:System.ServiceModel.WebHttpBinding> and the <xref:System.ServiceModel.Description.WebScriptEnablingBehavior>, with all the default settings. The endpoint is created at an empty address relative to the .svc file. If service configuration already defines an endpoint at this address, an <xref:System.InvalidOperationException> is thrown and the service fails to start."
+  summary: "Adiciona automaticamente um ponto de extremidade do ASP.NET AJAX em um serviço, sem a necessidade de configuração em um ambiente de hospedagem gerenciado que ativa dinamicamente instâncias de host para o serviço em resposta a mensagens de entrada."
+  remarks: "Esta fábrica fornece uma maneira de adicionar um ponto de extremidade do ASP.NET AJAX em um serviço sem a necessidade de configuração. O ponto de extremidade é adicionado para outros pontos de extremidade que são definidos na configuração, se houver. Os ambientes de hospedagem gerenciados que oferecem suporte a esse tipo de ativação de host dinâmico são serviços de informações da Internet (IIS) e serviços de ativação de processos do Windows (WAS).       Para usar esta fábrica, especifique o WebScriptServiceHostFactory no `Factory` atributo do [ @ServiceHost ](~/add/includes/ajax-current-ext-md.md) diretiva.       O ponto de extremidade do ASP.NET AJAX criado por essa fábrica é configurado com o <xref:System.ServiceModel.WebHttpBinding>e o <xref:System.ServiceModel.Description.WebScriptEnablingBehavior>, com todas as configurações padrão.</xref:System.ServiceModel.Description.WebScriptEnablingBehavior> </xref:System.ServiceModel.WebHttpBinding> O ponto de extremidade é criado em um endereço vazio em relação ao arquivo. svc. Se a configuração de serviço já define um ponto de extremidade no endereço, um <xref:System.InvalidOperationException>é gerada e o serviço não iniciar.</xref:System.InvalidOperationException>"
   example:
   - "Specify the WebScriptServiceHostFactory for the value of the `Factory` attribute in the [@ServiceHost](../Topic/@ServiceHost.md) directive to activate an ASP.NET AJAX endpoint for the `MyService` service as shown in the following example.  \n  \n```  \n<% @ServiceHost   \nService=\"MyService\"  \nLanguage=\"C#\"  \nDebug=\"true\"  \nFactory=\"WebScriptServiceHostFactory\"  \n%>  \n```"
   syntax:
@@ -35,8 +35,8 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Activation
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Activation.WebScriptServiceHostFactory&quot;></xref> class."
-  remarks: "Normally, this constructor is called automatically by [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] as part of service activation - there is no need to call this method manually."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ServiceModel.Activation.WebScriptServiceHostFactory&quot;> </xref> classe."
+  remarks: "Normalmente, este construtor é chamado automaticamente pelo [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] como parte da ativação de serviço - não é necessário para chamar esse método manualmente."
   syntax:
     content: public WebScriptServiceHostFactory ();
     parameters: []
@@ -56,25 +56,25 @@ items:
   assemblies:
   - System.ServiceModel.Web
   namespace: System.ServiceModel.Activation
-  summary: "Creates a derived class of <xref href=&quot;System.ServiceModel.ServiceHost&quot;></xref> for a specified type of service with a specific base address that can be used to automatically enable ASP.NET AJAX endpoints in certain scenarios."
-  remarks: "Normally, this method is called automatically by [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] as part of service activation - there is no need to call this method manually."
+  summary: "Cria uma classe derivada de <xref href=&quot;System.ServiceModel.ServiceHost&quot;> </xref> para um tipo específico de serviço com um endereço base específico que pode ser usado para ativar automaticamente os pontos de extremidade do ASP.NET AJAX em determinados cenários."
+  remarks: "Normalmente, esse método é chamado automaticamente pelo [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] como parte da ativação de serviço - não é necessário para chamar esse método manualmente."
   syntax:
     content: protected override System.ServiceModel.ServiceHost CreateServiceHost (Type serviceType, Uri[] baseAddresses);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to host."
+      description: "O tipo de serviço de host."
     - id: baseAddresses
       type: System.Uri[]
-      description: "The <xref:System.Array> of type <xref:System.Uri> that contains the base addresses for the service hosted."
+      description: "O <xref:System.Array>do tipo <xref:System.Uri>que contém os endereços de base para o serviço hospedado.</xref:System.Uri> </xref:System.Array>"
     return:
       type: System.ServiceModel.ServiceHost
-      description: "A <xref href=&quot;System.ServiceModel.ServiceHost&quot;></xref> for the type of service specified with the specified base address."
+      description: "Um <xref href=&quot;System.ServiceModel.ServiceHost&quot;> </xref> para o tipo de serviço especificado com o endereço base especificado."
   overload: System.ServiceModel.Activation.WebScriptServiceHostFactory.CreateServiceHost*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Another service uses the same base address, or another endpoint is using the same address as the ASP.NET AJAX endpoint that this factory is trying to create."
+    description: "Outro serviço usa o mesmo endereço base ou outro ponto de extremidade está usando o mesmo endereço como o ponto de extremidade do ASP.NET AJAX que esta fábrica está tentando criar."
   platform:
   - net462
 references:

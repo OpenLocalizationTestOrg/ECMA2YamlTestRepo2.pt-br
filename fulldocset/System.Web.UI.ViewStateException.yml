@@ -19,8 +19,8 @@ items:
   nameWithType: ViewStateException
   fullName: System.Web.UI.ViewStateException
   type: Class
-  summary: "Represents the exception that is thrown when the view state cannot be loaded or validated. This class cannot be inherited."
-  remarks: "If an exception occurs when the page loads the view-state information, the page creates a ViewStateException object and passes it as an inner exception within an <xref:System.Web.HttpException> exception. The <xref:System.Web.HttpException> exception is re-thrown to be handled by the application.       The ViewStateException class stores information about the exception in the <xref:System.Web.UI.ViewStateException.Message%2A> property. If the request has permission to access the <xref:System.Web.HttpRequest.ServerVariables%2A> property, then the <xref:System.Web.UI.ViewStateException.Message%2A> property contains the values returned from the <xref:System.Web.UI.ViewStateException.RemoteAddress%2A>, <xref:System.Web.UI.ViewStateException.RemotePort%2A>, <xref:System.Web.UI.ViewStateException.UserAgent%2A>, <xref:System.Web.UI.ViewStateException.PersistedState%2A>, <xref:System.Web.UI.ViewStateException.Referer%2A>, and <xref:System.Web.UI.ViewStateException.Path%2A> properties; otherwise, the <xref:System.Web.UI.ViewStateException.Message%2A> property contains a generic view-state error message.       A view-state exception can be the result of a Message Authentication Codes (MAC) validation error. If the page attribute `enableViewStateMac` is set to `true`, view-state information is encoded with a MAC identifier. When the view-state information is posted back to the server, the page verifies the encoding to ensure that it has not been altered by the user. If the page cannot validate the MAC encoding on the view-state information, it will throw an <xref:System.Web.HttpException> exception with the ViewStateException object as an inner exception.       For MAC validation to succeed, the view-state information must be hashed by the same key when it is sent and received. Within a Web farm, the machine key on each server should be set to a common key."
+  summary: "Representa a exceção que é lançada quando o estado de exibição não pode ser carregado ou validado. Essa classe não pode ser herdada."
+  remarks: "Se uma exceção ocorre quando a página carrega as informações de estado de exibição, a página cria um objeto de ViewStateException e passá-lo como uma exceção interna dentro de um <xref:System.Web.HttpException>exceção.</xref:System.Web.HttpException> O <xref:System.Web.HttpException>exceção é lançada novamente para ser tratada pelo aplicativo.</xref:System.Web.HttpException>       A classe ViewStateException armazena informações sobre a exceção no <xref:System.Web.UI.ViewStateException.Message%2A>propriedade.</xref:System.Web.UI.ViewStateException.Message%2A> Se a solicitação tiver permissão para acessar o <xref:System.Web.HttpRequest.ServerVariables%2A>propriedade, em seguida, o <xref:System.Web.UI.ViewStateException.Message%2A>propriedade contém os valores retornados do <xref:System.Web.UI.ViewStateException.RemoteAddress%2A>, <xref:System.Web.UI.ViewStateException.RemotePort%2A>, <xref:System.Web.UI.ViewStateException.UserAgent%2A>, <xref:System.Web.UI.ViewStateException.PersistedState%2A>, <xref:System.Web.UI.ViewStateException.Referer%2A>, e <xref:System.Web.UI.ViewStateException.Path%2A>Propriedades; caso contrário, o <xref:System.Web.UI.ViewStateException.Message%2A>propriedade contém uma mensagem de erro genérica do estado de exibição.</xref:System.Web.UI.ViewStateException.Message%2A> </xref:System.Web.UI.ViewStateException.Path%2A> </xref:System.Web.UI.ViewStateException.Referer%2A> </xref:System.Web.UI.ViewStateException.PersistedState%2A> </xref:System.Web.UI.ViewStateException.UserAgent%2A> </xref:System.Web.UI.ViewStateException.RemotePort%2A> </xref:System.Web.UI.ViewStateException.RemoteAddress%2A> </xref:System.Web.UI.ViewStateException.Message%2A> </xref:System.Web.HttpRequest.ServerVariables%2A>       Uma exceção de estado de exibição pode ser o resultado de um erro de validação de códigos de autenticação de mensagem (MAC). Se o atributo de página `enableViewStateMac` é definido como `true`, informações de estado de exibição são codificadas com um identificador de MAC. Quando as informações de estado de exibição são postadas para o servidor, a página verifica a codificação para garantir que ele não foi alterado pelo usuário. Se a página não é possível validar a codificação MAC nas informações de estado de exibição, ela irá gerar um <xref:System.Web.HttpException>exceção com o objeto ViewStateException como uma exceção interna.</xref:System.Web.HttpException>       Para validação de MAC seja bem-sucedida, as informações de estado de exibição devem ser hash pela mesma chave quando ele é enviado e recebido. Em um Web farm, a chave de máquina em cada servidor deve ser definida como uma chave comum."
   example:
   - "The following code example demonstrates how to implement a method that deserializes a base64-encoded string and returns an <xref:System.Collections.ICollection> collection of property settings. The <xref:System.Web.UI.ObjectStateFormatter.Deserialize%2A> method can throw an <xref:System.Web.HttpException> exception that contains a ViewStateException object as an inner exception. The example shows how you can catch an <xref:System.Web.HttpException> exception and retrieve the properties from the ViewStateException object.  \n  \n [!code-cs[System.Web.UI.ViewStateException#2](~/add/codesnippet/csharp/t-system.web.ui.viewstat_0_1.cs)]\n [!code-vb[System.Web.UI.ViewStateException#2](~/add/codesnippet/visualbasic/t-system.web.ui.viewstat_0_1.vb)]"
   syntax:
@@ -43,7 +43,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.ViewStateException&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.UI.ViewStateException&quot;> </xref> classe."
   syntax:
     content: public ViewStateException ();
     parameters: []
@@ -63,16 +63,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.ViewStateException&quot;></xref> class with serialized data."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.UI.ViewStateException&quot;> </xref> classe com os dados serializados."
   syntax:
     content: public override void GetObjectData (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The object that holds the serialized object data."
+      description: "O objeto que contém os dados do objeto serializado."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The contextual information about the source or destination."
+      description: "As informações contextuais sobre a origem ou destino."
   overload: System.Web.UI.ViewStateException.GetObjectData*
   exceptions: []
   platform:
@@ -89,15 +89,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a value indicating whether the client is currently connected to the server."
-  remarks: "This property returns the same value as calling the <xref:System.Web.HttpResponse.IsClientConnected%2A> property."
+  summary: "Obtém um valor que indica se o cliente está atualmente conectado ao servidor."
+  remarks: "Essa propriedade retorna o mesmo valor como chamar o <xref:System.Web.HttpResponse.IsClientConnected%2A>propriedade.</xref:System.Web.HttpResponse.IsClientConnected%2A>"
   example:
   - "The following code example demonstrates how to implement a method that deserializes a base64-encoded string and returns an <xref:System.Collections.ICollection> collection of property settings. The <xref:System.Web.UI.ObjectStateFormatter.Deserialize%2A> method can throw an <xref:System.Web.HttpException> exception that contains a <xref:System.Web.UI.ViewStateException> object as an inner exception. The example shows how you can catch an <xref:System.Web.HttpException> exception and retrieve the properties from the <xref:System.Web.UI.ViewStateException> object.  \n  \n [!code-cs[System.Web.UI.ViewStateException#2](~/add/codesnippet/csharp/p-system.web.ui.viewstat_0_1.cs)]\n [!code-vb[System.Web.UI.ViewStateException#2](~/add/codesnippet/visualbasic/p-system.web.ui.viewstat_0_1.vb)]"
   syntax:
     content: public bool IsConnected { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the client is still connected to the server; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o cliente ainda está conectado ao servidor. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.ViewStateException.IsConnected*
   exceptions: []
   platform:
@@ -114,13 +114,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets debugging information about the HTTP request that resulted in a view-state exception."
-  remarks: "If the request does not have permission to access the server variables, then this property returns a generic view-state error message. If the request does have permission to access server variables, the Message property contains the values returned from the <xref:System.Web.UI.ViewStateException.RemoteAddress%2A>, <xref:System.Web.UI.ViewStateException.RemotePort%2A>, <xref:System.Web.UI.ViewStateException.UserAgent%2A>, <xref:System.Web.UI.ViewStateException.PersistedState%2A>, <xref:System.Web.UI.ViewStateException.Referer%2A>, and <xref:System.Web.UI.ViewStateException.Path%2A> properties."
+  summary: "Obtém informações sobre a solicitação HTTP que resultou em uma exceção de estado de exibição de depuração."
+  remarks: "Se a solicitação não tem permissão para acessar as variáveis de servidor, essa propriedade retorna uma mensagem de erro genérica do estado de exibição. Se a solicitação tem permissão para acessar variáveis de servidor, a propriedade de mensagem contém os valores retornados do <xref:System.Web.UI.ViewStateException.RemoteAddress%2A>, <xref:System.Web.UI.ViewStateException.RemotePort%2A>, <xref:System.Web.UI.ViewStateException.UserAgent%2A>, <xref:System.Web.UI.ViewStateException.PersistedState%2A>, <xref:System.Web.UI.ViewStateException.Referer%2A>, e <xref:System.Web.UI.ViewStateException.Path%2A>Propriedades.</xref:System.Web.UI.ViewStateException.Path%2A> </xref:System.Web.UI.ViewStateException.Referer%2A> </xref:System.Web.UI.ViewStateException.PersistedState%2A> </xref:System.Web.UI.ViewStateException.UserAgent%2A> </xref:System.Web.UI.ViewStateException.RemotePort%2A> </xref:System.Web.UI.ViewStateException.RemoteAddress%2A>"
   syntax:
     content: public override string Message { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> containing the formatted message with information about the exception."
+      description: "Um <xref:System.String>que contém a mensagem formatada com informações sobre a exceção.</xref:System.String>"
   overload: System.Web.UI.ViewStateException.Message*
   exceptions: []
   platform:
@@ -137,15 +137,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the path of the HTTP request that resulted in a view-state exception."
-  remarks: "This property returns the same value as the `PATH_INFO` variable in the <xref:System.Web.HttpRequest.ServerVariables%2A> property. It returns the portion of the path after the host name. For example, in the URL http://www.contoso.com/virdir/page.html, Path would return /virdir/page.html."
+  summary: "Obtém o caminho da solicitação HTTP que resultou em uma exceção de estado de exibição."
+  remarks: "Essa propriedade retorna o mesmo valor que o `PATH_INFO` variável o <xref:System.Web.HttpRequest.ServerVariables%2A>propriedade.</xref:System.Web.HttpRequest.ServerVariables%2A> Ele retorna a parte do caminho após o nome do host. Por exemplo, no http://www.contoso.com/virdir/page.html URL, caminho retornaria /virdir/page.html."
   example:
   - "The following code example demonstrates how to implement a method that deserializes a base64-encoded string and returns an <xref:System.Collections.ICollection> collection of property settings. The <xref:System.Web.UI.ObjectStateFormatter.Deserialize%2A> method can throw an <xref:System.Web.HttpException> exception that contains a <xref:System.Web.UI.ViewStateException> object as an inner exception. The example shows how you can catch an <xref:System.Web.HttpException> exception and retrieve the properties from the <xref:System.Web.UI.ViewStateException> object.  \n  \n [!code-cs[System.Web.UI.ViewStateException#2](~/add/codesnippet/csharp/p-system.web.ui.viewstat_2_1.cs)]\n [!code-vb[System.Web.UI.ViewStateException#2](~/add/codesnippet/visualbasic/p-system.web.ui.viewstat_2_1.vb)]"
   syntax:
     content: public string Path { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> containing the path from the request."
+      description: "Um <xref:System.String>que contém o caminho da solicitação.</xref:System.String>"
   overload: System.Web.UI.ViewStateException.Path*
   exceptions: []
   platform:
@@ -162,12 +162,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the contents of the view-state string that, when read, caused the view-state exception."
+  summary: "Obtém o conteúdo da cadeia de estado de exibição que, ao ler, causou a exceção de estado de exibição."
   syntax:
     content: public string PersistedState { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> containing the view-state values that caused the view-state exception."
+      description: "Um <xref:System.String>que causou a exceção de estado de exibição que contém o estado de exibição de valores.</xref:System.String>"
   overload: System.Web.UI.ViewStateException.PersistedState*
   exceptions: []
   platform:
@@ -184,15 +184,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the URL of the page that linked to the page where the view-state exception occurred."
-  remarks: "This property returns the same value as the `HTTP_REFERER` variable in the <xref:System.Web.HttpRequest.ServerVariables%2A> property. The value is an empty string (&quot;&quot;) if no previous request linked to the page."
+  summary: "Obtém a URL da página que é vinculada à página onde ocorreu a exceção de estado de exibição."
+  remarks: "Essa propriedade retorna o mesmo valor que o `HTTP_REFERER` variável o <xref:System.Web.HttpRequest.ServerVariables%2A>propriedade.</xref:System.Web.HttpRequest.ServerVariables%2A> O valor é uma cadeia de caracteres vazia (&quot;&quot;) se nenhuma solicitação anterior vinculada à página."
   example:
   - "The following code example demonstrates how to implement a method that deserializes a base64-encoded string and returns an <xref:System.Collections.ICollection> collection of property settings. The <xref:System.Web.UI.ObjectStateFormatter.Deserialize%2A> method can throw an <xref:System.Web.HttpException> exception that contains a <xref:System.Web.UI.ViewStateException> object as an inner exception. The example shows how you can catch an <xref:System.Web.HttpException> exception and retrieve the properties from the <xref:System.Web.UI.ViewStateException> object.  \n  \n [!code-cs[System.Web.UI.ViewStateException#2](~/add/codesnippet/csharp/p-system.web.ui.viewstat_3_1.cs)]\n [!code-vb[System.Web.UI.ViewStateException#2](~/add/codesnippet/visualbasic/p-system.web.ui.viewstat_3_1.vb)]"
   syntax:
     content: public string Referer { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> containing the HTTP referrer."
+      description: "Um <xref:System.String>que contém o referenciador HTTP.</xref:System.String>"
   overload: System.Web.UI.ViewStateException.Referer*
   exceptions: []
   platform:
@@ -209,13 +209,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the IP address of the HTTP request that resulted in a view-state exception."
-  remarks: "This property returns the same value as the `REMOTE_ADDR` variable in the <xref:System.Web.HttpRequest.ServerVariables%2A> property."
+  summary: "Obtém o endereço IP da solicitação HTTP que resultou em uma exceção de estado de exibição."
+  remarks: "Essa propriedade retorna o mesmo valor que o `REMOTE_ADDR` variável o <xref:System.Web.HttpRequest.ServerVariables%2A>propriedade.</xref:System.Web.HttpRequest.ServerVariables%2A>"
   syntax:
     content: public string RemoteAddress { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> containing the remote IP address of the client."
+      description: "Um <xref:System.String>que contém o endereço IP remoto do cliente.</xref:System.String>"
   overload: System.Web.UI.ViewStateException.RemoteAddress*
   exceptions: []
   platform:
@@ -232,13 +232,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the port number of the HTTP request that resulted in a view-state exception."
-  remarks: "This property returns the same value as the `REMOTE_PORT` variable in the <xref:System.Web.HttpRequest.ServerVariables%2A> property."
+  summary: "Obtém o número de porta da solicitação HTTP que resultou em uma exceção de estado de exibição."
+  remarks: "Essa propriedade retorna o mesmo valor que o `REMOTE_PORT` variável o <xref:System.Web.HttpRequest.ServerVariables%2A>propriedade.</xref:System.Web.HttpRequest.ServerVariables%2A>"
   syntax:
     content: public string RemotePort { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> containing the remote port number."
+      description: "Um <xref:System.String>que contém o número de porta remota.</xref:System.String>"
   overload: System.Web.UI.ViewStateException.RemotePort*
   exceptions: []
   platform:
@@ -255,15 +255,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the browser type of the HTTP request that resulted in a view-state exception."
-  remarks: "This property returns the same value as the `HTTP_USER_AGENT` variable in the <xref:System.Web.HttpRequest.ServerVariables%2A> property."
+  summary: "Obtém o tipo de navegador da solicitação HTTP que resultou em uma exceção de estado de exibição."
+  remarks: "Essa propriedade retorna o mesmo valor que o `HTTP_USER_AGENT` variável o <xref:System.Web.HttpRequest.ServerVariables%2A>propriedade.</xref:System.Web.HttpRequest.ServerVariables%2A>"
   example:
   - "The following code example demonstrates how to implement a method that deserializes a base64-encoded string and returns an <xref:System.Collections.ICollection> collection of property settings. The <xref:System.Web.UI.ObjectStateFormatter.Deserialize%2A> method can throw an <xref:System.Web.HttpException> exception that contains a <xref:System.Web.UI.ViewStateException> object as an inner exception. The example shows how you can catch an <xref:System.Web.HttpException> exception and retrieve the properties from the <xref:System.Web.UI.ViewStateException> object.  \n  \n [!code-cs[System.Web.UI.ViewStateException#2](~/add/codesnippet/csharp/p-system.web.ui.viewstat_1_1.cs)]\n [!code-vb[System.Web.UI.ViewStateException#2](~/add/codesnippet/visualbasic/p-system.web.ui.viewstat_1_1.vb)]"
   syntax:
     content: public string UserAgent { get; }
     return:
       type: System.String
-      description: "A <xref:System.String> containing the user agent, which is typically the browser type."
+      description: "Um <xref:System.String>que contém o agente do usuário, que normalmente é o tipo de navegador.</xref:System.String>"
   overload: System.Web.UI.ViewStateException.UserAgent*
   exceptions: []
   platform:

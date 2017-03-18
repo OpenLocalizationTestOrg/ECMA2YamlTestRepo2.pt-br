@@ -12,8 +12,8 @@ items:
   nameWithType: SerializationBinder
   fullName: System.Runtime.Serialization.SerializationBinder
   type: Class
-  summary: "Allows users to control class loading and mandate what class to load."
-  remarks: "During serialization, a formatter transmits the information required to create an instance of an object of the correct type and version. This information generally includes the full type name and assembly name of the object. The assembly name includes the name, version, and strong name (see [Strong-Named Assemblies](~/add/includes/ajax-current-ext-md.md)) hash of the assembly. By default, deserialization uses this information to create an instance of an identical object (with the exception of any assembly loading restricted by the security policy). Some users need to control which class to load, either because the class has moved between assemblies or a different version of the class is required on the server and client.       SerializationBinder can also be used for security. There might be some security exploits when you are trying to deserialize some data from an untrusted source. The binder gives you an opportunity to inspect what types are being loaded in your application domain. You can then either maintain list of denied types or a list of allowed types and restrict which types are being loaded and instantiated. In addition you should be mindful of what information is being put out on the wire, you may want to secure (use transport or message security) when sending type names or other data on the wire.      > [!WARNING] >  Only use SerializationBinder if you are completely sure of what information is being serialized. Malicious types can cause unexpected behavior.       This is an abstract base class. All binders extend this class."
+  summary: "Permite aos usuários controlar o carregamento de classe e determinam quais classe para carregar."
+  remarks: "Durante a serialização, um formatador transmite as informações necessárias para criar uma instância de um objeto do tipo correto e a versão. Geralmente, essas informações incluem o nome de tipo completo e o nome de assembly do objeto. O nome do assembly inclui o nome, versão e nome forte (consulte [strong-Named Assemblies](~/add/includes/ajax-current-ext-md.md)) hash do assembly. Por padrão, a desserialização usa essas informações para criar uma instância de um objeto idêntico (com exceção do carregamento de assembly restringido pela política de segurança). Alguns usuários precisam para controlar qual classe para carregar, ou porque a classe foi movido entre assemblies ou uma versão diferente da classe é necessária no servidor e no cliente.       SerializationBinder também pode ser usado para segurança. Pode haver algumas explorações de segurança durante a tentativa de desserializar alguns dados de uma fonte não confiável. O associador dá a oportunidade para inspecionar quais tipos estão sendo carregados em seu domínio de aplicativo. Você pode manter a lista de tipos negados ou uma lista de tipos permitidos e restringir quais tipos são carregados e instanciado. Além disso você deve estar atento quais informações que está sendo colocadas na transmissão, talvez você queira proteger (segurança de transporte ou mensagem de uso) ao enviar os nomes de tipo ou outros dados na conexão.      > [!WARNING] > Usar SerializationBinder somente se tiver certeza de que informações está sendo serializadas. Tipos mal-intencionado podem causar um comportamento inesperado.       Isso é uma classe base abstrata. Todos os associadores estendem essa classe."
   example:
   - >-
     [!code-vb[SerializationBinder Example#1](~/add/codesnippet/visualbasic/t-system.runtime.seriali_11_1.vb)]
@@ -42,7 +42,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Runtime.Serialization.SerializationBinder&quot;> </xref> classe."
   syntax:
     content: protected SerializationBinder ();
     parameters: []
@@ -62,19 +62,19 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, controls the binding of a serialized object to a type."
+  summary: "Quando substituído em uma classe derivada, controla a associação de um objeto serializado para um tipo."
   syntax:
     content: public virtual void BindToName (Type serializedType, out string assemblyName, out string typeName);
     parameters:
     - id: serializedType
       type: System.Type
-      description: "The type of the object the formatter creates a new instance of."
+      description: "O tipo do objeto formatador cria uma nova instância do."
     - id: assemblyName
       type: System.String
-      description: "Specifies the <xref:System.Reflection.Assembly> name of the serialized object."
+      description: "Especifica o <xref:System.Reflection.Assembly>nome do objeto serializado.</xref:System.Reflection.Assembly>"
     - id: typeName
       type: System.String
-      description: "Specifies the <xref:System.Type> name of the serialized object."
+      description: "Especifica o <xref:System.Type>nome do objeto serializado.</xref:System.Type>"
   overload: System.Runtime.Serialization.SerializationBinder.BindToName*
   exceptions: []
   platform:
@@ -91,7 +91,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Serialization
-  summary: "When overridden in a derived class, controls the binding of a serialized object to a type."
+  summary: "Quando substituído em uma classe derivada, controla a associação de um objeto serializado para um tipo."
   remarks: ''
   example:
   - SerializationBinder Example#1
@@ -100,13 +100,13 @@ items:
     parameters:
     - id: assemblyName
       type: System.String
-      description: "Specifies the <xref:System.Reflection.Assembly> name of the serialized object."
+      description: "Especifica o <xref:System.Reflection.Assembly>nome do objeto serializado.</xref:System.Reflection.Assembly>"
     - id: typeName
       type: System.String
-      description: "Specifies the <xref:System.Type> name of the serialized object."
+      description: "Especifica o <xref:System.Type>nome do objeto serializado.</xref:System.Type>"
     return:
       type: System.Type
-      description: "The type of the object the formatter creates a new instance of."
+      description: "O tipo do objeto formatador cria uma nova instância do."
   overload: System.Runtime.Serialization.SerializationBinder.BindToType*
   exceptions: []
   platform:

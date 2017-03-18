@@ -14,8 +14,8 @@ items:
   nameWithType: CipherMode
   fullName: System.Security.Cryptography.CipherMode
   type: Enum
-  summary: "Specifies the block cipher mode to use for encryption."
-  remarks: "Block cipher algorithms encrypt data in block units, rather than a single byte at a time. The most common block size is 8 bytes. Because each block is heavily processed, block ciphers provide a higher level of security than stream ciphers. However, block cipher algorithms tend to execute more slowly than stream ciphers.       Block ciphers use the same encryption algorithm for each block. Because of this, a block of plain text will always return the same cipher text when encrypted with the same key and algorithm. Because this behavior can be used to crack a cipher, cipher modes are introduced that modify the encryption process based on feedback from earlier block encryptions. The resulting encryption provides a higher level of security than a simple block encryption."
+  summary: "Especifica o modo de codificação de bloco a ser usado para criptografia."
+  remarks: "Algoritmos de criptografia do bloco criptografam dados em unidades de bloco, em vez de um único byte por vez. O tamanho do bloco mais comum é de 8 bytes. Como cada bloco é processado muito, codificações em bloco fornecem um nível mais alto de segurança que codificações em fluxo. No entanto, os algoritmos de criptografia do bloco tendem a executar mais lentamente do que codificações em fluxo.       Codificações em bloco usam o mesmo algoritmo de criptografia para cada bloco. Por isso, um bloco de texto sem formatação sempre retornará o mesmo texto de codificação quando criptografada com a mesma chave e algoritmo. Como esse comportamento pode ser usado para descobrir uma codificação, modos de criptografia são introduzidos que modificam o processo de criptografia com base nos comentários de criptografias de bloco anteriores. A criptografia resultante fornece um nível mais alto de segurança que a criptografia de um bloco simples."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -37,12 +37,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Cipher Block Chaining (<xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;></xref>) mode introduces feedback. Before each plain text block is encrypted, it is combined with the cipher text of the previous block by a bitwise exclusive OR operation. This ensures that even if the plain text contains many identical blocks, they will each encrypt to a different cipher text block. The initialization vector is combined with the first plain text block by a bitwise exclusive OR operation before the block is encrypted. If a single bit of the cipher text block is mangled, the corresponding plain text block will also be mangled. In addition, a bit in the subsequent block, in the same position as the original mangled bit, will be mangled."
+  summary: "O encadeamento de blocos de codificação (<xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;></xref>) apresenta o modo de comentários. Antes de cada bloco de texto sem formatação é criptografado, ele é combinado com o texto cifrado do bloco anterior por uma operação OR exclusiva bit a bit. Isso garante que mesmo se o texto sem formatação contém muitos blocos idênticos, eles cada criptografará para um bloco de texto cifrado diferente. O vetor de inicialização é combinado com o primeiro bloco de texto sem formatação por uma operação OR exclusiva bit a bit antes do bloco é criptografado. Se um único bit do bloco de texto cifrado é desconfigurado, o bloco de texto sem formatação correspondente também será desconfigurado. Além disso, um bit no bloco subsequente, na mesma posição que o bit danificado original, será possível desconfigurado."
   syntax:
     content: CBC
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -58,12 +58,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Cipher Feedback (<xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;></xref>) mode processes small increments of plain text into cipher text, instead of processing an entire block at a time. This mode uses a shift register that is one block in length and is divided into sections. For example, if the block size is 8 bytes, with one byte processed at a time, the shift register is divided into eight sections. If a bit in the cipher text is mangled, one plain text bit is mangled and the shift register is corrupted. This results in the next several plain text increments being mangled until the bad bit is shifted out of the shift register. The default feedback size can vary by algorithm, but is typically either 8 bits or the number of bits of the block size. You can alter the number of feedback bits by using the <xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*> property. Algorithms that support CFB use this property to set the feedback."
+  summary: "Os comentários de codificação (<xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;></xref>) modo processa pequenos incrementos de texto sem formatação em texto cifrado, em vez de processamento de um bloco inteiro por vez. Esse modo usa um registro de turno que é um bloco de comprimento e é dividido em seções. Por exemplo, se o tamanho do bloco é de 8 bytes, com um byte processado ao mesmo tempo, o registro de turno é dividido em seções de oito. Se um bit na codificação de texto é desconfigurado, um bit de texto sem formatação é desconfigurado e o registro de turno está corrompido. Isso resulta nos incrementos de texto sem formatação várias Avançar sendo desconfigurados até que o bit incorreto é deslocado fora o registro de turno. O tamanho do comentário padrão pode variar de acordo com o algoritmo, mas normalmente é 8 bits ou o número de bits do tamanho do bloco. Você pode alterar o número de bits de comentários usando o <xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*>propriedade.</xref:System.Security.Cryptography.SymmetricAlgorithm.FeedbackSize*> Os algoritmos que suportam CFB usam essa propriedade para definir os comentários."
   syntax:
     content: CFB
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -79,12 +79,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Cipher Text Stealing (<xref uid=&quot;langword_csharp_CTS&quot; name=&quot;CTS&quot; href=&quot;&quot;></xref>) mode handles any length of plain text and produces cipher text whose length matches the plain text length. This mode behaves like the <xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;></xref> mode for all but the last two blocks of the plain text."
+  summary: "O roubo de texto cifrado (<xref uid=&quot;langword_csharp_CTS&quot; name=&quot;CTS&quot; href=&quot;&quot;></xref>) modo trata qualquer comprimento de texto sem formatação e produz codificação texto cujo comprimento coincide com o comprimento do texto sem formatação. Esse modo se comporta como o <xref uid=&quot;langword_csharp_CBC&quot; name=&quot;CBC&quot; href=&quot;&quot;> </xref> , mas modo para todos os últimos dois blocos do texto sem formatação."
   syntax:
     content: CTS
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -100,12 +100,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: 'The Electronic Codebook (<xref uid=&quot;langword_csharp_ECB&quot; name=&quot;ECB&quot; href=&quot;&quot;></xref>) mode encrypts each block individually. Any blocks of plain text that are identical and in the same message, or that are in a different message encrypted with the same key, will be transformed into identical cipher text blocks. **Important**:  This mode is not recommended because it opens the door for multiple security exploits. If the plain text to be encrypted contains substantial repetition, it is feasible for the cipher text to be broken one block at a time. It is also possible to use block analysis to determine the encryption key. Also, an active adversary can substitute and exchange individual blocks without detection, which allows blocks to be saved and inserted into the stream at other points without detection.'
+  summary: 'O livro eletrônico de códigos (<xref uid=&quot;langword_csharp_ECB&quot; name=&quot;ECB&quot; href=&quot;&quot;></xref>) modo criptografa todos os blocos individualmente. Todos os blocos de texto sem formatação que são idênticos e na mesma mensagem, ou que estão em uma mensagem diferente criptografada com a mesma chave, serão transformados em blocos de texto de codificação idênticos. **Importante**: este modo não é recomendado porque ela abre as portas para várias explorações de segurança. Se o texto sem formatação a ser criptografado contém repetição significativa, é viável para o texto cifrado ser quebrado um bloco por vez. Também é possível usar a análise de bloco para determinar a chave de criptografia. Além disso, um adversário ativo pode substituir e blocos individuais sem detecção, o que permite que os blocos sejam salvos e inseridos no fluxo em outros pontos sem detecção do exchange.'
   syntax:
     content: ECB
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -121,12 +121,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Cryptography
-  summary: "The Output Feedback (<xref uid=&quot;langword_csharp_OFB&quot; name=&quot;OFB&quot; href=&quot;&quot;></xref>) mode processes small increments of plain text into cipher text instead of processing an entire block at a time. This mode is similar to <xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;></xref>; the only difference between the two modes is the way that the shift register is filled. If a bit in the cipher text is mangled, the corresponding bit of plain text will be mangled. However, if there are extra or missing bits from the cipher text, the plain text will be mangled from that point on."
+  summary: "Os comentários de saída (<xref uid=&quot;langword_csharp_OFB&quot; name=&quot;OFB&quot; href=&quot;&quot;></xref>) modo processa pequenos incrementos de texto sem formatação em texto cifrado, em vez de processamento de um bloco inteiro por vez. Esse modo é semelhante ao <xref uid=&quot;langword_csharp_CFB&quot; name=&quot;CFB&quot; href=&quot;&quot;> </xref>; o somente a diferença entre os dois modos é a maneira que registram o turno é preenchido. Se um bit na codificação de texto é desconfigurado, o bit correspondente de texto sem formatação será desconfigurado. No entanto, se houver bits extras ou ausentes do texto codificado, o texto sem formatação será ser desconfigurado desse ponto em."
   syntax:
     content: OFB
     return:
       type: System.Security.Cryptography.CipherMode
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462

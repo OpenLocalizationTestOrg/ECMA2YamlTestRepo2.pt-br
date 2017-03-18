@@ -28,8 +28,8 @@ items:
   nameWithType: LogStore
   fullName: System.IO.Log.LogStore
   type: Class
-  summary: "Represents a log-structured storage."
-  remarks: "The <xref:System.IO.Log.LogRecordSequence> class provides an implementation of the record sequence interface on top of a Common Log File System (CLFS) log. It works with the LogStore class, which provides an interface for directly manipulating and managing a CLFS log file. A log store provides append-only storage across a set of disk extents. The LogStore class represents this storage, and provides methods for adding and removing containers, setting policy, and creating archives. It does not provide methods for reading from and writing to the storage; these methods are provided by the <xref:System.IO.Log.LogRecordSequence> class.       The relationship between the LogStore class and the <xref:System.IO.Log.LogRecordSequence> class is similar to the relationship between a disk file and a <xref:System.IO.FileStream> object. The disk file provides the actual storage and has attributes such as length and last access time, while the <xref:System.IO.FileStream> object provides a view on the file that can be used to read from it and write to it. Similarly, the LogStore class has attributes like a policy and a collection of disk extents, and the <xref:System.IO.Log.LogRecordSequence> class provides a record-oriented mechanism for reading and writing data.       Unlike the file record sequence represented by the <xref:System.IO.Log.FileRecordSequence> class, a LogStore instance stores its data in a collection of disk extents, represented by <xref:System.IO.Log.LogExtent> instances. The extents in a given LogStore instance are all of uniform size, and space is added to and removed from a LogStore instance in extent increments. To add and remove log extents, use the <xref:System.IO.Log.LogExtentCollection.Add%2A> and <xref:System.IO.Log.LogExtentCollection.Remove%2A> methods of the <xref:System.IO.Log.LogExtentCollection> object, which can be returned by the <xref:System.IO.Log.LogStore.Extents%2A> property.       A LogStore instance can have policies associated with it. These are represented by <xref:System.IO.Log.LogPolicy> instances that can be returned by the <xref:System.IO.Log.LogStore.Policy%2A> property. A policy dictates rules that the log will attempt to follow, such as maximum number of extents and minimum size, and instructions on growing or shrinking the LogStore under certain conditions. In addition, you can specify whether a LogStore instance can be archived. Policies are set per log and are volatile, which means that once every handle to the log is closed, the policy no longer exists."
+  summary: "Representa um armazenamento estruturado de log."
+  remarks: "A <xref:System.IO.Log.LogRecordSequence>classe fornece uma implementação da interface de sequência do registro na parte superior de um log de sistema de arquivos de Log comuns (CLFS).</xref:System.IO.Log.LogRecordSequence> Ele funciona com a classe de LogStore, que fornece uma interface para manipular diretamente e gerenciamento de um arquivo de log CLFS. Um repositório de log fornece armazenamento somente de acréscimo em um conjunto de extensões do disco. A classe LogStore representa este armazenamento e fornece métodos para adicionar e remover contêineres, configuração de política e criando arquivos. Ele não fornece métodos para leitura e gravação para o armazenamento; Esses métodos são fornecidos pela <xref:System.IO.Log.LogRecordSequence>classe.</xref:System.IO.Log.LogRecordSequence>       A relação entre a classe LogStore e <xref:System.IO.Log.LogRecordSequence>classe é semelhante à relação entre um arquivo de disco e um <xref:System.IO.FileStream>objeto.</xref:System.IO.FileStream> </xref:System.IO.Log.LogRecordSequence> O arquivo de disco fornece o armazenamento real e tem atributos como comprimento e a hora do último acesso, enquanto o <xref:System.IO.FileStream>objeto fornece uma exibição no arquivo que pode ser usado para lê-lo e gravar proprietário.</xref:System.IO.FileStream> Da mesma forma, a classe LogStore tem atributos como uma diretiva e uma coleção de extensões do disco e o <xref:System.IO.Log.LogRecordSequence>classe fornece um mecanismo orientado por registro para ler e gravar dados.</xref:System.IO.Log.LogRecordSequence>       Ao contrário a sequência de registro de arquivo representada pela <xref:System.IO.Log.FileRecordSequence>classe, uma instância de LogStore armazena seus dados em uma coleção de extensões do disco, representado pelo <xref:System.IO.Log.LogExtent>instâncias.</xref:System.IO.Log.LogExtent> </xref:System.IO.Log.FileRecordSequence> As extensões em uma determinada instância de LogStore são de tamanho uniforme, e o espaço é adicionado a e removido de uma instância de LogStore em incrementos de extensão. Para adicionar e remover extensões de log, use o <xref:System.IO.Log.LogExtentCollection.Add%2A>e <xref:System.IO.Log.LogExtentCollection.Remove%2A>métodos do <xref:System.IO.Log.LogExtentCollection>objeto, que pode ser retornado pelo <xref:System.IO.Log.LogStore.Extents%2A>propriedade.</xref:System.IO.Log.LogStore.Extents%2A> </xref:System.IO.Log.LogExtentCollection> </xref:System.IO.Log.LogExtentCollection.Remove%2A> </xref:System.IO.Log.LogExtentCollection.Add%2A>       Uma instância de LogStore pode ter políticas associadas a ele. Esses são representados pelo <xref:System.IO.Log.LogPolicy>instâncias que podem ser retornadas pelo <xref:System.IO.Log.LogStore.Policy%2A>propriedade.</xref:System.IO.Log.LogStore.Policy%2A> </xref:System.IO.Log.LogPolicy> Uma política impõe regras que o log tentará a seguir, como o número máximo de extensões e o tamanho mínimo e instruções sobre aumentando ou diminuindo o LogStore sob determinadas condições. Além disso, você pode especificar se uma instância de LogStore pode ser arquivada. Políticas são definidas por log e são voláteis, o que significa que quando cada identificador para o log é fechada, a política não existe mais."
   example:
   - "The following example shows how to archive a LogStore to an XML document.  \n  \n [!code-vb[logarchievesnapshot#0](~/add/codesnippet/visualbasic/t-system.io.log.logstore_1.vb)]\n [!code-cs[logarchievesnapshot#0](~/add/codesnippet/csharp/t-system.io.log.logstore_1.cs)]"
   syntax:
@@ -53,30 +53,30 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Log.LogStore&quot;></xref> class for the specified handle."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> classe para o identificador especificado."
   syntax:
     content: public LogStore (Microsoft.Win32.SafeHandles.SafeFileHandle handle);
     parameters:
     - id: handle
       type: Microsoft.Win32.SafeHandles.SafeFileHandle
-      description: "A file handle for the log file that the current <xref href=&quot;System.IO.Log.LogStore&quot;></xref> object encapsulates."
+      description: "Um identificador de arquivo para o log de arquivo atual <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> encapsula o objeto."
   overload: System.IO.Log.LogStore.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>handle</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>handle</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "The log handle could not be bound to the thread pool."
+    description: "O identificador do log não pôde ser associado ao pool de threads."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access for the specified log store is denied by the operating system."
+    description: "O acesso para o armazenamento de log especificado é negado pelo sistema operacional."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "O método foi chamado depois que a sequência foi descartada."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is not enough memory to continue the execution of a program."
+    description: "Não há memória suficiente para continuar a execução de um programa."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.#ctor(System.String,System.IO.FileMode)
@@ -91,43 +91,43 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Log.LogStore&quot;></xref> class with the specified path and mode."
-  remarks: "Use this constructor to open a log store with the specified path and mode. The store is opened with read/write access, and shares read access.       The `path` parameter should use the following syntax:       `log:<physical log name>[::<log client name>]`       where `<physical log name>` is a valid path to a log file, and `<log client name>` is a unique client identifier. A log store should be either a physical log store or a virtual log store, but not both. Once a log store has been created physically or virtually, it remains so for its lifetime. A physical log store is created by specifying only the physical log name. A virtual log store is created by specifying both the physical log name and the log client name.       Clients that share the same physical log name share the same extents collection and policy."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> classe com o caminho especificado e o modo."
+  remarks: "Use este construtor para abrir um repositório de log com o caminho especificado e o modo. O armazenamento é aberto com acesso de leitura/gravação e compartilha o acesso de leitura.       O `path` parâmetro deve usar a seguinte sintaxe: `log:<physical log name>[::<log client name>]` onde `<physical log name>` é um caminho válido para um arquivo de log e `<log client name>` é um identificador exclusivo do cliente. Um repositório de log deve ser um repositório de log físico ou um armazenamento de log virtuais, mas não ambos. Quando um armazenamento de log tiver sido criado física ou virtualmente, ele permanecerá isso para o seu tempo de vida. Um repositório de log físico é criado especificando somente o nome de log físico. Um repositório de log virtual é criado, especificando o nome de log físico e o nome do cliente de log.       Os clientes que compartilham o mesmo nome de log físico compartilham o mesmo conjunto de extensões e a política."
   syntax:
     content: public LogStore (string path, System.IO.FileMode mode);
     parameters:
     - id: path
       type: System.String
-      description: "A relative or absolute path for the base file of the log store to open."
+      description: "Um caminho relativo ou absoluto para o arquivo de base de armazenamento de log para abrir."
     - id: mode
       type: System.IO.FileMode
-      description: "One of the <xref href=&quot;System.IO.FileMode&quot;></xref> values that determines how to open or create the store."
+      description: "Uma da <xref href=&quot;System.IO.FileMode&quot;> </xref> valores que determina como abrir ou criar o repositório."
   overload: System.IO.Log.LogStore.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>path</code> is an empty string (&quot;&quot;).       -or-       <code>path</code> contains only white space.       -or-       <code>path</code> contains one or more invalid characters."
+    description: "<code>path</code>é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - <code>path</code> contém somente espaços em branco.       - ou - <code>path</code> contém um ou mais caracteres inválidos."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>mode</code> contains an invalid value."
+    description: "<code>mode</code>contém um valor inválido."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file cannot be found."
+    description: "O arquivo não pode ser encontrado."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs when opening the log store."
+    description: "Ocorrerá um erro de e/s ao abrir o armazenamento de log."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access for the specified log store is denied by the operating system."
+    description: "O acesso para o armazenamento de log especificado é negado pelo sistema operacional."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "<xref href=&quot;System.IO.Log.LogStore&quot;></xref> cannot be used because the required Common Log File System (CLFS) component is not installed. Install the CLFS component if it is available for your platform or use the <xref href=&quot;System.IO.Log.FileRecordSequence&quot;></xref> class instead."
+    description: "<xref href=&quot;System.IO.Log.LogStore&quot;></xref>não pode ser usado porque o componente necessário do sistema de arquivos de Log comuns (CLFS) não está instalado. Instale o componente CLFS se ele está disponível para sua plataforma ou use o <xref href=&quot;System.IO.Log.FileRecordSequence&quot;> </xref> classe em vez disso."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is not enough memory to continue the execution of a program."
+    description: "Não há memória suficiente para continuar a execução de um programa."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess)
@@ -142,46 +142,46 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Log.LogStore&quot;></xref> class with the specified path, mode, and access."
-  remarks: "Use this constructor to open a new log store with the specified path, mode, and access. The store is opened sharing read access.       The `path` parameter should use the following syntax:       `log:<physical log name>[::<log client name>]`       where `<physical log name>` is a valid path to a log file, and `<log client name>` is a unique client identifier. A log store should be either a physical log store or a virtual log store, but not both. Once a log store has been created physically or virtually, it remains so for its lifetime. A physical log store is created by specifying only the physical log name. A virtual log store is created by specifying both the physical log name and the log client name.       Clients that share the same physical log name share the same extents collection and policy."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> classe com o caminho especificado, o modo e o acesso."
+  remarks: "Use este construtor para abrir um novo armazenamento de log com o caminho especificado, o modo e o acesso. O armazenamento é aberto com o compartilhamento de acesso de leitura.       O `path` parâmetro deve usar a seguinte sintaxe: `log:<physical log name>[::<log client name>]` onde `<physical log name>` é um caminho válido para um arquivo de log e `<log client name>` é um identificador exclusivo do cliente. Um repositório de log deve ser um repositório de log físico ou um armazenamento de log virtuais, mas não ambos. Quando um armazenamento de log tiver sido criado física ou virtualmente, ele permanecerá isso para o seu tempo de vida. Um repositório de log físico é criado especificando somente o nome de log físico. Um repositório de log virtual é criado, especificando o nome de log físico e o nome do cliente de log.       Os clientes que compartilham o mesmo nome de log físico compartilham o mesmo conjunto de extensões e a política."
   syntax:
     content: public LogStore (string path, System.IO.FileMode mode, System.IO.FileAccess access);
     parameters:
     - id: path
       type: System.String
-      description: "A relative or absolute path for the base file of the log store to open."
+      description: "Um caminho relativo ou absoluto para o arquivo de base de armazenamento de log para abrir."
     - id: mode
       type: System.IO.FileMode
-      description: "One of the <xref href=&quot;System.IO.FileMode&quot;></xref> values that determines how to open or create the store."
+      description: "Uma da <xref href=&quot;System.IO.FileMode&quot;> </xref> valores que determina como abrir ou criar o repositório."
     - id: access
       type: System.IO.FileAccess
-      description: "One of the <xref href=&quot;System.IO.FileAccess&quot;></xref> values that determines how the file can be accessed by the <xref href=&quot;System.IO.Log.LogStore&quot;></xref>."
+      description: "Uma da <xref href=&quot;System.IO.FileAccess&quot;> </xref> valores que determina como o arquivo pode ser acessado pelo <xref href=&quot;System.IO.Log.LogStore&quot;> </xref>."
   overload: System.IO.Log.LogStore.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>path</code> is an empty string (&quot;&quot;).       -or-       <code>path</code> contains only white space.       -or-       <code>path</code> contains one or more invalid characters."
+    description: "<code>path</code>é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - <code>path</code> contém somente espaços em branco.       - ou - <code>path</code> contém um ou mais caracteres inválidos."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>mode</code> contains an invalid value.       -or       <code>access</code> contains an invalid value."
+    description: "<code>mode</code>contém um valor inválido.       - ou <code>access</code> contém um valor inválido."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file cannot be found."
+    description: "O arquivo não pode ser encontrado."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs when opening the log store."
+    description: "Ocorrerá um erro de e/s ao abrir o armazenamento de log."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access for the specified log store is denied by the operating system."
+    description: "O acesso para o armazenamento de log especificado é negado pelo sistema operacional."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "<xref href=&quot;System.IO.Log.LogStore&quot;></xref> cannot be used because the required Common Log File System (CLFS) component is not installed. Install the CLFS component if it is available for your platform or use the <xref href=&quot;System.IO.Log.FileRecordSequence&quot;></xref> class instead."
+    description: "<xref href=&quot;System.IO.Log.LogStore&quot;></xref>não pode ser usado porque o componente necessário do sistema de arquivos de Log comuns (CLFS) não está instalado. Instale o componente CLFS se ele está disponível para sua plataforma ou use o <xref href=&quot;System.IO.Log.FileRecordSequence&quot;> </xref> classe em vez disso."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is not enough memory to continue the execution of a program."
+    description: "Não há memória suficiente para continuar a execução de um programa."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
@@ -196,49 +196,49 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Log.LogStore&quot;></xref> class."
-  remarks: "This constructor initializes a new <xref:System.IO.Log.LogStore> object that it opens with the specified path, mode, and access. The store is opened sharing the specified access.       The `path` parameter should use the following syntax:       `log:<physical log name>[::<log client name>]`       where `<physical log name>` is a valid path to a log file, and `<log client name>` is a unique client identifier. A log store should be either a physical log store or a virtual log store, but not both. Once a log store has been created physically or virtually, it remains so for its lifetime. A physical log store is created by specifying only the physical log name. A virtual log store is created by specifying both the physical log name and the log client name.       Clients that share the same physical log name share the same extents collection and policy."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> classe."
+  remarks: "Este construtor inicializa um novo <xref:System.IO.Log.LogStore>objeto que ele é aberto com o caminho especificado, o modo e o acesso.</xref:System.IO.Log.LogStore> O armazenamento é aberto com o compartilhamento de acesso especificado.       O `path` parâmetro deve usar a seguinte sintaxe: `log:<physical log name>[::<log client name>]` onde `<physical log name>` é um caminho válido para um arquivo de log e `<log client name>` é um identificador exclusivo do cliente. Um repositório de log deve ser um repositório de log físico ou um armazenamento de log virtuais, mas não ambos. Quando um armazenamento de log tiver sido criado física ou virtualmente, ele permanecerá isso para o seu tempo de vida. Um repositório de log físico é criado especificando somente o nome de log físico. Um repositório de log virtual é criado, especificando o nome de log físico e o nome do cliente de log.       Os clientes que compartilham o mesmo nome de log físico compartilham o mesmo conjunto de extensões e a política."
   syntax:
     content: public LogStore (string path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share);
     parameters:
     - id: path
       type: System.String
-      description: "A relative or absolute path for the base file of the log store to open."
+      description: "Um caminho relativo ou absoluto para o arquivo de base de armazenamento de log para abrir."
     - id: mode
       type: System.IO.FileMode
-      description: "One of the <xref href=&quot;System.IO.FileMode&quot;></xref> values that determines how to open or create the store."
+      description: "Uma da <xref href=&quot;System.IO.FileMode&quot;> </xref> valores que determina como abrir ou criar o repositório."
     - id: access
       type: System.IO.FileAccess
-      description: "One of the <xref href=&quot;System.IO.FileAccess&quot;></xref> values that determines how the file can be accessed by the <xref href=&quot;System.IO.Log.LogStore&quot;></xref>."
+      description: "Uma da <xref href=&quot;System.IO.FileAccess&quot;> </xref> valores que determina como o arquivo pode ser acessado pelo <xref href=&quot;System.IO.Log.LogStore&quot;> </xref>."
     - id: share
       type: System.IO.FileShare
-      description: "One of the <xref href=&quot;System.IO.FileShare&quot;></xref> values that determines how the log store will be shared among processes."
+      description: "Uma da <xref href=&quot;System.IO.FileShare&quot;> </xref> valores que determina como o armazenamento de log será compartilhado entre processos."
   overload: System.IO.Log.LogStore.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>path</code> is an empty string (&quot;&quot;).       -or-       <code>path</code> contains only white space.       -or-       <code>path</code> contains one or more invalid characters."
+    description: "<code>path</code>é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - <code>path</code> contém somente espaços em branco.       - ou - <code>path</code> contém um ou mais caracteres inválidos."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>mode</code> contains an invalid value.       -or       <code>access</code> contains an invalid value.       -or-       <code>share</code> contains an invalid value."
+    description: "<code>mode</code>contém um valor inválido.       - ou <code>access</code> contém um valor inválido.       - ou - <code>share</code> contém um valor inválido."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file cannot be found."
+    description: "O arquivo não pode ser encontrado."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs when opening the log store."
+    description: "Ocorrerá um erro de e/s ao abrir o armazenamento de log."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access for the specified log store is denied by the operating system."
+    description: "O acesso para o armazenamento de log especificado é negado pelo sistema operacional."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "<xref href=&quot;System.IO.Log.LogStore&quot;></xref> cannot be used because the required Common Log File System (CLFS) component is not installed. Install the CLFS component if it is available for your platform or use the <xref href=&quot;System.IO.Log.FileRecordSequence&quot;></xref> class instead."
+    description: "<xref href=&quot;System.IO.Log.LogStore&quot;></xref>não pode ser usado porque o componente necessário do sistema de arquivos de Log comuns (CLFS) não está instalado. Instale o componente CLFS se ele está disponível para sua plataforma ou use o <xref href=&quot;System.IO.Log.FileRecordSequence&quot;> </xref> classe em vez disso."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is not enough memory to continue the execution of a program."
+    description: "Não há memória suficiente para continuar a execução de um programa."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare,System.Security.AccessControl.FileSecurity)
@@ -253,58 +253,58 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Initializes a new instance of the <xref href=&quot;System.IO.Log.LogStore&quot;></xref> class."
-  remarks: "This constructor initializes a new <xref:System.IO.Log.LogStore> object that it opens with the specified path, mode, and access. The store is opened sharing the specified access. The `path` parameter should follow the following syntax:       `log:<physical log name>[::<log client name>]`       where `<physical log name>` is a valid path to a log file, and `<log client name>` is a unique client identifier. A log store should be either a physical log store or a virtual log store, but not both. Once a log store has been created physically or virtually, it remains so for its lifetime. A physical log store is created by specifying only the physical log name. A virtual log store is created by specifying both the physical log name and the log client name.       Clients that share the same physical log name share the same extents collection and policy."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> classe."
+  remarks: "Este construtor inicializa um novo <xref:System.IO.Log.LogStore>objeto que ele é aberto com o caminho especificado, o modo e o acesso.</xref:System.IO.Log.LogStore> O armazenamento é aberto com o compartilhamento de acesso especificado. O `path` parâmetro deve seguir a sintaxe a seguir: `log:<physical log name>[::<log client name>]` onde `<physical log name>` é um caminho válido para um arquivo de log e `<log client name>` é um identificador exclusivo do cliente. Um repositório de log deve ser um repositório de log físico ou um armazenamento de log virtuais, mas não ambos. Quando um armazenamento de log tiver sido criado física ou virtualmente, ele permanecerá isso para o seu tempo de vida. Um repositório de log físico é criado especificando somente o nome de log físico. Um repositório de log virtual é criado, especificando o nome de log físico e o nome do cliente de log.       Os clientes que compartilham o mesmo nome de log físico compartilham o mesmo conjunto de extensões e a política."
   syntax:
     content: public LogStore (string path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Security.AccessControl.FileSecurity fileSecurity);
     parameters:
     - id: path
       type: System.String
-      description: "A relative or absolute path for the base file of the log store to open."
+      description: "Um caminho relativo ou absoluto para o arquivo de base de armazenamento de log para abrir."
     - id: mode
       type: System.IO.FileMode
-      description: "One of the <xref href=&quot;System.IO.FileMode&quot;></xref> values that determines how to open or create the store."
+      description: "Uma da <xref href=&quot;System.IO.FileMode&quot;> </xref> valores que determina como abrir ou criar o repositório."
     - id: access
       type: System.IO.FileAccess
-      description: "One of the <xref href=&quot;System.IO.FileAccess&quot;></xref> values that determines how the file can be accessed by the <xref href=&quot;System.IO.Log.LogStore&quot;></xref>."
+      description: "Uma da <xref href=&quot;System.IO.FileAccess&quot;> </xref> valores que determina como o arquivo pode ser acessado pelo <xref href=&quot;System.IO.Log.LogStore&quot;> </xref>."
     - id: share
       type: System.IO.FileShare
-      description: "One of the <xref href=&quot;System.IO.FileShare&quot;></xref> values that determines how the log store will be shared among processes."
+      description: "Uma da <xref href=&quot;System.IO.FileShare&quot;> </xref> valores que determina como o armazenamento de log será compartilhado entre processos."
     - id: fileSecurity
       type: System.Security.AccessControl.FileSecurity
-      description: "One of the <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;></xref> value that specifies the security to set on the newly created store if the store must be created."
+      description: "Uma da <xref href=&quot;System.Security.AccessControl.FileSecurity&quot;> </xref> valor que especifica a segurança definida no repositório de recém-criado se o repositório deve ser criado."
   overload: System.IO.Log.LogStore.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The log store file name specified by <code>path</code> is not valid.       -or-       <code>Mode</code> is <xref uid=&quot;langword_csharp_CreateNew&quot; name=&quot;CreateNew&quot; href=&quot;&quot;></xref>, which cannot be used without write access.       -or-       <code>Mode</code> is <xref uid=&quot;langword_csharp_OpenOrCreate&quot; name=&quot;OpenOrCreate&quot; href=&quot;&quot;></xref>, which cannot be used without write access."
+    description: "O nome do arquivo de armazenamento de log especificado pelo <code> path </code> não é válido.       - ou - <code> Mode </code> é <xref uid=&quot;langword_csharp_CreateNew&quot; name=&quot;CreateNew&quot; href=&quot;&quot;> </xref>, que não pode ser usado sem acesso de gravação.       - ou - <code> Mode </code> é <xref uid=&quot;langword_csharp_OpenOrCreate&quot; name=&quot;OpenOrCreate&quot; href=&quot;&quot;> </xref>, que não pode ser usado sem acesso de gravação."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>mode</code> contains an invalid value.       -or       <code>access</code> contains an invalid value.       -or-       <code>share</code> contains an invalid value."
+    description: "<code>mode</code>contém um valor inválido.       - ou <code>access</code> contém um valor inválido.       - ou - <code>share</code> contém um valor inválido."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file cannot be found."
+    description: "O arquivo não pode ser encontrado."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs when opening the log store.       The file specified by <code>path</code> cannot be accessed because it is in use by another process.       -or-       The file specified by <code>path</code> cannot be created because the file or directory already exists.       -or-       The log handle could not be bound to the thread pool.       -or-       The specified log file format or version is invalid."
+    description: "Ocorrerá um erro de e/s ao abrir o armazenamento de log.       O arquivo especificado por <code> path </code> não pode ser acessado porque está em uso por outro processo.       o arquivo especificado por - ou - <code> path </code> não pode ser criado porque o arquivo ou diretório já existe.       - ou - o identificador do log não pôde ser associado ao pool de threads.       - ou - a versão ou o formato de arquivo de log especificado é inválido."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "<xref href=&quot;System.IO.Log.LogStore&quot;></xref> cannot be used because the required Common Log File System (CLFS) component is not installed. Install the CLFS component if it is available for your platform or use the <xref href=&quot;System.IO.Log.FileRecordSequence&quot;></xref> class instead."
+    description: "<xref href=&quot;System.IO.Log.LogStore&quot;></xref>não pode ser usado porque o componente necessário do sistema de arquivos de Log comuns (CLFS) não está instalado. Instale o componente CLFS se ele está disponível para sua plataforma ou use o <xref href=&quot;System.IO.Log.FileRecordSequence&quot;> </xref> classe em vez disso."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "O método foi chamado depois que a sequência foi descartada."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is not enough memory to continue the execution of a program."
+    description: "Não há memória suficiente para continuar a execução de um programa."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence is full."
+    description: "A sequência de registro está cheia."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access for the specified log store is denied by the operating system."
+    description: "O acesso para o armazenamento de log especificado é negado pelo sistema operacional."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.Archivable
@@ -319,18 +319,18 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets a value indicating whether this <xref href=&quot;System.IO.Log.LogStore&quot;></xref> instance can be archived."
-  remarks: "If a <xref:System.IO.Log.LogStore> is not archivable, calls to the <xref:System.IO.Log.LogStore.CreateLogArchiveSnapshot%2A> and <xref:System.IO.Log.LogStore.SetArchiveTail%2A> methods result in a <xref:System.NotSupportedException> being thrown."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> instância pode ser arquivada."
+  remarks: "Se um <xref:System.IO.Log.LogStore>não pode ser arquivado, chamadas para o <xref:System.IO.Log.LogStore.CreateLogArchiveSnapshot%2A>e <xref:System.IO.Log.LogStore.SetArchiveTail%2A>métodos resultam em um <xref:System.NotSupportedException>que está sendo gerada.</xref:System.NotSupportedException> </xref:System.IO.Log.LogStore.SetArchiveTail%2A> </xref:System.IO.Log.LogStore.CreateLogArchiveSnapshot%2A> </xref:System.IO.Log.LogStore>"
   syntax:
     content: public bool Archivable { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.IO.Log.LogStore&quot;></xref> instance can be archived; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> instância pode ser arquivado; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IO.Log.LogStore.Archivable*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "A propriedade foi acessada depois que a sequência foi descartada."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.BaseSequenceNumber
@@ -345,18 +345,18 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets the lowest sequence number that corresponds to a valid record in this <xref href=&quot;System.IO.Log.LogStore&quot;></xref> instance."
-  remarks: "Valid sequence numbers are greater than or equal to BaseSequenceNumber and less than <xref:System.IO.Log.LogStore.LastSequenceNumber%2A>."
+  summary: "Obtém o número de sequência mais baixo que corresponde a um registro válido neste <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> instância."
+  remarks: "Números de sequência são maior ou igual a BaseSequenceNumber e menor que <xref:System.IO.Log.LogStore.LastSequenceNumber%2A>.</xref:System.IO.Log.LogStore.LastSequenceNumber%2A>"
   syntax:
     content: public System.IO.Log.SequenceNumber BaseSequenceNumber { get; }
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The lowest sequence number that corresponds to a valid record in this <xref href=&quot;System.IO.Log.LogStore&quot;></xref> instance."
+      description: "O número de sequência mais baixo que corresponde a um registro válido neste <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> instância."
   overload: System.IO.Log.LogStore.BaseSequenceNumber*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "A propriedade foi acessada depois que a sequência foi descartada."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.CreateLogArchiveSnapshot
@@ -371,7 +371,7 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Takes a snapshot of the log store state for making a backup."
+  summary: "Tira um instantâneo do estado do repositório de log para fazer um backup."
   remarks: ''
   example:
   - "The following example shows how to archive a <xref:System.IO.Log.LogStore> to an XML document.  \n  \n [!code-vb[logarchievesnapshot#0](~/add/codesnippet/visualbasic/m-system.io.log.logstore_1_1.vb)]\n [!code-cs[logarchievesnapshot#0](~/add/codesnippet/csharp/m-system.io.log.logstore_1_1.cs)]"
@@ -380,33 +380,33 @@ items:
     parameters: []
     return:
       type: System.IO.Log.LogArchiveSnapshot
-      description: "A <xref href=&quot;System.IO.Log.LogArchiveSnapshot&quot;></xref> object that contains the state necessary to make an archive."
+      description: "Um <xref href=&quot;System.IO.Log.LogArchiveSnapshot&quot;> </xref> objeto que contém o estado necessário para tornar um arquivo morto."
   overload: System.IO.Log.LogStore.CreateLogArchiveSnapshot*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The log store is not archivable."
+    description: "O armazenamento de log não é arquivável."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "O método foi chamado depois que a sequência foi descartada."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs when creating the archive snapshot."
+    description: "Ocorrerá um erro de e/s ao criar o instantâneo de arquivo."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An argument is not valid."
+    description: "Um argumento não é válido."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An invalid operation has been executed."
+    description: "Uma operação inválida foi executada."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is not enough memory to continue the execution of a program."
+    description: "Não há memória suficiente para continuar a execução de um programa."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence is full."
+    description: "A sequência de registro está cheia."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access for the specified log store is denied by the operating system."
+    description: "O acesso para o armazenamento de log especificado é negado pelo sistema operacional."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.CreateLogArchiveSnapshot(System.IO.Log.SequenceNumber,System.IO.Log.SequenceNumber)
@@ -421,49 +421,49 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Takes a snapshot of the log store state between the specified sequence numbers for making a backup."
-  remarks: "The archive snapshot returned from this method encompasses information from either the base sequence number or the archive sequence number, whichever is lower, to the last sequence number. It is not inclusive for the last sequence number, which means that the archive only includes records up to but not including last. In addition, when using this method, the start SequenceNumber must be equal to the BaseSequenceNumber in order for the archive to be consistent."
+  summary: "Tira um instantâneo do estado do repositório de log entre os números de sequência especificado para fazer um backup."
+  remarks: "O instantâneo de arquivo retornado deste método abrange informações sobre o número de sequência de base ou o número de sequência de arquivo, o que for menor, para o último número de sequência. Não é inclusivo para o último número de sequência, o que significa que o arquivo contém somente registros até, mas não incluindo a última. Além disso, ao usar esse método, o início SequenceNumber deve ser igual de BaseSequenceNumber para que o arquivo para ser consistente."
   syntax:
     content: public System.IO.Log.LogArchiveSnapshot CreateLogArchiveSnapshot (System.IO.Log.SequenceNumber first, System.IO.Log.SequenceNumber last);
     parameters:
     - id: first
       type: System.IO.Log.SequenceNumber
-      description: "The starting sequence number in the range to archive."
+      description: "O sequência número inicial no intervalo para arquivamento."
     - id: last
       type: System.IO.Log.SequenceNumber
-      description: "The ending sequence number in the range to archive."
+      description: "O sequência número final no intervalo para arquivar."
     return:
       type: System.IO.Log.LogArchiveSnapshot
-      description: "A <xref href=&quot;System.IO.Log.LogArchiveSnapshot&quot;></xref> object that contains the state necessary to make an archive."
+      description: "Um <xref href=&quot;System.IO.Log.LogArchiveSnapshot&quot;> </xref> objeto que contém o estado necessário para tornar um arquivo morto."
   overload: System.IO.Log.LogStore.CreateLogArchiveSnapshot*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>first</code> or <code>last</code> is not between the base and last sequence numbers of this sequence."
+    description: "<code>first</code>ou <code>last</code> não está entre os números de base e última sequência dessa sequência."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>first</code> is larger than <code>last</code>."
+    description: "<code>first</code>é maior do que <code>last</code>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An invalid operation has been executed."
+    description: "Uma operação inválida foi executada."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs when creating the archive snapshot."
+    description: "Ocorrerá um erro de e/s ao criar o instantâneo de arquivo."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The log store is not archivable."
+    description: "O armazenamento de log não é arquivável."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "O método foi chamado depois que a sequência foi descartada."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is not enough memory to continue the execution of a program."
+    description: "Não há memória suficiente para continuar a execução de um programa."
   - type: System.IO.Log.SequenceFullException
     commentId: T:System.IO.Log.SequenceFullException
-    description: "The record sequence is full."
+    description: "A sequência de registro está cheia."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access for the specified log store is denied by the operating system."
+    description: "O acesso para o armazenamento de log especificado é negado pelo sistema operacional."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.Delete(System.String)
@@ -478,30 +478,30 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Removes the log store."
+  summary: "Remove o armazenamento de log."
   syntax:
     content: public static void Delete (string path);
     parameters:
     - id: path
       type: System.String
-      description: "A relative or absolute path for the base file of the log store to remove."
+      description: "Um caminho relativo ou absoluto para o arquivo de base de armazenamento de log para remover."
   overload: System.IO.Log.LogStore.Delete*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>path</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>path</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>path</code> is an empty string (&quot;&quot;).       -or-       <code>path</code> contains only white space.       -or-       <code>path</code> contains one or more invalid characters."
+    description: "<code>path</code>é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - <code>path</code> contém somente espaços em branco.       - ou - <code>path</code> contém um ou mais caracteres inválidos."
   - type: System.IO.FileNotFoundException
     commentId: T:System.IO.FileNotFoundException
-    description: "The file cannot be found."
+    description: "O arquivo não pode ser encontrado."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs when opening the log store."
+    description: "Ocorrerá um erro de e/s ao abrir o armazenamento de log."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access for the specified log store is denied by the operating system."
+    description: "O acesso para o armazenamento de log especificado é negado pelo sistema operacional."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.Dispose
@@ -516,8 +516,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Releases all resources used by the <xref href=&quot;System.IO.Log.LogStore&quot;></xref>."
-  remarks: "Call Dispose when you have finished using the <xref:System.IO.Log.LogStore>. The Dispose method leaves the <xref:System.IO.Log.LogStore> in an unusable state. After calling Dispose , you must release all references to the <xref:System.IO.Log.LogStore> so the garbage collector can reclaim the memory that the <xref:System.IO.Log.LogStore> was occupying.      > [!NOTE] >  Always call Dispose before you release your last reference to the <xref:System.IO.Log.LogStore>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.IO.Log.LogStore> object&quot;s `Finalize` method."
+  summary: "Libera todos os recursos usados pelo <xref href=&quot;System.IO.Log.LogStore&quot;> </xref>."
+  remarks: "Chamar Dispose quando terminar de usar o <xref:System.IO.Log.LogStore>.</xref:System.IO.Log.LogStore> O método Dispose deixa a <xref:System.IO.Log.LogStore>em um estado inutilizável.</xref:System.IO.Log.LogStore> Depois de chamar Dispose, você deve liberar todas as referências para o <xref:System.IO.Log.LogStore>para o coletor de lixo possa recuperar a memória que o <xref:System.IO.Log.LogStore>estava ocupando.</xref:System.IO.Log.LogStore> </xref:System.IO.Log.LogStore>      > [!NOTE] > Sempre chamada Dispose antes de liberar sua última referência a <xref:System.IO.Log.LogStore>.</xref:System.IO.Log.LogStore> Caso contrário, os recursos que está usando não serão liberados até que o coletor de lixo chame o <xref:System.IO.Log.LogStore>do objeto `Finalize` método.</xref:System.IO.Log.LogStore>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -525,7 +525,7 @@ items:
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "O método foi chamado depois que a sequência foi descartada."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.Extents
@@ -540,13 +540,13 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets the collection of log extents that contain the data for this log store."
-  remarks: "A <xref:System.IO.Log.LogStore> instance stores its data in a collection of disk extents, represented by <xref:System.IO.Log.LogExtent> instances. The extents in a given <xref:System.IO.Log.LogStore> instance are all of uniform size, and space is added to and removed from a <xref:System.IO.Log.LogStore> instance in extent increments. To add and remove log extents, use the <xref:System.IO.Log.LogExtentCollection.Add%2A>and<xref:System.IO.Log.LogExtentCollection.Remove%2A> methods of the <xref:System.IO.Log.LogExtentCollection> object, which is returned by this property."
+  summary: "Obtém a coleção de extensões de log que contêm os dados para este armazenamento de log."
+  remarks: "Um <xref:System.IO.Log.LogStore>instância armazena seus dados em uma coleção de extensões do disco, representado pelo <xref:System.IO.Log.LogExtent>instâncias.</xref:System.IO.Log.LogExtent> </xref:System.IO.Log.LogStore> As extensões em um determinado <xref:System.IO.Log.LogStore>instância são de tamanho uniforme, e espaço é adicionado a e removido de um <xref:System.IO.Log.LogStore>instância em incrementos de extensão.</xref:System.IO.Log.LogStore> </xref:System.IO.Log.LogStore> Para adicionar e remover extensões de log, use o <xref:System.IO.Log.LogExtentCollection.Add%2A>e<xref:System.IO.Log.LogExtentCollection.Remove%2A> métodos do <xref:System.IO.Log.LogExtentCollection>objeto, que é retornado por essa propriedade.</xref:System.IO.Log.LogExtentCollection> </xref:System.IO.Log.LogExtentCollection.Remove%2A> </xref:System.IO.Log.LogExtentCollection.Add%2A>"
   syntax:
     content: public System.IO.Log.LogExtentCollection Extents { get; }
     return:
       type: System.IO.Log.LogExtentCollection
-      description: "A <xref href=&quot;System.IO.Log.LogExtentCollection&quot;></xref> instance containing the collection of log extents that encapsulates data for this log store."
+      description: "Um <xref href=&quot;System.IO.Log.LogExtentCollection&quot;> </xref> instância que contém a coleção de extensões de log que encapsula dados para este armazenamento de log."
   overload: System.IO.Log.LogStore.Extents*
   exceptions: []
   platform:
@@ -563,17 +563,17 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets the number of bytes available in the log store."
+  summary: "Obtém o número de bytes disponíveis no armazenamento de log."
   syntax:
     content: public long FreeBytes { get; }
     return:
       type: System.Int64
-      description: "The number of bytes available in the log store."
+      description: "O número de bytes disponíveis no armazenamento de log."
   overload: System.IO.Log.LogStore.FreeBytes*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "A propriedade foi acessada depois que a sequência foi descartada."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.Handle
@@ -588,12 +588,12 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets the operating system file handle for the log file that the current <xref href=&quot;System.IO.Log.LogStore&quot;></xref> instance encapsulates."
+  summary: "Obtém o identificador de arquivo do sistema operacional para o arquivo de log que atual <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> instância encapsula."
   syntax:
     content: public Microsoft.Win32.SafeHandles.SafeFileHandle Handle { get; }
     return:
       type: Microsoft.Win32.SafeHandles.SafeFileHandle
-      description: "The operating system file handle for the log file that the current <xref href=&quot;System.IO.Log.LogStore&quot;></xref> instance encapsulates."
+      description: "O identificador de arquivo do sistema operacional para o log de arquivo atual <xref href=&quot;System.IO.Log.LogStore&quot;> </xref> instância encapsula."
   overload: System.IO.Log.LogStore.Handle*
   exceptions: []
   platform:
@@ -610,18 +610,18 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "When overridden in a derived class, gets the sequence number of the next record to be appended to the log store."
-  remarks: "Valid sequence numbers are greater than or equal to <xref:System.IO.Log.LogStore.BaseSequenceNumber%2A> and less than LastSequenceNumber."
+  summary: "Quando substituído em uma classe derivada, obtém o número de sequência do próximo registro a ser anexado ao armazenamento de log."
+  remarks: "Números de sequência são maiores que ou igual a <xref:System.IO.Log.LogStore.BaseSequenceNumber%2A>e menor que LastSequenceNumber.</xref:System.IO.Log.LogStore.BaseSequenceNumber%2A>"
   syntax:
     content: public System.IO.Log.SequenceNumber LastSequenceNumber { get; }
     return:
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the next record to be appended to the log store."
+      description: "O número de sequência do próximo registro a ser anexado ao armazenamento de log."
   overload: System.IO.Log.LogStore.LastSequenceNumber*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "A propriedade foi acessada depois que a sequência foi descartada."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.Length
@@ -636,18 +636,18 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets the size of the log store, in bytes."
-  remarks: "The size of the log store is the sum of the sizes of the log extents."
+  summary: "Obtém o tamanho do armazenamento de log, em bytes."
+  remarks: "O tamanho do armazenamento de log é a soma dos tamanhos das extensões do log."
   syntax:
     content: public long Length { get; }
     return:
       type: System.Int64
-      description: "The size of the log store, in bytes."
+      description: "O tamanho do armazenamento de log, em bytes."
   overload: System.IO.Log.LogStore.Length*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The property was accessed after the sequence has been disposed of."
+    description: "A propriedade foi acessada depois que a sequência foi descartada."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.Policy
@@ -662,13 +662,13 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets the policy associated with this log store."
-  remarks: "You can use the <xref:System.IO.Log.LogPolicy> instance returned by this property to examine and manipulate the log policy associated with this <xref:System.IO.Log.LogStore>."
+  summary: "Obtém a política associada a este armazenamento de log."
+  remarks: "Você pode usar a <xref:System.IO.Log.LogPolicy>instância retornada por esta propriedade para examinar e manipular a diretiva de log associado a esta <xref:System.IO.Log.LogStore>.</xref:System.IO.Log.LogStore> </xref:System.IO.Log.LogPolicy>"
   syntax:
     content: public System.IO.Log.LogPolicy Policy { get; }
     return:
       type: System.IO.Log.LogPolicy
-      description: "A <xref href=&quot;System.IO.Log.LogPolicy&quot;></xref> instance representing the policy associated with this log store."
+      description: "Um <xref href=&quot;System.IO.Log.LogPolicy&quot;> </xref> instância que representa a política associada a este armazenamento de log."
   overload: System.IO.Log.LogStore.Policy*
   exceptions: []
   platform:
@@ -685,8 +685,8 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Sets the sequence number of the archive tail."
-  remarks: "The smaller of the base sequence number and the archive tail determines the tail of the log."
+  summary: "Define o número de sequência de final do arquivo."
+  remarks: "O menor o número de sequência de base e o final do arquivo determina o final do log."
   example:
   - "The following example shows how to archive a <xref:System.IO.Log.LogStore> to an XML document.  \n  \n [!code-vb[logarchievesnapshot#0](~/add/codesnippet/visualbasic/m-system.io.log.logstore_0_1.vb)]\n [!code-cs[logarchievesnapshot#0](~/add/codesnippet/csharp/m-system.io.log.logstore_0_1.cs)]"
   syntax:
@@ -694,33 +694,33 @@ items:
     parameters:
     - id: archiveTail
       type: System.IO.Log.SequenceNumber
-      description: "The sequence number of the archive tail."
+      description: "O número de sequência de final do arquivo."
   overload: System.IO.Log.LogStore.SetArchiveTail*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>archiveTail</code> is not between the base and last sequence numbers of this sequence."
+    description: "<code>archiveTail</code>não está entre os números de base e última sequência dessa sequência."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>archiveTail</code> is not valid for this sequence."
+    description: "<code>archiveTail</code>não é válido para essa sequência."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An invalid operation has been executed."
+    description: "Uma operação inválida foi executada."
   - type: System.IO.IOException
     commentId: T:System.IO.IOException
-    description: "An I/O error occurs when creating the archive snapshot."
+    description: "Ocorrerá um erro de e/s ao criar o instantâneo de arquivo."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The log store is not archivable."
+    description: "O armazenamento de log não é arquivável."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The method was called after the sequence has been disposed of."
+    description: "O método foi chamado depois que a sequência foi descartada."
   - type: System.OutOfMemoryException
     commentId: T:System.OutOfMemoryException
-    description: "There is not enough memory to continue the execution of a program."
+    description: "Não há memória suficiente para continuar a execução de um programa."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Access for the specified log store is denied by the operating system."
+    description: "O acesso para o armazenamento de log especificado é negado pelo sistema operacional."
   platform:
   - net462
 - uid: System.IO.Log.LogStore.StreamCount
@@ -735,12 +735,12 @@ items:
   assemblies:
   - System.IO.Log
   namespace: System.IO.Log
-  summary: "Gets the number of log streams in this log store."
+  summary: "Obtém o número de fluxos de log nesse armazenamento de log."
   syntax:
     content: public int StreamCount { get; }
     return:
       type: System.Int32
-      description: "The number of log streams in this log store."
+      description: "O número de fluxos de log nesse armazenamento de log."
   overload: System.IO.Log.LogStore.StreamCount*
   exceptions: []
   platform:

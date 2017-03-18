@@ -14,8 +14,8 @@ items:
   nameWithType: IChannelListener
   fullName: System.ServiceModel.Channels.IChannelListener
   type: Interface
-  summary: "Defines the interface that must be implemented by a channel listener to accept channels."
-  remarks: "The IChannelListener interface represents the base interface for channel listeners.       Channel listeners and their associated channels are generally used by services that receive communications initiated by clients. Channel factories that implement the <xref:System.ServiceModel.Channels.IChannelFactory> interface, by contrast, provide the mechanisms used to create the channels through which communication with a service is initiated."
+  summary: "Define a interface que deve ser implementada por um ouvinte de canal para aceitar canais."
+  remarks: "A interface IChannelListener representa a interface base para ouvintes de canais.       Ouvintes de canais e seus canais associados são geralmente usados por serviços que recebem comunicações iniciadas por clientes. Canal fábricas que implementam o <xref:System.ServiceModel.Channels.IChannelFactory>interface, por outro lado, fornece os mecanismos usados para criar os canais por meio do qual a comunicação com um serviço é iniciada.</xref:System.ServiceModel.Channels.IChannelFactory>"
   syntax:
     content: 'public interface IChannelListener : System.ServiceModel.ICommunicationObject'
   implements:
@@ -34,22 +34,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Begins an asynchronous operation to wait for a channel to arrive that must be completed within a specified interval of time."
+  summary: "Inicia uma operação assíncrona para aguardar um canal chegar que deve ser concluído dentro de um intervalo de tempo especificado."
   syntax:
     content: public IAsyncResult BeginWaitForChannel (TimeSpan timeout, AsyncCallback callback, object state);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long the wait for a channel operation has to complete before timing out."
+      description: "O <xref:System.TimeSpan>que especifica quanto tempo a aguardar uma operação de canal tem para concluir antes do tempo limite.</xref:System.TimeSpan>"
     - id: callback
       type: System.AsyncCallback
-      description: "The <xref:System.AsyncCallback> delegate that receives the notification of the asynchronous completion of the wait for a channel operation."
+      description: "O <xref:System.AsyncCallback>delegate que recebe a notificação de conclusão assíncrona da espera por uma operação de canal.</xref:System.AsyncCallback>"
     - id: state
       type: System.Object
-      description: "An object, specified by the application, that contains state information associated with the asynchronous wait for a channel operation."
+      description: "Um objeto, especificado pelo aplicativo, que contém informações de estado associadas a espera assíncrona para uma operação de canal."
     return:
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> that references the asynchronous wait for a channel operation."
+      description: "O <xref:System.IAsyncResult>que faz referência a espera assíncrona para uma operação de canal.</xref:System.IAsyncResult>"
   overload: System.ServiceModel.Channels.IChannelListener.BeginWaitForChannel*
   exceptions: []
   platform:
@@ -66,16 +66,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Completes an asynchronous operation to wait for channels to arrive."
+  summary: "Conclui uma operação assíncrona para aguardar canais chegar."
   syntax:
     content: public bool EndWaitForChannel (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "The <xref:System.IAsyncResult> returned by a call to the EndWaitForChannel method."
+      description: "O <xref:System.IAsyncResult>retornado por uma chamada ao método EndWaitForChannel.</xref:System.IAsyncResult>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a message arrived; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se uma mensagem foi recebida; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.IChannelListener.EndWaitForChannel*
   exceptions: []
   platform:
@@ -97,7 +97,7 @@ items:
     parameters: []
     return:
       type: T
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.ServiceModel.Channels.IChannelListener.GetProperty<T>*
   exceptions: []
   platform:
@@ -114,13 +114,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Gets the URI on which the listeners that are generated by the factory listen."
-  remarks: "This URI represents the transport address on which the <xref:System.ServiceModel.Channels.IChannelListener> is listening for messages."
+  summary: "Obtém o URI no qual os ouvintes que são gerados pela fábrica de escutam."
+  remarks: "Esse URI representa o endereço de transporte no qual o <xref:System.ServiceModel.Channels.IChannelListener>está escutando para mensagens.</xref:System.ServiceModel.Channels.IChannelListener>"
   syntax:
     content: public Uri Uri { get; }
     return:
       type: System.Uri
-      description: "The <xref:System.Uri> on which the listeners that are generated by the factory listen."
+      description: "O <xref:System.Uri>em que os ouvintes que são gerados pela fábrica de escutam.</xref:System.Uri>"
   overload: System.ServiceModel.Channels.IChannelListener.Uri*
   exceptions: []
   platform:
@@ -137,16 +137,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Channels
-  summary: "Waits for a channel to arrive."
+  summary: "Espera por um canal chegar."
   syntax:
     content: public bool WaitForChannel (TimeSpan timeout);
     parameters:
     - id: timeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> that specifies how long the wait for a channel operation has to complete before timing out."
+      description: "O <xref:System.TimeSpan>que especifica quanto tempo a aguardar uma operação de canal tem para concluir antes do tempo limite.</xref:System.TimeSpan>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a channel arrived before the interval of time specified by the <code>timeout</code>; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se um canal foi recebido antes do intervalo de tempo especificado pelo <code> timeout </code>; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ServiceModel.Channels.IChannelListener.WaitForChannel*
   exceptions: []
   platform:

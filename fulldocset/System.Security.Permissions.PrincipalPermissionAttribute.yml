@@ -14,8 +14,8 @@ items:
   nameWithType: PrincipalPermissionAttribute
   fullName: System.Security.Permissions.PrincipalPermissionAttribute
   type: Class
-  summary: "Allows security actions for <xref href=&quot;System.Security.Permissions.PrincipalPermission&quot;></xref> to be applied to code using declarative security. This class cannot be inherited."
-  remarks: "PrincipalPermissionAttribute can be used to declaratively demand that users running your code belong to a specified role or have been authenticated. Use of <xref:System.Security.Permissions.PermissionState> creates a <xref:System.Security.Permissions.PrincipalPermission> with <xref:System.Security.Permissions.PrincipalPermissionAttribute.Authenticated%2A> set to `true` and <xref:System.Security.Permissions.PrincipalPermissionAttribute.Name%2A> and <xref:System.Security.Permissions.PrincipalPermissionAttribute.Role%2A> set to `null`.       The scope of the declaration that is allowed depends on the <xref:System.Security.Permissions.SecurityAction> that is used. PrincipalPermissionAttribute cannot be applied at the assembly level.       The security information declared by a security attribute is stored in the metadata of the attribute target and is accessed by the system at run time. Security attributes are used only for declarative security. For imperative security, use the corresponding permission class.      > [!IMPORTANT] >  Before you use this class to demand principal permission, you must set the current application domain&quot;s principal policy to the enumeration value <xref:System.Security.Principal.PrincipalPolicy>. By default, the principal policy is set to <xref:System.Security.Principal.PrincipalPolicy>. If you do not set the principal policy to <xref:System.Security.Principal.PrincipalPolicy>, a demand for principal permission will fail. The following code should be executed before the principal permission is demanded: `AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal).`"
+  summary: "Permitir que as ações de segurança para <xref href=&quot;System.Security.Permissions.PrincipalPermission&quot;> </xref> a serem aplicadas ao código usando a segurança declarativa. Essa classe não pode ser herdada."
+  remarks: "PrincipalPermissionAttribute pode ser usado para declarativamente exigem que os usuários executando seu código pertencerem a uma função especificada ou tenha sido autenticado. O uso de <xref:System.Security.Permissions.PermissionState>cria um <xref:System.Security.Permissions.PrincipalPermission>com <xref:System.Security.Permissions.PrincipalPermissionAttribute.Authenticated%2A>definido como `true` e <xref:System.Security.Permissions.PrincipalPermissionAttribute.Name%2A>e <xref:System.Security.Permissions.PrincipalPermissionAttribute.Role%2A>definida como `null`.</xref:System.Security.Permissions.PrincipalPermissionAttribute.Role%2A> </xref:System.Security.Permissions.PrincipalPermissionAttribute.Name%2A> </xref:System.Security.Permissions.PrincipalPermissionAttribute.Authenticated%2A> </xref:System.Security.Permissions.PrincipalPermission> </xref:System.Security.Permissions.PermissionState>       O escopo da declaração que é permitido depende do <xref:System.Security.Permissions.SecurityAction>que é usado.</xref:System.Security.Permissions.SecurityAction> PrincipalPermissionAttribute não pode ser aplicado no nível de assembly.       As informações de segurança declaradas por um atributo de segurança são armazenadas nos metadados do atributo de destino e são acessadas pelo sistema em tempo de execução. Atributos de segurança são usados apenas para a segurança declarativa. Para segurança obrigatória, use a classe de permissão correspondente.      > [!IMPORTANT] > Antes de usar essa classe para permissão de demanda principal, você deve definir a política de entidade do atual domínio de aplicativo para o valor de enumeração <xref:System.Security.Principal.PrincipalPolicy>.</xref:System.Security.Principal.PrincipalPolicy> Por padrão, a política de entidade é definida como <xref:System.Security.Principal.PrincipalPolicy>.</xref:System.Security.Principal.PrincipalPolicy> Se você não definir a política de entidade <xref:System.Security.Principal.PrincipalPolicy>, uma solicitação de permissão principal falhará.</xref:System.Security.Principal.PrincipalPolicy> O código a seguir deve ser executado antes que a permissão principal é exigida:`AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal).`"
   example:
   - "The following example demonstrates how the PrincipalPermissionAttribute class is used declaratively to demand that the current user be an administrator.  \n  \n> [!NOTE]\n>  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that requires you to be an administrator, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator.  \n  \n [!code-cpp[Classic PrincipalPermissionAttribute Example#1](~/add/codesnippet/cpp/t-system.security.permis_17_1.cpp)]\n [!code-vb[Classic PrincipalPermissionAttribute Example#1](~/add/codesnippet/visualbasic/t-system.security.permis_17_1.vb)]\n [!code-cs[Classic PrincipalPermissionAttribute Example#1](~/add/codesnippet/csharp/t-system.security.permis_17_1.cs)]"
   syntax:
@@ -47,8 +47,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.Permissions.PrincipalPermissionAttribute&quot;></xref> class with the specified <xref href=&quot;System.Security.Permissions.SecurityAction&quot;></xref>."
-  remarks: '`Demand`, `InheritanceDemand`, and `LinkDemand` are the only values of <xref:System.Security.Permissions.SecurityAction> that have meaning for this attribute. Other actions do not apply to permissions that are not code access permissions.'
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Security.Permissions.PrincipalPermissionAttribute&quot;> </xref> classe com especificado <xref href=&quot;System.Security.Permissions.SecurityAction&quot;> </xref>."
+  remarks: '`Demand`, `InheritanceDemand`, e `LinkDemand` são os únicos valores de <xref:System.Security.Permissions.SecurityAction>que têm significado para este atributo.</xref:System.Security.Permissions.SecurityAction> Outras ações não se aplicam às permissões que não são as permissões de acesso.'
   example:
   - "The following example demonstrates how to use the PrincipalPermissionAttribute constructor to demand that the current user be an administrator.  \n  \n> [!NOTE]\n>  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that requires you to be an administrator, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator.  \n  \n [!code-cpp[Classic PrincipalPermissionAttribute Example#1](~/add/codesnippet/cpp/b59d1850-818f-411e-9c11-_1.cpp)]\n [!code-vb[Classic PrincipalPermissionAttribute Example#1](~/add/codesnippet/visualbasic/b59d1850-818f-411e-9c11-_1.vb)]\n [!code-cs[Classic PrincipalPermissionAttribute Example#1](~/add/codesnippet/csharp/b59d1850-818f-411e-9c11-_1.cs)]"
   syntax:
@@ -56,7 +56,7 @@ items:
     parameters:
     - id: action
       type: System.Security.Permissions.SecurityAction
-      description: "One of the <xref href=&quot;System.Security.Permissions.SecurityAction&quot;></xref> values."
+      description: "Uma da <xref href=&quot;System.Security.Permissions.SecurityAction&quot;> </xref> valores."
   overload: System.Security.Permissions.PrincipalPermissionAttribute.#ctor*
   exceptions: []
   platform:
@@ -73,12 +73,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets a value indicating whether the current principal has been authenticated by the underlying role-based security provider."
+  summary: "Obtém ou define um valor que indica se a entidade de segurança atual foi autenticada pelo provedor de segurança baseada em função subjacente."
   syntax:
     content: public bool Authenticated { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current principal has been authenticated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o servidor principal atual tiver sido autenticado; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.Permissions.PrincipalPermissionAttribute.Authenticated*
   exceptions: []
   platform:
@@ -95,14 +95,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Creates and returns a new <xref href=&quot;System.Security.Permissions.PrincipalPermission&quot;></xref>."
-  remarks: "This method should only be called by the security system, never by application code.       At compile time, attributes convert security declarations to a serialized form in metadata. Declarative security data in metadata is created from the permission that this method returns that corresponds to this attribute."
+  summary: "Cria e retorna um novo <xref href=&quot;System.Security.Permissions.PrincipalPermission&quot;> </xref>."
+  remarks: "Esse método só deve ser chamado pelo sistema de segurança, nunca pelo código do aplicativo.       Em tempo de compilação, atributos convertem declarações de segurança para um formato serializado em metadados. Dados de segurança declarativa em metadados são criados a partir da permissão que esse método retorna que corresponde a este atributo."
   syntax:
     content: public override System.Security.IPermission CreatePermission ();
     parameters: []
     return:
       type: System.Security.IPermission
-      description: "A <xref href=&quot;System.Security.Permissions.PrincipalPermission&quot;></xref> that corresponds to this attribute."
+      description: "Um <xref href=&quot;System.Security.Permissions.PrincipalPermission&quot;> </xref> que corresponde a este atributo."
   overload: System.Security.Permissions.PrincipalPermissionAttribute.CreatePermission*
   exceptions: []
   platform:
@@ -119,13 +119,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets the name of the identity associated with the current principal."
-  remarks: "If the authentication provider is Windows NT, Name is the same as the user&quot;s Windows NT login name (in the form &quot;DomainName\\UserName&quot;). Check the documentation of your host to determine which authentication provider it uses and how it determines the identity of the current principal."
+  summary: "Obtém ou define o nome da identidade associada à entidade atual."
+  remarks: "Se o provedor de autenticação do Windows NT, o nome é o mesmo nome de logon do usuário do Windows NT (no formato &quot;DomainName\\UserName&quot;). Verifique a documentação do host para determinar qual provedor de autenticação que usa e como ele determina a identidade da entidade de segurança atual."
   syntax:
     content: public string Name { get; set; }
     return:
       type: System.String
-      description: "A name to match against that provided by the underlying role-based security provider."
+      description: "Um nome para corresponder em que são fornecidas pelo provedor de segurança baseada em função subjacente."
   overload: System.Security.Permissions.PrincipalPermissionAttribute.Name*
   exceptions: []
   platform:
@@ -142,13 +142,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security.Permissions
-  summary: "Gets or sets membership in a specified security role."
-  remarks: "The available roles will differ based on the authentication provider in use by the host. If the authentication provider is Windows NT, roles are Windows NT user groups (in the form &quot;DomainName\\GroupName&quot;). Check the documentation of your host to determine which authentication provider it uses and what roles users can belong to."
+  summary: "Obtém ou define a associação em uma função de segurança especificado."
+  remarks: "As funções disponíveis serão diferentes com base no provedor de autenticação em uso pelo host. Se o provedor de autenticação do Windows NT, as funções são grupos de usuário do Windows NT (na forma &quot;DomainName\\GroupName&quot;). Verifique a documentação do host para determinar qual provedor de autenticação que usa e o que os usuários de funções podem pertencer."
   syntax:
     content: public string Role { get; set; }
     return:
       type: System.String
-      description: "The name of a role from the underlying role-based security provider."
+      description: "O nome de uma função do provedor de segurança baseada em função subjacente."
   overload: System.Security.Permissions.PrincipalPermissionAttribute.Role*
   exceptions: []
   platform:

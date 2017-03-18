@@ -15,7 +15,7 @@ items:
   nameWithType: ReceiveReply
   fullName: System.ServiceModel.Activities.ReceiveReply
   type: Class
-  summary: "An activity that receives a message as part of a request/reply message exchange pattern."
+  summary: "Uma atividade que recebe uma mensagem como parte de um padrão de troca de mensagem de solicitação/resposta."
   remarks: ''
   example:
   - "The following example shows how to use a ReceiveReply activity. A <xref:System.ServiceModel.Activities.Send> activity is created and added to a <xref:System.Activities.Statements.Sequence>. A ReceiveReply activity is then added to the <xref:System.Activities.Statements.Sequence> to receive the reply from the <xref:System.ServiceModel.Activities.Send> activity.  \n  \n```  \nstatic void CreateClientWorkflow()  \n{  \n   Variable<string> message = new Variable<string>(\"message\", \"Hello!\");  \n   Variable<string> result = new Variable<string> { Name = \"result\" };  \n  \n   Endpoint endpoint = new Endpoint  \n   {  \n      AddressUri = new Uri(Microsoft.Samples.WorkflowServicesSamples.Common.Constants.ServiceBaseAddress), Binding = new BasicHttpBinding(),  \n   };  \n  \n   Send requestEcho = new Send  \n   {  \n      ServiceContractName = XName.Get(\"Echo\", \"http://tempuri.org/\"),  \n                Endpoint = endpoint,  \n                OperationName = \"Echo\",  \n      //parameters for send  \n      Content = new SendParametersContent  \n      {  \n         Parameters =   \n            {   \n               { \"message\", new InArgument<string>(message) }  \n            }  \n        }  \n    };  \n    workflow = new CorrelationScope  \n    {  \n       Body = new Sequence  \n       {  \n          Variables = { message, result },  \n                    Activities =  \n                    {  \n                        new WriteLine {  \n                            Text = new InArgument<string>(\"Client is ready!\")  \n                        },  \n                        requestEcho,  \n  \n                        new WriteLine {  \n                            Text = new InArgument<string>(\"Message sent: Hello!\")  \n                        },  \n  \n                        new ReceiveReply  \n                        {  \n                            Request = requestEcho,  \n                            //parameters for the reply  \n                            Content = new ReceiveParametersContent                              \n                            {  \n                                Parameters =   \n                                {  \n                                    { \"echo\", new OutArgument<string>(result) }  \n                                }  \n                            }  \n                        },                                                  \n                        new WriteLine {  \n                            Text = new InArgument<string>(env => \"Message received: \"+result.Get(env))  \n                        }  \n                    }  \n                }  \n            };  \n        }  \n  \n```"
@@ -52,7 +52,7 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Activities.ReceiveReply&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ServiceModel.Activities.ReceiveReply&quot;> </xref> classe."
   syntax:
     content: public ReceiveReply ();
     parameters: []
@@ -72,12 +72,12 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Gets or sets the value of the action header of the message."
+  summary: "Obtém ou define o valor do cabeçalho da mensagem de ação."
   syntax:
     content: public string Action { get; set; }
     return:
       type: System.String
-      description: "The action of the message."
+      description: "A ação da mensagem."
   overload: System.ServiceModel.Activities.ReceiveReply.Action*
   exceptions: []
   platform:
@@ -99,7 +99,7 @@ items:
     parameters:
     - id: metadata
       type: System.Activities.ActivityMetadata
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.ServiceModel.Activities.ReceiveReply.CacheMetadata*
   exceptions: []
   platform:
@@ -116,13 +116,13 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Gets or sets the content received by the <xref href=&quot;System.ServiceModel.Activities.ReceiveReply&quot;></xref> activity"
-  remarks: 'The content can be one of the following types: <xref:System.ServiceModel.Activities.ReceiveMessageContent> or <xref:System.ServiceModel.Activities.ReceiveParametersContent>. Use <xref:System.ServiceModel.Activities.ReceiveMessageContent> when receiving a message <xref:System.ServiceModel.Channels.Message> or a message contract type. Use <xref:System.ServiceModel.Activities.ReceiveParametersContent> when receiving data contract types.'
+  summary: "Obtém ou define o conteúdo recebido pelo <xref href=&quot;System.ServiceModel.Activities.ReceiveReply&quot;> </xref> atividade"
+  remarks: 'O conteúdo pode ser um dos seguintes tipos: <xref:System.ServiceModel.Activities.ReceiveMessageContent>ou <xref:System.ServiceModel.Activities.ReceiveParametersContent>.</xref:System.ServiceModel.Activities.ReceiveParametersContent> </xref:System.ServiceModel.Activities.ReceiveMessageContent> Use <xref:System.ServiceModel.Activities.ReceiveMessageContent>ao receber uma mensagem <xref:System.ServiceModel.Channels.Message>ou uma tipo de contrato de mensagem.</xref:System.ServiceModel.Channels.Message> </xref:System.ServiceModel.Activities.ReceiveMessageContent> Use <xref:System.ServiceModel.Activities.ReceiveParametersContent>quando tipos de contrato de recebimento de dados.</xref:System.ServiceModel.Activities.ReceiveParametersContent>'
   syntax:
     content: public System.ServiceModel.Activities.ReceiveContent Content { get; set; }
     return:
       type: System.ServiceModel.Activities.ReceiveContent
-      description: "The content received."
+      description: "O conteúdo foi recebido."
   overload: System.ServiceModel.Activities.ReceiveReply.Content*
   exceptions: []
   platform:
@@ -139,13 +139,13 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Gets a collection of correlation initializers."
-  remarks: '[!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)] correlation see [Correlation](~/add/includes/ajax-current-ext-md.md).'
+  summary: "Obtém uma coleção de inicializadores de correlação."
+  remarks: '[!INCLUDE[crabout](~/add/includes/ajax-current-ext-md.md)]Consulte correlação [correlação](~/add/includes/ajax-current-ext-md.md).'
   syntax:
     content: public System.Collections.ObjectModel.Collection<System.ServiceModel.Activities.CorrelationInitializer> CorrelationInitializers { get; }
     return:
       type: System.Collections.ObjectModel.Collection{System.ServiceModel.Activities.CorrelationInitializer}
-      description: "A collection of correlation initializers."
+      description: "Uma coleção de inicializadores de correlação."
   overload: System.ServiceModel.Activities.ReceiveReply.CorrelationInitializers*
   exceptions: []
   platform:
@@ -162,13 +162,13 @@ items:
   assemblies:
   - System.ServiceModel.Activities
   namespace: System.ServiceModel.Activities
-  summary: "Gets or sets a reference to the <xref href=&quot;System.ServiceModel.Activities.Send&quot;></xref> activity paired with this <xref href=&quot;System.ServiceModel.Activities.ReceiveReply&quot;></xref> activity."
-  remarks: "<xref:System.ServiceModel.Activities.Send> and <xref:System.ServiceModel.Activities.ReceiveReply> activities are used together to model a request/response message exchange pattern. This property specifies which <xref:System.ServiceModel.Activities.Send> activity the <xref:System.ServiceModel.Activities.ReceiveReply> activity is paired with."
+  summary: "Obtém ou define uma referência para o <xref href=&quot;System.ServiceModel.Activities.Send&quot;> </xref> atividade combinada com isso <xref href=&quot;System.ServiceModel.Activities.ReceiveReply&quot;> </xref> atividade."
+  remarks: "<xref:System.ServiceModel.Activities.Send>e <xref:System.ServiceModel.Activities.ReceiveReply>atividades são usadas em conjunto para modelar um padrão de troca de mensagem de solicitação/resposta.</xref:System.ServiceModel.Activities.ReceiveReply></xref:System.ServiceModel.Activities.Send> Essa propriedade especifica qual <xref:System.ServiceModel.Activities.Send>atividade de <xref:System.ServiceModel.Activities.ReceiveReply>atividade é emparelhada com.</xref:System.ServiceModel.Activities.ReceiveReply> </xref:System.ServiceModel.Activities.Send>"
   syntax:
     content: public System.ServiceModel.Activities.Send Request { get; set; }
     return:
       type: System.ServiceModel.Activities.Send
-      description: "The send activity."
+      description: "A atividade de envio."
   overload: System.ServiceModel.Activities.ReceiveReply.Request*
   exceptions: []
   platform:

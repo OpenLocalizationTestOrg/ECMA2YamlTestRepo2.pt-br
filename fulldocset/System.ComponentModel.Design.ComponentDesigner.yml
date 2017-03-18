@@ -45,8 +45,8 @@ items:
   nameWithType: ComponentDesigner
   fullName: System.ComponentModel.Design.ComponentDesigner
   type: Class
-  summary: "Extends the design mode behavior of a component."
-  remarks: "The ComponentDesigner base designer class provides a simple designer that can extend the behavior of an associated component in design mode.       ComponentDesigner provides an empty <xref:System.ComponentModel.Design.IDesignerFilter> interface implementation, whose methods can be overridden to adjust the attributes, properties and events of the associated component at design time.       You can associate a designer with a type using a <xref:System.ComponentModel.DesignerAttribute>. For an overview of customizing design-time behavior, see [Extending Design-Time Support](~/add/includes/ajax-current-ext-md.md).       The ComponentDesigner class implements a special behavior for the property descriptors of inherited components. An internal type named `InheritedPropertyDescriptor` is used by the default ComponentDesigner implementation to stand in for properties that are inherited from a base class. There are two cases in which these property descriptors are added.      1.  To the root object itself, which is returned by the <xref:System.ComponentModel.Design.IDesignerHost.RootComponent%2A?displayProperty=fullName> property, because you are inheriting from its base class.      2.  To fields found in the base class of the root object. Public and protected fields from the base class are added to the designer so that they can be manipulated by the user.       The `InheritedPropertyDescriptor` class modifies the default value of a property, so that the default value is the current value at object instantiation. This is because the property is inherited from another instance. The designer defines resetting the property value as setting it to the value that was set by the inherited class. This value may differ from the default value stored in metadata."
+  summary: "Estende o comportamento do modo de design de um componente."
+  remarks: "A classe base do designer designerdecomponente fornece um designer simple que pode estender o comportamento de um componente associado no modo de design.       Designerdecomponente fornece vazio <xref:System.ComponentModel.Design.IDesignerFilter>implementação, cujos métodos podem ser substituídos para ajustar os atributos, propriedades e eventos do componente associado ao tempo de design de interface.</xref:System.ComponentModel.Design.IDesignerFilter>       Você pode associar um designer com um tipo usando <xref:System.ComponentModel.DesignerAttribute>.</xref:System.ComponentModel.DesignerAttribute> Para obter uma visão geral de como personalizar o comportamento de tempo de design, consulte [Estendendo suporte em tempo de Design](~/add/includes/ajax-current-ext-md.md).       A classe de designerdecomponente implementa um comportamento especial de descritores de propriedade dos componentes herdados. Um tipo interno denominado `InheritedPropertyDescriptor` é usada pela implementação de designerdecomponente padrão para substituir propriedades que são herdadas de uma classe base. Há dois casos em que esses descritores de propriedade são adicionados.      1.  Para a raiz do objeto em si, que é retornado pelo <xref:System.ComponentModel.Design.IDesignerHost.RootComponent%2A?displayProperty=fullName>propriedade, porque você herdam da sua classe base.</xref:System.ComponentModel.Design.IDesignerHost.RootComponent%2A?displayProperty=fullName>      2.  Para campos encontrados na classe base do objeto raiz. Campos protegidos e públicos da classe base são adicionados para o designer para que eles podem ser manipulados pelo usuário.       O `InheritedPropertyDescriptor` classe modifica o valor padrão de uma propriedade, de modo que o valor padrão é o valor atual na instanciação do objeto. Isso ocorre porque a propriedade é herdada de outra instância. O designer define redefinindo o valor da propriedade como configurá-lo como o valor que foi definida pela classe herdada. Esse valor pode ser diferente do valor padrão armazenado nos metadados."
   example:
   - "The following code example provides an example ComponentDesigner implementation and an example component associated with the designer. The designer implements an override of the <xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A> method that calls the base `Initialize` method, an override of the <xref:System.ComponentModel.Design.ComponentDesigner.DoDefaultAction%2A> method that displays a <xref:System.Windows.Forms.MessageBox> when the component is double-clicked, and an override of the <xref:System.ComponentModel.Design.ComponentDesigner.Verbs%2A> property accessor that supplies a custom <xref:System.ComponentModel.Design.DesignerVerb> menu command to the shortcut menu for the component.  \n  \n [!code-cs[ComponentDesignerExample#1](~/add/codesnippet/csharp/t-system.componentmodel._153_1.cs)]\n [!code-cpp[ComponentDesignerExample#1](~/add/codesnippet/cpp/t-system.componentmodel._153_1.cpp)]\n [!code-vb[ComponentDesignerExample#1](~/add/codesnippet/visualbasic/t-system.componentmodel._153_1.vb)]"
   syntax:
@@ -73,7 +73,7 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;> </xref> classe."
   syntax:
     content: public ComponentDesigner ();
     parameters: []
@@ -93,12 +93,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the design-time action lists supported by the component associated with the designer."
+  summary: "Obtém a lista de ação de tempo de design com suporte pelo componente associado com o designer."
   syntax:
     content: public virtual System.ComponentModel.Design.DesignerActionListCollection ActionLists { get; }
     return:
       type: System.ComponentModel.Design.DesignerActionListCollection
-      description: "The design-time action lists supported by the component associated with the designer."
+      description: "A lista de ação de tempo de design com suporte pelo componente associado com o designer."
   overload: System.ComponentModel.Design.ComponentDesigner.ActionLists*
   exceptions: []
   platform:
@@ -115,13 +115,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the collection of components associated with the component managed by the designer."
-  remarks: "This property indicates any components to copy or move along with the component managed by the designer during a copy, drag, or move operation.       If this collection contains references to other components in the current design mode document, those components will be copied along with the component managed by the designer during a copy operation.       When the component managed by the designer is selected, this collection is filled with any nested controls. This collection can also include other components, such as the buttons of a toolbar."
+  summary: "Obtém a coleção de componentes associado ao componente gerenciado pelo designer."
+  remarks: "Essa propriedade indica todos os componentes para copiar ou mover junto com o componente gerenciado pelo designer durante uma cópia, arraste ou operação de movimentação.       Se esta coleção contém referências a outros componentes no documento atual do modo de design, esses componentes serão copiados junto com o componente gerenciado pelo designer durante uma operação de cópia.       Quando o componente gerenciado pelo designer é selecionado, essa coleção é preenchida com os controles aninhados. Essa coleção também pode incluir outros componentes, como os botões da barra de ferramentas."
   syntax:
     content: public virtual System.Collections.ICollection AssociatedComponents { get; }
     return:
       type: System.Collections.ICollection
-      description: "The components that are associated with the component managed by the designer."
+      description: "Os componentes que estão associados com o componente gerenciado pelo designer."
   overload: System.ComponentModel.Design.ComponentDesigner.AssociatedComponents*
   exceptions: []
   platform:
@@ -138,13 +138,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the component this designer is designing."
-  remarks: "The <xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A> method of <xref:System.ComponentModel.Design.ComponentDesigner> sets this property.      > [!NOTE] >  When overriding the <xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A> method, be sure to call the base class <xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A> method before using this property."
+  summary: "Obtém o componente que deste designer está criando."
+  remarks: "O <xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A>método <xref:System.ComponentModel.Design.ComponentDesigner>define essa propriedade.</xref:System.ComponentModel.Design.ComponentDesigner> </xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A>      > [!NOTE] > Ao substituir o <xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A>método, certifique-se de chamar a classe base <xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A>método antes de usar essa propriedade.</xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A> </xref:System.ComponentModel.Design.ComponentDesigner.Initialize%2A>"
   syntax:
     content: public System.ComponentModel.IComponent Component { get; }
     return:
       type: System.ComponentModel.IComponent
-      description: "The component managed by the designer."
+      description: "O componente gerenciado pelo designer."
   overload: System.ComponentModel.Design.ComponentDesigner.Component*
   exceptions: []
   platform:
@@ -161,8 +161,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Releases all resources used by the <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;></xref>."
-  remarks: "Call <xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A> when you are finished using the <xref:System.ComponentModel.Design.ComponentDesigner>. The <xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A> method leaves the <xref:System.ComponentModel.Design.ComponentDesigner> in an unusable state. After calling <xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A>, you must release all references to the <xref:System.ComponentModel.Design.ComponentDesigner> so the garbage collector can reclaim the memory that the <xref:System.ComponentModel.Design.ComponentDesigner> was occupying. For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call <xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A> before you release your last reference to the <xref:System.ComponentModel.Design.ComponentDesigner>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.ComponentModel.Design.ComponentDesigner> object&quot;s `Finalize` method."
+  summary: "Libera todos os recursos usados pelo <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;> </xref>."
+  remarks: "Chamada <xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A>Quando terminar de usar o <xref:System.ComponentModel.Design.ComponentDesigner>.</xref:System.ComponentModel.Design.ComponentDesigner> </xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A> O <xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A>método deixa o <xref:System.ComponentModel.Design.ComponentDesigner>em um estado inutilizável.</xref:System.ComponentModel.Design.ComponentDesigner> </xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A> Depois de chamar <xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A>, você deve liberar todas as referências para o <xref:System.ComponentModel.Design.ComponentDesigner>para o coletor de lixo possa recuperar a memória que o <xref:System.ComponentModel.Design.ComponentDesigner>estava ocupando.</xref:System.ComponentModel.Design.ComponentDesigner> </xref:System.ComponentModel.Design.ComponentDesigner> </xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A> Para obter mais informações, consulte [limpeza de recursos não gerenciados](~/add/includes/ajax-current-ext-md.md) e [implementar um método Dispose](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Sempre chamar <xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A>antes de liberar sua última referência a <xref:System.ComponentModel.Design.ComponentDesigner>.</xref:System.ComponentModel.Design.ComponentDesigner> </xref:System.ComponentModel.Design.ComponentDesigner.Dispose%2A> Caso contrário, os recursos que está usando não serão liberados até que o coletor de lixo chame o <xref:System.ComponentModel.Design.ComponentDesigner>do objeto `Finalize` método.</xref:System.ComponentModel.Design.ComponentDesigner>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -182,14 +182,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public `Dispose()` method and the <xref:System.Object.Finalize%2A> method. `Dispose()` invokes the protected `Dispose(Boolean)` method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is true, this method releases all resources held by any managed objects that this <xref:System.ComponentModel.Design.ComponentDesigner> references. This method invokes the `Dispose()` method of each referenced object."
+  summary: "Libera os recursos não gerenciados usados pelo <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;> </xref> e, opcionalmente, libera os recursos gerenciados."
+  remarks: "Este método é chamado pelo público `Dispose()` método e o <xref:System.Object.Finalize%2A>método.</xref:System.Object.Finalize%2A> `Dispose()`invoca o protegido `Dispose(Boolean)` método com o `disposing` parâmetro definido como `true`. <xref:System.Object.Finalize%2A>invoca `Dispose` com `disposing` definido como `false`.</xref:System.Object.Finalize%2A>       Quando o `disposing` parâmetro for true, este método libera todos os recursos mantidos por qualquer objeto gerenciado que este <xref:System.ComponentModel.Design.ComponentDesigner>referências.</xref:System.ComponentModel.Design.ComponentDesigner> Este método chama o `Dispose()` método de cada objeto referenciado."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para liberar recursos gerenciados e não gerenciados; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> para liberar apenas recursos não gerenciados."
   overload: System.ComponentModel.Design.ComponentDesigner.Dispose*
   exceptions: []
   platform:
@@ -206,8 +206,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Creates a method signature in the source code file for the default event on the component and navigates the user&quot;s cursor to that location."
-  remarks: "In Windows Forms and Web Forms designers, this method is invoked when a user double-clicks a component."
+  summary: "Cria uma assinatura de método no arquivo de código de origem para o evento padrão do componente e navega cursor do usuário para esse local."
+  remarks: "No Windows Forms e formulários da Web designers, esse método é chamado quando um usuário clica duas vezes em um componente."
   syntax:
     content: public virtual void DoDefaultAction ();
     parameters: []
@@ -215,7 +215,7 @@ items:
   exceptions:
   - type: System.ComponentModel.Design.CheckoutException
     commentId: T:System.ComponentModel.Design.CheckoutException
-    description: "An attempt to check out a file that is checked into a source code management program failed."
+    description: "Falha na tentativa de check-out de um arquivo que é verificado em um programa de gerenciamento de código fonte."
   platform:
   - net462
 - uid: System.ComponentModel.Design.ComponentDesigner.Finalize
@@ -230,8 +230,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Attempts to free resources by calling <xref uid=&quot;langword_csharp_Dispose(false)&quot; name=&quot;Dispose(false)&quot; href=&quot;&quot;></xref> before the object is reclaimed by garbage collection."
-  remarks: "This method overrides <xref:System.Object.Finalize%2A?displayProperty=fullName> and cleans up resources by calling `Dispose(false)`. Override `Dispose(Boolean)` to customize the cleanup.       Application code should not call this method; an object&quot;s `Finalize` method is automatically invoked during garbage collection, unless finalization by the garbage collector has been disabled by a call to the <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> method.       For more information, see [Finalize Methods and Destructors](http://msdn.microsoft.com/en-us/fd376774-1643-499b-869e-9546a3aeea70), [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md), and [Overriding the Finalize Method](http://msdn.microsoft.com/en-us/8026cb68-fe93-43fc-96c1-c09ad7d64cd3)."
+  summary: "Tente liberar recursos chamando <xref uid=&quot;langword_csharp_Dispose(false)&quot; name=&quot;Dispose(false)&quot; href=&quot;&quot;> </xref> antes que o objeto é recuperado pela coleta de lixo."
+  remarks: "Esse método substitui <xref:System.Object.Finalize%2A?displayProperty=fullName>e limpa os recursos chamando `Dispose(false)`.</xref:System.Object.Finalize%2A?displayProperty=fullName> Substituir `Dispose(Boolean)` para personalizar a limpeza.       Código do aplicativo não deve chamar esse método; um objeto `Finalize` método é invocado automaticamente durante a coleta de lixo, a menos que a finalização pelo coletor de lixo foi desabilitada por uma chamada para o <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>método.</xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>       Para obter mais informações, consulte [métodos Finalize e destruidores](http://msdn.microsoft.com/en-us/fd376774-1643-499b-869e-9546a3aeea70), [limpeza de recursos não gerenciados](~/add/includes/ajax-current-ext-md.md), e [substituindo o método Finalize](http://msdn.microsoft.com/en-us/8026cb68-fe93-43fc-96c1-c09ad7d64cd3)."
   syntax:
     content: ~ComponentDesigner ();
     parameters: []
@@ -251,8 +251,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Attempts to retrieve the specified type of service from the design mode site of the designer&quot;s component."
-  remarks: "The default implementation of this method requests the service from the site of the component."
+  summary: "Tenta recuperar o tipo de serviço especificado do site de modo de design do componente do designer."
+  remarks: "A implementação padrão desse método solicita o serviço do site do componente."
   example:
   - "The following code example demonstrates the use of the GetService method to access designer services.  \n  \n [!code-vb[System.ComponentModel.Design.DesignerServices#7](~/add/codesnippet/visualbasic/m-system.componentmodel._18_1.vb)]\n [!code-cs[System.ComponentModel.Design.DesignerServices#7](~/add/codesnippet/csharp/m-system.componentmodel._18_1.cs)]"
   syntax:
@@ -260,10 +260,10 @@ items:
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of service to request."
+      description: "O tipo de serviço para a solicitação."
     return:
       type: System.Object
-      description: "An object implementing the requested service, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the service cannot be resolved."
+      description: "Um objeto que implementa o serviço solicitado, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se o serviço não pode ser resolvido."
   overload: System.ComponentModel.Design.ComponentDesigner.GetService*
   exceptions: []
   platform:
@@ -280,12 +280,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets an attribute that indicates the type of inheritance of the associated component."
+  summary: "Obtém um atributo que indica o tipo de herança do componente associado."
   syntax:
     content: protected virtual System.ComponentModel.InheritanceAttribute InheritanceAttribute { get; }
     return:
       type: System.ComponentModel.InheritanceAttribute
-      description: "The <xref href=&quot;System.ComponentModel.InheritanceAttribute&quot;></xref> for the associated component."
+      description: "O <xref href=&quot;System.ComponentModel.InheritanceAttribute&quot;> </xref> para o componente associado."
   overload: System.ComponentModel.Design.ComponentDesigner.InheritanceAttribute*
   exceptions: []
   platform:
@@ -302,12 +302,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets a value indicating whether this component is inherited."
+  summary: "Obtém um valor que indica se este componente é herdado."
   syntax:
     content: protected bool Inherited { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the component is inherited; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o componente é herdado; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.ComponentDesigner.Inherited*
   exceptions: []
   platform:
@@ -324,14 +324,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Prepares the designer to view, edit, and design the specified component."
-  remarks: "The designer host calls this method when it is ready to use the designer."
+  summary: "Prepara o designer para exibir, editar e criar o componente especificado."
+  remarks: "O host de designer chama este método quando ele estiver pronto para usar o designer."
   syntax:
     content: public virtual void Initialize (System.ComponentModel.IComponent component);
     parameters:
     - id: component
       type: System.ComponentModel.IComponent
-      description: "The component for this designer."
+      description: "O componente para este designer."
   overload: System.ComponentModel.Design.ComponentDesigner.Initialize*
   exceptions: []
   platform:
@@ -348,14 +348,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Reinitializes an existing component."
-  remarks: "The InitializeExistingComponent method is called when an existing component is being reinitialized. For example, this may occur after the user drags a component to another container.       You may use the `defaultValues` dictionary to apply recommended defaults to properties; however, you should not modify component properties aside from those stored in the dictionary, because this existing component may already have properties set on it.       The default implementation of this method does nothing."
+  summary: "Reinicializa um componente existente."
+  remarks: "O método InitializeExistingComponent é chamado quando um componente existente está sendo reinicializado. Por exemplo, isso pode ocorrer depois que o usuário arrasta um componente para outro contêiner.       Você pode usar o `defaultValues` dicionário aplicar padrões recomendados para propriedades; no entanto, você não deve modificar as propriedades de componente além das armazenadas no dicionário, porque esse componente existente já pode ter propriedades definidas nela.       A implementação padrão desse método não fará nada."
   syntax:
     content: public virtual void InitializeExistingComponent (System.Collections.IDictionary defaultValues);
     parameters:
     - id: defaultValues
       type: System.Collections.IDictionary
-      description: "A name/value dictionary of default values to apply to properties. May be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no default values are specified."
+      description: "Um dicionário de nome/valor de valores padrão se aplicam a propriedades. Pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se nenhum valor padrão especificado."
   overload: System.ComponentModel.Design.ComponentDesigner.InitializeExistingComponent*
   exceptions: []
   platform:
@@ -372,14 +372,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Initializes a newly created component."
-  remarks: "The InitializeNewComponent method is called when a component is first initialized, typically after being first added to a design surface.       You may perform any necessary initialization of this component, and you may ignore the `defaultValues` dictionary altogether.       The default implementation of this method does nothing."
+  summary: "Inicializa um componente recém-criado."
+  remarks: "O método InitializeNewComponent é chamado quando um componente é primeiro inicializado, geralmente após primeiro ser adicionado a uma superfície de design.       Você pode executar qualquer inicialização necessária desse componente, e você pode ignorar o `defaultValues` dicionário completamente.       A implementação padrão desse método não fará nada."
   syntax:
     content: public virtual void InitializeNewComponent (System.Collections.IDictionary defaultValues);
     parameters:
     - id: defaultValues
       type: System.Collections.IDictionary
-      description: "A name/value dictionary of default values to apply to properties. May be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no default values are specified."
+      description: "Um dicionário de nome/valor de valores padrão se aplicam a propriedades. Pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se nenhum valor padrão especificado."
   overload: System.ComponentModel.Design.ComponentDesigner.InitializeNewComponent*
   exceptions: []
   platform:
@@ -396,8 +396,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Initializes the settings for an imported component that is already initialized to settings other than the defaults."
-  remarks: "This method is called when the designer is associated with a control that is not in its default state, such as a control that you paste or move with a drag-and-drop operation onto the designer. This method provides an opportunity for implementers to modify or shadow the properties of the component rather than initialize the properties for the component to their defaults. This method is called after the other initialization functions."
+  summary: "Inicializa as configurações de um componente importado que já esteja inicializado para as configurações que não sejam os valores padrão."
+  remarks: "Este método é chamado quando o designer está associado um controle que não está no estado padrão, como um controle que você colar ou move com uma operação de arrastar e soltar no designer. Esse método fornece uma oportunidade para implementadores modificar ou as propriedades do componente de sombra em vez de inicializar as propriedades do componente para seus padrões. Esse método é chamado após as outras funções de inicialização."
   syntax:
     content: public virtual void InitializeNonDefault ();
     parameters: []
@@ -417,16 +417,16 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the <xref href=&quot;System.ComponentModel.InheritanceAttribute&quot;></xref> of the specified <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;></xref>."
+  summary: "Obtém o <xref href=&quot;System.ComponentModel.InheritanceAttribute&quot;> </xref> especificada <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;> </xref>."
   syntax:
     content: protected System.ComponentModel.InheritanceAttribute InvokeGetInheritanceAttribute (System.ComponentModel.Design.ComponentDesigner toInvoke);
     parameters:
     - id: toInvoke
       type: System.ComponentModel.Design.ComponentDesigner
-      description: "The <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;></xref> whose inheritance attribute to retrieve."
+      description: "O <xref href=&quot;System.ComponentModel.Design.ComponentDesigner&quot;> </xref> cujo atributo de herança para recuperar."
     return:
       type: System.ComponentModel.InheritanceAttribute
-      description: "The <xref href=&quot;System.ComponentModel.InheritanceAttribute&quot;></xref> of the specified designer."
+      description: "O <xref href=&quot;System.ComponentModel.InheritanceAttribute&quot;> </xref> do designer especificado."
   overload: System.ComponentModel.Design.ComponentDesigner.InvokeGetInheritanceAttribute*
   exceptions: []
   platform:
@@ -443,8 +443,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Sets the default properties for the component."
-  remarks: "OnSetComponentDefaults is called when the designer is initialized. This allows the designer to provide default values for the base component.       This method is called only once: when you first create the component by dragging it from the Toolbox to the design surface. Subsequent initializations of the designer do not invoke this method.       The default implementation of this method sets the default property of the component to the name of the component if the default property is a string and the property is not already set. This method can be implemented in a derived class to customize the initialization of the component that this designer is designing."
+  summary: "Define as propriedades padrão para o componente."
+  remarks: "OnSetComponentDefaults é chamado quando o designer é inicializado. Isso permite que o designer fornecer valores padrão para o componente de base.       Este método é chamado apenas uma vez: quando você cria pela primeira vez o componente arrastando-o na caixa de ferramentas para a superfície de design. Inicializações subsequentes do designer não chamar este método.       A implementação padrão desse método define a propriedade padrão do componente para o nome do componente se a propriedade padrão é uma cadeia de caracteres e a propriedade já não está definida. Esse método pode ser implementado em uma classe derivada para personalizar a inicialização do componente que está criando esse designer."
   syntax:
     content: public virtual void OnSetComponentDefaults ();
     parameters: []
@@ -464,13 +464,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the parent component for this designer."
-  remarks: "This property provides a generic mechanism for discovering parent relationships within designers, and is used by the <xref:System.ComponentModel.Design.ComponentDesigner> object&quot;s <xref:System.ComponentModel.Design.ITreeDesigner> interface implementation. This property should only return `null` when this designer is the root component. The default implementation of this property returns the root component for all components that are not the root component, and it returns `null` for the root component."
+  summary: "Obtém o componente pai para este designer."
+  remarks: "Essa propriedade fornece um mecanismo genérico para a descoberta de relações de pai em designers e é usada pelo <xref:System.ComponentModel.Design.ComponentDesigner>do objeto <xref:System.ComponentModel.Design.ITreeDesigner>implementação de interface.</xref:System.ComponentModel.Design.ITreeDesigner> </xref:System.ComponentModel.Design.ComponentDesigner> Esta propriedade só deve retornar `null` quando esse designer é o componente raiz. A implementação padrão dessa propriedade retorna o componente raiz para todos os componentes que não são o componente raiz, e ele retorna `null` para o componente raiz."
   syntax:
     content: protected virtual System.ComponentModel.IComponent ParentComponent { get; }
     return:
       type: System.ComponentModel.IComponent
-      description: "The parent component for this designer, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if this designer is the root component."
+      description: "O componente pai para este designer, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se esse designer é o componente raiz."
   overload: System.ComponentModel.Design.ComponentDesigner.ParentComponent*
   exceptions: []
   platform:
@@ -487,14 +487,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Allows a designer to change or remove items from the set of attributes that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to change or remove the items within the dictionary of attributes that are exposed through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of attributes are the type identifiers of the attributes, as specified by the value of their <xref:System.Attribute.TypeId%2A> property. The objects are of type <xref:System.ComponentModel.PropertyDescriptor>. This method is called immediately after the <xref:System.ComponentModel.Design.ComponentDesigner.PreFilterAttributes%2A> method."
+  summary: "Permite que um designer alterar ou remover itens do conjunto de atributos que expõe por meio de um <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>."
+  remarks: "Esse método fornece uma maneira de alterar ou remover os itens no dicionário de atributos que são expostos por meio de <xref:System.ComponentModel.TypeDescriptor>.</xref:System.ComponentModel.TypeDescriptor>       As chaves no dicionário de atributos são os identificadores de tipo dos atributos, conforme especificado pelo valor da sua <xref:System.Attribute.TypeId%2A>propriedade.</xref:System.Attribute.TypeId%2A> Os objetos são do tipo <xref:System.ComponentModel.PropertyDescriptor>.</xref:System.ComponentModel.PropertyDescriptor> Esse método é chamado imediatamente após o <xref:System.ComponentModel.Design.ComponentDesigner.PreFilterAttributes%2A>método.</xref:System.ComponentModel.Design.ComponentDesigner.PreFilterAttributes%2A>"
   syntax:
     content: protected virtual void PostFilterAttributes (System.Collections.IDictionary attributes);
     parameters:
     - id: attributes
       type: System.Collections.IDictionary
-      description: "The attributes for the class of the component."
+      description: "Os atributos para a classe do componente."
   overload: System.ComponentModel.Design.ComponentDesigner.PostFilterAttributes*
   exceptions: []
   platform:
@@ -511,14 +511,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Allows a designer to change or remove items from the set of events that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to change or remove the items within the dictionary of events that are exposed through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of events are the names of the events. The objects are of type <xref:System.ComponentModel.PropertyDescriptor>. This method is called immediately after the <xref:System.ComponentModel.Design.ComponentDesigner.PreFilterEvents%2A> method."
+  summary: "Permite que um designer alterar ou remover itens do conjunto de eventos que expõe por meio de um <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>."
+  remarks: "Esse método fornece uma maneira de alterar ou remover os itens no dicionário de eventos que são expostos por meio de <xref:System.ComponentModel.TypeDescriptor>.</xref:System.ComponentModel.TypeDescriptor>       As chaves no dicionário de eventos são os nomes dos eventos. Os objetos são do tipo <xref:System.ComponentModel.PropertyDescriptor>.</xref:System.ComponentModel.PropertyDescriptor> Esse método é chamado imediatamente após o <xref:System.ComponentModel.Design.ComponentDesigner.PreFilterEvents%2A>método.</xref:System.ComponentModel.Design.ComponentDesigner.PreFilterEvents%2A>"
   syntax:
     content: protected virtual void PostFilterEvents (System.Collections.IDictionary events);
     parameters:
     - id: events
       type: System.Collections.IDictionary
-      description: "The events for the class of the component."
+      description: "Os eventos para a classe do componente."
   overload: System.ComponentModel.Design.ComponentDesigner.PostFilterEvents*
   exceptions: []
   platform:
@@ -535,14 +535,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Allows a designer to change or remove items from the set of properties that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to change or remove the items within the dictionary of properties that are exposed through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of properties are the names of the properties. The objects are of type <xref:System.ComponentModel.PropertyDescriptor>. This method is called immediately after the <xref:System.ComponentModel.Design.ComponentDesigner.PreFilterProperties%2A> method."
+  summary: "Permite que um designer alterar ou remover itens do conjunto de propriedades que expõe por meio de um <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>."
+  remarks: "Esse método fornece uma maneira de alterar ou remover os itens no dicionário de propriedades que são expostas por meio de <xref:System.ComponentModel.TypeDescriptor>.</xref:System.ComponentModel.TypeDescriptor>       As chaves no dicionário de propriedades são os nomes das propriedades. Os objetos são do tipo <xref:System.ComponentModel.PropertyDescriptor>.</xref:System.ComponentModel.PropertyDescriptor> Esse método é chamado imediatamente após o <xref:System.ComponentModel.Design.ComponentDesigner.PreFilterProperties%2A>método.</xref:System.ComponentModel.Design.ComponentDesigner.PreFilterProperties%2A>"
   syntax:
     content: protected virtual void PostFilterProperties (System.Collections.IDictionary properties);
     parameters:
     - id: properties
       type: System.Collections.IDictionary
-      description: "The properties for the class of the component."
+      description: "As propriedades para a classe do componente."
   overload: System.ComponentModel.Design.ComponentDesigner.PostFilterProperties*
   exceptions: []
   platform:
@@ -559,14 +559,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Allows a designer to add to the set of attributes that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to add items to the dictionary of attributes that a designer exposes through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of attributes are the type identifiers of the attributes, as specified by the value of their <xref:System.Attribute.TypeId%2A> property. The objects are of type <xref:System.ComponentModel.PropertyDescriptor>. This method is called immediately before the <xref:System.ComponentModel.Design.ComponentDesigner.PostFilterAttributes%2A> method."
+  summary: "Permite que um designer adicionar ao conjunto de atributos que expõe por meio de um <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>."
+  remarks: "Esse método fornece uma maneira de adicionar itens ao dicionário de atributos que expõe um designer por meio de <xref:System.ComponentModel.TypeDescriptor>.</xref:System.ComponentModel.TypeDescriptor>       As chaves no dicionário de atributos são os identificadores de tipo dos atributos, conforme especificado pelo valor da sua <xref:System.Attribute.TypeId%2A>propriedade.</xref:System.Attribute.TypeId%2A> Os objetos são do tipo <xref:System.ComponentModel.PropertyDescriptor>.</xref:System.ComponentModel.PropertyDescriptor> Este método é chamado imediatamente antes do <xref:System.ComponentModel.Design.ComponentDesigner.PostFilterAttributes%2A>método.</xref:System.ComponentModel.Design.ComponentDesigner.PostFilterAttributes%2A>"
   syntax:
     content: protected virtual void PreFilterAttributes (System.Collections.IDictionary attributes);
     parameters:
     - id: attributes
       type: System.Collections.IDictionary
-      description: "The attributes for the class of the component."
+      description: "Os atributos para a classe do componente."
   overload: System.ComponentModel.Design.ComponentDesigner.PreFilterAttributes*
   exceptions: []
   platform:
@@ -583,14 +583,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Allows a designer to add to the set of events that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to add items to the dictionary of events that a designer exposes through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of events are the names of the events. The objects are of type <xref:System.ComponentModel.PropertyDescriptor>. This method is called immediately before the <xref:System.ComponentModel.Design.ComponentDesigner.PostFilterEvents%2A> method."
+  summary: "Permite que um designer adicionar ao conjunto de eventos que expõe por meio de um <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>."
+  remarks: "Esse método fornece uma maneira de adicionar itens ao dicionário de eventos que expõe um designer por meio de <xref:System.ComponentModel.TypeDescriptor>.</xref:System.ComponentModel.TypeDescriptor>       As chaves no dicionário de eventos são os nomes dos eventos. Os objetos são do tipo <xref:System.ComponentModel.PropertyDescriptor>.</xref:System.ComponentModel.PropertyDescriptor> Este método é chamado imediatamente antes do <xref:System.ComponentModel.Design.ComponentDesigner.PostFilterEvents%2A>método.</xref:System.ComponentModel.Design.ComponentDesigner.PostFilterEvents%2A>"
   syntax:
     content: protected virtual void PreFilterEvents (System.Collections.IDictionary events);
     parameters:
     - id: events
       type: System.Collections.IDictionary
-      description: "The events for the class of the component."
+      description: "Os eventos para a classe do componente."
   overload: System.ComponentModel.Design.ComponentDesigner.PreFilterEvents*
   exceptions: []
   platform:
@@ -607,14 +607,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Allows a designer to add to the set of properties that it exposes through a <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;></xref>."
-  remarks: "This method provides a way to add items to the dictionary of properties that a designer exposes through a <xref:System.ComponentModel.TypeDescriptor>.       The keys in the dictionary of properties are the names of the properties. The objects are of type <xref:System.ComponentModel.PropertyDescriptor>. This method is called immediately before the <xref:System.ComponentModel.Design.ComponentDesigner.PostFilterProperties%2A> method."
+  summary: "Permite que um designer adicionar ao conjunto de propriedades que expõe por meio de um <xref href=&quot;System.ComponentModel.TypeDescriptor&quot;> </xref>."
+  remarks: "Esse método fornece uma maneira de adicionar itens ao dicionário de propriedades que expõe um designer por meio de <xref:System.ComponentModel.TypeDescriptor>.</xref:System.ComponentModel.TypeDescriptor>       As chaves no dicionário de propriedades são os nomes das propriedades. Os objetos são do tipo <xref:System.ComponentModel.PropertyDescriptor>.</xref:System.ComponentModel.PropertyDescriptor> Este método é chamado imediatamente antes do <xref:System.ComponentModel.Design.ComponentDesigner.PostFilterProperties%2A>método.</xref:System.ComponentModel.Design.ComponentDesigner.PostFilterProperties%2A>"
   syntax:
     content: protected virtual void PreFilterProperties (System.Collections.IDictionary properties);
     parameters:
     - id: properties
       type: System.Collections.IDictionary
-      description: "The properties for the class of the component."
+      description: "As propriedades para a classe do componente."
   overload: System.ComponentModel.Design.ComponentDesigner.PreFilterProperties*
   exceptions: []
   platform:
@@ -631,20 +631,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Notifies the <xref href=&quot;System.ComponentModel.Design.IComponentChangeService&quot;></xref> that this component has been changed."
-  remarks: "Call this method only when you affect component properties directly and not through the accessors provided by <xref:System.ComponentModel.MemberDescriptor>."
+  summary: "Notifica o <xref href=&quot;System.ComponentModel.Design.IComponentChangeService&quot;> </xref> que este componente foi alterado."
+  remarks: "Chame este método apenas quando você afeta propriedades do componente diretamente e não através de acessadores fornecidos pelo <xref:System.ComponentModel.MemberDescriptor>.</xref:System.ComponentModel.MemberDescriptor>"
   syntax:
     content: protected void RaiseComponentChanged (System.ComponentModel.MemberDescriptor member, object oldValue, object newValue);
     parameters:
     - id: member
       type: System.ComponentModel.MemberDescriptor
-      description: "A <xref href=&quot;System.ComponentModel.MemberDescriptor&quot;></xref> that indicates the member that has been changed."
+      description: "Um <xref href=&quot;System.ComponentModel.MemberDescriptor&quot;> </xref> que indica o membro que foi alterado."
     - id: oldValue
       type: System.Object
-      description: "The old value of the member."
+      description: "O valor antigo do membro."
     - id: newValue
       type: System.Object
-      description: "The new value of the member."
+      description: "O novo valor do membro."
   overload: System.ComponentModel.Design.ComponentDesigner.RaiseComponentChanged*
   exceptions: []
   platform:
@@ -661,14 +661,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Notifies the <xref href=&quot;System.ComponentModel.Design.IComponentChangeService&quot;></xref> that this component is about to be changed."
-  remarks: "Call this method only when you affect component properties directly and not through accessors provided by <xref:System.ComponentModel.MemberDescriptor>."
+  summary: "Notifica o <xref href=&quot;System.ComponentModel.Design.IComponentChangeService&quot;> </xref> que esse componente está prestes a ser alterada."
+  remarks: "Chame este método apenas quando você afeta propriedades do componente diretamente e não através de acessadores fornecidos pelo <xref:System.ComponentModel.MemberDescriptor>.</xref:System.ComponentModel.MemberDescriptor>"
   syntax:
     content: protected void RaiseComponentChanging (System.ComponentModel.MemberDescriptor member);
     parameters:
     - id: member
       type: System.ComponentModel.MemberDescriptor
-      description: "A <xref href=&quot;System.ComponentModel.MemberDescriptor&quot;></xref> that indicates the member that is about to be changed."
+      description: "Um <xref href=&quot;System.ComponentModel.MemberDescriptor&quot;> </xref> que indica o membro que está prestes a ser alterado."
   overload: System.ComponentModel.Design.ComponentDesigner.RaiseComponentChanging*
   exceptions: []
   platform:
@@ -685,12 +685,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets a collection of property values that override user settings."
+  summary: "Obtém uma coleção de valores de propriedade que substituem as configurações do usuário."
   syntax:
     content: protected System.ComponentModel.Design.ComponentDesigner.ShadowPropertyCollection ShadowProperties { get; }
     return:
       type: System.ComponentModel.Design.ComponentDesigner.ShadowPropertyCollection
-      description: "A <xref:System.ComponentModel.Design.ComponentDesigner.ShadowPropertyCollection> that indicates the shadow properties of the design document."
+      description: "Um <xref:System.ComponentModel.Design.ComponentDesigner.ShadowPropertyCollection>que indica as propriedades de sombra do documento de design.</xref:System.ComponentModel.Design.ComponentDesigner.ShadowPropertyCollection>"
   overload: System.ComponentModel.Design.ComponentDesigner.ShadowProperties*
   exceptions: []
   platform:
@@ -708,14 +708,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "For a description of this member, see the &lt;xref:System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes%2A?displayProperty=fullName&gt; method."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ComponentModel.Design.ComponentDesigner> instance is cast to an <xref:System.ComponentModel.Design.IDesignerFilter> interface."
+  summary: "Para obter uma descrição desse membro, consulte o &lt;xref:System.ComponentModel.Design.IDesignerFilter.PostFilterAttributes%2A?displayProperty=fullName&gt; método."
+  remarks: "Esse membro é uma implementação de membro de interface explícita. Ele pode ser usado somente quando o <xref:System.ComponentModel.Design.ComponentDesigner>instância é convertida em um <xref:System.ComponentModel.Design.IDesignerFilter>interface.</xref:System.ComponentModel.Design.IDesignerFilter> </xref:System.ComponentModel.Design.ComponentDesigner>"
   syntax:
     content: void IDesignerFilter.PostFilterAttributes (System.Collections.IDictionary attributes);
     parameters:
     - id: attributes
       type: System.Collections.IDictionary
-      description: "The <xref:System.Attribute> objects for the class of the component. The keys in the dictionary of attributes are the <xref:System.Attribute.TypeId*> values of the attributes."
+      description: "O <xref:System.Attribute>objetos para a classe do componente.</xref:System.Attribute> As chaves no dicionário de atributos são o <xref:System.Attribute.TypeId*>valores dos atributos.</xref:System.Attribute.TypeId*>"
   overload: System.ComponentModel.Design.ComponentDesigner.System#ComponentModel#Design#IDesignerFilter#PostFilterAttributes*
   exceptions: []
   platform:
@@ -733,14 +733,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "For a description of this member, see the &lt;xref:System.ComponentModel.Design.IDesignerFilter.PostFilterEvents%2A?displayProperty=fullName&gt; method."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ComponentModel.Design.ComponentDesigner> instance is cast to an <xref:System.ComponentModel.Design.IDesignerFilter> interface."
+  summary: "Para obter uma descrição desse membro, consulte o &lt;xref:System.ComponentModel.Design.IDesignerFilter.PostFilterEvents%2A?displayProperty=fullName&gt; método."
+  remarks: "Esse membro é uma implementação de membro de interface explícita. Ele pode ser usado somente quando o <xref:System.ComponentModel.Design.ComponentDesigner>instância é convertida em um <xref:System.ComponentModel.Design.IDesignerFilter>interface.</xref:System.ComponentModel.Design.IDesignerFilter> </xref:System.ComponentModel.Design.ComponentDesigner>"
   syntax:
     content: void IDesignerFilter.PostFilterEvents (System.Collections.IDictionary events);
     parameters:
     - id: events
       type: System.Collections.IDictionary
-      description: "The <xref href=&quot;System.ComponentModel.EventDescriptor&quot;></xref> objects that represent the events of the class of the component. The keys in the dictionary of events are event names."
+      description: "O <xref href=&quot;System.ComponentModel.EventDescriptor&quot;> </xref> objetos que representam os eventos da classe do componente. As chaves no dicionário de eventos são nomes de evento."
   overload: System.ComponentModel.Design.ComponentDesigner.System#ComponentModel#Design#IDesignerFilter#PostFilterEvents*
   exceptions: []
   platform:
@@ -758,14 +758,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "For a description of this member, see the &lt;xref:System.ComponentModel.Design.IDesignerFilter.PostFilterProperties%2A?displayProperty=fullName&gt; method."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ComponentModel.Design.ComponentDesigner> instance is cast to an <xref:System.ComponentModel.Design.IDesignerFilter> interface."
+  summary: "Para obter uma descrição desse membro, consulte o &lt;xref:System.ComponentModel.Design.IDesignerFilter.PostFilterProperties%2A?displayProperty=fullName&gt; método."
+  remarks: "Esse membro é uma implementação de membro de interface explícita. Ele pode ser usado somente quando o <xref:System.ComponentModel.Design.ComponentDesigner>instância é convertida em um <xref:System.ComponentModel.Design.IDesignerFilter>interface.</xref:System.ComponentModel.Design.IDesignerFilter> </xref:System.ComponentModel.Design.ComponentDesigner>"
   syntax:
     content: void IDesignerFilter.PostFilterProperties (System.Collections.IDictionary properties);
     parameters:
     - id: properties
       type: System.Collections.IDictionary
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> objects that represent the properties of the class of the component. The keys in the dictionary of properties are property names."
+      description: "O <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> objetos que representam as propriedades da classe do componente. As chaves no dicionário de propriedades são nomes de propriedade."
   overload: System.ComponentModel.Design.ComponentDesigner.System#ComponentModel#Design#IDesignerFilter#PostFilterProperties*
   exceptions: []
   platform:
@@ -783,14 +783,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "For a description of this member, see the &lt;xref:System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes%2A?displayProperty=fullName&gt; method."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ComponentModel.Design.ComponentDesigner> instance is cast to an <xref:System.ComponentModel.Design.IDesignerFilter> interface."
+  summary: "Para obter uma descrição desse membro, consulte o &lt;xref:System.ComponentModel.Design.IDesignerFilter.PreFilterAttributes%2A?displayProperty=fullName&gt; método."
+  remarks: "Esse membro é uma implementação de membro de interface explícita. Ele pode ser usado somente quando o <xref:System.ComponentModel.Design.ComponentDesigner>instância é convertida em um <xref:System.ComponentModel.Design.IDesignerFilter>interface.</xref:System.ComponentModel.Design.IDesignerFilter> </xref:System.ComponentModel.Design.ComponentDesigner>"
   syntax:
     content: void IDesignerFilter.PreFilterAttributes (System.Collections.IDictionary attributes);
     parameters:
     - id: attributes
       type: System.Collections.IDictionary
-      description: "The <xref:System.Attribute> objects for the class of the component. The keys in the dictionary of attributes are the <xref:System.Attribute.TypeId*> values of the attributes."
+      description: "O <xref:System.Attribute>objetos para a classe do componente.</xref:System.Attribute> As chaves no dicionário de atributos são o <xref:System.Attribute.TypeId*>valores dos atributos.</xref:System.Attribute.TypeId*>"
   overload: System.ComponentModel.Design.ComponentDesigner.System#ComponentModel#Design#IDesignerFilter#PreFilterAttributes*
   exceptions: []
   platform:
@@ -808,14 +808,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "For a description of this member, see the &lt;xref:System.ComponentModel.Design.IDesignerFilter.PreFilterEvents%2A?displayProperty=fullName&gt; method."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ComponentModel.Design.ComponentDesigner> instance is cast to an <xref:System.ComponentModel.Design.IDesignerFilter> interface."
+  summary: "Para obter uma descrição desse membro, consulte o &lt;xref:System.ComponentModel.Design.IDesignerFilter.PreFilterEvents%2A?displayProperty=fullName&gt; método."
+  remarks: "Esse membro é uma implementação de membro de interface explícita. Ele pode ser usado somente quando o <xref:System.ComponentModel.Design.ComponentDesigner>instância é convertida em um <xref:System.ComponentModel.Design.IDesignerFilter>interface.</xref:System.ComponentModel.Design.IDesignerFilter> </xref:System.ComponentModel.Design.ComponentDesigner>"
   syntax:
     content: void IDesignerFilter.PreFilterEvents (System.Collections.IDictionary events);
     parameters:
     - id: events
       type: System.Collections.IDictionary
-      description: "The <xref href=&quot;System.ComponentModel.EventDescriptor&quot;></xref> objects that represent the events of the class of the component. The keys in the dictionary of events are event names."
+      description: "O <xref href=&quot;System.ComponentModel.EventDescriptor&quot;> </xref> objetos que representam os eventos da classe do componente. As chaves no dicionário de eventos são nomes de evento."
   overload: System.ComponentModel.Design.ComponentDesigner.System#ComponentModel#Design#IDesignerFilter#PreFilterEvents*
   exceptions: []
   platform:
@@ -833,14 +833,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "For a description of this member, see the &lt;xref:System.ComponentModel.Design.IDesignerFilter.PreFilterProperties%2A?displayProperty=fullName&gt; method."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ComponentModel.Design.ComponentDesigner> instance is cast to an <xref:System.ComponentModel.Design.IDesignerFilter> interface."
+  summary: "Para obter uma descrição desse membro, consulte o &lt;xref:System.ComponentModel.Design.IDesignerFilter.PreFilterProperties%2A?displayProperty=fullName&gt; método."
+  remarks: "Esse membro é uma implementação de membro de interface explícita. Ele pode ser usado somente quando o <xref:System.ComponentModel.Design.ComponentDesigner>instância é convertida em um <xref:System.ComponentModel.Design.IDesignerFilter>interface.</xref:System.ComponentModel.Design.IDesignerFilter> </xref:System.ComponentModel.Design.ComponentDesigner>"
   syntax:
     content: void IDesignerFilter.PreFilterProperties (System.Collections.IDictionary properties);
     parameters:
     - id: properties
       type: System.Collections.IDictionary
-      description: "The <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;></xref> objects that represent the properties of the class of the component. The keys in the dictionary of properties are property names."
+      description: "O <xref href=&quot;System.ComponentModel.PropertyDescriptor&quot;> </xref> objetos que representam as propriedades da classe do componente. As chaves no dicionário de propriedades são nomes de propriedade."
   overload: System.ComponentModel.Design.ComponentDesigner.System#ComponentModel#Design#IDesignerFilter#PreFilterProperties*
   exceptions: []
   platform:
@@ -858,13 +858,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "For a description of this member, see the &lt;xref:System.ComponentModel.Design.ITreeDesigner.Children%2A?displayProperty=fullName&gt; property."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ComponentModel.Design.ComponentDesigner> instance is cast to an <xref:System.ComponentModel.Design.ITreeDesigner> interface."
+  summary: "Para obter uma descrição desse membro, consulte o &lt;xref:System.ComponentModel.Design.ITreeDesigner.Children%2A?displayProperty=fullName&gt; propriedade."
+  remarks: "Esse membro é uma implementação de membro de interface explícita. Ele pode ser usado somente quando o <xref:System.ComponentModel.Design.ComponentDesigner>instância é convertida em um <xref:System.ComponentModel.Design.ITreeDesigner>interface.</xref:System.ComponentModel.Design.ITreeDesigner> </xref:System.ComponentModel.Design.ComponentDesigner>"
   syntax:
     content: System.Collections.ICollection System.ComponentModel.Design.ITreeDesigner.Children { get; }
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> that contains the collection of <xref href=&quot;System.ComponentModel.Design.IDesigner&quot;></xref> designers contained in the current parent designer."
+      description: "Um <xref:System.Collections.ICollection>que contém a coleção de <xref href=&quot;System.ComponentModel.Design.IDesigner&quot;> </xref> designers contidas no designer pai atual.</xref:System.Collections.ICollection>"
   overload: System.ComponentModel.Design.ComponentDesigner.System#ComponentModel#Design#ITreeDesigner#Children*
   exceptions: []
   platform:
@@ -882,13 +882,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "For a description of this member, see the &lt;xref:System.ComponentModel.Design.ITreeDesigner.Parent%2A?displayProperty=fullName&gt; property."
-  remarks: "This member is an explicit interface member implementation. It can be used only when the <xref:System.ComponentModel.Design.ComponentDesigner> instance is cast to an <xref:System.ComponentModel.Design.ITreeDesigner> interface."
+  summary: "Para obter uma descrição desse membro, consulte o &lt;xref:System.ComponentModel.Design.ITreeDesigner.Parent%2A?displayProperty=fullName&gt; propriedade."
+  remarks: "Esse membro é uma implementação de membro de interface explícita. Ele pode ser usado somente quando o <xref:System.ComponentModel.Design.ComponentDesigner>instância é convertida em um <xref:System.ComponentModel.Design.ITreeDesigner>interface.</xref:System.ComponentModel.Design.ITreeDesigner> </xref:System.ComponentModel.Design.ComponentDesigner>"
   syntax:
     content: System.ComponentModel.Design.IDesigner System.ComponentModel.Design.ITreeDesigner.Parent { get; }
     return:
       type: System.ComponentModel.Design.IDesigner
-      description: "An <xref href=&quot;System.ComponentModel.Design.IDesigner&quot;></xref> representing the parent designer, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no parent."
+      description: "Um <xref href=&quot;System.ComponentModel.Design.IDesigner&quot;> </xref> que representa o criador do pai, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não houver nenhum pai."
   overload: System.ComponentModel.Design.ComponentDesigner.System#ComponentModel#Design#ITreeDesigner#Parent*
   exceptions: []
   platform:
@@ -905,13 +905,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design
-  summary: "Gets the design-time verbs supported by the component that is associated with the designer."
-  remarks: "This method returns `null` if the component has no design-time verbs.       The design-time environment typically displays verbs returned by this method in a shortcut (right-click) menu. When a user selects one of the verbs, the <xref:System.ComponentModel.Design.MenuCommand.Invoke%2A> method of the corresponding <xref:System.ComponentModel.Design.DesignerVerb> is invoked.      > [!NOTE] >  A design-time environment typically provides a **Properties** command on a component&quot;s shortcut menu. Therefore, do not include such an entry in the collection of designer-specified verbs."
+  summary: "Obtém os verbos de tempo de design com suporte pelo componente que está associado com o designer."
+  remarks: "Este método retorna `null` se o componente não tiver verbos nenhum tempo de design.       Normalmente, o ambiente de tempo de design exibe verbos retornados por este método em um menu de atalho (direito). Quando um usuário seleciona um dos verbos, a <xref:System.ComponentModel.Design.MenuCommand.Invoke%2A>método correspondente <xref:System.ComponentModel.Design.DesignerVerb>é invocado.</xref:System.ComponentModel.Design.DesignerVerb> </xref:System.ComponentModel.Design.MenuCommand.Invoke%2A>      > [!NOTE] > Normalmente fornece um ambiente de tempo de design um **propriedades** comando no menu de atalho do componente. Portanto, não inclua essa entrada na coleção de verbos do designer especificado."
   syntax:
     content: public virtual System.ComponentModel.Design.DesignerVerbCollection Verbs { get; }
     return:
       type: System.ComponentModel.Design.DesignerVerbCollection
-      description: "A <xref href=&quot;System.ComponentModel.Design.DesignerVerbCollection&quot;></xref> of <xref href=&quot;System.ComponentModel.Design.DesignerVerb&quot;></xref> objects, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no designer verbs are available. This default implementation always returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Um <xref href=&quot;System.ComponentModel.Design.DesignerVerbCollection&quot;> </xref> de <xref href=&quot;System.ComponentModel.Design.DesignerVerb&quot;> </xref> objetos, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se nenhum verbos do designer estão disponíveis. Esta implementação padrão sempre retorna <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.ComponentDesigner.Verbs*
   exceptions: []
   platform:

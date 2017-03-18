@@ -39,8 +39,8 @@ items:
   nameWithType: CodeDomSerializerBase
   fullName: System.ComponentModel.Design.Serialization.CodeDomSerializerBase
   type: Class
-  summary: "Provides a base class for <xref href=&quot;System.ComponentModel.Design.Serialization.CodeDomSerializer&quot;></xref> classes."
-  remarks: "The CodeDomSerializerBase class is used as a shared base between the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer> and <xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer> classes. Public <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer> classes derive from the CodeDomSerializerBase class. Each public class defines its own public API. The CodeDomSerializerBase class defines no public API, but does offer a multitude of utility methods that can be used to aid the serialization process."
+  summary: "Fornece uma classe base para <xref href=&quot;System.ComponentModel.Design.Serialization.CodeDomSerializer&quot;> </xref> classes."
+  remarks: "A classe CodeDomSerializerBase é usada como base compartilhada entre o <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer>e <xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer>classes.</xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer> </xref:System.ComponentModel.Design.Serialization.CodeDomSerializer> Público <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer>derivam da classe CodeDomSerializerBase.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializer> Cada classe pública define sua própria API pública. A classe CodeDomSerializerBase não define nenhuma API pública, mas oferece uma variedade de métodos de utilitário que pode ser usado para ajudar no processo de serialização."
   syntax:
     content: >-
       [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
@@ -64,23 +64,23 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes the given expression into an in-memory object."
-  remarks: "This is a helper method that derived classes can call to deserialize an expression. It deserializes the statement by interpreting and executing the CodeDOM expression specified by the `expression` parameter, and then returns the results. If an object needs to be created as a result of this expression, it will be given the name specified by the `name` parameter. The name can be `null` if there is no need to name the object. The following table describes how specific expressions are handled.      |Expression|Behavior|   |----------------|--------------|   |<xref:System.CodeDom.CodeThisReferenceExpression>|This expression represents `this` or `Me`. To locate the object that is associated with this expression, the DeserializeExpression method will look in the context stack for a <xref:System.ComponentModel.Design.Serialization.RootContext>. This object contains the root object of the graph and the expression that represents it. If the object is present and the expression matches, the root object will be returned. An error is reported if an instance cannot be located.|   |<xref:System.CodeDom.CodeFieldReferenceExpression>|If the target of the field reference evaluates to the root object, the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance%2A> method of the manager parameter will be used to retrieve the object instance based on name. Otherwise, standard reflection is used against the target object to locate the requested field. An error is reported if the field cannot be located.|   |<xref:System.CodeDom.CodeVariableReferenceExpression>|The <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance%2A> method of the `manager` parameter is used to locate the instance representing the given variable name. An error is reported if an instance cannot be located.|       DeserializeExpression continues to interpret expressions until they are completely resolved to an object, or until it can no longer simplify the expression. In this case, DeserializeExpression will return a <xref:System.CodeDom.CodeExpression> that contains the most simplified expression. The following expressions are not supported:      -   <xref:System.CodeDom.CodeEventReferenceExpression>      -   <xref:System.CodeDom.CodeMethodReferenceExpression>      -   <xref:System.CodeDom.CodeDelegateCreateExpression>"
+  summary: "Desserializa a expressão especificada em um objeto de memória."
+  remarks: "Este é um auxiliar pode chamada do método que classes derivadas para desserializar uma expressão. Ele desserializa a instrução, interpretar e executar a expressão de CodeDOM especificada pelo `expression` parâmetro e, em seguida, retorna os resultados. Se um objeto precisa ser criado como resultado dessa expressão, ela receberá o nome especificado pelo `name` parâmetro. O nome pode ser `null` se não é necessário para o objeto. A tabela a seguir descreve expressões específicas como são tratados.      | Expressão | Comportamento |   |----------------|--------------|   | <xref:System.CodeDom.CodeThisReferenceExpression>| Essa expressão representa `this` ou `Me`.</xref:System.CodeDom.CodeThisReferenceExpression> Para localizar o objeto que está associado esta expressão, o método DeserializeExpression examinará a pilha de contexto para <xref:System.ComponentModel.Design.Serialization.RootContext>.</xref:System.ComponentModel.Design.Serialization.RootContext> Este objeto contém o objeto raiz do gráfico e a expressão que o representa. Se o objeto está presente e a expressão corresponde, o objeto raiz será retornado. Um erro será relatado se uma instância não pode ser localizada. |   | <xref:System.CodeDom.CodeFieldReferenceExpression>| Se o destino da referência do campo for avaliada como o objeto raiz, o <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance%2A>método do parâmetro Gerenciador será usado para recuperar a instância do objeto com base no nome.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance%2A> </xref:System.CodeDom.CodeFieldReferenceExpression> Caso contrário, reflexão padrão é usado em relação ao objeto de destino para localizar o campo solicitado. Um erro será relatado se o campo não pode ser localizado. |   | <xref:System.CodeDom.CodeVariableReferenceExpression>| O <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance%2A>método o `manager` parâmetro é usado para localizar a instância que representa o nome da variável determinado.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance%2A> </xref:System.CodeDom.CodeVariableReferenceExpression> Um erro será relatado se uma instância não pode ser localizada. |       DeserializeExpression continua a interpretar expressões até que eles são completamente resolvidos para um objeto ou ele não pode simplificar a expressão. Nesse caso, DeserializeExpression retornará um <xref:System.CodeDom.CodeExpression>que contém a expressão mais simplificada.</xref:System.CodeDom.CodeExpression> Não há suporte para as seguintes expressões:- <xref:System.CodeDom.CodeEventReferenceExpression>- <xref:System.CodeDom.CodeMethodReferenceExpression>- <xref:System.CodeDom.CodeDelegateCreateExpression></xref:System.CodeDom.CodeDelegateCreateExpression> </xref:System.CodeDom.CodeMethodReferenceExpression> </xref:System.CodeDom.CodeEventReferenceExpression>"
   syntax:
     content: protected object DeserializeExpression (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, string name, System.CodeDom.CodeExpression expression);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: name
       type: System.String
-      description: "The name of the object that results from the expression. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no need to name the object."
+      description: "O nome do objeto que é o resultado da expressão. Pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não é necessário para o objeto."
     - id: expression
       type: System.CodeDom.CodeExpression
-      description: "The <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> to interpret."
+      description: "O <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> interpretar."
     return:
       type: System.Object
-      description: "An object resulting from interpretation of <code>expression</code>."
+      description: "Um objeto resultante da interpretação <code> expression </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeExpression*
   exceptions: []
   platform:
@@ -97,34 +97,34 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Returns an instance of the given type."
-  remarks: "The DeserializeInstance method is invoked during deserialization to obtain an instance of an object. When this is called, an instance of the requested type should be returned. The default implementation invokes the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A> method of the `manager` parameter."
+  summary: "Retorna uma instância do tipo em questão."
+  remarks: "O método DeserializeInstance é chamado durante a desserialização para obter uma instância de um objeto. Quando isso é chamado, uma instância do tipo solicitado deve ser retornada. A implementação padrão chama o <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A>método o `manager` parâmetro.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.CreateInstance%2A>"
   syntax:
     content: protected virtual object DeserializeInstance (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, Type type, object[] parameters, string name, bool addToContainer);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: type
       type: System.Type
-      description: "The <xref:System.Type> of the instance to return."
+      description: "O <xref:System.Type>da instância para retornar.</xref:System.Type>"
     - id: parameters
       type: System.Object[]
-      description: "The parameters to pass to the constructor for `type`."
+      description: "Os parâmetros para passar para o construtor para `type`."
     - id: name
       type: System.String
-      description: "The name of the deserialized object."
+      description: "O nome do objeto desserializado."
     - id: addToContainer
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to add this object to the design container; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The object must implement <xref href=&quot;System.ComponentModel.IComponent&quot;></xref> for this to have any effect."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Para adicionar esse objeto para o contêiner de design; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O objeto deve implementar <xref href=&quot;System.ComponentModel.IComponent&quot;> </xref> para que isso tenha efeito."
     return:
       type: System.Object
-      description: "An instance of <code>type</code>."
+      description: "Uma instância de <code> type </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeInstance*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>type</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>type</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializePropertiesFromResources(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object,System.Attribute[])
@@ -139,20 +139,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes properties on the given object from the invariant culture’s resource bundle."
-  remarks: "The DeserializePropertiesFromResources method is a helper method that derived classes can call. It looks for properties on the given object and attempts to load their values out of the invariant culture’s resource bundle. This is generally used to handle design-time properties that are not emitted into source code. It should not be used for localized properties because it only operates on the invariant culture.       This method inspects all of the properties of the `value` parameter that match the attributes specified by the `filter` parameter, and then checks for those properties in a resource binary object. This is useful for deserializing properties that cannot be represented in code, such as design-time properties.       This method requires that a designer loader offers an <xref:System.ComponentModel.Design.IResourceService> to read resources. If the <xref:System.ComponentModel.Design.IResourceService> provides a <xref:System.Resources.ResXResourceReader> for the invariant culture, then DeserializePropertiesFromResources will read resources from the XML resource (.resx) file’s metadata section, which is not included in final compiled code. If this service is not available, no resources will be read."
+  summary: "Desserializa propriedades em um determinado objeto de pacote de recursos da cultura invariável."
+  remarks: "O método DeserializePropertiesFromResources é um método auxiliar que classes derivadas pode chamar. Ele procura por propriedades no objeto especificado e tenta carregar seus valores fora do pacote de recursos da cultura invariável. Isso geralmente é usado para lidar com as propriedades de tempo de design que não são emitidas no código-fonte. Ele não deve ser usado para propriedades localizadas, porque ela opera somente a cultura invariável.       Esse método verifica se todas as propriedades do `value` que corresponde aos atributos especificados pelo parâmetro de `filter` parâmetro e, em seguida, procura essas propriedades em um objeto de recurso binário. Isso é útil para desserializar propriedades que não podem ser representadas no código, como as propriedades de tempo de design.       Esse método requer que um carregador de designer oferece um <xref:System.ComponentModel.Design.IResourceService>para ler recursos.</xref:System.ComponentModel.Design.IResourceService> Se o <xref:System.ComponentModel.Design.IResourceService>fornece um <xref:System.Resources.ResXResourceReader>para a cultura invariável, em seguida, DeserializePropertiesFromResources lerá recursos da seção de metadados do arquivo de recurso (. resx) XML, que não está incluída no final código compilado.</xref:System.Resources.ResXResourceReader> </xref:System.ComponentModel.Design.IResourceService> Se esse serviço não estiver disponível, não há recursos serão lidos."
   syntax:
     content: protected void DeserializePropertiesFromResources (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value, Attribute[] filter);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object from which the properties are to be deserialized."
+      description: "O objeto do qual as propriedades devem ser desserializado."
     - id: filter
       type: System.Attribute[]
-      description: "An <xref:System.Attribute> array that filters which properties will be deserialized."
+      description: "Um <xref:System.Attribute>matriz que filtra as propriedades que serão desserializadas.</xref:System.Attribute>"
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializePropertiesFromResources*
   exceptions: []
   platform:
@@ -169,17 +169,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes a statement by interpreting and executing a CodeDOM statement."
-  remarks: "The DeserializeStatement method is a helper method that derived classes can call. It interprets the `statement` parameter.       The <xref:System.CodeDom.CodeStatement> being deserialized will be pushed on the context stack."
+  summary: "Desserializa uma instrução, interpretar e executar uma instrução de CodeDOM."
+  remarks: "O método DeserializeStatement é um método auxiliar que classes derivadas pode chamar. Ele interpreta o `statement` parâmetro.       O <xref:System.CodeDom.CodeStatement>que está sendo desserializado será enviado na pilha de contexto.</xref:System.CodeDom.CodeStatement>"
   syntax:
     content: protected void DeserializeStatement (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeStatement statement);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: statement
       type: System.CodeDom.CodeStatement
-      description: "The <xref href=&quot;System.CodeDom.CodeStatement&quot;></xref> to deserialize."
+      description: "O <xref href=&quot;System.CodeDom.CodeStatement&quot;> </xref> a ser desserializado."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.DeserializeStatement*
   exceptions: []
   platform:
@@ -196,19 +196,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a collection of attributes as defined in the project&quot;s target version of the .NET Framework."
+  summary: "Obtém uma coleção de atributos conforme definido na versão de destino do projeto do .NET Framework."
   syntax:
     content: protected static System.ComponentModel.AttributeCollection GetAttributesFromTypeHelper (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, Type type);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager."
+      description: "O Gerenciador de serialização."
     - id: type
       type: System.Type
-      description: "The target type."
+      description: "O tipo de destino."
     return:
       type: System.ComponentModel.AttributeCollection
-      description: "A collection of attributes as defined in the project&quot;s target version of the .NET Framework."
+      description: "Uma coleção de atributos conforme definido na versão de destino do projeto do .NET Framework."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetAttributesFromTypeHelper*
   exceptions: []
   platform:
@@ -225,19 +225,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a collection of attributes as defined in the project&quot;s target version of the .NET Framework."
+  summary: "Obtém uma coleção de atributos conforme definido na versão de destino do projeto do .NET Framework."
   syntax:
     content: protected static System.ComponentModel.AttributeCollection GetAttributesHelper (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object instance);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager."
+      description: "O Gerenciador de serialização."
     - id: instance
       type: System.Object
-      description: "An object of the target type."
+      description: "Um objeto do tipo de destino."
     return:
       type: System.ComponentModel.AttributeCollection
-      description: "A collection of attributes as defined in the project&quot;s target version of the .NET Framework."
+      description: "Uma coleção de atributos conforme definido na versão de destino do projeto do .NET Framework."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetAttributesHelper*
   exceptions: []
   platform:
@@ -254,22 +254,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a collection of events as defined in the project&quot;s target version of the .NET Framework."
+  summary: "Obtém uma coleção de eventos conforme definido na versão de destino do projeto do .NET Framework."
   syntax:
     content: protected static System.ComponentModel.EventDescriptorCollection GetEventsHelper (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object instance, Attribute[] attributes);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager."
+      description: "O Gerenciador de serialização."
     - id: instance
       type: System.Object
-      description: "An object of the target type."
+      description: "Um objeto do tipo de destino."
     - id: attributes
       type: System.Attribute[]
-      description: "An array of attributes to pass to the target version of the .NET Framework."
+      description: "Uma matriz de atributos para passar para a versão de destino do .NET Framework."
     return:
       type: System.ComponentModel.EventDescriptorCollection
-      description: "A collection of events as defined in the project&quot;s target version of the .NET Framework."
+      description: "Uma coleção de eventos conforme definido na versão de destino do projeto do .NET Framework."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetEventsHelper*
   exceptions: []
   platform:
@@ -286,25 +286,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Returns an expression for the given object."
-  remarks: "The GetExpression method returns an expression representing the given object. It can return `null`, indicating that no expression has been set that describes the object. Expressions are acquired in one of three ways:      -   The expression could be the result of a prior call to the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A> method.      -   The expression could have been found in the <xref:System.ComponentModel.Design.Serialization.RootContext>.      -   The expression could be derived through <xref:System.ComponentModel.Design.IReferenceService>.       To derive expressions through <xref:System.ComponentModel.Design.IReferenceService>, the GetExpression method queries the reference service for a name for the given object. If the expression service returns a valid name, <xref:System.ComponentModel.Design.IReferenceService>, the GetExpression method checks to see if there is a &quot;.&quot; in the name. This indicates that the expression service found this object as the return value of a read-only property on another object. If there is a &quot;.&quot;, GetExpression will split the reference into parts. The leftmost part is a name that will be evaluated with the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance%2A> method. For each subsequent part, a property reference expression will be built. The final expression will then be returned.       If the object did not have an expression set, or if the object was not found in the reference service, GetExpression will return `null`, indicating there is no existing expression for the object."
+  summary: "Retorna uma expressão para o objeto fornecido."
+  remarks: "O método GetExpression retorna uma expressão que representa o objeto fornecido. Ele pode retornar `null`, indicando que nenhuma expressão foi definido que descreve o objeto. Expressões são adquiridas em uma destas três maneiras:-a expressão pode ser o resultado de uma chamada anterior para o <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A>método.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A>      -A expressão foi encontrada em <xref:System.ComponentModel.Design.Serialization.RootContext>.</xref:System.ComponentModel.Design.Serialization.RootContext>      -A expressão pode ser derivada por meio de <xref:System.ComponentModel.Design.IReferenceService>.</xref:System.ComponentModel.Design.IReferenceService>       Para derivar expressões por meio de <xref:System.ComponentModel.Design.IReferenceService>, o método GetExpression consulta o serviço de referência para um nome para o objeto fornecido.</xref:System.ComponentModel.Design.IReferenceService> Se o serviço de expressão retorna um nome válido, <xref:System.ComponentModel.Design.IReferenceService>, o método GetExpression verifica se há um &quot;.&quot; no nome.</xref:System.ComponentModel.Design.IReferenceService> Isso indica que o serviço de expressão encontrado esse objeto como o valor de retorno de uma propriedade somente leitura em outro objeto. Se houver um &quot;.&quot;, GetExpression dividirá a referência em partes. A parte mais à esquerda é um nome que será avaliado com o <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance%2A>método.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetInstance%2A> Para cada parte subsequente, uma expressão de referência de propriedade será criada. A expressão de final, em seguida, será retornada.       Se o objeto não tiver uma expressão definida ou se o objeto não foi encontrado no serviço de referência, GetExpression retornará `null`, indicando que há uma expressão existente para o objeto."
   syntax:
     content: protected System.CodeDom.CodeExpression GetExpression (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object for which to get an expression."
+      description: "O objeto para o qual obter uma expressão."
     return:
       type: System.CodeDom.CodeExpression
-      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> representing v<code>alue</code>, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there is no existing expression for v<code>alue</code>."
+      description: "Um <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> representar v<code>alue</code>, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não houver nenhuma expressão existente para v<code>alue</code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetPropertiesHelper(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object,System.Attribute[])
@@ -319,22 +319,22 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a collection of properties as defined in the project&quot;s target version of the .NET Framework."
+  summary: "Obtém uma coleção de propriedades, conforme definido na versão de destino do projeto do .NET Framework."
   syntax:
     content: protected static System.ComponentModel.PropertyDescriptorCollection GetPropertiesHelper (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object instance, Attribute[] attributes);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager."
+      description: "O Gerenciador de serialização."
     - id: instance
       type: System.Object
-      description: "An object of the target type."
+      description: "Um objeto do tipo de destino."
     - id: attributes
       type: System.Attribute[]
-      description: "An array of attributes to pass to the target version of the .NET Framework."
+      description: "Uma matriz de atributos para passar para a versão de destino do .NET Framework."
     return:
       type: System.ComponentModel.PropertyDescriptorCollection
-      description: "A collection of properties as defined in the project&quot;s target version of the .NET Framework."
+      description: "Uma coleção de propriedades conforme definido na versão de destino do projeto do .NET Framework."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetPropertiesHelper*
   exceptions: []
   platform:
@@ -351,20 +351,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a reflection type generated from type metadata."
-  remarks: "The return value will not be equal to `type` and should not be used for comparison with non-reflection types."
+  summary: "Obtém um tipo de reflexão gerado a partir de metadados do tipo."
+  remarks: "O valor de retorno não serão igual a `type` e não deve ser usado para comparação com os tipos de não-reflexão."
   syntax:
     content: protected static Type GetReflectionTypeFromTypeHelper (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, Type type);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager."
+      description: "O Gerenciador de serialização."
     - id: type
       type: System.Type
-      description: "The type to use metadata from."
+      description: "O tipo para usar os metadados do."
     return:
       type: System.Type
-      description: "A reflection type generated from the metadata of <code>type</code>."
+      description: "Um tipo de reflexão gerado a partir de metadados do <code> type </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetReflectionTypeFromTypeHelper*
   exceptions: []
   platform:
@@ -381,20 +381,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a reflection type generated from object metadata."
-  remarks: "The return value will not be equal to the type of object and should not be used for comparison with non-reflection types."
+  summary: "Obtém um tipo de reflexão gerado a partir de metadados do objeto."
+  remarks: "O valor de retorno não será igual ao tipo de objeto e não deve ser usado para comparação com os tipos de não-reflexão."
   syntax:
     content: protected static Type GetReflectionTypeHelper (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object instance);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager."
+      description: "O Gerenciador de serialização."
     - id: instance
       type: System.Object
-      description: "The object to use metadata from."
+      description: "O objeto para usar os metadados do."
     return:
       type: System.Type
-      description: "A reflection type generated from the metadata of <code>object</code>."
+      description: "Um tipo de reflexão gerado a partir de metadados do <code> object </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetReflectionTypeHelper*
   exceptions: []
   platform:
@@ -411,25 +411,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Locates a serializer for the given object value."
-  remarks: "The GetSerializer method is an extension to the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName> method. The <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName> method takes an object type, rather than an object value. If an external party had overridden metadata for a specific object through <xref:System.ComponentModel.TypeDescriptor>, that metadata override would not be seen by the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName> method, which only takes a type. The GetSerializer method checks the metadata of the value and the value’s type. If the two differ, GetSerializer will look to see if there is a custom designer serializer attribute on the value. If so, GetSerializer will attempt to use it. Otherwise, it will defer to <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName>."
+  summary: "Localiza um serializador para o valor do objeto especificado."
+  remarks: "O método GetSerializer é uma extensão para o <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName>método.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName> O <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName>método usa um tipo de objeto, em vez de um valor de objeto.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName> Se um participante externo tinha substituído metadados para um objeto específico por meio de <xref:System.ComponentModel.TypeDescriptor>, essa substituição de metadados não deve ser considerada pelo <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName>método, que usa apenas um tipo.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName> </xref:System.ComponentModel.TypeDescriptor> O método GetSerializer verifica os metadados do valor e o tipo do valor. Se os dois forem diferentes, GetSerializer procurará para ver se há um atributo de serializador designer personalizado no valor. Nesse caso, GetSerializer tentar usá-lo. Caso contrário, ele irá passar para <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName>.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName>"
   syntax:
     content: protected System.ComponentModel.Design.Serialization.CodeDomSerializer GetSerializer (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object specifying the serializer to retrieve."
+      description: "O objeto que especifica o serializador para recuperar."
     return:
       type: System.ComponentModel.Design.Serialization.CodeDomSerializer
-      description: "A <xref href=&quot;System.ComponentModel.Design.Serialization.CodeDomSerializer&quot;></xref> that is appropriate for <code>value</code>."
+      description: "Um <xref href=&quot;System.ComponentModel.Design.Serialization.CodeDomSerializer&quot;> </xref> que é apropriado para <code> value </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetSerializer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetSerializer(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Type)
@@ -444,25 +444,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Locates a serializer for the given type."
-  remarks: "The GetSerializer method is an extension to the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName> method. The <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName> method takes an object type, rather than an object value."
+  summary: "Localiza um serializador de determinado tipo."
+  remarks: "O método GetSerializer é uma extensão para o <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName>método.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName> O <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName>método usa um tipo de objeto, em vez de um valor de objeto.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetSerializer%2A?displayProperty=fullName>"
   syntax:
     content: protected System.ComponentModel.Design.Serialization.CodeDomSerializer GetSerializer (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, Type valueType);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: valueType
       type: System.Type
-      description: "The <xref:System.Type> specifying the serializer to retrieve."
+      description: "O <xref:System.Type>especificando o serializador para recuperar.</xref:System.Type>"
     return:
       type: System.ComponentModel.Design.Serialization.CodeDomSerializer
-      description: "A <xref href=&quot;System.ComponentModel.Design.Serialization.CodeDomSerializer&quot;></xref> that is appropriate for <code>valueType</code>."
+      description: "Um <xref href=&quot;System.ComponentModel.Design.Serialization.CodeDomSerializer&quot;> </xref> que é apropriado para <code> valueType </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetSerializer*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>valueType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>valueType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetTargetFrameworkProvider(System.IServiceProvider,System.Object)
@@ -477,19 +477,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a <xref href=&quot;System.ComponentModel.TypeDescriptionProvider&quot;></xref> that is aware of the target version of the .NET Framework, for use in type filtering."
+  summary: "Obtém um <xref href=&quot;System.ComponentModel.TypeDescriptionProvider&quot;> </xref> que está ciente de que a versão de destino do .NET Framework, para uso na filtragem de tipo."
   syntax:
     content: protected static System.ComponentModel.TypeDescriptionProvider GetTargetFrameworkProvider (IServiceProvider provider, object instance);
     parameters:
     - id: provider
       type: System.IServiceProvider
-      description: "The type description provider service."
+      description: "O serviço de provedor de descrição de tipo."
     - id: instance
       type: System.Object
-      description: "An object from which the type description provider service can be derived, if `provider` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Um objeto do qual o serviço de provedor de descrição de tipo pode ser derivado, se `provider` é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.ComponentModel.TypeDescriptionProvider
-      description: "A .NET Framework-aware type description provider."
+      description: "Um provedor de descrição de tipo com reconhecimento de .NET Framework."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetTargetFrameworkProvider*
   exceptions: []
   platform:
@@ -506,25 +506,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Returns a unique name for the given object."
-  remarks: "The GetUniqueName method calls the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetName%2A> method. If this method does not return a name, then GetUniqueName uses <xref:System.ComponentModel.Design.Serialization.INameCreationService> to fabricate a valid name for the object. If the service is not available, GetUniqueName will fabricate a name based on the short type name combined with an index number to make it unique. The resulting name is associated with the serialization manager by calling the <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SetName%2A> method before the new name is returned."
+  summary: "Retorna um nome exclusivo para o objeto fornecido."
+  remarks: "As chamadas de método GetUniqueName o <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetName%2A>método.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.GetName%2A> Se esse método não retorna um nome, em seguida, usa GetUniqueName <xref:System.ComponentModel.Design.Serialization.INameCreationService>para fabricar um nome válido para o objeto.</xref:System.ComponentModel.Design.Serialization.INameCreationService> Se o serviço não estiver disponível, GetUniqueName será fabricar um nome com base no nome do tipo curto combinado com um número de índice para torná-lo exclusivo. O nome resultante é associado com o Gerenciador de serialização chamando o <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SetName%2A>método antes do novo nome será retornado.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.SetName%2A>"
   syntax:
     content: protected string GetUniqueName (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object for which the name will be retrieved."
+      description: "O objeto para o qual o nome será recuperado."
     return:
       type: System.String
-      description: "A unique name for <code>value</code>."
+      description: "Um nome exclusivo para <code> value </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetUniqueName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.IsSerialized(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object)
@@ -539,25 +539,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Returns a value indicating whether the given object has been serialized."
-  remarks: "For the `value` parameter to be considered serialized, the `manager` parameter or another serializer must have called the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A> method to create a relationship between `value` and a referring expression."
+  summary: "Retorna um valor que indica se o objeto fornecido foi serializado."
+  remarks: "Para o `value` serializado de parâmetro a serem considerados, o `manager` parâmetro ou outro serializador deve ter chamado o <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A>método para criar uma relação entre `value` e uma expressão de referência.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A>"
   syntax:
     content: protected bool IsSerialized (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object to test for previous serialization."
+      description: "O objeto a ser testado para serialização anterior."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>value</code> has been serialized; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se <code> value </code> foi serializado; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.IsSerialized*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.IsSerialized(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object,System.Boolean)
@@ -572,28 +572,28 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Returns a value indicating whether the given object has been serialized, optionally considering preset expressions."
-  remarks: "For the `value` parameter to be considered serialized, the `manager` parameter or another serializer must have called the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A> method to create a relationship between `value` and a referring expression."
+  summary: "Retorna um valor que indica se o objeto fornecido foi serializado, opcionalmente, considerando expressões predefinidas."
+  remarks: "Para o `value` serializado de parâmetro a serem considerados, o `manager` parâmetro ou outro serializador deve ter chamado o <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A>método para criar uma relação entre `value` e uma expressão de referência.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A>"
   syntax:
     content: protected bool IsSerialized (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value, bool honorPreset);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object to test for previous serialization."
+      description: "O objeto a ser testado para serialização anterior."
     - id: honorPreset
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to include preset expressions; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para incluir expressões predefinidas; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>value</code> has been serialized; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se <code> value </code> foi serializado; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.IsSerialized*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeCreationExpression(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object,System.Boolean@)
@@ -608,28 +608,28 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Returns an expression representing the creation of the given object."
-  remarks: "The SerializeCreationExpression method can be used to serialize an expression that represents the creation of the `value` parameter. It is aware of instance descriptors.       The `isComplete` parameter is set to `true` if the expression represents a fully configured object, or `false` if further serialization must be done on the object’s properties."
+  summary: "Retorna uma expressão que representa a criação do objeto especificado."
+  remarks: "O método SerializeCreationExpression pode ser usado para serializar uma expressão que representa a criação do `value` parâmetro. Ele está ciente de descritores de instância.       O `isComplete` parâmetro está definido como `true` se a expressão representa um objeto totalmente configurado, ou `false` se ainda mais a serialização deve ser feita em Propriedades do objeto."
   syntax:
     content: protected System.CodeDom.CodeExpression SerializeCreationExpression (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value, out bool isComplete);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "O objeto a ser serializado."
     - id: isComplete
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if `value` was fully serialized; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se `value` foi totalmente serializado; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.CodeDom.CodeExpression
-      description: "An expression representing the creation of <code>value</code>."
+      description: "Uma expressão que representa a criação de <code> value </code>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeCreationExpression*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvent(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.CodeDom.CodeStatementCollection,System.Object,System.ComponentModel.EventDescriptor)
@@ -644,23 +644,23 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given event into the given statement collection."
-  remarks: "The SerializeEvent method is a helper method that derived classes can call to serialize a single event into the given <xref:System.CodeDom.CodeStatementCollection>. SerializeEvent queries the serialization manager for a <xref:System.ComponentModel.Design.Serialization.MemberCodeDomSerializer> for the given event, and then asks the <xref:System.ComponentModel.Design.Serialization.MemberCodeDomSerializer> to serialize it.       SerializeEvent places the `statements` and `descriptor` parameters on the <xref:System.ComponentModel.Design.Serialization.ContextStack>.       SerializeEvent requires an <xref:System.ComponentModel.Design.IEventBindingService> to discover event bindings to methods that are not compiled. If this service is not present, event bindings to non-compiled methods will not be written. Event bindings to compiled methods will still be serialized if the objects to which the events are bound can be converted into expressions."
+  summary: "Serializa o evento para a coleção de instrução fornecida."
+  remarks: "O método SerializeEvent é um método auxiliar que classes derivadas pode chamar para serializar um único evento em determinado <xref:System.CodeDom.CodeStatementCollection>.</xref:System.CodeDom.CodeStatementCollection> SerializeEvent consultará o Gerenciador de serialização para um <xref:System.ComponentModel.Design.Serialization.MemberCodeDomSerializer>para um determinado evento e, em seguida, pede <xref:System.ComponentModel.Design.Serialization.MemberCodeDomSerializer>para serializar o proprietário.</xref:System.ComponentModel.Design.Serialization.MemberCodeDomSerializer> </xref:System.ComponentModel.Design.Serialization.MemberCodeDomSerializer>       Locais de SerializeEvent o `statements` e `descriptor` parâmetros em <xref:System.ComponentModel.Design.Serialization.ContextStack>.</xref:System.ComponentModel.Design.Serialization.ContextStack>       SerializeEvent requer um <xref:System.ComponentModel.Design.IEventBindingService>para descobrir associações de evento para métodos que não são compilados.</xref:System.ComponentModel.Design.IEventBindingService> Se esse serviço não estiver presente, associações de evento para métodos não compilada não serão gravadas. Associações de evento para métodos compilados ainda serão serializadas se os objetos aos quais os eventos são vinculados podem ser convertidos em expressões."
   syntax:
     content: protected void SerializeEvent (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeStatementCollection statements, object value, System.ComponentModel.EventDescriptor descriptor);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: statements
       type: System.CodeDom.CodeStatementCollection
-      description: "The <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;></xref> into which the event will be serialized."
+      description: "O <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;> </xref> em que o evento será serializado."
     - id: value
       type: System.Object
-      description: "The object to which `descriptor` is bound."
+      description: "O objeto ao qual `descriptor` está associado."
     - id: descriptor
       type: System.ComponentModel.EventDescriptor
-      description: "An <xref href=&quot;System.ComponentModel.EventDescriptor&quot;></xref> specifying the event to serialize."
+      description: "Um <xref href=&quot;System.ComponentModel.EventDescriptor&quot;> </xref> especificando o evento para serializar."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvent*
   exceptions:
   - type: System.ArgumentNullException
@@ -668,7 +668,7 @@ items:
     description: "<code>manager</code>, <code>value</code>, <code>statements</code>, or <code>descriptor</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.Design.Serialization.CodeDomSerializerException
     commentId: T:System.ComponentModel.Design.Serialization.CodeDomSerializerException
-    description: "<xref href=&quot;System.ComponentModel.Design.IEventBindingService&quot;></xref> is not available."
+    description: "<xref href=&quot;System.ComponentModel.Design.IEventBindingService&quot;></xref>não está disponível."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvents(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.CodeDom.CodeStatementCollection,System.Object,System.Attribute[])
@@ -683,23 +683,23 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the specified events into the given statement collection."
-  remarks: "The SerializeEvents method is a helper method that derived classes can call. It looks at events on the `value` parameter that match the `filter` parameter, and then it calls the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvent%2A> method for each event.       The SerializeEvents method places the <xref:System.ComponentModel.InheritanceAttribute> for `value` on the <xref:System.ComponentModel.Design.Serialization.ContextStack>."
+  summary: "Serializa os eventos especificados para a coleção de instrução fornecida."
+  remarks: "O método SerializeEvents é um método auxiliar que classes derivadas pode chamar. Examina a eventos `value` parâmetro que corresponda a `filter` parâmetro e, em seguida, ele chama o <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvent%2A>método para cada evento.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvent%2A>       Os locais de método SerializeEvents o <xref:System.ComponentModel.InheritanceAttribute>para `value` em <xref:System.ComponentModel.Design.Serialization.ContextStack>.</xref:System.ComponentModel.Design.Serialization.ContextStack> </xref:System.ComponentModel.InheritanceAttribute>"
   syntax:
     content: protected void SerializeEvents (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeStatementCollection statements, object value, Attribute[] filter);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: statements
       type: System.CodeDom.CodeStatementCollection
-      description: "The <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;></xref> into which the event will be serialized."
+      description: "O <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;> </xref> em que o evento será serializado."
     - id: value
       type: System.Object
-      description: "The object on which events will be serialized."
+      description: "O objeto no qual os eventos poderão ser serializados."
     - id: filter
       type: System.Attribute[]
-      description: "An <xref:System.Attribute> array that filters which events will be serialized."
+      description: "Um <xref:System.Attribute>matriz que filtra os eventos que serão serializados.</xref:System.Attribute>"
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeEvents*
   exceptions:
   - type: System.ArgumentNullException
@@ -719,23 +719,23 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the properties on the given object into the given statement collection."
-  remarks: "The SerializeProperties method is a helper method that derived classes can call. It looks at properties on the `value` parameter that match the `filter` parameter, and then it calls the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeProperty%2A> method for each property.       The SerializeProperties method places the <xref:System.ComponentModel.InheritanceAttribute> for `value` on the <xref:System.ComponentModel.Design.Serialization.ContextStack>."
+  summary: "Serializa as propriedades no objeto especificado na coleção de instrução fornecida."
+  remarks: "O método SerializeProperties é um método auxiliar que classes derivadas pode chamar. Ele analisa as propriedades `value` parâmetro que corresponda a `filter` parâmetro e, em seguida, ele chama o <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeProperty%2A>método para cada propriedade.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeProperty%2A>       Os locais de método SerializeProperties o <xref:System.ComponentModel.InheritanceAttribute>para `value` em <xref:System.ComponentModel.Design.Serialization.ContextStack>.</xref:System.ComponentModel.Design.Serialization.ContextStack> </xref:System.ComponentModel.InheritanceAttribute>"
   syntax:
     content: protected void SerializeProperties (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeStatementCollection statements, object value, Attribute[] filter);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: statements
       type: System.CodeDom.CodeStatementCollection
-      description: "The <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;></xref> into which the properties will be serialized."
+      description: "O <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;> </xref> em que as propriedades serão serializadas."
     - id: value
       type: System.Object
-      description: "The object on which the properties will be serialized."
+      description: "O objeto no qual as propriedades serão serializadas."
     - id: filter
       type: System.Attribute[]
-      description: "An <xref:System.Attribute> array that filters which properties will be serialized."
+      description: "Um <xref:System.Attribute>matriz que filtra as propriedades que serão serializadas.</xref:System.Attribute>"
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeProperties*
   exceptions:
   - type: System.ArgumentNullException
@@ -755,23 +755,23 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the properties on the given object into the invariant culture’s resource bundle."
-  remarks: "The SerializePropertiesToResources method is a helper method that derived classes can call. It looks at properties on the `value` parameter that match the `filter` parameter, and then it serializes the properties into the invariant culture resource bundle. If the resource service returns a <xref:System.Resources.ResXResourceWriter>, the property values will be stored in the metadata section of the XML resource (.resx) file. The `statements` parameter is not used.       To be serialized as a resource, a property must be simple (not a content property) and its value must be serializable. Properties that do not conform to this pattern will be skipped.       SerializePropertiesToResources requires an <xref:System.ComponentModel.Design.IResourceService> to obtain a <xref:System.Resources.ResourceWriter> to write resources for the invariant culture. If this service is not available, no resources will be written."
+  summary: "Serializa as propriedades no objeto fornecido no pacote de recursos da cultura invariável."
+  remarks: "O método SerializePropertiesToResources é um método auxiliar que classes derivadas pode chamar. Ele analisa as propriedades `value` parâmetro que corresponda a `filter` parâmetro e, em seguida, serializa as propriedades para o pacote de recursos de cultura invariável. Se o serviço de recurso retorna um <xref:System.Resources.ResXResourceWriter>, os valores de propriedade serão armazenados na seção de metadados do arquivo de recurso (. resx) XML.</xref:System.Resources.ResXResourceWriter> O `statements` parâmetro não for usado.       Para ser serializada como um recurso, uma propriedade deve ser simples (não uma propriedade de conteúdo) e seu valor devem ser serializáveis. Propriedades que não está de acordo com esse padrão serão ignoradas.       SerializePropertiesToResources requer um <xref:System.ComponentModel.Design.IResourceService>para obter um <xref:System.Resources.ResourceWriter>gravar recursos para a cultura invariável.</xref:System.Resources.ResourceWriter> </xref:System.ComponentModel.Design.IResourceService> Se esse serviço não estiver disponível, não há recursos serão gravados."
   syntax:
     content: protected void SerializePropertiesToResources (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeStatementCollection statements, object value, Attribute[] filter);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: statements
       type: System.CodeDom.CodeStatementCollection
-      description: "Not used."
+      description: "Não usado."
     - id: value
       type: System.Object
-      description: "The object whose properties will be serialized."
+      description: "O objeto cujas propriedades serão serializadas."
     - id: filter
       type: System.Attribute[]
-      description: "An <xref:System.Attribute> array that filters which properties will be serialized."
+      description: "Um <xref:System.Attribute>matriz que filtra as propriedades que serão serializadas.</xref:System.Attribute>"
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializePropertiesToResources*
   exceptions:
   - type: System.ArgumentNullException
@@ -791,23 +791,23 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes a property on the given object."
-  remarks: "The SerializeProperty method retrieves a <xref:System.ComponentModel.Design.Serialization.MemberCodeDomSerializer> for the `propertyToSerialize` parameter and delegates to it.       SerializeProperty places the `statements` and `propertyToSerialize` parameters on the <xref:System.ComponentModel.Design.Serialization.ContextStack>."
+  summary: "Serializa uma propriedade no objeto especificado."
+  remarks: "O método SerializeProperty recupera um <xref:System.ComponentModel.Design.Serialization.MemberCodeDomSerializer>para o `propertyToSerialize` parâmetro e delegados para proprietário.</xref:System.ComponentModel.Design.Serialization.MemberCodeDomSerializer>       Locais de SerializeProperty o `statements` e `propertyToSerialize` parâmetros em <xref:System.ComponentModel.Design.Serialization.ContextStack>.</xref:System.ComponentModel.Design.Serialization.ContextStack>"
   syntax:
     content: protected void SerializeProperty (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeStatementCollection statements, object value, System.ComponentModel.PropertyDescriptor propertyToSerialize);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: statements
       type: System.CodeDom.CodeStatementCollection
-      description: "The <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;></xref> into which the property will be serialized."
+      description: "O <xref href=&quot;System.CodeDom.CodeStatementCollection&quot;> </xref> em que a propriedade será serializada."
     - id: value
       type: System.Object
-      description: "The object on which the property will be serialized."
+      description: "O objeto no qual a propriedade será serializada."
     - id: propertyToSerialize
       type: System.ComponentModel.PropertyDescriptor
-      description: "The property to serialize."
+      description: "A propriedade para serializar."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeProperty*
   exceptions:
   - type: System.ArgumentNullException
@@ -827,20 +827,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given object into a resource bundle using the given resource name."
-  remarks: "The SerializeResource method is a helper method that serializes a value to a resource bundle under the given name. The culture that the resource is written to is determined by searching the serialization manager’s <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties%2A> collection for a property called `ResourceCulture`. If this property exists, resources will be written to that culture. Otherwise, resources will be written to the invariant culture. The `value` parameter must be serializable.       SerializeResource requires an <xref:System.ComponentModel.Design.IResourceService> to obtain a <xref:System.Resources.ResourceWriter> to write resources for the correct culture. If this service is not available, SerializeResource will instead build a binary object in code that represents the resource."
+  summary: "Serializa o objeto fornecido em um pacote de recursos usando o nome do recurso especificado."
+  remarks: "O método SerializeResource é um método auxiliar que serializa um valor para um pacote de recursos sob o nome fornecido. A cultura que o recurso é gravado é determinada por meio de pesquisa do Gerenciador de serialização <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties%2A>coleção para uma propriedade chamada `ResourceCulture`.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager.Properties%2A> Se essa propriedade existir, recursos serão gravados para aquela cultura. Caso contrário, os recursos serão gravados para a cultura invariável. O `value` parâmetro deve ser serializável.       SerializeResource requer um <xref:System.ComponentModel.Design.IResourceService>para obter um <xref:System.Resources.ResourceWriter>gravar recursos para a cultura correto.</xref:System.Resources.ResourceWriter> </xref:System.ComponentModel.Design.IResourceService> Se esse serviço não estiver disponível, SerializeResource em vez disso, criará um objeto binário no código que representa o recurso."
   syntax:
     content: protected void SerializeResource (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, string resourceName, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: resourceName
       type: System.String
-      description: "The name of the resource bundle into which `value` will be serialized."
+      description: "O nome do conjunto de recursos no qual `value` será serializado."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "O objeto a ser serializado."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeResource*
   exceptions: []
   platform:
@@ -857,20 +857,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given object into a resource bundle using the given resource name."
-  remarks: "The resource is always written to the invariant culture. The `value` parameter must be serializable.       The SerializeResourceInvariant method requires an <xref:System.ComponentModel.Design.IResourceService> to obtain a <xref:System.Resources.ResourceWriter> to write resources for the correct culture. If this service is not available, <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeResource%2A> will instead build a binary object in code that represents the resource."
+  summary: "Serializa o objeto fornecido em um pacote de recursos usando o nome do recurso especificado."
+  remarks: "O recurso é sempre gravado para a cultura invariável. O `value` parâmetro deve ser serializável.       O método SerializeResourceInvariant requer um <xref:System.ComponentModel.Design.IResourceService>para obter um <xref:System.Resources.ResourceWriter>gravar recursos para a cultura correto.</xref:System.Resources.ResourceWriter> </xref:System.ComponentModel.Design.IResourceService> Se esse serviço não estiver disponível, <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeResource%2A>em vez disso, criará um objeto binário no código que representa o recurso.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeResource%2A>"
   syntax:
     content: protected void SerializeResourceInvariant (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, string resourceName, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: resourceName
       type: System.String
-      description: "The name of the resource bundle into which `value` will be serialized."
+      description: "O nome do conjunto de recursos no qual `value` será serializado."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "O objeto a ser serializado."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeResourceInvariant*
   exceptions: []
   platform:
@@ -887,25 +887,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given object into an expression."
-  remarks: "The `value` parameter can be `null`, in which case a primitive expression will be returned.       The SerializeToExpression method uses the following rules for serializing types:      1.  It first calls the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> method to see if an expression has already been created for the object. If so, it returns the existing expression.      2.  It then locates the object’s serializer, and asks it to serialize.      3.  If the return value of the object’s serializer is a <xref:System.CodeDom.CodeExpression>, the expression is returned.      4.  It makes one last call to <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> to see if the serializer added an expression.      5.  Finally, it returns `null`.       If no expression could be created and no suitable serializer could be found, an error will be reported through the serialization manager. No error will be reported if a serializer was found but it failed to produce an expression. In this case, it is assumed that the serializer either already reported the error or it did not attempt to serialize the object.       If the serializer returned a statement or a collection of statements, those statements will not be discarded. The SerializeToExpression method will first look for a <xref:System.ComponentModel.Design.Serialization.StatementContext> on the context stack and add statements to the statement context object&quot;s <xref:System.ComponentModel.Design.Serialization.StatementContext.StatementCollection%2A> property. If there is no statement context, the SerializeToExpression method will look in the context for a <xref:System.CodeDom.CodeStatementCollection> and add the statements there. If no place can be found to add the statements, an error will be generated.      > [!NOTE] >  You should not call the SerializeToExpression method within <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationService.Serialize%2A> when serializing your own object. Instead, you should call <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>. If it returns `null`, create your own expression and call <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A>. Then proceed with the rest of your serialization."
+  summary: "Serializa o objeto fornecido em uma expressão."
+  remarks: "O `value` parâmetro pode ser `null`, caso em que uma expressão primitivo será retornada.       O método SerializeToExpression usa as seguintes regras para serialização de tipos: 1.  Primeiro, ele chama o <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>método para ver se uma expressão já foi criada para o objeto.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> Nesse caso, ele retorna a expressão existente.      2.  Ela localiza o serializador do objeto e pede que ele serializar.      3.  Se o valor de retorno do serializador do objeto é um <xref:System.CodeDom.CodeExpression>, a expressão é retornada.</xref:System.CodeDom.CodeExpression>      4.  Faz uma última chamada para <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>para ver se o serializador adicionada uma expressão.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>      5.  Finalmente, ele retorna `null`.       Se nenhuma expressão pode ser criado e nenhum serializador adequado foi encontrado, um erro será relatado por meio do Gerenciador de serialização. Nenhum erro será relatado se um serializador foi encontrado, mas ele não conseguiu produzir uma expressão. Nesse caso, será considerado que o serializador ou já relatou o erro ou não houve tentativa serializar o objeto.       Se o serializador retornado de uma instrução ou uma coleção de instruções, essas instruções não serão descartadas. O método SerializeToExpression primeiro procurará um <xref:System.ComponentModel.Design.Serialization.StatementContext>no contexto de pilha e adicione instruções para o objeto de contexto de instrução <xref:System.ComponentModel.Design.Serialization.StatementContext.StatementCollection%2A>propriedade.</xref:System.ComponentModel.Design.Serialization.StatementContext.StatementCollection%2A> </xref:System.ComponentModel.Design.Serialization.StatementContext> Se não houver nenhum contexto de instrução, o método SerializeToExpression examinará o contexto para um <xref:System.CodeDom.CodeStatementCollection>e adicione as instruções existe.</xref:System.CodeDom.CodeStatementCollection> Se o local pode ser encontrado para adicionar as instruções, um erro será gerado.      > [!NOTE] > Você não deve chamar o método SerializeToExpression em <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationService.Serialize%2A>ao serializar seu próprio objeto.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationService.Serialize%2A> Em vez disso, você deve chamar <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> Se ele retorna `null`, crie sua própria expressão e chame <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A>.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression%2A> Prossiga com o restante da sua serialização."
   syntax:
     content: protected System.CodeDom.CodeExpression SerializeToExpression (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object to serialize. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "O objeto a ser serializado. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
     return:
       type: System.CodeDom.CodeExpression
-      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> object if <code>value</code> can be serialized; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Um <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> objeto se <code> value </code> pode ser serializado; caso contrário, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object)
@@ -920,25 +920,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given object into an expression."
-  remarks: "The <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression%2A> method is a helper method that serializes a value to a resource expression. This is in contrast to the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeResource%2A> method, which writes a value to a resource binary object. <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression%2A> goes one step further and returns an expression that can be used to recover the resource. For example, the return value might be &quot;rm.GetValue(&quot;SomeBitmap&quot;);&quot;. The name of the resource is calculated from the <xref:System.ComponentModel.Design.Serialization.ExpressionContext>, if one can be found on the context stack.       The <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression%2A> method will look on the <xref:System.ComponentModel.Design.Serialization.ContextStack> for the following objects:      -   <xref:System.CodeDom.CodeStatementCollection>—a collection of statements to add a resource manager to, if one needs to be declared.      -   <xref:System.ComponentModel.Design.Serialization.RootContext>—the root expression, which is needed to create a resource manager.      -   <xref:System.ComponentModel.Design.Serialization.ExpressionContext>—used to fabricate a name for the resource and to decide what type of resource manager call to make."
+  summary: "Serializa o objeto fornecido em uma expressão."
+  remarks: "O <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression%2A>é um método auxiliar que serializa um valor para uma expressão de recurso.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression%2A> Isso é, em comparação com o <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeResource%2A>método, que grava um valor em um objeto de recurso binário.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeResource%2A> <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression%2A>vai mais além e retorna uma expressão que pode ser usada para recuperar o recurso.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression%2A> Por exemplo, o valor de retorno pode ser &quot;rm. GetValue(&quot;SomeBitmap&quot;); &quot;. O nome do recurso é calculado a partir de <xref:System.ComponentModel.Design.Serialization.ExpressionContext>, se um pode ser encontrado na pilha de contexto.</xref:System.ComponentModel.Design.Serialization.ExpressionContext>       O <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression%2A>método aparecerão no <xref:System.ComponentModel.Design.Serialization.ContextStack>para os seguintes objetos:- <xref:System.CodeDom.CodeStatementCollection>— uma coleção de instruções para adicionar um Gerenciador de recursos, se um precisa ser declarada.</xref:System.CodeDom.CodeStatementCollection> </xref:System.ComponentModel.Design.Serialization.ContextStack> </xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression%2A>      - <xref:System.ComponentModel.Design.Serialization.RootContext>— a expressão de raiz, que é necessário para criar um recurso de Gerenciador.</xref:System.ComponentModel.Design.Serialization.RootContext>      - <xref:System.ComponentModel.Design.Serialization.ExpressionContext>— usados para fabricar um nome para o recurso e decidir que tipo de chamada de Gerenciador de recursos para tornar.</xref:System.ComponentModel.Design.Serialization.ExpressionContext>"
   syntax:
     content: protected System.CodeDom.CodeExpression SerializeToResourceExpression (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "O objeto a ser serializado."
     return:
       type: System.CodeDom.CodeExpression
-      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> containing <code>value</code> as a serialized expression."
+      description: "Um <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> contendo <code> value </code> como uma expressão serializada."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object,System.Boolean)
@@ -953,28 +953,28 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the given object into an expression appropriate for the invariant culture."
-  remarks: "If the `ensureInvariant` parameter is `true`, the SerializeToResourceExpression method will also write the resource value into the invariant culture’s resource file if the current `ResourceCulture` is not the invariant culture.."
+  summary: "Serializa o objeto fornecido em uma expressão apropriada para a cultura invariável."
+  remarks: "Se o `ensureInvariant` parâmetro é `true`, o método SerializeToResourceExpression também gravará o valor do recurso no arquivo de recursos da cultura invariável se atual `ResourceCulture` não é a cultura invariável."
   syntax:
     content: protected System.CodeDom.CodeExpression SerializeToResourceExpression (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value, bool ensureInvariant);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "O objeto a ser serializado."
     - id: ensureInvariant
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to serialize into the invariant culture; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para serializar para a cultura invariável; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.CodeDom.CodeExpression
-      description: "A <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> containing <code>value</code> as a serialized expression."
+      description: "Um <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> contendo <code> value </code> como uma expressão serializada."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToResourceExpression*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object,System.CodeDom.CodeExpression)
@@ -989,20 +989,20 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Associates an object with an expression."
-  remarks: "The SetExpression method is a helper method that associates a <xref:System.CodeDom.CodeExpression> with an object. Objects that have been associated with expressions in this way are accessible through the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> method. SetExpression stores its expression table as an appended object on the context stack so it is accessible by any serializer’s <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> method."
+  summary: "Associa um objeto com uma expressão."
+  remarks: "O método SetExpression é um método auxiliar que associa um <xref:System.CodeDom.CodeExpression>com um objeto.</xref:System.CodeDom.CodeExpression> Objetos que foram associados a expressões dessa maneira são acessíveis por meio de <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>método.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> SetExpression armazena sua tabela de expressão como um objeto acrescentado na pilha de contexto para que ela é acessível por qualquer serializador <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>método.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>"
   syntax:
     content: protected void SetExpression (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value, System.CodeDom.CodeExpression expression);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "O objeto a ser serializado."
     - id: expression
       type: System.CodeDom.CodeExpression
-      description: "The <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> with which to associate `value`."
+      description: "O <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> ao qual associar `value`."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression*
   exceptions:
   - type: System.ArgumentNullException
@@ -1022,23 +1022,23 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Associates an object with an expression, optionally specifying a preset expression."
-  remarks: "The SetExpression method is a helper method that associates a <xref:System.CodeDom.CodeExpression> with an object. Objects that have been associated with expressions in this way are accessible through the <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> method. The SetExpression stores its expression table as an appended object on the context stack so it is accessible by any serializer’s <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> method."
+  summary: "Associa um objeto com uma expressão, e, opcionalmente, especificando uma expressão predefinida."
+  remarks: "O método SetExpression é um método auxiliar que associa um <xref:System.CodeDom.CodeExpression>com um objeto.</xref:System.CodeDom.CodeExpression> Objetos que foram associados a expressões dessa maneira são acessíveis por meio de <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>método.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A> O SetExpression armazena sua tabela de expressão como um objeto acrescentado na pilha de contexto para que ela é acessível por qualquer serializador <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>método.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.GetExpression%2A>"
   syntax:
     content: protected void SetExpression (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object value, System.CodeDom.CodeExpression expression, bool isPreset);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for serialization."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The object to serialize."
+      description: "O objeto a ser serializado."
     - id: expression
       type: System.CodeDom.CodeExpression
-      description: "The <xref href=&quot;System.CodeDom.CodeExpression&quot;></xref> with which to associate `value`."
+      description: "O <xref href=&quot;System.CodeDom.CodeExpression&quot;> </xref> ao qual associar `value`."
     - id: isPreset
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to specify a preset expression; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para especificar uma expressão predefinida; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SetExpression*
   exceptions: []
   platform:

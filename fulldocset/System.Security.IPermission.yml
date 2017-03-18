@@ -14,8 +14,8 @@ items:
   nameWithType: IPermission
   fullName: System.Security.IPermission
   type: Interface
-  summary: "Defines methods implemented by permission types."
-  remarks: "Permissions in the common language runtime are objects that describe sets of operations that can be secured for specified resources. A permission object describes operations or access that is subject to security control; it does not represent access or a right to perform operations. Permissions are used by both application code and the .NET Framework security system in the following ways.      -   Code requests the permissions it needs in order to run.      -   The security system policy grants permissions to code in order for it to run.      -   Code demands that calling code has a permission.      -   Code overrides the security stack using assert/deny/permit-only.      > [!NOTE] >  If you write a new permission, you must implement this interface in your class.      > [!IMPORTANT] >  A permission can be accessed by multiple threads. When implementing this interface, you must guarantee that the <xref:System.Security.IPermission.IsSubsetOf%2A>, <xref:System.Security.IPermission.Intersect%2A>, <xref:System.Security.IPermission.Union%2A>, and <xref:System.Security.IPermission.Copy%2A> method implementations are thread safe."
+  summary: "Define os métodos implementados pelos tipos de permissão."
+  remarks: "Permissões no common language runtime são objetos que descrevem os conjuntos de operações que podem ser protegidos para recursos especificados. Um objeto de permissão descreve as operações ou access que está sujeito a controle de segurança; ele não representa um direito de executar operações ou de acesso. As permissões são usadas pelo código do aplicativo e o sistema de segurança do .NET Framework das seguintes maneiras.      -Código solicita as permissões necessárias para executar.      -A política de sistema de segurança concede permissões ao código em ordem para ele para executar.      -Código exige que o código de chamada tem a permissão.      -Código substitui a pilha de segurança usando assert/negar/permitir-somente.      > [!NOTE] > Se você gravar uma nova permissão, você deve implementar essa interface em sua classe.      > [!IMPORTANT] > Uma permissão que pode ser acessada por vários threads. Ao implementar esta interface, você deve assegurar que o <xref:System.Security.IPermission.IsSubsetOf%2A>, <xref:System.Security.IPermission.Intersect%2A>, <xref:System.Security.IPermission.Union%2A>, e <xref:System.Security.IPermission.Copy%2A>implementações de método são thread-safe.</xref:System.Security.IPermission.Copy%2A> </xref:System.Security.IPermission.Union%2A> </xref:System.Security.IPermission.Intersect%2A> </xref:System.Security.IPermission.IsSubsetOf%2A>"
   example:
   - "This example shows how to define a permission class for use with code access security. All of the necessary permission interfaces are implemented.  \n  \n [!code-cs[Permission#1](~/add/codesnippet/csharp/t-system.security.ipermi_1.cs)]\n [!code-vb[Permission#1](~/add/codesnippet/visualbasic/t-system.security.ipermi_1.vb)]\n [!code-cpp[Permission#1](~/add/codesnippet/cpp/t-system.security.ipermi_1.cpp)]"
   syntax:
@@ -39,8 +39,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates and returns an identical copy of the current permission."
-  remarks: "A copy of a permission represents the same access to resources as the original permission."
+  summary: "Cria e retorna uma cópia idêntica da permissão atual."
+  remarks: "Uma cópia de uma permissão representa o mesmo acesso a recursos como a permissão original."
   example:
   - "The following code example demonstrates implementing the Copy method. This code example is part of a larger example provided for the <xref:System.Security.IPermission> class.  \n  \n [!code-cs[Permission#4](~/add/codesnippet/csharp/m-system.security.ipermi_2_1.cs)]\n [!code-vb[Permission#4](~/add/codesnippet/visualbasic/m-system.security.ipermi_2_1.vb)]\n [!code-cpp[Permission#4](~/add/codesnippet/cpp/m-system.security.ipermi_2_1.cpp)]"
   syntax:
@@ -48,7 +48,7 @@ items:
     parameters: []
     return:
       type: System.Security.IPermission
-      description: "A copy of the current permission."
+      description: "Uma cópia da permissão atual."
   overload: System.Security.IPermission.Copy*
   exceptions: []
   platform:
@@ -65,8 +65,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Throws a <xref:System.Security.SecurityException> at run time if the security requirement is not met."
-  remarks: "This method is typically used by secure libraries to ensure that callers have permission to access a resource. For example, a file class in a secure class library calls <xref:System.Security.CodeAccessPermission.Demand%2A> for the necessary <xref:System.Security.Permissions.FileIOPermission> before performing a file operation requested by the caller.       Although the majority of the classes that implement this interface method satisfy the security criteria by performing a full stack walk, a stack walk is not necessarily performed. An example of an implementation that does not perform a stack walk is <xref:System.Security.Permissions.PrincipalPermission.Demand%2A?displayProperty=fullName>.       When a stack walk is performed, the permissions of the code that calls this method are not examined; the check begins from the immediate caller of that code and proceeds up the stack. The call stack is typically represented as growing down, so that methods higher in the call stack call methods lower in the call stack. <xref:System.Security.CodeAccessPermission.Demand%2A> succeeds only if no <xref:System.Security.SecurityException> is raised."
+  summary: "Gera <xref:System.Security.SecurityException>tempo de execução se o requisito de segurança for não atendidos.</xref:System.Security.SecurityException>"
+  remarks: "Normalmente, esse método é usado pelas bibliotecas seguras para garantir que os chamadores tem permissão para acessar um recurso. Por exemplo, uma classe de arquivo em uma biblioteca de classe seguro chama <xref:System.Security.CodeAccessPermission.Demand%2A>para necessários <xref:System.Security.Permissions.FileIOPermission>antes de executar uma operação de arquivo solicitada pelo chamador.</xref:System.Security.Permissions.FileIOPermission> </xref:System.Security.CodeAccessPermission.Demand%2A>       Embora a maioria das classes que implementam este método de interface atendem aos critérios de segurança executando um exame da pilha completa, um exame da pilha não é necessariamente executado. Um exemplo de uma implementação que não executará um exame da pilha é <xref:System.Security.Permissions.PrincipalPermission.Demand%2A?displayProperty=fullName>.</xref:System.Security.Permissions.PrincipalPermission.Demand%2A?displayProperty=fullName>       Quando um exame da pilha é executado, as permissões do código que chama esse método não são examinadas; a seleção começa o chamador imediato do código e continua na pilha. A pilha de chamadas é representada geralmente como crescimento para baixo, para que os métodos superiores na pilha de chamadas chamam métodos inferior na pilha de chamadas. <xref:System.Security.CodeAccessPermission.Demand%2A>é realizada somente se nenhuma <xref:System.Security.SecurityException>é gerado.</xref:System.Security.SecurityException></xref:System.Security.CodeAccessPermission.Demand%2A>"
   syntax:
     content: public void Demand ();
     parameters: []
@@ -86,8 +86,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates and returns a permission that is the intersection of the current permission and the specified permission."
-  remarks: "The intersection of two permissions is a permission that describes the set of operations they both describe in common. Only a demand that passes both original permissions will pass the intersection.       The following statements are required to be true for all implementations of the Intersect method. `X` and `Y` represent <xref:System.Security.IPermission> object references that are not `null`.      -   `X`.Intersect(`X`) returns a value equal to `X`.      -   `X`.Intersect(`Y`) returns the same value as `Y`.Intersect(`X`).      -   `X`.Intersect(`null`) returns `null`."
+  summary: "Cria e retorna uma permissão que é a interseção de permissão atual e a permissão especificada."
+  remarks: "A interseção de duas permissões é uma permissão que descreve o conjunto de operações que ambas descrevem em comum. Somente uma demanda que passa as permissões originais passará a interseção.       As instruções a seguir deve ser verdadeiro para todas as implementações do método Intersect. `X`e `Y` representar <xref:System.Security.IPermission>referências de objeto que não são `null`.</xref:System.Security.IPermission>      -   `X`. Intersect (`X`) retorna um valor igual a `X`.      -   `X`. Intersect (`Y`) retorna o mesmo valor como `Y`. Intersect (`X`).      -   `X`. Intersect (`null`) retorna `null`."
   example:
   - "The following code example demonstrates implementing the Intersect method. This code example is part of a larger example provided for the <xref:System.Security.IPermission> class.  \n  \n [!code-cs[Permission#2](~/add/codesnippet/csharp/m-system.security.ipermi_3_1.cs)]\n [!code-vb[Permission#2](~/add/codesnippet/visualbasic/m-system.security.ipermi_3_1.vb)]\n [!code-cpp[Permission#2](~/add/codesnippet/cpp/m-system.security.ipermi_3_1.cpp)]"
   syntax:
@@ -95,15 +95,15 @@ items:
     parameters:
     - id: target
       type: System.Security.IPermission
-      description: "A permission to intersect with the current permission. It must be of the same type as the current permission."
+      description: "Uma permissão a interseção com a permissão atual. Ele deve ser o mesmo tipo da permissão atual."
     return:
       type: System.Security.IPermission
-      description: "A new permission that represents the intersection of the current permission and the specified permission. This new permission is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the intersection is empty."
+      description: "Uma nova permissão que representa a interseção de permissão atual e a permissão especificada. Essa nova permissão é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se a interseção está vazia."
   overload: System.Security.IPermission.Intersect*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>target</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> and is not an instance of the same class as the current permission."
+    description: "O <code> target </code> parâmetro não é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> e não é uma instância da classe mesmo como a permissão atual."
   platform:
   - net462
 - uid: System.Security.IPermission.IsSubsetOf(System.Security.IPermission)
@@ -118,7 +118,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines whether the current permission is a subset of the specified permission."
+  summary: "Determina se a permissão atual é um subconjunto de permissão especificada."
   remarks: "The current permission is a subset of the specified permission if the current permission specifies a set of operations that is wholly contained by the specified permission. For example, a permission that represents access to C:\\example.txt is a subset of a permission that represents access to C:\\\\. If this method returns `true`, the current permission represents no more access to the protected resource than does the specified permission.  \n  \n The following statements are required to be true for all implementations of the IsSubsetOf method. `X`, `Y`, and `Z` represent <xref:System.Security.IPermission> objects that are not `null`.  \n  \n-   `X`.IsSubsetOf(`X`) returns `true`.  \n  \n-   `X`.IsSubsetOf(`Y`) returns the same value as `Y`.IsSubsetOf(`X`) if and only if `X` and `Y` represent the same set of permissions.  \n  \n-   If `X`.IsSubsetOf(`Y`) and `Y`.IsSubsetOf(`Z`) both return `true`, `X`.IsSubsetOf(`Z`) returns `true`.  \n  \n If `X` represents an empty <xref:System.Security.IPermission> object with a permission state of <xref:System.Security.Permissions.PermissionState> and `Y` represents an <xref:System.Security.IPermission> object that is `null`, `X`.IsSubsetOf(`Y`) returns `true`. If `Z` is also an empty permission, the compound set operation `X`.Union(Z).IsSubsetOf(Y) also returns `true` because the union of two empty permissions is an empty permission."
   example:
   - "The following code example demonstrates implementing the IsSubsetOf method. This code example is part of a larger example provided for the <xref:System.Security.IPermission> class.  \n  \n [!code-cs[Permission#3](~/add/codesnippet/csharp/m-system.security.ipermi_1_1.cs)]\n [!code-vb[Permission#3](~/add/codesnippet/visualbasic/m-system.security.ipermi_1_1.vb)]\n [!code-cpp[Permission#3](~/add/codesnippet/cpp/m-system.security.ipermi_1_1.cpp)]"
@@ -127,15 +127,15 @@ items:
     parameters:
     - id: target
       type: System.Security.IPermission
-      description: "A permission that is to be tested for the subset relationship. This permission must be of the same type as the current permission."
+      description: "Uma permissão a ser testado para a relação de subconjunto. Essa permissão deve ser o mesmo tipo da permissão atual."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current permission is a subset of the specified permission; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a permissão atual é um subconjunto da permissão especificada; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.IPermission.IsSubsetOf*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>target</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> and is not of the same type as the current permission."
+    description: "O <code> target </code> parâmetro não é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> e não é do mesmo tipo que a permissão atual."
   platform:
   - net462
 - uid: System.Security.IPermission.Union(System.Security.IPermission)
@@ -150,8 +150,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates a permission that is the union of the current permission and the specified permission."
-  remarks: "The result of a call to Union is a permission that represents all the operations represented by both the current permission and the specified permission. Any demand that passes either permission passes their union.       The following statements are required to be true for all implementations of the Union method. `X` and `Y` represent <xref:System.Security.IPermission> objects that are not `null`.      -   `X`.Union(`X`) returns an object that has the same value as `X`.      -   `X`.Union(`Y`) returns an object that has the same value as the object returned by `Y`.Union(`X`).      -   `X`.Union(`null`) returns an object that has the same value as `X`."
+  summary: "Cria uma permissão que é a união de permissão atual e a permissão especificada."
+  remarks: "O resultado de uma chamada a união é uma permissão que representa todas as operações representadas pela permissão atual e a permissão especificada. Qualquer solicitação que passa a ter a permissão passa seu union.       As instruções a seguir deve ser verdadeiro para todas as implementações do método Union. `X`e `Y` representar <xref:System.Security.IPermission>objetos que não são `null`.</xref:System.Security.IPermission>      -   `X`. União (`X`) retorna um objeto que tem o mesmo valor como `X`.      -   `X`. União (`Y`) retorna um objeto que tem o mesmo valor que o objeto retornado por `Y`. União (`X`).      -   `X`. União (`null`) retorna um objeto que tem o mesmo valor como `X`."
   example:
   - "The following code example demonstrates implementing the Union method. This code example is part of a larger example provided for the <xref:System.Security.IPermission> class.  \n  \n [!code-cs[Permission#5](~/add/codesnippet/csharp/m-system.security.ipermi_0_1.cs)]\n [!code-vb[Permission#5](~/add/codesnippet/visualbasic/m-system.security.ipermi_0_1.vb)]\n [!code-cpp[Permission#5](~/add/codesnippet/cpp/m-system.security.ipermi_0_1.cpp)]  \n  \n-"
   syntax:
@@ -159,15 +159,15 @@ items:
     parameters:
     - id: target
       type: System.Security.IPermission
-      description: "A permission to combine with the current permission. It must be of the same type as the current permission."
+      description: "Uma permissão para combinar com a permissão atual. Ele deve ser o mesmo tipo da permissão atual."
     return:
       type: System.Security.IPermission
-      description: "A new permission that represents the union of the current permission and the specified permission."
+      description: "Uma nova permissão que representa a união de permissão atual e a permissão especificada."
   overload: System.Security.IPermission.Union*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>target</code> parameter is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> and is not of the same type as the current permission."
+    description: "O <code> target </code> parâmetro não é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> e não é do mesmo tipo que a permissão atual."
   platform:
   - net462
 references:

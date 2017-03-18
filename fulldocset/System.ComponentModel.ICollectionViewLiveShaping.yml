@@ -18,7 +18,7 @@ items:
   nameWithType: ICollectionViewLiveShaping
   fullName: System.ComponentModel.ICollectionViewLiveShaping
   type: Interface
-  summary: "Defines properties that enables sorting, grouping, and filtering on a <xref href=&quot;System.Windows.Data.CollectionView&quot;></xref> in real time."
+  summary: "Define as propriedades que permite que a classificação, agrupamento e filtragem em uma <xref href=&quot;System.Windows.Data.CollectionView&quot;> </xref> em tempo real."
   remarks: "When live sorting, grouping, or filtering is enabled, a <xref:System.Windows.Data.CollectionView> will rearrange the position of data in the <xref:System.Windows.Data.CollectionView> when the data is modified.  For example, suppose that an application uses a <xref:System.Windows.Controls.DataGrid> to list stocks in a stock market and the stocks are sorted by stock value.  If live sorting is enabled on the stocks' <xref:System.Windows.Data.CollectionView>, a stock's position in the <xref:System.Windows.Controls.DataGrid> moves when the value of the stock becomes greater or less than another stock's value.  \n  \n The <xref:System.Windows.Data.ListCollectionView>, <xref:System.Windows.Data.BindingListCollectionView>, and <xref:System.Windows.Controls.ItemCollection> classes implement the ICollectionViewLiveShaping interface. The <xref:System.Windows.Data.CollectionViewSource> class also implements the properties defined by ICollectionViewLiveShaping to enable setting the properties in XAML.  \n  \n## Notes for Inheritors  \n Implement this interface on your custom <xref:System.Windows.Data.CollectionView> to support sorting, grouping, and filtering data in real time. Your <xref:System.Windows.Data.CollectionView> can implement the sorting, grouping, and filtering operations itself, or you can delegate one or more of them to another object, such as the underlying collection. If you delegate the shaping operations, the <xref:System.Windows.Data.CollectionView> might not have control over whether live shaping is enabled. Your <xref:System.Windows.Data.CollectionView> must accept the behavior of the object to which it delegates. In this case, set the appropriate **CanChange*** properties to `false`.  If your <xref:System.Windows.Data.CollectionView> knows whether the delegate object supports live shaping, it can set the appropriate `IsLive`\\* properties to the known value.  Otherwise, the <xref:System.Windows.Data.CollectionView> should set the `IsLive`\\* properties to `null`."
   syntax:
     content: public interface ICollectionViewLiveShaping
@@ -37,13 +37,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Gets a value that indicates whether the collection view supports turning filtering data in real time on or off."
-  remarks: "## Notes for Inheritors    Your <xref:System.Windows.Data.CollectionView> can implement live filtering itself, or you can delegate live filtering to another object, such as the underlying collection. If you delegate live filtering, the <xref:System.Windows.Data.CollectionView> might not have control over whether it is enabled. Your <xref:System.Windows.Data.CollectionView> must accept the behavior of the object to which it delegates. In this case, set the CanChangeLiveFiltering property to `false`."
+  summary: "Obtém um valor que indica se o modo de exibição de coleção dá suporte ao ativar ou desativar a filtragem de dados em tempo real."
+  remarks: "##Observações para herdeiros seu <xref:System.Windows.Data.CollectionView>pode implementar live filtragem em si, ou você pode delegar a filtragem dinâmica para outro objeto, como a coleção subjacente.</xref:System.Windows.Data.CollectionView> Se você delegar filtragem dinâmica, o <xref:System.Windows.Data.CollectionView>talvez não tenha controle sobre se ele está habilitado.</xref:System.Windows.Data.CollectionView> O <xref:System.Windows.Data.CollectionView>deve aceitar o comportamento do objeto ao qual ela delega.</xref:System.Windows.Data.CollectionView> Nesse caso, defina a propriedade de CanChangeLiveFiltering como `false`."
   syntax:
     content: public bool CanChangeLiveFiltering { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the collection view supports turning live filtering on or off; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o modo de exibição de coleção oferece suporte à filtragem dinâmica ativar ou desativar; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.ICollectionViewLiveShaping.CanChangeLiveFiltering*
   exceptions: []
   platform:
@@ -60,13 +60,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Gets a value that indicates whether the collection view supports turning grouping data in real time on or off."
-  remarks: "## Notes for Inheritors    Your <xref:System.Windows.Data.CollectionView> can implement live grouping itself, or you can delegate live grouping to another object, such as the underlying collection. If you delegate live grouping, the <xref:System.Windows.Data.CollectionView> might not have control over whether it is enabled. Your <xref:System.Windows.Data.CollectionView> must accept the behavior of the object to which it delegates. In this case, set the CanChangeLiveGrouping property to `false`."
+  summary: "Obtém um valor que indica se o modo de exibição de coleção oferece suporte a agrupamento de transformação de dados em tempo real ou desativar."
+  remarks: "##Observações para herdeiros seu <xref:System.Windows.Data.CollectionView>pode implementar ao vivo de agrupamento em si, ou você pode delegar ao vivo agrupamento para outro objeto, como a coleção subjacente.</xref:System.Windows.Data.CollectionView> Se você delegar agrupamento ao vivo, o <xref:System.Windows.Data.CollectionView>talvez não tenha controle sobre se ele está habilitado.</xref:System.Windows.Data.CollectionView> O <xref:System.Windows.Data.CollectionView>deve aceitar o comportamento do objeto ao qual ela delega.</xref:System.Windows.Data.CollectionView> Nesse caso, defina a propriedade de CanChangeLiveGrouping como `false`."
   syntax:
     content: public bool CanChangeLiveGrouping { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the collection view supports turning live grouping on or off; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o modo de exibição de coleção dão suporte a agrupamento ao vivo de ativar ou desativar; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.ICollectionViewLiveShaping.CanChangeLiveGrouping*
   exceptions: []
   platform:
@@ -83,13 +83,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Gets a value that indicates whether the collection view supports turning sorting data in real time on or off."
-  remarks: "## Notes for Inheritors    Your <xref:System.Windows.Data.CollectionView> can implement live sorting itself, or you can delegate live sorting to another object, such as the underlying collection. If you delegate live sorting, the <xref:System.Windows.Data.CollectionView> might not have control over whether it is enabled. Your <xref:System.Windows.Data.CollectionView> must accept the behavior of the object to which it delegates. In this case, set the CanChangeLiveSorting property to `false`."
+  summary: "Obtém um valor que indica se o modo de exibição de coleção dá suporte ao ativar ou desativar a classificação de dados em tempo real."
+  remarks: "##Observações para herdeiros seu <xref:System.Windows.Data.CollectionView>pode implementar live classificação em si, ou você pode delegar a classificação ao vivo a outro objeto, como a coleção subjacente.</xref:System.Windows.Data.CollectionView> Se você delegar classificação ao vivo, o <xref:System.Windows.Data.CollectionView>talvez não tenha controle sobre se ele está habilitado.</xref:System.Windows.Data.CollectionView> O <xref:System.Windows.Data.CollectionView>deve aceitar o comportamento do objeto ao qual ela delega.</xref:System.Windows.Data.CollectionView> Nesse caso, defina a propriedade de CanChangeLiveSorting como `false`."
   syntax:
     content: public bool CanChangeLiveSorting { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the collection view supports turning live sorting on or off; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o modo de exibição de coleção dá suporte à classificação ao vivo ativar ou desativar; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.ICollectionViewLiveShaping.CanChangeLiveSorting*
   exceptions: []
   platform:
@@ -106,13 +106,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Gets or sets a value that indicates whether filtering data in real time is enabled."
-  remarks: "## Notes for Inheritors    Your <xref:System.Windows.Data.CollectionView> can implement live filtering itself, or you can delegate live filtering to another object, such as the underlying collection. If you delegate live filtering, the <xref:System.Windows.Data.CollectionView> might not have control over whether it is enabled. Your <xref:System.Windows.Data.CollectionView> must accept the behavior of the object to which it delegates. If your <xref:System.Windows.Data.CollectionView> knows whether the delegate object supports live filtering, set the IsLiveFiltering property to the known value.  Otherwise, set IsLiveFiltering to `null`."
+  summary: "Obtém ou define um valor que indica se a filtragem de dados em tempo real está habilitada."
+  remarks: "##Observações para herdeiros seu <xref:System.Windows.Data.CollectionView>pode implementar live filtragem em si, ou você pode delegar a filtragem dinâmica para outro objeto, como a coleção subjacente.</xref:System.Windows.Data.CollectionView> Se você delegar filtragem dinâmica, o <xref:System.Windows.Data.CollectionView>talvez não tenha controle sobre se ele está habilitado.</xref:System.Windows.Data.CollectionView> O <xref:System.Windows.Data.CollectionView>deve aceitar o comportamento do objeto ao qual ela delega.</xref:System.Windows.Data.CollectionView> Se seu <xref:System.Windows.Data.CollectionView>sabe se o objeto do representante ao vivo oferece suporte à filtragem, defina a propriedade de IsLiveFiltering como o valor conhecido.</xref:System.Windows.Data.CollectionView>  Caso contrário, defina IsLiveFiltering `null`."
   syntax:
     content: public Nullable<bool> IsLiveFiltering { get; set; }
     return:
       type: System.Nullable{System.Boolean}
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if filtering data in real time is enabled; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if live filtering is not enabled; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if it cannot be determined whether the collection view implements live filtering."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a filtragem de dados em tempo real está ativado. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se filtragem dinâmica não estiver habilitado; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não for possível determinar se o modo de exibição de coleção implementa filtragem dinâmica."
   overload: System.ComponentModel.ICollectionViewLiveShaping.IsLiveFiltering*
   exceptions: []
   platform:
@@ -129,13 +129,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Gets or sets a value that indicates whether grouping data in real time is enabled."
-  remarks: "## Notes for Inheritors    Your <xref:System.Windows.Data.CollectionView> can implement live grouping itself, or you can delegate live grouping to another object, such as the underlying collection. If you delegate live grouping, the <xref:System.Windows.Data.CollectionView> might not have control over whether it is enabled. Your <xref:System.Windows.Data.CollectionView> must accept the behavior of the object to which it delegates. If your <xref:System.Windows.Data.CollectionView> knows whether the delegate object supports live grouping, set the IsLiveGrouping property to the known value.  Otherwise, set IsLiveGrouping to `null`."
+  summary: "Obtém ou define um valor que indica se o agrupamento de dados em tempo real está habilitada."
+  remarks: "##Observações para herdeiros seu <xref:System.Windows.Data.CollectionView>pode implementar ao vivo de agrupamento em si, ou você pode delegar ao vivo agrupamento para outro objeto, como a coleção subjacente.</xref:System.Windows.Data.CollectionView> Se você delegar agrupamento ao vivo, o <xref:System.Windows.Data.CollectionView>talvez não tenha controle sobre se ele está habilitado.</xref:System.Windows.Data.CollectionView> O <xref:System.Windows.Data.CollectionView>deve aceitar o comportamento do objeto ao qual ela delega.</xref:System.Windows.Data.CollectionView> Se seu <xref:System.Windows.Data.CollectionView>sabe se o objeto do representante ao vivo oferece suporte ao agrupamento, defina a propriedade de IsLiveGrouping como o valor conhecido.</xref:System.Windows.Data.CollectionView>  Caso contrário, defina IsLiveGrouping `null`."
   syntax:
     content: public Nullable<bool> IsLiveGrouping { get; set; }
     return:
       type: System.Nullable{System.Boolean}
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if grouping data in real time is enable; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if live grouping is not enabled; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if it cannot be determined whether the collection view implements live grouping."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o agrupamento de dados em tempo real é habilitar; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se o agrupamento ao vivo não estiver habilitado; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não for possível determinar se o modo de exibição de coleção implementa agrupamento ao vivo."
   overload: System.ComponentModel.ICollectionViewLiveShaping.IsLiveGrouping*
   exceptions: []
   platform:
@@ -152,13 +152,13 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Gets or sets a value that indicates whether sorting in real time is enabled."
-  remarks: "## Notes for Inheritors    Your <xref:System.Windows.Data.CollectionView> can implement live sorting itself, or you can delegate live sorting to another object, such as the underlying collection. If you delegate live sorting, the <xref:System.Windows.Data.CollectionView> might not have control over whether it is enabled. Your <xref:System.Windows.Data.CollectionView> must accept the behavior of the object to which it delegates. If your <xref:System.Windows.Data.CollectionView> knows whether the delegate object supports live sorting, set the IsLiveSorting property to the known value.  Otherwise, set IsLiveSorting to `null`."
+  summary: "Obtém ou define um valor que indica se a classificação em tempo real está habilitada."
+  remarks: "##Observações para herdeiros seu <xref:System.Windows.Data.CollectionView>pode implementar live classificação em si, ou você pode delegar a classificação ao vivo a outro objeto, como a coleção subjacente.</xref:System.Windows.Data.CollectionView> Se você delegar classificação ao vivo, o <xref:System.Windows.Data.CollectionView>talvez não tenha controle sobre se ele está habilitado.</xref:System.Windows.Data.CollectionView> O <xref:System.Windows.Data.CollectionView>deve aceitar o comportamento do objeto ao qual ela delega.</xref:System.Windows.Data.CollectionView> Se seu <xref:System.Windows.Data.CollectionView>sabe se o objeto do representante ao vivo oferece suporte à classificação, defina a propriedade de IsLiveSorting como o valor conhecido.</xref:System.Windows.Data.CollectionView>  Caso contrário, defina IsLiveSorting `null`."
   syntax:
     content: public Nullable<bool> IsLiveSorting { get; set; }
     return:
       type: System.Nullable{System.Boolean}
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if sorting data in real time is enable; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if live sorting is not enabled; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if it cannot be determined whether the collection view implements live sorting."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a classificação de dados em tempo real estiver habilitado; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se a classificação ao vivo não estiver habilitado; <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não for possível determinar se o modo de exibição de coleção implementa classificação ao vivo."
   overload: System.ComponentModel.ICollectionViewLiveShaping.IsLiveSorting*
   exceptions: []
   platform:
@@ -175,12 +175,12 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Gets a collection of strings that specify the properties that participate in filtering data in real time."
+  summary: "Obtém uma coleção de cadeias de caracteres que especifica as propriedades que participam na filtragem de dados em tempo real."
   syntax:
     content: public System.Collections.ObjectModel.ObservableCollection<string> LiveFilteringProperties { get; }
     return:
       type: System.Collections.ObjectModel.ObservableCollection{System.String}
-      description: "A collection of strings that specify the properties that participate in filtering data in real time."
+      description: "Uma coleção de cadeias de caracteres que especifica as propriedades que participam na filtragem de dados em tempo real."
   overload: System.ComponentModel.ICollectionViewLiveShaping.LiveFilteringProperties*
   exceptions: []
   platform:
@@ -197,12 +197,12 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Gets a collection of strings that specify the properties that participate in grouping data in real time."
+  summary: "Obtém uma coleção de cadeias de caracteres que especifica as propriedades que participam no agrupamento de dados em tempo real."
   syntax:
     content: public System.Collections.ObjectModel.ObservableCollection<string> LiveGroupingProperties { get; }
     return:
       type: System.Collections.ObjectModel.ObservableCollection{System.String}
-      description: "A collection of strings that specify the properties that participate in grouping data in real time."
+      description: "Uma coleção de cadeias de caracteres que especifica as propriedades que participam no agrupamento de dados em tempo real."
   overload: System.ComponentModel.ICollectionViewLiveShaping.LiveGroupingProperties*
   exceptions: []
   platform:
@@ -219,12 +219,12 @@ items:
   assemblies:
   - WindowsBase
   namespace: System.ComponentModel
-  summary: "Gets a collection of strings that specify the properties that participate in sorting data in real time."
+  summary: "Obtém uma coleção de cadeias de caracteres que especifica as propriedades que participam na classificação de dados em tempo real."
   syntax:
     content: public System.Collections.ObjectModel.ObservableCollection<string> LiveSortingProperties { get; }
     return:
       type: System.Collections.ObjectModel.ObservableCollection{System.String}
-      description: "A collection of strings that specify the properties that participate in sorting data in real time."
+      description: "Uma coleção de cadeias de caracteres que especifica as propriedades que participam na classificação de dados em tempo real."
   overload: System.ComponentModel.ICollectionViewLiveShaping.LiveSortingProperties*
   exceptions: []
   platform:

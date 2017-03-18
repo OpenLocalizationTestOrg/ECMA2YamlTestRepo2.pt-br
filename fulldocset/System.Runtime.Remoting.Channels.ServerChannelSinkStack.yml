@@ -17,8 +17,8 @@ items:
   nameWithType: ServerChannelSinkStack
   fullName: System.Runtime.Remoting.Channels.ServerChannelSinkStack
   type: Class
-  summary: "Holds the stack of server channel sinks."
-  remarks: "This class makes a link demand. A security exception is thrown if the immediate caller does not have infrastructure permission. See [Link Demands](~/add/includes/ajax-current-ext-md.md) for more information."
+  summary: "Contém a pilha do coletor de canal do servidor."
+  remarks: "Essa classe faz uma demanda de link. Uma exceção de segurança é gerada se o chamador imediato não tem permissão de infraestrutura. Consulte [demandas de Link](~/add/includes/ajax-current-ext-md.md) para obter mais informações."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -45,7 +45,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Remoting.Channels.ServerChannelSinkStack&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Runtime.Remoting.Channels.ServerChannelSinkStack&quot;> </xref> classe."
   syntax:
     content: public ServerChannelSinkStack ();
     parameters: []
@@ -65,25 +65,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests asynchronous processing of a method call on the sinks in the current sink stack."
-  remarks: "This method initializes asynchronous processing on the top sink in the current sink stack. For additional information, see the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A> method."
+  summary: "Solicitações assíncronas de processamento de um método de chamar os coletores na pilha do coletor atual."
+  remarks: "Esse método inicia o processamento assíncrono no coletor superior na pilha do coletor atual. Para obter informações adicionais, consulte o <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>método.</xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>"
   syntax:
     content: public void AsyncProcessResponse (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Channels.ITransportHeaders headers, System.IO.Stream stream);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to be serialized onto the requested stream."
+      description: "A mensagem a ser serializado para o fluxo solicitado."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers retrieved from the server response stream."
+      description: "Os cabeçalhos são recuperados do fluxo de resposta do servidor."
     - id: stream
       type: System.IO.Stream
-      description: "The stream coming back from the transport sink."
+      description: "O fluxo do coletor de transporte."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.AsyncProcessResponse*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The current sink stack is empty."
+    description: "A pilha de coletor atual está vazia."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ServerChannelSinkStack.GetResponseStream(System.Runtime.Remoting.Messaging.IMessage,System.Runtime.Remoting.Channels.ITransportHeaders)
@@ -98,25 +98,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Returns the <xref:System.IO.Stream> onto which the specified message is to be serialized."
-  remarks: "This method returns the stream returned by the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A?displayProperty=fullName> called with the `msg` and `headers` parameters (<xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A> (`msg`, `headers`)) on the top sink in the current sink stack. The top sink in the sink stack remains unchanged."
+  summary: "Retorna o <xref:System.IO.Stream>até que a mensagem especificada é a ser serializado.</xref:System.IO.Stream>"
+  remarks: "Esse método retorna o fluxo retornado pelo <xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A?displayProperty=fullName>chamado com o `msg` e `headers` parâmetros (<xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A> (`msg`, `headers`)) no coletor superior na pilha do coletor atual.</xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A> </xref:System.Runtime.Remoting.Channels.IServerChannelSink.GetResponseStream%2A?displayProperty=fullName> O coletor superior na pilha do coletor permanece inalterado."
   syntax:
     content: public System.IO.Stream GetResponseStream (System.Runtime.Remoting.Messaging.IMessage msg, System.Runtime.Remoting.Channels.ITransportHeaders headers);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The message to be serialized onto the requested stream."
+      description: "A mensagem a ser serializado para o fluxo solicitado."
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers retrieved from the server response stream."
+      description: "Os cabeçalhos são recuperados do fluxo de resposta do servidor."
     return:
       type: System.IO.Stream
-      description: "The <xref:System.IO.Stream> onto which the specified message is to be serialized."
+      description: "O <xref:System.IO.Stream>até que a mensagem especificada é a ser serializado.</xref:System.IO.Stream>"
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.GetResponseStream*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The sink stack is empty."
+    description: "A pilha de coletor está vazia."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Pop(System.Runtime.Remoting.Channels.IServerChannelSink)
@@ -131,21 +131,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pops the information associated with all the sinks from the sink stack up to and including the specified sink."
+  summary: "Exibe as informações associadas com todos os coletores de pilha do coletor até e incluindo o coletor especificado."
   syntax:
     content: public object Pop (System.Runtime.Remoting.Channels.IServerChannelSink sink);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "The sink to remove and return from the sink stack."
+      description: "O coletor remover e retornar da pilha de coletor."
     return:
       type: System.Object
-      description: "Information generated on the request side and associated with the specified sink."
+      description: "Informações geradas no lado de solicitação e associado com o coletor especificado."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Pop*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The current sink stack is empty, or the specified sink was never pushed onto the current stack."
+    description: "A pilha de coletor atual está vazia ou o coletor especificado nunca foi inserido na pilha atual."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Push(System.Runtime.Remoting.Channels.IServerChannelSink,System.Object)
@@ -160,17 +160,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pushes the specified sink and information associated with it onto the sink stack."
-  remarks: "The information generated on the request side and specified in the `state` parameter is returned in the `state` parameter of the <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A> method on the corresponding sink."
+  summary: "Envia as informações associadas na pilha do coletor e o coletor especificado."
+  remarks: "As informações geradas no lado de solicitação e especificado no `state` parâmetro é retornado no `state` parâmetro do <xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>método no coletor correspondente.</xref:System.Runtime.Remoting.Channels.IServerChannelSink.AsyncProcessResponse%2A>"
   syntax:
     content: public void Push (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "The sink to push onto the sink stack."
+      description: "O coletor para enviar por push para a pilha de coletor."
     - id: state
       type: System.Object
-      description: "Information generated on the request side that is needed on the response side."
+      description: "Informações geradas no lado de solicitação que é necessária no lado de resposta."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Push*
   exceptions: []
   platform:
@@ -187,14 +187,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Provides a <xref:System.AsyncCallback> delegate to handle a callback after a message has been dispatched asynchronously."
-  remarks: "The dispatched message represents a request method call on a remote object.       The ServerCallback method is intended for use only by the .NET Framework remoting infrastructure. You should not call it directly."
+  summary: "Fornece um <xref:System.AsyncCallback>delegado para manipular um retorno de chamada depois que uma mensagem foi distribuída de maneira assíncrona.</xref:System.AsyncCallback>"
+  remarks: "A mensagem despachada representa uma chamada de método de solicitação em um objeto remoto.       O método ServerCallback destina-se ao uso apenas pela infraestrutura de comunicação remota do .NET Framework. Você não deve chamá-lo diretamente."
   syntax:
     content: public void ServerCallback (IAsyncResult ar);
     parameters:
     - id: ar
       type: System.IAsyncResult
-      description: "The status and state of an asynchronous operation on a remote object."
+      description: "O status e o estado de uma operação assíncrona em um objeto remoto."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.ServerCallback*
   exceptions: []
   platform:
@@ -211,22 +211,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Stores a message sink and its associated state for later asynchronous processing."
-  remarks: "The Store method is intended for use only by the .NET Framework remoting infrastructure. You should not call it directly."
+  summary: "Armazena um coletor de mensagem e seu estado associado para o processamento assíncrono mais tarde."
+  remarks: "O método Store destina-se ao uso apenas pela infraestrutura de comunicação remota do .NET Framework. Você não deve chamá-lo diretamente."
   syntax:
     content: public void Store (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "A server channel sink."
+      description: "Um coletor de canal do servidor."
     - id: state
       type: System.Object
-      description: "The state associated with `sink`."
+      description: "O estado associado `sink`."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.Store*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The current sink stack is empty.       -or-       The specified sink was never pushed onto the current stack."
+    description: "A pilha de coletor atual está vazia.       - ou - o coletor especificado nunca foi inserido na pilha atual."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ServerChannelSinkStack.StoreAndDispatch(System.Runtime.Remoting.Channels.IServerChannelSink,System.Object)
@@ -241,17 +241,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Stores a message sink and its associated state, and then dispatches a message asynchronously, using the sink just stored and any other stored sinks."
-  remarks: "The StoreAndDispatch method is intended for use only by the .NET Framework remoting infrastructure. You should not call it directly.       The method should be only called by a transport sink to complete an asynchronous dispatch."
+  summary: "Armazena um coletor de mensagem e seu estado associado e, em seguida, envia uma mensagem de forma assíncrona, usando o coletor apenas armazenados e outros coletores armazenados."
+  remarks: "O método StoreAndDispatch destina-se ao uso apenas pela infraestrutura de comunicação remota do .NET Framework. Você não deve chamá-lo diretamente.       O método deve ser chamado somente por um coletor de transporte para concluir um envio assíncrono."
   syntax:
     content: public void StoreAndDispatch (System.Runtime.Remoting.Channels.IServerChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IServerChannelSink
-      description: "A server channel sink."
+      description: "Um coletor de canal do servidor."
     - id: state
       type: System.Object
-      description: "The state associated with `sink`."
+      description: "O estado associado `sink`."
   overload: System.Runtime.Remoting.Channels.ServerChannelSinkStack.StoreAndDispatch*
   exceptions: []
   platform:

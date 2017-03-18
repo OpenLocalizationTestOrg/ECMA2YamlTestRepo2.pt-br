@@ -14,8 +14,8 @@ items:
   nameWithType: TypeCodeDomSerializer
   fullName: System.ComponentModel.Design.Serialization.TypeCodeDomSerializer
   type: Class
-  summary: "Serializes an object to a new type."
-  remarks: "The TypeCodeDomSerializer class performs the same tasks as a <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer>, but serializing an object through this class defines a new type."
+  summary: "Serializa um objeto para um novo tipo."
+  remarks: "A classe TypeCodeDomSerializer realiza as mesmas tarefas que um <xref:System.ComponentModel.Design.Serialization.CodeDomSerializer>, mas serializar um objeto por meio dessa classe define um novo tipo.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializer>"
   syntax:
     content: >-
       [System.ComponentModel.Design.Serialization.DefaultSerializationProvider(typeof(System.ComponentModel.Design.Serialization.CodeDomSerializationProvider))]
@@ -70,7 +70,7 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.TypeCodeDomSerializer&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ComponentModel.Design.Serialization.TypeCodeDomSerializer&quot;> </xref> classe."
   syntax:
     content: public TypeCodeDomSerializer ();
     parameters: []
@@ -90,25 +90,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Deserializes the given type declaration."
-  remarks: "The Deserialize method deserializes a previously serialized code type declaration. The following table shows the tasks default implementation performs.      |Task|Description|   |----------|-----------------|   |Case Sensitivity Checks|The implementation searches for a <xref:System.CodeDom.Compiler.CodeDomProvider> service to decide if it should treat members as case sensitive or case insensitive.|   |Statement Sorting|All member variables and local variables from init methods are stored in a table. Then each statement in an init method is added to a statement collection grouped according to its left-hand side, so all statements assigning or operating on a particular variable are grouped under that variable. Variables that have no statements are discarded.|   |Deserialization|The statement collections for each variable are deserialized according to the variable.|       The following table shows the services the Deserialize method requires.      |Service|Description|   |-------------|-----------------|   |<xref:System.CodeDom.Compiler.CodeDomProvider>|While not strictly necessary, the service, if available, is used to determine if the serialization should be case sensitive or case insensitive.|   |<xref:System.ComponentModel.IContainer>|If an object does not exist in the name table during deserialization, a query for <xref:System.ComponentModel.IContainer> is made. If this query succeeds, the container is checked for the object. The container is also used as a stand-in for any container argument needed by components.|"
+  summary: "Desserializa a declaração de tipo em questão."
+  remarks: "O método Deserialize desserializa uma declaração de tipo de código anteriormente serializado. A tabela a seguir mostra que a implementação do padrão de tarefas executa.      | Tarefa | Descrição |   |----------|-----------------|   | Caso as verificações de confidencialidade | A implementação procura por um serviço de <xref:System.CodeDom.Compiler.CodeDomProvider>decidir se ele deve tratar membros como maiusculas e minúsculas ou maiusculas de minúsculas. |   | Classificação de instrução | Todas as variáveis de membro e variáveis locais de métodos de inicialização são armazenadas em uma tabela.</xref:System.CodeDom.Compiler.CodeDomProvider> Em seguida, cada instrução em um método de inicialização é adicionada a uma coleção de instrução agrupada de acordo com seu lado esquerdo, para que todas as instruções de atribuição ou operando em uma determinada variável são agrupadas sob essa variável. Variáveis com nenhuma instrução são descartadas. |   | Desserialização | As coleções de instrução para cada variável são desserializadas de acordo com a variável. |       A tabela a seguir mostra os serviços que o método Deserialize requer.      | Serviço | Descrição |   |-------------|-----------------|   | <xref:System.CodeDom.Compiler.CodeDomProvider>| Enquanto não é estritamente necessária, o serviço, se disponível, é usado para determinar se a serialização deve ser entre maiusculas e minúsculas ou maiusculas de minúsculas. |   | <xref:System.ComponentModel.IContainer>| Se um objeto não existe na tabela de nome durante a desserialização, uma consulta para <xref:System.ComponentModel.IContainer>é feita.</xref:System.ComponentModel.IContainer> </xref:System.ComponentModel.IContainer> </xref:System.CodeDom.Compiler.CodeDomProvider> Se esta consulta for bem-sucedida, o contêiner é verificado para o objeto. O contêiner também é usado como um substituto para um argumento de contêiner necessário pelos componentes. |"
   syntax:
     content: public virtual object Deserialize (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeTypeDeclaration declaration);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use for serialization."
+      description: "O Gerenciador de serialização a ser usado para serialização."
     - id: declaration
       type: System.CodeDom.CodeTypeDeclaration
-      description: "Type declaration to use for serialization."
+      description: "Tipo de declaração a ser usado para serialização."
     return:
       type: System.Object
-      description: "The root object."
+      description: "O objeto raiz."
   overload: System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.Deserialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>typeDecl</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>typeDecl</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.GetInitializeMethod(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.CodeDom.CodeTypeDeclaration,System.Object)
@@ -123,23 +123,23 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Returns the method where statements used to serialize a member are stored."
-  remarks: "The GetInitializeMethod method returns the method to emit all of the initialization code for the given member. The default implementation returns an empty constructor. If the same method is to be returned for multiple values, the same instance of the method should be returned. You can use the <xref:System.CodeDom.CodeObject.UserData%2A?displayProperty=fullName> dictionary to remember methods you have created. The `typeDecl` parameter can also be used to add infrastructure methods. For example, if you want to emit a separate method for each object, you need a single method that calls all of these methods in turn. This method can be added to the code type declaration as needed."
+  summary: "Retorna o método de armazenamento de instruções usadas para serializar um membro."
+  remarks: "O método GetInitializeMethod retorna o método para emitir todo o código de inicialização para o membro especificado. A implementação padrão retorna um construtor vazio. Se for o mesmo método a ser retornado para vários valores, a mesma instância do método deve ser retornada. Você pode usar o <xref:System.CodeDom.CodeObject.UserData%2A?displayProperty=fullName>dicionário lembrar métodos que você criou.</xref:System.CodeDom.CodeObject.UserData%2A?displayProperty=fullName> O `typeDecl` parâmetro também pode ser usado para adicionar métodos de infraestrutura. Por exemplo, se você quiser emitir um método separado para cada objeto, você precisa de um único método que chama todos esses métodos de. Esse método pode ser adicionado à declaração de tipo de código, conforme necessário."
   syntax:
     content: protected virtual System.CodeDom.CodeMemberMethod GetInitializeMethod (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeTypeDeclaration declaration, object value);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use for serialization."
+      description: "O Gerenciador de serialização a ser usado para serialização."
     - id: declaration
       type: System.CodeDom.CodeTypeDeclaration
-      description: "The type declaration to use for serialization."
+      description: "O tipo de declaração a ser usado para serialização."
     - id: value
       type: System.Object
-      description: "The value to use for serialization."
+      description: "O valor a ser usado para serialização."
     return:
       type: System.CodeDom.CodeMemberMethod
-      description: "The method used to emit all of the initialization code for the given member."
+      description: "O método usado para emitir todo o código de inicialização para o membro especificado."
   overload: System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.GetInitializeMethod*
   exceptions:
   - type: System.ArgumentNullException
@@ -159,25 +159,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Returns an array of methods to be interpreted during deserialization."
-  remarks: "The default implementation returns a single-element array with the constructor in it."
+  summary: "Retorna uma matriz de métodos para serem interpretados durante a desserialização."
+  remarks: "A implementação padrão retorna uma matriz de elemento único com o construtor nele."
   syntax:
     content: protected virtual System.CodeDom.CodeMemberMethod[] GetInitializeMethods (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, System.CodeDom.CodeTypeDeclaration declaration);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use for serialization."
+      description: "O Gerenciador de serialização a ser usado para serialização."
     - id: declaration
       type: System.CodeDom.CodeTypeDeclaration
-      description: "The type declaration to use for serialization."
+      description: "O tipo de declaração a ser usado para serialização."
     return:
       type: System.CodeDom.CodeMemberMethod[]
-      description: "A <xref href=&quot;System.CodeDom.CodeMemberMethod&quot;></xref> array of methods to be interpreted during deserialization."
+      description: "Um <xref href=&quot;System.CodeDom.CodeMemberMethod&quot;> </xref> matriz de métodos para serem interpretados durante a desserialização."
   overload: System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.GetInitializeMethods*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>typeDecl</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>typeDecl</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.Serialize(System.ComponentModel.Design.Serialization.IDesignerSerializationManager,System.Object,System.Collections.ICollection)
@@ -192,28 +192,28 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Serializes the object root by creating a new type declaration that defines root."
-  remarks: "The Serialize method serializes the given root object and optional collection of members to create a new type definition. If the `members` collection contains values, these values are serialized. Values themselves may serialize as either member variables or local variables. This determination is done by searching for an extender property on the object called `GenerateMember`. If `true`, a member is generated. Otherwise, a local variable is generated. For convenience, the `members` collection can contain the root object. In this case, the root object is not also added as a member or local variable.       The name of the returned type is taken from the root object’s name, if it was a named object. If not, a name is fabricated from the simple type name of the root class.       The following table shows the tasks performed by the default implementation of the Serialize method.      |Task|Description|   |----------|-----------------|   |Context Seeding|The serialization context is initialized with data including the <xref:System.ComponentModel.Design.Serialization.RootContext> and <xref:System.CodeDom.CodeTypeDeclaration>|   |Member Serialization|Next, Serialize walks all of the members and calls <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression%2A>. Because serialization is done opportunistically in <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression%2A>, this ensures that serialization is not done twice.|   |Root Serialization|Next, the root object is serialized and its statements are added to the statement collection.|   |Statement Integration|After all objects are serialized, the Serialize method orders the statements and adds them to a method returned from <xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.GetInitializeMethod%2A>. Finally, a constructor is fabricated that calls all of the methods returned from <xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.GetInitializeMethod%2A>.|      -       The following table shows the objects the Serialize method places on the context stack.      |Instance|Description|   |--------------|-----------------|   |<xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer>|This serializer. Deriving classes may find it useful to add public properties to this class.|   |<xref:System.CodeDom.CodeTypeDeclaration>|The type being created. Most objects do not need direct access to this.|"
+  summary: "Serializa a raiz do objeto, criando uma nova declaração de tipo que define a raiz."
+  remarks: "O método Serialize serializa o objeto raiz específico e a coleção opcional de membros para criar uma nova definição de tipo. Se o `members` coleção contém valores, esses valores são serializados. Próprios valores podem serializar como variáveis de membro ou variáveis locais. Essa determinação é feita por meio de pesquisa para uma propriedade de extensão no objeto chamado `GenerateMember`. Se `true`, um membro é gerado. Caso contrário, uma variável local é gerada. Para sua conveniência, o `members` coleção pode conter o objeto raiz. Nesse caso, o objeto raiz também não é adicionado como um membro ou uma variável local.       O nome do tipo retornado é obtido do nome do objeto raiz, se fosse um objeto nomeado. Caso contrário, um nome é gerado do nome do tipo simples da classe raiz.       A tabela a seguir mostra as tarefas executadas pela implementação padrão do método de serialização.      | Tarefa | Descrição |   |----------|-----------------|   | A propagação do contexto | O contexto de serialização é inicializado com dados, incluindo o <xref:System.ComponentModel.Design.Serialization.RootContext>e <xref:System.CodeDom.CodeTypeDeclaration>|   | Serialização de membro | Em seguida, serializar percorre todos os membros e chamadas <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression%2A>.</xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression%2A> </xref:System.CodeDom.CodeTypeDeclaration> </xref:System.ComponentModel.Design.Serialization.RootContext> Como a serialização é feita oportunamente no <xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression%2A>, isso garante que os serialização não é feita de duas vezes. |   | Serialização de raiz | Em seguida, o objeto raiz é serializado e suas instruções são adicionadas à coleção de instrução. |   | Integração de instrução | Depois que todos os objetos são serializados, o método Serialize ordena as instruções e os adiciona a um método retornado de <xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.GetInitializeMethod%2A>.</xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.GetInitializeMethod%2A> </xref:System.ComponentModel.Design.Serialization.CodeDomSerializerBase.SerializeToExpression%2A> Por fim, um construtor é gerado que chama todos os métodos retornados de <xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.GetInitializeMethod%2A>. |      -A tabela a seguir mostra os locais de método serializar os objetos na pilha de contexto.</xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.GetInitializeMethod%2A>      | Instância | Descrição |   |--------------|-----------------|   | <xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer>| Este serializador.</xref:System.ComponentModel.Design.Serialization.TypeCodeDomSerializer> Derivando de classes pode ser útil para adicionar propriedades públicas para essa classe. |   | <xref:System.CodeDom.CodeTypeDeclaration>| O tipo que está sendo criado.</xref:System.CodeDom.CodeTypeDeclaration> A maioria dos objetos não precisam de acesso direto a este. |"
   syntax:
     content: public virtual System.CodeDom.CodeTypeDeclaration Serialize (System.ComponentModel.Design.Serialization.IDesignerSerializationManager manager, object root, System.Collections.ICollection members);
     parameters:
     - id: manager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "The serialization manager to use for serialization."
+      description: "O Gerenciador de serialização a ser usado para serialização."
     - id: root
       type: System.Object
-      description: "The object to serialize."
+      description: "O objeto a ser serializado."
     - id: members
       type: System.Collections.ICollection
-      description: "Optional collection of members. Can be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or empty."
+      description: "Coleção opcional de membros. Pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> ou vazio."
     return:
       type: System.CodeDom.CodeTypeDeclaration
-      description: "A <xref href=&quot;System.CodeDom.CodeTypeDeclaration&quot;></xref> that defines the root object."
+      description: "Um <xref href=&quot;System.CodeDom.CodeTypeDeclaration&quot;> </xref> que define o objeto raiz."
   overload: System.ComponentModel.Design.Serialization.TypeCodeDomSerializer.Serialize*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>manager</code> or <code>root</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>manager</code>or <code>root</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

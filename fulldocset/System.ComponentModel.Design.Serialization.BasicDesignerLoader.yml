@@ -34,8 +34,8 @@ items:
   nameWithType: BasicDesignerLoader
   fullName: System.ComponentModel.Design.Serialization.BasicDesignerLoader
   type: Class
-  summary: "Provides an implementation of the <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderService&quot;></xref> interface."
-  remarks: "A BasicDesignerLoader is a complete implementation of a designer loader without anything relating to a persistence format. A BasicDesignerLoader does not dictate either a text or binary persistence, but it does support the following features:      -   Multiple load dependencies.      -   Tracking changes within the designer.      -   Deferred idle-time reloading.       A BasicDesignerLoader adds two kinds of services to the designer host’s service container: replaceable services and irreplaceable services. You can replace a replaceable service by changing the value of the protected <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.LoaderHost%2A> property. You cannot replace irreplaceable services because their implementations depend on each other.       The following table describes the services that are provided by default.      |Default Service|Description|   |---------------------|-----------------|   |<xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>|Allows objects to request that the designer reload itself when it is idle. This is a replaceable service.|   |<xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>|Used to serialize and deserialize objects. The serialization manager is added as a service so objects that need to perform serialization can utilize any serialization providers that were added to the serialization manager. This is an irreplaceable service.|"
+  summary: "Fornece uma implementação de <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderService&quot;> </xref> interface."
+  remarks: "Um BasicDesignerLoader é uma implementação completa de um carregador de designer sem nada relacionado a um formato de persistência. Um BasicDesignerLoader não indicar um texto ou binária persistência, mas ele suporta os seguintes recursos: - várias dependências de carga.      -Monitoramento de alterações no designer.      -Adiada recarregando o tempo ocioso.       Um BasicDesignerLoader adiciona dois tipos de serviços ao contêiner de serviço do host designer: serviços substituíveis e serviços insubstituíveis. Você pode substituir um serviço substituível alterando o valor de protegido <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.LoaderHost%2A>propriedade.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.LoaderHost%2A> Você não pode substituir serviços insubstituíveis porque suas implementações dependem uns aos outros.       A tabela a seguir descreve os serviços que são fornecidos por padrão.      | Serviço padrão | Descrição |   |---------------------|-----------------|   | <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>| Permite que os objetos solicitar que o designer de recarregar quando ele estiver ocioso.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> Este é um serviço substituível. |   | <xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager>| Usado para serializar e desserializar objetos.</xref:System.ComponentModel.Design.Serialization.IDesignerSerializationManager> O Gerenciador de serialização é adicionado como um serviço para que objetos que precisam para realizar a serialização podem utilizar qualquer provedor de serialização que foram adicionados ao Gerenciador de serialização. Este é um serviço insubstituíveis. |"
   syntax:
     content: >-
       [System.Security.SecurityCritical]
@@ -61,7 +61,7 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Design.Serialization.BasicDesignerLoader&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ComponentModel.Design.Serialization.BasicDesignerLoader&quot;> </xref> classe."
   syntax:
     content: protected BasicDesignerLoader ();
     parameters: []
@@ -81,25 +81,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Starts the loading process."
-  remarks: "This is an implementation of the abstract <xref:System.ComponentModel.Design.Serialization.DesignerLoader.BeginLoad%2A?displayProperty=fullName> method. You do not need to override this method in your own class. The BeginLoad method performs the following actions:      -   It verifies that the design surface has not already loaded.      -   On the first call, it adds relevant services and calls the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Initialize%2A> method.      -   It calls the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A>, and <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> methods.       If the designer loader service has not been removed from the service container, BeginLoad will call the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A> and <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> methods instead of the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> and <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> methods. In this situation, it is the responsibility of the designer loader service to call <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> and <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>."
+  summary: "Inicia o processo de carregamento."
+  remarks: "Esta é uma implementação do resumo <xref:System.ComponentModel.Design.Serialization.DesignerLoader.BeginLoad%2A?displayProperty=fullName>método.</xref:System.ComponentModel.Design.Serialization.DesignerLoader.BeginLoad%2A?displayProperty=fullName> Você não precisa substituir este método em sua própria classe. O método BeginLoad executa as seguintes ações:-ele verifica a superfície de design ainda não tenha carregado.      -Na primeira chamada, ele adiciona serviços relevantes e chama o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Initialize%2A>método.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Initialize%2A>      -Ele chama o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A>, e <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>métodos.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>       Se o serviço de carregador de designer não tiver sido removido do contêiner de serviços, BeginLoad chamará o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A>e <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A>métodos em vez da <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>e <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>métodos.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A> Nessa situação, é responsabilidade do serviço de carregador de designer para chamar <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>e <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>"
   syntax:
     content: public override void BeginLoad (System.ComponentModel.Design.Serialization.IDesignerLoaderHost host);
     parameters:
     - id: host
       type: System.ComponentModel.Design.Serialization.IDesignerLoaderHost
-      description: "The designer loader host to load."
+      description: "O host do carregador de designer para carregar."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>host</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>host</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The designer is already loaded, or BeginLoad has been called with a different designer loader host."
+    description: "O designer já está carregado ou BeginLoad foi chamado com um host diferente de carregador de designer."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<code>host</code> has been disposed."
+    description: "<code>host</code>foi descartado."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose
@@ -114,8 +114,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Releases the resources used by the <xref href=&quot;System.ComponentModel.Design.Serialization.BasicDesignerLoader&quot;></xref>."
-  remarks: "Calling the Dispose method does not flush changes to the designer loader. If you want changes to be saved, call <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> before calling Dispose.       Call Dispose when you are finished using the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>. The Dispose method leaves the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> in an unusable state. After calling Dispose, you must release all references to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> so the garbage collector can reclaim the memory that the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> was occupying. For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call Dispose before you release your last reference to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> object&quot;s `Finalize` method."
+  summary: "Libera os recursos usados pelo <xref href=&quot;System.ComponentModel.Design.Serialization.BasicDesignerLoader&quot;> </xref>."
+  remarks: "Chamar o método Dispose não liberar alterações para o carregador do designer. Se você quiser que as alterações a serem salvas, chame <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>antes de chamar Dispose.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>       Chamar Dispose quando terminar de usar o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> O método Dispose deixa a <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>em um estado inutilizável.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> Depois de chamar Dispose, você deve liberar todas as referências para o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>para o coletor de lixo possa recuperar a memória que o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>estava ocupando.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> Para obter mais informações, consulte [limpeza de recursos não gerenciados](~/add/includes/ajax-current-ext-md.md) e [implementar um método Dispose](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Sempre chamada Dispose antes de liberar sua última referência a <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> Caso contrário, os recursos que está usando não serão liberados até que o coletor de lixo chame o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>do objeto `Finalize` método.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>"
   syntax:
     content: public override void Dispose ();
     parameters: []
@@ -135,16 +135,16 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Enables or disables component notification with the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;></xref>."
+  summary: "Habilita ou desabilita a notificação de componente com o <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;> </xref>."
   syntax:
     content: protected virtual bool EnableComponentNotification (bool enable);
     parameters:
     - id: enable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to enable component notification by the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;></xref>; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to disable component notification by the <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Para ativar a notificação de componente, o <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;> </xref>; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> para desabilitar a notificação de componente, o <xref href=&quot;System.ComponentModel.Design.Serialization.DesignerLoader&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the component notification was enabled prior to this call; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a notificação do componente foi habilitada antes desta chamada; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.EnableComponentNotification*
   exceptions: []
   platform:
@@ -161,8 +161,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Flushes pending changes to the designer loader."
-  remarks: "If the designer loader has not been loaded or has not been marked as modified, the Flush method returns immediately. Otherwise, Flush asks the serialization manager to create a serialization session and then calls <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>."
+  summary: "Libera as alterações pendentes no carregador do designer."
+  remarks: "Se o carregador de designer não foi carregado ou não tiver sido marcado como modificada, o método de liberação retorna imediatamente. Caso contrário, a liberação solicita que o Gerenciador de serialização para criar uma sessão de serialização e, em seguida, chama <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>"
   syntax:
     content: public override void Flush ();
     parameters: []
@@ -182,17 +182,17 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the requested service."
-  remarks: "GetService is a helper method that allows classes deriving from <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> to access services offered by the designer loader host."
+  summary: "Obtém o serviço solicitado."
+  remarks: "GetService é um método auxiliar que permite que classes derivadas de <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>para acessar os serviços oferecidos pelo host do carregador de designer.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>"
   syntax:
     content: protected object GetService (Type serviceType);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The <xref:System.Type> of the service."
+      description: "O <xref:System.Type>do serviço.</xref:System.Type>"
     return:
       type: System.Object
-      description: "The requested service, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the requested service cannot be found."
+      description: "O serviço solicitado, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se o serviço solicitado não pode ser encontrado."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.GetService*
   exceptions: []
   platform:
@@ -209,8 +209,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Initializes services."
-  remarks: "The Initialize method is called the first time <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> is invoked. You can add any services necessary to the designer loader host at this time. The base implementation adds services that <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> provides, so after calling the base implementation you may replace existing services. You must remove any custom services you add here by overriding <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose%2A>."
+  summary: "Inicializa a serviços."
+  remarks: "O método Initialize é chamado da primeira vez <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>é invocado.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> Você pode adicionar todos os serviços necessários para hospedar o carregador de designer neste momento. A implementação base adiciona serviços que <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>oferece, portanto, depois de chamar a implementação base, você pode substituir os serviços existentes.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> Você deve remover quaisquer serviços personalizados que você adicionar aqui, substituindo <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose%2A>.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Dispose%2A>"
   syntax:
     content: protected virtual void Initialize ();
     parameters: []
@@ -218,10 +218,10 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> não foi inicializado."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has been disposed."
+    description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> foi descartado."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.IsReloadNeeded
@@ -236,14 +236,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Indicates whether the designer should be reloaded."
-  remarks: "The IsReloadNeeded method is used by some designer loaders to optimize reloading. This method can be overridden if your designer loader supports intelligent reloading. Some designer loaders can detect changes made to their underlying document and determine if a reload of the designer is actually necessary. If not, they should return `false` from this method. The default implementation always returns `true`, indicating that any call to <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A> will succeed."
+  summary: "Indica se o designer deve ser recarregado."
+  remarks: "O método IsReloadNeeded é usado por alguns carregadores de designer para otimizar o recarregamento. Este método pode ser substituído se o carregador de designer oferece suporte ao recarregar inteligente. Alguns carregadores de designer podem detectar alterações feitas em seu documento subjacente e determinar se um recarregamento do designer é realmente necessário. Se não, eles devem retornar `false` deste método. A implementação padrão sempre retorna `true`, que indica que qualquer chamada para <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A>terá êxito.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload%2A>"
   syntax:
     content: protected virtual bool IsReloadNeeded ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the designer should be reloaded; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default implementation always returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o designer deve ser recarregado. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. A implementação padrão sempre retorna <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.IsReloadNeeded*
   exceptions: []
   platform:
@@ -260,21 +260,21 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets the loader host."
-  remarks: "This method returns the loader host that was given to this designer loader. This can be `null` if <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> has not been called yet, or if this designer loader has been disposed."
+  summary: "Obtém o host do carregador."
+  remarks: "Esse método retorna o host do carregador que foi fornecido para o carregador de designer. Isso pode ser `null` se <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>ainda não foi chamado ou se o carregador de designer foi descartado.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>"
   syntax:
     content: protected System.ComponentModel.Design.Serialization.IDesignerLoaderHost LoaderHost { get; }
     return:
       type: System.ComponentModel.Design.Serialization.IDesignerLoaderHost
-      description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> that was passed to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad*> method."
+      description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> que foi passado para o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad*>método.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad*>"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.LoaderHost*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> não foi inicializado."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has been disposed."
+    description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> foi descartado."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Loading
@@ -289,13 +289,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a value indicating whether the designer loader is loading the design surface."
-  remarks: "The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> class provides the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>, which supports load dependencies. This property takes load dependencies into account and will return `true` if there are any outstanding load dependencies."
+  summary: "Obtém um valor que indica se o carregador de designer está carregando a superfície de design."
+  remarks: "O <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>classe fornece a <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>, que oferece suporte ao carregar dependências.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> Essa propriedade tem dependências de carga em conta e irá retornar `true` se houver qualquer dependência de carga pendentes."
   syntax:
     content: public override bool Loading { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the designer loader is currently loading the design surface; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o carregador de designer atualmente está carregando a superfície de design; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Loading*
   exceptions: []
   platform:
@@ -312,13 +312,13 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets or sets a value indicating whether the designer has been modified."
-  remarks: "Determines if the designer loader has detected that the designer has been modified. If this property is `true` when the designer loader’s <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method is called, the designer loader will call the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A> method."
+  summary: "Obtém ou define um valor que indica se o designer foi modificado."
+  remarks: "Determina se o carregador de designer detectou que o designer foi modificado. Se essa propriedade for `true` quando o carregador de designer <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>método é chamado, o carregador de designer chamará o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A>método.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>"
   syntax:
     content: protected virtual bool Modified { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the designer has been modified; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>,"
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o designer foi modificado; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>,"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified*
   exceptions: []
   platform:
@@ -335,8 +335,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Notifies the designer loader that loading is about to begin."
-  remarks: "The OnBeginLoad method is invoked to start the loading process. You should perform any necessary initialization for loading at this time. This method should not be used to perform the actual load. The default implementation disables change notifications and sets up the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> for loading.       If you implement <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> to provide dependent load support, you should call OnBeginLoad when the first dependent load occurs. Call the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> method after the last call to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> method. By default, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> implements <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> and does this for you. If <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> is not available when <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> is called, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> will directly call OnBeginLoad.       If you provide your own loader service, or if you choose not to provide a loader service, you are responsible for calling this method. The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> method will automatically call this, either indirectly by calling <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A> if <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> is available, or directly if it is not."
+  summary: "Notifica o carregador do designer que carregamento está prestes a começar."
+  remarks: "O método OnBeginLoad é chamado para iniciar o processo de carregamento. Você deve executar qualquer inicialização necessária para carregamento no momento. Este método não deve ser usado para executar a carga real. A implementação padrão desativa as notificações de alteração e configura o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>para carregamento.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>       Se você implementar <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>para fornecer suporte a carga dependente, você deve chamar OnBeginLoad quando ocorre o primeiro carregamento dependente.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> Chamar o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>método após a última chamada para o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A>método.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> Por padrão, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>implementa <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>e faz isso para você.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> Se <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>não está disponível quando <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>é chamado, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>diretamente chamará OnBeginLoad.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> </xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>       Se você fornecer seu próprio serviço de carregador, ou se você optar por não fornecer um serviço de carregador, você é responsável por chamar esse método. O <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>isso indiretamente chamando automaticamente será chamada de método <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A>se <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>estiver disponível, ou diretamente se não for.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>"
   syntax:
     content: protected virtual void OnBeginLoad ();
     parameters: []
@@ -356,8 +356,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Notifies the designer loader that unloading is about to begin."
-  remarks: "The OnBeginUnload method is invoked when the designer loader is about to unload the document.       The document may be unloaded in preparation for reloading, or if the document failed to load. If you added document-specific services in <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> or <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>, remove them here."
+  summary: "Notifica o carregador do designer que descarregar está prestes a começar."
+  remarks: "O método OnBeginUnload é invocado quando o carregador de designer está prestes a descarregar o documento.       O documento pode ser descarregado em preparação para recarregar, ou se a falha ao carregar o documento. Se você adicionou serviços específicos do documento em <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>ou <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A>, remova-os aqui.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>"
   syntax:
     content: protected virtual void OnBeginUnload ();
     parameters: []
@@ -377,25 +377,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Notifies the designer loader that loading is complete."
-  remarks: "The OnEndLoad method is invoked when loading is finished. It is always called, even if an exception is thrown during loading. The value of `successful` will be set to `true` if the load succeeded, or `false` if a fatal error occurred. The `errors` collection will contain objects that were reported as errors. Usually, these objects are exceptions.       If you implement <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> to provide dependent load support, you should call the OnEndLoad method after the last call to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> method. By default, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> implements <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> and does this for you. If <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> is not available when <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> is called, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> will directly call OnEndLoad after calling <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A>.       This method should be called by the designer loader service when all dependent loads have been completed.  This stops the loading process that was initiated by the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> method. If you provide your own loader service, or if you choose not to provide a loader service, you are responsible for calling this method. The <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> method will automatically call this, either indirectly by calling the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> method if <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> is available, or directly if it is not."
+  summary: "Notifica o carregador do designer que o carregamento for concluído."
+  remarks: "O método OnEndLoad é invocado quando o carregamento for concluído. Ele é chamado, mesmo se uma exceção for lançada durante o carregamento. O valor de `successful` será definida como `true` se a carga for bem-sucedida, ou `false` se ocorreu um erro fatal. O `errors` coleção contém objetos que foram relatados como erros. Normalmente, esses objetos são exceções.       Se você implementar <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>para fornecer suporte a carga dependente, você deve chamar o método de OnEndLoad após a última chamada para o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A>método.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> </xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> Por padrão, <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader>implementa <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>e faz isso para você.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader> Se <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>não está disponível quando <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>é chamado <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>diretamente chamará OnEndLoad após chamar <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A>.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> </xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>       Esse método deve ser chamado pelo serviço de carregador de designer quando todas as cargas dependentes tiverem sido concluídas.  Isso interrompe o processo de carregamento foi iniciado pelo <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>método.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A> Se você fornecer seu próprio serviço de carregador, ou se você optar por não fornecer um serviço de carregador, você é responsável por chamar esse método. O <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>método automaticamente chamará isso indiretamente chamando o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A>método se <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService>estiver disponível, ou diretamente se não for.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23DependentLoadComplete%2A> </xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.BeginLoad%2A>"
   syntax:
     content: protected virtual void OnEndLoad (bool successful, System.Collections.ICollection errors);
     parameters:
     - id: successful
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the load completed successfully; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a carga foi concluída com êxito; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: errors
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> containing objects (usually exceptions) that were reported as errors."
+      description: "Um <xref:System.Collections.ICollection>que contém objetos (normalmente exceções) que foram relatados como erros.</xref:System.Collections.ICollection>"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnEndLoad*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> não foi inicializado."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has been disposed."
+    description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> foi descartado."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnModifying
@@ -410,8 +410,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Notifies the designer loader that the state of the document is about to be modified."
-  remarks: "The OnModifying method is called in response to a component changing, adding, or removing event which indicates that the designer is about to be modified. You can implement source code control by overriding this method. A call to OnModifying does not mean that the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified%2A> property will later be set to `true`; it merely indicates an intention to do so."
+  summary: "Notifica o carregador do designer que o estado do documento está prestes a ser modificado."
+  remarks: "O método OnModifying é chamado em resposta a uma alteração de componente, adicionando, ou remover o evento que indica que o designer está prestes a ser modificado. Você pode implementar o controle do código fonte, substituir esse método. Uma chamada para OnModifying não significa que o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified%2A>propriedade posteriormente será definida como `true`; ela simplesmente indica uma intenção de fazê-lo.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Modified%2A>"
   syntax:
     content: protected virtual void OnModifying ();
     parameters: []
@@ -431,14 +431,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Flushes all changes to the designer."
-  remarks: "The PerformFlush method is invoked when the designer loader needs to flush to persistence any changes made to the designers. It is invoked in response to a call to the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> method."
+  summary: "Libera todas as alterações para o designer."
+  remarks: "O método PerformFlush é invocado quando o carregador de designer precisa liberar para persistência todas as alterações feitas aos designers. Ele é chamado em resposta a uma chamada para o <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>método.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>"
   syntax:
     content: protected abstract void PerformFlush (System.ComponentModel.Design.Serialization.IDesignerSerializationManager serializationManager);
     parameters:
     - id: serializationManager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "An <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for persisting the state of loaded designers."
+      description: "Um <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para manter o estado dos designers carregados."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformFlush*
   exceptions: []
   platform:
@@ -455,14 +455,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Loads a designer from persistence."
-  remarks: "The PerformLoad method is invoked when the designer loader needs to load its state. PerformLoad is called before the <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> method. You must implement this method to load the designer contents."
+  summary: "Carrega um designer de persistência."
+  remarks: "O método PerformLoad é invocado quando o carregador de designer precisa carregar seu estado. PerformLoad é chamado antes de <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A>método.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.OnBeginLoad%2A> Você deve implementar esse método para carregar o conteúdo do designer."
   syntax:
     content: protected abstract void PerformLoad (System.ComponentModel.Design.Serialization.IDesignerSerializationManager serializationManager);
     parameters:
     - id: serializationManager
       type: System.ComponentModel.Design.Serialization.IDesignerSerializationManager
-      description: "An <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;></xref> to use for loading state for the designers."
+      description: "Um <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerSerializationManager&quot;> </xref> a ser usado para carregar o estado para os designers."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.PerformLoad*
   exceptions: []
   platform:
@@ -479,18 +479,18 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets or sets the property provider for the serialization manager being used by the loader."
-  remarks: "The serialization manager provides a `Properties` property on its primary interface that can be read by serializers to customize their serialization to specific needs. The properties that are examined by the serializers vary depending on the type of serializer used."
+  summary: "Obtém ou define o provedor de propriedade para o Gerenciador de serialização que está sendo usado pelo carregador."
+  remarks: "O Gerenciador de serialização fornece um `Properties` propriedade em sua interface principal que pode ser lido por serializadores Personalize sua serialização para necessidades específicas. As propriedades que são examinadas pelos serializadores variam dependendo do tipo de serializador usado."
   syntax:
     content: protected object PropertyProvider { get; set; }
     return:
       type: System.Object
-      description: "An object whose properties are to be provided to the serialization manager."
+      description: "Um objeto cujas propriedades devem ser fornecidos para o Gerenciador de serialização."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.PropertyProvider*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> não foi inicializado."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload(System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReloadOptions)
@@ -510,7 +510,7 @@ items:
     parameters:
     - id: flags
       type: System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReloadOptions
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload*
   exceptions: []
   platform:
@@ -527,12 +527,12 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Gets a value indicating whether a reload has been queued."
+  summary: "Obtém um valor que indica se um recarregamento foi enfileirado."
   syntax:
     content: protected bool ReloadPending { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, if a call to <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload*> has queued a reload request; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, se uma chamada para <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload*>colocou em fila para uma solicitação de recarregamento; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Reload*>"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReloadPending*
   exceptions: []
   platform:
@@ -549,19 +549,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Reports errors that occurred while flushing changes."
-  remarks: "The ReportFlushErrors method is called during <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> if one or more errors occurred while flushing changes. The values in the `errors` collection can be exceptions or objects with <xref:System.Object.ToString%2A> values that describe the error. The default implementation of ReportFlushErrors raises the last exception in the collection."
+  summary: "Relatórios de erros que ocorreram durante a liberação de alterações."
+  remarks: "O método ReportFlushErrors é chamado durante a <xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A>se um ou mais erros ao liberar alterações.</xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.Flush%2A> Os valores de `errors` coleção pode ser exceções ou objetos com <xref:System.Object.ToString%2A>valores que descrevem o erro.</xref:System.Object.ToString%2A> A implementação padrão de ReportFlushErrors gera a última exceção na coleção."
   syntax:
     content: protected virtual void ReportFlushErrors (System.Collections.ICollection errors);
     parameters:
     - id: errors
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> containing error objects, usually exceptions."
+      description: "Um <xref:System.Collections.ICollection>que contém objetos de erro, geralmente exceções.</xref:System.Collections.ICollection>"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.ReportFlushErrors*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "One or more errors occurred while flushing changes."
+    description: "Um ou mais erros ao liberar alterações."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.SetBaseComponentClassName(System.String)
@@ -576,19 +576,19 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Sets the full class name of the base component."
-  remarks: "The SetBaseComponentClassName method should be called during loading to establish the full name of the component a designer is designing."
+  summary: "Define o nome completo da classe do componente base."
+  remarks: "O método SetBaseComponentClassName deve ser chamado durante o carregamento para estabelecer o nome completo do componente de que criação de um designer."
   syntax:
     content: protected void SetBaseComponentClassName (string name);
     parameters:
     - id: name
       type: System.String
-      description: "A string representing the full name of the component to be designed."
+      description: "Uma cadeia de caracteres que representa o nome completo do componente a ser criado."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.SetBaseComponentClassName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#AddLoadDependency
@@ -604,8 +604,8 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Registers an external component as part of the load process managed by <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderService&quot;></xref>."
-  remarks: "Call the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> method once for each external object participating in the load process. The <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> method is called when the work of the load process is done."
+  summary: "Registra um componente externo como parte do processo de carga gerenciado pelo <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderService&quot;> </xref>."
+  remarks: "Chamar o <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A>método uma vez para cada objeto externo que participam do processo de carregamento.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> O <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>método é chamado quando o trabalho do processo de carregamento é feito.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>"
   syntax:
     content: void IDesignerLoaderService.AddLoadDependency ();
     parameters: []
@@ -613,7 +613,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> não foi inicializado."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#DependentLoadComplete(System.Boolean,System.Collections.ICollection)
@@ -629,25 +629,25 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Signals that a dependent load has finished."
-  remarks: "The IDesignerLoaderService.DependentLoadComplete method is called to signal that a dependent loading operation has completed. Call the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A> method once for every process that was registered by calling the <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> method, which has already completed.       If the dependent load succeeds, the caller sets the `successful` parameter to `true` and passes either an empty collection or `null` to the `errorCollection` parameter. If the dependent load encounters errors, the caller sets the `successful` parameter to `false` and passes a collection of exceptions that indicate the reason or reasons for failure to the `errorCollection` parameter."
+  summary: "Indica que uma carga dependente foi concluída."
+  remarks: "O método IDesignerLoaderService.DependentLoadComplete é chamado para sinalizar que uma operação de carregamento dependente foi concluída. Chamar o <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>método uma vez para cada processo que foi registrado por chamar o <xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A>método, que já foi concluída.</xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.AddLoadDependency%2A> </xref:System.ComponentModel.Design.Serialization.IDesignerLoaderService.DependentLoadComplete%2A>       Se a carga dependente for bem-sucedida, os conjuntos de chamador de `successful` parâmetro `true` e passa em uma coleção vazia ou `null` para o `errorCollection` parâmetro. Se a carga dependente encontrar erros, o chamador define o `successful` parâmetro `false` e passa uma coleção de exceções que indicam o motivo ou os motivos da falha para o `errorCollection` parâmetro."
   syntax:
     content: void IDesignerLoaderService.DependentLoadComplete (bool successful, System.Collections.ICollection errorCollection);
     parameters:
     - id: successful
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to load successfully; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>carregar com êxito; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: errorCollection
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> containing errors that occurred during the load."
+      description: "Um <xref:System.Collections.ICollection>que contém erros que ocorreram durante o carregamento.</xref:System.Collections.ICollection>"
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#DependentLoadComplete*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "No load dependencies have been added by &lt;xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A&gt;, or the <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has not been initialized."
+    description: "Nenhuma dependência de carga foram adicionada por &lt;xref:System.ComponentModel.Design.Serialization.BasicDesignerLoader.System%23ComponentModel%23Design%23Serialization%23IDesignerLoaderService%23AddLoadDependency%2A&gt;, ou o <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> não foi inicializado."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;></xref> has been disposed."
+    description: "O <xref href=&quot;System.ComponentModel.Design.Serialization.IDesignerLoaderHost&quot;> </xref> foi descartado."
   platform:
   - net462
 - uid: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#Reload
@@ -663,14 +663,14 @@ items:
   assemblies:
   - System.Design
   namespace: System.ComponentModel.Design.Serialization
-  summary: "Reloads the design document."
-  remarks: "Any object can call the IDesignerLoaderService.Reload method to request that the loader reload the design document. If the loader supports reloading and complies with the reload, the designer loader can return `true`. Otherwise, it returns `false`, indicating that the reload will not occur. Callers cannot rely on the reload happening immediately; the designer loader can schedule this for some other time, or it can try to reload the designer at once.       The caller can display a message to the user if the designer cannot be reloaded."
+  summary: "Recarrega o documento de design."
+  remarks: "Qualquer objeto pode chamar o método IDesignerLoaderService.Reload para solicitar que a recarga de carregador o documento de design. Se o carregador dá suporte ao recarregar e está em conformidade com o recarregamento, o carregador de designer pode retornar `true`. Caso contrário, retornará `false`, indicando que a recarga não ocorrerá. Chamadores não podem contar com a recarga acontecendo imediatamente. o carregador de designer pode agendá-la para outro momento, ou ele pode tentar recarregar o designer de uma vez.       O chamador pode exibir uma mensagem para o usuário se o designer não pode ser recarregado."
   syntax:
     content: bool IDesignerLoaderService.Reload ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the reload request is accepted; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the loader does not allow the reload."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a solicitação de recarregamento for aceita; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se o carregador não permitir a recarga."
   overload: System.ComponentModel.Design.Serialization.BasicDesignerLoader.System#ComponentModel#Design#Serialization#IDesignerLoaderService#Reload*
   exceptions: []
   platform:

@@ -23,7 +23,7 @@ items:
   nameWithType: XmlStreamStore
   fullName: System.Windows.Annotations.Storage.XmlStreamStore
   type: Class
-  summary: "Represents an XML data store for writing and reading user annotations."
+  summary: "Representa um repositório de dados XML para gravação e leitura de anotações do usuário."
   syntax:
     content: 'public sealed class XmlStreamStore : System.Windows.Annotations.Storage.AnnotationStore'
   inheritance:
@@ -55,14 +55,14 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Annotations.Storage.XmlStreamStore&quot;></xref> class with a specified I/O <xref:System.IO.Stream>."
-  remarks: '`stream` must be in valid XML format and comply with the [!INCLUDE[TLA#tla_caf](~/add/includes/tlasharptla-caf-md.md)] schema.'
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Windows.Annotations.Storage.XmlStreamStore&quot;> </xref> classe com uma <xref:System.IO.Stream>.</xref:System.IO.Stream> de e/s especificado"
+  remarks: '`stream`deve ser o formato XML válido e estar de acordo com o [!INCLUDE[TLA#tla_caf](~/add/includes/tlasharptla-caf-md.md)] esquema.'
   syntax:
     content: public XmlStreamStore (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The I/O stream for reading and writing user annotations."
+      description: "O fluxo de e/s de leitura e gravação de anotações do usuário."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.#ctor*
   exceptions: []
   platform:
@@ -79,28 +79,28 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Annotations.Storage.XmlStreamStore&quot;></xref> class with a specified I/O <xref:System.IO.Stream> and dictionary of known compatible namespaces."
-  remarks: "This XmlStreamStore constructor enables the registration of application-specific known namespaces.       The `knownNamespace` dictionary defines application namespaces that are used when you store custom content as part of an annotation.  The dictionary key is the primary namespace known to the application program.  The namespace key is associated with a value list of older namespaces that are compatible with the &quot;key&quot; namespace.  When annotations are loaded all namespaces from this list will be replaced by the &quot;key&quot; namespace.       `stream` must be in valid XML format and comply with the [Annotations Schema](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Windows.Annotations.Storage.XmlStreamStore&quot;> </xref> classe com uma e/s especificado <xref:System.IO.Stream>e dicionário de namespaces compatíveis conhecidos.</xref:System.IO.Stream>"
+  remarks: "Este construtor XmlStreamStore permite que o registro do conhecido namespaces específicos do aplicativo.       O `knownNamespace` dicionário define namespaces de aplicativo que são usadas ao armazenar conteúdo personalizado como parte de uma anotação.  A chave de dicionário é o namespace primário conhecido para o programa de aplicativo.  A chave do namespace está associada uma lista de valores de namespaces mais antigos que são compatíveis com o namespace &quot;chave&quot;.  Quando as anotações são carregadas todos os namespaces nesta lista serão substituídas pelo namespace &quot;chave&quot;.       `stream`deve ser o formato XML válido e estar de acordo com o [anotações esquema](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public XmlStreamStore (System.IO.Stream stream, System.Collections.Generic.IDictionary<Uri,System.Collections.Generic.IList<Uri>> knownNamespaces);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The I/O stream for reading and writing user annotations."
+      description: "O fluxo de e/s de leitura e gravação de anotações do usuário."
     - id: knownNamespaces
       type: System.Collections.Generic.IDictionary{System.Uri,System.Collections.Generic.IList{System.Uri}}
-      description: "A dictionary with a list of known compatible namespaces."
+      description: "Um dicionário com uma lista de namespaces compatíveis conhecidos."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Xml.XmlException
     commentId: T:System.Xml.XmlException
-    description: "<code>stream</code> contains invalid XML."
+    description: "<code>stream</code>contém XML inválido."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>knownNamespaces</code> dictionary contains a duplicate namespace.       -or-       The <code>knownNamespaces</code> dictionary contains an element that has a <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> key."
+    description: "O <code> knownNamespaces </code> dicionário contém um espaço para nome duplicado.       - ou - <code> knownNamespaces </code> dicionário contém um elemento que tem um <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> chave."
   platform:
   - net462
 - uid: System.Windows.Annotations.Storage.XmlStreamStore.AddAnnotation(System.Windows.Annotations.Annotation)
@@ -115,28 +115,28 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Adds a new <xref href=&quot;System.Windows.Annotations.Annotation&quot;></xref> to the store."
-  remarks: "When AddAnnotation is called, the <xref:System.Windows.Annotations.Annotation.Id%2A> of the <xref:System.Windows.Annotations.Annotation> is checked to see whether the <xref:System.Windows.Annotations.Annotation> already has been added to the store.  If the <xref:System.Windows.Annotations.Annotation> already has been added and is in the store an <xref:System.ArgumentException> error is thrown."
+  summary: "Adiciona um novo <xref href=&quot;System.Windows.Annotations.Annotation&quot;> </xref> no repositório."
+  remarks: "Quando AddAnnotation é chamado, o <xref:System.Windows.Annotations.Annotation.Id%2A>do <xref:System.Windows.Annotations.Annotation>é verificado para ver se o <xref:System.Windows.Annotations.Annotation>já foi adicionado ao repositório.</xref:System.Windows.Annotations.Annotation> </xref:System.Windows.Annotations.Annotation> </xref:System.Windows.Annotations.Annotation.Id%2A>  Se o <xref:System.Windows.Annotations.Annotation>já foi adicionado e está no repositório de um <xref:System.ArgumentException>erro será lançado.</xref:System.ArgumentException> </xref:System.Windows.Annotations.Annotation>"
   syntax:
     content: public override void AddAnnotation (System.Windows.Annotations.Annotation newAnnotation);
     parameters:
     - id: newAnnotation
       type: System.Windows.Annotations.Annotation
-      description: "The annotation to add to the store."
+      description: "A anotação para adicionar ao repositório."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.AddAnnotation*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>newAnnotation</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>newAnnotation</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "An <xref href=&quot;System.Windows.Annotations.Annotation&quot;></xref> with the same <xref:System.Windows.Annotations.Annotation.Id*> already is in the store."
+    description: "Um <xref href=&quot;System.Windows.Annotations.Annotation&quot;> </xref> com o mesmo <xref:System.Windows.Annotations.Annotation.Id*>já está no repositório.</xref:System.Windows.Annotations.Annotation.Id*>"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An I/O <xref:System.IO.Stream> has not been set for the store."
+    description: "Uma e/s <xref:System.IO.Stream>não foi definido para o repositório.</xref:System.IO.Stream>"
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*> has been called on the store."
+    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>foi chamado no repositório.</xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>"
   platform:
   - net462
 - uid: System.Windows.Annotations.Storage.XmlStreamStore.AutoFlush
@@ -151,12 +151,12 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Gets or sets a value that indicates whether data in annotation buffers is to be written immediately to the physical data store."
+  summary: "Obtém ou define um valor que indica se os dados nos buffers de anotação a ser gravado imediatamente para o repositório de dados físico."
   syntax:
     content: public override bool AutoFlush { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if data in annotation buffers is to be written immediately to the physical data store for each operation; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if data in the annotation buffers is to be written when the application explicitly calls <xref:System.Windows.Annotations.Storage.XmlStreamStore.Flush*>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se for de dados em buffers de anotação a ser gravado imediatamente para o repositório de dados físico para cada operação. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se for de dados nos buffers de anotação a ser gravado quando o aplicativo chama explicitamente <xref:System.Windows.Annotations.Storage.XmlStreamStore.Flush*>.</xref:System.Windows.Annotations.Storage.XmlStreamStore.Flush*>"
   overload: System.Windows.Annotations.Storage.XmlStreamStore.AutoFlush*
   exceptions: []
   platform:
@@ -173,7 +173,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Deletes the annotation with the specified <xref:System.Windows.Annotations.Annotation.Id*> from the store."
+  summary: "Exclui a anotação com especificado <xref:System.Windows.Annotations.Annotation.Id*>do repositório.</xref:System.Windows.Annotations.Annotation.Id*>"
   remarks: ''
   example:
   - "The following example shows use of the DeleteAnnotation and <xref:System.Windows.Annotations.Storage.XmlStreamStore.Flush%2A> methods.  \n  \n [!code-cs[DocumentSerialize#DocSerDelete](~/add/codesnippet/csharp/DocumentSerialize/ThumbViewer.cs#docserdelete)]"
@@ -182,18 +182,18 @@ items:
     parameters:
     - id: annotationId
       type: System.Guid
-      description: "The [!INCLUDE[TLA#tla_guid](~/add/includes/ajax-current-ext-md.md)] <xref:System.Windows.Annotations.Annotation.Id*> property of the annotation to be deleted."
+      description: "O [!INCLUDE[TLA#tla_guid](~/add/includes/ajax-current-ext-md.md)] <xref:System.Windows.Annotations.Annotation.Id*>propriedade de anotação a ser excluído.</xref:System.Windows.Annotations.Annotation.Id*>"
     return:
       type: System.Windows.Annotations.Annotation
-      description: "The annotation that was deleted; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if an annotation with the specified <code>annotationId</code> was not found in the store."
+      description: "A anotação que foi excluída; Caso contrário, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se uma anotação com especificado <code> annotationId </code> não foi encontrado no repositório."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.DeleteAnnotation*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*> has been called on the store."
+    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>foi chamado no repositório.</xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An I/O <xref:System.IO.Stream> has not been set for the store."
+    description: "Uma e/s <xref:System.IO.Stream>não foi definido para o repositório.</xref:System.IO.Stream>"
   platform:
   - net462
 - uid: System.Windows.Annotations.Storage.XmlStreamStore.Dispose(System.Boolean)
@@ -213,7 +213,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.Dispose*
   exceptions: []
   platform:
@@ -230,7 +230,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Forces any annotation data retained in internal buffers to be written to the underlying storage device."
+  summary: "Força a nenhum dado de anotação retidos em buffers internos para ser gravado no dispositivo de armazenamento subjacente."
   remarks: ''
   example:
   - "The following example shows how to use the Flush method when the application closes the <xref:System.Windows.Annotations.AnnotationService>.  \n  \n [!code-cs[DocViewerAnnotationsXps#StopAnnotations](~/add/codesnippet/csharp/DocViewerAnnotationsXps/AnnotationsHelperXps.cs#stopannotations)]\n [!code-vb[DocViewerAnnotationsXps#StopAnnotations](~/add/codesnippet/visualbasic/docviewerannotationsxps/annotationshelperxps.vb#stopannotations)]  \n  \n The following example shows use of the <xref:System.Windows.Annotations.Storage.XmlStreamStore.DeleteAnnotation%2A> and Flush methods.  \n  \n [!code-cs[DocumentSerialize#DocSerDelete](~/add/codesnippet/csharp/DocumentSerialize/ThumbViewer.cs#docserdelete)]"
@@ -241,13 +241,13 @@ items:
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*> has been called on the store."
+    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>foi chamado no repositório.</xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>"
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "An I/O <xref:System.IO.Stream> has not been set for the store."
+    description: "Uma e/s <xref:System.IO.Stream>não foi definido para o repositório.</xref:System.IO.Stream>"
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The store I/O <xref:System.IO.Stream> is read-only and cannot be accessed for output."
+    description: "E/s de armazenamento <xref:System.IO.Stream>é somente leitura e não pode ser acessada para saída.</xref:System.IO.Stream>"
   platform:
   - net462
 - uid: System.Windows.Annotations.Storage.XmlStreamStore.GetAnnotation(System.Guid)
@@ -262,21 +262,21 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Returns the annotation with the specified <xref:System.Windows.Annotations.Annotation.Id*> from the store."
+  summary: "Retorna a anotação com especificado <xref:System.Windows.Annotations.Annotation.Id*>do repositório.</xref:System.Windows.Annotations.Annotation.Id*>"
   syntax:
     content: public override System.Windows.Annotations.Annotation GetAnnotation (Guid annotationId);
     parameters:
     - id: annotationId
       type: System.Guid
-      description: "The [!INCLUDE[TLA#tla_guid](~/add/includes/ajax-current-ext-md.md)] <xref:System.Windows.Annotations.Annotation.Id*> property of the annotation to be returned."
+      description: "O [!INCLUDE[TLA#tla_guid](~/add/includes/ajax-current-ext-md.md)] <xref:System.Windows.Annotations.Annotation.Id*>propriedade de anotação a ser retornado.</xref:System.Windows.Annotations.Annotation.Id*>"
     return:
       type: System.Windows.Annotations.Annotation
-      description: "The annotation with the given <code>annotationId</code>; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if an annotation with the specified <code>annotationId</code> was not found in the store."
+      description: "A anotação com o determinado <code> annotationId </code>; caso contrário, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se uma anotação com especificado <code> annotationId </code> não foi encontrado no repositório."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.GetAnnotation*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*> has been called on the store."
+    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>foi chamado no repositório.</xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>"
   platform:
   - net462
 - uid: System.Windows.Annotations.Storage.XmlStreamStore.GetAnnotations
@@ -291,8 +291,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Returns a list of all the annotations in the store."
-  remarks: "The GetAnnotations method will never return `null`; however the list may be empty if the store contains no annotations."
+  summary: "Retorna uma lista de todas as anotações no repositório."
+  remarks: "O método GetAnnotations nunca retornarão `null`; no entanto, a lista pode estar vazia se o repositório contém sem anotações."
   example:
   - "The following example shows how to use the GetAnnotations method to determine whether there are any annotations in the store.  \n  \n [!code-cs[DocumentSerialize#DocSerCloseFile](~/add/codesnippet/csharp/DocumentSerialize/ThumbViewer.cs#docserclosefile)]"
   syntax:
@@ -300,12 +300,12 @@ items:
     parameters: []
     return:
       type: System.Collections.Generic.IList{System.Windows.Annotations.Annotation}
-      description: "The list of all annotations that are currently in the store."
+      description: "A lista de todas as anotações que estão atualmente no repositório."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.GetAnnotations*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*> has been called on the store."
+    description: "<xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>foi chamado no repositório.</xref:System.Windows.Annotations.Storage.AnnotationStore.Dispose*>"
   platform:
   - net462
 - uid: System.Windows.Annotations.Storage.XmlStreamStore.GetAnnotations(System.Windows.Annotations.ContentLocator)
@@ -320,8 +320,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Returns a list of annotations that have <xref:System.Windows.Annotations.Annotation.Anchors*> with locators that begin with a matching <xref href=&quot;System.Windows.Annotations.ContentLocatorPart&quot;></xref> sequence."
-  remarks: "This GetAnnotations method internally uses the <xref:System.Windows.Annotations.ContentLocator.StartsWith%2A> method of the <xref:System.Windows.Annotations.ContentLocator> class to search and match for the annotations to return."
+  summary: "Retorna uma lista de anotações que têm <xref:System.Windows.Annotations.Annotation.Anchors*>com localizadores que começam com uma correspondência <xref href=&quot;System.Windows.Annotations.ContentLocatorPart&quot;> </xref> sequência.</xref:System.Windows.Annotations.Annotation.Anchors*>"
+  remarks: "Esse método GetAnnotations internamente usa o <xref:System.Windows.Annotations.ContentLocator.StartsWith%2A>método o <xref:System.Windows.Annotations.ContentLocator>classe para pesquisar e corresponder para as anotações retornar.</xref:System.Windows.Annotations.ContentLocator> </xref:System.Windows.Annotations.ContentLocator.StartsWith%2A>"
   example:
   - "The following example shows how to use the <xref:System.Windows.Annotations.Storage.XmlStreamStore.GetAnnotations%2A> method to determine whether there are any annotations in the store.  \n  \n [!code-cs[DocumentSerialize#DocSerCloseFile](~/add/codesnippet/csharp/DocumentSerialize/ThumbViewer.cs#docserclosefile)]"
   syntax:
@@ -329,10 +329,10 @@ items:
     parameters:
     - id: anchorLocator
       type: System.Windows.Annotations.ContentLocator
-      description: "The starting <xref href=&quot;System.Windows.Annotations.ContentLocatorPart&quot;></xref> sequence to return matching annotations for."
+      description: "A partir <xref href=&quot;System.Windows.Annotations.ContentLocatorPart&quot;> </xref> sequência de retorno correspondentes anotações para."
     return:
       type: System.Collections.Generic.IList{System.Windows.Annotations.Annotation}
-      description: "The list of annotations that have <xref:System.Windows.Annotations.Annotation.Anchors*> with locators that start and match the given <code>anchorLocator</code>; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no matching annotations were found."
+      description: "A lista de anotações que têm <xref:System.Windows.Annotations.Annotation.Anchors*>com localizadores que iniciam e correspondem a determinado <code> anchorLocator </code>; caso contrário, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não há anotações correspondentes foram encontradas.</xref:System.Windows.Annotations.Annotation.Anchors*>"
   overload: System.Windows.Annotations.Storage.XmlStreamStore.GetAnnotations*
   exceptions: []
   platform:
@@ -349,17 +349,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Returns a list of namespaces that are compatible as an input namespace."
-  remarks: "The `name` parameter works only for predefined [!INCLUDE[TLA#tla_caf](~/add/includes/tlasharptla-caf-md.md)] namespaces.  For any other namespace given in the `name` parameter GetWellKnownCompatibleNamespaces will return `null`, even those namespaces registered through the `knownNamespaces` parameter of the <xref:System.Windows.Annotations.Storage.XmlStreamStore.%23ctor%2A> constructor.       The namespaces predefined by the [!INCLUDE[TLA2#tla_caf](~/add/includes/tla2sharptla-caf-md.md)] include the following:      -   http://schemas.microsoft.com/windows/annotations/2003/11/core      -   http://schemas.microsoft.com/windows/annotations/2003/11/base      -   http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  summary: "Retorna uma lista de namespaces compatíveis como um espaço para nome de entrada."
+  remarks: "O `name` parâmetro funciona somente para predefinidos [!INCLUDE[TLA#tla_caf](~/add/includes/tlasharptla-caf-md.md)] namespaces.  Para qualquer outro namespace fornecido no `name` parâmetro GetWellKnownCompatibleNamespaces retornará `null`, até mesmo os namespaces registrado por meio de `knownNamespaces` parâmetro do <xref:System.Windows.Annotations.Storage.XmlStreamStore.%23ctor%2A>construtor.</xref:System.Windows.Annotations.Storage.XmlStreamStore.%23ctor%2A>       Os namespaces predefinidos pelo [!INCLUDE[TLA2#tla_caf](~/add/includes/tla2sharptla-caf-md.md)] incluem o seguinte: - http://schemas.microsoft.com/windows/annotations/2003/11/core - http://schemas.microsoft.com/windows/annotations/2003/11/base - http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   syntax:
     content: public static System.Collections.Generic.IList<Uri> GetWellKnownCompatibleNamespaces (Uri name);
     parameters:
     - id: name
       type: System.Uri
-      description: "The starting URI sequence to return the list of namespaces for."
+      description: "A sequência inicial de URI para retornar a lista de namespaces para."
     return:
       type: System.Collections.Generic.IList{System.Uri}
-      description: "A list of compatible namespaces that match <code>name</code>; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there are no compatible namespaces found."
+      description: "Uma lista de namespaces compatíveis que correspondem a <code> name </code>; caso contrário, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não há nenhum namespace compatível encontrado."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.GetWellKnownCompatibleNamespaces*
   exceptions: []
   platform:
@@ -376,13 +376,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Gets a list of the namespaces that were ignored when the XML stream was loaded."
-  remarks: "The IgnoredNamespaces property will never return `null`, however the returned list can be empty if no namespaces are ignored.       IgnoredNamespaces helps in XML markup compatibility when the program reads annotation content created by different versions of the [!INCLUDE[TLA#tla_caf](~/add/includes/tlasharptla-caf-md.md)].  When an older application is given annotation content created using a newer version of the [!INCLUDE[TLA2#tla_caf](~/add/includes/tla2sharptla-caf-md.md)], IgnoredNamespaces returns a list of the XML namespaces for elements and attributes not known to the older framework.  Unknown XML elements and attributes associated with newer namespaces are ignored when the annotation content is read and deserialized by the older application.  For more information see the *XML Markup Compatibility Specification* available at [http://go.microsoft.com/fwlink/?LinkId=73824](http://go.microsoft.com/fwlink/?LinkId=73824)."
+  summary: "Obtém uma lista de namespaces que foram ignoradas quando o fluxo XML foi carregado."
+  remarks: "A propriedade IgnoredNamespaces nunca retornarão `null`, no entanto, a lista retornada pode ser vazia se nenhum namespace é ignorado.       IgnoredNamespaces ajuda a compatibilidade de marcação XML quando o programa lê o conteúdo de anotação criada por versões diferentes do [!INCLUDE[TLA#tla_caf](~/add/includes/tlasharptla-caf-md.md)].  Quando um aplicativo mais antigo recebe conteúdo de anotação criado usando uma versão mais recente do [!INCLUDE[TLA2#tla_caf](~/add/includes/tla2sharptla-caf-md.md)], IgnoredNamespaces retorna uma lista de namespaces XML para elementos e atributos não são conhecidos para a estrutura mais antiga.  Desconhecido elementos e atributos XML associados a namespaces mais recentes são ignorados quando o conteúdo da anotação é lida e desserializado por aplicativos mais antigos.  Para obter mais informações, consulte o *especificação de compatibilidade de marcação XML* disponível em [http://go.microsoft.com/fwlink/?LinkId=73824](http://go.microsoft.com/fwlink/?LinkId=73824)."
   syntax:
     content: public System.Collections.Generic.IList<Uri> IgnoredNamespaces { get; }
     return:
       type: System.Collections.Generic.IList{System.Uri}
-      description: "The list of the namespaces that were ignored when the XML stream was loaded."
+      description: "A lista de namespaces que foram ignoradas quando o fluxo XML foi carregado."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.IgnoredNamespaces*
   exceptions: []
   platform:
@@ -404,7 +404,7 @@ items:
     parameters:
     - id: e
       type: System.Windows.Annotations.Storage.StoreContentChangedEventArgs
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.OnStoreContentChanged*
   exceptions: []
   platform:
@@ -421,13 +421,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Annotations.Storage
-  summary: "Gets a list of all namespaces that are predefined by the [!INCLUDE[TLA2#tla_caf](~/add/includes/tla2sharptla-caf-md.md)]."
-  remarks: "The namespaces predefined by the [!INCLUDE[TLA2#tla_caf](~/add/includes/tla2sharptla-caf-md.md)] include the following:      -   http://schemas.microsoft.com/windows/annotations/2003/11/core      -   http://schemas.microsoft.com/windows/annotations/2003/11/base      -   http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  summary: "Obtém uma lista de todos os namespaces predefinidos pelo [!INCLUDE[TLA2#tla_caf](~/add/includes/tla2sharptla-caf-md.md)]."
+  remarks: "Os namespaces predefinidos pelo [!INCLUDE[TLA2#tla_caf](~/add/includes/tla2sharptla-caf-md.md)] incluem o seguinte: - http://schemas.microsoft.com/windows/annotations/2003/11/core - http://schemas.microsoft.com/windows/annotations/2003/11/base - http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   syntax:
     content: public static System.Collections.Generic.IList<Uri> WellKnownNamespaces { get; }
     return:
       type: System.Collections.Generic.IList{System.Uri}
-      description: "The list of namespaces that are predefined by the [!INCLUDE[TLA#tla_caf](~/add/includes/tlasharptla-caf-md.md)]."
+      description: "A lista de namespaces predefinidos pelo [!INCLUDE[TLA#tla_caf](~/add/includes/tlasharptla-caf-md.md)]."
   overload: System.Windows.Annotations.Storage.XmlStreamStore.WellKnownNamespaces*
   exceptions: []
   platform:

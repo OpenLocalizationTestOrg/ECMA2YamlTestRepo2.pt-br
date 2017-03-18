@@ -29,8 +29,8 @@ items:
   nameWithType: SecurityElement
   fullName: System.Security.SecurityElement
   type: Class
-  summary: "Represents the XML object model for encoding security objects. This class cannot be inherited."
-  remarks: "This class is intended to be a lightweight implementation of a simple XML object model for use within the security system, and not for use as a general XML object model. This documentation assumes a basic knowledge of XML.       The simple XML object model for an element consists of the following parts:      -   The tag is the element name.      -   The attributes are zero or more name/value attribute pairs on the element.      -   The children are zero or more elements nested within `<tag>` and `</tag>`.       It is strongly suggested that attribute based XML representation is used to express security elements and their values. This means properties of an element are expressed as attributes and property values are expressed as attribute values. Avoid nesting text within tags. For any `<tag>text</tag>` representation a representation of type `<tag value=&quot;text&quot;/>` is usually available. Using this attribute-based XML representation increases readability and allows easy WMI portability of the resulting XML serialization.       An attribute name must be one character or longer, and cannot be `null`. If element-based value representation is used, elements with a text string that is `null` are represented in the `<tag/>` form; otherwise, text is delimited by the `<tag>` and `</tag>` tokens. Both forms can be combined with attributes, which are shown if present.       The tags, attributes, and text of elements, if present, are always case-sensitive. The XML form contains quotations and escapes where necessary. String values that include characters invalid for use in XML result in an <xref:System.ArgumentException>. These rules apply to all properties and methods.      > [!NOTE] >  For performance reasons, character validity is only checked when the element is encoded into XML text form, and not on every set of a property or method. Static methods allow explicit checking where needed."
+  summary: "Representa o modelo de objeto para objetos de segurança de codificação XML. Essa classe não pode ser herdada."
+  remarks: "Essa classe é destinada para ser uma simples implementação de um modelo de objeto XML simples para uso dentro do sistema de segurança e não para uso como um modelo de objeto XML geral. Esta documentação pressupõe um conhecimento básico de XML.       O modelo de objeto XML simple para um elemento consiste das seguintes partes:-a marca é o nome do elemento.      -Os atributos são zero ou mais pares de atributo no elemento de nome/valor.      -Os filhos são zero ou mais elementos aninhados `<tag>` e `</tag>`.       É altamente recomendável que representação do atributo com base em XML é usada para expressar os elementos de segurança e seus valores. Isso significa que propriedades de um elemento são expressas como atributos e valores de propriedade são expressos como valores de atributo. Evite aninhamento texto dentro de marcas. Para qualquer `<tag>text</tag>` representação de uma representação de tipo `<tag value=&quot;text&quot;/>` normalmente está disponível. Usando essa representação de XML com base em atributo aumenta a legibilidade e permite a portabilidade WMI fácil de serialização XML resultante.       Um nome de atributo deve ser um caractere ou maior e não pode ser `null`. Se o valor com base no elemento de representação é usada, os elementos com um texto de cadeia de caracteres que é `null` são representados no `<tag/>` formulário; caso contrário, o texto é delimitado pelo `<tag>` e `</tag>` tokens. Ambos os formulários podem ser combinados com atributos, que são mostrados se estiver presente.       As marcas, atributos e texto de elementos, se presente, sempre diferenciam maiusculas de minúsculas. O formulário XML contém aspas e ignora quando necessário. Valores de cadeia de caracteres que incluam caracteres inválidos para uso em XML resultam em um <xref:System.ArgumentException>.</xref:System.ArgumentException> Essas regras se aplicam a todas as propriedades e métodos.      > [!NOTE] > Por motivos de desempenho, validade de caractere é verificada apenas quando o elemento está codificado no formato de texto XML e não em cada conjunto de uma propriedade ou método. Métodos estáticos permitem explícitos de verificação quando necessário."
   example:
   - "The following example shows the use of members of the SecurityElement class.  \n  \n [!code-vb[SecurityElementMembers#1](~/add/codesnippet/visualbasic/t-system.security.securi_1.vb)]\n [!code-cpp[SecurityElementMembers#1](~/add/codesnippet/cpp/t-system.security.securi_1.cpp)]\n [!code-cs[SecurityElementMembers#1](~/add/codesnippet/csharp/t-system.security.securi_1.cs)]"
   syntax:
@@ -56,8 +56,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.SecurityElement&quot;></xref> class with the specified tag."
-  remarks: "The `tag` parameter must consist of a valid XML tag name. Use <xref:System.Security.SecurityElement.Escape%2A> to remove invalid characters from the string."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Security.SecurityElement&quot;> </xref> classe com a marca especificada."
+  remarks: "O `tag` parâmetro deve conter um nome de marca XML válido. Use <xref:System.Security.SecurityElement.Escape%2A>para remover caracteres inválidos de cadeia de caracteres.</xref:System.Security.SecurityElement.Escape%2A>"
   example:
   - "The following code shows the use of  the SecurityElement constructor to create a new <xref:System.Security.SecurityElement> object.  This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#2](~/add/codesnippet/visualbasic/m-system.security.securi_8_1.vb)]\n [!code-cpp[SecurityElementMembers#2](~/add/codesnippet/cpp/m-system.security.securi_8_1.cpp)]\n [!code-cs[SecurityElementMembers#2](~/add/codesnippet/csharp/m-system.security.securi_8_1.cs)]"
   syntax:
@@ -65,7 +65,7 @@ items:
     parameters:
     - id: tag
       type: System.String
-      description: "The tag name of an XML element."
+      description: "O nome da marca de um elemento XML."
   overload: System.Security.SecurityElement.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -73,7 +73,7 @@ items:
     description: "The <code>tag</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>tag</code> parameter is invalid in XML."
+    description: "O <code> tag </code> parâmetro é inválido no XML."
   platform:
   - net462
 - uid: System.Security.SecurityElement.#ctor(System.String,System.String)
@@ -88,17 +88,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.SecurityElement&quot;></xref> class with the specified tag and text."
-  remarks: "If the `text` parameter is `null` this constructor produces an element identical to the default constructor."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Security.SecurityElement&quot;> </xref> classe com o texto e a marca especificada."
+  remarks: "Se o `text` parâmetro é `null` este construtor produz um elemento idêntico para o construtor padrão."
   syntax:
     content: public SecurityElement (string tag, string text);
     parameters:
     - id: tag
       type: System.String
-      description: "The tag name of the XML element."
+      description: "O nome da marca do elemento XML."
     - id: text
       type: System.String
-      description: "The text content within the element."
+      description: "O conteúdo do texto dentro do elemento."
   overload: System.Security.SecurityElement.#ctor*
   exceptions:
   - type: System.ArgumentNullException
@@ -106,7 +106,7 @@ items:
     description: "The <code>tag</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>tag</code> parameter or <code>text</code> parameter is invalid in XML."
+    description: "O <code> tag </code> parâmetro ou <code> text </code> parâmetro é inválido no XML."
   platform:
   - net462
 - uid: System.Security.SecurityElement.AddAttribute(System.String,System.String)
@@ -121,8 +121,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Adds a name/value attribute to an XML element."
-  remarks: "Names and values in attributes should only contain valid XML attribute characters. XML attribute names must be unique. Use <xref:System.Security.SecurityElement.Escape%2A> to remove invalid characters from the string.       There is no support for quoted strings, so strings for name/value pairs should not contain quotes or other characters requiring quoting."
+  summary: "Adiciona um atributo de nome/valor para um elemento XML."
+  remarks: "Nomes e valores de atributos só devem conter caracteres de atributo XML válidos. Nomes de atributo do XML devem ser exclusivos. Use <xref:System.Security.SecurityElement.Escape%2A>para remover caracteres inválidos de cadeia de caracteres.</xref:System.Security.SecurityElement.Escape%2A>       Não há nenhum suporte para cadeias de caracteres entre aspas, para que cadeias de caracteres de pares nome/valor não devem conter aspas ou outros caracteres necessidade de delimitação."
   example:
   - "The following code shows the use of the AddAttribute method to add a name/value attribute to an XML element. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#4](~/add/codesnippet/visualbasic/m-system.security.securi_5_1.vb)]\n [!code-cpp[SecurityElementMembers#4](~/add/codesnippet/cpp/m-system.security.securi_5_1.cpp)]\n [!code-cs[SecurityElementMembers#4](~/add/codesnippet/csharp/m-system.security.securi_5_1.cs)]"
   syntax:
@@ -130,10 +130,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the attribute."
+      description: "O nome do atributo."
     - id: value
       type: System.String
-      description: "The value of the attribute."
+      description: "O valor do atributo."
   overload: System.Security.SecurityElement.AddAttribute*
   exceptions:
   - type: System.ArgumentNullException
@@ -141,7 +141,7 @@ items:
     description: "The <code>name</code> parameter or <code>value</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>name</code> parameter or <code>value</code> parameter is invalid in XML.       -or-       An attribute with the name specified by the <code>name</code> parameter already exists."
+    description: "O <code> name </code> parâmetro ou <code> value </code> parâmetro é inválido no XML.       Um atributo com o nome especificado pelo - ou - o <code> name </code> parâmetro já existe."
   platform:
   - net462
 - uid: System.Security.SecurityElement.AddChild(System.Security.SecurityElement)
@@ -156,8 +156,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Adds a child element to the XML element."
-  remarks: "The child element is added following any previously existing child elements."
+  summary: "Adiciona um elemento filho ao elemento XML."
+  remarks: "O elemento filho é adicionado após os elementos de filho anteriormente existentes."
   example:
   - "The following code shows the use of the AddChild method to add a child element to the XML element.  This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#5](~/add/codesnippet/visualbasic/m-system.security.securi_11_1.vb)]\n [!code-cpp[SecurityElementMembers#5](~/add/codesnippet/cpp/m-system.security.securi_11_1.cpp)]\n [!code-cs[SecurityElementMembers#5](~/add/codesnippet/csharp/m-system.security.securi_11_1.cs)]"
   syntax:
@@ -165,7 +165,7 @@ items:
     parameters:
     - id: child
       type: System.Security.SecurityElement
-      description: "The child element to add."
+      description: "O elemento filho para adicionar."
   overload: System.Security.SecurityElement.AddChild*
   exceptions:
   - type: System.ArgumentNullException
@@ -185,8 +185,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Finds an attribute by name in an XML element."
-  remarks: "With XML as follows, `Attribute(&quot;B&quot;)` would return &quot;456&quot;.      ```   <thetag A=&quot;123&quot; B=&quot;456&quot; C=&quot;789&quot;>text</thetag>   ```"
+  summary: "Localiza um atributo por nome em um elemento XML."
+  remarks: "Com o XML da seguinte maneira, `Attribute(&quot;B&quot;)` retornaria &quot;456&quot;.      ```   <thetag A=&quot;123&quot; B=&quot;456&quot; C=&quot;789&quot;>text</thetag>   ```"
   example:
   - "The following code shows the use of the Attribute method to find an attribute by name. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#13](~/add/codesnippet/visualbasic/m-system.security.securi_9_1.vb)]\n [!code-cpp[SecurityElementMembers#13](~/add/codesnippet/cpp/m-system.security.securi_9_1.cpp)]\n [!code-cs[SecurityElementMembers#13](~/add/codesnippet/csharp/m-system.security.securi_9_1.cs)]"
   syntax:
@@ -194,10 +194,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The name of the attribute for which to search."
+      description: "O nome do atributo que deseja pesquisar."
     return:
       type: System.String
-      description: "The value associated with the named attribute, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no attribute with <code>name</code> exists."
+      description: "O valor associado com o atributo nomeado, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se nenhum atributo com <code> name </code> existe."
   overload: System.Security.SecurityElement.Attribute*
   exceptions:
   - type: System.ArgumentNullException
@@ -217,23 +217,23 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Gets or sets the attributes of an XML element as name/value pairs."
-  remarks: "Each attribute is stored in the <xref:System.Collections.Hashtable> as a name/value pair.       Names and values in attributes should contain only valid XML attribute characters. Use <xref:System.Security.SecurityElement.Escape%2A> to remove invalid characters from the string.       There is no support for quoted strings, so strings for name/value pairs should not contain quotes or other characters requiring quoting."
+  summary: "Obtém ou define os atributos de um elemento XML como pares nome/valor."
+  remarks: "Cada atributo é armazenado no <xref:System.Collections.Hashtable>como um par nome/valor.</xref:System.Collections.Hashtable>       Nomes e valores de atributos devem conter apenas caracteres de atributo XML válidos. Use <xref:System.Security.SecurityElement.Escape%2A>para remover caracteres inválidos de cadeia de caracteres.</xref:System.Security.SecurityElement.Escape%2A>       Não há nenhum suporte para cadeias de caracteres entre aspas, para que cadeias de caracteres de pares nome/valor não devem conter aspas ou outros caracteres necessidade de delimitação."
   example:
   - "The following code shows the use of the Attributes property to get an attribute of an XML element. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#15](~/add/codesnippet/visualbasic/p-system.security.securi_3_1.vb)]\n [!code-cpp[SecurityElementMembers#15](~/add/codesnippet/cpp/p-system.security.securi_3_1.cpp)]\n [!code-cs[SecurityElementMembers#15](~/add/codesnippet/csharp/p-system.security.securi_3_1.cs)]"
   syntax:
     content: public System.Collections.Hashtable Attributes { get; set; }
     return:
       type: System.Collections.Hashtable
-      description: "The <xref href=&quot;System.Collections.Hashtable&quot;></xref> object for the attribute values of the XML element."
+      description: "O <xref href=&quot;System.Collections.Hashtable&quot;> </xref> objeto para os valores de atributo do elemento XML."
   overload: System.Security.SecurityElement.Attributes*
   exceptions:
   - type: System.InvalidCastException
     commentId: T:System.InvalidCastException
-    description: "The name or value of the <xref href=&quot;System.Collections.Hashtable&quot;></xref> object is invalid."
+    description: "O nome ou o valor da <xref href=&quot;System.Collections.Hashtable&quot;> </xref> o objeto é inválido."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The name is not a valid XML attribute name."
+    description: "O nome não é um nome de atributo XML válido."
   platform:
   - net462
 - uid: System.Security.SecurityElement.Children
@@ -248,20 +248,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Gets or sets the array of child elements of the XML element."
-  remarks: "If a <xref:System.Security.SecurityElement> contains both <xref:System.Security.SecurityElement.Text%2A> and Children, <xref:System.Security.SecurityElement.Text%2A> will appear first."
+  summary: "Obtém ou define a matriz de elementos filho do elemento XML."
+  remarks: "Se um <xref:System.Security.SecurityElement>contém <xref:System.Security.SecurityElement.Text%2A>e filhos, <xref:System.Security.SecurityElement.Text%2A>aparecerão primeiro.</xref:System.Security.SecurityElement.Text%2A> </xref:System.Security.SecurityElement.Text%2A> </xref:System.Security.SecurityElement>"
   example:
   - "The following code shows the use of the Children property to get the array of child elements of the XML element. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#14](~/add/codesnippet/visualbasic/p-system.security.securi_0_1.vb)]\n [!code-cpp[SecurityElementMembers#14](~/add/codesnippet/cpp/p-system.security.securi_0_1.cpp)]\n [!code-cs[SecurityElementMembers#14](~/add/codesnippet/csharp/p-system.security.securi_0_1.cs)]"
   syntax:
     content: public System.Collections.ArrayList Children { get; set; }
     return:
       type: System.Collections.ArrayList
-      description: "The ordered child elements of the XML element as security elements."
+      description: "Os elementos filho ordenados do elemento XML como elementos de segurança."
   overload: System.Security.SecurityElement.Children*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "A child of the XML parent node is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "É um filho do nó pai XML <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.Security.SecurityElement.Copy
@@ -276,14 +276,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates and returns an identical copy of the current <xref href=&quot;System.Security.SecurityElement&quot;></xref> object."
-  remarks: "The copy includes both the <xref:System.Security.SecurityElement.Children%2A> and <xref:System.Security.SecurityElement.Attributes%2A> properties."
+  summary: "Cria e retorna uma cópia idêntica do atual <xref href=&quot;System.Security.SecurityElement&quot;> </xref> objeto."
+  remarks: "A cópia inclui tanto o <xref:System.Security.SecurityElement.Children%2A>e <xref:System.Security.SecurityElement.Attributes%2A>Propriedades.</xref:System.Security.SecurityElement.Attributes%2A> </xref:System.Security.SecurityElement.Children%2A>"
   syntax:
     content: public System.Security.SecurityElement Copy ();
     parameters: []
     return:
       type: System.Security.SecurityElement
-      description: "A copy of the current <xref href=&quot;System.Security.SecurityElement&quot;></xref> object."
+      description: "Uma cópia do atual <xref href=&quot;System.Security.SecurityElement&quot;> </xref> objeto."
   overload: System.Security.SecurityElement.Copy*
   exceptions: []
   platform:
@@ -300,8 +300,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Compares two XML element objects for equality."
-  remarks: "If there are child elements, comparison extends recursively to them.       There is no support for comparing different XML representations of the same characters."
+  summary: "Compara dois objetos de elemento XML para igualdade."
+  remarks: "Se houver elementos filho, comparação estende recursivamente a eles.       Não há nenhum suporte para comparar as representações XML diferentes dos mesmos caracteres."
   example:
   - "The following code shows the use of the Equal method to compare two XML elements. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#22](~/add/codesnippet/visualbasic/m-system.security.securi_6_1.vb)]\n [!code-cpp[SecurityElementMembers#22](~/add/codesnippet/cpp/m-system.security.securi_6_1.cpp)]\n [!code-cs[SecurityElementMembers#22](~/add/codesnippet/csharp/m-system.security.securi_6_1.cs)]"
   syntax:
@@ -309,10 +309,10 @@ items:
     parameters:
     - id: other
       type: System.Security.SecurityElement
-      description: "An XML element object to which to compare the current XML element object."
+      description: "Um objeto de elemento XML para o qual comparar o objeto atual do elemento XML."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the tag, attribute names and values, child elements, and text fields in the current XML element are identical to their counterparts in the <code>other</code> parameter; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a marca, nomes de atributos e valores, elementos filho e campos de texto no elemento XML atual são idênticos às contrapartes no <code> other </code> parâmetro; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.SecurityElement.Equal*
   exceptions: []
   platform:
@@ -329,7 +329,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Replaces invalid XML characters in a string with their valid XML equivalent."
+  summary: "Substitui caracteres XML inválidos em uma cadeia de caracteres com seus equivalentes XML válido."
   remarks: "Use this method to replace invalid characters in a string before using the string in a <xref:System.Security.SecurityElement>. If invalid characters are used in a <xref:System.Security.SecurityElement> without being escaped, an <xref:System.ArgumentException> is thrown.  \n  \n The following table shows the invalid XML characters and their escaped equivalents.  \n  \n|invalid XML Character|Replaced With|  \n|---------------------------|-------------------|  \n|\"\\<\"|\"&lt;\"|  \n|\">\"|\"&gt;\"|  \n|\"\\\\\"\"|\"&quot;\"|  \n|\"\\\\'\"|\"&apos;\"|  \n|\"&\"|\"&amp;\"|"
   example:
   - "The following code shows the use of the Escape method to replace invalid XML characters in a string with their valid XML equivalent. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#19](~/add/codesnippet/visualbasic/m-system.security.securi_7_1.vb)]\n [!code-cpp[SecurityElementMembers#19](~/add/codesnippet/cpp/m-system.security.securi_7_1.cpp)]\n [!code-cs[SecurityElementMembers#19](~/add/codesnippet/csharp/m-system.security.securi_7_1.cs)]"
@@ -338,10 +338,10 @@ items:
     parameters:
     - id: str
       type: System.String
-      description: "The string within which to escape invalid characters."
+      description: "A cadeia de caracteres dentro do qual escapar caracteres inválidos."
     return:
       type: System.String
-      description: "The input string with invalid characters replaced."
+      description: "A cadeia de entrada com caracteres inválidos substituídos."
   overload: System.Security.SecurityElement.Escape*
   exceptions: []
   platform:
@@ -358,25 +358,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Creates a security element from an XML-encoded string."
+  summary: "Cria um elemento de segurança de uma cadeia de caracteres codificados em XML."
   remarks: "Do not use single quotation marks in the XML string; instead, use escaped double quotation marks. For example, instead of \"`<value name='Company'>Microsoft</value>\"` use \"`<value name=\\\"Company\\\">Microsoft</value>\"`.  \n  \n Using single quotation marks can result in either an exception being thrown or, in some cases, the single quotation marks being treated as text in the string."
   syntax:
     content: public static System.Security.SecurityElement FromString (string xml);
     parameters:
     - id: xml
       type: System.String
-      description: "The XML-encoded string from which to create the security element."
+      description: "A cadeia codificada em XML do qual criar o elemento de segurança."
     return:
       type: System.Security.SecurityElement
-      description: "A <xref href=&quot;System.Security.SecurityElement&quot;></xref> created from the XML."
+      description: "Um <xref href=&quot;System.Security.SecurityElement&quot;> </xref> criada do XML."
   overload: System.Security.SecurityElement.FromString*
   exceptions:
   - type: System.Security.XmlSyntaxException
     commentId: T:System.Security.XmlSyntaxException
-    description: "<code>xml</code> contains one or more single quotation mark characters."
+    description: "<code>xml</code>contém um ou mais caracteres de aspas simples."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>xml</code> is<xref uid=&quot;langword_csharp_ null&quot; name=&quot; null&quot; href=&quot;&quot;></xref>."
+    description: "<code>xml</code>is<xref uid=&quot;langword_csharp_ null&quot; name=&quot; null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.SecurityElement.IsValidAttributeName(System.String)
@@ -391,8 +391,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines whether a string is a valid attribute name."
-  remarks: "This method can be used to test an attribute before adding it to a security element."
+  summary: "Determina se uma cadeia de caracteres é um nome de atributo válido."
+  remarks: "Esse método pode ser usado para testar um atributo antes de adicionar um elemento de segurança."
   example:
   - "The following code shows the use of the IsValidAttributeName method to determine whether a string is a valid attribute name. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#6](~/add/codesnippet/visualbasic/m-system.security.securi_10_1.vb)]\n [!code-cpp[SecurityElementMembers#6](~/add/codesnippet/cpp/m-system.security.securi_10_1.cpp)]\n [!code-cs[SecurityElementMembers#6](~/add/codesnippet/csharp/m-system.security.securi_10_1.cs)]"
   syntax:
@@ -400,10 +400,10 @@ items:
     parameters:
     - id: name
       type: System.String
-      description: "The attribute name to test for validity."
+      description: "O nome do atributo para testar a validade."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>name</code> parameter is a valid XML attribute name; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <code> name </code> parâmetro é um atributo XML válido nome; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.SecurityElement.IsValidAttributeName*
   exceptions: []
   platform:
@@ -420,8 +420,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines whether a string is a valid attribute value."
-  remarks: "This method can be used to test an attribute before adding it to a security element."
+  summary: "Determina se uma cadeia de caracteres é um valor de atributo válido."
+  remarks: "Esse método pode ser usado para testar um atributo antes de adicionar um elemento de segurança."
   example:
   - "The following code shows the use of the IsValidAttributeValue method to determine whether a string is a valid attribute value. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#7](~/add/codesnippet/visualbasic/m-system.security.securi_4_1.vb)]\n [!code-cpp[SecurityElementMembers#7](~/add/codesnippet/cpp/m-system.security.securi_4_1.cpp)]\n [!code-cs[SecurityElementMembers#7](~/add/codesnippet/csharp/m-system.security.securi_4_1.cs)]"
   syntax:
@@ -429,10 +429,10 @@ items:
     parameters:
     - id: value
       type: System.String
-      description: "The attribute value to test for validity."
+      description: "O valor do atributo para testar a validade."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>value</code> parameter is a valid XML attribute value; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <code> value </code> parâmetro é um valor de atributo XML válido; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.SecurityElement.IsValidAttributeValue*
   exceptions: []
   platform:
@@ -449,8 +449,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines whether a string is a valid tag."
-  remarks: "This can be used to test a <xref:System.Security.SecurityElement.Tag%2A> before setting it."
+  summary: "Determina se uma cadeia de caracteres é uma marca válida."
+  remarks: "Isso pode ser usado para testar um <xref:System.Security.SecurityElement.Tag%2A>antes de definir o proprietário.</xref:System.Security.SecurityElement.Tag%2A>"
   example:
   - "The following code shows the use of the IsValidTag method to determine whether a string is a valid attribute tag. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#10](~/add/codesnippet/visualbasic/m-system.security.securi_3_1.vb)]\n [!code-cpp[SecurityElementMembers#10](~/add/codesnippet/cpp/m-system.security.securi_3_1.cpp)]\n [!code-cs[SecurityElementMembers#10](~/add/codesnippet/csharp/m-system.security.securi_3_1.cs)]"
   syntax:
@@ -458,10 +458,10 @@ items:
     parameters:
     - id: tag
       type: System.String
-      description: "The tag to test for validity."
+      description: "A marca para testar a validade."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>tag</code> parameter is a valid XML tag; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <code> tag </code> parâmetro é uma marca XML válida; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.SecurityElement.IsValidTag*
   exceptions: []
   platform:
@@ -478,8 +478,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Determines whether a string is valid as text within an XML element."
-  remarks: "This method can be used to test <xref:System.Security.SecurityElement.Text%2A> before setting it."
+  summary: "Determina se uma cadeia de caracteres é válida como texto dentro de um elemento XML."
+  remarks: "Esse método pode ser usado para testar <xref:System.Security.SecurityElement.Text%2A>antes de definir o proprietário.</xref:System.Security.SecurityElement.Text%2A>"
   example:
   - "The following code shows the use of the IsValidText method to determine whether a string is valid as XML element text. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#9](~/add/codesnippet/visualbasic/m-system.security.securi_2_1.vb)]\n [!code-cpp[SecurityElementMembers#9](~/add/codesnippet/cpp/m-system.security.securi_2_1.cpp)]\n [!code-cs[SecurityElementMembers#9](~/add/codesnippet/csharp/m-system.security.securi_2_1.cs)]"
   syntax:
@@ -487,10 +487,10 @@ items:
     parameters:
     - id: text
       type: System.String
-      description: "The text to test for validity."
+      description: "O texto para testar a validade."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>text</code> parameter is a valid XML text element; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <code> text </code> parâmetro é um elemento de texto XML válido; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.SecurityElement.IsValidText*
   exceptions: []
   platform:
@@ -507,8 +507,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Finds a child by its tag name."
-  remarks: "With XML as follows, `SearchForChildByTag(&quot;second&quot;)` would return the child element `<second>`.      ```   <thetag A=&quot;123&quot; B=&quot;456&quot; C=&quot;789&quot;> <first>text1</first>          <second>text2</second></thetag>   ```"
+  summary: "Localiza um filho por seu nome de marca."
+  remarks: "Com o XML da seguinte maneira, `SearchForChildByTag(&quot;second&quot;)` retornaria o elemento filho `<second>`.      ```   <thetag A=&quot;123&quot; B=&quot;456&quot; C=&quot;789&quot;> <first>text1</first>          <second>text2</second></thetag>   ```"
   example:
   - "The following code shows the use of the SearchForChildByTag method to find a child by its tag name. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#17](~/add/codesnippet/visualbasic/m-system.security.securi_1_1.vb)]\n [!code-cpp[SecurityElementMembers#17](~/add/codesnippet/cpp/m-system.security.securi_1_1.cpp)]\n [!code-cs[SecurityElementMembers#17](~/add/codesnippet/csharp/m-system.security.securi_1_1.cs)]"
   syntax:
@@ -516,10 +516,10 @@ items:
     parameters:
     - id: tag
       type: System.String
-      description: "The tag for which to search in child elements."
+      description: "A marca para a qual pesquisar nos elementos filho."
     return:
       type: System.Security.SecurityElement
-      description: "The first child XML element with the specified tag value, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if no child element with <code>tag</code> exists."
+      description: "O primeiro elemento XML filho com o valor da marca especificado, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se nenhum elemento filho com <code> tag </code> existe."
   overload: System.Security.SecurityElement.SearchForChildByTag*
   exceptions:
   - type: System.ArgumentNullException
@@ -539,8 +539,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Finds a child by its tag name and returns the contained text."
-  remarks: "This method is equivalent to the following:       [!code-vb[System.Security.SecurityElement#1](~/add/codesnippet/visualbasic/m-system.security.securi_0_1.vb)]  [!code-cpp[System.Security.SecurityElement#1](~/add/codesnippet/cpp/m-system.security.securi_0_1.cpp)]  [!code-cs[System.Security.SecurityElement#1](~/add/codesnippet/csharp/m-system.security.securi_0_1.cs)]       With XML as follows, `SearchForTextOfTag(&quot;second&quot;)` would return &quot;text2&quot;.      ```   <thetag A=&quot;123&quot; B=&quot;456&quot; C=&quot;789&quot;> <first>text1</first>       <second>text2</second></thetag>   ```"
+  summary: "Localiza um filho por seu nome de marca e retorna o texto contido."
+  remarks: "Esse método é equivalente ao seguinte: [!code-vb [System.Security.SecurityElement#1](~/add/codesnippet/visualbasic/m-system.security.securi_0_1.vb)][!code-cpp[System.Security.SecurityElement#1](~/add/codesnippet/cpp/m-system.security.securi_0_1.cpp)][!code-cs[System.Security.SecurityElement#1](~/add/codesnippet/csharp/m-system.security.securi_0_1.cs) ] com XML, como segue, `SearchForTextOfTag(&quot;second&quot;)` retornaria &quot;Texto2&quot;.          ```   <thetag A=&quot;123&quot; B=&quot;456&quot; C=&quot;789&quot;> <first>text1</first>       <second>text2</second></thetag>   ```"
   example:
   - "The following code shows the use of the SearchForTextOfTag method to find a child by its tag name and return the contained text. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#18](~/add/codesnippet/visualbasic/m-system.security.securi_0_2.vb)]\n [!code-cpp[SecurityElementMembers#18](~/add/codesnippet/cpp/m-system.security.securi_0_2.cpp)]\n [!code-cs[SecurityElementMembers#18](~/add/codesnippet/csharp/m-system.security.securi_0_2.cs)]"
   syntax:
@@ -548,15 +548,15 @@ items:
     parameters:
     - id: tag
       type: System.String
-      description: "The tag for which to search in child elements."
+      description: "A marca para a qual pesquisar nos elementos filho."
     return:
       type: System.String
-      description: "The text contents of the first child element with the specified tag value."
+      description: "O conteúdo de texto do primeiro elemento filho com o valor da marca especificado."
   overload: System.Security.SecurityElement.SearchForTextOfTag*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>tag</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>tag</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Security.SecurityElement.Tag
@@ -571,15 +571,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Gets or sets the tag name of an XML element."
-  remarks: "In XML, the tag appears in the script as appears below:      ```   <tag attributes>text</tag>   ```       If this element has child elements, the children will replace `text`.       Assign only valid XML tag strings to this property. Use <xref:System.Security.SecurityElement.Escape%2A> to remove invalid characters from the string."
+  summary: "Obtém ou define o nome da marca de um elemento XML."
+  remarks: "Em XML, a marca aparece no script conforme é exibida abaixo: ```   <tag attributes>text</tag>   ``` se este elemento tem elementos filho, os filhos substitui `text`.       Atribua apenas cadeias de marca XML válidas para essa propriedade. Use <xref:System.Security.SecurityElement.Escape%2A>para remover caracteres inválidos de cadeia de caracteres.</xref:System.Security.SecurityElement.Escape%2A>"
   example:
   - "The following code shows the use of the Tag property to get the tag name of an XML element. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#11](~/add/codesnippet/visualbasic/p-system.security.securi_1_1.vb)]\n [!code-cpp[SecurityElementMembers#11](~/add/codesnippet/cpp/p-system.security.securi_1_1.cpp)]\n [!code-cs[SecurityElementMembers#11](~/add/codesnippet/csharp/p-system.security.securi_1_1.cs)]"
   syntax:
     content: public string Tag { get; set; }
     return:
       type: System.String
-      description: "The tag name of an XML element."
+      description: "O nome da marca de um elemento XML."
   overload: System.Security.SecurityElement.Tag*
   exceptions:
   - type: System.ArgumentNullException
@@ -587,7 +587,7 @@ items:
     description: "The tag is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The tag is not valid in XML."
+    description: "A marca não é válida em XML."
   platform:
   - net462
 - uid: System.Security.SecurityElement.Text
@@ -602,20 +602,20 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Gets or sets the text within an XML element."
-  remarks: "The text should not contain XML special characters. Use <xref:System.Security.SecurityElement.Escape%2A> to remove invalid characters from the string.       If a <xref:System.Security.SecurityElement> contains both Text and <xref:System.Security.SecurityElement.Children%2A>, Text will appear first."
+  summary: "Obtém ou define o texto dentro de um elemento XML."
+  remarks: "O texto não deve conter caracteres especiais de XML. Use <xref:System.Security.SecurityElement.Escape%2A>para remover caracteres inválidos de cadeia de caracteres.</xref:System.Security.SecurityElement.Escape%2A>       Se um <xref:System.Security.SecurityElement>contém tanto texto e <xref:System.Security.SecurityElement.Children%2A>, o texto será exibido primeiro.</xref:System.Security.SecurityElement.Children%2A> </xref:System.Security.SecurityElement>"
   example:
   - "The following code shows the use of the Text property to get the text of an XML element. This code example is part of a larger example provided for the <xref:System.Security.SecurityElement> class.  \n  \n [!code-vb[SecurityElementMembers#12](~/add/codesnippet/visualbasic/p-system.security.securi_2_1.vb)]\n [!code-cpp[SecurityElementMembers#12](~/add/codesnippet/cpp/p-system.security.securi_2_1.cpp)]\n [!code-cs[SecurityElementMembers#12](~/add/codesnippet/csharp/p-system.security.securi_2_1.cs)]"
   syntax:
     content: public string Text { get; set; }
     return:
       type: System.String
-      description: "The value of the text within an XML element."
+      description: "O valor do texto dentro de um elemento XML."
   overload: System.Security.SecurityElement.Text*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The text is not valid in XML."
+    description: "O texto não é válido no XML."
   platform:
   - net462
 - uid: System.Security.SecurityElement.ToString
@@ -630,14 +630,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Produces a string representation of an XML element and its constituent attributes, child elements, and text."
-  remarks: "This method is useful in debugging to see the XML representation of the element."
+  summary: "Produz uma representação de cadeia de caracteres de um elemento XML e seus atributos constituintes, elementos filho e texto."
+  remarks: "Esse método é útil para depuração para ver a representação XML do elemento."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "The XML element and its contents."
+      description: "O elemento XML e seu conteúdo."
   overload: System.Security.SecurityElement.ToString*
   exceptions: []
   platform:

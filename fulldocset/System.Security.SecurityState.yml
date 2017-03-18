@@ -12,8 +12,8 @@ items:
   nameWithType: SecurityState
   fullName: System.Security.SecurityState
   type: Class
-  summary: "Provides a base class for requesting the security status of an action from the <xref href=&quot;System.AppDomainManager&quot;></xref> object."
-  remarks: "You must inherit from this class to provide a class that includes a property that specifies the security-sensitive action to be performed. The SecurityState object that is instantiated from the derived class is passed to the <xref:System.AppDomainManager.CheckSecuritySettings%2A?displayProperty=fullName> method to determine whether the host allows that action to be performed. The default implementation of the <xref:System.AppDomainManager.CheckSecuritySettings%2A> method always returns `false`.  The method must be overridden to detect the actions that are allowed.       For example, if you want to access a Web camera in your library code, you would create a `WebcamSecurityState` object and call the <xref:System.Security.SecurityState.EnsureState%2A> method to determine whether the host allows Web camera access, as shown in the following example.  (You can find the code for `WebcamSecurityState` in the &quot;Example&quot; section.)      ```   WebcamSecurityState securityState = new WebcamSecurityState(&quot;Safe access to Webcam&quot;, WebcamSecurityOptions.SafeAccess);   try   {      securityState.EnsureState();      // Allocate memory.      }   catch (ApplicationException e)   {       // Handle any exception that is thrown.       System.Diagnostics.Debug.WriteLine(e.Message);   }   ```       To process the call the <xref:System.AppDomainManager> must be made aware of `WebcamSecurityState` through an override of the <xref:System.AppDomainManager.CheckSecuritySettings%2A?displayProperty=fullName> method, as shown in the following example.      ```   [SecurityCritical]   public override bool CheckSecuritySettings(System.Security.SecurityState securityState)   {      switch (securityState.ToString())      {         case &quot;WebcamSecurityState&quot;:         {             if ((securityState as WebcamSecurityState).Options == WebcamSecurityOptions.SafeAccess)                 return PromptUser((securityState as WebcamSecurityState).Description);              return false;         }      }         return false;   }   private bool PromptUser(string text)   {      // Replace the OpenFileDialog with a custom user prompt.      OpenFileDialog o = new OpenFileDialog();      o.Title = text;      if (o.ShowDialog() == DialogResult.OK)         return true;      else         return false;   }      ```"
+  summary: "Fornece uma classe base para solicitar o status de segurança de uma ação do <xref href=&quot;System.AppDomainManager&quot;> </xref> objeto."
+  remarks: "Você deve herdar dessa classe para fornecer uma classe que inclui uma propriedade que especifica a ação de segurança a ser executada. O objeto de SecurityState é criar uma instância da classe derivada é passado para o <xref:System.AppDomainManager.CheckSecuritySettings%2A?displayProperty=fullName>método para determinar se o host permite que a ação ser executada.</xref:System.AppDomainManager.CheckSecuritySettings%2A?displayProperty=fullName> A implementação padrão da <xref:System.AppDomainManager.CheckSecuritySettings%2A>método sempre retornará `false`.</xref:System.AppDomainManager.CheckSecuritySettings%2A>  O método deve ser substituído para detectar as ações que são permitidas.       Por exemplo, se você quiser acessar uma webcam no seu código de biblioteca, você criaria um `WebcamSecurityState` objeto e chamar o <xref:System.Security.SecurityState.EnsureState%2A>método para determinar se o host permite acesso à câmera da Web, conforme mostrado no exemplo a seguir.</xref:System.Security.SecurityState.EnsureState%2A>  (Você pode encontrar o código para `WebcamSecurityState` na seção &quot;Exemplo&quot;.)      ```   WebcamSecurityState securityState = new WebcamSecurityState(&quot;Safe access to Webcam&quot;, WebcamSecurityOptions.SafeAccess);   try   {      securityState.EnsureState();      // Allocate memory.      }   catch (ApplicationException e)   {       // Handle any exception that is thrown.       System.Diagnostics.Debug.WriteLine(e.Message);   }   ```Para processar a chamada a <xref:System.AppDomainManager>devem estar cientes de `WebcamSecurityState` por meio de uma substituição do <xref:System.AppDomainManager.CheckSecuritySettings%2A?displayProperty=fullName>método, conforme mostrado no exemplo a seguir.</xref:System.AppDomainManager.CheckSecuritySettings%2A?displayProperty=fullName> </xref:System.AppDomainManager>      ```   [SecurityCritical]   public override bool CheckSecuritySettings(System.Security.SecurityState securityState)   {      switch (securityState.ToString())      {         case &quot;WebcamSecurityState&quot;:         {             if ((securityState as WebcamSecurityState).Options == WebcamSecurityOptions.SafeAccess)                 return PromptUser((securityState as WebcamSecurityState).Description);              return false;         }      }         return false;   }   private bool PromptUser(string text)   {      // Replace the OpenFileDialog with a custom user prompt.      OpenFileDialog o = new OpenFileDialog();      o.Title = text;      if (o.ShowDialog() == DialogResult.OK)         return true;      else         return false;   }      ```"
   example:
   - "The following example shows how to override the SecurityState class.  \n  \n```  \n[SecurityCritical]  \npublic enum WebcamSecurityOptions  \n    {  \n        SafeAccess,  \n        FullAccess  \n    }  \n[SecurityCritical]  \npublic class WebcamSecurityState : SecurityState  \n{  \n    public WebcamSecurityState(string description, WebcamSecurityOptions options)  \n    {  \n        Options = options;  \n        Description = description;  \n    }  \n    public WebcamSecurityOptions Options { get; set; }  \n    public string Description { get; set; }  \n    public override void EnsureState()  \n    {  \n       if (!IsStateAvailable())  \n           throw new ApplicationException(\"WebcamSecurityState not available\");  \n    }  \n }  \n  \n```"
   syntax:
@@ -39,7 +39,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Initializes a new instance of the <xref href=&quot;System.Security.SecurityState&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Security.SecurityState&quot;> </xref> classe."
   syntax:
     content: protected SecurityState ();
     parameters: []
@@ -59,8 +59,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "When overridden in a derived class, ensures that the state that is represented by <xref href=&quot;System.Security.SecurityState&quot;></xref> is available on the host."
-  remarks: "The implementation of this method should be similar to the following example.      ```   public override void EnsureState()   {       if (!IsStateAvailable())             throw new ApplicationException(&quot;WebcamSecurityState not available&quot;);   }      ```"
+  summary: "Quando substituído em uma classe derivada, garante que o estado é representado por <xref href=&quot;System.Security.SecurityState&quot;> </xref> está disponível no host."
+  remarks: "A implementação deste método deve ser semelhante ao exemplo a seguir.      ```   public override void EnsureState()   {       if (!IsStateAvailable())             throw new ApplicationException(&quot;WebcamSecurityState not available&quot;);   }      ```"
   syntax:
     content: public abstract void EnsureState ();
     parameters: []
@@ -80,14 +80,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Security
-  summary: "Gets a value that indicates whether the state for this implementation of the <xref href=&quot;System.Security.SecurityState&quot;></xref> class is available on the current host."
-  remarks: "IsStateAvailable calls the <xref:System.AppDomainManager.CheckSecuritySettings%2A?displayProperty=fullName> method to determine whether the state that is represented by this class is available on the host.       See the <xref:System.Security.SecurityState> class for an example implementation of the <xref:System.AppDomainManager.CheckSecuritySettings%2A> method."
+  summary: "Obtém um valor que indica se o estado para essa implementação de <xref href=&quot;System.Security.SecurityState&quot;> </xref> classe está disponível no host atual."
+  remarks: "Chamadas de IsStateAvailable a <xref:System.AppDomainManager.CheckSecuritySettings%2A?displayProperty=fullName>método para determinar se o estado que é representado por esta classe está disponível no host.</xref:System.AppDomainManager.CheckSecuritySettings%2A?displayProperty=fullName>       Consulte o <xref:System.Security.SecurityState>classe para um exemplo de implementação do <xref:System.AppDomainManager.CheckSecuritySettings%2A>método.</xref:System.AppDomainManager.CheckSecuritySettings%2A> </xref:System.Security.SecurityState>"
   syntax:
     content: public bool IsStateAvailable ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the state is available; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o estado está disponível. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Security.SecurityState.IsStateAvailable*
   exceptions: []
   platform:

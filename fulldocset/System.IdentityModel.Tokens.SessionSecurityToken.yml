@@ -33,8 +33,8 @@ items:
   nameWithType: SessionSecurityToken
   fullName: System.IdentityModel.Tokens.SessionSecurityToken
   type: Class
-  summary: "Defines a security token that contains data associated with a session."
-  remarks: "A session token stores the <xref:System.Security.Claims.ClaimsPrincipal> of the user that is associated with a session as well as other parameters that define the session; for example the session start and end times.       In passive scenarios, the <xref:System.IdentityModel.Services.WSFederationAuthenticationModule> calls into the <xref:System.IdentityModel.Services.SessionAuthenticationModule> (SAM) from the authentication pipeline to create a session token from the <xref:System.Security.Claims.ClaimsPrincipal> that represents the authenticated user. The SAM uses its configured <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> to create the token and to serialize it into a cookie (and to deserialize the token from a cookie on subsequent requests). The SAM uses an instance of its configured <xref:System.IdentityModel.Services.CookieHandler> class to write the cookie back to the HTTP Response. This cookie is then returned to the client and on subsequent requests the client can present the cookie rather than making a round trip back to the identity provider to re-obtain a security token. For more information about how sessions operate with WIF, see [WIF Session Management](~/add/includes/ajax-current-ext-md.md). For information about using sessions in Web farm scenarios, see [WIF and Web Farms](~/add/includes/ajax-current-ext-md.md).       A session token can operate in either reference mode or not. If the session token is not operating in reference mode, the entire token is serialized into the session cookie that is stored on the client. The serialized session token can be quite large and thus the cookie stored on the client can also be quite sizeable. In reference mode, rather than serializing the entire session token into the cookie, the token is stored in a session security token cache and only the information used to generate the key necessary to retrieve the token from the cache is stored in the cookie. This can greatly reduce the size of the cookie. The session token cache is implemented by a class derived from <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache> and the cache key is implemented by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey> class. The <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> and <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> properties are used in the <xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey> class to generate the cache key.       The <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> property determines whether the session token is in reference mode or not.      > [!IMPORTANT] >  To operate in reference mode, Microsoft recommends providing a handler for the <xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SessionSecurityTokenCreated?displayProperty=fullName> event in the global.asax.cs file and setting the <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> property on the token passed in the <xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A?displayProperty=fullName> property. This will ensure that the session token operates in reference mode for every request and is favored over merely setting the <xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A?displayProperty=fullName> property on the Session Authentication Module.       The <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> class provided with WIF serializes the session token as a WS-Secure Conversation `<wsc:SecurityContextToken>` element."
+  summary: "Define um token de segurança que contém os dados associados a uma sessão."
+  remarks: "Um token de sessão armazena o <xref:System.Security.Claims.ClaimsPrincipal>o usuário que está associado uma sessão, bem como outros parâmetros que definem a sessão; por exemplo, a sessão de início e de término.</xref:System.Security.Claims.ClaimsPrincipal>       Em cenários de passivos, o <xref:System.IdentityModel.Services.WSFederationAuthenticationModule>chama o <xref:System.IdentityModel.Services.SessionAuthenticationModule>(SAM) do pipeline para criar um token de sessão de autenticação a <xref:System.Security.Claims.ClaimsPrincipal>que representa o usuário autenticado.</xref:System.Security.Claims.ClaimsPrincipal> </xref:System.IdentityModel.Services.SessionAuthenticationModule> </xref:System.IdentityModel.Services.WSFederationAuthenticationModule> O SAM usa configurado <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>para criar o token e para serializá-lo em um cookie (e para desserializar o token de um cookie em solicitações subsequentes).</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> O SAM usa uma instância do seu configurado <xref:System.IdentityModel.Services.CookieHandler>classe para gravar o cookie de volta para a resposta HTTP.</xref:System.IdentityModel.Services.CookieHandler> Esse cookie é retornado ao cliente e em solicitações subsequentes de cliente pode apresentar o cookie em vez de fazer uma viagem de ida e volta para o provedor de identidade novamente obter um token de segurança. Para obter mais informações sobre como as sessões operam com WIF, consulte [gerenciamento de sessão do WIF](~/add/includes/ajax-current-ext-md.md). Para obter informações sobre como usar sessões em cenários de farm da Web, consulte [WIF e Web Farms](~/add/includes/ajax-current-ext-md.md).       Um token de sessão pode operar em modo de referência ou não. Se o token de sessão não está operando no modo de referência, o token inteiro é serializado no cookie de sessão é armazenado no cliente. O token de sessão serializado pode ser muito grande e, portanto, o cookie armazenado no cliente também pode ser bastante considerável. No modo de referência, em vez de serialização de toda a sessão, token no cookie, o token é armazenado em um cache de token de segurança de sessão e somente as informações usadas para gerar a chave necessária para recuperar o token do cache são armazenadas no cookie. Isso pode reduzir significativamente o tamanho do cookie. O cache de token de sessão é implementado por uma classe derivada de <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>e a chave de cache é implementada pela <xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey>classe.</xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey> </xref:System.IdentityModel.Tokens.SessionSecurityTokenCache> O <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>e <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>propriedades são usadas no <xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey>classe para gerar a chave de cache.</xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>       O <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>propriedade determina se o token de sessão está no modo de referência ou não.</xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>      > [!IMPORTANT] > Para operar no modo de referência, fornecendo um manipulador para a Microsoft recomenda o <xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SessionSecurityTokenCreated?displayProperty=fullName>eventos no arquivo global.asax.cs e configuração de <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>propriedade no token passado a <xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A?displayProperty=fullName>propriedade.</xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> </xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SessionSecurityTokenCreated?displayProperty=fullName> Isso garantirá que o token de sessão opera em modo de referência para cada solicitação e é favorecido em relação a simplesmente configurar o <xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A?displayProperty=fullName>propriedade sobre o módulo de autenticação de sessão.</xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A?displayProperty=fullName>       O <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>classe fornecida com o WIF serializa o token de sessão como WS-Secure Conversation `<wsc:SecurityContextToken>` elemento.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>"
   syntax:
     content: 'public class SessionSecurityToken : System.IdentityModel.Tokens.SecurityToken, System.Runtime.Serialization.ISerializable'
   inheritance:
@@ -61,19 +61,19 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> class from the specified principal."
-  remarks: "The following table shows initial property values for an instance of the <xref:System.IdentityModel.Tokens.SessionSecurityToken> class.      |Property|Initial Value|   |--------------|-------------------|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>|`claimsPrincipal`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>|<xref:System.String.Empty?displayProperty=fullName>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>|<xref:System.DateTime.UtcNow%2A>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>|<xref:System.DateTime.UtcNow%2A> plus the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> property.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>|Contains a generated 128 bit symmetric key. **Note:**  The default implementation does not use this property. Signing and encryption keys are dictated by the cookie transforms applied by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> that processes the token.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>|<xref:System.DateTime.UtcNow%2A>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>|<xref:System.DateTime.UtcNow%2A> plus the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> property.|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> classe da entidade de segurança especificada."
+  remarks: "A tabela a seguir mostra os valores de propriedade inicial de uma instância de <xref:System.IdentityModel.Tokens.SessionSecurityToken>classe.</xref:System.IdentityModel.Tokens.SessionSecurityToken>      | Propriedade | Valor inicial |   |--------------|-------------------|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>| `claimsPrincipal`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>| <xref:System.String.Empty?displayProperty=fullName>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>| <xref:System.DateTime.UtcNow%2A>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>| <xref:System.DateTime.UtcNow%2A>mais a propriedade <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName>. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>| Contém uma chave simétrica de 128 bits gerada.</xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A> </xref:System.String.Empty?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A> **Observação:** a implementação padrão não usa essa propriedade. Chaves de criptografia e assinatura são determinadas pelas transformações de cookie aplicadas pelo <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>que processa o token. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>| <xref:System.DateTime.UtcNow%2A>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>| <xref:System.DateTime.UtcNow%2A>mais o <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName>propriedade. |</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>"
   syntax:
     content: public SessionSecurityToken (System.Security.Claims.ClaimsPrincipal claimsPrincipal);
     parameters:
     - id: claimsPrincipal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal from which to initialize the token."
+      description: "A entidade de declarações do qual inicializar o token."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>claimsPrincipal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityToken.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -88,16 +88,16 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> class with serialized data."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> classe com os dados serializados."
   syntax:
     content: protected SessionSecurityToken (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The serialized object data."
+      description: "Os dados do objeto serializado."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "Contextual information about the source."
+      description: "Informações contextuais sobre a origem."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.#ctor*
   exceptions: []
   platform:
@@ -114,22 +114,22 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> class from the specified principal and bootstrap token."
-  remarks: "The following table shows initial property values for an instance of the <xref:System.IdentityModel.Tokens.SessionSecurityToken> class.      |Property|Initial Value|   |--------------|-------------------|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>|`claimsPrincipal`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>|`context`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>|<xref:System.String.Empty?displayProperty=fullName>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>|<xref:System.DateTime.UtcNow%2A>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>|<xref:System.DateTime.UtcNow%2A> plus the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> property.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>|Contains a generated 128 bit symmetric key. **Note:**  The default implementation does not use this property. Signing and encryption keys are dictated by the cookie transforms applied by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> that processes the token.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>|<xref:System.DateTime.UtcNow%2A>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>|<xref:System.DateTime.UtcNow%2A> plus the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> property.|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> classe de token principal e de inicialização especificado."
+  remarks: "A tabela a seguir mostra os valores de propriedade inicial de uma instância de <xref:System.IdentityModel.Tokens.SessionSecurityToken>classe.</xref:System.IdentityModel.Tokens.SessionSecurityToken>      | Propriedade | Valor inicial |   |--------------|-------------------|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>| `claimsPrincipal`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>| `context`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>| <xref:System.String.Empty?displayProperty=fullName>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>| <xref:System.DateTime.UtcNow%2A>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>| <xref:System.DateTime.UtcNow%2A>mais a propriedade <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName>. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>| Contém uma chave simétrica de 128 bits gerada.</xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A> </xref:System.String.Empty?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A> **Observação:** a implementação padrão não usa essa propriedade. Chaves de criptografia e assinatura são determinadas pelas transformações de cookie aplicadas pelo <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>que processa o token. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>| <xref:System.DateTime.UtcNow%2A>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>| <xref:System.DateTime.UtcNow%2A>mais o <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName>propriedade. |</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>"
   syntax:
     content: public SessionSecurityToken (System.Security.Claims.ClaimsPrincipal claimsPrincipal, string context);
     parameters:
     - id: claimsPrincipal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal that was generated from the bootstrap token."
+      description: "A entidade de declarações que foi gerada a partir do token de inicialização."
     - id: context
       type: System.String
-      description: "An optional, application-specific context string."
+      description: "Uma cadeia de caracteres de contexto opcional, específicos do aplicativo."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>claimsPrincipal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityToken.#ctor(System.Security.Claims.ClaimsPrincipal,System.TimeSpan)
@@ -144,25 +144,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> class from the specified principal. The new token is valid from <xref:System.DateTime.UtcNow*> through the specified lifetime."
-  remarks: "The following table shows initial property values for an instance of the <xref:System.IdentityModel.Tokens.SessionSecurityToken> class.      |Property|Initial Value|   |--------------|-------------------|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>|`claimsPrincipal`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>|<xref:System.String.Empty?displayProperty=fullName>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>|<xref:System.DateTime.UtcNow%2A>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>|<xref:System.DateTime.UtcNow%2A> plus `lifetime`.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>|Contains a generated 128 bit symmetric key. **Note:**  The default implementation does not use this property. Signing and encryption keys are dictated by the cookie transforms applied by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> that processes the token.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>|<xref:System.DateTime.UtcNow%2A>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>|<xref:System.DateTime.UtcNow%2A> plus `lifetime`.|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> classe da entidade de segurança especificada. O novo token é válido de <xref:System.DateTime.UtcNow*>por meio do tempo de vida especificado.</xref:System.DateTime.UtcNow*>"
+  remarks: "A tabela a seguir mostra os valores de propriedade inicial de uma instância de <xref:System.IdentityModel.Tokens.SessionSecurityToken>classe.</xref:System.IdentityModel.Tokens.SessionSecurityToken>      | Propriedade | Valor inicial |   |--------------|-------------------|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>| `claimsPrincipal`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>| <xref:System.String.Empty?displayProperty=fullName>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>| <xref:System.DateTime.UtcNow%2A>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>| <xref:System.DateTime.UtcNow%2A> plus `lifetime`.|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>| Contém uma chave simétrica de 128 bits gerada.</xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A> </xref:System.String.Empty?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A> **Observação:** a implementação padrão não usa essa propriedade. Chaves de criptografia e assinatura são determinadas pelas transformações de cookie aplicadas pelo <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>que processa o token. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>| <xref:System.DateTime.UtcNow%2A>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>| <xref:System.DateTime.UtcNow%2A> plus `lifetime`.|</xref:System.DateTime.UtcNow%2A></xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A></xref:System.DateTime.UtcNow%2A></xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A></xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>"
   syntax:
     content: public SessionSecurityToken (System.Security.Claims.ClaimsPrincipal claimsPrincipal, TimeSpan lifetime);
     parameters:
     - id: claimsPrincipal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal from which to initialize the token."
+      description: "A entidade de declarações do qual inicializar o token."
     - id: lifetime
       type: System.TimeSpan
-      description: "The period from the current time during which the token is valid. The <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom*> property will be set to <xref:System.DateTime.UtcNow*> and the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo*> property will be set to <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom*> plus the period specified by this parameter."
+      description: "O período da hora atual durante o qual o token é válido. O <> </> *> propriedade será definida como <> </> *> e <> </> *> propriedade será definida como <> </> *> além do período especificado por esse parâmetro."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>claimsPrincipal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>lifetime</code> is less than or equal to <xref:System.TimeSpan.Zero>."
+    description: "<code>lifetime</code>é menor ou igual a <xref:System.TimeSpan.Zero>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityToken.#ctor(System.Security.Claims.ClaimsPrincipal,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
@@ -177,31 +177,31 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> class from the specified principal and bootstrap token; and with the specified start time and expiration time."
-  remarks: "The following table shows initial property values for an instance of the <xref:System.IdentityModel.Tokens.SessionSecurityToken> class.      |Property|Initial Value|   |--------------|-------------------|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>|`claimsPrincipal`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>|`context`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>|<xref:System.String.Empty?displayProperty=fullName>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>|Set to the value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> property as determined by the `ValidFrom` parameter.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>|The value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> property as determined by the `ValidTo` parameter.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>|Contains a generated 128 bit symmetric key. **Note:**  The default implementation does not use this property. Signing and encryption keys are dictated by the cookie transforms applied by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> that processes the token.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>|The value of the `validFrom` parameter, or, if `validFrom` is `null`, <xref:System.DateTime.UtcNow%2A>.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>|The value of the `validFrom` parameter. If `validFrom` is `null`, the value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> property (as determined by the `validFrom` parameter) plus the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> property.|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> classe o principal especificado e o token de inicialização; e com a hora de início e hora de expiração."
+  remarks: "A tabela a seguir mostra os valores de propriedade inicial de uma instância de <xref:System.IdentityModel.Tokens.SessionSecurityToken>classe.</xref:System.IdentityModel.Tokens.SessionSecurityToken>      | Propriedade | Valor inicial |   |--------------|-------------------|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>| `claimsPrincipal`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>| `context`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>| <xref:System.String.Empty?displayProperty=fullName>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>| Definido como o valor da propriedade <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>conforme determinado pelo `ValidFrom` parâmetro. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>| O valor da propriedade <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>conforme determinado pelo `ValidTo` parâmetro. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>| Contém uma chave simétrica de 128 bits gerada.</xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A> </xref:System.String.Empty?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A> **Observação:** a implementação padrão não usa essa propriedade. Chaves de criptografia e assinatura são determinadas pelas transformações de cookie aplicadas pelo <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>que processa o token. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>| O valor de `validFrom` parâmetro, ou, se `validFrom` é `null`, <xref:System.DateTime.UtcNow%2A>. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>| O valor de `validFrom` parâmetro.</xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> Se `validFrom` é `null`, o valor da <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>propriedade (conforme determinado pelo `validFrom` parâmetro) mais o <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName>propriedade. |</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>"
   syntax:
     content: public SessionSecurityToken (System.Security.Claims.ClaimsPrincipal claimsPrincipal, string context, Nullable<DateTime> validFrom, Nullable<DateTime> validTo);
     parameters:
     - id: claimsPrincipal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal that was generated from the bootstrap token."
+      description: "A entidade de declarações que foi gerada a partir do token de inicialização."
     - id: context
       type: System.String
-      description: "An optional, application-specific context string."
+      description: "Uma cadeia de caracteres de contexto opcional, específicos do aplicativo."
     - id: validFrom
       type: System.Nullable{System.DateTime}
-      description: "The time instant at which the token becomes valid. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to specify <xref:System.DateTime.UtcNow*>"
+      description: "O tempo de instantâneo no qual o token é validado. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>para especificar<xref:System.DateTime.UtcNow*></xref:System.DateTime.UtcNow*>"
     - id: validTo
       type: System.Nullable{System.DateTime}
-      description: "The time instant after which the token is no longer valid. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to specify that the value should be determined by adding the value of the &lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName&gt; property to the time specified by the `validFrom` parameter."
+      description: "O instantâneo de tempo após o qual o token não é mais válido. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>para especificar que o valor deve ser determinado pela adição do valor da &lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName&gt; o tempo especificado pela propriedade de `validFrom` parâmetro."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>claimsPrincipal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>validFrom</code> and <code>validTo</code> parameters cannot be validated; for example, <code>validTo</code> specifies a time that occurs earlier than <code>validFrom</code>."
+    description: "O <code> validFrom </code> e <code> validTo </code> parâmetros não podem ser validados; por exemplo, <code> validTo </code> Especifica uma hora que seja anterior ao <code> validFrom </code>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityToken.#ctor(System.Security.Claims.ClaimsPrincipal,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})
@@ -216,34 +216,34 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> class from the specified principal and bootstrap token; and with the specified start time and expiration time. The new token is scoped to the specified endpoint."
-  remarks: "The following table shows initial property values for an instance of the <xref:System.IdentityModel.Tokens.SessionSecurityToken> class.      |Property|Initial Value|   |--------------|-------------------|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>|`claimsPrincipal`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>|`context`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>|`endpointId`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>|Set to the value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> property as determined by the `ValidFrom` parameter.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>|The value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> property as determined by the `ValidTo` parameter.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>|Contains a generated 128 bit symmetric key. **Note:**  The default implementation does not use this property. Signing and encryption keys are dictated by the cookie transforms applied by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> that processes the token.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>|The value of the `validFrom` parameter, or, if `validFrom` is `null`, <xref:System.DateTime.UtcNow%2A>.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>|The value of the `validFrom` parameter. If `validFrom` is `null`, the value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> property (as determined by the `validFrom` parameter) plus the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> property.|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> classe o principal especificado e o token de inicialização; e com a hora de início e hora de expiração. O novo token de escopo é o ponto de extremidade especificado."
+  remarks: "A tabela a seguir mostra os valores de propriedade inicial de uma instância de <xref:System.IdentityModel.Tokens.SessionSecurityToken>classe.</xref:System.IdentityModel.Tokens.SessionSecurityToken>      | Propriedade | Valor inicial |   |--------------|-------------------|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>| `claimsPrincipal`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>| `context`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>| `endpointId`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>| Definido como o valor da propriedade <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>conforme determinado pelo `ValidFrom` parâmetro. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>| O valor da propriedade <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>conforme determinado pelo `ValidTo` parâmetro. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>| Contém uma chave simétrica de 128 bits gerada.</xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A> **Observação:** a implementação padrão não usa essa propriedade. Chaves de criptografia e assinatura são determinadas pelas transformações de cookie aplicadas pelo <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>que processa o token. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>| O valor de `validFrom` parâmetro, ou, se `validFrom` é `null`, <xref:System.DateTime.UtcNow%2A>. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>| O valor de `validFrom` parâmetro.</xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> Se `validFrom` é `null`, o valor da <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>propriedade (conforme determinado pelo `validFrom` parâmetro) mais o <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName>propriedade. |</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>"
   syntax:
     content: public SessionSecurityToken (System.Security.Claims.ClaimsPrincipal claimsPrincipal, string context, string endpointId, Nullable<DateTime> validFrom, Nullable<DateTime> validTo);
     parameters:
     - id: claimsPrincipal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal that was generated from the bootstrap token."
+      description: "A entidade de declarações que foi gerada a partir do token de inicialização."
     - id: context
       type: System.String
-      description: "An optional, application-specific context string."
+      description: "Uma cadeia de caracteres de contexto opcional, específicos do aplicativo."
     - id: endpointId
       type: System.String
-      description: "The endpoint to which this token is bound. An empty string creates an unscoped token."
+      description: "O ponto de extremidade ao qual este token está associado. Uma cadeia de caracteres vazia cria um token de fora do escopo."
     - id: validFrom
       type: System.Nullable{System.DateTime}
-      description: "The time instant at which the token becomes valid. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to specify <xref:System.DateTime.UtcNow*>."
+      description: "O tempo de instantâneo no qual o token é validado. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>para especificar <xref:System.DateTime.UtcNow*>.</xref:System.DateTime.UtcNow*>"
     - id: validTo
       type: System.Nullable{System.DateTime}
-      description: "The time instant after which the token is no longer valid. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to specify that the value should be determined by adding the value of the &lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName&gt; property to the time specified by the  `validFrom` parameter."
+      description: "O instantâneo de tempo após o qual o token não é mais válido. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>para especificar que o valor deve ser determinado pela adição do valor da &lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName&gt; o tempo especificado pela propriedade de `validFrom` parâmetro."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>endpointId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>claimsPrincipal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>endpointId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The <code>validFrom</code> and <code>validTo</code> parameters cannot be validated; for example, <code>validTo</code> specifies a time that occurs earlier than <code>validFrom</code>."
+    description: "O <code> validFrom </code> e <code> validTo </code> parâmetros não podem ser validados; por exemplo, <code> validTo </code> Especifica uma hora que seja anterior ao <code> validFrom </code>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityToken.#ctor(System.Security.Claims.ClaimsPrincipal,System.Xml.UniqueId,System.String,System.String,System.TimeSpan,System.IdentityModel.Tokens.SymmetricSecurityKey)
@@ -258,37 +258,37 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> class by using the specified principal, context ID, context, endpoint, lifetime, and key."
-  remarks: "The following table shows initial property values for an instance of the <xref:System.IdentityModel.Tokens.SessionSecurityToken> class.      |Property|Initial Value|   |--------------|-------------------|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>|`claimsPrincipal`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>|`context`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>|`contextId`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>|`endpointId`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>|<xref:System.DateTime.UtcNow%2A>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>|<xref:System.DateTime.UtcNow%2A> plus `lifetime`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>|Contains single element that is either `key` or, if `key` is `null`, a generated 128 bit symmetric key. **Note:**  The default implementation does not use this property. Signing and encryption keys are dictated by the cookie transforms applied by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> that processes the token.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>|<xref:System.DateTime.UtcNow%2A>|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>|<xref:System.DateTime.UtcNow%2A> plus `lifetime`|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> classe usando o principal especificado, ID de contexto, contexto, ponto de extremidade, tempo de vida e chave."
+  remarks: "A tabela a seguir mostra os valores de propriedade inicial de uma instância de <xref:System.IdentityModel.Tokens.SessionSecurityToken>classe.</xref:System.IdentityModel.Tokens.SessionSecurityToken>      | Propriedade | Valor inicial |   |--------------|-------------------|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>| `claimsPrincipal`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>| `context`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>| `contextId`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>| `endpointId`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>| <xref:System.DateTime.UtcNow%2A>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>| <xref:System.DateTime.UtcNow%2A> plus `lifetime`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>| Contém um único elemento que é `key` ou, se `key` é `null`, uma chave simétrica de 128 bits gerada.</xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A> **Observação:** a implementação padrão não usa essa propriedade. Chaves de criptografia e assinatura são determinadas pelas transformações de cookie aplicadas pelo <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>que processa o token. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>| <xref:System.DateTime.UtcNow%2A>|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>| <xref:System.DateTime.UtcNow%2A> plus `lifetime`|</xref:System.DateTime.UtcNow%2A></xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A></xref:System.DateTime.UtcNow%2A></xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A></xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>"
   syntax:
     content: public SessionSecurityToken (System.Security.Claims.ClaimsPrincipal claimsPrincipal, System.Xml.UniqueId contextId, string context, string endpointId, TimeSpan lifetime, System.IdentityModel.Tokens.SymmetricSecurityKey key);
     parameters:
     - id: claimsPrincipal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal that is associated with this session."
+      description: "A entidade de declarações que está associada esta sessão."
     - id: contextId
       type: System.Xml.UniqueId
-      description: "The context identifier associated with this token."
+      description: "O identificador de contexto associado a este token."
     - id: context
       type: System.String
-      description: "An optional, application-specific context string."
+      description: "Uma cadeia de caracteres de contexto opcional, específicos do aplicativo."
     - id: endpointId
       type: System.String
-      description: "The endpoint to which this token is bound. An empty string creates an unscoped token."
+      description: "O ponto de extremidade ao qual este token está associado. Uma cadeia de caracteres vazia cria um token de fora do escopo."
     - id: lifetime
       type: System.TimeSpan
-      description: "The lifetime of the session token. The <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom*> property will be set to <xref:System.DateTime.UtcNow*> and the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo*> property will be set to <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom*> plus the period specified by this parameter."
+      description: "O tempo de vida do token da sessão. O <> </> *> propriedade será definida como <> </> *> e <> </> *> propriedade será definida como <> </> *> além do período especificado por esse parâmetro."
     - id: key
       type: System.IdentityModel.Tokens.SymmetricSecurityKey
-      description: "An optional symmetric session key."
+      description: "Uma chave de sessão simétrica opcional."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>contextId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>endpointId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>claimsPrincipal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>contextId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>endpointId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>lifetime</code> is less than or equal to <xref:System.TimeSpan.Zero>."
+    description: "<code>lifetime</code>é menor ou igual a <xref:System.TimeSpan.Zero>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityToken.#ctor(System.Security.Claims.ClaimsPrincipal,System.Xml.UniqueId,System.String,System.String,System.DateTime,System.TimeSpan,System.IdentityModel.Tokens.SymmetricSecurityKey)
@@ -303,40 +303,40 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> class by using the specified principal, context ID, context, endpoint, valid timestamp, lifetime, and key."
-  remarks: "The following table shows initial property values for an instance of the <xref:System.IdentityModel.Tokens.SessionSecurityToken> class.      |Property|Initial Value|   |--------------|-------------------|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>|`claimsPrincipal`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>|`context`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>|`contextId` or, if `contextId` is `null`, a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>|`endpointId`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>|`validFrom`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>|`validFrom` plus `lifetime`.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>|Contains single element that is either `key` or, if `key` is `null`, a generated 128 bit symmetric key. **Note:**  The default implementation does not use this property. Signing and encryption keys are dictated by the cookie transforms applied by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> that processes the token.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>|`validFrom`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>|`validFrom` plus `lifetime`.|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> classe usando o principal especificado, ID de contexto, contexto, ponto de extremidade, carimbo de hora válido, tempo de vida e chave."
+  remarks: "A tabela a seguir mostra os valores de propriedade inicial de uma instância de <xref:System.IdentityModel.Tokens.SessionSecurityToken>classe.</xref:System.IdentityModel.Tokens.SessionSecurityToken>      | Propriedade | Valor inicial |   |--------------|-------------------|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>| `claimsPrincipal`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>| `context`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>| `contextId` ou, se `contextId` é `null`, um gerado ID exclusiva. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>| `endpointId`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>| `validFrom`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>| `validFrom` plus `lifetime`.|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>| Contém um único elemento que é `key` ou, se `key` é `null`, uma chave simétrica de 128 bits gerada.</xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A> **Observação:** a implementação padrão não usa essa propriedade. Chaves de criptografia e assinatura são determinadas pelas transformações de cookie aplicadas pelo <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>que processa o token. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>| `validFrom`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>| `validFrom` plus `lifetime`.|</xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A></xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A></xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>"
   syntax:
     content: public SessionSecurityToken (System.Security.Claims.ClaimsPrincipal claimsPrincipal, System.Xml.UniqueId contextId, string context, string endpointId, DateTime validFrom, TimeSpan lifetime, System.IdentityModel.Tokens.SymmetricSecurityKey key);
     parameters:
     - id: claimsPrincipal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal that is associated with this session."
+      description: "A entidade de declarações que está associada esta sessão."
     - id: contextId
       type: System.Xml.UniqueId
-      description: "The context identifier associated with this token."
+      description: "O identificador de contexto associado a este token."
     - id: context
       type: System.String
-      description: "An optional, application-specific context string."
+      description: "Uma cadeia de caracteres de contexto opcional, específicos do aplicativo."
     - id: endpointId
       type: System.String
-      description: "The endpoint to which this token is bound. An empty string creates an unscoped token."
+      description: "O ponto de extremidade ao qual este token está associado. Uma cadeia de caracteres vazia cria um token de fora do escopo."
     - id: validFrom
       type: System.DateTime
-      description: "The time at which the token becomes valid."
+      description: "A hora em que o token se torna válido."
     - id: lifetime
       type: System.TimeSpan
-      description: "The lifetime of the session token. The <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo*> property will be set to <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom*> plus the period specified by this parameter."
+      description: "O tempo de vida do token da sessão. O <> </> *> propriedade será definida como <> </> *> além do período especificado por esse parâmetro."
     - id: key
       type: System.IdentityModel.Tokens.SymmetricSecurityKey
-      description: "An optional symmetric session key."
+      description: "Uma chave de sessão simétrica opcional."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>contextId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>endpointId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>claimsPrincipal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>contextId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>endpointId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>lifetime</code> is less than or equal to <xref:System.TimeSpan.Zero>."
+    description: "<code>lifetime</code>é menor ou igual a <xref:System.TimeSpan.Zero>."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityToken.#ctor(System.Security.Claims.ClaimsPrincipal,System.Xml.UniqueId,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.IdentityModel.Tokens.SymmetricSecurityKey)
@@ -351,40 +351,40 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;></xref> class by using the specified principal, context ID, context, endpoint, start time, expiration time, and key."
-  remarks: "The following table shows initial property values for an instance of the <xref:System.IdentityModel.Tokens.SessionSecurityToken> class.      |Property|Initial Value|   |--------------|-------------------|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>|`claimsPrincipal`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>|`context`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>|`contextId`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>|`endpointId`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>|Set to a generated unique ID.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>|`false`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>|Set to the value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> property as determined by the `ValidFrom` parameter.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>|The value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> property as determined by the `ValidTo` parameter.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>|`null`|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>|Contains single element that is either `key` or, if `key` is `null`, a generated 128 bit symmetric key. **Note:**  The default implementation does not use this property. Signing and encryption keys are dictated by the cookie transforms applied by the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> that processes the token.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>|The value of the `validFrom` parameter, or, if `validFrom` is `null`, <xref:System.DateTime.UtcNow%2A>.|   |<xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>|The value of the `validFrom` parameter. If `validFrom` is `null`, the value of the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> property (as determined by the `validFrom` parameter) plus the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> property.|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Tokens.SessionSecurityToken&quot;> </xref> classe usando o principal especificado, ID de contexto, contexto, ponto de extremidade, hora de início, hora de expiração e chave."
+  remarks: "A tabela a seguir mostra os valores de propriedade inicial de uma instância de <xref:System.IdentityModel.Tokens.SessionSecurityToken>classe.</xref:System.IdentityModel.Tokens.SessionSecurityToken>      | Propriedade | Valor inicial |   |--------------|-------------------|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A>| `claimsPrincipal`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A>| `context`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>| `contextId`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A>| `endpointId`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A>| Defina como uma ID exclusiva gerada. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A>| `false`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A>| Definido como o valor da propriedade <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>conforme determinado pelo `ValidFrom` parâmetro. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A>| O valor da propriedade <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>conforme determinado pelo `ValidTo` parâmetro. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A>| `null`|   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A>| Contém um único elemento que é `key` ou, se `key` é `null`, uma chave simétrica de 128 bits gerada.</xref:System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Id%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.EndpointId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.Context%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal%2A> **Observação:** a implementação padrão não usa essa propriedade. Chaves de criptografia e assinatura são determinadas pelas transformações de cookie aplicadas pelo <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>que processa o token. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>| O valor de `validFrom` parâmetro, ou, se `validFrom` é `null`, <xref:System.DateTime.UtcNow%2A>. |   | <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A>| O valor de `validFrom` parâmetro.</xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidTo%2A> </xref:System.DateTime.UtcNow%2A> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A> </xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> Se `validFrom` é `null`, o valor da <xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>propriedade (conforme determinado pelo `validFrom` parâmetro) mais o <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName>propriedade. |</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName> </xref:System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom%2A>"
   syntax:
     content: public SessionSecurityToken (System.Security.Claims.ClaimsPrincipal claimsPrincipal, System.Xml.UniqueId contextId, string context, string endpointId, Nullable<DateTime> validFrom, Nullable<DateTime> validTo, System.IdentityModel.Tokens.SymmetricSecurityKey key);
     parameters:
     - id: claimsPrincipal
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal that is associated with this session."
+      description: "A entidade de declarações que está associada esta sessão."
     - id: contextId
       type: System.Xml.UniqueId
-      description: "The context identifier associated with this token."
+      description: "O identificador de contexto associado a este token."
     - id: context
       type: System.String
-      description: "An optional, application-specific context string."
+      description: "Uma cadeia de caracteres de contexto opcional, específicos do aplicativo."
     - id: endpointId
       type: System.String
-      description: "The endpoint to which this token is bound. An empty string creates an unscoped token."
+      description: "O ponto de extremidade ao qual este token está associado. Uma cadeia de caracteres vazia cria um token de fora do escopo."
     - id: validFrom
       type: System.Nullable{System.DateTime}
-      description: "The time instant at which the token becomes valid. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to specify <xref:System.DateTime.UtcNow*>"
+      description: "O tempo de instantâneo no qual o token é validado. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>para especificar<xref:System.DateTime.UtcNow*></xref:System.DateTime.UtcNow*>"
     - id: validTo
       type: System.Nullable{System.DateTime}
-      description: "The time instant after which the token is no longer valid. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to specify that the value should be determined by adding the value of the &lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName&gt; property to the time specified by the `validFrom` parameter."
+      description: "O instantâneo de tempo após o qual o token não é mais válido. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>para especificar que o valor deve ser determinado pela adição do valor da &lt;xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.DefaultTokenLifetime%2A?displayProperty=fullName&gt; o tempo especificado pela propriedade de `validFrom` parâmetro."
     - id: key
       type: System.IdentityModel.Tokens.SymmetricSecurityKey
-      description: "An optional symmetric session key."
+      description: "Uma chave de sessão simétrica opcional."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>contextId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>claimsPrincipal</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       The <xref:System.Security.Claims.ClaimsPrincipal.Identities*> property of <code>claimsPrincipal</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       <code>contextId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "<code>validFrom</code> is greater than or equal to <code>validTo</code>.       -or-       <code>validTo</code> is less than the current time."
+    description: "<code>validFrom</code>é maior que ou igual a <code>validTo</code>.       - ou - <code>validTo</code> é menor que a hora atual."
   platform:
   - net462
 - uid: System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal
@@ -399,12 +399,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the claims principal associated with the session."
+  summary: "Obtém a entidade de declaração associada à sessão."
   syntax:
     content: public System.Security.Claims.ClaimsPrincipal ClaimsPrincipal { get; }
     return:
       type: System.Security.Claims.ClaimsPrincipal
-      description: "The claims principal."
+      description: "A entidade de declarações."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.ClaimsPrincipal*
   exceptions: []
   platform:
@@ -421,13 +421,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets a user specified context value."
-  remarks: "You can use this property to store application-specific context."
+  summary: "Obtém um usuário especificado um valor de contexto."
+  remarks: "Você pode usar essa propriedade para armazenar o contexto específico do aplicativo."
   syntax:
     content: public string Context { get; }
     return:
       type: System.String
-      description: "The user specified context value."
+      description: "O usuário especificou um valor de contexto."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.Context*
   exceptions: []
   platform:
@@ -444,13 +444,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the session context identifier"
-  remarks: "The context identifier is unique across all session tokens.       The <xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey> class uses both the context ID and the key generation to generate a key for the token in the <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>.       The <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> class serializes this property as the `<Identifier>` child element of the `<wsc:SecurityContextToken>` element. For more information, see the documentation for the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A?displayProperty=fullName> method."
+  summary: "Obtém o identificador de contexto de sessão"
+  remarks: "O identificador de contexto é exclusivo em todos os tokens de sessão.       A <xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey>classe usa a ID de contexto e a geração de chave para gerar uma chave para o token em <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>.</xref:System.IdentityModel.Tokens.SessionSecurityTokenCache> </xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey>       O <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>classe serializa essa propriedade como o `<Identifier>` elemento filho do `<wsc:SecurityContextToken>` elemento.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> Para obter mais informações, consulte a documentação para o <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A?displayProperty=fullName>método.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A?displayProperty=fullName>"
   syntax:
     content: public System.Xml.UniqueId ContextId { get; }
     return:
       type: System.Xml.UniqueId
-      description: "The session context identifier."
+      description: "O identificador de contexto de sessão."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.ContextId*
   exceptions: []
   platform:
@@ -467,7 +467,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the ID of the endpoint to which this token is scoped."
+  summary: "Obtém a ID do ponto de extremidade ao qual este token está no escopo."
   remarks: >-
     > [!IMPORTANT]
 
@@ -476,7 +476,7 @@ items:
     content: public string EndpointId { get; }
     return:
       type: System.String
-      description: "The ID of the endpoint."
+      description: "A ID do ponto de extremidade."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.EndpointId*
   exceptions: []
   platform:
@@ -493,16 +493,16 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Sets the <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;></xref> with information necessary to serialize the session security token."
+  summary: "Conjuntos de <xref href=&quot;System.Runtime.Serialization.SerializationInfo&quot;> </xref> com as informações necessárias para serializar o token de segurança de sessão."
   syntax:
     content: public virtual void GetObjectData (System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context);
     parameters:
     - id: info
       type: System.Runtime.Serialization.SerializationInfo
-      description: "The serialized object data."
+      description: "Os dados do objeto serializado."
     - id: context
       type: System.Runtime.Serialization.StreamingContext
-      description: "The contextual information about the source or destination."
+      description: "As informações contextuais sobre a origem ou destino."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.GetObjectData*
   exceptions: []
   platform:
@@ -519,13 +519,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the unique identifier of this token."
-  remarks: "The <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> class serializes this property as the `Id` attribute of the `<wsc:SecurityContextToken>` element. For more information, see the documentation for the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A?displayProperty=fullName> method."
+  summary: "Obtém o identificador exclusivo deste token."
+  remarks: "O <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>classe serializa essa propriedade como o `Id` atributo o `<wsc:SecurityContextToken>` elemento.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> Para obter mais informações, consulte a documentação para o <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A?displayProperty=fullName>método.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A?displayProperty=fullName>"
   syntax:
     content: public override string Id { get; }
     return:
       type: System.String
-      description: "The token ID."
+      description: "A ID do token."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.Id*
   exceptions: []
   platform:
@@ -542,13 +542,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets or sets a value that indicates whether the cookie represented by this token is persistent."
-  remarks: "If the IsPersistent property is `true`, the cookie is written as a persistent cookie. Persistent cookies remain valid after the browser is closed until they expire."
+  summary: "Obtém ou define um valor que indica se o cookie representado por esse token é persistente."
+  remarks: "Se a propriedade IsPersistent for `true`, o cookie é gravado como um cookie persistente. Os cookies persistentes permanecem válidos depois que o navegador for fechado até expirarem."
   syntax:
     content: public bool IsPersistent { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the cookie is persistent; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o cookie for persistente; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.IsPersistent*
   exceptions: []
   platform:
@@ -565,13 +565,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets or sets a value that indicates whether the session security token is operating in reference mode."
-  remarks: "In reference mode, a simple artifact is produced during serialization and the token material is stored in the token cache that is associated with the token handler. The token cache is an instance of a class that derives from <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>. For Web Farm scenarios, the token cache must operate across all nodes in the farm.      > [!IMPORTANT] >  To operate in reference mode, Microsoft recommends providing a handler for the <xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SessionSecurityTokenCreated?displayProperty=fullName> event in the global.asax.cs file and setting the IsReferenceMode property on the token passed in the <xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A?displayProperty=fullName> property. This will ensure that the session token operates in reference mode for every request and is favored over merely setting the <xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A?displayProperty=fullName> property on the Session Authentication Module."
+  summary: "Obtém ou define um valor que indica se o token de segurança de sessão está operando no modo de referência."
+  remarks: "No modo de referência, um artefato simple é gerado durante a serialização e o material de token é armazenado no cache de token que está associado com o manipulador de token. O cache de token é uma instância de uma classe que deriva de <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>.</xref:System.IdentityModel.Tokens.SessionSecurityTokenCache> Para cenários de Web Farm, o cache de token deve funcionar em todos os nós no farm.      > [!IMPORTANT] > Para operar no modo de referência, fornecendo um manipulador para a Microsoft recomenda o <xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SessionSecurityTokenCreated?displayProperty=fullName>eventos no arquivo global.asax.cs e definindo a propriedade IsReferenceMode no token passado a <xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A?displayProperty=fullName>propriedade.</xref:System.IdentityModel.Services.SessionSecurityTokenCreatedEventArgs.SessionToken%2A?displayProperty=fullName> </xref:System.IdentityModel.Services.WSFederationAuthenticationModule.SessionSecurityTokenCreated?displayProperty=fullName> Isso garantirá que o token de sessão opera em modo de referência para cada solicitação e é favorecido em relação a simplesmente configurar o <xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A?displayProperty=fullName>propriedade sobre o módulo de autenticação de sessão.</xref:System.IdentityModel.Services.SessionAuthenticationModule.IsReferenceMode%2A?displayProperty=fullName>"
   syntax:
     content: public bool IsReferenceMode { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the token is operating in session mode; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o token está operando no modo de sessão. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.IsReferenceMode*
   exceptions: []
   platform:
@@ -588,12 +588,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the time instant from which the key in this token is valid."
+  summary: "Obtém o tempo de instantâneo do qual a chave nesse token é válida."
   syntax:
     content: public DateTime KeyEffectiveTime { get; }
     return:
       type: System.DateTime
-      description: "The time instant from which the key is effective."
+      description: "O tempo de instantâneo do qual a chave é eficaz."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.KeyEffectiveTime*
   exceptions: []
   platform:
@@ -610,12 +610,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the time instant after which the key in this token is no longer valid."
+  summary: "Obtém a hora instantânea depois que a chave nesse token não é válida."
   syntax:
     content: public DateTime KeyExpirationTime { get; }
     return:
       type: System.DateTime
-      description: "The time instant at which the key expires."
+      description: "O instantâneo de tempo em que a chave expira."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.KeyExpirationTime*
   exceptions: []
   platform:
@@ -632,13 +632,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the identifier for the key generation in this token"
-  remarks: "The KeyGeneration property is unique within a session token. When a session token is issued it has only a context ID, which is accessible through the <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> property. When the session token is renewed, the key generation is added.       The <xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey> class uses both the context ID and the key generation to generate a key for the token in the <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>.       The <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> class serializes this property as the `<Instance>` child element of the `<wsc:SecurityContextToken>` element. For more information, see the documentation for the <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A?displayProperty=fullName> method."
+  summary: "Obtém o identificador para a geração de chave nesse token"
+  remarks: "A propriedade KeyGeneration é exclusiva dentro de um token de sessão. Quando um token de sessão é emitido ele tem apenas uma ID de contexto, que pode ser acessada por meio de <xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A>propriedade.</xref:System.IdentityModel.Tokens.SessionSecurityToken.ContextId%2A> Quando o token de sessão é renovado, a geração de chave é adicionada.       A <xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey>classe usa a ID de contexto e a geração de chave para gerar uma chave para o token em <xref:System.IdentityModel.Tokens.SessionSecurityTokenCache>.</xref:System.IdentityModel.Tokens.SessionSecurityTokenCache> </xref:System.IdentityModel.Tokens.SessionSecurityTokenCacheKey>       O <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>classe serializa essa propriedade como o `<Instance>` elemento filho do `<wsc:SecurityContextToken>` elemento.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> Para obter mais informações, consulte a documentação para o <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A?displayProperty=fullName>método.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler.WriteToken%2A?displayProperty=fullName>"
   syntax:
     content: public System.Xml.UniqueId KeyGeneration { get; }
     return:
       type: System.Xml.UniqueId
-      description: "The unique identifier for the key generation in this token."
+      description: "O identificador exclusivo para a geração de chave nesse token."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.KeyGeneration*
   exceptions: []
   platform:
@@ -655,13 +655,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets a URI that identifies the version of WS-Secure Conversation that is used to serialize this session security token."
-  remarks: "The <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> base class supports WS-Secure Conversation Feb2005 and WS-Secure Conversation 1.3. The URIs for these versions of WS-Secure Conversation are “http://schemas.xmlsoap.org/ws/2005/02/sc” and &quot;http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512&quot; respectively."
+  summary: "Obtém um URI que identifica a versão do WS-Secure Conversation é usada para serializar a segurança da sessão token."
+  remarks: "O <xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler>classe base compatível com o WS-Secure Conversation Feb2005 e WS-Secure Conversation 1.3.</xref:System.IdentityModel.Tokens.SessionSecurityTokenHandler> Os URIs para essas versões do WS-Secure Conversation são &quot;http://schemas.xmlsoap.org/ws/2005/02/sc&quot; e &quot;http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512&quot;, respectivamente."
   syntax:
     content: public Uri SecureConversationVersion { get; }
     return:
       type: System.Uri
-      description: "The URI that identifies the version of WS-Secure Conversation that is used to serialize this token."
+      description: "O URI que identifica a versão do WS-Secure Conversation é usada para serializar esse token."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.SecureConversationVersion*
   exceptions: []
   platform:
@@ -678,7 +678,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the keys associated with this session. This is usually a single key."
+  summary: "Obtém as chaves associadas a esta sessão. Isso geralmente é uma chave única."
   remarks: >-
     > [!NOTE]
 
@@ -687,7 +687,7 @@ items:
     content: public override System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Tokens.SecurityKey> SecurityKeys { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.Tokens.SecurityKey}
-      description: "The keys associated with the session. There is usually a single key."
+      description: "As chaves associadas a sessão. Geralmente, há uma única chave."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.SecurityKeys*
   exceptions: []
   platform:
@@ -704,12 +704,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the time instant from which the token is valid."
+  summary: "Obtém o tempo de instantâneo do qual o token é válido."
   syntax:
     content: public override DateTime ValidFrom { get; }
     return:
       type: System.DateTime
-      description: "The time from which the token is valid."
+      description: "A hora na qual o token é válido."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.ValidFrom*
   exceptions: []
   platform:
@@ -726,12 +726,12 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Tokens
-  summary: "Gets the time instant after which the token is no longer valid."
+  summary: "Obtém a hora instantânea depois que o token não é válido."
   syntax:
     content: public override DateTime ValidTo { get; }
     return:
       type: System.DateTime
-      description: "The time after which the token is no longer valid."
+      description: "O tempo após o qual o token não é mais válido."
   overload: System.IdentityModel.Tokens.SessionSecurityToken.ValidTo*
   exceptions: []
   platform:

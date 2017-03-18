@@ -12,7 +12,7 @@ items:
   nameWithType: IWebProxyScript
   fullName: System.Net.IWebProxyScript
   type: Interface
-  summary: "Provides the base interface to load and execute scripts for automatic proxy detection."
+  summary: "Fornece a interface base para carregar e executar scripts de detecção automática de proxy."
   syntax:
     content: public interface IWebProxyScript
   implements: []
@@ -30,7 +30,7 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Closes a script."
+  summary: "Fecha um script."
   syntax:
     content: public void Close ();
     parameters: []
@@ -50,22 +50,22 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Loads a script."
+  summary: "Carrega um script."
   syntax:
     content: public bool Load (Uri scriptLocation, string script, Type helperType);
     parameters:
     - id: scriptLocation
       type: System.Uri
-      description: "Internal only."
+      description: "Somente interno."
     - id: script
       type: System.String
-      description: "Internal only."
+      description: "Somente interno."
     - id: helperType
       type: System.Type
-      description: "Internal only."
+      description: "Somente interno."
     return:
       type: System.Boolean
-      description: "A <xref:System.Boolean> indicating whether the script was successfully loaded."
+      description: "Um <xref:System.Boolean>que indica se o script foi carregado com êxito.</xref:System.Boolean>"
   overload: System.Net.IWebProxyScript.Load*
   exceptions: []
   platform:
@@ -82,20 +82,20 @@ items:
   assemblies:
   - System
   namespace: System.Net
-  summary: "Runs a script."
-  remarks: "When the <xref:System.Net.HttpWebRequest> object is run, it may need to run the WPAD (Web Proxy Automatic Detection) protocol to detect whether a proxy is required for reaching the destination URL. During this process, the system downloads and compiles the PAC (Proxy Auto-Configuration) script in memory and tries to execute the FindProxyForURL function as per the PAC specification.       When doing so, the system creates an internal application domain inside the application which runs with mimimal permissions and most importantly, it does not grant the UI permission to this new application domain. The evaluation of a proxy and running the FindProxyForURL javascript function happens in the context of this new application domain and during this process the system may need to run several helper functions as per the PAC specification."
+  summary: "Executa um script."
+  remarks: "Quando o <xref:System.Net.HttpWebRequest>objeto é executado, ele pode ser necessário executar o protocolo WPAD (Web Proxy a detecção automática) para detectar se um proxy é necessário para alcançar o URL de destino.</xref:System.Net.HttpWebRequest> Durante esse processo, o sistema baixa e compila o script PAC (configuração de automática de Proxy) na memória e tenta executar a função FindProxyForURL de acordo com a especificação de PAC.       Ao fazer isso, o sistema cria um domínio de aplicativo interno dentro do aplicativo que é executado com permissões de mimimal e mais importante, ele não concede a permissão de interface do usuário para esse novo domínio de aplicativo. A avaliação de um proxy e executando a função javascript FindProxyForURL ocorre no contexto do novo domínio de aplicativo e durante esse processo, que o sistema pode ser necessário executar várias funções do auxiliar de acordo com a especificação de PAC."
   syntax:
     content: public string Run (string url, string host);
     parameters:
     - id: url
       type: System.String
-      description: "Internal only."
+      description: "Somente interno."
     - id: host
       type: System.String
-      description: "Internal only."
+      description: "Somente interno."
     return:
       type: System.String
-      description: "A <xref:System.String>.       An internal-only value returned."
+      description: "A <xref:System.String>.</xref:System.String>       Um valor somente interno é retornado."
   overload: System.Net.IWebProxyScript.Run*
   exceptions: []
   platform:

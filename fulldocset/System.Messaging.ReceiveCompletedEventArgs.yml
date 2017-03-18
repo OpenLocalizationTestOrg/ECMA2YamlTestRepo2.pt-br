@@ -11,8 +11,8 @@ items:
   nameWithType: ReceiveCompletedEventArgs
   fullName: System.Messaging.ReceiveCompletedEventArgs
   type: Class
-  summary: "Provides data for the <xref href=&quot;System.Messaging.MessageQueue.ReceiveCompleted&quot;></xref> event. When your asynchronous receive operation calls an event handler, an instance of this class is passed to the handler."
-  remarks: "When you use event notification to receive messages asynchronously from the queue, you must create a method that handles your message processing. Your code must call <xref:System.Messaging.MessageQueue.BeginReceive%2A> to begin the asynchronous processing. When a message is received, your application is notified through the <xref:System.Messaging.MessageQueue.ReceiveCompleted> event. An instance of ReceiveCompletedEventArgs is passed into the event delegate that calls your event handler. The data associated with the <xref:System.Messaging.MessageQueue.ReceiveCompleted> event is contained in the delegate&quot;s <xref:System.Messaging.ReceiveCompletedEventArgs.AsyncResult%2A> parameter.       There are two ways to provide notification of event completion: event notification and callbacks. ReceiveCompletedEventArgs is used only with event notification. For information comparing callbacks and event notification, see &quot;Events vs. Callbacks&quot; on MSDN.       ReceiveCompletedEventArgs provides access to the message that initiated the end of the asynchronous receive operation, through the <xref:System.Messaging.ReceiveCompletedEventArgs.Message%2A> member. This is an alternate access to the message, and behaves much the same as a call to <xref:System.Messaging.MessageQueue.EndReceive%2A?displayProperty=fullName>."
+  summary: "Fornece dados para o <xref href=&quot;System.Messaging.MessageQueue.ReceiveCompleted&quot;> </xref> eventos. Ao recebe seu assíncrona operação chama um manipulador de eventos, uma instância dessa classe é passada para o manipulador."
+  remarks: "Quando você usa a notificação de eventos para receber mensagens da fila de forma assíncrona, você deve criar um método que manipula o processamento de mensagem. Seu código deve chamar <xref:System.Messaging.MessageQueue.BeginReceive%2A>para iniciar o processamento assíncrono.</xref:System.Messaging.MessageQueue.BeginReceive%2A> Quando uma mensagem é recebida, o aplicativo é notificado por meio do <xref:System.Messaging.MessageQueue.ReceiveCompleted>evento.</xref:System.Messaging.MessageQueue.ReceiveCompleted> Uma instância de ReceiveCompletedEventArgs é passada para o delegado de evento que chama o manipulador de eventos. Os dados associados a <xref:System.Messaging.MessageQueue.ReceiveCompleted>evento está contido no delegado <xref:System.Messaging.ReceiveCompletedEventArgs.AsyncResult%2A>parâmetro.</xref:System.Messaging.ReceiveCompletedEventArgs.AsyncResult%2A> </xref:System.Messaging.MessageQueue.ReceiveCompleted>       Há duas maneiras de fornecer notificação de evento de conclusão: notificação de eventos e retornos de chamada. ReceiveCompletedEventArgs é usado somente com a notificação de eventos. Para obter informações sobre como comparar os retornos de chamada e notificação de eventos, consulte &quot;eventos vs. Retornos de chamada&quot;no MSDN.       ReceiveCompletedEventArgs fornece acesso para a mensagem que iniciou o fim do receber operação, por meio de <xref:System.Messaging.ReceiveCompletedEventArgs.Message%2A>membro.</xref:System.Messaging.ReceiveCompletedEventArgs.Message%2A> Isso é um alternativo de acesso para a mensagem e se comporta semelhante a uma chamada para <xref:System.Messaging.MessageQueue.EndReceive%2A?displayProperty=fullName>.</xref:System.Messaging.MessageQueue.EndReceive%2A?displayProperty=fullName>"
   example:
   - "The following code example creates an event handler for the <xref:System.Messaging.MessageQueue.ReceiveCompleted> event and associates it with the event delegate by using the <xref:System.Messaging.ReceiveCompletedEventHandler>. The event handler, `MyReceiveCompleted`, receives a message from a queue and writes its body to the screen.  \n  \n [!code-cs[MessageQueue.ReceiveCompleted#1](~/add/codesnippet/csharp/t-system.messaging.recei_1_1.cs)]\n [!code-cpp[MessageQueue.ReceiveCompleted#1](~/add/codesnippet/cpp/t-system.messaging.recei_1_1.cpp)]\n [!code-vb[MessageQueue.ReceiveCompleted#1](~/add/codesnippet/visualbasic/t-system.messaging.recei_1_1.vb)]"
   syntax:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Gets or sets the result of the asynchronous operation requested."
-  remarks: "AsyncResult identifies ongoing or completed asynchronous operations. The property contains data that helps determine which of several potential asynchronous operations to complete, and when passed to the event handler, enables <xref:System.Messaging.MessageQueue.EndReceive%2A> to access the message associated with the completed operation.       When you call <xref:System.Messaging.MessageQueue.BeginReceive%2A>, a <xref:System.IAsyncResult> is returned immediately, even though a message, if one exists, has not yet been retrieved because the operation is not completed. The AsyncResult indicates the state of the asynchronous operation. <xref:System.Messaging.MessageQueue.BeginReceive%2A> creates the object, which is modified throughout the operation until <xref:System.Messaging.MessageQueue.EndReceive%2A> completes it."
+  summary: "Obtém ou define o resultado da operação assíncrona solicitada."
+  remarks: "AsyncResult identifica as operações assíncronas em andamento ou concluídas. A propriedade contém dados que ajudam a determinar qual várias operações assíncronas potenciais para ser concluída, e quando passados para o manipulador de eventos, permite <xref:System.Messaging.MessageQueue.EndReceive%2A>para acessar a mensagem associada à operação concluída.</xref:System.Messaging.MessageQueue.EndReceive%2A>       Quando você chama <xref:System.Messaging.MessageQueue.BeginReceive%2A>, um <xref:System.IAsyncResult>é retornado imediatamente, mesmo que uma mensagem, se houver, tem ainda não foram recuperada porque não é possível concluir a operação.</xref:System.IAsyncResult> </xref:System.Messaging.MessageQueue.BeginReceive%2A> O AsyncResult indica o estado da operação assíncrona. <xref:System.Messaging.MessageQueue.BeginReceive%2A>cria o objeto, que é modificado durante a operação até a <xref:System.Messaging.MessageQueue.EndReceive%2A>conclusão do proprietário.</xref:System.Messaging.MessageQueue.EndReceive%2A></xref:System.Messaging.MessageQueue.BeginReceive%2A>"
   syntax:
     content: public IAsyncResult AsyncResult { get; set; }
     return:
       type: System.IAsyncResult
-      description: "A <xref:System.IAsyncResult> that contains the data associated with the receive operation."
+      description: "Um <xref:System.IAsyncResult>que contém os dados associados com a operação de recebimento.</xref:System.IAsyncResult>"
   overload: System.Messaging.ReceiveCompletedEventArgs.AsyncResult*
   exceptions: []
   platform:
@@ -58,18 +58,18 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Gets the message associated with the asynchronous receive operation."
-  remarks: "The Message property provides a means for retrieving the message that initiated the end of the asynchronous receive operation.       <xref:System.Messaging.MessageQueue.EndReceive%2A?displayProperty=fullName> is called the first time the Message property is read, so it is not necessary to call <xref:System.Messaging.MessageQueue.EndReceive%2A> prior to getting the value of this property."
+  summary: "Obtém a mensagem associada com o assíncrona a operação de recebimento."
+  remarks: "A propriedade de mensagem fornece um meio para recuperar a mensagem que iniciou o fim do operação de recebimento.       <xref:System.Messaging.MessageQueue.EndReceive%2A?displayProperty=fullName>é chamado na primeira vez em que a propriedade de mensagem é lida, portanto, não é necessário chamar <xref:System.Messaging.MessageQueue.EndReceive%2A>antes de obter o valor dessa propriedade.</xref:System.Messaging.MessageQueue.EndReceive%2A></xref:System.Messaging.MessageQueue.EndReceive%2A?displayProperty=fullName>"
   syntax:
     content: public System.Messaging.Message Message { get; }
     return:
       type: System.Messaging.Message
-      description: "A <xref href=&quot;System.Messaging.Message&quot;></xref> that represents the end result of the asynchronous receive operation."
+      description: "Um <xref href=&quot;System.Messaging.Message&quot;> </xref> que representa o fim do resultado da operação de recebimento."
   overload: System.Messaging.ReceiveCompletedEventArgs.Message*
   exceptions:
   - type: System.Messaging.MessageQueueException
     commentId: T:System.Messaging.MessageQueueException
-    description: "The Message could not be retrieved. The time-out on the asynchronous operation might have expired."
+    description: "A mensagem não pôde ser recuperada. O tempo limite em que a operação assíncrona pode ter expirado."
   platform:
   - net462
 references:

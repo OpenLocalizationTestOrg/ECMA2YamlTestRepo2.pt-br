@@ -15,8 +15,8 @@ items:
   nameWithType: AuthorizationContext
   fullName: System.IdentityModel.Policy.AuthorizationContext
   type: Class
-  summary: "The result of evaluating all authorization policies available from the tokens in the sent message and by calling the <xref:System.ServiceModel.ServiceAuthorizationManager.GetAuthorizationPolicies*> method."
-  remarks: "Evaluating all of the authorization policies in an authorization manager results in a set of <xref:System.IdentityModel.Claims.ClaimSet> objects. These objects make up an authorization context.       An authorization context contains a set of claim set objects, an expiration time that specifies the span of time during which the authorization context is valid, and a unique identifier.       The AuthorizationContext for the current operation can be accessed via the <xref:System.ServiceModel.ServiceSecurityContext.AuthorizationContext%2A> property."
+  summary: "O resultado da avaliação de todas as políticas de autorização disponíveis dos tokens na mensagem enviada e chamando o <xref:System.ServiceModel.ServiceAuthorizationManager.GetAuthorizationPolicies*>método.</xref:System.ServiceModel.ServiceAuthorizationManager.GetAuthorizationPolicies*>"
+  remarks: "Avaliar todas as políticas de autorização em um Gerenciador de autorização resulta em um conjunto de <xref:System.IdentityModel.Claims.ClaimSet>objetos.</xref:System.IdentityModel.Claims.ClaimSet> Esses objetos compõem um contexto de autorização.       Um contexto de autorização contém um conjunto de objetos do conjunto de declarações, um tempo de expiração que especifica o período de tempo durante o qual o contexto de autorização é válido, e um identificador exclusivo.       O AuthorizationContext para a operação atual pode ser acessado por meio de <xref:System.ServiceModel.ServiceSecurityContext.AuthorizationContext%2A>propriedade.</xref:System.ServiceModel.ServiceSecurityContext.AuthorizationContext%2A>"
   example:
   - >-
     [!code-cs[C_IAuthorizationPolicy#4](~/add/codesnippet/csharp/t-system.identitymodel.p_2_1.cs)]
@@ -42,8 +42,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;></xref> class."
-  remarks: "The default constructor does nothing."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;> </xref> classe."
+  remarks: "O construtor padrão não fará nada."
   syntax:
     content: protected AuthorizationContext ();
     parameters: []
@@ -63,8 +63,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Gets the set of claims associated with an authorization policy."
-  remarks: "Use the ClaimSets property to get the set of claims that were added by the authorization policy. A class deriving from <xref:System.ServiceModel.ServiceAuthorizationManager> can use the claims to make authorization decisions."
+  summary: "Obtém o conjunto de declarações associado a uma política de autorização."
+  remarks: "Use a propriedade ClaimSets para obter o conjunto de declarações que foram adicionados pela política de autorização. Uma classe derivando de <xref:System.ServiceModel.ServiceAuthorizationManager>pode usar as declarações para tomar decisões de autorização.</xref:System.ServiceModel.ServiceAuthorizationManager>"
   example:
   - >-
     [!code-cs[C_IAuthorizationPolicy#5](~/add/codesnippet/csharp/p-system.identitymodel.p_1.cs)]
@@ -73,7 +73,7 @@ items:
     content: public abstract System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Claims.ClaimSet> ClaimSets { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.Claims.ClaimSet}
-      description: "A &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; of type <xref href=&quot;System.IdentityModel.Claims.ClaimSet&quot;></xref> that contains the set of claims."
+      description: "Um &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; do tipo <xref href=&quot;System.IdentityModel.Claims.ClaimSet&quot;> </xref> que contém o conjunto de declarações."
   overload: System.IdentityModel.Policy.AuthorizationContext.ClaimSets*
   exceptions: []
   platform:
@@ -90,17 +90,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Evaluate all of the specified authorization policies and create an <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;></xref>."
-  remarks: "The CreateDefaultAuthorizationContext method is typically only used by the infrastructure."
+  summary: "Avaliar todas as diretivas de autorização especificada e criar um <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;> </xref>."
+  remarks: "O método CreateDefaultAuthorizationContext normalmente é usado apenas pela infraestrutura."
   syntax:
     content: public static System.IdentityModel.Policy.AuthorizationContext CreateDefaultAuthorizationContext (System.Collections.Generic.IList<System.IdentityModel.Policy.IAuthorizationPolicy> authorizationPolicies);
     parameters:
     - id: authorizationPolicies
       type: System.Collections.Generic.IList{System.IdentityModel.Policy.IAuthorizationPolicy}
-      description: "An &lt;xref:System.Collections.Generic.IList%601&gt; of <xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;></xref> that contains the set of authorization policies."
+      description: "Um &lt;xref:System.Collections.Generic.IList%601&gt; de <xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;> </xref> que contém o conjunto de diretivas de autorização."
     return:
       type: System.IdentityModel.Policy.AuthorizationContext
-      description: "An <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;></xref> that contains the result of evaluating all the specified authorization policies."
+      description: "Um <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;> </xref> que contém o resultado da avaliação de todas as políticas de autorização especificada."
   overload: System.IdentityModel.Policy.AuthorizationContext.CreateDefaultAuthorizationContext*
   exceptions: []
   platform:
@@ -117,13 +117,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Gets the date and time at which this <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;></xref> object is no longer valid."
-  remarks: "The ExpirationTime property is in Universal Coordinated Time (UTC).      > [!NOTE] >  The service model in [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] does not check the value of the ExpirationTime property. This property is set by [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] using the <xref:System.IdentityModel.Tokens.SecurityToken.ValidTo%2A> property of the security token on which the authorization context is based. The <xref:System.IdentityModel.Tokens.SecurityToken.ValidTo%2A> property is checked by [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)], however. The authorization context&quot;s expiration time is meant for scenarios such as an authorization policy which has to take some action upon expiration."
+  summary: "Obtém a data e hora em que esse <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;> </xref> objeto não é mais válido."
+  remarks: "A propriedade ExpirationTime está no horário coordenado Universal (UTC).      > [!NOTE] > O modelo de serviço no [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] não verifica o valor da propriedade ExpirationTime. Essa propriedade é definida pelo [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] usando o <xref:System.IdentityModel.Tokens.SecurityToken.ValidTo%2A>propriedade o token de segurança no qual o contexto de autorização é baseado.</xref:System.IdentityModel.Tokens.SecurityToken.ValidTo%2A> O <xref:System.IdentityModel.Tokens.SecurityToken.ValidTo%2A>propriedade é verificada pelo [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)], porém.</xref:System.IdentityModel.Tokens.SecurityToken.ValidTo%2A> Tempo de expiração do contexto de autorização destina-se para cenários como uma diretiva de autorização que precisa executar alguma ação após a expiração."
   syntax:
     content: public abstract DateTime ExpirationTime { get; }
     return:
       type: System.DateTime
-      description: "A <xref:System.DateTime> value that indicates the date and time when this <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;></xref> object is no longer valid."
+      description: "Um <xref:System.DateTime>valor que indica a data e hora em que isso <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;> </xref> objeto não é mais válido.</xref:System.DateTime>"
   overload: System.IdentityModel.Policy.AuthorizationContext.ExpirationTime*
   exceptions: []
   platform:
@@ -140,8 +140,8 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Gets a unique identifier for this <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;></xref> object."
-  remarks: "Typically, the Id property is a GUID."
+  summary: "Obtém um identificador exclusivo para este <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;> </xref> objeto."
+  remarks: "Normalmente, a propriedade Id é um GUID."
   syntax:
     content: public abstract string Id { get; }
     return:
@@ -163,13 +163,13 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Policy
-  summary: "Gets a collection of non-claim properties associated with this <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;></xref> object."
-  remarks: '[!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] reserves two properties: `Identities` and `Principal`. The `Identities` property is used by an <xref:System.IdentityModel.Policy.IAuthorizationPolicy> to specify the <xref:System.Collections.Generic.IList%601> of one or more identities that are related to the <xref:System.IdentityModel.Policy.AuthorizationContext>. The `Principal` property is used by an <xref:System.IdentityModel.Policy.IAuthorizationPolicy> to specify the <xref:System.Security.Principal.IPrincipal> that is associated with an <xref:System.IdentityModel.Policy.AuthorizationContext>.'
+  summary: "Obtém uma coleção de propriedades de declaração não associado a esta <xref href=&quot;System.IdentityModel.Policy.AuthorizationContext&quot;> </xref> objeto."
+  remarks: '[!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)]reserva duas propriedades: `Identities` e `Principal`. O `Identities` propriedade é usada por uma <xref:System.IdentityModel.Policy.IAuthorizationPolicy>para especificar a <xref:System.Collections.Generic.IList%601>um ou mais identidades que estão relacionados a <xref:System.IdentityModel.Policy.AuthorizationContext>.</xref:System.IdentityModel.Policy.AuthorizationContext> </xref:System.Collections.Generic.IList%601> </xref:System.IdentityModel.Policy.IAuthorizationPolicy> O `Principal` propriedade é usada por uma <xref:System.IdentityModel.Policy.IAuthorizationPolicy>para especificar o <xref:System.Security.Principal.IPrincipal>que está associado um <xref:System.IdentityModel.Policy.AuthorizationContext>.</xref:System.IdentityModel.Policy.AuthorizationContext> </xref:System.Security.Principal.IPrincipal> </xref:System.IdentityModel.Policy.IAuthorizationPolicy>'
   syntax:
     content: public abstract System.Collections.Generic.IDictionary<string,object> Properties { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.Object}
-      description: "A &lt;xref:System.Collections.Generic.Dictionary%602&gt; that specifies a collection of non-claim properties."
+      description: "Um &lt;xref:System.Collections.Generic.Dictionary%602&gt; que especifica uma coleção de propriedades de declaração não."
   overload: System.IdentityModel.Policy.AuthorizationContext.Properties*
   exceptions: []
   platform:

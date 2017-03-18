@@ -10,8 +10,8 @@ items:
   nameWithType: SecurityContext
   fullName: System.Messaging.SecurityContext
   type: Class
-  summary: "Represents the security context for a message in a queue."
-  remarks: "The security context contains cached security information such as an internal certificate, the corresponding private key, the user&quot;s SID, needed to attach a certificate and the sender identifier to a message when requesting authentication.       If a client, such as an ASP.NET application, impersonates a user to send a message to a queue, the identity of the user is used to access the queue. If the queue is remote, these credentials are cached and used for messages that are subsequently sent to the queue. Therefore, the SID in subsequent messages will be the cached identity of the first user that sent a message to the queue. The cached identity of the first user that sent a message to the queue will be used for subsequent users.       To overcome this problem, set the security context using <xref:System.Messaging.Message.SecurityContext%2A> before sending a message to a remote queue to ensure that the current user&quot;s credentials are used to gain access to the queue. However, the suggested best practice is to:      1.  Make the queue an authenticated queue.      2.  Run the ASP.NET application as a domain identity and authorize that application to write to the queue.      3.  Do not impersonate the user when using the queue. Instead, get the caller’s identity and either perform authorization checking in the ASP.NET application or include the caller’s identity as part of the message and perform authorization checking in the receiver application."
+  summary: "Representa o contexto de segurança para uma mensagem em uma fila."
+  remarks: "O contexto de segurança contém informações de segurança armazenadas em cache como um certificado interno, a chave privada correspondente, o SID do usuário, necessária para anexar um certificado e o identificador de remetente para uma mensagem ao solicitar a autenticação.       Se um cliente, como um aplicativo ASP.NET, representa um usuário para enviar uma mensagem para uma fila, a identidade do usuário é usada para acessar a fila. Se a fila for remota, essas credenciais são armazenadas em cache e usadas para mensagens enviadas para a fila subsequentemente. Portanto, o SID nas mensagens subsequentes será a identidade armazenada em cache do primeiro usuário que enviou uma mensagem à fila. A identidade armazenada em cache do primeiro usuário que enviou uma mensagem à fila será usada para os usuários subsequentes.       Para contornar esse problema, defina o contexto de segurança usando <xref:System.Messaging.Message.SecurityContext%2A>antes de enviar uma mensagem para uma fila remota para assegurar que credenciais do usuário atual são usadas para acessar a fila.</xref:System.Messaging.Message.SecurityContext%2A> No entanto, é a prática recomendada sugerida: 1.  Verifique a fila de uma fila autenticada.      2.  Execute o aplicativo ASP.NET como uma identidade de domínio e autorizar esse aplicativo para gravar na fila.      3.  Não represente o usuário ao usar a fila. Em vez disso, obtenha a identidade do chamador e executar a verificação no aplicativo ASP.NET de autorização ou incluir a identidade do chamador como parte da mensagem e executar a verificação do aplicativo receptor de autorização."
   syntax:
     content: 'public sealed class SecurityContext : IDisposable'
   inheritance:
@@ -33,7 +33,7 @@ items:
   assemblies:
   - System.Messaging
   namespace: System.Messaging
-  summary: "Releases all resources used by the <xref href=&quot;System.Messaging.SecurityContext&quot;></xref>."
+  summary: "Libera todos os recursos usados pelo <xref href=&quot;System.Messaging.SecurityContext&quot;> </xref>."
   syntax:
     content: public void Dispose ();
     parameters: []

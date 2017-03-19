@@ -45,7 +45,7 @@ items:
   nameWithType: CultureAndRegionInfoBuilder
   fullName: System.Globalization.CultureAndRegionInfoBuilder
   type: Class
-  summary: "Defines a custom culture that is new or based on another culture and country/region. The custom culture can be installed on a computer and subsequently used by any application that is running on that computer. This class cannot be inherited."
+  summary: "Define uma cultura personalizada que é nova ou com base em outro país/região e a cultura. A cultura personalizada pode ser instalada em um computador e subsequentemente usada por qualquer aplicativo que está em execução no computador. Essa classe não pode ser herdada."
   remarks: "The <xref:System.Globalization.CultureInfo> class holds culture-specific information, such as the associated language, sublanguage, country/region, calendar, and cultural conventions. This class also provides culture-specific instances of the <xref:System.Globalization.DateTimeFormatInfo>, <xref:System.Globalization.NumberFormatInfo>, <xref:System.Globalization.CompareInfo>, and <xref:System.Globalization.TextInfo> classes, which are required for culture-specific operations such as casing, formatting and parsing dates and numbers, and comparing strings.  \n  \n By default, the .NET Framework supports <xref:System.Globalization.CultureInfo> objects that represent a predefined set of cultures. For a list of these cultures, see the [National Language Support (NLS) API Reference](http://go.microsoft.com/fwlink/?LinkId=200048) at the Go Global Developer Center. The CultureAndRegionInfoBuilder class enables you to create a custom culture that is completely new or that overrides a predefined culture.  When a custom culture is installed and registered on a particular computer, it becomes indistinguishable from predefined <xref:System.Globalization.CultureInfo> objects, and can be instantiated and used just like those objects.  \n  \n> [!IMPORTANT]\n>  Note that the CultureAndRegionInfoBuilder class is found in an assembly named sysglobl.dll. Successfully compiling code that uses this type requires that you add a reference to sysglobl.dll.  \n  \n A custom culture can be registered on a computer only by a user who has administrative rights on that computer. Consequently, apps typically do not create and install custom cultures. Instead, you can use the CultureAndRegionInfoBuilder class to create a special-purpose tool that an administrator can use to create, install, and register a custom culture. After the custom culture is registered on a computer, you can use the <xref:System.Globalization.CultureInfo> class in your app to create instances of the custom culture just as you would for a predefined culture.  \n  \n If you parse date and time strings generated for a custom culture, you should use the <xref:System.DateTime.ParseExact%2A?displayProperty=fullName> or <xref:System.DateTime.TryParseExact%2A?displayProperty=fullName> method instead of the <xref:System.DateTime.Parse%2A?displayProperty=fullName> or <xref:System.DateTime.TryParse%2A?displayProperty=fullName> method to improve the probability that the parse operation will succeed. A date and time string for a custom culture can be complicated and therefore difficult to parse. The <xref:System.DateTime.Parse%2A> and <xref:System.DateTime.TryParse%2A> methods try to parse a string with several implicit parse patterns, all of which might fail. The <xref:System.DateTime.TryParseExact%2A> method, in contrast, requires the application to explicitly designate one or more exact parse patterns that are likely to succeed.  \n  \n## Defining and Creating a Custom Culture  \n You use the CultureAndRegionInfoBuilder class to define and name a custom culture. The custom culture can be an entirely new culture, a new culture that is based on an existing culture (that is, a supplemental culture), or a culture that replaces an existing .NET Framework culture. In each case, the basic steps are the same:  \n  \n1.  Instantiate a CultureAndRegionInfoBuilder object by calling its <xref:System.Globalization.CultureAndRegionInfoBuilder.%23ctor%28System.String%2CSystem.Globalization.CultureAndRegionModifiers%29> constructor. To replace an existing culture, pass that culture's name and the <xref:System.Globalization.CultureAndRegionModifiers?displayProperty=fullName> enumeration value to the constructor. To create a new culture or a supplemental culture, pass a unique culture name and either the <xref:System.Globalization.CultureAndRegionModifiers?displayProperty=fullName> or <xref:System.Globalization.CultureAndRegionModifiers?displayProperty=fullName> enumeration value.  \n  \n    > [!NOTE]\n    >  If you use the <xref:System.Globalization.CultureAndRegionModifiers?displayProperty=fullName> enumeration value to instantiate a CultureAndRegionInfoBuilder object, the CultureAndRegionInfoBuilder object's properties are automatically populated with values from the <xref:System.Globalization.CultureInfo> object to be replaced.  \n  \n2.  If you are creating a new or supplemental culture:  \n  \n    -   Populate the CultureAndRegionInfoBuilder object's properties by calling the <xref:System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromCultureInfo%2A> method and passing a <xref:System.Globalization.CultureInfo> object whose property values are similar to your new object.  \n  \n    -   Populate the CultureAndRegionInfoBuilder object's regional properties by calling the <xref:System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromRegionInfo%2A> method and passing a <xref:System.Globalization.RegionInfo> object that represents the region of your custom culture.  \n  \n3.  Modify the properties of the CultureAndRegionInfoBuilder object as necessary.  \n  \n4.  If you are planning to register the custom culture in a separate routine, call the <xref:System.Globalization.CultureAndRegionInfoBuilder.Save%2A> method. This generates an XML file that you can load and register in a separate custom culture installation routine.  \n  \n## Registering a Custom Culture  \n If you are developing a registration application for a custom culture that is separate from the application that creates the culture, you call the <xref:System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml%2A> method to load the XML file that contains the custom culture's definition and instantiate the CultureAndRegionInfoBuilder object. To handle the registration, call the <xref:System.Globalization.CultureAndRegionInfoBuilder.Register%2A> method. For the registration to succeed, the application that registers the custom culture must be running with administrative privileges on the target system; otherwise, the call to <xref:System.Globalization.CultureAndRegionInfoBuilder.Register%2A> throws an <xref:System.UnauthorizedAccessException> exception.  \n  \n> [!WARNING]\n>  Culture data can differ between systems. If you are using the CultureAndRegionInfoBuilder class to create a custom culture that is uniform across multiple systems and you are creating your custom culture by loading data from existing <xref:System.Globalization.CultureInfo> and <xref:System.Globalization.RegionInfo> objects and customizing it, you should develop two different utilities. The first creates the custom culture and saves it to an XML file. The second uses the <xref:System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml%2A> method to load the custom culture from an XML file and register it on the target computer.  \n  \n The registration process performs the following tasks:  \n  \n-   Creates an .nlp file that contains the information that is defined in the CultureAndRegionInfoBuilder object.  \n  \n-   Stores the .nlp file in the %windir%\\Globalization system directory on the target computer. This enables the custom culture's settings to persist between sessions. (The CultureAndRegionInfoBuilder method requires administrative privileges because the .nlp file is stored in a system directory.)  \n  \n-   Prepares the .NET Framework to search the %windir%\\Globalization system directory instead of an internal cache the next time there is a request to create your new custom culture.  \n  \n When a custom culture is successfully registered, it is indistinguishable from the cultures that are predefined by the .NET Framework. The custom culture is available until a call to the CultureAndRegionInfoBuilder method removes the .nlp file from the local computer.  \n  \n## Instantiating a Custom Culture  \n You can create an instance of the custom culture in one of the following ways:  \n  \n-   By invoking the <xref:System.Globalization.CultureInfo.%23ctor%2A?displayProperty=fullName> constructor with the culture name.  \n  \n-   By calling the <xref:System.Globalization.CultureInfo.CreateSpecificCulture%2A?displayProperty=fullName> method with the culture name.  \n  \n-   By calling the <xref:System.Globalization.CultureInfo.GetCultureInfo%2A?displayProperty=fullName> method with the culture name.  \n  \n In addition, the array of <xref:System.Globalization.CultureInfo> objects that is returned by the <xref:System.Globalization.CultureInfo.GetCultures%2A?displayProperty=fullName> method includes the custom culture."
   example:
   - "The following example defines a custom ru-US culture that represents the Russian language in the United States. The example defines the custom culture by loading settings from the Russian (Russia) <xref:System.Globalization.CultureInfo> object and the U.S. <xref:System.Globalization.RegionInfo> object, and then sets a number of CultureAndRegionInfoBuilder properties. The example registers the custom culture, and then instantiates it and makes it the current thread culture.  \n  \n [!code-cs[System.Globalization.CultureAndRegionInfoBuilder.Class#1](~/add/codesnippet/csharp/car/car.cs#1)]\n [!code-vb[System.Globalization.CultureAndRegionInfoBuilder.Class#1](~/add/codesnippet/visualbasic/car/car.vb#1)]"
@@ -72,8 +72,8 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Initializes a new instance of the <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> class."
-  remarks: "The `cultureName` parameter specifies the name of the new <xref:System.Globalization.CultureAndRegionInfoBuilder> object.       The `flags` parameter is used for a <xref:System.Globalization.CultureAndRegionModifiers> value that specifies whether the new <xref:System.Globalization.CultureAndRegionInfoBuilder> object is a new custom culture, or replaces an existing neutral culture, specific culture, or Windows locale.       If the `cultureName` parameter specifies an existing .NET Framework culture, registered custom culture, or culture generated from a Windows locale, the CultureAndRegionInfoBuilder constructor automatically populates the new <xref:System.Globalization.CultureAndRegionInfoBuilder> object with culture and country/region information.       Populate the new <xref:System.Globalization.CultureAndRegionInfoBuilder> object with culture and country/region information by invoking the <xref:System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromCultureInfo%2A> and <xref:System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromRegionInfo%2A> methods.      ## Custom Culture Names    The preferred format of the `cultureName` parameter for a new, custom culture is &quot;[`prefix`-]`language`[-`region`][-`suffix`[`…`]]&quot;, where the `language` component is required and the `prefix`, `region`, and `suffix` components are optional. The maximum length of each component is 8 characters and the maximum length of the entire `cultureName` parameter is 84 characters.       The `prefix` component is the Internet Assigned Numbers Authority (IANA) identification. Specify &quot;i-&quot; or &quot;I-&quot; for culture names registered with the IANA, or &quot;x-&quot; or &quot;X-&quot; for culture names reserved for private use. Otherwise, the prefix is not required. For more information, see RFC 4646, &quot;Tags for the Identification of Languages.&quot;       The `language` component of the `cultureName` parameter specifies a lowercase two-letter code derived from ISO 639-1, and `region` specifies an uppercase two-letter code derived from ISO 3166. For example, en-US stands for English as spoken in the United States. The absence of the `region` component signifies a neutral culture.       A `cultureName` that is the same as the name of a culture included with the .NET Framework signifies a replacement (override) culture. The values that can be assigned to the properties of a replacement culture are limited. For more information about such limitations, see the exceptions for each property.       The application uses the `suffix` component to distinguish similar cultures. For example, two companies, ABC and XYZ, create and share a new ASP.NET Web service to promote their products in different markets around the world. The Web pages for the service display information such as the regional logo and local telephone number of each company depending on the user&quot;s culture. The culture-specific content for each Web page is in separate resource files identified by culture name and qualified by company name.  For example, resource files for the en-US and ja-JP cultures are named en-US-ABC, en-US-XYZ, ja-JP-ABC, and ja-JP-XYZ. The &quot;ABC&quot; and &quot;XYZ&quot; suffixes enable the Web service to use the same application logic to display different market-specific information.       The `suffix` component can consist of subcomponents, where each subcomponent is delimited by a hyphen and the maximum length of each subcomponent is 8 characters. For example, if &quot;en-US-honda-cars&quot; is the `cultureName` parameter, &quot;-honda-cars&quot; is the `suffix` component."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> classe."
+  remarks: "O `cultureName` parâmetro especifica o nome do novo <xref:System.Globalization.CultureAndRegionInfoBuilder>objeto.</xref:System.Globalization.CultureAndRegionInfoBuilder>       O `flags` parâmetro é usado para um <xref:System.Globalization.CultureAndRegionModifiers>valor que especifica se o novo <xref:System.Globalization.CultureAndRegionInfoBuilder>objeto é uma nova cultura personalizada ou substitui uma cultura neutra existente, a cultura específica ou a localidade do Windows.</xref:System.Globalization.CultureAndRegionInfoBuilder> </xref:System.Globalization.CultureAndRegionModifiers>       Se o `cultureName` parâmetro especifica uma cultura existente do .NET Framework, a cultura personalizada registrada ou cultura gerada a partir de uma localidade do Windows, o construtor CultureAndRegionInfoBuilder automaticamente preenche o novo <xref:System.Globalization.CultureAndRegionInfoBuilder>objeto com informações de cultura e país/região.</xref:System.Globalization.CultureAndRegionInfoBuilder>       Popular o novo <xref:System.Globalization.CultureAndRegionInfoBuilder>do objeto com informações de cultura e país/região, chamando o <xref:System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromCultureInfo%2A>e <xref:System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromRegionInfo%2A>métodos.</xref:System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromRegionInfo%2A> </xref:System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromCultureInfo%2A> </xref:System.Globalization.CultureAndRegionInfoBuilder>      ## O formato preferencial de nomes de cultura personalizada a `cultureName` parâmetro para uma cultura novo e personalizado é &quot;[`prefix`-]`language`[-`region`] [-`suffix`[`…`]]&quot;, onde o `language` o componente é necessário e o `prefix`, `region`, e `suffix` componentes são opcionais. O comprimento máximo de cada componente é 8 caracteres e o comprimento máximo de todo o `cultureName` parâmetro é 84 caracteres.       O `prefix` componente é a identificação de autoridade de números atribuídos da Internet (IANA). Especifique &quot;i-&quot; ou &quot;I-&quot; para nomes de cultura registrados com o IANA, ou &quot;x&quot; ou &quot;X&quot; para nomes de cultura reservados para uso particular. Caso contrário, o prefixo não é necessário. Para obter mais informações, consulte RFC 4646, &quot;Marcas para a identificação de idiomas&quot;.       O `language` componente do `cultureName` parâmetro especifica um código de duas letras minúsculas derivado do ISO 639-1 e `region` Especifica um código de duas letras maiusculas derivado da ISO 3166. Por exemplo, en-US representa inglês falado nos Estados Unidos. A ausência de `region` componente significa uma cultura neutra.       Um `cultureName` que é o mesmo como o nome de uma cultura incluído com o .NET Framework significa uma cultura substituta (substitua). Os valores que podem ser atribuídos às propriedades de uma cultura substituta são limitados. Para obter mais informações sobre essas limitações, consulte as exceções para cada propriedade.       O aplicativo usa o `suffix` componente para distinguir culturas semelhantes. Por exemplo, duas empresas, ABC e XYZ, criar e compartilham um novo serviço da Web do ASP.NET para promover seus produtos em diferentes mercados em todo o mundo. As páginas da Web para o serviço exibem informações como o logotipo regional e o número de telefone local de cada empresa dependendo da cultura do usuário. O conteúdo de cultura específica para cada página da Web está em arquivos de recursos separado identificado pelo nome de cultura e qualificado pelo nome da empresa.  Por exemplo, arquivos de recurso para a cultura en-US e ja-JP são chamados en-US-ABC, en-US-XYZ, ja-JP-ABC e ja-JP-XYZ. Os sufixos de &quot;ABC&quot; e &quot;XYZ&quot; habilitam o serviço Web para usar a mesma lógica de aplicativo para exibir informações específicas de mercado diferentes.       O `suffix` componente pode consistir de subcomponentes, onde cada subcomponente é delimitada por um hífen e o comprimento máximo de cada subcomponente é 8 caracteres. Por exemplo, se &quot;en-US-honda-carros&quot; é o `cultureName` parâmetro, &quot;carro - honda-&quot; é o `suffix` componente."
   example:
   - "The following code example creates a custom culture with a private use prefix, then lists a set of its properties. The first property lists the name of the culture.  \n  \n [!code-cs[sys.glob.carib1#1](~/add/codesnippet/csharp/3eea21b4-6a45-4472-bf95-_1.cs)]\n [!code-cpp[sys.glob.carib1#1](~/add/codesnippet/cpp/3eea21b4-6a45-4472-bf95-_1.cpp)]\n [!code-vb[sys.glob.carib1#1](~/add/codesnippet/visualbasic/3eea21b4-6a45-4472-bf95-_1.vb)]"
   syntax:
@@ -81,18 +81,18 @@ items:
     parameters:
     - id: cultureName
       type: System.String
-      description: "The name of a culture."
+      description: "O nome de uma cultura."
     - id: flags
       type: System.Globalization.CultureAndRegionModifiers
-      description: "One of the <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;></xref> values that specifies whether the new <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object is a neutral culture, replaces an existing culture and country/region, or is a new culture."
+      description: "Uma da <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;> </xref> valores que especifica se o novo <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto é uma cultura neutra, substitui uma cultura existente e o país/região ou é uma nova cultura."
   overload: System.Globalization.CultureAndRegionInfoBuilder.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>cultureName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>cultureName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>cultureName</code> is the empty string (&quot;&quot;).       -or-       <code>cultureName</code> contains characters other than &quot;0&quot; through &quot;9&quot;, &quot;a&quot; through &quot;z&quot;, &quot;A&quot; through &quot;Z&quot;, hyphen (-), or underscore (_).       -or-       <code>cultureName</code> contains hyphens (-) to delimit components, but one or more of the <code>prefix</code>, <code>language</code>, <code>region</code>, or <code>suffix</code> components is absent. That is, two or more hyphens are adjacent.       -or-       <code>cultureName</code> is longer than 84 characters.       -or-       <code>cultureName</code> contains hyphens to delimit components, but one or more of the components is longer than 8 characters.       -or-       <code>cultureName</code> contains a leading or trailing hyphen (-) or underscore (_).       -or-       <code>cultureName</code> specifies an alternate sort replacement culture instead of a .NET Framework culture. For example, <code>culturenName</code> is &quot;de-de_phoneb&quot;, a culture that sorts strings as they appear in a German telephone book, instead of &quot;de-DE&quot;, the German (Germany) culture.       -or-       <code>flags</code> contains an invalid combination of <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;></xref> values.       -or-       <code>flags</code> contains <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;></xref> or <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;></xref> and <code>cultureName</code> specifies a culture that is not found.       -or-       <code>flags</code> contains <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;></xref> and <code>cultureName</code> specifies a user-created custom culture that does not replace a culture shipped with the .NET Framework.       -or-       <code>flags</code> contains <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;></xref> and <code>cultureName</code> specifies a culture that is not a neutral culture.       -or-       <code>flags</code> contains <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;></xref> and <code>cultureName</code> specifies a user-created custom culture that replaces a specific culture shipped with the .NET Framework."
+    description: "<code>cultureName</code>é a cadeia de caracteres vazia (&quot;&quot;).       - ou - <code>cultureName</code> contém caracteres que não seja &quot;0&quot; e &quot;9&quot;, &quot;a&quot; a &quot;z&quot;, &quot;A&quot; a &quot;Z&quot;, o hífen (-) ou sublinhado (_).       - ou - <code>cultureName</code> contém hifens (-) para delimitar os componentes, mas um ou mais do <code>prefix</code>, <code>language</code>, <code>region</code>, ou <code>suffix</code> componentes está ausente. Ou seja, dois ou mais hifens são adjacentes.       - ou - <code>cultureName</code> tem mais de 84 caracteres.       - ou - <code>cultureName</code> hifens para delimitar os componentes, mas um ou mais dos componentes mais de 8 caracteres.       - ou - <code>cultureName</code> contém um hífen à esquerda ou à direita (-) ou sublinhado (_).       - ou - <code>cultureName</code> Especifica uma cultura de substituição de classificação alternativo em vez de uma cultura do .NET Framework. Por exemplo, <code>culturenName</code> é &quot;de-de_phoneb&quot;, uma cultura que classifica as cadeias de caracteres que aparecem em uma lista telefônica alemão, em vez de &quot;de-DE&quot;, a cultura alemão (Alemanha).       - ou - <code>flags</code> contém uma combinação inválida de <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;> </xref> valores.       - ou - <code>flags</code> contém <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;> </xref> ou <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;> </xref> e <code>cultureName</code> Especifica uma cultura que não foi encontrada.       - ou - <code>flags</code> contém <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;> </xref> e <code>cultureName</code> Especifica uma cultura personalizada criada pelo usuário que não substitui uma cultura fornecida com o .NET Framework.       - ou - <code>flags</code> contém <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;> </xref> e <code>cultureName</code> Especifica uma cultura que não é uma cultura neutra.       - ou - <code>flags</code> contém <xref href=&quot;System.Globalization.CultureAndRegionModifiers&quot;> </xref> e <code>cultureName</code> Especifica uma cultura personalizada criada pelo usuário que substitui uma cultura específica fornecida com o .NET Framework."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.AvailableCalendars
@@ -107,21 +107,21 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets an array of calendars that are supported by this <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
-  remarks: "The AvailableCalendars property corresponds to the <xref:System.Globalization.CultureInfo.OptionalCalendars%2A> property."
+  summary: "Obtém ou define uma matriz de calendários com suporte por este <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
+  remarks: "A propriedade AvailableCalendars corresponde do <xref:System.Globalization.CultureInfo.OptionalCalendars%2A>propriedade.</xref:System.Globalization.CultureInfo.OptionalCalendars%2A>"
   syntax:
     content: public System.Globalization.Calendar[] AvailableCalendars { get; set; }
     return:
       type: System.Globalization.Calendar[]
-      description: "An array of calendars."
+      description: "Uma matriz de calendários."
   overload: System.Globalization.CultureAndRegionInfoBuilder.AvailableCalendars*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "In a set operation, the assigned array is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, or an element of the assigned array is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Em uma operação definida, a matriz atribuída é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, ou um elemento da matriz atribuído é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This property is not supported for neutral cultures.       -or-       In a set operation, the assigned array contains <xref href=&quot;System.Globalization.PersianCalendar&quot;></xref>, <xref href=&quot;System.Globalization.TaiwanLunisolarCalendar&quot;></xref>, <xref href=&quot;System.Globalization.KoreanLunisolarCalendar&quot;></xref>, <xref href=&quot;System.Globalization.JapaneseLunisolarCalendar&quot;></xref>, <xref href=&quot;System.Globalization.ChineseLunisolarCalendar&quot;></xref>, or <xref href=&quot;System.Globalization.JulianCalendar&quot;></xref>.       -or-       In a set operation, the assigned array contains a custom calendar."
+    description: "Não há suporte para essa propriedade para culturas neutras.       -or-       In a set operation, the assigned array contains <xref href=&quot;System.Globalization.PersianCalendar&quot;></xref>, <xref href=&quot;System.Globalization.TaiwanLunisolarCalendar&quot;></xref>, <xref href=&quot;System.Globalization.KoreanLunisolarCalendar&quot;></xref>, <xref href=&quot;System.Globalization.JapaneseLunisolarCalendar&quot;></xref>, <xref href=&quot;System.Globalization.ChineseLunisolarCalendar&quot;></xref>, or <xref href=&quot;System.Globalization.JulianCalendar&quot;></xref>.       - ou - em uma operação definida, a matriz atribuída contém um calendário personalizado."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.CompareInfo
@@ -136,21 +136,21 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the <xref:System.Globalization.CompareInfo> object that defines how to compare strings for the culture."
-  remarks: "The CompareInfo property corresponds to the <xref:System.Globalization.CultureInfo.CompareInfo%2A?displayProperty=fullName> property.       The <xref:System.Globalization.TextInfo> and <xref:System.Globalization.CompareInfo> objects that are assigned to the <xref:System.Globalization.CultureAndRegionInfoBuilder.TextInfo%2A> and CompareInfo properties both support culture-sensitive and case-sensitive string comparison. The <xref:System.Globalization.CompareInfo> object also has methods that include a <xref:System.Globalization.CompareOptions> parameter that supports culture-sensitive, case-insensitive comparison. These two properties should be assigned <xref:System.Globalization.TextInfo> and <xref:System.Globalization.CompareInfo> objects that represent the same locale."
+  summary: "Obtém ou define o <xref:System.Globalization.CompareInfo>objeto que define como comparar cadeias de caracteres para a cultura.</xref:System.Globalization.CompareInfo>"
+  remarks: "A propriedade CompareInfo corresponde do <xref:System.Globalization.CultureInfo.CompareInfo%2A?displayProperty=fullName>propriedade.</xref:System.Globalization.CultureInfo.CompareInfo%2A?displayProperty=fullName>       O <xref:System.Globalization.TextInfo>e <xref:System.Globalization.CompareInfo>objetos que recebem o <xref:System.Globalization.CultureAndRegionInfoBuilder.TextInfo%2A>e CompareInfo propriedades oferecem suporte a comparação de cadeia de caracteres sensíveis à cultura e diferencia maiusculas de minúsculas.</xref:System.Globalization.CultureAndRegionInfoBuilder.TextInfo%2A> </xref:System.Globalization.CompareInfo> </xref:System.Globalization.TextInfo> O <xref:System.Globalization.CompareInfo>objeto também tem métodos que incluem um <xref:System.Globalization.CompareOptions>parâmetro que dá suporte à comparação sensíveis à cultura, diferencia maiusculas de minúsculas.</xref:System.Globalization.CompareOptions> </xref:System.Globalization.CompareInfo> Essas duas propriedades devem ser atribuídas <xref:System.Globalization.TextInfo>e <xref:System.Globalization.CompareInfo>objetos que representam a mesma localidade.</xref:System.Globalization.CompareInfo> </xref:System.Globalization.TextInfo>"
   syntax:
     content: public System.Globalization.CompareInfo CompareInfo { get; set; }
     return:
       type: System.Globalization.CompareInfo
-      description: "The <xref:System.Globalization.CompareInfo> object that defines how to compare strings for the culture."
+      description: "O <xref:System.Globalization.CompareInfo>objeto que define como comparar cadeias de caracteres para a cultura.</xref:System.Globalization.CompareInfo>"
   overload: System.Globalization.CultureAndRegionInfoBuilder.CompareInfo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "In a set operation the assigned value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Em uma operação de definição é o valor atribuído <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This custom culture is an override of a built-in culture."
+    description: "Essa cultura personalizada é uma substituição de uma cultura incorporada."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.ConsoleFallbackUICulture
@@ -165,18 +165,18 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets an alternate user interface culture suitable for console applications when the default graphic user interface culture is inappropriate."
-  remarks: "In a get operation, the ConsoleFallbackUICulture property corresponds to the <xref:System.Globalization.CultureInfo.GetConsoleFallbackUICulture%2A> method. Specify `null` in a set operation to indicate that the culture defined by the current <xref:System.Globalization.CultureAndRegionInfoBuilder> object is the alternate user interface culture. If you attempt to set the property to a culture that itself has a different Console Fallback UI Culture, then it will be assigned that final &quot;leaf&quot; culture.       Languages such as Arabic, Hebrew, Persian, Urdu and Syriac are based on bi-directional text. Windows applications, which employ a graphical user interface, support bi-directional languages. However, console applications, which employ the text user interface of the operating system console, do not provide bi-directional support. Consequently, if a console application is localized to Arabic or Hebrew, it displays unreadable text on the console screen.       The user interface culture specifies the resources that an application needs to support user input and output, and by default is the same as the operating system culture. For example, the <xref:System.Globalization.CultureInfo.CurrentUICulture%2A> property returns an Arabic culture for an Arabic operating system. The application should use the ConsoleFallbackUICulture property to retrieve a neutral culture suitable for a console application user interface."
+  summary: "Obtém ou define uma cultura de interface de usuário alternativas adequado para aplicativos de console quando a cultura de interface gráfica do usuário padrão não é apropriada."
+  remarks: "Em uma operação get, a propriedade ConsoleFallbackUICulture corresponde do <xref:System.Globalization.CultureInfo.GetConsoleFallbackUICulture%2A>método.</xref:System.Globalization.CultureInfo.GetConsoleFallbackUICulture%2A> Especifique `null` em uma operação definida para indicar que a cultura definida por atual <xref:System.Globalization.CultureAndRegionInfoBuilder>objeto é a cultura de interface de usuário alternativas.</xref:System.Globalization.CultureAndRegionInfoBuilder> Se você tentar definir a propriedade para uma cultura que tem uma cultura de interface do usuário de Fallback diferente do Console, em seguida, ele será atribuído aquela cultura final &quot;folha&quot;.       Idiomas como árabe, hebraico, persa, Urdu e Síria são baseados em texto bidirecional. Aplicativos do Windows, que utilizam uma interface gráfica do usuário, suportam a idiomas bidirecionais. No entanto, os aplicativos de console, que utilizam a interface do usuário do texto do console do sistema operacional, não fornecem suporte bidirecional. Consequentemente, se um aplicativo de console é localizado para árabe ou hebraico, ele exibe texto ilegível na tela do console.       A cultura de interface do usuário Especifica os recursos que um aplicativo precisa oferecer suporte à entrada do usuário e a saída e por padrão é o mesmo que a cultura do sistema operacional. Por exemplo, o <xref:System.Globalization.CultureInfo.CurrentUICulture%2A>propriedade retorna uma cultura árabe para um sistema operacional árabe.</xref:System.Globalization.CultureInfo.CurrentUICulture%2A> O aplicativo deve usar a propriedade ConsoleFallbackUICulture para recuperar uma cultura neutra adequada para uma interface de usuário do aplicativo de console."
   syntax:
     content: public System.Globalization.CultureInfo ConsoleFallbackUICulture { get; set; }
     return:
       type: System.Globalization.CultureInfo
-      description: "An alternate culture that is used to read and display text on the console."
+      description: "Uma cultura alternativa que é usada para ler e exibir texto no console."
   overload: System.Globalization.CultureAndRegionInfoBuilder.ConsoleFallbackUICulture*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "In a set operation where the specified culture is not <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the ConsoleFallbackUICulture property of the specified culture is not the same as the specified culture."
+    description: "Em uma operação de conjunto em que a cultura especificada não é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, a propriedade ConsoleFallbackUICulture da cultura especificada não é o mesmo que a cultura especificada."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml(System.String)
@@ -191,8 +191,8 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Reconstitutes a <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object from a specified XML file that contains a representation of the object."
-  remarks: "The `xmlFileName` parameter specifies a file name that contains the XML representation of a <xref:System.Globalization.CultureAndRegionInfoBuilder> object. The format of the XML file is called Locale Data Markup Language (LDML) version 1.1. A new <xref:System.Globalization.CultureAndRegionInfoBuilder> object is created and initialized with the data in `xmlFileName`. The <xref:System.Globalization.CultureAndRegionInfoBuilder.Save%2A> method performs the reverse operation of the CreateFromLdml method.       In the LDML file, the properties of a culture are specified as child elements of the `<special>` element in the `<identity>` section. A property value is typically specified by the element&quot;s `type` attribute. For example, the following excerpt from an LDML file defines a culture&quot;s parent as the English neutral culture.      ```      <identity>      <version number=&quot;1.1&quot;>ldml version 1.1</version>      <generation date=&quot;2012-05-16&quot; />      <special xmlns:msLocale=&quot;http://schemas.microsoft.com/globalization/2004/08/carib/ldml&quot;>         <!—content removed -->         <msLocale:parentName type=&quot;en&quot; />         <!—content removed -->      </special>   </identity>      ```       For more information about the LDML standard, see  [Unicode Technical Standard #35, &quot;Locale Data Markup Language (LDML)&quot;](http://go.microsoft.com/fwlink/p/?LinkId=252840) on the Unicode Consortium website."
+  summary: "Reconstitui um <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto a partir de um arquivo XML especificado que contém uma representação do objeto."
+  remarks: "O `xmlFileName` parâmetro especifica um nome de arquivo que contém a representação XML de um <xref:System.Globalization.CultureAndRegionInfoBuilder>objeto.</xref:System.Globalization.CultureAndRegionInfoBuilder> O formato do arquivo XML é chamado de localidade dados Markup Language (LDML) versão 1.1. Um novo <xref:System.Globalization.CultureAndRegionInfoBuilder>objeto é criado e inicializado com os dados no `xmlFileName`.</xref:System.Globalization.CultureAndRegionInfoBuilder> O <xref:System.Globalization.CultureAndRegionInfoBuilder.Save%2A>método executa a operação inversa do método CreateFromLdml.</xref:System.Globalization.CultureAndRegionInfoBuilder.Save%2A>       No arquivo LDML, as propriedades de uma cultura são especificadas como elementos filho de `<special>` elemento o `<identity>` seção. Um valor de propriedade geralmente é especificado no elemento `type` atributo. Por exemplo, o seguinte trecho de um arquivo LDML define o pai de uma cultura como a cultura neutra em inglês.      ```      <identity>      <version number=&quot;1.1&quot;>ldml version 1.1</version>      <generation date=&quot;2012-05-16&quot; />      <special xmlns:msLocale=&quot;http://schemas.microsoft.com/globalization/2004/08/carib/ldml&quot;>         <!—content removed -->         <msLocale:parentName type=&quot;en&quot; />         <!—content removed -->      </special>   </identity>      ```Para obter mais informações sobre o padrão LDML, consulte [Unicode Technical Standard #35, &quot;localidade dados Markup Language (LDML)&quot;](http://go.microsoft.com/fwlink/p/?LinkId=252840) no site do consórcio Unicode."
   example:
   - "The following example demonstrates the <xref:System.Globalization.CultureAndRegionInfoBuilder.Save%2A> and CreateFromLdml methods.  \n  \n [!code-vb[sys.glob.carib.saveLdml#1](~/add/codesnippet/visualbasic/m-system.globalization.c_1_1.vb)]\n [!code-cs[sys.glob.carib.saveLdml#1](~/add/codesnippet/csharp/m-system.globalization.c_1_1.cs)]"
   syntax:
@@ -200,24 +200,24 @@ items:
     parameters:
     - id: xmlFileName
       type: System.String
-      description: "A file name that contains the XML representation of a <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
+      description: "Um nome de arquivo que contém a representação XML de um <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
     return:
       type: System.Globalization.CultureAndRegionInfoBuilder
-      description: "A new object that is equivalent to the information stored in the <code>xmlFileName</code> parameter."
+      description: "Um novo objeto que é equivalente às informações armazenadas no <code> xmlFileName </code> parâmetro."
   overload: System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>xmlFileName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>xmlFileName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>xmlFileName</code> is an empty string (&quot;&quot;), or invalid file or path name."
+    description: "<code>xmlFileName</code>é uma cadeia de caracteres vazia (&quot;&quot;), ou o nome de arquivo ou caminho inválido."
   - type: System.Xml.XmlException
     commentId: T:System.Xml.XmlException
-    description: "The data in <code>xmlFileName</code> is not in valid XML format.       -or-       An I/O error occurred while accessing <code>xmlFileName</code>."
+    description: "Os dados em <code> xmlFileName </code> não está no formato XML válido.       - ou - erro de uma e/s ao acessar <code> xmlFileName </code>."
   - type: System.Xml.Schema.XmlSchemaValidationException
     commentId: T:System.Xml.Schema.XmlSchemaValidationException
-    description: "The data in <code>xmlFileName</code> is not in valid LDML format."
+    description: "Os dados em <code> xmlFileName </code> não está no formato LDML válido."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.CultureEnglishName
@@ -232,23 +232,23 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the culture name in English."
-  remarks: "The CultureEnglishName property corresponds to the <xref:System.Globalization.CultureInfo.EnglishName%2A> property.       For example, the return value of the CultureEnglishName property for the specific culture English as spoken in the United States is &quot;English (United States)&quot;.       The value of this property is the same, regardless of the language version of the .NET Framework."
+  summary: "Obtém ou define o nome de cultura em inglês."
+  remarks: "A propriedade CultureEnglishName corresponde do <xref:System.Globalization.CultureInfo.EnglishName%2A>propriedade.</xref:System.Globalization.CultureInfo.EnglishName%2A>       Por exemplo, o valor de retorno da propriedade CultureEnglishName para a cultura específica inglês como falado nos Estados Unidos é &quot;Inglês (Estados Unidos)&quot;.       O valor dessa propriedade é o mesmo, independentemente da versão de idioma do .NET Framework."
   example:
   - "The following code example creates a custom culture with a private use prefix, then lists a set of its properties. The first property lists the name of the culture.  \n  \n [!code-cs[sys.glob.carib1#1](~/add/codesnippet/csharp/p-system.globalization.c_1_1.cs)]\n [!code-cpp[sys.glob.carib1#1](~/add/codesnippet/cpp/p-system.globalization.c_1_1.cpp)]\n [!code-vb[sys.glob.carib1#1](~/add/codesnippet/visualbasic/p-system.globalization.c_1_1.vb)]"
   syntax:
     content: public string CultureEnglishName { get; set; }
     return:
       type: System.String
-      description: "The culture name in English."
+      description: "O nome de cultura em inglês."
   overload: System.Globalization.CultureAndRegionInfoBuilder.CultureEnglishName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 0 to 79 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 0 a 79 caracteres."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.CultureName
@@ -263,15 +263,15 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets the name of the culture being created."
-  remarks: "The return value is the name of the culture specified in the <xref:System.Globalization.CultureAndRegionInfoBuilder.%23ctor%2A> constructor. If the specified culture name is the same as an existing culture, except for case, the return value is the name of the existing culture, not the specified culture name.       The CultureName property corresponds to the <xref:System.Globalization.CultureInfo.Name%2A> property."
+  summary: "Obtém o nome da cultura que está sendo criado."
+  remarks: "O valor de retorno é o nome da cultura especificada no <xref:System.Globalization.CultureAndRegionInfoBuilder.%23ctor%2A>construtor.</xref:System.Globalization.CultureAndRegionInfoBuilder.%23ctor%2A> Se o nome de cultura especificado é o mesmo que uma cultura existente, exceto para os casos, o valor de retorno é o nome da cultura existente, não o nome de cultura especificada.       A propriedade CultureName corresponde do <xref:System.Globalization.CultureInfo.Name%2A>propriedade.</xref:System.Globalization.CultureInfo.Name%2A>"
   example:
   - "The following code example creates a custom culture with a private use prefix, then lists a set of its properties. The first property lists the name of the culture.  \n  \n [!code-cs[sys.glob.carib1#1](~/add/codesnippet/csharp/p-system.globalization.c_2_1.cs)]\n [!code-cpp[sys.glob.carib1#1](~/add/codesnippet/cpp/p-system.globalization.c_2_1.cpp)]\n [!code-vb[sys.glob.carib1#1](~/add/codesnippet/visualbasic/p-system.globalization.c_2_1.vb)]"
   syntax:
     content: public string CultureName { get; }
     return:
       type: System.String
-      description: "The culture name of the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
+      description: "O nome da atual cultura <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
   overload: System.Globalization.CultureAndRegionInfoBuilder.CultureName*
   exceptions: []
   platform:
@@ -288,23 +288,23 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the culture name in the format and language that the culture is set to display."
-  remarks: "The CultureNativeName property corresponds to the <xref:System.Globalization.CultureInfo.NativeName%2A> property.       The value of this property is the same, regardless of the language version of the .NET Framework.       The culture&quot;s full name might not display properly if the system is not set to display the culture&quot;s language correctly. For example, if the <xref:System.Globalization.CultureAndRegionInfoBuilder.CultureName%2A> property is &quot;ja-JP&quot; for Japanese (Japan), the CultureNativeName property does not display correctly on a system that is set to English only. However, multilingual operating systems, such as Windows 2000, display the CultureNativeName property correctly."
+  summary: "Obtém ou define o nome de cultura no formato e language a cultura é definida para ser exibida."
+  remarks: "A propriedade CultureNativeName corresponde do <xref:System.Globalization.CultureInfo.NativeName%2A>propriedade.</xref:System.Globalization.CultureInfo.NativeName%2A>       O valor dessa propriedade é o mesmo, independentemente da versão de idioma do .NET Framework.       Nome completo da cultura pode não ser exibidos corretamente se o sistema não está configurado para exibir o idioma da cultura corretamente. Por exemplo, se o <xref:System.Globalization.CultureAndRegionInfoBuilder.CultureName%2A>é &quot;ja-JP&quot; para japonês (Japão), a propriedade CultureNativeName não será exibido corretamente em um sistema que é definido como inglês apenas.</xref:System.Globalization.CultureAndRegionInfoBuilder.CultureName%2A> No entanto, multilíngues sistemas operacionais, como Windows 2000, exibir a propriedade CultureNativeName corretamente."
   example:
   - "The following code example creates a custom culture with a private use prefix, then lists a set of its properties. The first property lists the name of the culture.  \n  \n [!code-cs[sys.glob.carib1#1](~/add/codesnippet/csharp/p-system.globalization.c_0_1.cs)]\n [!code-cpp[sys.glob.carib1#1](~/add/codesnippet/cpp/p-system.globalization.c_0_1.cpp)]\n [!code-vb[sys.glob.carib1#1](~/add/codesnippet/visualbasic/p-system.globalization.c_0_1.vb)]"
   syntax:
     content: public string CultureNativeName { get; set; }
     return:
       type: System.String
-      description: "The culture name in the format and language that the culture is set to display."
+      description: "O nome de cultura no formato e language a cultura é definida para ser exibida."
   overload: System.Globalization.CultureAndRegionInfoBuilder.CultureNativeName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 0 to 79 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 0 a 79 caracteres."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.CultureTypes
@@ -319,12 +319,12 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets the <xref href=&quot;System.Globalization.CultureTypes&quot;></xref> value that describes the culture represented by the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
+  summary: "Obtém o <xref href=&quot;System.Globalization.CultureTypes&quot;> </xref> valor que descreve a cultura representada pelo atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
   syntax:
     content: public System.Globalization.CultureTypes CultureTypes { get; }
     return:
       type: System.Globalization.CultureTypes
-      description: "One of the <xref href=&quot;System.Globalization.CultureTypes&quot;></xref> values."
+      description: "Uma da <xref href=&quot;System.Globalization.CultureTypes&quot;> </xref> valores."
   overload: System.Globalization.CultureAndRegionInfoBuilder.CultureTypes*
   exceptions: []
   platform:
@@ -341,24 +341,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the name, in English, of the currency used in the country/region represented by the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
-  remarks: "The CurrencyEnglishName property is equivalent to the <xref:System.Globalization.RegionInfo.CurrencyEnglishName%2A> property."
+  summary: "Obtém ou define o nome, em inglês, da moeda usada no país/região representado pelo atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
+  remarks: "A propriedade CurrencyEnglishName é equivalente a <xref:System.Globalization.RegionInfo.CurrencyEnglishName%2A>propriedade.</xref:System.Globalization.RegionInfo.CurrencyEnglishName%2A>"
   syntax:
     content: public string CurrencyEnglishName { get; set; }
     return:
       type: System.String
-      description: "The name, in English, of the currency used in the region."
+      description: "O nome, em inglês, da moeda usada na região."
   overload: System.Globalization.CultureAndRegionInfoBuilder.CurrencyEnglishName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value in a set operation is the empty string (&quot;&quot;)."
+    description: "O valor em uma operação de definição é a cadeia de caracteres vazia (&quot;&quot;)."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object is a neutral culture."
+    description: "Atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto é uma cultura neutra."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.CurrencyNativeName
@@ -373,24 +373,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the native name of the currency used in the country/region represented by the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
-  remarks: "The CurrencyNativeName property is equivalent to the <xref:System.Globalization.RegionInfo.CurrencyNativeName%2A> property."
+  summary: "Obtém ou define o nome nativo da moeda usado no país/região representado pelo atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
+  remarks: "A propriedade CurrencyNativeName é equivalente a <xref:System.Globalization.RegionInfo.CurrencyNativeName%2A>propriedade.</xref:System.Globalization.RegionInfo.CurrencyNativeName%2A>"
   syntax:
     content: public string CurrencyNativeName { get; set; }
     return:
       type: System.String
-      description: "The name of the currency used in the country/region represented by the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object, formatted in the language associated with the ISO 3166 country/region code of the region."
+      description: "O nome da moeda usado no país/região representado pelo atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> object, formatada no idioma associado com o código de país/região ISO 3166 da região."
   overload: System.Globalization.CultureAndRegionInfoBuilder.CurrencyNativeName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value in a set operation is the empty string (&quot;&quot;)."
+    description: "O valor em uma operação de definição é a cadeia de caracteres vazia (&quot;&quot;)."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object is a neutral culture."
+    description: "Atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto é uma cultura neutra."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.GeoId
@@ -405,18 +405,18 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets a unique identification number for a geographical region, country, city, or location."
-  remarks: "The GeoId property corresponds to the <xref:System.Globalization.RegionInfo.GeoId%2A> property.       The application should use the GeoId property to provide culture-specific services to customers. For example, the GeoId property can be used as a key to access a database record that contains specific information about a region."
+  summary: "Obtém ou define um número de identificação exclusivo para uma região geográfica, país, cidade ou local."
+  remarks: "A propriedade GeoId corresponde do <xref:System.Globalization.RegionInfo.GeoId%2A>propriedade.</xref:System.Globalization.RegionInfo.GeoId%2A>       O aplicativo deve usar a propriedade GeoId para fornecer serviços específicos de cultura aos clientes. Por exemplo, a propriedade de GeoId pode ser usada como uma chave para acessar um registro de banco de dados que contém informações específicas sobre uma região."
   syntax:
     content: public int GeoId { get; set; }
     return:
       type: System.Int32
-      description: "A 32-bit signed number that uniquely identifies a geographical location."
+      description: "Um número de 32 bits assinado que identifica exclusivamente um local geográfico."
   overload: System.Globalization.CultureAndRegionInfoBuilder.GeoId*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object defines a neutral culture."
+    description: "Atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto define uma cultura neutra."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.GregorianDateTimeFormat
@@ -431,24 +431,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets a <xref:System.Globalization.DateTimeFormatInfo> object that defines the format of dates and times according to the Gregorian calendar."
-  remarks: "Every culture, including the culture defined by the current <xref:System.Globalization.CultureAndRegionInfoBuilder> object, contains a localized Gregorian calendar that is associated with a <xref:System.Globalization.DateTimeFormatInfo> object. The <xref:System.Globalization.DateTimeFormatInfo> object defines how your application displays dates and times. The GregorianDateTimeFormat property value is the <xref:System.Globalization.DateTimeFormatInfo> object associated with the first localized Gregorian calendar returned by the <xref:System.Globalization.CultureAndRegionInfoBuilder.AvailableCalendars%2A> property."
+  summary: "Obtém ou define um <xref:System.Globalization.DateTimeFormatInfo>objeto que define o formato de data e hora de acordo com o calendário gregoriano.</xref:System.Globalization.DateTimeFormatInfo>"
+  remarks: "Cada cultura, incluindo a cultura definida pelo atual <xref:System.Globalization.CultureAndRegionInfoBuilder>de objeto, contém um calendário gregoriano localizado que está associado com um <xref:System.Globalization.DateTimeFormatInfo>objeto.</xref:System.Globalization.DateTimeFormatInfo> </xref:System.Globalization.CultureAndRegionInfoBuilder> O <xref:System.Globalization.DateTimeFormatInfo>objeto define como o aplicativo exibe datas e horas.</xref:System.Globalization.DateTimeFormatInfo> O valor da propriedade GregorianDateTimeFormat é o <xref:System.Globalization.DateTimeFormatInfo>objeto associado com o calendário gregoriano localizado primeiro retornado pelo <xref:System.Globalization.CultureAndRegionInfoBuilder.AvailableCalendars%2A>propriedade.</xref:System.Globalization.CultureAndRegionInfoBuilder.AvailableCalendars%2A> </xref:System.Globalization.DateTimeFormatInfo>"
   syntax:
     content: public System.Globalization.DateTimeFormatInfo GregorianDateTimeFormat { get; set; }
     return:
       type: System.Globalization.DateTimeFormatInfo
-      description: "A <xref:System.Globalization.DateTimeFormatInfo> object."
+      description: "Um <xref:System.Globalization.DateTimeFormatInfo>objeto.</xref:System.Globalization.DateTimeFormatInfo>"
   overload: System.Globalization.CultureAndRegionInfoBuilder.GregorianDateTimeFormat*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "A property of the value in a set operation returned an invalid property value."
+    description: "Uma propriedade de valor em uma operação definida retornou um valor de propriedade inválido."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "The current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object is a neutral culture."
+    description: "Atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto é uma cultura neutra."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.IetfLanguageTag
@@ -463,24 +463,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets a culture name formatted according to the RFC 4646 standard, &quot;Tags for the Identification of Languages.&quot;"
-  remarks: "The IetfLanguageTag property gets or sets a culture name formatted according to RFC 4646, which can be different from the culture name returned by the <xref:System.Globalization.CultureInfo.Name%2A> property. For example, in the .NET Framework version 1.0, the neutral culture name for Traditional Chinese was &quot;zh-CHT&quot;. In contrast, RFC 4646 defines that culture name as &quot;zh-HANT&quot;. (Note that in the .NET Framework version 4, the Display Name for &quot;zh-CHT&quot; is &quot;Chinese (Traditional) Legacy&quot;.)       An RFC 4646 culture name consists of several components. A typical culture name consists of a mandatory language identifier, an optional script identifier, and an optional country/region identifier. For example, a valid RFC 4646 culture name for the Serbian language, the Cyrillic script, and the region of Serbia is &quot;sr-Cyrl-RS&quot;.       Note that two or more cultures can have the same IETF language tag.       For more information, see RFC 4646, &quot;Tags for the Identification of Languages,&quot; at [Request For Comments](http://go.microsoft.com/fwlink/?linkid=45286)."
+  summary: "Obtém ou define um nome de cultura formatado de acordo com a RFC 4646 padrão, &quot;Tags para a identificação de idiomas&quot;."
+  remarks: "A propriedade IetfLanguageTag obtém ou define um nome de cultura formatado de acordo com RFC 4646, que pode ser diferente do nome de cultura retornado pelo <xref:System.Globalization.CultureInfo.Name%2A>propriedade.</xref:System.Globalization.CultureInfo.Name%2A> Por exemplo, na versão 1.0 do .NET Framework, o nome de cultura neutra para chinês tradicional foi &quot;zh-CHT&quot;. Por outro lado, RFC 4646 define esse nome de cultura como &quot;zh-HANT&quot;. (Observe que o .NET Framework versão 4, o nome de exibição para &quot;zh-CHT&quot; é &quot;Chinês (tradicional) herdados&quot;).       Um nome de cultura RFC 4646 consiste em vários componentes. Um nome de cultura típico consiste em um identificador de idioma obrigatório, um identificador de script opcional e um identificador de país/região opcional. Por exemplo, um nome de cultura RFC 4646 válido para o idioma sérvio, o script cirílico e a região da Sérvia é &quot;sr-Cyrl-RS&quot;.       Observe que duas ou mais culturas podem ter a mesma marca de idioma da IETF.       Para obter mais informações, consulte RFC 4646, &quot;Marcas para a identificação de idiomas,&quot; em [solicitação de comentários](http://go.microsoft.com/fwlink/?linkid=45286)."
   syntax:
     content: public string IetfLanguageTag { get; set; }
     return:
       type: System.String
-      description: "A culture name formatted according to RFC 4646."
+      description: "Um nome de cultura formatados de acordo com RFC 4646."
   overload: System.Globalization.CultureAndRegionInfoBuilder.IetfLanguageTag*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "In a set operation, the value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Em uma operação definida, o valor é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "In a set operation, the length of the value is not from 1 through 84 characters."
+    description: "Em uma operação de conjunto, o comprimento do valor não é de 1 até 84 caracteres."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "In a set operation, a component of the name specified in the value is empty or longer than 8 characters, not an alphanumeric character or hyphen (-), or the name contains a leading or trailing hyphen."
+    description: "Em uma operação de definição, um componente do nome especificado no valor está vazio ou maior que 8 caracteres, não com um caractere alfanumérico ou um hífen (-) ou o nome contém um hífen à esquerda ou à direita."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.IsMetric
@@ -495,17 +495,17 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets a value indicating whether the country/region uses the metric system for measurements."
+  summary: "Obtém ou define um valor que indica se o país/região usa o sistema métrico para medidas."
   syntax:
     content: public bool IsMetric { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the country/region uses the metric system for measurements; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o país/região usa o sistema métrico para medidas; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.CultureAndRegionInfoBuilder.IsMetric*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This operation is not valid for a neutral culture."
+    description: "Esta operação não é válida para uma cultura neutra."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.ISOCurrencySymbol
@@ -520,24 +520,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the three-character ISO 4217 currency symbol associated with the country/region."
-  remarks: "The ISOCurrencySymbol property corresponds to the <xref:System.Globalization.RegionInfo.ISOCurrencySymbol%2A> property.       A list of the three-character ISO 4217 currency symbols is provided in the <xref:System.Globalization.RegionInfo> class topic. For example, the ISO 4217 currency symbol for the United States dollar is &quot;USD&quot;."
+  summary: "Obtém ou define o símbolo de moeda ISO 4217 três caracteres associado com o país/região."
+  remarks: "A propriedade ISOCurrencySymbol corresponde do <xref:System.Globalization.RegionInfo.ISOCurrencySymbol%2A>propriedade.</xref:System.Globalization.RegionInfo.ISOCurrencySymbol%2A>       Uma lista dos símbolos de moeda de três caracteres ISO 4217 é fornecida a <xref:System.Globalization.RegionInfo>tópico sobre a classe.</xref:System.Globalization.RegionInfo> Por exemplo, o símbolo de moeda ISO 4217 para o dólar americano é &quot;USD&quot;."
   syntax:
     content: public string ISOCurrencySymbol { get; set; }
     return:
       type: System.String
-      description: "The three-character ISO 4217 currency symbol associated with the country/region."
+      description: "O símbolo de moeda de ISO 4217 três caracteres associado com o país/região."
   overload: System.Globalization.CultureAndRegionInfoBuilder.ISOCurrencySymbol*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This is a neutral culture."
+    description: "Isso é uma cultura neutra."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "In a set operation, the value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Em uma operação definida, o valor é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "In a set operation, the value is not from 0 through 8 characters long."
+    description: "Em uma operação definida, o valor não é de 0 a 8 caracteres."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.IsRightToLeft
@@ -552,13 +552,13 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the predominant direction of lines of text in the writing system associated with the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
-  remarks: "The application uses the IsRightToLeft property to determine the relative position of controls such as buttons and scroll bars in a graphical user interface.       To access the predominant direction of text in a custom culture created from the current <xref:System.Globalization.CultureAndRegionInfoBuilder> object, the application should use the <xref:System.Globalization.TextInfo.IsRightToLeft%2A> property of the object returned by the <xref:System.Globalization.CultureInfo.TextInfo%2A> property of the custom culture."
+  summary: "Obtém ou define a direção predominante de linhas de texto no sistema de escrita associado atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
+  remarks: "O aplicativo usa a propriedade IsRightToLeft para determinar a posição relativa dos controles, como botões e barras de rolagem em uma interface gráfica do usuário.       Para acessar a predominante direção do texto em uma cultura personalizada criada do atual <xref:System.Globalization.CultureAndRegionInfoBuilder>do objeto, o aplicativo deve usar o <xref:System.Globalization.TextInfo.IsRightToLeft%2A>propriedade do objeto retornado pelo <xref:System.Globalization.CultureInfo.TextInfo%2A>propriedade da cultura personalizada.</xref:System.Globalization.CultureInfo.TextInfo%2A> </xref:System.Globalization.TextInfo.IsRightToLeft%2A> </xref:System.Globalization.CultureAndRegionInfoBuilder>"
   syntax:
     content: public bool IsRightToLeft { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the predominant direction of lines of text in the current writing system is right-to-left; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a direção predominante de linhas de texto no sistema de escrita atual for direita para a esquerda; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.CultureAndRegionInfoBuilder.IsRightToLeft*
   exceptions: []
   platform:
@@ -575,18 +575,18 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the active input locale identifier."
-  remarks: "The KeyboardLayoutId property corresponds to the <xref:System.Globalization.CultureInfo.KeyboardLayoutId%2A> property.       The input locale identifier was formerly called the keyboard layout. The identifier can be used for a speech-to-text converter, an Input Method Editor (IME), or any other form of input."
+  summary: "Obtém ou define o identificador de localidade de entrada ativas."
+  remarks: "A propriedade KeyboardLayoutId corresponde do <xref:System.Globalization.CultureInfo.KeyboardLayoutId%2A>propriedade.</xref:System.Globalization.CultureInfo.KeyboardLayoutId%2A>       O identificador de localidade de entrada era anteriormente chamado de layout do teclado. O identificador pode ser usado para um conversor de fala em texto, um Editor de método de entrada (IME) ou qualquer outra forma de entrada."
   syntax:
     content: public int KeyboardLayoutId { get; set; }
     return:
       type: System.Int32
-      description: "A 32-bit signed number that specifies an input locale identifier."
+      description: "Um número de 32 bits assinado que especifica um identificador de localidade de entrada."
   overload: System.Globalization.CultureAndRegionInfoBuilder.KeyboardLayoutId*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "In a set operation, the value is zero."
+    description: "Em uma operação definida, o valor é zero."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.LCID
@@ -601,13 +601,13 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets the culture identifier for the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
-  remarks: "The LCID property corresponds to the <xref:System.Globalization.CultureInfo.LCID%2A?displayProperty=fullName> property.       For replacement cultures the culture identifier is mapped to the corresponding National Language Support (NLS) locale identifier. For user-defined custom cultures, the value of this property is always hexadecimal 0x1000."
+  summary: "Obtém o identificador de cultura atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
+  remarks: "A propriedade LCID corresponde do <xref:System.Globalization.CultureInfo.LCID%2A?displayProperty=fullName>propriedade.</xref:System.Globalization.CultureInfo.LCID%2A?displayProperty=fullName>       Para culturas de substituição, o identificador de cultura é mapeado para o identificador de localidade de suporte de idioma nacional (NLS) correspondente. Culturas personalizadas definidas pelo usuário, o valor dessa propriedade é sempre 0x1000 hexadecimal."
   syntax:
     content: public int LCID { get; }
     return:
       type: System.Int32
-      description: "The culture identifier for the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
+      description: "O identificador de cultura atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
   overload: System.Globalization.CultureAndRegionInfoBuilder.LCID*
   exceptions: []
   platform:
@@ -624,18 +624,18 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Sets the properties of the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object with the corresponding properties of the specified <xref:System.Globalization.CultureInfo> object."
+  summary: "Define as propriedades da atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto com as propriedades correspondentes do <xref:System.Globalization.CultureInfo>objeto.</xref:System.Globalization.CultureInfo>"
   syntax:
     content: public void LoadDataFromCultureInfo (System.Globalization.CultureInfo culture);
     parameters:
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The object whose properties will be used."
+      description: "O objeto cujas propriedades serão usadas."
   overload: System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromCultureInfo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>culture</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>culture</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromRegionInfo(System.Globalization.RegionInfo)
@@ -650,21 +650,21 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Sets the properties of the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object with the corresponding properties of the specified <xref:System.Globalization.RegionInfo> object."
+  summary: "Define as propriedades da atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto com as propriedades correspondentes do <xref:System.Globalization.RegionInfo>objeto.</xref:System.Globalization.RegionInfo>"
   syntax:
     content: public void LoadDataFromRegionInfo (System.Globalization.RegionInfo region);
     parameters:
     - id: region
       type: System.Globalization.RegionInfo
-      description: "The object whose properties will be used."
+      description: "O objeto cujas propriedades serão usadas."
   overload: System.Globalization.CultureAndRegionInfoBuilder.LoadDataFromRegionInfo*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>region</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>region</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "Country/region information cannot be set because the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object specifies a neutral culture."
+    description: "Informações de país/região não podem ser definidas porque atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto Especifica uma cultura neutra."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.NumberFormat
@@ -679,24 +679,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets a <xref:System.Globalization.NumberFormatInfo> object that defines the culturally appropriate format of displaying numbers, currency, and percentage."
-  remarks: "The NumberFormat property corresponds to the <xref:System.Globalization.CultureInfo.NumberFormat%2A> property.       Your application should call this property only for specific cultures.       The <xref:System.Globalization.NumberFormatInfo.PercentDecimalSeparator%2A>, <xref:System.Globalization.NumberFormatInfo.PercentGroupSeparator%2A>, <xref:System.Globalization.NumberFormatInfo.PercentGroupSizes%2A>, and <xref:System.Globalization.NumberFormatInfo.PercentDecimalDigits%2A> properties of NumberFormat are ignored. The saved form of a culture does not save explicit values for these properties. Instead, when the culture is loaded, they always default to <xref:System.Globalization.NumberFormatInfo.NumberDecimalSeparator%2A>, <xref:System.Globalization.NumberFormatInfo.NumberGroupSeparator%2A>, <xref:System.Globalization.NumberFormatInfo.NumberGroupSizes%2A>, and <xref:System.Globalization.NumberFormatInfo.NumberDecimalDigits%2A>, respectively."
+  summary: "Obtém ou define um <xref:System.Globalization.NumberFormatInfo>objeto que define o formato de exibição de números, moeda e porcentagem de culturalmente apropriado.</xref:System.Globalization.NumberFormatInfo>"
+  remarks: "A propriedade NumberFormat corresponde do <xref:System.Globalization.CultureInfo.NumberFormat%2A>propriedade.</xref:System.Globalization.CultureInfo.NumberFormat%2A>       O aplicativo deve chamar essa propriedade apenas para culturas específicas.       O <xref:System.Globalization.NumberFormatInfo.PercentDecimalSeparator%2A>, <xref:System.Globalization.NumberFormatInfo.PercentGroupSeparator%2A>, <xref:System.Globalization.NumberFormatInfo.PercentGroupSizes%2A>, e <xref:System.Globalization.NumberFormatInfo.PercentDecimalDigits%2A>Propriedades de NumberFormat são ignoradas.</xref:System.Globalization.NumberFormatInfo.PercentDecimalDigits%2A> </xref:System.Globalization.NumberFormatInfo.PercentGroupSizes%2A> </xref:System.Globalization.NumberFormatInfo.PercentGroupSeparator%2A> </xref:System.Globalization.NumberFormatInfo.PercentDecimalSeparator%2A> O formulário salvo de uma cultura não salvar valores explícitos para essas propriedades. Em vez disso, quando a cultura é carregada, eles sempre padrão <xref:System.Globalization.NumberFormatInfo.NumberDecimalSeparator%2A>, <xref:System.Globalization.NumberFormatInfo.NumberGroupSeparator%2A>, <xref:System.Globalization.NumberFormatInfo.NumberGroupSizes%2A>, e <xref:System.Globalization.NumberFormatInfo.NumberDecimalDigits%2A>, respectivamente.</xref:System.Globalization.NumberFormatInfo.NumberDecimalDigits%2A> </xref:System.Globalization.NumberFormatInfo.NumberGroupSizes%2A> </xref:System.Globalization.NumberFormatInfo.NumberGroupSeparator%2A> </xref:System.Globalization.NumberFormatInfo.NumberDecimalSeparator%2A>"
   syntax:
     content: public System.Globalization.NumberFormatInfo NumberFormat { get; set; }
     return:
       type: System.Globalization.NumberFormatInfo
-      description: "A <xref:System.Globalization.NumberFormatInfo> object that defines the culturally appropriate format of displaying numbers, currency, and percentage."
+      description: "Um <xref:System.Globalization.NumberFormatInfo>objeto que define o formato de exibição de números, moeda e porcentagem de culturalmente apropriado.</xref:System.Globalization.NumberFormatInfo>"
   overload: System.Globalization.CultureAndRegionInfoBuilder.NumberFormat*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This operation is not valid for a neutral culture."
+    description: "Esta operação não é válida para uma cultura neutra."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The specification for a number, currency, or percent property for this culture contains too many digits or is out of range."
+    description: "A especificação de um número, moeda ou porcentagem propriedade dessa cultura contém muitos dígitos ou está fora do intervalo."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.Parent
@@ -711,24 +711,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the <xref:System.Globalization.CultureInfo> object that represents the parent culture of the current custom culture."
-  remarks: "The cultures have a hierarchy. For predefined cultures, the parent of a specific culture is a neutral culture and the parent of a neutral culture is the <xref:System.Globalization.CultureInfo.InvariantCulture%2A>. The parent culture encompasses only the set of information that is common among its children.       It is generally recommended that custom cultures conform to this hierarchy. However, by default, the Parent of a custom culture is the Parent of the culture on which it is based. If the application creates a culture with <xref:System.Globalization.CultureAndRegionInfoBuilder.CultureName%2A> &quot;en-US-MyCulture&quot; based on &quot;en-US&quot;, its parent is &quot;en&quot; because that is the Parent of &quot;en-US&quot;. If the application uses &quot;en-US&quot; as the Parent of the new custom culture, it must set this value explicitly.       If the resources for the specific culture are not available in the system, the resources for the neutral culture are used. If the resources for the neutral culture are not available, the resources embedded in the main assembly are used. For more information about the resource fallback process, see [Packaging and Deploying Resources](~/add/includes/ajax-current-ext-md.md).       The list of cultures in the Windows API is slightly different from the list of cultures in the .NET Framework. If interoperability with Windows is required, for example, through the platform invoke mechanism, the application should use a specific culture that is defined in the .NET Framework. This ensures consistency with the equivalent Windows locale, which is identified with the same <xref:System.Globalization.CultureInfo.LCID%2A>."
+  summary: "Obtém ou define o <xref:System.Globalization.CultureInfo>objeto que representa a cultura pai da atual cultura personalizada.</xref:System.Globalization.CultureInfo>"
+  remarks: "Culturas têm uma hierarquia. Para culturas predefinidas, o pai de uma cultura específica é uma cultura neutra e o pai de uma cultura neutra é <xref:System.Globalization.CultureInfo.InvariantCulture%2A>.</xref:System.Globalization.CultureInfo.InvariantCulture%2A> A cultura pai abrange apenas o conjunto de informações que são comuns entre seus filhos.       Geralmente, é recomendável que culturas personalizadas estão em conformidade com essa hierarquia. No entanto, por padrão, o pai de uma cultura personalizada é o pai da cultura na qual ela se baseia. Se o aplicativo cria uma cultura com <xref:System.Globalization.CultureAndRegionInfoBuilder.CultureName%2A>&quot;en-US-MyCulture&quot; com base em &quot;en-US&quot;, seu pai é &quot;en&quot;, porque esse é o pai do &quot;en-US&quot;.</xref:System.Globalization.CultureAndRegionInfoBuilder.CultureName%2A> Se o aplicativo usa &quot;en-US&quot; como o pai da nova cultura personalizada, ele deve definir esse valor explicitamente.       Se os recursos para a cultura específica não estão disponíveis no sistema, os recursos para a cultura neutra são usados. Se os recursos para a cultura neutra não estiverem disponíveis, os recursos incorporados no assembly principal são usados. Para obter mais informações sobre o processo de fallback de recurso, consulte [Empacotando e implantando recursos](~/add/includes/ajax-current-ext-md.md).       A lista das culturas na API do Windows é ligeiramente diferente da lista de culturas do .NET Framework. Se a interoperabilidade com o Windows é necessária, por exemplo, por meio da plataforma invocar mecanismo, o aplicativo deve usar uma cultura específica que está definida no .NET Framework. Isso assegura a consistência com a localidade equivalente do Windows, que é identificada com o mesmo <xref:System.Globalization.CultureInfo.LCID%2A>.</xref:System.Globalization.CultureInfo.LCID%2A>"
   syntax:
     content: public System.Globalization.CultureInfo Parent { get; set; }
     return:
       type: System.Globalization.CultureInfo
-      description: "The <xref:System.Globalization.CultureInfo> object that represents the parent culture of the current custom culture."
+      description: "O <xref:System.Globalization.CultureInfo>objeto que representa a cultura pai da atual cultura personalizada.</xref:System.Globalization.CultureInfo>"
   overload: System.Globalization.CultureAndRegionInfoBuilder.Parent*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "In a set operation, the culture value cannot be found. Possibly, the assigned value is an unregistered custom culture."
+    description: "Em uma operação definida, o valor de cultura não foi encontrado. Possivelmente, o valor atribuído é uma cultura personalizada não registrada."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "In a set operation, the value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Em uma operação definida, o valor é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "In a set operation, which traverses the ancestors of the current culture, the invariant culture cannot be found within 10 generations of ancestors.       -or-       In a set operation, a circular reference was discovered: the assigned value is an ancestor of the current custom culture."
+    description: "Em uma operação de conjunto que atravessa os ancestrais da cultura atual, a cultura invariável não foi encontrada dentro de 10 gerações de ancestrais.       - ou - em uma operação de definição, uma referência circular foi descoberta: o valor atribuído é um ancestral da atual cultura personalizada."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.RegionEnglishName
@@ -743,24 +743,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the full name of the country/region in English."
-  remarks: "The RegionEnglishName property corresponds to the <xref:System.Globalization.RegionInfo.EnglishName%2A> property.       For example, the return value of RegionEnglishName for the United States is &quot;United States&quot;."
+  summary: "Obtém ou define o nome completo do país/região em inglês."
+  remarks: "A propriedade RegionEnglishName corresponde do <xref:System.Globalization.RegionInfo.EnglishName%2A>propriedade.</xref:System.Globalization.RegionInfo.EnglishName%2A>       Por exemplo, o valor de retorno de RegionEnglishName para os Estados Unidos é &quot;EUA&quot;."
   syntax:
     content: public string RegionEnglishName { get; set; }
     return:
       type: System.String
-      description: "The full name of the country/region in English."
+      description: "O nome completo do país/região em inglês."
   overload: System.Globalization.CultureAndRegionInfoBuilder.RegionEnglishName*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This operation is not valid for a neutral culture."
+    description: "Esta operação não é válida para uma cultura neutra."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 0 to 79 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 0 a 79 caracteres."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.RegionName
@@ -775,18 +775,18 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets the name of the country/region for the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
-  remarks: "The return value is the name of the culture specified in the <xref:System.Globalization.CultureAndRegionInfoBuilder.%23ctor%2A> constructor. If the specified culture name is the same as an existing culture, except for case, the return value is the name of the existing culture, not the specified culture name.       The RegionName property corresponds to the <xref:System.Globalization.RegionInfo.Name%2A> property."
+  summary: "Obtém o nome do país/região atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
+  remarks: "O valor de retorno é o nome da cultura especificada no <xref:System.Globalization.CultureAndRegionInfoBuilder.%23ctor%2A>construtor.</xref:System.Globalization.CultureAndRegionInfoBuilder.%23ctor%2A> Se o nome de cultura especificado é o mesmo que uma cultura existente, exceto para os casos, o valor de retorno é o nome da cultura existente, não o nome de cultura especificada.       A propriedade RegionName corresponde do <xref:System.Globalization.RegionInfo.Name%2A>propriedade.</xref:System.Globalization.RegionInfo.Name%2A>"
   syntax:
     content: public string RegionName { get; }
     return:
       type: System.String
-      description: "The name of the country/region for the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
+      description: "O nome do país/região atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
   overload: System.Globalization.CultureAndRegionInfoBuilder.RegionName*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This operation is not valid for a neutral culture."
+    description: "Esta operação não é válida para uma cultura neutra."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.RegionNativeName
@@ -801,24 +801,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the full name of the country/region as known by the people of this custom culture."
-  remarks: "The RegionNativeName property corresponds to the <xref:System.Globalization.RegionInfo.NativeName%2A> property."
+  summary: "Obtém ou define o nome completo do país/região como conhecidos por pessoas dessa cultura personalizada."
+  remarks: "A propriedade RegionNativeName corresponde do <xref:System.Globalization.RegionInfo.NativeName%2A>propriedade.</xref:System.Globalization.RegionInfo.NativeName%2A>"
   syntax:
     content: public string RegionNativeName { get; set; }
     return:
       type: System.String
-      description: "The local name of the country/region."
+      description: "O nome local do país/região."
   overload: System.Globalization.CultureAndRegionInfoBuilder.RegionNativeName*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This operation is not valid for a neutral culture."
+    description: "Esta operação não é válida para uma cultura neutra."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 1 to 79 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 1 a 79 caracteres."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.Register
@@ -833,8 +833,8 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Persists the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object as a custom culture on the local computer and makes that culture available to applications. Requires administrative privileges."
-  remarks: "The Register method stores a custom culture as a file on the local computer, in the Globalization subdirectory of the directory returned by the Win32 [GetWindowsDirectory](http://go.microsoft.com/fwlink/?LinkId=191561) function. This process is called registering the custom culture. After the custom culture is registered, a new custom culture can be created by specifying the culture name in a <xref:System.Globalization.CultureInfo.%23ctor%2A> constructor or when calling the <xref:System.Globalization.CultureInfo.CreateSpecificCulture%2A?displayProperty=fullName> method.       The custom culture can be removed by calling the <xref:System.Globalization.CultureAndRegionInfoBuilder.Unregister%2A> method."
+  summary: "Persistir atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto como uma cultura personalizada no computador local e o torna disponível para aplicativos de cultura. Requer privilégios administrativos."
+  remarks: "O método Register armazena uma cultura personalizada como um arquivo no computador local, no subdiretório de globalização do diretório retornado por Win32 [GetWindowsDirectory](http://go.microsoft.com/fwlink/?LinkId=191561) função. Esse processo é chamado para registrar a cultura personalizada. Depois que a cultura personalizada for registrada, uma nova cultura personalizada pode ser criada, especificando o nome de cultura em um <xref:System.Globalization.CultureInfo.%23ctor%2A>construtor ou ao chamar o <xref:System.Globalization.CultureInfo.CreateSpecificCulture%2A?displayProperty=fullName>método.</xref:System.Globalization.CultureInfo.CreateSpecificCulture%2A?displayProperty=fullName> </xref:System.Globalization.CultureInfo.%23ctor%2A>       A cultura personalizada pode ser removida chamando o <xref:System.Globalization.CultureAndRegionInfoBuilder.Unregister%2A>método.</xref:System.Globalization.CultureAndRegionInfoBuilder.Unregister%2A>"
   example:
   - "The following example demonstrates the Register method.  \n  \n [!code-vb[sys.glob.carib.register#1](~/add/codesnippet/visualbasic/m-system.globalization.c_3_1.vb)]\n [!code-cs[sys.glob.carib.register#1](~/add/codesnippet/csharp/m-system.globalization.c_3_1.cs)]"
   syntax:
@@ -844,13 +844,13 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The custom culture is already registered.       -or-       The current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object has a property that must be set before the culture can be registered. All cultures, neutral or specific, must have <xref:System.Globalization.CultureAndRegionInfoBuilder.TextInfo*> and <xref:System.Globalization.CultureAndRegionInfoBuilder.CompareInfo*> set. Specific cultures must also have <xref:System.Globalization.CultureAndRegionInfoBuilder.NumberFormat*>, <xref:System.Globalization.CultureAndRegionInfoBuilder.GregorianDateTimeFormat*>, and <xref:System.Globalization.CultureAndRegionInfoBuilder.AvailableCalendars*> set.       This method also throws <xref:System.InvalidOperationException> if the following properties are not defined:       <xref:System.Globalization.CultureAndRegionInfoBuilder.CultureEnglishName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.CultureNativeName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.CurrencyEnglishName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.CurrencyNativeName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.ISOCurrencySymbol*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.Parent*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.RegionEnglishName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.RegionNativeName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterISOLanguageName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterISORegionName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterWindowsLanguageName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterWindowsRegionName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISOLanguageName*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISORegionName*>"
+    description: "A cultura personalizada já está registrada.       atual - ou - <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto tem uma propriedade que deve ser definida para a cultura pode ser registrada. Todas as culturas, neutro ou específicas, deve ter <> </> *> e <> </> *> definido. Culturas específicas devem ter também <> </> *>, <> </> *>, e <> </> *> definido.       This method also throws <xref:System.InvalidOperationException> if the following properties are not defined:       <>*>       <>*>       <>*>       <>*>       <>*>       <>*>       <>*>       <>*>       <>*>       <>*>       <>*>       <>*>       <>*>       <xref:System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISORegionName*></xref:System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISORegionName*></xref:System.InvalidOperationException>"
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "A <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object property value exceeds its maximum length or value."
+    description: "Um <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> o valor de propriedade do objeto excede o comprimento máximo ou o valor."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "User does not have administrative privileges."
+    description: "Usuário não tem privilégios administrativos."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.Save(System.String)
@@ -865,8 +865,8 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Writes an XML representation of the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object to the specified file."
-  remarks: "The Save method writes the current <xref:System.Globalization.CultureAndRegionInfoBuilder> object to the file specified by the `filename` parameter in an XML format called Locale Data Markup Language (LDML) version 1.1. The <xref:System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml%2A> method performs the reverse operation of the Save method.       For information about the format of an LDML file, see the <xref:System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml%2A> method. For information about the LDML standard, see [Unicode Technical Standard #35, &quot;Locale Data Markup Language (LDML)&quot;](http://go.microsoft.com/fwlink/p/?LinkId=252840) on the Unicode Consortium website."
+  summary: "Grava uma representação XML do atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto para o arquivo especificado."
+  remarks: "O método Save grava atual <xref:System.Globalization.CultureAndRegionInfoBuilder>objeto para o arquivo especificado pelo `filename` parâmetro em um formato XML chamado localidade dados Markup Language (LDML) versão 1.1.</xref:System.Globalization.CultureAndRegionInfoBuilder> O <xref:System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml%2A>método executa a operação inversa do método Save.</xref:System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml%2A>       Para obter informações sobre o formato de um arquivo LDML, consulte o <xref:System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml%2A>método.</xref:System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml%2A> Para obter informações sobre o padrão LDML, consulte [Unicode Technical Standard #35, &quot;localidade dados Markup Language (LDML)&quot;](http://go.microsoft.com/fwlink/p/?LinkId=252840) no site do consórcio Unicode."
   example:
   - "The following example demonstrates the Save and <xref:System.Globalization.CultureAndRegionInfoBuilder.CreateFromLdml%2A> methods.  \n  \n [!code-vb[sys.glob.carib.saveLdml#1](~/add/codesnippet/visualbasic/m-system.globalization.c_0_1.vb)]\n [!code-cs[sys.glob.carib.saveLdml#1](~/add/codesnippet/csharp/m-system.globalization.c_0_1.cs)]"
   syntax:
@@ -874,18 +874,18 @@ items:
     parameters:
     - id: filename
       type: System.String
-      description: "The name of a file to contain the XML representation of this custom culture."
+      description: "O nome de um arquivo para conter a representação XML desta cultura personalizada."
   overload: System.Globalization.CultureAndRegionInfoBuilder.Save*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>filename</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>filename</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>filename</code> is an empty string (&quot;&quot;)."
+    description: "<code>filename</code>é uma cadeia de caracteres vazia (&quot;&quot;)."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value of a property of a <xref:System.Globalization.DateTimeFormatInfo>, <xref:System.Globalization.TextInfo>, or <xref:System.Globalization.NumberFormatInfo> object contained in the current <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object is invalid."
+    description: "O valor de uma propriedade de um <xref:System.Globalization.DateTimeFormatInfo>, <xref:System.Globalization.TextInfo>, ou <xref:System.Globalization.NumberFormatInfo>objeto contido no atual <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> o objeto é inválido.</xref:System.Globalization.NumberFormatInfo> </xref:System.Globalization.TextInfo> </xref:System.Globalization.DateTimeFormatInfo>"
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.TextInfo
@@ -900,24 +900,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the <xref:System.Globalization.TextInfo> object that defines the writing system associated with this custom culture."
-  remarks: "The TextInfo property provides culture-specific casing information for strings. It corresponds to the <xref:System.Globalization.CultureInfo.TextInfo%2A?displayProperty=fullName> property.       The <xref:System.Globalization.TextInfo> and <xref:System.Globalization.CompareInfo> objects that are assigned to the TextInfo and <xref:System.Globalization.CultureAndRegionInfoBuilder.CompareInfo%2A> properties both support culture-sensitive and case-sensitive string comparison. The <xref:System.Globalization.CompareInfo> object also has methods that include a <xref:System.Globalization.CompareOptions> parameter that supports culture-sensitive, case-insensitive comparison. These two properties should be assigned <xref:System.Globalization.TextInfo> and <xref:System.Globalization.CompareInfo> objects that represent the same locale."
+  summary: "Obtém ou define o <xref:System.Globalization.TextInfo>objeto que define o sistema de escrita associado a essa cultura personalizada.</xref:System.Globalization.TextInfo>"
+  remarks: "A propriedade TextInfo fornece informações específicas da cultura de maiusculas e minúsculas para cadeias de caracteres. Ele corresponde do <xref:System.Globalization.CultureInfo.TextInfo%2A?displayProperty=fullName>propriedade.</xref:System.Globalization.CultureInfo.TextInfo%2A?displayProperty=fullName>       O <xref:System.Globalization.TextInfo>e <xref:System.Globalization.CompareInfo>objetos que recebem o TextInfo e <xref:System.Globalization.CultureAndRegionInfoBuilder.CompareInfo%2A>ambas as propriedades oferecem suporte a comparação de cadeia de caracteres sensíveis à cultura e diferencia maiusculas de minúsculas.</xref:System.Globalization.CultureAndRegionInfoBuilder.CompareInfo%2A> </xref:System.Globalization.CompareInfo> </xref:System.Globalization.TextInfo> O <xref:System.Globalization.CompareInfo>objeto também tem métodos que incluem um <xref:System.Globalization.CompareOptions>parâmetro que dá suporte à comparação sensíveis à cultura, diferencia maiusculas de minúsculas.</xref:System.Globalization.CompareOptions> </xref:System.Globalization.CompareInfo> Essas duas propriedades devem ser atribuídas <xref:System.Globalization.TextInfo>e <xref:System.Globalization.CompareInfo>objetos que representam a mesma localidade.</xref:System.Globalization.CompareInfo> </xref:System.Globalization.TextInfo>"
   syntax:
     content: public System.Globalization.TextInfo TextInfo { get; set; }
     return:
       type: System.Globalization.TextInfo
-      description: "The object that defines the writing system associated with this custom culture."
+      description: "O objeto que define o sistema de escrita associado a essa cultura personalizada."
   overload: System.Globalization.CultureAndRegionInfoBuilder.TextInfo*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "This operation is not supported for replacement cultures."
+    description: "Não há suporte para essa operação para culturas de substituição."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The number of characters in a list separator does not range from 0 to 3."
+    description: "O número de caracteres em um separador de lista não variam de 0 a 3."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterISOLanguageName
@@ -932,24 +932,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the ISO 639-2 three-letter code for the language of this custom culture."
-  remarks: "The ThreeLetterISOLanguageName property corresponds to the <xref:System.Globalization.CultureInfo.ThreeLetterISOLanguageName%2A> property.       For example, the three-letter abbreviation for English is &quot;eng&quot;."
+  summary: "Obtém ou define o ISO 639-2 de código de três letras para o idioma desta cultura personalizada."
+  remarks: "A propriedade ThreeLetterISOLanguageName corresponde do <xref:System.Globalization.CultureInfo.ThreeLetterISOLanguageName%2A>propriedade.</xref:System.Globalization.CultureInfo.ThreeLetterISOLanguageName%2A>       Por exemplo, a abreviação de três letras para o inglês é &quot;eng&quot;."
   syntax:
     content: public string ThreeLetterISOLanguageName { get; set; }
     return:
       type: System.String
-      description: "The ISO 639-2 three-letter code for the language of the current <xref:System.Globalization.CultureInfo> object."
+      description: "O código de três letras ISO 639-2 para o idioma atual <xref:System.Globalization.CultureInfo>objeto.</xref:System.Globalization.CultureInfo>"
   overload: System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterISOLanguageName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 1 to 8 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 1 a 8 caracteres."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value in a set operation contains a character that is not in the range &quot;a&quot; to &quot;z&quot;, &quot;A&quot; to &quot;Z&quot;, or &quot;0&quot; to &quot;9&quot;."
+    description: "O valor em uma operação de conjunto contém um caractere que não está no intervalo de &quot;a&quot; a &quot;z&quot;, &quot;A&quot; a &quot;Z&quot; ou &quot;0&quot; para &quot;9&quot;."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterISORegionName
@@ -964,24 +964,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the three-letter code defined in ISO 3166 for the country/region."
-  remarks: "The ThreeLetterISORegionName property corresponds to the <xref:System.Globalization.RegionInfo.ThreeLetterISORegionName%2A> property.       The ThreeLetterISORegionName property contains one of the three-letter codes defined in ISO 3166 for country/region. For example, the three-letter code for United States is &quot;USA&quot;.       Case is not significant. However, the <xref:System.Globalization.CultureAndRegionInfoBuilder.RegionName%2A>, <xref:System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISORegionName%2A>, and the ThreeLetterISORegionName properties contain the appropriate code in uppercase.       The predefined country/region names are listed in the <xref:System.Globalization.RegionInfo> class topic."
+  summary: "Obtém ou define o código de três letras definido no ISO 3166 de país/região."
+  remarks: "A propriedade ThreeLetterISORegionName corresponde do <xref:System.Globalization.RegionInfo.ThreeLetterISORegionName%2A>propriedade.</xref:System.Globalization.RegionInfo.ThreeLetterISORegionName%2A>       A propriedade ThreeLetterISORegionName contém um dos códigos de três letras definidos no ISO 3166 de país/região. Por exemplo, o código de três letras para Estados Unidos é &quot;EUA&quot;.       Caso não é significativo. No entanto, o <xref:System.Globalization.CultureAndRegionInfoBuilder.RegionName%2A>, <xref:System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISORegionName%2A>, e as propriedades de ThreeLetterISORegionName contêm o código apropriado em letras maiusculas.</xref:System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISORegionName%2A> </xref:System.Globalization.CultureAndRegionInfoBuilder.RegionName%2A>       Os nomes de país/região predefinidos são listados no <xref:System.Globalization.RegionInfo>tópico sobre a classe.</xref:System.Globalization.RegionInfo>"
   syntax:
     content: public string ThreeLetterISORegionName { get; set; }
     return:
       type: System.String
-      description: "The three-letter code defined in ISO 3166 for the country/region."
+      description: "O código de três letras definido no ISO 3166 de país/região."
   overload: System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterISORegionName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 1 to 8 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 1 a 8 caracteres."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value in a set operation contains a character that is not in the range &quot;a&quot; to &quot;z&quot;, &quot;A&quot; to &quot;Z&quot;, or &quot;0&quot; to &quot;9&quot;."
+    description: "O valor em uma operação de conjunto contém um caractere que não está no intervalo de &quot;a&quot; a &quot;z&quot;, &quot;A&quot; a &quot;Z&quot; ou &quot;0&quot; para &quot;9&quot;."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterWindowsLanguageName
@@ -996,27 +996,27 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the three-letter code for the language as defined in the Windows API."
-  remarks: "The ThreeLetterWindowsLanguageName property corresponds to the <xref:System.Globalization.CultureInfo.ThreeLetterWindowsLanguageName%2A> property.       This property returns the same value as the Windows API method `GetLocaleInfo` with the LOCALE_SABBREVLANGNAME value. For example, the three-letter code for English (United States) as defined in the Windows API is &quot;enu&quot;."
+  summary: "Obtém ou define o código de três letras para o idioma, conforme definido na API do Windows."
+  remarks: "A propriedade ThreeLetterWindowsLanguageName corresponde do <xref:System.Globalization.CultureInfo.ThreeLetterWindowsLanguageName%2A>propriedade.</xref:System.Globalization.CultureInfo.ThreeLetterWindowsLanguageName%2A>       Essa propriedade retorna o mesmo valor que o método de API do Windows `GetLocaleInfo` com o valor LOCALE_SABBREVLANGNAME. Por exemplo, o código de três letras para inglês (EUA) conforme definido na API do Windows é &quot;enu&quot;."
   syntax:
     content: public string ThreeLetterWindowsLanguageName { get; set; }
     return:
       type: System.String
-      description: "The three-letter code for the language as defined in the Windows API."
+      description: "O código de três letras para o idioma, conforme definido na API do Windows."
   overload: System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterWindowsLanguageName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 1 to 8 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 1 a 8 caracteres."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value in a set operation contains a character that is not in the range &quot;a&quot; to &quot;z&quot;, &quot;A&quot; to &quot;Z&quot;, or &quot;0&quot; to &quot;9&quot;."
+    description: "O valor em uma operação de conjunto contém um caractere que não está no intervalo de &quot;a&quot; a &quot;z&quot;, &quot;A&quot; a &quot;Z&quot; ou &quot;0&quot; para &quot;9&quot;."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "In a set operation, the current custom culture is a replacement culture."
+    description: "Em uma operação definida, a cultura personalizada atual é uma cultura substituta."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterWindowsRegionName
@@ -1031,27 +1031,27 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the three-letter code assigned by Windows to the country/region represented by the current custom culture."
-  remarks: "The ThreeLetterWindowsRegionName property corresponds to the <xref:System.Globalization.RegionInfo.ThreeLetterWindowsRegionName%2A> property.       For example, the three-letter code for United States is &quot;USA&quot;."
+  summary: "Obtém ou define o código de três letras atribuído pelo Windows para o país/região representado pela cultura personalizada atual."
+  remarks: "A propriedade ThreeLetterWindowsRegionName corresponde do <xref:System.Globalization.RegionInfo.ThreeLetterWindowsRegionName%2A>propriedade.</xref:System.Globalization.RegionInfo.ThreeLetterWindowsRegionName%2A>       Por exemplo, o código de três letras para Estados Unidos é &quot;EUA&quot;."
   syntax:
     content: public string ThreeLetterWindowsRegionName { get; set; }
     return:
       type: System.String
-      description: "The three-letter code assigned by Windows to the country/region represented by this <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;></xref> object."
+      description: "O código de três letras atribuído pelo Windows para o país/região representado por esse <xref href=&quot;System.Globalization.CultureAndRegionInfoBuilder&quot;> </xref> objeto."
   overload: System.Globalization.CultureAndRegionInfoBuilder.ThreeLetterWindowsRegionName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 1 to 8 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 1 a 8 caracteres."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value in a set operation contains a character that is not in the range &quot;a&quot; to &quot;z&quot;, &quot;A&quot; to &quot;Z&quot;, or &quot;0&quot; to &quot;9&quot;."
+    description: "O valor em uma operação de conjunto contém um caractere que não está no intervalo de &quot;a&quot; a &quot;z&quot;, &quot;A&quot; a &quot;Z&quot; ou &quot;0&quot; para &quot;9&quot;."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "In a set operation, the current custom culture is a replacement culture or a neutral culture."
+    description: "Em uma operação definida, a cultura personalizada atual é uma cultura neutra ou uma cultura substituta."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISOLanguageName
@@ -1066,24 +1066,24 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the ISO 639-1 two-letter code for the language of the current <xref:System.Globalization.CultureInfo> object."
-  remarks: "The TwoLetterISOLanguageName property corresponds to the <xref:System.Globalization.CultureInfo.TwoLetterISOLanguageName%2A> property.       For example, the two-letter abbreviation for English is &quot;en&quot;."
+  summary: "Obtém ou define o código de duas letras do ISO 639-1 para o idioma atual <xref:System.Globalization.CultureInfo>objeto.</xref:System.Globalization.CultureInfo>"
+  remarks: "A propriedade TwoLetterISOLanguageName corresponde do <xref:System.Globalization.CultureInfo.TwoLetterISOLanguageName%2A>propriedade.</xref:System.Globalization.CultureInfo.TwoLetterISOLanguageName%2A>       Por exemplo, a abreviação de duas letras para o inglês é &quot;en&quot;."
   syntax:
     content: public string TwoLetterISOLanguageName { get; set; }
     return:
       type: System.String
-      description: "The ISO 639-1 two-letter code for the language of the current <xref:System.Globalization.CultureInfo> object."
+      description: "O código de duas letras do ISO 639-1 para o idioma atual <xref:System.Globalization.CultureInfo>objeto.</xref:System.Globalization.CultureInfo>"
   overload: System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISOLanguageName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 1 to 8 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 1 a 8 caracteres."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value in a set operation contains a character that is not in the range &quot;a&quot; to &quot;z&quot;, &quot;A&quot; to &quot;Z&quot;, or &quot;0&quot; to &quot;9&quot;."
+    description: "O valor em uma operação de conjunto contém um caractere que não está no intervalo de &quot;a&quot; a &quot;z&quot;, &quot;A&quot; a &quot;Z&quot; ou &quot;0&quot; para &quot;9&quot;."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISORegionName
@@ -1098,27 +1098,27 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Gets or sets the two-letter code defined in ISO 3166 for the country/region."
-  remarks: "The TwoLetterISORegionName property corresponds to the <xref:System.Globalization.RegionInfo.TwoLetterISORegionName%2A> property.       The TwoLetterISORegionName property value is one of the two-letter codes defined in ISO 3166 for country/region. For example, the two-letter code for United States is &quot;US&quot;. The predefined <xref:System.Globalization.RegionInfo> names are listed in the <xref:System.Globalization.RegionInfo> class topic."
+  summary: "Obtém ou define o código de duas letras definido no ISO 3166 de país/região."
+  remarks: "A propriedade TwoLetterISORegionName corresponde do <xref:System.Globalization.RegionInfo.TwoLetterISORegionName%2A>propriedade.</xref:System.Globalization.RegionInfo.TwoLetterISORegionName%2A>       O valor da propriedade TwoLetterISORegionName é um dos códigos de duas letras definidos no ISO 3166 de país/região. Por exemplo, o código de duas letras para Estados Unidos é &quot;US&quot;. Predefinida <xref:System.Globalization.RegionInfo>nomes estão listados no <xref:System.Globalization.RegionInfo>tópico sobre a classe.</xref:System.Globalization.RegionInfo> </xref:System.Globalization.RegionInfo>"
   syntax:
     content: public string TwoLetterISORegionName { get; set; }
     return:
       type: System.String
-      description: "The two-letter code defined in ISO 3166 for the country/region."
+      description: "O código de duas letras definido no ISO 3166 de país/região."
   overload: System.Globalization.CultureAndRegionInfoBuilder.TwoLetterISORegionName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The value in a set operation is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O valor em uma operação de definição é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The length of the value in a set operation does not range from 1 to 8 characters."
+    description: "O comprimento do valor em uma operação de definição não variam de 1 a 8 caracteres."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The value in a set operation contains a character that is not in the range &quot;a&quot; to &quot;z&quot;, &quot;A&quot; to &quot;Z&quot;, or &quot;0&quot; to &quot;9&quot;."
+    description: "O valor em uma operação de conjunto contém um caractere que não está no intervalo de &quot;a&quot; a &quot;z&quot;, &quot;A&quot; a &quot;Z&quot; ou &quot;0&quot; para &quot;9&quot;."
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "In a set operation, the current custom culture is a neutral culture."
+    description: "Em uma operação definida, a cultura personalizada atual é uma cultura neutra."
   platform:
   - net462
 - uid: System.Globalization.CultureAndRegionInfoBuilder.Unregister(System.String)
@@ -1133,8 +1133,8 @@ items:
   assemblies:
   - sysglobl
   namespace: System.Globalization
-  summary: "Deletes a custom culture from the local computer."
-  remarks: "The Unregister method does the reverse of the <xref:System.Globalization.CultureAndRegionInfoBuilder.Register%2A> method. The <xref:System.Globalization.CultureAndRegionInfoBuilder.Register%2A> method stores a custom culture as a file on the local computer, in the Globalization subdirectory of the directory returned by the Win32 API [GetWindowsDirectory](http://go.microsoft.com/fwlink/?LinkId=191561) function. The Unregister method deletes the persisted custom culture file from the computer. After the file is deleted, existing instances of the custom culture in computer memory continue to work, but new instances of the custom culture cannot be created."
+  summary: "Exclui uma cultura personalizada do computador local."
+  remarks: "O método Unregister faz o inverso do <xref:System.Globalization.CultureAndRegionInfoBuilder.Register%2A>método.</xref:System.Globalization.CultureAndRegionInfoBuilder.Register%2A> O <xref:System.Globalization.CultureAndRegionInfoBuilder.Register%2A>método armazena uma cultura personalizada como um arquivo no computador local, no subdiretório de globalização do diretório retornado pela API do Win32 [GetWindowsDirectory](http://go.microsoft.com/fwlink/?LinkId=191561) função.</xref:System.Globalization.CultureAndRegionInfoBuilder.Register%2A> O método Unregister exclui o arquivo de cultura personalizada persistente do computador. Depois que o arquivo é excluído, as instâncias existentes da cultura personalizada na memória do computador continuam a trabalhar, mas não não possível criar novas instâncias da cultura personalizada."
   example:
   - "The following example demonstrates the Unregister method.  \n  \n [!code-cs[sys.glob.carib.unregister#1](~/add/codesnippet/csharp/m-system.globalization.c_2_1.cs)]\n [!code-vb[sys.glob.carib.unregister#1](~/add/codesnippet/visualbasic/m-system.globalization.c_2_1.vb)]"
   syntax:
@@ -1142,18 +1142,18 @@ items:
     parameters:
     - id: cultureName
       type: System.String
-      description: "The name of the custom culture to delete."
+      description: "O nome da cultura personalizada para excluir."
   overload: System.Globalization.CultureAndRegionInfoBuilder.Unregister*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>cultureName</code> is a parent culture or console fallback user interface culture of a dependent culture."
+    description: "<code>cultureName</code>é uma cultura pai ou a cultura de interface de usuário de fallback de console de uma cultura dependente."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The user does not have administrative privileges."
+    description: "O usuário não tem privilégios administrativos."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>cultureName</code> specifies a culture that is not found."
+    description: "<code>cultureName</code>Especifica uma cultura que não foi encontrada."
   platform:
   - net462
 references:

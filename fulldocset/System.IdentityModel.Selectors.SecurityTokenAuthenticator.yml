@@ -14,8 +14,8 @@ items:
   nameWithType: SecurityTokenAuthenticator
   fullName: System.IdentityModel.Selectors.SecurityTokenAuthenticator
   type: Class
-  summary: "Authenticates a security token."
-  remarks: "The SecurityTokenAuthenticator class and the classes that derive from it authenticate security tokens. Typically, you would only derive a class directly from SecurityTokenAuthenticator when you create a custom security token. If you wanted to override the default authentication or authorization behaviors for built-in security tokens, derive from one of the classes that derive from SecurityTokenAuthenticator, such as <xref:System.IdentityModel.Selectors.SamlSecurityTokenAuthenticator>.       When you derive a class from SecurityTokenAuthenticator, override the following two methods: <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> and <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A>. The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A> method determines whether this security token authenticator can authenticate a specific security token. The <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> method authenticates the security token and establishes a set of authorization policies for authorization. The authorization policies map the claims found in the security token to claims required by the application."
+  summary: "Autentica um token de segurança."
+  remarks: "A classe SecurityTokenAuthenticator e as classes que dela derivam autenticam tokens de segurança. Normalmente, você só deve derivar uma classe diretamente do SecurityTokenAuthenticator quando você cria um token de segurança personalizada. Se você quiser substituir os comportamentos padrão de autorização ou autenticação de tokens de segurança internas, derivar de uma das classes que derivam de SecurityTokenAuthenticator, como <xref:System.IdentityModel.Selectors.SamlSecurityTokenAuthenticator>.</xref:System.IdentityModel.Selectors.SamlSecurityTokenAuthenticator>       Quando você derivar uma classe de SecurityTokenAuthenticator, substitua os dois métodos a seguir: <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A>e <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A>.</xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A> </xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> O <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A>método determina se o autenticador de token de segurança pode autenticar um token de segurança específico.</xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A> O <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A>método autentica o token de segurança e estabelece um conjunto de políticas de autorização para autorização.</xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> As políticas de autorização mapeiam as declarações encontradas no token de segurança para declarações exigidas pelo aplicativo."
   syntax:
     content: public abstract class SecurityTokenAuthenticator
   inheritance:
@@ -36,7 +36,7 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Initializes a new instance of the <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenAuthenticator&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.IdentityModel.Selectors.SecurityTokenAuthenticator&quot;> </xref> classe."
   syntax:
     content: protected SecurityTokenAuthenticator ();
     parameters: []
@@ -56,22 +56,22 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Gets a value indicating whether the specified security token can be validated by this security token authenticator."
-  remarks: "The CanValidateToken method checks whether the token parameter is `null` and then calls the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A> method to determine whether this security token authenticator can authenticate the security token type for `token`."
+  summary: "Obtém um valor que indica se o token de segurança especificado pode ser validado pelo autenticador de token de segurança."
+  remarks: "O método CanValidateToken verifica se o parâmetro de token é `null` e, em seguida, chama o <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A>método para determinar se o autenticador de token de segurança pode autenticar o tipo de token de segurança para `token`.</xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore%2A>"
   syntax:
     content: public bool CanValidateToken (System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to be validated."
+      description: "O <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> a ser validado."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when token can be validated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Quando o token pode ser validado; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>token</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>token</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore(System.IdentityModel.Tokens.SecurityToken)
@@ -86,17 +86,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "When overridden in a derived class, gets a value indicating whether the specified security token can be validated by this security token authenticator."
-  remarks: "The CanValidateTokenCore method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A> method to determine whether this security token authenticator can authenticate the security token type for `token`. This does not authenticate the security token; that is performed by the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A> method."
+  summary: "Quando substituído em uma classe derivada, obtém um valor que indica se o token de segurança especificado pode ser validado pelo autenticador de token de segurança."
+  remarks: "O método CanValidateTokenCore é chamado pelo <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A>método para determinar se o autenticador de token de segurança pode autenticar o tipo de token de segurança para `token`.</xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A> Isso não autentica o token de segurança; que é executada pelo <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A>método.</xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A>"
   syntax:
     content: protected abstract bool CanValidateTokenCore (System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to be validated."
+      description: "O <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> a ser validado."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> when <code>token</code> can be validated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Quando <code> token </code> pode ser validado; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateTokenCore*
   exceptions: []
   platform:
@@ -113,25 +113,25 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "Authenticates the specified security token and returns the set of authorization policies for the security token."
-  remarks: "The ValidateToken method checks whether the `token` parameter is `null`, calls the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A> method to determine if this security token authenticator can authenticate this security token, and then if it can, calls the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> method."
+  summary: "Autentica o token de segurança especificado e retorna o conjunto de diretivas de autorização para o token de segurança."
+  remarks: "As verificações de método ValidateToken se o `token` parâmetro é `null`, chamadas de <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A>método para determinar se o autenticador de token de segurança pode autenticar esse token de segurança e, em seguida, se for possível, chama o <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A>método.</xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore%2A> </xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.CanValidateToken%2A>"
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Policy.IAuthorizationPolicy> ValidateToken (System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to be validated."
+      description: "O <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> a ser validado."
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.Policy.IAuthorizationPolicy}
-      description: "A &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; of type <xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;></xref> that contains the set of authorization policies in effect for this application."
+      description: "Um &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; do tipo <xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;> </xref> que contém o conjunto de políticas de autorização em vigor para este aplicativo."
   overload: System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>token</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>token</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.IdentityModel.Tokens.SecurityTokenValidationException
     commentId: T:System.IdentityModel.Tokens.SecurityTokenValidationException
-    description: "<code>token</code> cannot be authenticated by this security token authenticator       -or-       <code>token</code> is not authenticated."
+    description: "<code>token</code>não pode ser autenticada pela autenticador de token de segurança - ou - <code>token</code> não está autenticada."
   platform:
   - net462
 - uid: System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore(System.IdentityModel.Tokens.SecurityToken)
@@ -146,17 +146,17 @@ items:
   assemblies:
   - System.IdentityModel
   namespace: System.IdentityModel.Selectors
-  summary: "When overridden in a derived class, authenticates the specified security token and returns the set of authorization policies for the security token."
-  remarks: "Override the ValidateTokenCore method to authenticate a specific security token type.       When the ValidateTokenCore method is overridden, follow these guidelines:      -   When the security token passed into the `token` parameter cannot be validated, throw the <xref:System.IdentityModel.Tokens.SecurityTokenValidationException> exception.      -   When there are no authorization policies in effect for this application, return an empty <xref:System.Collections.ObjectModel.ReadOnlyCollection%601> of type <xref:System.IdentityModel.Policy.IAuthorizationPolicy>.       When `null` is returned by this method, [!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] throws the <xref:System.IdentityModel.Tokens.SecurityTokenValidationException> exception.       The ValidateTokenCore method is called by the <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A> method."
+  summary: "Quando substituído em uma classe derivada, autentica o token de segurança especificado e retorna o conjunto de diretivas de autorização para o token de segurança."
+  remarks: "Substitua o método ValidateTokenCore para autenticar um tipo de token de segurança específico.       Quando o método ValidateTokenCore é substituído, siga estas diretrizes: - quando o token de segurança é passado para o `token` parâmetro não pode ser validada, gerar o <xref:System.IdentityModel.Tokens.SecurityTokenValidationException>exceção.</xref:System.IdentityModel.Tokens.SecurityTokenValidationException>      -Quando não houver nenhuma política de autorização em vigor para este aplicativo, retornar um vazia <xref:System.Collections.ObjectModel.ReadOnlyCollection%601>do tipo <xref:System.IdentityModel.Policy.IAuthorizationPolicy>.</xref:System.IdentityModel.Policy.IAuthorizationPolicy> </xref:System.Collections.ObjectModel.ReadOnlyCollection%601>       Quando `null` é retornado por esse método, [!INCLUDE[vsindigo](~/add/includes/vsindigo-md.md)] gera o <xref:System.IdentityModel.Tokens.SecurityTokenValidationException>exceção.</xref:System.IdentityModel.Tokens.SecurityTokenValidationException>       O método ValidateTokenCore é chamado pelo <xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A>método.</xref:System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateToken%2A>"
   syntax:
     content: protected abstract System.Collections.ObjectModel.ReadOnlyCollection<System.IdentityModel.Policy.IAuthorizationPolicy> ValidateTokenCore (System.IdentityModel.Tokens.SecurityToken token);
     parameters:
     - id: token
       type: System.IdentityModel.Tokens.SecurityToken
-      description: "The <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;></xref> to be validated."
+      description: "O <xref href=&quot;System.IdentityModel.Tokens.SecurityToken&quot;> </xref> a ser validado."
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.IdentityModel.Policy.IAuthorizationPolicy}
-      description: "A &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; of type <xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;></xref> that contains the set of authorization policies in effect for this application."
+      description: "Um &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt; do tipo <xref href=&quot;System.IdentityModel.Policy.IAuthorizationPolicy&quot;> </xref> que contém o conjunto de políticas de autorização em vigor para este aplicativo."
   overload: System.IdentityModel.Selectors.SecurityTokenAuthenticator.ValidateTokenCore*
   exceptions: []
   platform:

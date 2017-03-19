@@ -14,8 +14,8 @@ items:
   nameWithType: DisplayAttributes
   fullName: System.Speech.Recognition.DisplayAttributes
   type: Enum
-  summary: "Lists the options that the <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> object can use to specify white space for the display of a word or punctuation mark."
-  remarks: "Windows Desktop Speech returns recognized phrases as collections of <xref:System.Speech.Recognition.RecognizedWordUnit> or <xref:System.Speech.Recognition.ReplacementText> objects. Each object corresponds to a single word or punctuation mark. The `DisplayAttributes` property of a <xref:System.Speech.Recognition.RecognizedWordUnit> or <xref:System.Speech.Recognition.ReplacementText> uses a member of the DisplayAttributes enumeration to describe how print spacing is handled around a given word or punctuation mark.       Two or more members of the `DisplayAttributes` enumeration may be combined by a bit-wise `OR` to specify how a particular word should be displayed.      > [!NOTE] >  The display formatting that the speech recognizer uses is language specific.       For example, suppose the input phrase to a recognition engine using the default system grammar provided by <xref:System.Speech.Recognition.DictationGrammar> is &quot;Hello comma he said period&quot;. Then the recognition engine returns a <xref:System.Speech.Recognition.RecognizedPhrase> containing five <xref:System.Speech.Recognition.RecognizedWordUnit> objects containing the following strings with the following `DisplayAttributes` values.      |Item|`DisplayAttributes`|   |----------|-------------------------|   |Hello|OneTrailingSpace|   |,|OneTrailingSpace &#124; ConsumeLeadingSpaces|   |he|OneTrailingSpace|   |said|OneTrailingSpace|   |.|OneTrailingSpace &#124; ConsumeLeadingSpaces|       The text returned for this recognized phrase is printed as: &quot;Hello, he said.&quot;"
+  summary: "Lista as opções que o <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> objeto pode usar para especificar o espaço em branco para a exibição de uma palavra ou uma marca de pontuação."
+  remarks: "Fala de área de trabalho do Windows retorna frases reconhecidos como coleções de <xref:System.Speech.Recognition.RecognizedWordUnit>ou <xref:System.Speech.Recognition.ReplacementText>objetos.</xref:System.Speech.Recognition.ReplacementText> </xref:System.Speech.Recognition.RecognizedWordUnit> Cada objeto corresponde a uma única palavra ou uma marca de pontuação. O `DisplayAttributes` propriedade de um <xref:System.Speech.Recognition.RecognizedWordUnit>ou <xref:System.Speech.Recognition.ReplacementText>usa um membro da enumeração DisplayAttributes para descrever como impressão espaçamento é tratado em torno de uma determinada palavra ou marca de pontuação.</xref:System.Speech.Recognition.ReplacementText> </xref:System.Speech.Recognition.RecognizedWordUnit>       Dois ou mais membros a `DisplayAttributes` enumeração pode ser combinada com um bit a bit `OR` para especificar como uma palavra específica deve ser exibida.      > [!NOTE] > A formatação que usa o reconhecedor de fala de exibição é o idioma específico.       Por exemplo, suponha que a expressão de entrada para um mecanismo de reconhecimento usando a gramática de sistema padrão fornecida pelo <xref:System.Speech.Recognition.DictationGrammar>é &quot;Hello vírgula período disse&quot;.</xref:System.Speech.Recognition.DictationGrammar> O mecanismo de reconhecimento retornará um <xref:System.Speech.Recognition.RecognizedPhrase>que contém cinco <xref:System.Speech.Recognition.RecognizedWordUnit>objetos que contém os seguintes cadeias de caracteres com o seguinte `DisplayAttributes` valores.</xref:System.Speech.Recognition.RecognizedWordUnit> </xref:System.Speech.Recognition.RecognizedPhrase>      | Item | `DisplayAttributes`|   |----------|-------------------------|   | Olá | OneTrailingSpace |   |,| OneTrailingSpace | ConsumeLeadingSpaces |   | ele | OneTrailingSpace |   | disse | OneTrailingSpace |   |.| OneTrailingSpace | ConsumeLeadingSpaces |       O texto retornado para essa frase reconhecida é impresso como: &quot;Olá, eu disse.&quot;"
   example:
   - "The following example uses the <xref:System.Speech.Recognition.RecognizedWordUnit.DisplayAttributes%2A> property of a list of <xref:System.Speech.Recognition.RecognizedWordUnit> objects to format the words as a phrase.  \n  \n```c#  \n  \n// Use the DisplayAttributes property to format speech as text.   \n  \nstatic string GetDisplayText(List<RecognizedWordUnit> words)  \n{  \n  StringBuilder sb = new StringBuilder();  \n  \n  // Concatenate the word units together. Use the DisplayAttributes  \n  // property of each word unit to add or remove white space around  \n  // the word unit.  \n  foreach (RecognizedWordUnit word in words)  \n  {  \n    if ((word.DisplayAttributes  \n      & DisplayAttributes.ConsumeLeadingSpaces) != 0))  \n    {  \n      sb = new StringBuilder(sb.ToString().TrimEnd());  \n    }  \n  \n    sb.Append(word.Text);  \n  \n    if ((word.DisplayAttributes  \n      & DisplayAttributes.OneTrailingSpace) != 0)  \n    {  \n      sb.Append(\" \");  \n    }  \n    else if ((word.DisplayAttributes  \n      & DisplayAttributes.TwoTrailingSpaces) != 0)  \n    {  \n      sb.Append(\"  \");  \n    }  \n  }  \n  \n  return sb.ToString();  \n}  \n  \n```"
   syntax:
@@ -39,12 +39,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item has no spaces preceding it."
+  summary: "O item não têm espaços anterior."
   syntax:
     content: ConsumeLeadingSpaces
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -60,12 +60,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item does not specify how white space is handled."
+  summary: "O item não especifica como o espaço em branco é tratado."
   syntax:
     content: None
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -81,12 +81,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item has one space following it."
+  summary: "O item tem um espaço após ele."
   syntax:
     content: OneTrailingSpace
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -102,12 +102,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item has two spaces following it."
+  summary: "O item tem dois espaços após ele."
   syntax:
     content: TwoTrailingSpaces
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -123,12 +123,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "The item has no spaces following it."
+  summary: "O item não têm espaços após ele."
   syntax:
     content: ZeroTrailingSpaces
     return:
       type: System.Speech.Recognition.DisplayAttributes
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462

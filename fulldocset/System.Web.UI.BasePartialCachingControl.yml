@@ -14,8 +14,8 @@ items:
   nameWithType: BasePartialCachingControl
   fullName: System.Web.UI.BasePartialCachingControl
   type: Class
-  summary: "Provides the base functionality for the <xref href=&quot;System.Web.UI.StaticPartialCachingControl&quot;></xref> and <xref href=&quot;System.Web.UI.PartialCachingControl&quot;></xref> classes."
-  remarks: "The BasePartialCachingControl class represents a user control that has output caching enabled in programmatic scenarios. ASP.NET provides several ways to enable output caching for a control. The following list describes methods you can use to enable output caching:      -   Use the `@ OutputCache` directive to enable output caching in declarative scenarios.      -   Use the <xref:System.Web.UI.PartialCachingAttribute> class to enable caching for a user control in a code-behind file.      -   Use the <xref:System.Web.UI.ControlCachePolicy> class to specify cache settings in programmatic scenarios in which you are working with BasePartialCachingControl instances."
+  summary: "Fornece a funcionalidade básica para o <xref href=&quot;System.Web.UI.StaticPartialCachingControl&quot;> </xref> e <xref href=&quot;System.Web.UI.PartialCachingControl&quot;> </xref> classes."
+  remarks: "A classe BasePartialCachingControl representa um controle de usuário que tem o cache de saída em cenários de programação. O ASP.NET fornece várias maneiras de habilitar o cache de saída para um controle. A lista a seguir descreve os métodos que você pode usar para habilitar o cache de saída:-usar o `@ OutputCache` diretiva para habilitar o cache em cenários declarativos de saída.      -Usar o <xref:System.Web.UI.PartialCachingAttribute>classe para habilitar o cache para um controle de usuário em um arquivo code-behind.</xref:System.Web.UI.PartialCachingAttribute>      -Usar o <xref:System.Web.UI.ControlCachePolicy>classe para especificar as configurações de cache em cenários de programação na qual você está trabalhando com instâncias de BasePartialCachingControl.</xref:System.Web.UI.ControlCachePolicy>"
   example:
   - "The following code example demonstrates how to create a reference to the BasePartialCachingControl class and sets it to the value of the <xref:System.Web.UI.Control.Parent%2A> property. The code then sets the <xref:System.Web.UI.BasePartialCachingControl.Dependency%2A> property to a <xref:System.Web.Caching.CacheDependency> object that makes the control dependent on a text file.  \n  \n [!code-cs[BasePartialCachingControl#1](~/add/codesnippet/csharp/t-system.web.ui.basepart_1.ascx)]\n [!code-vb[BasePartialCachingControl#1](~/add/codesnippet/visualbasic/t-system.web.ui.basepart_1.ascx)]"
   syntax:
@@ -149,7 +149,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.BasePartialCachingControl&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.UI.BasePartialCachingControl&quot;> </xref> classe."
   syntax:
     content: protected BasePartialCachingControl ();
     parameters: []
@@ -169,15 +169,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the <xref href=&quot;System.Web.UI.ControlCachePolicy&quot;></xref> object that is associated with the wrapped user control."
-  remarks: "The CachePolicy property enables programmatic access to the <xref:System.Web.UI.ControlCachePolicy> object associated with the user control contained by the <xref:System.Web.UI.BasePartialCachingControl> instance. The <xref:System.Web.UI.ControlCachePolicy> object can be programmatically manipulated to influence a user control&quot;s caching behavior and settings."
+  summary: "Obtém o <xref href=&quot;System.Web.UI.ControlCachePolicy&quot;> </xref> objeto que está associado com o controle de usuário encapsulado."
+  remarks: "A propriedade CachePolicy permite o acesso programático para o <xref:System.Web.UI.ControlCachePolicy>objeto associado com o controle de usuário contido pelo <xref:System.Web.UI.BasePartialCachingControl>instância.</xref:System.Web.UI.BasePartialCachingControl> </xref:System.Web.UI.ControlCachePolicy> O <xref:System.Web.UI.ControlCachePolicy>objeto pode ser manipulado por meio de programação para influenciar o comportamento e as configurações de cache do controle de usuário.</xref:System.Web.UI.ControlCachePolicy>"
   example:
   - "The following code example demonstrates how a user control can be loaded dynamically and manipulated programmatically at run time. This example has three parts:  \n  \n-   A partial class, `LogOnControl`, that inherits from the <xref:System.Web.UI.UserControl> base class and to which the <xref:System.Web.UI.PartialCachingAttribute> attribute is applied.  \n  \n-   A user control that is used with the `LogOnControl` partial class.  \n  \n-   A Web Forms page that hosts the user control.  \n  \n To run this example successfully, make sure the user control file (.ascx), its code-behind file (.cs or .vb), and the Web Forms page that hosts the user control (.aspx) are in the same directory.  \n  \n The first part of the example demonstrates how the <xref:System.Web.UI.PartialCachingAttribute> is applied to a user control named `LogOnControl`, which means the user control is wrapped by a <xref:System.Web.UI.PartialCachingControl> control at run time. The `LogOnControl` object's caching settings can be programmatically manipulated through its associated <xref:System.Web.UI.ControlCachePolicy> object, which is available through a reference to the <xref:System.Web.UI.PartialCachingControl> that wraps it. In this example, caching settings are examined during page initialization and changed if some conditions are met.  \n  \n [!code-cs[System.Web.UI.ControlCachePolicy#2](~/add/codesnippet/csharp/p-system.web.ui.basepart_1_1.cs)]\n [!code-vb[System.Web.UI.ControlCachePolicy#2](~/add/codesnippet/visualbasic/p-system.web.ui.basepart_1_1.vb)]  \n  \n The second part of the example shows a user control that is used with the previous example to demonstrate user control caching.  \n  \n [!code-cs[System.Web.UI.ControlCachePolicy#3](~/add/codesnippet/csharp/p-system.web.ui.basepart_1_2.ascx)]\n [!code-vb[System.Web.UI.ControlCachePolicy#3](~/add/codesnippet/visualbasic/p-system.web.ui.basepart_1_2.ascx)]  \n  \n The third part of the example demonstrates using the `LogOnControl` user control from a Web Forms page.  \n  \n [!code-vb[System.Web.UI.ControlCachePolicy#1](~/add/codesnippet/visualbasic/p-system.web.ui.basepart_1_3.aspx)]\n [!code-cs[System.Web.UI.ControlCachePolicy#1](~/add/codesnippet/csharp/p-system.web.ui.basepart_1_3.aspx)]"
   syntax:
     content: public System.Web.UI.ControlCachePolicy CachePolicy { get; }
     return:
       type: System.Web.UI.ControlCachePolicy
-      description: "A <xref href=&quot;System.Web.UI.ControlCachePolicy&quot;></xref> that stores output caching-related properties of the wrapped user control."
+      description: "Um <xref href=&quot;System.Web.UI.ControlCachePolicy&quot;> </xref> que armazena propriedades relacionadas ao cache de saída do controle de usuário encapsulado."
   overload: System.Web.UI.BasePartialCachingControl.CachePolicy*
   exceptions: []
   platform:
@@ -194,15 +194,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets or sets an instance of the <xref href=&quot;System.Web.Caching.CacheDependency&quot;></xref> class associated with the cached user control output."
-  remarks: "This property allows you to remove user control output from the output cache when the associated cache dependency changes."
+  summary: "Obtém ou define uma instância do <xref href=&quot;System.Web.Caching.CacheDependency&quot;> </xref> classe associada com a saída de controle de usuário em cache."
+  remarks: "Essa propriedade permite que você remova a saída de controle de usuário do cache de saída quando altera a dependência de cache associada."
   example:
   - "The following code example demonstrates how to set the Dependency property to a <xref:System.Web.Caching.CacheDependency> object that makes the control dependent on a text file. This code example is part of a larger example provided for the <xref:System.Web.UI.BasePartialCachingControl> class.  \n  \n [!code-cs[BasePartialCachingControl#2](~/add/codesnippet/csharp/p-system.web.ui.basepart_0_1.ascx)]\n [!code-vb[BasePartialCachingControl#2](~/add/codesnippet/visualbasic/p-system.web.ui.basepart_0_1.ascx)]"
   syntax:
     content: public System.Web.Caching.CacheDependency Dependency { get; set; }
     return:
       type: System.Web.Caching.CacheDependency
-      description: "The <xref href=&quot;System.Web.Caching.CacheDependency&quot;></xref> associated with the server control."
+      description: "O <xref href=&quot;System.Web.Caching.CacheDependency&quot;> </xref> associada ao controle de servidor."
   overload: System.Web.UI.BasePartialCachingControl.Dependency*
   exceptions: []
   platform:
@@ -219,7 +219,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Releases all resources used by the <xref href=&quot;System.Web.UI.BasePartialCachingControl&quot;></xref> class."
+  summary: "Libera todos os recursos usados pelo <xref href=&quot;System.Web.UI.BasePartialCachingControl&quot;> </xref> classe."
   syntax:
     content: public override void Dispose ();
     parameters: []
@@ -239,13 +239,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Outputs the user control&quot;s content to the specified <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> output stream."
+  summary: "Gera o conteúdo do controle de usuário especificado <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> fluxo de saída."
   syntax:
     content: protected override void Render (System.Web.UI.HtmlTextWriter output);
     parameters:
     - id: output
       type: System.Web.UI.HtmlTextWriter
-      description: "The <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> that writes the cached control to the page."
+      description: "O <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> que grava o controle em cache para a página."
   overload: System.Web.UI.BasePartialCachingControl.Render*
   exceptions: []
   platform:

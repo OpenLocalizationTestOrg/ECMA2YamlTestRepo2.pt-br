@@ -36,7 +36,7 @@ items:
   nameWithType: PerformanceCounter
   fullName: System.Diagnostics.PerformanceCounter
   type: Class
-  summary: "Represents a Windows NT performance counter component."
+  summary: "Representa um componente do contador de desempenho do Windows NT."
   remarks: "The PerformanceCounter component can be used for both reading existing predefined or custom counters and publishing (writing) performance data to custom counters.  \n  \n There are numerous predefined counters listed in the Windows Performance Monitor's [Add Counters dialog box](http://go.microsoft.com/fwlink/p/?LinkId=257854). To learn about the .NET Framework performance counters, see [Performance Counters](~/add/includes/ajax-current-ext-md.md).  \n  \n This type implements the <xref:System.IDisposable> interface. When you have finished using the type, you should dispose of it either directly or indirectly. To dispose of the type directly, call its <xref:System.IDisposable.Dispose%2A> method in a `try`/`catch` block. To dispose of it indirectly, use a language construct such as `using` (in C#) or `Using` (in Visual Basic). For more information, see the “Using an Object that Implements IDisposable” section in the <xref:System.IDisposable> interface topic.  \n  \n> [!IMPORTANT]\n>  In versions 1.0 and 1.1 of the .NET Framework, this class requires immediate callers to be fully trusted. Starting with the .NET Framework version 2.0, this class requires <xref:System.Diagnostics.PerformanceCounterPermission> for specific actions. It is strongly recommended that <xref:System.Diagnostics.PerformanceCounterPermission> not be granted to semi-trusted code.  The ability to read and write performance counters allows code to perform actions such as enumerating executing processes and obtaining information about them.  \n>   \n>  In addition, passing a PerformanceCounter object to less-trusted code can create a security issue. Never pass performance counter objects, such as a <xref:System.Diagnostics.PerformanceCounterCategory> or PerformanceCounter, to less trusted code.  \n  \n To read from a performance counter, create an instance of the PerformanceCounter class, set the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and, optionally, the <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> or <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> properties, and then call the <xref:System.Diagnostics.PerformanceCounter.NextValue%2A> method to take a performance counter reading.  \n  \n To publish performance counter data, create one or more custom counters using the <xref:System.Diagnostics.PerformanceCounterCategory.Create%2A?displayProperty=fullName> method, create an instance of the PerformanceCounter class, set the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A> and, optionally, <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> or <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> properties, and then call the <xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A>, <xref:System.Diagnostics.PerformanceCounter.Increment%2A>, or <xref:System.Diagnostics.PerformanceCounter.Decrement%2A> methods, or set the <xref:System.Diagnostics.PerformanceCounter.RawValue%2A> property to change the value of your custom counter.  \n  \n> [!NOTE]\n>  The <xref:System.Diagnostics.PerformanceCounter.Increment%2A>, <xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A>, and <xref:System.Diagnostics.PerformanceCounter.Decrement%2A> methods use interlocks to update the counter value. This helps keep the counter value accurate in multithreaded or multiprocess scenarios, but also results in a performance penalty. If you do not need the accuracy that interlocked operations provide, you can update the <xref:System.Diagnostics.PerformanceCounter.RawValue%2A> property directly for up to a 5 times performance improvement.  However, in multithreaded scenarios, some updates to the counter value might be ignored, resulting in inaccurate data.  \n  \n The counter is the mechanism by which performance data is collected. The registry stores the names of all the counters, each of which is related to a specific area of system functionality. Examples include a processor's busy time, memory usage, or the number of bytes received over a network connection.  \n  \n Each counter is uniquely identified through its name and its location. In the same way that a file path includes a drive, a directory, one or more subdirectories, and a file name, counter information consists of four elements: the computer, the category, the category instance, and the counter name.  \n  \n The counter information must include the category, or performance object, that the counter measures data for. A computer's categories include physical components, such as processors, disks, and memory. There are also system categories, such as processes and threads. Each category is related to a functional element within the computer and has a set of standard counters assigned to it. These objects are listed in the Performance object drop-down list of the Add Counters dialog box within the Windows 2000 System Monitor, and you must include them in the counter path. Performance data is grouped by the category to which is it related.  \n  \n In certain cases, several copies of the same category can exist. For example, several processes and threads run simultaneously, and some computers contain more than one processor. The category copies are called category instances, and each instance has a set of standard counters assigned to it. If a category can have more than one instance, an instance specification must be included in the counter information.  \n  \n To obtain performance data for counters that required an initial or previous value for performing the necessary calculation, call the <xref:System.Diagnostics.PerformanceCounter.NextValue%2A> method twice and use the information returned as your application requires.  \n  \n> [!NOTE]\n>  Performance counter categories installed with the [!INCLUDE[dnprdnlong](~/add/includes/dnprdnlong-md.md)] use separate shared memory, with each performance counter category having its own memory. You can specify the size of separate shared memory by creating a DWORD named FileMappingSize in the registry key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\\\*\\<category name>*\\Performance. The FileMappingSize value is set to the shared memory size of the category. The default size is 131072 decimal. If the FileMappingSize value is not present, the `fileMappingSize` attribute value for the `performanceCounters` element specified in the Machine.config file is used, causing additional overhead for configuration file processing. You can realize a performance improvement for application startup by setting the file mapping size in the registry. For more information about the file mapping size, see [\\&lt;performanceCounters\\&gt;](../Topic/%3CperformanceCounters%3E%20Element.md)."
   example:
   - "The following code example demonstrates the use of the PerformanceCounter class to create and use an <xref:System.Diagnostics.PerformanceCounterType> counter type. The example creates categories, sets up counters, collects data from the counters, and calls the <xref:System.Diagnostics.CounterSampleCalculator> class to interpret the performance counter data. The intermediate and final results are displayed in the console window. For additional examples of other performance counter types, see the <xref:System.Diagnostics.PerformanceCounterType> enumeration.  \n  \n [!code-cpp[PerformanceCounterType.AverageCounter64#1](~/add/codesnippet/cpp/t-system.diagnostics.per_0_1.cpp)]\n [!code-cs[PerformanceCounterType.AverageCounter64#1](~/add/codesnippet/csharp/t-system.diagnostics.per_0_1.cs)]\n [!code-vb[PerformanceCounterType.AverageCounter64#1](~/add/codesnippet/visualbasic/t-system.diagnostics.per_0_1.vb)]"
@@ -79,8 +79,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new, read-only instance of the <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> class, without associating the instance with any system or custom performance counter."
-  remarks: "This overload of the constructor sets the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> properties to empty strings (&quot;&quot;), and sets the <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> property to the local computer, (&quot;.&quot;).       This constructor does not initialize the performance counter, so it does not associate the instance with an existing counter on the local computer. To point to a specific performance counter, set the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and, optionally, the <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> and <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> properties before reading any other properties or attempting to read from a counter. To write to a performance counter, set the <xref:System.Diagnostics.PerformanceCounter.ReadOnly%2A> property to `false`.      > [!NOTE] >  The <xref:System.Security.Permissions.HostProtectionAttribute> attribute applied to this member has the following <xref:System.Security.Permissions.HostProtectionAttribute.Resources%2A> property value: <xref:System.Security.Permissions.HostProtectionResource> &#124; <xref:System.Security.Permissions.HostProtectionResource>. The <xref:System.Security.Permissions.HostProtectionAttribute> does not affect desktop applications (which are typically started by double-clicking an icon, typing a command, or entering a URL in a browser). For more information, see the <xref:System.Security.Permissions.HostProtectionAttribute> class or [SQL Server Programming and Host Protection Attributes](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Inicializa uma instância nova, somente leitura do <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> classe sem associar a instância com qualquer sistema ou o contador de desempenho personalizados."
+  remarks: "Essa sobrecarga dos conjuntos de construtor o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, e <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>Propriedades em cadeias de caracteres vazias (&quot;&quot;) e define o <xref:System.Diagnostics.PerformanceCounter.MachineName%2A>propriedade para o computador local, (&quot;.&quot;).</xref:System.Diagnostics.PerformanceCounter.MachineName%2A> </xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>       Este construtor não inicializar o contador de desempenho, para que ele não associar a instância de um contador existente no computador local. Para apontar para um contador de desempenho específico, defina o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>e, opcionalmente, o <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>e <xref:System.Diagnostics.PerformanceCounter.MachineName%2A>propriedades antes de ler todas as outras propriedades ou ao tentar ler de um contador.</xref:System.Diagnostics.PerformanceCounter.MachineName%2A> </xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A> Para gravar em um contador de desempenho, defina o <xref:System.Diagnostics.PerformanceCounter.ReadOnly%2A>propriedade `false`.</xref:System.Diagnostics.PerformanceCounter.ReadOnly%2A>      > [!NOTE] > O atributo <xref:System.Security.Permissions.HostProtectionAttribute>aplicado a este membro tem o seguinte valor da propriedade <xref:System.Security.Permissions.HostProtectionAttribute.Resources%2A>: <xref:System.Security.Permissions.HostProtectionResource>| <xref:System.Security.Permissions.HostProtectionResource>.</xref:System.Security.Permissions.HostProtectionResource></xref:System.Security.Permissions.HostProtectionResource></xref:System.Security.Permissions.HostProtectionAttribute.Resources%2A></xref:System.Security.Permissions.HostProtectionAttribute> O <xref:System.Security.Permissions.HostProtectionAttribute>não afeta os aplicativos de área de trabalho (que normalmente são iniciados por um ícone, digitando um comando ou inserir uma URL em um navegador).</xref:System.Security.Permissions.HostProtectionAttribute> Para obter mais informações, consulte o <xref:System.Security.Permissions.HostProtectionAttribute>classe ou [programação do SQL Server e atributos de proteção de Host](~/add/includes/ajax-current-ext-md.md).</xref:System.Security.Permissions.HostProtectionAttribute>"
   example:
   - "The following code example creates a default instance of the <xref:System.Diagnostics.PerformanceCounter> class. After the instance is created, the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> property values are set, and the results of a call to the <xref:System.Diagnostics.PerformanceCounter.NextValue%2A> method are displayed.  \n  \n [!code-cs[PerfCounter#1](~/add/codesnippet/csharp/m-system.diagnostics.per_15_1.cs)]\n [!code-cpp[PerfCounter#1](~/add/codesnippet/cpp/m-system.diagnostics.per_15_1.cpp)]\n [!code-vb[PerfCounter#1](~/add/codesnippet/visualbasic/m-system.diagnostics.per_15_1.vb)]"
   syntax:
@@ -90,7 +90,7 @@ items:
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.#ctor(System.String,System.String)
@@ -105,34 +105,34 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new, read-only instance of the <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> class and associates it with the specified system or custom performance counter on the local computer. This constructor requires that the category have a single instance."
-  remarks: "The parameter strings are not case-sensitive.       Use this overload to access a counter on the local computer that belongs to a category containing a single performance counter category instance. If you attempt to use this constructor to point this <xref:System.Diagnostics.PerformanceCounter> instance to a category that contains multiple instances, the constructor throws an exception. This overload can access any read-only or read/write counter, but does so in a read-only mode. A <xref:System.Diagnostics.PerformanceCounter> instance created using this overload cannot write to the counter, even if the counter itself is read/write.       This overload of the constructor sets the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A> and <xref:System.Diagnostics.PerformanceCounter.CounterName%2A> properties to the values you pass in, sets the <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> property to the local computer, &quot;.&quot;, and sets the <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> property to an empty string (&quot;&quot;).       This constructor initializes the performance counter and associates the instance with an existing counter (either a system or a custom counter) on the local computer. The values that you pass in for the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A> and <xref:System.Diagnostics.PerformanceCounter.CounterName%2A> properties must point to an existing performance counter on the local computer.      > [!NOTE] >  To read performance counters in Windows Vista, Windows XP Professional x64 Edition, or Windows Server 2003, you must either be a member of the Performance Monitor Users group or have administrative privileges.   >    >  To avoid having to elevate your privileges to access performance counters in Windows Vista, add yourself to the Performance Monitor Users group.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Inicializa uma instância nova, somente leitura do <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> de classe e a associa o contador de desempenho personalizados no computador local ou sistema especificado. Este construtor requer que a categoria de ter uma única instância."
+  remarks: "As cadeias de caracteres do parâmetro não diferenciam maiusculas de minúsculas.       Use essa sobrecarga para acessar um contador no computador local que pertence a uma categoria que contém uma instância de categoria do contador de desempenho. Se você tentar usar esse construtor para apontar isso <xref:System.Diagnostics.PerformanceCounter>instância a uma categoria que contém várias instâncias, o lance construtor uma exceção.</xref:System.Diagnostics.PerformanceCounter> Essa sobrecarga pode acessar qualquer somente leitura ou leitura/gravação contador, mas faz isso em um modo somente leitura. Um <xref:System.Diagnostics.PerformanceCounter>instância criada usando essa sobrecarga não é possível gravar o contador, mesmo se o contador em si é leitura/gravação.</xref:System.Diagnostics.PerformanceCounter>       Essa sobrecarga dos conjuntos de construtor a <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>e <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>Propriedades para os valores que você passe, define o <xref:System.Diagnostics.PerformanceCounter.MachineName%2A>propriedade para o computador local, &quot;.&quot; e define o <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>propriedade como uma cadeia de caracteres vazia (&quot;&quot;).</xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.MachineName%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>       Este construtor inicializa o contador de desempenho e associa a instância de um contador existente (um sistema ou um contador personalizado) no computador local. Os valores que você passa para o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>e <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>propriedades devem apontar para um contador de desempenho existente no computador local.</xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>      > [!NOTE] > Para ler os contadores de desempenho no Windows Vista, Windows XP Professional x64 Edition ou Windows Server 2003, você deve ser um membro do grupo usuários de Monitor de desempenho ou ter privilégios administrativos.   >> Para evitar a elevar seus privilégios para acessar os contadores de desempenho no Windows Vista, se adicione ao grupo usuários de Monitor de desempenho.   >> No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador."
   syntax:
     content: public PerformanceCounter (string categoryName, string counterName);
     parameters:
     - id: categoryName
       type: System.String
-      description: "The name of the performance counter category (performance object) with which this performance counter is associated."
+      description: "O nome da categoria do contador desempenho (objeto de desempenho) ao qual esse contador de desempenho está associado."
     - id: counterName
       type: System.String
-      description: "The name of the performance counter."
+      description: "O nome do contador de desempenho."
   overload: System.Diagnostics.PerformanceCounter.#ctor*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>categoryName</code> is an empty string (&quot;&quot;).       -or-       <code>counterName</code> is an empty string (&quot;&quot;).       -or-       The category specified does not exist.       -or-       The category specified is marked as multi-instance and requires the performance counter to be created with an instance name.       -or-       <code>categoryName</code> and <code>counterName</code> have been localized into different languages."
+    description: "<code>categoryName</code>é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - <code>counterName</code> é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - a categoria especificada não existe.       - ou - a categoria especificada está marcada como várias instâncias e requer que o contador de desempenho a ser criada com um nome de instância.       - ou - <code>categoryName</code> e <code>counterName</code> foram localizados em diferentes idiomas."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>categoryName</code> or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>categoryName</code>or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.#ctor(System.String,System.String,System.Boolean)
@@ -147,8 +147,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new, read-only or read/write instance of the <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> class and associates it with the specified system or custom performance counter on the local computer. This constructor requires that the category contain a single instance."
-  remarks: "The parameter strings are not case-sensitive.       Use this overload to access a read-only or read/write counter on the local computer that belongs to a category containing a single performance counter category instance. If you attempt to use this constructor to point this <xref:System.Diagnostics.PerformanceCounter> instance to a category that contains multiple instances, the constructor throws an exception.       This overload of the constructor sets the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and <xref:System.Diagnostics.PerformanceCounter.ReadOnly%2A> properties to the values you pass in, sets the <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> property to the local computer, &quot;.&quot;, and sets the <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> property to an empty string (&quot;&quot;).       This constructor initializes the performance counter and associates the instance with an existing counter (either a system or a custom counter) on the local computer. The values that you pass in for the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A> and <xref:System.Diagnostics.PerformanceCounter.CounterName%2A> properties must point to an existing performance counter on the local computer. If the performance counter instance that you point to is not valid, calling the constructor throws an exception.      > [!NOTE] >  You can use this overload to connect to a system counter, but you cannot write to a system counter. Therefore, setting `readOnly` to `false` when connecting to a system counter causes the constructor to throw an exception.      > [!NOTE] >  To read performance counters in Windows Vista, Windows XP Professional x64 Edition, or Windows Server 2003, you must either be a member of the Performance Monitor Users group or have administrative privileges.   >    >  To avoid having to elevate your privileges to access performance counters in Windows Vista, add yourself to the Performance Monitor Users group.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Inicializa uma nova, somente leitura ou leitura/gravação instância do <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> de classe e a associa o contador de desempenho personalizados no computador local ou sistema especificado. Este construtor requer que a categoria contiverem uma única instância."
+  remarks: "As cadeias de caracteres do parâmetro não diferenciam maiusculas de minúsculas.       Use essa sobrecarga para acesso somente leitura ou leitura/gravação contador no computador local que pertence a uma categoria que contém uma instância de categoria do contador de desempenho. Se você tentar usar esse construtor para apontar isso <xref:System.Diagnostics.PerformanceCounter>instância a uma categoria que contém várias instâncias, o lance construtor uma exceção.</xref:System.Diagnostics.PerformanceCounter>       Essa sobrecarga dos conjuntos de construtor o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, e <xref:System.Diagnostics.PerformanceCounter.ReadOnly%2A>Propriedades para os valores que você passe, define o <xref:System.Diagnostics.PerformanceCounter.MachineName%2A>propriedade para o computador local, &quot;.&quot; e define o <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>propriedade como uma cadeia de caracteres vazia (&quot;&quot;).</xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.MachineName%2A> </xref:System.Diagnostics.PerformanceCounter.ReadOnly%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>       Este construtor inicializa o contador de desempenho e associa a instância de um contador existente (um sistema ou um contador personalizado) no computador local. Os valores que você passa para o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>e <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>propriedades devem apontar para um contador de desempenho existente no computador local.</xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A> Se a instância do contador de desempenho que apontam para não é válida, chamar o construtor lançará uma exceção.      > [!NOTE] > Você pode usar essa sobrecarga para se conectar a um contador do sistema, mas você não pode gravar em um contador do sistema. Portanto, definir `readOnly` para `false` quando se conectar a um contador do sistema faz com que o construtor lançar uma exceção.      > [!NOTE] > Para ler os contadores de desempenho no Windows Vista, Windows XP Professional x64 Edition ou Windows Server 2003, você deve ser um membro do grupo usuários de Monitor de desempenho ou ter privilégios administrativos.   >> Para evitar a elevar seus privilégios para acessar os contadores de desempenho no Windows Vista, se adicione ao grupo usuários de Monitor de desempenho.   >> No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador."
   example:
   - "The following code example creates an instance of the <xref:System.Diagnostics.PerformanceCounter> class. The example passes in category names, counter names, and a flag value indicating that the counter is not read-only. This code example is part of a larger example for the <xref:System.Diagnostics.PerformanceCounter> class.  \n  \n [!code-cpp[PerformanceCounterType.AverageCounter64#2](~/add/codesnippet/cpp/edd71a17-4ee7-4e9f-af30-_1.cpp)]\n [!code-cs[PerformanceCounterType.AverageCounter64#2](~/add/codesnippet/csharp/edd71a17-4ee7-4e9f-af30-_1.cs)]\n [!code-vb[PerformanceCounterType.AverageCounter64#2](~/add/codesnippet/visualbasic/edd71a17-4ee7-4e9f-af30-_1.vb)]"
   syntax:
@@ -156,30 +156,30 @@ items:
     parameters:
     - id: categoryName
       type: System.String
-      description: "The name of the performance counter category (performance object) with which this performance counter is associated."
+      description: "O nome da categoria do contador desempenho (objeto de desempenho) ao qual esse contador de desempenho está associado."
     - id: counterName
       type: System.String
-      description: "The name of the performance counter."
+      description: "O nome do contador de desempenho."
     - id: readOnly
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to access the counter in read-only mode (although the counter itself could be read/write); <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to access the counter in read/write mode."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para acessar o contador no modo somente leitura (embora o próprio contador pode ser leitura/gravação); <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> para acessar o contador no modo de leitura/gravação."
   overload: System.Diagnostics.PerformanceCounter.#ctor*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <code>categoryName</code> is an empty string (&quot;&quot;).       -or-       The <code>counterName</code> is an empty string (&quot;&quot;).       -or-       The category specified does not exist. (if <code>readOnly</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>).       -or-       The category specified is not a .NET Framework custom category (if <code>readOnly</code> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>).       -or-       The category specified is marked as multi-instance and requires the performance counter to be created with an instance name.       -or-       <code>categoryName</code> and <code>counterName</code> have been localized into different languages."
+    description: "O <code> categoryName </code> é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - <code> counterName </code> é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - a categoria especificada não existe. (if <code>readOnly</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>).       - ou - a categoria especificada não é uma categoria personalizada do .NET Framework (se <code> readOnly </code> é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>).       - ou - a categoria especificada está marcada como várias instâncias e requer que o contador de desempenho a ser criada com um nome de instância.       - ou - <code> categoryName </code> e <code> counterName </code> foram localizados em diferentes idiomas."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>categoryName</code> or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>categoryName</code>or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.#ctor(System.String,System.String,System.String)
@@ -194,37 +194,37 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new, read-only instance of the <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> class and associates it with the specified system or custom performance counter and category instance on the local computer."
-  remarks: "The parameter strings are not case-sensitive.       This overload of the constructor sets the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> properties to the values you pass in, and sets the <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> property to the local computer, &quot;.&quot;.       This constructor initializes the performance counter and associates the instance with an existing counter (either a system or a custom counter) on the local computer. The values that you pass in for the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> properties must point to an existing performance counter on the local computer. If the performance counter instance you point to is not valid, calling the constructor throws an exception.       This overload can access any read-only or read/write counter, but does so in a read-only mode. A <xref:System.Diagnostics.PerformanceCounter> instance created using this overload cannot write to the counter, even if the counter itself is read/write.       To create a performance category instance, specify an `instanceName` on the <xref:System.Diagnostics.PerformanceCounter.%23ctor%2A> constructor. If the category instance specified by `instanceName` already exists the new object will reference the existing category instance.      > [!NOTE] >  To read performance counters in Windows Vista, Windows XP Professional x64 Edition, or Windows Server 2003, you must either be a member of the Performance Monitor Users group or have administrative privileges.   >    >  To avoid having to elevate your privileges to access performance counters in Windows Vista, add yourself to the Performance Monitor Users group.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Inicializa uma instância nova, somente leitura do <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> classe e o associa ao sistema especificado ou a instância de categoria e o contador de desempenho personalizados no computador local."
+  remarks: "As cadeias de caracteres do parâmetro não diferenciam maiusculas de minúsculas.       Essa sobrecarga dos conjuntos de construtor o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, e <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>Propriedades para os valores de passar e define o <xref:System.Diagnostics.PerformanceCounter.MachineName%2A>propriedade para o computador local, &quot;.&quot;.</xref:System.Diagnostics.PerformanceCounter.MachineName%2A> </xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>       Este construtor inicializa o contador de desempenho e associa a instância de um contador existente (um sistema ou um contador personalizado) no computador local. Os valores que você passa para o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, e <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>propriedades devem apontar para um contador de desempenho existente no computador local.</xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A> Se a instância do contador de desempenho para que você apontar não é válida, chamar o construtor lançará uma exceção.       Essa sobrecarga pode acessar qualquer somente leitura ou leitura/gravação contador, mas faz isso em um modo somente leitura. Um <xref:System.Diagnostics.PerformanceCounter>instância criada usando essa sobrecarga não é possível gravar o contador, mesmo se o contador em si é leitura/gravação.</xref:System.Diagnostics.PerformanceCounter>       Para criar uma instância de categoria de desempenho, especifique um `instanceName` no <xref:System.Diagnostics.PerformanceCounter.%23ctor%2A>construtor.</xref:System.Diagnostics.PerformanceCounter.%23ctor%2A> Se a instância da categoria especificada por `instanceName` já existe o novo objeto fará referência a instância existente da categoria.      > [!NOTE] > Para ler os contadores de desempenho no Windows Vista, Windows XP Professional x64 Edition ou Windows Server 2003, você deve ser um membro do grupo usuários de Monitor de desempenho ou ter privilégios administrativos.   >> Para evitar a elevar seus privilégios para acessar os contadores de desempenho no Windows Vista, se adicione ao grupo usuários de Monitor de desempenho.   >> No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador."
   syntax:
     content: public PerformanceCounter (string categoryName, string counterName, string instanceName);
     parameters:
     - id: categoryName
       type: System.String
-      description: "The name of the performance counter category (performance object) with which this performance counter is associated."
+      description: "O nome da categoria do contador desempenho (objeto de desempenho) ao qual esse contador de desempenho está associado."
     - id: counterName
       type: System.String
-      description: "The name of the performance counter."
+      description: "O nome do contador de desempenho."
     - id: instanceName
       type: System.String
-      description: "The name of the performance counter category instance, or an empty string (&quot;&quot;), if the category contains a single instance."
+      description: "O nome da instância de categoria do contador de desempenho ou uma cadeia de caracteres vazia (&quot;&quot;), se a categoria contém uma única instância."
   overload: System.Diagnostics.PerformanceCounter.#ctor*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>categoryName</code> is an empty string (&quot;&quot;).       -or-       <code>counterName</code> is an empty string (&quot;&quot;).       -or-       The category specified is not valid.       -or-       The category specified is marked as multi-instance and requires the performance counter to be created with an instance name.       -or-       <code>instanceName</code> is longer than 127 characters.       -or-       <code>categoryName</code> and <code>counterName</code> have been localized into different languages."
+    description: "<code>categoryName</code>é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - <code>counterName</code> é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - a categoria especificada não é válida.       - ou - a categoria especificada está marcada como várias instâncias e requer que o contador de desempenho a ser criada com um nome de instância.       - ou - <code>instanceName</code> tem mais de 127 caracteres.       - ou - <code>categoryName</code> e <code>counterName</code> foram localizados em diferentes idiomas."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>categoryName</code> or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>categoryName</code>or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.#ctor(System.String,System.String,System.String,System.Boolean)
@@ -239,40 +239,40 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new, read-only or read/write instance of the <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> class and associates it with the specified system or custom performance counter and category instance on the local computer."
-  remarks: "The parameter strings are not case-sensitive.       Use this overload to access a performance counter in either read-only or read/write mode.       This overload of the constructor sets the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> properties to the values you pass in, it and sets the <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> property to the local computer, &quot;.&quot;.       This constructor initializes the performance counter and associates the instance with an existing counter (either a system or a custom counter) on the local computer. The values that you pass in for the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> properties must point to an existing performance counter on the local computer. If the performance counter instance that you point to is not valid, calling the constructor throws an exception.      > [!NOTE] >  You can use this overload to connect to a system counter, but you cannot write to a system counter. Therefore, setting `readOnly` to `false` when connecting to a system counter causes the constructor to throw an exception.       To create a performance category instance, specify an `instanceName` on the <xref:System.Diagnostics.PerformanceCounter.%23ctor%2A> constructor. If the category instance specified by `instanceName` already exists the new object will reference the existing category instance.      > [!NOTE] >  To read performance counters in Windows Vista, Windows XP Professional x64 Edition, or Windows Server 2003, you must either be a member of the Performance Monitor Users group or have administrative privileges.   >    >  To avoid having to elevate your privileges to access performance counters in Windows Vista, add yourself to the Performance Monitor Users group.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Inicializa uma nova, somente leitura ou leitura/gravação instância do <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> classe e o associa ao sistema especificado ou a instância de categoria e o contador de desempenho personalizados no computador local."
+  remarks: "As cadeias de caracteres do parâmetro não diferenciam maiusculas de minúsculas.       Use essa sobrecarga para acessar um contador de desempenho no somente leitura ou modo leitura/gravação.       Essa sobrecarga dos conjuntos de construtor o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, e <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>Propriedades para os valores que você passar no, ele e conjuntos de <xref:System.Diagnostics.PerformanceCounter.MachineName%2A>propriedade para o computador local, &quot;.&quot;.</xref:System.Diagnostics.PerformanceCounter.MachineName%2A> </xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>       Este construtor inicializa o contador de desempenho e associa a instância de um contador existente (um sistema ou um contador personalizado) no computador local. Os valores que você passa para o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, e <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>propriedades devem apontar para um contador de desempenho existente no computador local.</xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A> Se a instância do contador de desempenho que apontam para não é válida, chamar o construtor lançará uma exceção.      > [!NOTE] > Você pode usar essa sobrecarga para se conectar a um contador do sistema, mas você não pode gravar em um contador do sistema. Portanto, definir `readOnly` para `false` quando se conectar a um contador do sistema faz com que o construtor lançar uma exceção.       Para criar uma instância de categoria de desempenho, especifique um `instanceName` no <xref:System.Diagnostics.PerformanceCounter.%23ctor%2A>construtor.</xref:System.Diagnostics.PerformanceCounter.%23ctor%2A> Se a instância da categoria especificada por `instanceName` já existe o novo objeto fará referência a instância existente da categoria.      > [!NOTE] > Para ler os contadores de desempenho no Windows Vista, Windows XP Professional x64 Edition ou Windows Server 2003, você deve ser um membro do grupo usuários de Monitor de desempenho ou ter privilégios administrativos.   >> Para evitar a elevar seus privilégios para acessar os contadores de desempenho no Windows Vista, se adicione ao grupo usuários de Monitor de desempenho.   >> No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador."
   syntax:
     content: public PerformanceCounter (string categoryName, string counterName, string instanceName, bool readOnly);
     parameters:
     - id: categoryName
       type: System.String
-      description: "The name of the performance counter category (performance object) with which this performance counter is associated."
+      description: "O nome da categoria do contador desempenho (objeto de desempenho) ao qual esse contador de desempenho está associado."
     - id: counterName
       type: System.String
-      description: "The name of the performance counter."
+      description: "O nome do contador de desempenho."
     - id: instanceName
       type: System.String
-      description: "The name of the performance counter category instance, or an empty string (&quot;&quot;), if the category contains a single instance."
+      description: "O nome da instância de categoria do contador de desempenho ou uma cadeia de caracteres vazia (&quot;&quot;), se a categoria contém uma única instância."
     - id: readOnly
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to access a counter in read-only mode; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to access a counter in read/write mode."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para acessar um contador em modo somente leitura. <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> para acessar um contador no modo de leitura/gravação."
   overload: System.Diagnostics.PerformanceCounter.#ctor*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>categoryName</code> is an empty string (&quot;&quot;).       -or-       <code>counterName</code> is an empty string (&quot;&quot;).       -or-       The read/write permission setting requested is invalid for this counter.       -or-       The category specified does not exist (if <code>readOnly</code> is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>).       -or-       The category specified is not a .NET Framework custom category (if <code>readOnly</code> is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>).       -or-       The category specified is marked as multi-instance and requires the performance counter to be created with an instance name.       -or-       <code>instanceName</code> is longer than 127 characters.       -or-       <code>categoryName</code> and <code>counterName</code> have been localized into different languages."
+    description: "<code>categoryName</code>é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - <code>counterName</code> é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - a permissão de leitura/gravação configuração solicitada é inválida para este contador.       - ou - a categoria especificada não existe (se <code>readOnly</code> é <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>).       - ou - a categoria especificada não é uma categoria personalizada do .NET Framework (se <code>readOnly</code> é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>).       - ou - a categoria especificada está marcada como várias instâncias e requer que o contador de desempenho a ser criada com um nome de instância.       - ou - <code>instanceName</code> tem mais de 127 caracteres.       - ou - <code>categoryName</code> e <code>counterName</code> foram localizados em diferentes idiomas."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>categoryName</code> or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>categoryName</code>or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.#ctor(System.String,System.String,System.String,System.String)
@@ -287,43 +287,43 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new, read-only instance of the <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> class and associates it with the specified system or custom performance counter and category instance, on the specified computer."
-  remarks: "The parameter strings are not case-sensitive.       This overload of the constructor sets the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>, and <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> properties to the values you pass in.       This constructor initializes the performance counter and associates the instance with an existing counter (either a system or a custom counter) on the specified computer. The values that you pass in for the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> and <xref:System.Diagnostics.PerformanceCounter.MachineName%2A> properties must point to an existing performance counter. If the performance counter instance you point to is not valid, calling the constructor throws an exception. This overload can access any read-only or read/write counter, but does so in a read-only mode. A <xref:System.Diagnostics.PerformanceCounter> instance created using this overload cannot write to the counter, even if the counter itself is read/write.      > [!NOTE] >  You cannot write to remote performance counters. There is no overload that allows you to specify a read/write instance of the <xref:System.Diagnostics.PerformanceCounter> class that connects to a remote computer.       To create a performance category instance, specify an `instanceName` on the <xref:System.Diagnostics.PerformanceCounter.%23ctor%2A> constructor. If the category instance specified by `instanceName` already exists the new object will reference the existing category instance.      > [!NOTE] >  To read performance counters in Windows Vista, Windows XP Professional x64 Edition, or Windows Server 2003, you must either be a member of the Performance Monitor Users group or have administrative privileges.   >    >  To avoid having to elevate your privileges to access performance counters in Windows Vista, add yourself to the Performance Monitor Users group.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator.      > [!NOTE] >  In Windows Vista, when the remote computer is a member of a workgroup, you may need to disable UAC so that the local user account is not filtered and can be elevated to an administrator account. For security reasons, disabling UAC should be a last resort. For information on disabling UAC, see [User Account Control and WMI](http://go.microsoft.com/fwlink/?LinkId=91617)."
+  summary: "Inicializa uma instância nova, somente leitura do <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> de classe e a associa com o sistema especificado ou as instância de categoria e o contador de desempenho personalizado, no computador especificado."
+  remarks: "As cadeias de caracteres do parâmetro não diferenciam maiusculas de minúsculas.       Essa sobrecarga dos conjuntos de construtor o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>e <xref:System.Diagnostics.PerformanceCounter.MachineName%2A>Propriedades para os valores que você passar in</xref:System.Diagnostics.PerformanceCounter.MachineName%2A> </xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>       Este construtor inicializa o contador de desempenho e associa a instância de um contador existente (um sistema ou um contador personalizado) no computador especificado. Os valores que você passa para o <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A>e <xref:System.Diagnostics.PerformanceCounter.MachineName%2A>propriedades devem apontar para um contador de desempenho existente.</xref:System.Diagnostics.PerformanceCounter.MachineName%2A> </xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> </xref:System.Diagnostics.PerformanceCounter.CounterName%2A> </xref:System.Diagnostics.PerformanceCounter.CategoryName%2A> Se a instância do contador de desempenho para que você apontar não é válida, chamar o construtor lançará uma exceção. Essa sobrecarga pode acessar qualquer somente leitura ou leitura/gravação contador, mas faz isso em um modo somente leitura. Um <xref:System.Diagnostics.PerformanceCounter>instância criada usando essa sobrecarga não é possível gravar o contador, mesmo se o contador em si é leitura/gravação.</xref:System.Diagnostics.PerformanceCounter>      > [!NOTE] > Não pode gravar contadores de desempenho remoto. Não há nenhuma sobrecarga que permite que você especifique uma instância de leitura/gravação do <xref:System.Diagnostics.PerformanceCounter>classe que se conecta a um computador remoto.</xref:System.Diagnostics.PerformanceCounter>       Para criar uma instância de categoria de desempenho, especifique um `instanceName` no <xref:System.Diagnostics.PerformanceCounter.%23ctor%2A>construtor.</xref:System.Diagnostics.PerformanceCounter.%23ctor%2A> Se a instância da categoria especificada por `instanceName` já existe o novo objeto fará referência a instância existente da categoria.      > [!NOTE] > Para ler os contadores de desempenho no Windows Vista, Windows XP Professional x64 Edition ou Windows Server 2003, você deve ser um membro do grupo usuários de Monitor de desempenho ou ter privilégios administrativos.   >> Para evitar a elevar seus privilégios para acessar os contadores de desempenho no Windows Vista, se adicione ao grupo usuários de Monitor de desempenho.   >> No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador.      > [!NOTE] > No Windows Vista, quando o computador remoto for um membro de um grupo de trabalho, talvez seja necessário desabilitar o UAC para que a conta de usuário local não for filtrada e pode ser elevada a uma conta de administrador. Por motivos de segurança, desabilitar o UAC deve ser o último recurso. Para obter informações sobre como desabilitar o UAC, consulte [controle de conta de usuário e a WMI](http://go.microsoft.com/fwlink/?LinkId=91617)."
   syntax:
     content: public PerformanceCounter (string categoryName, string counterName, string instanceName, string machineName);
     parameters:
     - id: categoryName
       type: System.String
-      description: "The name of the performance counter category (performance object) with which this performance counter is associated."
+      description: "O nome da categoria do contador desempenho (objeto de desempenho) ao qual esse contador de desempenho está associado."
     - id: counterName
       type: System.String
-      description: "The name of the performance counter."
+      description: "O nome do contador de desempenho."
     - id: instanceName
       type: System.String
-      description: "The name of the performance counter category instance, or an empty string (&quot;&quot;), if the category contains a single instance."
+      description: "O nome da instância de categoria do contador de desempenho ou uma cadeia de caracteres vazia (&quot;&quot;), se a categoria contém uma única instância."
     - id: machineName
       type: System.String
-      description: "The computer on which the performance counter and its associated category exist."
+      description: "O computador no qual o contador de desempenho e sua categoria associada existem."
   overload: System.Diagnostics.PerformanceCounter.#ctor*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>categoryName</code> is an empty string (&quot;&quot;).       -or-       <code>counterName</code> is an empty string (&quot;&quot;).       -or-       The read/write permission setting requested is invalid for this counter.       -or-       The counter does not exist on the specified computer.       -or-       The category specified is marked as multi-instance and requires the performance counter to be created with an instance name.       -or-       <code>instanceName</code> is longer than 127 characters.       -or-       <code>categoryName</code> and <code>counterName</code> have been localized into different languages."
+    description: "<code>categoryName</code>é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - <code>counterName</code> é uma cadeia de caracteres vazia (&quot;&quot;).       - ou - a permissão de leitura/gravação configuração solicitada é inválida para este contador.       - ou - o contador não existe no computador especificado.       - ou - a categoria especificada está marcada como várias instâncias e requer que o contador de desempenho a ser criada com um nome de instância.       - ou - <code>instanceName</code> tem mais de 127 caracteres.       - ou - <code>categoryName</code> e <code>counterName</code> foram localizados em diferentes idiomas."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>machineName</code> parameter is not valid."
+    description: "O <code> machineName </code> parâmetro não é válido."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>categoryName</code> or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>categoryName</code>or <code>counterName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.BeginInit
@@ -338,8 +338,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Begins the initialization of a <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> instance used on a form or by another component. The initialization occurs at runtime."
-  remarks: "The [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)] design environment uses this method to start the initialization of a component that is used on a form or by another component. The <xref:System.Diagnostics.PerformanceCounter.EndInit%2A> method ends the initialization. Using the BeginInit and <xref:System.Diagnostics.PerformanceCounter.EndInit%2A> methods prevents the component from being used before it is fully initialized."
+  summary: "Começa a inicialização de um <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> instância usada em um formulário ou por outro componente. A inicialização ocorre em tempo de execução."
+  remarks: "O [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)] design ambiente usa esse método para iniciar a inicialização de um componente que é usado em um formulário ou por outro componente. O <xref:System.Diagnostics.PerformanceCounter.EndInit%2A>método termina a inicialização.</xref:System.Diagnostics.PerformanceCounter.EndInit%2A> Usando o BeginInit e <xref:System.Diagnostics.PerformanceCounter.EndInit%2A>métodos impede que o componente que está sendo usada antes de ser totalmente inicializado.</xref:System.Diagnostics.PerformanceCounter.EndInit%2A>"
   syntax:
     content: public void BeginInit ();
     parameters: []
@@ -359,23 +359,23 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the name of the performance counter category for this performance counter."
-  remarks: "The CategoryName is displayed in the `Performance Object` field of Performance Counter Manager MMC snap in&quot;s `Add Counter` dialog box.       A performance counter monitors the behavior of a category, or performance object, on a computer. Categories include physical components (such as processors, disks, and memory) and system objects (such as processes and threads). System counters that are related to the same performance object are grouped into a category that indicates their common focus. When you create an instance of the <xref:System.Diagnostics.PerformanceCounter> class, you first indicate the category with which the component will interact, and then you choose a counter from that category.       For example, one Windows counter category is the Memory category. System counters within this category track memory data such as the number of bytes available and the number of bytes cached. If you wanted to work with the bytes cached in your application, you would create an instance of the <xref:System.Diagnostics.PerformanceCounter> component, connect it to the Memory category, and then pick the appropriate counter (in this case, Cached Bytes) from that category.       Although your system makes many more counter categories available, the categories that you will probably interact with most frequently are the Cache, Memory, Objects, PhysicalDisk, Process, Processor, Server, System, and Thread categories."
+  summary: "Obtém ou define o nome da categoria do contador de desempenho para o contador de desempenho."
+  remarks: "O nome da categoria é exibido no `Performance Object` campo de snap do MMC do Gerenciador de contador de desempenho em `Add Counter` caixa de diálogo.       Um contador de desempenho monitora o comportamento de uma categoria ou o objeto de desempenho, em um computador. As categorias incluem componentes físicos (como processadores, discos e memória) e objetos do sistema (por exemplo, processos e threads). Contadores do sistema que estão relacionadas ao mesmo objeto de desempenho são agrupadas em uma categoria que indica o foco comuns. Quando você cria uma instância do <xref:System.Diagnostics.PerformanceCounter>classe, você primeiro indicar a categoria à qual o componente irá interagir e, em seguida, escolha um contador dessa categoria.</xref:System.Diagnostics.PerformanceCounter>       Por exemplo, uma categoria de contador do Windows é a categoria de memória. Contadores do sistema dessa categoria rastreiam dados de memória, como o número de bytes disponíveis e o número de bytes armazenados em cache. Se você quiser trabalhar com os bytes armazenados em cache em seu aplicativo, você precisará criar uma instância do <xref:System.Diagnostics.PerformanceCounter>componente, conecte-se a categoria de memória e, em seguida, selecione o contador apropriado (nesse caso, os Bytes armazenados em cache) dessa categoria.</xref:System.Diagnostics.PerformanceCounter>       Embora o sistema torna muitos mais categorias de contadores disponíveis, as categorias que você provavelmente irá interagir com mais frequência são as categorias de Cache, memória, objetos, PhysicalDisk, processo, processador, servidor, sistema e Thread."
   example:
   - "The following code example creates a default instance of the <xref:System.Diagnostics.PerformanceCounter> class. After the instance is created, the CategoryName, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and <xref:System.Diagnostics.PerformanceCounter.InstanceName%2A> property values are set, and the results of a call to the <xref:System.Diagnostics.PerformanceCounter.NextValue%2A> method are displayed.  \n  \n [!code-cs[PerfCounter#1](~/add/codesnippet/csharp/p-system.diagnostics.per_6_1.cs)]\n [!code-cpp[PerfCounter#1](~/add/codesnippet/cpp/p-system.diagnostics.per_6_1.cpp)]\n [!code-vb[PerfCounter#1](~/add/codesnippet/visualbasic/p-system.diagnostics.per_6_1.vb)]"
   syntax:
     content: public string CategoryName { get; set; }
     return:
       type: System.String
-      description: "The name of the performance counter category (performance object) with which this performance counter is associated."
+      description: "O nome da categoria do contador desempenho (objeto de desempenho) ao qual esse contador de desempenho está associado."
   overload: System.Diagnostics.PerformanceCounter.CategoryName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The CategoryName is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "É o nome da categoria de <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.Close
@@ -390,8 +390,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Closes the performance counter and frees all the resources allocated by this performance counter instance."
-  remarks: "When you associate this <xref:System.Diagnostics.PerformanceCounter> instance with a performance counter that resides on the server, the system initializes the instance and allocates memory to contain counter sample information. The Close method frees the resources allocated by the object."
+  summary: "Fecha o contador de desempenho e libera todos os recursos alocados por esta instância do contador de desempenho."
+  remarks: "Quando você associa isso <xref:System.Diagnostics.PerformanceCounter>instância com um contador de desempenho que reside no servidor, o sistema inicializa a instância e aloca memória para armazenar informações de amostra do contador.</xref:System.Diagnostics.PerformanceCounter> O método Close libera os recursos alocados pelo objeto."
   syntax:
     content: public void Close ();
     parameters: []
@@ -411,7 +411,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Frees the performance counter library shared state allocated by the counters."
+  summary: "Libera o estado de biblioteca compartilhada do contador de desempenho alocado pelos contadores."
   syntax:
     content: public static void CloseSharedResources ();
     parameters: []
@@ -431,24 +431,24 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the description for this performance counter."
-  remarks: "The Add Counters dialog box of the Performance Counter Manager MMC snap in displays the CounterHelp text when a user selects a counter from the counters list and clicks the Explain button.       When you create a new counter, use the CounterHelp text to describe what the counter monitors do so the user can determine whether to add the counter to the System Monitor&quot;s display.      > [!NOTE] >  If the value for the <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> property is <xref:System.Diagnostics.PerformanceCounterInstanceLifetime> and the performance counter category was created with .NET Framework version 1.0 or 1.1, an <xref:System.InvalidOperationException> is thrown. Performance counter categories created with earlier versions use global shared memory, and the value for <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>. If the category is not used by applications running on versions 1.0 or 1.1 of the .NET Framework, delete and recreate the category.      > [!NOTE] >  To read performance counters in Windows Vista, Windows XP Professional x64 Edition, or Windows Server 2003, you must either be a member of the Performance Monitor Users group or have administrative privileges.   >    >  To avoid having to elevate your privileges to access performance counters in Windows Vista, add yourself to the Performance Monitor Users group.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Obtém a descrição para este contador de desempenho."
+  remarks: "Encaixar a caixa de diálogo Adicionar contadores do MMC do Gerenciador de contador de desempenho em exibe o texto CounterHelp quando um usuário seleciona um contador na lista de contadores e clica no botão de explicar.       Quando você cria um novo contador, use o texto de CounterHelp para descrever o que o contador de monitores de fizerem isso, o usuário pode determinar se deseja adicionar o contador a exibição do Monitor do sistema.      > [!NOTE] > Se o valor para o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>é de propriedade <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>e a categoria do contador de desempenho foi criada com o .NET Framework versão 1.0 ou 1.1, um <xref:System.InvalidOperationException>é gerada.</xref:System.InvalidOperationException> </xref:System.Diagnostics.PerformanceCounterInstanceLifetime> </xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> Categorias de contador de desempenho criadas com versões anteriores usam a memória compartilhada global e o valor <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>devem</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> estar <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> Se a categoria não é usada por aplicativos em execução nas versões 1.0 ou 1.1 do .NET Framework, excluir e recriar a categoria.      > [!NOTE] > Para ler os contadores de desempenho no Windows Vista, Windows XP Professional x64 Edition ou Windows Server 2003, você deve ser um membro do grupo usuários de Monitor de desempenho ou ter privilégios administrativos.   >> Para evitar a elevar seus privilégios para acessar os contadores de desempenho no Windows Vista, se adicione ao grupo usuários de Monitor de desempenho.   >> No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador."
   syntax:
     content: public string CounterHelp { get; }
     return:
       type: System.String
-      description: "A description of the item or quantity that this performance counter measures."
+      description: "Uma descrição do item ou quantidade que mede esse contador de desempenho."
   overload: System.Diagnostics.PerformanceCounter.CounterHelp*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> instance is not associated with a performance counter.       -or-       The <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*> property is set to <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> when using global shared memory."
+    description: "O <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> instância não está associada um contador de desempenho.       - ou - o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>está definida como <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> quando usando global memória compartilhada.</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.CounterName
@@ -463,23 +463,23 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the name of the performance counter that is associated with this <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> instance."
-  remarks: "You can get a list of available pre-existing counters from the Windows Performance Manager’s [Add Counters dialog box](http://go.microsoft.com/fwlink/p/?LinkId=257854)."
+  summary: "Obtém ou define o nome do contador de desempenho que é associado a essa <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> instância."
+  remarks: "Você pode obter uma lista de contadores pré-existente disponíveis do Windows desempenho do Gerenciador de [caixa de diálogo Adicionar contadores](http://go.microsoft.com/fwlink/p/?LinkId=257854)."
   example:
   - "The following code example shows how to set the CounterName property to a typical counter name.  \n  \n [!code-cs[PerfCounter#1](~/add/codesnippet/csharp/p-system.diagnostics.per_4_1.cs)]\n [!code-cpp[PerfCounter#1](~/add/codesnippet/cpp/p-system.diagnostics.per_4_1.cpp)]\n [!code-vb[PerfCounter#1](~/add/codesnippet/visualbasic/p-system.diagnostics.per_4_1.vb)]"
   syntax:
     content: public string CounterName { get; set; }
     return:
       type: System.String
-      description: "The name of the counter, which generally describes the quantity being counted. This name is displayed in the list of counters of the Performance Counter Manager MMC snap in&quot;s Add Counters dialog box."
+      description: "O nome do contador, que geralmente descreve a quantidade contabilizada. Esse nome é exibido na lista de contadores do MMC do Gerenciador de contador de desempenho de snap-in da caixa de diálogo Adicionar contadores."
   overload: System.Diagnostics.PerformanceCounter.CounterName*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The CounterName is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O CounterName está <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.CounterType
@@ -494,24 +494,24 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the counter type of the associated performance counter."
-  remarks: "The <xref:System.Diagnostics.PerformanceCounterType> enumeration contains the types of performance counters that you can interact with. Some of the counter types represent calculated values, such as the average of the counter measurements the system has taken. Other types represent raw, or uncalculated, values. The following table shows the counter types that you will interact with most frequently.      |Counter&quot;s Responsibility|PerformanceCounterType Value|Example|   |------------------------------|----------------------------------|-------------|   |Maintain a simple count of items or operations.|`NumberOfItems32`|Tracking the number of orders received as a 32-bit integer.|   |Maintain a higher-capacity simple count.|`NumberOfItems64`|Tracking the number of orders for a site with very high volume, stored as a 64-bit integer.|   |Track the number of items or operations per second.|`RateOfCountsPerSecond32`|Tracking orders received per second on a site.|   |Track a higher-capacity number of items or operations per second.|`RateOfCountsPerSecond64`|Tracking orders received per second on a site with very high volume.|   |Calculate the average time to perform a process or to process an item|`AverageTimer32`|Calculate the average time an order takes to be processed.|       When you create a counter whose type requires the use of a corresponding base counter, you must declare the counter and the base in the <xref:System.Diagnostics.CounterCreationDataCollection> you pass into the <xref:System.Diagnostics.PerformanceCounterCategory.Create%2A?displayProperty=fullName> method.      > [!NOTE] >  If the value for the <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> property is <xref:System.Diagnostics.PerformanceCounterInstanceLifetime> and the performance counter category was created with .NET Framework version 1.0 or 1.1, an <xref:System.InvalidOperationException> is thrown. Performance counter categories created with earlier versions use global shared memory, and the value for <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>. If the category is not used by applications running on versions 1.0 or 1.1 of the .NET Framework, delete and recreate the category.      > [!NOTE] >  To read performance counters in Windows Vista, Windows XP Professional x64 Edition, or Windows Server 2003, you must either be a member of the Performance Monitor Users group or have administrative privileges.   >    >  To avoid having to elevate your privileges to access performance counters in Windows Vista, add yourself to the Performance Monitor Users group.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Obtém o tipo de contador do contador de desempenho associado."
+  remarks: "O <xref:System.Diagnostics.PerformanceCounterType>enumeração contém os tipos de contadores de desempenho que você pode interagir com.</xref:System.Diagnostics.PerformanceCounterType> Alguns dos tipos de contador representam valores calculados, como a média das medidas de contador que levou o sistema. Outros tipos de representam valores brutos ou não calculados. A tabela a seguir mostra os tipos de contador que você vai interagir com mais frequência.      | Responsabilidade do contador | O valor de PerformanceCounterType | Exemplo |   |------------------------------|----------------------------------|-------------|   | Manter uma contagem simple de itens ou operações. | `NumberOfItems32`| Controle o número de pedidos recebidos como um inteiro de 32 bits. |   | Manter uma contagem de simple de maior capacidade. | `NumberOfItems64`| Controle o número de pedidos para um site com um volume muito alto, armazenado como um inteiro de 64 bits. |   | Controlar o número de itens ou operações por segundo. | `RateOfCountsPerSecond32`| Pedidos recebidos por segundo em um site de rastreamento. |   | Rastrear um número maior capacidade de itens ou operações por segundo. | `RateOfCountsPerSecond64`| Controle de pedidos recebidos por segundo em um site com um volume muito alto. |   | Calcular o tempo médio para executar um processo ou para processar um item | `AverageTimer32`| Calcular o tempo médio que leva uma ordem a ser processado. |       Quando você cria um contador cujo tipo requer o uso de um contador base correspondente, você deve declarar o contador e a base de <xref:System.Diagnostics.CounterCreationDataCollection>passar para o <xref:System.Diagnostics.PerformanceCounterCategory.Create%2A?displayProperty=fullName>método.</xref:System.Diagnostics.PerformanceCounterCategory.Create%2A?displayProperty=fullName> </xref:System.Diagnostics.CounterCreationDataCollection>      > [!NOTE] > Se o valor para o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>é de propriedade <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>e a categoria do contador de desempenho foi criada com o .NET Framework versão 1.0 ou 1.1, um <xref:System.InvalidOperationException>é gerada.</xref:System.InvalidOperationException> </xref:System.Diagnostics.PerformanceCounterInstanceLifetime> </xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> Categorias de contador de desempenho criadas com versões anteriores usam a memória compartilhada global e o valor <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>devem</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> estar <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> Se a categoria não é usada por aplicativos em execução nas versões 1.0 ou 1.1 do .NET Framework, excluir e recriar a categoria.      > [!NOTE] > Para ler os contadores de desempenho no Windows Vista, Windows XP Professional x64 Edition ou Windows Server 2003, você deve ser um membro do grupo usuários de Monitor de desempenho ou ter privilégios administrativos.   >> Para evitar a elevar seus privilégios para acessar os contadores de desempenho no Windows Vista, se adicione ao grupo usuários de Monitor de desempenho.   >> No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador."
   syntax:
     content: public System.Diagnostics.PerformanceCounterType CounterType { get; }
     return:
       type: System.Diagnostics.PerformanceCounterType
-      description: "A <xref href=&quot;System.Diagnostics.PerformanceCounterType&quot;></xref> that describes both how the counter interacts with a monitoring application and the nature of the values it contains (for example, calculated or uncalculated)."
+      description: "Um <xref href=&quot;System.Diagnostics.PerformanceCounterType&quot;> </xref> que descrevem como o contador interage com um aplicativo de monitoramento e a natureza dos valores que ele contém (por exemplo, calculada ou não calculadas)."
   overload: System.Diagnostics.PerformanceCounter.CounterType*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The instance is not correctly associated with a performance counter.       -or-       The <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*> property is set to <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> when using global shared memory."
+    description: "A instância não está corretamente associada com um contador de desempenho.       - ou - o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>está definida como <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> quando usando global memória compartilhada.</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>"
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.Decrement
@@ -526,25 +526,25 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Decrements the associated performance counter by one through an efficient atomic operation."
-  remarks: "You can write only to custom counters. All system counters are read-only.      > [!NOTE] >  The <xref:System.Diagnostics.PerformanceCounter.Increment%2A>, <xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A>, and Decrement methods use interlocks to update the counter value. This helps keep the counter value accurate in multithreaded or multiprocess scenarios, but also results in a performance penalty. If you do not need the accuracy that interlocked operations provide, you can update the <xref:System.Diagnostics.PerformanceCounter.RawValue%2A> property directly for up to a 5 times performance improvement.  However, in multithreaded scenarios, some updates to the counter value might be ignored, resulting in inaccurate data.      > [!NOTE] >  If the value for the <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> property is <xref:System.Diagnostics.PerformanceCounterInstanceLifetime> and the performance counter category was created with .NET Framework version 1.0 or 1.1, an <xref:System.InvalidOperationException> is thrown. Performance counter categories created with earlier versions use global shared memory, and the value for <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>. If the category is not used by applications running on versions 1.0 or 1.1 of the .NET Framework, delete and recreate the category."
+  summary: "Diminui o contador de desempenho associados por meio de uma operação atômica eficiente."
+  remarks: "Você pode gravar apenas em contadores personalizados. Todos os contadores do sistema são somente leitura.      > [!NOTE] > O <xref:System.Diagnostics.PerformanceCounter.Increment%2A>, <xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A>, e métodos de decremento usam travas para atualizar o valor do contador.</xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A> </xref:System.Diagnostics.PerformanceCounter.Increment%2A> Isso ajuda a manter o valor do contador precisas em cenários com vários segmentos ou multiprocesso, mas também resulta em uma penalidade de desempenho. Se você não precisa de precisão sincronizada operações fornecer, você pode atualizar o <xref:System.Diagnostics.PerformanceCounter.RawValue%2A>propriedade diretamente para até 5 vezes a melhoria de desempenho.</xref:System.Diagnostics.PerformanceCounter.RawValue%2A>  No entanto, em cenários com vários segmentos, algumas atualizações para o valor do contador podem ser ignoradas, resultando em dados imprecisos.      > [!NOTE] > Se o valor para o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>é de propriedade <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>e a categoria do contador de desempenho foi criada com o .NET Framework versão 1.0 ou 1.1, um <xref:System.InvalidOperationException>é gerada.</xref:System.InvalidOperationException> </xref:System.Diagnostics.PerformanceCounterInstanceLifetime> </xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> Categorias de contador de desempenho criadas com versões anteriores usam a memória compartilhada global e o valor <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>devem</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> estar <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> Se a categoria não é usada por aplicativos em execução nas versões 1.0 ou 1.1 do .NET Framework, excluir e recriar a categoria."
   syntax:
     content: public long Decrement ();
     parameters: []
     return:
       type: System.Int64
-      description: "The decremented counter value."
+      description: "O valor do contador diminuído."
   overload: System.Diagnostics.PerformanceCounter.Decrement*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The counter is read-only, so the application cannot decrement it.       -or-       The instance is not correctly associated with a performance counter.       -or-       The <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*> property is set to <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> when using global shared memory."
+    description: "O contador é somente leitura, para que o aplicativo não é possível diminuir a ele.       - ou - a instância não está corretamente associada um contador de desempenho.       - ou - o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>está definida como <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> quando usando global memória compartilhada.</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>"
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.DefaultFileMappingSize
@@ -559,12 +559,12 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Specifies the size, in bytes, of the global memory shared by performance counters. The default size is 524,288 bytes."
+  summary: "Especifica o tamanho, em bytes, da memória global compartilhado por contadores de desempenho. O tamanho padrão é 524.288 bytes."
   syntax:
     content: public static int DefaultFileMappingSize;
     return:
       type: System.Int32
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -585,7 +585,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Diagnostics.PerformanceCounter.Dispose*
   exceptions: []
   platform:
@@ -602,8 +602,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Ends the initialization of a <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> instance that is used on a form or by another component. The initialization occurs at runtime."
-  remarks: "The [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)] design environment uses this method to end the initialization of a component that is used on a form or by another component. The <xref:System.Diagnostics.PerformanceCounter.BeginInit%2A> method starts the initialization. Using the <xref:System.Diagnostics.PerformanceCounter.BeginInit%2A> and EndInit methods prevents the component from being used before it is fully initialized."
+  summary: "Termina a inicialização de um <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> instância é usada em um formulário ou por outro componente. A inicialização ocorre em tempo de execução."
+  remarks: "O [!INCLUDE[vsprvslong](~/add/includes/ajax-current-ext-md.md)] design ambiente usa esse método para terminar a inicialização de um componente que é usado em um formulário ou por outro componente. O <xref:System.Diagnostics.PerformanceCounter.BeginInit%2A>método inicia a inicialização.</xref:System.Diagnostics.PerformanceCounter.BeginInit%2A> Usando o <xref:System.Diagnostics.PerformanceCounter.BeginInit%2A>e métodos de EndInit impede que o componente que está sendo usada antes de ser totalmente inicializado.</xref:System.Diagnostics.PerformanceCounter.BeginInit%2A>"
   syntax:
     content: public void EndInit ();
     parameters: []
@@ -623,25 +623,25 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Increments the associated performance counter by one through an efficient atomic operation."
-  remarks: "You can write only to custom counters. All system counters are read-only.      > [!NOTE] >  The Increment, <xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A>, and <xref:System.Diagnostics.PerformanceCounter.Decrement%2A> methods use interlocks to update the counter value. This helps keep the counter value accurate in multithreaded or multiprocess scenarios, but also results in a performance penalty. If you do not need the accuracy that interlocked operations provide, you can update the <xref:System.Diagnostics.PerformanceCounter.RawValue%2A> property directly for up to a 5 times performance improvement.  However, in multithreaded scenarios, some updates to the counter value might be ignored, resulting in inaccurate data.      > [!NOTE] >  If the value for the <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> property is <xref:System.Diagnostics.PerformanceCounterInstanceLifetime> and the performance counter category was created with .NET Framework version 1.0 or 1.1, an <xref:System.InvalidOperationException> is thrown. Performance counter categories created with earlier versions use global shared memory, and the value for <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>. If the category is not used by applications running on versions 1.0 or 1.1 of the .NET Framework, delete and recreate the category."
+  summary: "Incrementa o contador de desempenho associados por meio de uma operação atômica eficiente."
+  remarks: "Você pode gravar apenas em contadores personalizados. Todos os contadores do sistema são somente leitura.      > [!NOTE] > O incremento, <xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A>, e <xref:System.Diagnostics.PerformanceCounter.Decrement%2A>métodos usam travas para atualizar o valor do contador.</xref:System.Diagnostics.PerformanceCounter.Decrement%2A> </xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A> Isso ajuda a manter o valor do contador precisas em cenários com vários segmentos ou multiprocesso, mas também resulta em uma penalidade de desempenho. Se você não precisa de precisão sincronizada operações fornecer, você pode atualizar o <xref:System.Diagnostics.PerformanceCounter.RawValue%2A>propriedade diretamente para até 5 vezes a melhoria de desempenho.</xref:System.Diagnostics.PerformanceCounter.RawValue%2A>  No entanto, em cenários com vários segmentos, algumas atualizações para o valor do contador podem ser ignoradas, resultando em dados imprecisos.      > [!NOTE] > Se o valor para o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>é de propriedade <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>e a categoria do contador de desempenho foi criada com o .NET Framework versão 1.0 ou 1.1, um <xref:System.InvalidOperationException>é gerada.</xref:System.InvalidOperationException> </xref:System.Diagnostics.PerformanceCounterInstanceLifetime> </xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> Categorias de contador de desempenho criadas com versões anteriores usam a memória compartilhada global e o valor <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>devem</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> estar <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> Se a categoria não é usada por aplicativos em execução nas versões 1.0 ou 1.1 do .NET Framework, excluir e recriar a categoria."
   syntax:
     content: public long Increment ();
     parameters: []
     return:
       type: System.Int64
-      description: "The incremented counter value."
+      description: "O valor do contador aumentado."
   overload: System.Diagnostics.PerformanceCounter.Increment*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The counter is read-only, so the application cannot increment it.       -or-       The instance is not correctly associated with a performance counter.       -or-       The <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*> property is set to <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> when using global shared memory."
+    description: "O contador é somente leitura, para que o aplicativo não é possível incrementar a ele.       - ou - a instância não está corretamente associada um contador de desempenho.       - ou - o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>está definida como <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> quando usando global memória compartilhada.</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>"
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.IncrementBy(System.Int64)
@@ -656,8 +656,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Increments or decrements the value of the associated performance counter by a specified amount through an efficient atomic operation."
-  remarks: "You can write only to custom counters. All system counters are read-only.      > [!NOTE] >  The <xref:System.Diagnostics.PerformanceCounter.Increment%2A>, IncrementBy, and <xref:System.Diagnostics.PerformanceCounter.Decrement%2A> methods use interlocks to update the counter value. This helps keep the counter value accurate in multithreaded or multiprocess scenarios, but also results in a performance penalty. If you do not need the accuracy that interlocked operations provide, you can update the <xref:System.Diagnostics.PerformanceCounter.RawValue%2A> property directly for up to a 5 times performance improvement.  However, in multithreaded scenarios, some updates to the counter value might be ignored, resulting in inaccurate data.      > [!NOTE] >  If the value forthe <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> property is <xref:System.Diagnostics.PerformanceCounterInstanceLifetime> and the performance counter category was created with .NET Framework version 1.0 or 1.1, an <xref:System.InvalidOperationException> is thrown. Performance counter categories created with earlier versions use global shared memory, and the value for <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>. If the category is not used by applications running on versions 1.0 or 1.1 of the .NET Framework, delete and recreate the category."
+  summary: "Aumenta ou diminui o valor do contador de desempenho associados por uma quantidade especificada por meio de uma operação atômica eficiente."
+  remarks: "Você pode gravar apenas em contadores personalizados. Todos os contadores do sistema são somente leitura.      > [!NOTE] > O <xref:System.Diagnostics.PerformanceCounter.Increment%2A>, IncrementBy, e <xref:System.Diagnostics.PerformanceCounter.Decrement%2A>métodos usam travas para atualizar o valor do contador.</xref:System.Diagnostics.PerformanceCounter.Decrement%2A> </xref:System.Diagnostics.PerformanceCounter.Increment%2A> Isso ajuda a manter o valor do contador precisas em cenários com vários segmentos ou multiprocesso, mas também resulta em uma penalidade de desempenho. Se você não precisa de precisão sincronizada operações fornecer, você pode atualizar o <xref:System.Diagnostics.PerformanceCounter.RawValue%2A>propriedade diretamente para até 5 vezes a melhoria de desempenho.</xref:System.Diagnostics.PerformanceCounter.RawValue%2A>  No entanto, em cenários com vários segmentos, algumas atualizações para o valor do contador podem ser ignoradas, resultando em dados imprecisos.      > [!NOTE] > Se o valor para o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>é de propriedade <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>e a categoria do contador de desempenho foi criada com o .NET Framework versão 1.0 ou 1.1, um <xref:System.InvalidOperationException>é gerada.</xref:System.InvalidOperationException> </xref:System.Diagnostics.PerformanceCounterInstanceLifetime> </xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> Categorias de contador de desempenho criadas com versões anteriores usam a memória compartilhada global e o valor <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>devem</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> estar <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> Se a categoria não é usada por aplicativos em execução nas versões 1.0 ou 1.1 do .NET Framework, excluir e recriar a categoria."
   example:
   - "The following code example demonstrates how to use the IncrementBy method to add increments to a counter. This code example is part of a larger example for the <xref:System.Diagnostics.PerformanceCounter> class.  \n  \n [!code-cpp[PerformanceCounterType.AverageCounter64#3](~/add/codesnippet/cpp/m-system.diagnostics.per_2_1.cpp)]\n [!code-cs[PerformanceCounterType.AverageCounter64#3](~/add/codesnippet/csharp/m-system.diagnostics.per_2_1.cs)]\n [!code-vb[PerformanceCounterType.AverageCounter64#3](~/add/codesnippet/visualbasic/m-system.diagnostics.per_2_1.vb)]"
   syntax:
@@ -665,21 +665,21 @@ items:
     parameters:
     - id: value
       type: System.Int64
-      description: "The value to increment by. (A negative value decrements the counter.)"
+      description: "O valor a incrementar por. (Um negativo do valor diminui o contador.)"
     return:
       type: System.Int64
-      description: "The new counter value."
+      description: "O novo valor de contador."
   overload: System.Diagnostics.PerformanceCounter.IncrementBy*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The counter is read-only, so the application cannot increment it.       -or-       The instance is not correctly associated with a performance counter.       -or-       The <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*> property is set to <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> when using global shared memory."
+    description: "O contador é somente leitura, para que o aplicativo não é possível incrementar a ele.       - ou - a instância não está corretamente associada um contador de desempenho.       - ou - o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>está definida como <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> quando usando global memória compartilhada.</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>"
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.InstanceLifetime
@@ -694,21 +694,21 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the lifetime of a process."
-  remarks: "If the performance counter category is created with the .NET Framework version 1.0 or 1.1, it uses global shared memory, and the value for InstanceLifetime must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>. If the category is not used by applications running on versions 1.0 or 1.1 of the .NET Framework, delete and recreate the category.      > [!NOTE] >  If the value of the <xref:System.Diagnostics.PerformanceCounter.CounterType%2A> property is <xref:System.Diagnostics.PerformanceCounterCategoryType>, the InstanceLifetime value for the performance counter must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>."
+  summary: "Obtém ou define o tempo de vida de um processo."
+  remarks: "Se a categoria do contador de desempenho é criada com o .NET Framework versão 1.0 ou 1.1, ele usa a memória compartilhada global, e o valor para InstanceLifetime deve ser <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> Se a categoria não é usada por aplicativos em execução nas versões 1.0 ou 1.1 do .NET Framework, excluir e recriar a categoria.      > [!NOTE] > Se o valor de <xref:System.Diagnostics.PerformanceCounter.CounterType%2A>propriedade é <xref:System.Diagnostics.PerformanceCounterCategoryType>, o valor de InstanceLifetime para o contador de desempenho deve ser <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> </xref:System.Diagnostics.PerformanceCounterCategoryType> </xref:System.Diagnostics.PerformanceCounter.CounterType%2A>"
   syntax:
     content: public System.Diagnostics.PerformanceCounterInstanceLifetime InstanceLifetime { get; set; }
     return:
       type: System.Diagnostics.PerformanceCounterInstanceLifetime
-      description: "One of the <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> values. The default is <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref>."
+      description: "Uma da <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> valores. O padrão é <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref>."
   overload: System.Diagnostics.PerformanceCounter.InstanceLifetime*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "The value set is not a member of the <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> enumeration."
+    description: "O conjunto de valor não é um membro do <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> enumeração."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "InstanceLifetime is set after the <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> has been initialized."
+    description: "É definir InstanceLifetime após o <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> foi inicializado."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.InstanceName
@@ -723,7 +723,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets an instance name for this performance counter."
+  summary: "Obtém ou define um nome de instância para o contador de desempenho."
   remarks: "> [!NOTE]\n>  Instance names must be shorter than 128 characters in length.  \n  \n In some situations, categories are subdivided into instances, which track data about multiple occurrences of the object that a category relates to. Instances apply to the category as whole, rather than to individual counters. Every counter within a category has each instance defined for the category. For example, the Process category contains instances named Idle and System. Every counter within the Process category thus contains data for each instance, showing information about either idle processes or system processes.  \n  \n Many categories do not contain multiple instances, so you can leave this property empty to indicate that no instance is associated with the category.  \n  \n If this <xref:System.Diagnostics.PerformanceCounter> instance points to a noncustom category, you can choose from only the existing category instances. You can create new category instances only in custom categories, which allow you to define as many counters and category instances as you need.  \n  \n To create a performance category instance, specify an `instanceName` on the <xref:System.Diagnostics.PerformanceCounter.%23ctor%2A> constructor. If the category instance specified by `instanceName` already exists the new object will reference the existing category instance.  \n  \n> [!NOTE]\n>  Do not use the characters \"(\", \")\", \"#\", \"\\\\\", or \"/\" in the instance name. If any of these characters are used, the Performance Console (see [Runtime Profiling](~/add/includes/ajax-current-ext-md.md)) may not correctly display the instance values.  \n  \n If the instance name is automatically generated and might contain the characters \"(\", \")\", \"#\", \"\\\\\", or \"/\", use the character mapping in the following table.  \n  \n|Character|Mapped character|  \n|---------------|----------------------|  \n|(|[|  \n|)|]|  \n|#|_|  \n|\\|_|  \n|/|_|  \n  \n The <xref:System.AppDomain.FriendlyName%2A> property of the <xref:System.AppDomain> object obtained from the <xref:System.AppDomain.CurrentDomain%2A?displayProperty=fullName> property is a common source of instance names that can contain invalid characters."
   example:
   - "The following code example creates a default instance of the <xref:System.Diagnostics.PerformanceCounter> class. After the instance is created, the <xref:System.Diagnostics.PerformanceCounter.CategoryName%2A>, <xref:System.Diagnostics.PerformanceCounter.CounterName%2A>, and InstanceName property values are set, and the results of a call to the <xref:System.Diagnostics.PerformanceCounter.NextValue%2A> method are displayed.  \n  \n [!code-cs[PerfCounter#1](~/add/codesnippet/csharp/p-system.diagnostics.per_0_1.cs)]\n [!code-cpp[PerfCounter#1](~/add/codesnippet/cpp/p-system.diagnostics.per_0_1.cpp)]\n [!code-vb[PerfCounter#1](~/add/codesnippet/visualbasic/p-system.diagnostics.per_0_1.vb)]"
@@ -731,7 +731,7 @@ items:
     content: public string InstanceName { get; set; }
     return:
       type: System.String
-      description: "The name of the performance counter category instance, or an empty string (&quot;&quot;), if the counter is a single-instance counter."
+      description: "O nome da instância de categoria do contador de desempenho ou uma cadeia de caracteres vazia (&quot;&quot;), se o contador é um contador de instância única."
   overload: System.Diagnostics.PerformanceCounter.InstanceName*
   exceptions: []
   platform:
@@ -748,21 +748,21 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the computer name for this performance counter"
-  remarks: "You can write values only to counters that reside on the local computer. However, you can read counter values from any computer in the enterprise for which you have access privileges.       When you set the MachineName property to point to a remote computer, the <xref:System.Diagnostics.PerformanceCounter> instance attempts to open the counter on that computer. If the counter does not exist, setting this property throws an exception."
+  summary: "Obtém ou define o nome do computador para o contador de desempenho"
+  remarks: "Você pode gravar valores apenas para os contadores que residem no computador local. No entanto, você pode ler valores do contador de qualquer computador na empresa para os quais você tem privilégios de acesso.       Quando você definir a propriedade MachineName para apontar para um computador remoto, o <xref:System.Diagnostics.PerformanceCounter>instância tenta abrir o contador no computador.</xref:System.Diagnostics.PerformanceCounter> Se o contador não existir, a definição dessa propriedade gera uma exceção."
   syntax:
     content: public string MachineName { get; set; }
     return:
       type: System.String
-      description: "The server on which the performance counter and its associated category reside."
+      description: "O servidor no qual o contador de desempenho e sua categoria associada residem."
   overload: System.Diagnostics.PerformanceCounter.MachineName*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The MachineName format is invalid."
+    description: "O formato do nome do computador é inválido."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.NextSample
@@ -777,8 +777,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Obtains a counter sample, and returns the raw, or uncalculated, value for it."
-  remarks: "This method is generally used for counters that contain uncalculated values.      > [!NOTE] >  If the value for the <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> property is <xref:System.Diagnostics.PerformanceCounterInstanceLifetime> and the performance counter category was created with .NET Framework version 1.0 or 1.1, an <xref:System.InvalidOperationException> is thrown. Performance counter categories created with earlier versions use global shared memory, and the value for <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>. If the category is not used by applications running on versions 1.0 or 1.1 of the .NET Framework, delete and recreate the category.      > [!NOTE] >  To read performance counters in Windows Vista, Windows XP Professional x64 Edition, or Windows Server 2003, you must either be a member of the Performance Monitor Users group or have administrative privileges.   >    >  To avoid having to elevate your privileges to access performance counters in Windows Vista, add yourself to the Performance Monitor Users group.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Obtém uma amostra do contador e retorna o valor bruto, ou não calculado, para ele."
+  remarks: "Esse método é geralmente usado para os contadores que contêm valores não calculados.      > [!NOTE] > Se o valor para o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>é de propriedade <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>e a categoria do contador de desempenho foi criada com o .NET Framework versão 1.0 ou 1.1, um <xref:System.InvalidOperationException>é gerada.</xref:System.InvalidOperationException> </xref:System.Diagnostics.PerformanceCounterInstanceLifetime> </xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> Categorias de contador de desempenho criadas com versões anteriores usam a memória compartilhada global e o valor <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>devem</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> estar <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> Se a categoria não é usada por aplicativos em execução nas versões 1.0 ou 1.1 do .NET Framework, excluir e recriar a categoria.      > [!NOTE] > Para ler os contadores de desempenho no Windows Vista, Windows XP Professional x64 Edition ou Windows Server 2003, você deve ser um membro do grupo usuários de Monitor de desempenho ou ter privilégios administrativos.   >> Para evitar a elevar seus privilégios para acessar os contadores de desempenho no Windows Vista, se adicione ao grupo usuários de Monitor de desempenho.   >> No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador."
   example:
   - "The following code example demonstrates how to use the NextSample method to obtain the next uncalculated value of a counter. This code example is part of a larger example for the <xref:System.Diagnostics.PerformanceCounter> class.  \n  \n [!code-cpp[PerformanceCounterType.AverageCounter64#3](~/add/codesnippet/cpp/m-system.diagnostics.per_13_1.cpp)]\n [!code-cs[PerformanceCounterType.AverageCounter64#3](~/add/codesnippet/csharp/m-system.diagnostics.per_13_1.cs)]\n [!code-vb[PerformanceCounterType.AverageCounter64#3](~/add/codesnippet/visualbasic/m-system.diagnostics.per_13_1.vb)]"
   syntax:
@@ -786,21 +786,21 @@ items:
     parameters: []
     return:
       type: System.Diagnostics.CounterSample
-      description: "A <xref href=&quot;System.Diagnostics.CounterSample&quot;></xref> that represents the next raw value that the system obtains for this counter."
+      description: "Um <xref href=&quot;System.Diagnostics.CounterSample&quot;> </xref> que representa o próximo valor bruto que o sistema obtém para este contador."
   overload: System.Diagnostics.PerformanceCounter.NextSample*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The instance is not correctly associated with a performance counter.       -or-       The <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*> property is set to <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> when using global shared memory."
+    description: "A instância não está corretamente associada com um contador de desempenho.       - ou - o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>está definida como <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> quando usando global memória compartilhada.</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>"
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.NextValue
@@ -815,8 +815,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Obtains a counter sample and returns the calculated value for it."
-  remarks: "> [!NOTE] >  If the calculated value of a counter depends on two counter reads, the first read operation returns 0.0. Resetting the performance counter properties to specify a different counter is equivalent to creating a new performance counter, and the first read operation using the new properties returns 0.0. The recommended delay time between calls to the NextValue method is one second, to allow the counter to perform the next incremental read.      > [!NOTE] >  To read performance counters, you must have administrative privileges. In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Obtém uma amostra do contador e retorna o valor calculado para ele."
+  remarks: "> [!NOTE]> Se o valor calculado de um contador depende de duas leituras de contador, a primeira operação de leitura retornará 0.0. Redefinir as propriedades de contador de desempenho para especificar um contador diferente é equivalente à criação de um novo contador de desempenho e a primeira operação de leitura usando as novas propriedades retornará 0.0. O tempo de espera de recomendada entre as chamadas para o método NextValue é um segundo, para permitir que o contador executar a próxima leitura incremental.      > [!NOTE] > Para ler os contadores de desempenho, você deve ter privilégios administrativos. No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador."
   example:
   - "The following code example creates an <xref:System.Diagnostics.PerformanceCounterType> counter and uses the NextValue method to display the counter's values over a time period.  \n  \n [!code-cs[PerformanceCounterType.ElapsedTime#2](~/add/codesnippet/csharp/m-system.diagnostics.per_12_1.cs)]\n [!code-cpp[PerformanceCounterType.ElapsedTime#2](~/add/codesnippet/cpp/m-system.diagnostics.per_12_1.cpp)]\n [!code-vb[PerformanceCounterType.ElapsedTime#2](~/add/codesnippet/visualbasic/m-system.diagnostics.per_12_1.vb)]"
   syntax:
@@ -824,21 +824,21 @@ items:
     parameters: []
     return:
       type: System.Single
-      description: "The next calculated value that the system obtains for this counter."
+      description: "O próximo valor calculado que o sistema obtém para este contador."
   overload: System.Diagnostics.PerformanceCounter.NextValue*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The instance is not correctly associated with a performance counter."
+    description: "A instância não está corretamente associada com um contador de desempenho."
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.RawValue
@@ -853,29 +853,29 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the raw, or uncalculated, value of this counter."
-  remarks: "If the counter type is a 32-bit size and you attempt to set this property to a value that is too large to fit, the property truncates the value to 32 bits. When reading custom counters on the local computer, using the RawValue property rather than a calculated value can produce significantly better performance in scenarios where the raw value is sufficient.       If the counter that you are reading is read-only, getting the RawValue property samples the counter at the time that the property is called. This action is equivalent to making an initial call to the <xref:System.Diagnostics.PerformanceCounter.NextSample%2A> method. If you subsequently call <xref:System.Diagnostics.PerformanceCounter.NextSample%2A>, you can perform calculations on the values that both calls returned.       Because system counters are read-only, you can get but not set their raw values.      > [!NOTE] >  The <xref:System.Diagnostics.PerformanceCounter.Increment%2A>, <xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A>, and <xref:System.Diagnostics.PerformanceCounter.Decrement%2A> methods use interlocks to update the counter value. This helps keep the counter value accurate in multithreaded or multiprocess scenarios, but also results in a performance penalty. If you do not need the accuracy that interlocked operations provide, you can update the RawValue property directly for up to a 5 times performance improvement.  However, in multithreaded scenarios, some updates to the counter value might be ignored, resulting in inaccurate data.      > [!NOTE] >  If the value for the <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> property is <xref:System.Diagnostics.PerformanceCounterInstanceLifetime> and the performance counter category was created with .NET Framework version 1.0 or 1.1, an <xref:System.InvalidOperationException> is thrown. Performance counter categories created with earlier versions use global shared memory, and the value for <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>. If the category is not used by applications running on versions 1.0 or 1.1 of the .NET Framework, delete and recreate the category.      > [!NOTE] >  To read performance counters in Windows Vista, Windows XP Professional x64 Edition, or Windows Server 2003, you must either be a member of the Performance Monitor Users group or have administrative privileges.   >    >  To avoid having to elevate your privileges to access performance counters in Windows Vista, add yourself to the Performance Monitor Users group.   >    >  In Windows Vista, User Account Control (UAC) determines the privileges of a user. If you are a member of the Built-in Administrators group, you are assigned two run-time access tokens: a standard user access token and an administrator access token. By default, you are in the standard user role. To execute the code that accesses performance counters, you must first elevate your privileges from standard user to administrator. You can do this when you start an application by right-clicking the application icon and indicating that you want to run as an administrator."
+  summary: "Obtém ou define o valor bruto, ou não calculado, desse contador."
+  remarks: "Se o tipo de contador é um tamanho de 32 bits e você tentar definir essa propriedade como um valor que é muito grande para caber, a propriedade trunca o valor de 32 bits. Durante a leitura de contadores personalizados no computador local, usando o RawValue propriedade em vez de um valor calculado pode produzir um desempenho significativamente melhor em cenários em que o valor bruto é suficiente.       Se o contador que você está lendo é somente leitura, a obtenção da propriedade RawValue amostra do contador no momento em que a propriedade é chamada. Essa ação equivale a fazer uma chamada inicial para o <xref:System.Diagnostics.PerformanceCounter.NextSample%2A>método.</xref:System.Diagnostics.PerformanceCounter.NextSample%2A> Se você chamar subsequentemente <xref:System.Diagnostics.PerformanceCounter.NextSample%2A>, você pode executar cálculos nos valores de que as duas chamadas retornadas.</xref:System.Diagnostics.PerformanceCounter.NextSample%2A>       Como os contadores do sistema são somente leitura, você pode obter, mas não definir seus valores brutos.      > [!NOTE] > O <xref:System.Diagnostics.PerformanceCounter.Increment%2A>, <xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A>, e <xref:System.Diagnostics.PerformanceCounter.Decrement%2A>métodos usam travas para atualizar o valor do contador.</xref:System.Diagnostics.PerformanceCounter.Decrement%2A> </xref:System.Diagnostics.PerformanceCounter.IncrementBy%2A> </xref:System.Diagnostics.PerformanceCounter.Increment%2A> Isso ajuda a manter o valor do contador precisas em cenários com vários segmentos ou multiprocesso, mas também resulta em uma penalidade de desempenho. Se você não precisa de precisão sincronizada operações fornecer, você pode atualizar a propriedade RawValue diretamente para até 5 vezes a melhoria de desempenho.  No entanto, em cenários com vários segmentos, algumas atualizações para o valor do contador podem ser ignoradas, resultando em dados imprecisos.      > [!NOTE] > Se o valor para o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>é de propriedade <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>e a categoria do contador de desempenho foi criada com o .NET Framework versão 1.0 ou 1.1, um <xref:System.InvalidOperationException>é gerada.</xref:System.InvalidOperationException> </xref:System.Diagnostics.PerformanceCounterInstanceLifetime> </xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> Categorias de contador de desempenho criadas com versões anteriores usam a memória compartilhada global e o valor <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>devem</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> estar <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> Se a categoria não é usada por aplicativos em execução nas versões 1.0 ou 1.1 do .NET Framework, excluir e recriar a categoria.      > [!NOTE] > Para ler os contadores de desempenho no Windows Vista, Windows XP Professional x64 Edition ou Windows Server 2003, você deve ser um membro do grupo usuários de Monitor de desempenho ou ter privilégios administrativos.   >> Para evitar a elevar seus privilégios para acessar os contadores de desempenho no Windows Vista, se adicione ao grupo usuários de Monitor de desempenho.   >> No Windows Vista, o controle de conta de usuário (UAC) determina os privilégios de um usuário. Se você for um membro do grupo Administradores interno, são atribuídos dois tokens de acesso de tempo de execução: um token de acesso de usuário padrão e um token de acesso de administrador. Por padrão, você está na função de usuário padrão. Para executar o código que acessa os contadores de desempenho, primeiro elevar seus privilégios de usuário padrão para o administrador. Você pode fazer isso quando você iniciar um aplicativo clicando duas vezes no ícone do aplicativo e que indica que você deseja executar como administrador."
   example:
   - "The following example uses the <xref:System.Diagnostics.CounterSample> class to display the value of the RawValue property for a counter.  \n  \n [!code-cpp[PerformanceCounterType.AverageCounter64#1](~/add/codesnippet/cpp/p-system.diagnostics.per_2_1.cpp)]\n [!code-cs[PerformanceCounterType.AverageCounter64#1](~/add/codesnippet/csharp/p-system.diagnostics.per_2_1.cs)]\n [!code-vb[PerformanceCounterType.AverageCounter64#1](~/add/codesnippet/visualbasic/p-system.diagnostics.per_2_1.vb)]"
   syntax:
     content: public long RawValue { get; set; }
     return:
       type: System.Int64
-      description: "The raw value of the counter."
+      description: "O valor bruto do contador."
   overload: System.Diagnostics.PerformanceCounter.RawValue*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "You are trying to set the counter&quot;s raw value, but the counter is read-only.       -or-       The instance is not correctly associated with a performance counter.       -or-       The <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*> property is set to <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> when using global shared memory."
+    description: "Você está tentando definir o valor do contador bruto, mas o contador é somente leitura.       - ou - a instância não está corretamente associada um contador de desempenho.       - ou - o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>está definida como <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> quando usando global memória compartilhada.</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>"
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "Code that is executing without administrative privileges attempted to read a performance counter."
+    description: "Código que está executando sem privilégios administrativos tentou ler um contador de desempenho."
   platform:
   - net462
 - uid: System.Diagnostics.PerformanceCounter.ReadOnly
@@ -890,13 +890,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets a value indicating whether this <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> instance is in read-only mode."
-  remarks: "For a system counter, ReadOnly should always `true`. You cannot write to a system counter."
+  summary: "Obtém ou define um valor que indica se este <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> instância está no modo somente leitura."
+  remarks: "Para um contador do sistema, somente leitura deve sempre `true`. Você não pode gravar um contador do sistema."
   syntax:
     content: public bool ReadOnly { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, if the <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> instance is in read-only mode (even if the counter itself is a custom .NET Framework counter); <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if it is in read/write mode. The default is the value set by the constructor."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, se o <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> instância está no modo somente leitura (mesmo se o contador em si é um contador personalizado do .NET Framework); <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se ele estiver no modo de leitura/gravação. O padrão é o valor definido pelo construtor."
   overload: System.Diagnostics.PerformanceCounter.ReadOnly*
   exceptions: []
   platform:
@@ -913,8 +913,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Deletes the category instance specified by the <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;></xref> object <xref:System.Diagnostics.PerformanceCounter.InstanceName*> property."
-  remarks: "You can remove an instance only for a custom counter. All system counters are read-only, so attempting to remove one of them throws an exception.      > [!NOTE] >  To avoid a possible race condition when the performance counter shared memory is released, it is recommended that the RemoveInstance method be called from the <xref:System.AppDomain.DomainUnload> event handler.       To create a performance category instance, specify an `instanceName` on the <xref:System.Diagnostics.PerformanceCounter.%23ctor%2A> constructor. If the category instance specified by `instanceName` already exists the new object will reference the existing category instance.      > [!NOTE] >  If the value for the <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> property is <xref:System.Diagnostics.PerformanceCounterInstanceLifetime> and the performance counter category was created with .NET Framework version 1.0 or 1.1, an <xref:System.InvalidOperationException> is thrown. Performance counter categories created with earlier versions use global shared memory, and the value for <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> must be <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>. If the category is not used by applications running on versions 1.0 or 1.1 of the .NET Framework, delete and recreate the category."
+  summary: "Exclui a instância da categoria especificada pelo <xref href=&quot;System.Diagnostics.PerformanceCounter&quot;> </xref> objeto <xref:System.Diagnostics.PerformanceCounter.InstanceName*>propriedade.</xref:System.Diagnostics.PerformanceCounter.InstanceName*>"
+  remarks: "Você pode remover uma instância somente para um contador personalizado. Todos os contadores do sistema são somente leitura, para que a tentativa de remover um deles lança uma exceção.      > [!NOTE] > Para evitar uma condição de corrida possível quando a memória compartilhada do contador de desempenho é liberada, é recomendável que o método RemoveInstance ser chamado a partir de <xref:System.AppDomain.DomainUnload>manipulador de eventos.</xref:System.AppDomain.DomainUnload>       Para criar uma instância de categoria de desempenho, especifique um `instanceName` no <xref:System.Diagnostics.PerformanceCounter.%23ctor%2A>construtor.</xref:System.Diagnostics.PerformanceCounter.%23ctor%2A> Se a instância da categoria especificada por `instanceName` já existe o novo objeto fará referência a instância existente da categoria.      > [!NOTE] > Se o valor para o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>é de propriedade <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>e a categoria do contador de desempenho foi criada com o .NET Framework versão 1.0 ou 1.1, um <xref:System.InvalidOperationException>é gerada.</xref:System.InvalidOperationException> </xref:System.Diagnostics.PerformanceCounterInstanceLifetime> </xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> Categorias de contador de desempenho criadas com versões anteriores usam a memória compartilhada global e o valor <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A>devem</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime%2A> estar <xref:System.Diagnostics.PerformanceCounterInstanceLifetime>.</xref:System.Diagnostics.PerformanceCounterInstanceLifetime> Se a categoria não é usada por aplicativos em execução nas versões 1.0 ou 1.1 do .NET Framework, excluir e recriar a categoria."
   syntax:
     content: public void RemoveInstance ();
     parameters: []
@@ -922,13 +922,13 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This counter is read-only, so any instance that is associated with the category cannot be removed.       -or-       The instance is not correctly associated with a performance counter.       -or-       The <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*> property is set to <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;></xref> when using global shared memory."
+    description: "Esse contador é somente leitura, portanto qualquer instância que está associada com a categoria não pode ser removida.       - ou - a instância não está corretamente associada um contador de desempenho.       - ou - o <xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>está definida como <xref href=&quot;System.Diagnostics.PerformanceCounterInstanceLifetime&quot;> </xref> quando usando global memória compartilhada.</xref:System.Diagnostics.PerformanceCounter.InstanceLifetime*>"
   - type: System.ComponentModel.Win32Exception
     commentId: T:System.ComponentModel.Win32Exception
-    description: "An error occurred when accessing a system API."
+    description: "Ocorreu um erro ao acessar uma API do sistema."
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "The platform is Windows 98 or Windows Millennium Edition (Me), which does not support performance counters."
+    description: "A plataforma é o Windows 98 ou Windows Millennium Edition (Me), que não dá suporte a contadores de desempenho."
   platform:
   - net462
 references:

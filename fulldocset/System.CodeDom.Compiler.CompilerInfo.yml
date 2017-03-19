@@ -18,7 +18,7 @@ items:
   nameWithType: CompilerInfo
   fullName: System.CodeDom.Compiler.CompilerInfo
   type: Class
-  summary: "Represents the configuration settings of a language provider. This class cannot be inherited."
+  summary: "Representa as definições de configuração de um provedor de idioma. Essa classe não pode ser herdada."
   remarks: "Use the CompilerInfo class to determine whether a <xref:System.CodeDom.Compiler.CodeDomProvider> implementation is configured on the computer, or to examine the configuration and compiler settings for a specific language provider.  \n  \n The [\\&lt;system.codedom\\&gt; Element](../Topic/%3Csystem.codedom%3E%20Element.md) in the machine configuration file contains the language provider and compiler configuration settings. Each configured language provider has a corresponding compiler configuration element. Each element defines the <xref:System.CodeDom.Compiler.CodeDomProvider> implementation type, supported language names, supported file name extensions, and compiler parameters.  \n  \n The .NET Framework defines the initial compiler settings in the machine configuration file. Developers and compiler vendors can add configuration settings for a new <xref:System.CodeDom.Compiler.CodeDomProvider> implementation.  \n  \n The CompilerInfo class provides read-only access to these settings in the machine configuration file. Use the <xref:System.CodeDom.Compiler.CompilerInfo.GetLanguages%2A>, <xref:System.CodeDom.Compiler.CompilerInfo.GetExtensions%2A>, and <xref:System.CodeDom.Compiler.CompilerInfo.CodeDomProviderType%2A> members to examine the corresponding configuration attributes for a language provider. Use the <xref:System.CodeDom.Compiler.CompilerInfo.CreateDefaultCompilerParameters%2A> method to obtain the compiler options and warning level attribute values for a language provider.  \n  \n For more details on language provider settings in the configuration file, see [Compiler and Language Provider Settings Schema](~/add/includes/ajax-current-ext-md.md).  \n  \n> [!NOTE]\n>  This class contains a link demand at the class level that applies to all members. A <xref:System.Security.SecurityException> is thrown when the immediate caller does not have full-trust permission. For details about link demands, see [Link Demands](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example displays language provider configuration settings. Command-line arguments are used to specify a language, file name extension, or provider type. For the given input, the example determines the corresponding language provider and displays the configured language compiler settings.  \n  \n [!code-cpp[CodeDom_CompilerInfo#1](~/add/codesnippet/cpp/t-system.codedom.compile_6_1.cpp)]\n [!code-vb[CodeDom_CompilerInfo#1](~/add/codesnippet/visualbasic/t-system.codedom.compile_6_1.vb)]\n [!code-cs[CodeDom_CompilerInfo#1](~/add/codesnippet/csharp/t-system.codedom.compile_6_1.cs)]"
@@ -42,23 +42,23 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Gets the type of the configured <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> implementation."
-  remarks: "The machine configuration file contains the fully qualified type name for each <xref:System.CodeDom.Compiler.CodeDomProvider> implementation on the computer. The CodeDomProviderType property value is a <xref:System.Type> instance that represents a configured language provider implementation."
+  summary: "Obtém o tipo de configurado <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> implementação."
+  remarks: "O arquivo de configuração do computador contém o nome de tipo totalmente qualificado para cada <xref:System.CodeDom.Compiler.CodeDomProvider>implementação no computador.</xref:System.CodeDom.Compiler.CodeDomProvider> O valor da propriedade CodeDomProviderType é um <xref:System.Type>instância que representa uma implementação de provedor de idioma definidas.</xref:System.Type>"
   example:
   - "The following code example determines whether the input language has a configured <xref:System.CodeDom.Compiler.CodeDomProvider> implementation on the computer. If there is a provider configured for the specified language, the example displays the language provider configuration settings. This code example is part of a larger example provided for the <xref:System.CodeDom.Compiler.CompilerInfo> class.  \n  \n [!code-cpp[CodeDom_CompilerInfo#7](~/add/codesnippet/cpp/p-system.codedom.compile_0_1.cpp)]\n [!code-vb[CodeDom_CompilerInfo#7](~/add/codesnippet/visualbasic/p-system.codedom.compile_0_1.vb)]\n [!code-cs[CodeDom_CompilerInfo#7](~/add/codesnippet/csharp/p-system.codedom.compile_0_1.cs)]"
   syntax:
     content: public Type CodeDomProviderType { get; }
     return:
       type: System.Type
-      description: "A read-only <xref:System.Type> instance that represents the configured language provider type."
+      description: "Somente leitura <xref:System.Type>instância que representa o tipo de provedor do idioma configurado.</xref:System.Type>"
   overload: System.CodeDom.Compiler.CompilerInfo.CodeDomProviderType*
   exceptions:
   - type: System.Configuration.ConfigurationException
     commentId: T:System.Configuration.ConfigurationException
-    description: "The language provider is not configured on this computer."
+    description: "O provedor do idioma não está configurado neste computador."
   - type: System.Configuration.ConfigurationErrorsException
     commentId: T:System.Configuration.ConfigurationErrorsException
-    description: "Cannot locate the type because it is a <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or empty string.       -or-       Cannot locate the type because the name for the <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> cannot be found in the configuration file."
+    description: "Não é possível localizar o tipo porque ele é um <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> ou cadeia de caracteres vazia.       - ou - não é possível localizar o tipo porque o nome para o <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> não pode ser encontrado no arquivo de configuração."
   platform:
   - net462
 - uid: System.CodeDom.Compiler.CompilerInfo.CreateDefaultCompilerParameters
@@ -73,7 +73,7 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Gets the configured compiler settings for the language provider implementation."
+  summary: "Obtém as configurações de compilador configurado para a implementação de provedor de idioma."
   remarks: "Use the CreateDefaultCompilerParameters method to examine the compiler settings of the <xref:System.CodeDom.Compiler.CompilerInfo> instances returned by the <xref:System.CodeDom.Compiler.CodeDomProvider.GetAllCompilerInfo%2A?displayProperty=fullName> and <xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A?displayProperty=fullName> methods.  \n  \n The [\\&lt;system.codedom\\&gt; Element](../Topic/%3Csystem.codedom%3E%20Element.md) in the machine configuration file contains the language provider and compiler configuration settings for each <xref:System.CodeDom.Compiler.CodeDomProvider> implementation on the computer. Each language provider configuration element can contain optional `compilerOptions` and `warningLevel` attributes. These attributes define the default values for the <xref:System.CodeDom.Compiler.CompilerParameters.CompilerOptions%2A?displayProperty=fullName> and <xref:System.CodeDom.Compiler.CompilerParameters.WarningLevel%2A?displayProperty=fullName> properties.  \n  \n If the language provider configuration element does not define the `compilerOptions` attribute, the <xref:System.CodeDom.Compiler.CompilerParameters.CompilerOptions%2A?displayProperty=fullName> property value is an empty string (\"\"). If the language provider configuration element does not define the `warningLevel` attribute, the <xref:System.CodeDom.Compiler.CompilerParameters.WarningLevel%2A?displayProperty=fullName> property value is –1."
   example:
   - "The following code example determines whether the input language has a configured <xref:System.CodeDom.Compiler.CodeDomProvider> implementation on the computer. If there is a provider configured for the specified language, the example displays the language provider configuration settings. This code example is part of a larger example provided for the <xref:System.CodeDom.Compiler.CompilerInfo> class.  \n  \n [!code-cpp[CodeDom_CompilerInfo#7](~/add/codesnippet/cpp/m-system.codedom.compile_0_1.cpp)]\n [!code-vb[CodeDom_CompilerInfo#7](~/add/codesnippet/visualbasic/m-system.codedom.compile_0_1.vb)]\n [!code-cs[CodeDom_CompilerInfo#7](~/add/codesnippet/csharp/m-system.codedom.compile_0_1.cs)]"
@@ -82,7 +82,7 @@ items:
     parameters: []
     return:
       type: System.CodeDom.Compiler.CompilerParameters
-      description: "A read-only <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;></xref> instance that contains the compiler options and settings configured for the language provider."
+      description: "Somente leitura <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;> </xref> instância que contém as opções de compilador e as configurações definidas para o provedor do idioma."
   overload: System.CodeDom.Compiler.CompilerInfo.CreateDefaultCompilerParameters*
   exceptions: []
   platform:
@@ -99,8 +99,8 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Returns a <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> instance for the current language provider settings."
-  remarks: "The CreateProvider method returns a <xref:System.CodeDom.Compiler.CodeDomProvider> instance for the current language provider settings.       Use the CreateProvider method to get a <xref:System.CodeDom.Compiler.CodeDomProvider> implementation for a <xref:System.CodeDom.Compiler.CompilerInfo> instance returned by the <xref:System.CodeDom.Compiler.CodeDomProvider.GetAllCompilerInfo%2A?displayProperty=fullName> or <xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A?displayProperty=fullName> method."
+  summary: "Retorna um <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> instância para as configurações de provedor do idioma atual."
+  remarks: "O método CreateProvider retorna um <xref:System.CodeDom.Compiler.CodeDomProvider>instância para as configurações do provedor de linguagem atual.</xref:System.CodeDom.Compiler.CodeDomProvider>       Use o método CreateProvider para obter um <xref:System.CodeDom.Compiler.CodeDomProvider>implementação para um <xref:System.CodeDom.Compiler.CompilerInfo>instância retornada pelo <xref:System.CodeDom.Compiler.CodeDomProvider.GetAllCompilerInfo%2A?displayProperty=fullName>ou <xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A?displayProperty=fullName>método.</xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A?displayProperty=fullName> </xref:System.CodeDom.Compiler.CodeDomProvider.GetAllCompilerInfo%2A?displayProperty=fullName> </xref:System.CodeDom.Compiler.CompilerInfo> </xref:System.CodeDom.Compiler.CodeDomProvider>"
   example:
   - "The following code example enumerates the language providers on the computer and displays the configuration and compiler settings for each language provider. This code example is part of a larger example provided for the <xref:System.CodeDom.Compiler.CompilerInfo> class.  \n  \n [!code-cpp[CodeDom_CompilerInfo#8](~/add/codesnippet/cpp/m-system.codedom.compile_3_1.cpp)]\n [!code-vb[CodeDom_CompilerInfo#8](~/add/codesnippet/visualbasic/m-system.codedom.compile_3_1.vb)]\n [!code-cs[CodeDom_CompilerInfo#8](~/add/codesnippet/csharp/m-system.codedom.compile_3_1.cs)]"
   syntax:
@@ -108,7 +108,7 @@ items:
     parameters: []
     return:
       type: System.CodeDom.Compiler.CodeDomProvider
-      description: "A CodeDOM provider associated with the language provider configuration."
+      description: "Um provedor de CodeDOM associado com a configuração do provedor de idioma."
   overload: System.CodeDom.Compiler.CompilerInfo.CreateProvider*
   exceptions: []
   platform:
@@ -125,17 +125,17 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Returns a <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> instance for the current language provider settings and specified options."
-  remarks: "The CreateProvider method returns a <xref:System.CodeDom.Compiler.CodeDomProvider> instance for the current language provider settings and the specified provider options. For information about supported provider options, see the specific CodeDOM provider documentation.       Use the CreateProvider method to get a <xref:System.CodeDom.Compiler.CodeDomProvider> implementation for a <xref:System.CodeDom.Compiler.CompilerInfo> instance returned by the <xref:System.CodeDom.Compiler.CodeDomProvider.GetAllCompilerInfo%2A?displayProperty=fullName> or <xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A?displayProperty=fullName> method."
+  summary: "Retorna um <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> instância para as configurações de idioma atual do provedor e opções especificadas."
+  remarks: "O método CreateProvider retorna um <xref:System.CodeDom.Compiler.CodeDomProvider>instância para as configurações de provedor do idioma atual e as opções de provedor especificado.</xref:System.CodeDom.Compiler.CodeDomProvider> Para obter informações sobre opções de provedor com suporte, consulte a documentação específica do provedor de CodeDOM.       Use o método CreateProvider para obter um <xref:System.CodeDom.Compiler.CodeDomProvider>implementação para um <xref:System.CodeDom.Compiler.CompilerInfo>instância retornada pelo <xref:System.CodeDom.Compiler.CodeDomProvider.GetAllCompilerInfo%2A?displayProperty=fullName>ou <xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A?displayProperty=fullName>método.</xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A?displayProperty=fullName> </xref:System.CodeDom.Compiler.CodeDomProvider.GetAllCompilerInfo%2A?displayProperty=fullName> </xref:System.CodeDom.Compiler.CompilerInfo> </xref:System.CodeDom.Compiler.CodeDomProvider>"
   syntax:
     content: public System.CodeDom.Compiler.CodeDomProvider CreateProvider (System.Collections.Generic.IDictionary<string,string> providerOptions);
     parameters:
     - id: providerOptions
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "A collection of provider options from the configuration file."
+      description: "Uma coleção de opções do provedor do arquivo de configuração."
     return:
       type: System.CodeDom.Compiler.CodeDomProvider
-      description: "A CodeDOM provider associated with the language provider configuration and specified options."
+      description: "Um provedor de CodeDOM associado com a configuração do provedor de linguagem e opções especificadas."
   overload: System.CodeDom.Compiler.CompilerInfo.CreateProvider*
   exceptions:
   - type: System.ArgumentNullException
@@ -143,7 +143,7 @@ items:
     description: "<code>providerOptions </code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The provider does not support options."
+    description: "O provedor não oferece suporte a opções."
   platform:
   - net462
 - uid: System.CodeDom.Compiler.CompilerInfo.Equals(System.Object)
@@ -158,17 +158,17 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Determines whether the specified object represents the same language provider and compiler settings as the current <xref href=&quot;System.CodeDom.Compiler.CompilerInfo&quot;></xref>."
-  remarks: "This method overrides the <xref:System.Object.Equals%28System.Object%29?displayProperty=fullName> method.       The two instances are considered equal if the values of the following properties are equal:      -   The <xref:System.CodeDom.Compiler.CompilerInfo.CodeDomProviderType%2A> property.      -   The <xref:System.CodeDom.Compiler.CompilerParameters.WarningLevel%2A>, <xref:System.CodeDom.Compiler.CompilerParameters.CompilerOptions%2A>, and <xref:System.CodeDom.Compiler.CompilerParameters.IncludeDebugInformation%2A> properties of the <xref:System.CodeDom.Compiler.CompilerParameters> instance returned by the <xref:System.CodeDom.Compiler.CompilerInfo.CreateDefaultCompilerParameters%2A> method."
+  summary: "Determina se o objeto especificado representa os mesmo provedor e compilador configurações de idioma atual do <xref href=&quot;System.CodeDom.Compiler.CompilerInfo&quot;> </xref>."
+  remarks: "Esse método substitui o <xref:System.Object.Equals%28System.Object%29?displayProperty=fullName>método.</xref:System.Object.Equals%28System.Object%29?displayProperty=fullName>       As duas instâncias são consideradas iguais se os valores das propriedades a seguir são iguais: - o <xref:System.CodeDom.Compiler.CompilerInfo.CodeDomProviderType%2A>propriedade.</xref:System.CodeDom.Compiler.CompilerInfo.CodeDomProviderType%2A>      -A <xref:System.CodeDom.Compiler.CompilerParameters.WarningLevel%2A>, <xref:System.CodeDom.Compiler.CompilerParameters.CompilerOptions%2A>, e <xref:System.CodeDom.Compiler.CompilerParameters.IncludeDebugInformation%2A>Propriedades da <xref:System.CodeDom.Compiler.CompilerParameters>instância retornada pelo <xref:System.CodeDom.Compiler.CompilerInfo.CreateDefaultCompilerParameters%2A>método.</xref:System.CodeDom.Compiler.CompilerInfo.CreateDefaultCompilerParameters%2A> </xref:System.CodeDom.Compiler.CompilerParameters> </xref:System.CodeDom.Compiler.CompilerParameters.IncludeDebugInformation%2A> </xref:System.CodeDom.Compiler.CompilerParameters.CompilerOptions%2A> </xref:System.CodeDom.Compiler.CompilerParameters.WarningLevel%2A>"
   syntax:
     content: public override bool Equals (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "The object to compare with the current <xref href=&quot;System.CodeDom.Compiler.CompilerInfo&quot;></xref>."
+      description: "O objeto a ser comparado com o atual <xref href=&quot;System.CodeDom.Compiler.CompilerInfo&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>o</code> is a <xref href=&quot;System.CodeDom.Compiler.CompilerInfo&quot;></xref> object and its value is the same as this instance; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se <code> o </code> é um <xref href=&quot;System.CodeDom.Compiler.CompilerInfo&quot;> </xref> objeto e seu valor é o mesmo que esta instância; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.CodeDom.Compiler.CompilerInfo.Equals*
   exceptions: []
   platform:
@@ -185,8 +185,8 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Returns the file name extensions supported by the language provider."
-  remarks: "The [\\&lt;system.codedom\\&gt; Element](../Topic/%3Csystem.codedom%3E%20Element.md) in the machine configuration file contains the language provider and compiler configuration settings for each <xref:System.CodeDom.Compiler.CodeDomProvider> implementation on the computer. Each configured language provider supports one or more file name extensions. For example, a <xref:Microsoft.CSharp.CSharpCodeProvider?displayProperty=fullName> might support the file name extensions &quot;.cs&quot; and &quot;.c#&quot;."
+  summary: "Retorna o arquivo de extensões de nome com suporte pelo provedor de idioma."
+  remarks: "O [ \\&lt;system.codedom\\&gt; Elemento](../Topic/%3Csystem.codedom%3E%20Element.md) na configuração do computador o arquivo contém os compilador e o provedor de configuração configurações de idioma para cada <xref:System.CodeDom.Compiler.CodeDomProvider>implementação no computador.</xref:System.CodeDom.Compiler.CodeDomProvider> Cada provedor de idioma definidas dá suporte a uma ou mais extensões de nome de arquivo. Por exemplo, um <xref:Microsoft.CSharp.CSharpCodeProvider?displayProperty=fullName>pode oferecer suporte a extensões de nome de arquivo &quot;CS&quot; e &quot;c#&quot;.</xref:Microsoft.CSharp.CSharpCodeProvider?displayProperty=fullName>"
   example:
   - "The following code example enumerates the language providers on the computer and displays the configuration and compiler settings for each language provider. This code example is part of a larger example provided for the <xref:System.CodeDom.Compiler.CompilerInfo> class.  \n  \n [!code-cpp[CodeDom_CompilerInfo#8](~/add/codesnippet/cpp/m-system.codedom.compile_7_1.cpp)]\n [!code-vb[CodeDom_CompilerInfo#8](~/add/codesnippet/visualbasic/m-system.codedom.compile_7_1.vb)]\n [!code-cs[CodeDom_CompilerInfo#8](~/add/codesnippet/csharp/m-system.codedom.compile_7_1.cs)]"
   syntax:
@@ -194,7 +194,7 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: "An array of file name extensions supported by the language provider."
+      description: "Uma matriz de extensões de nome de arquivo suportados pelo provedor de idioma."
   overload: System.CodeDom.Compiler.CompilerInfo.GetExtensions*
   exceptions: []
   platform:
@@ -211,8 +211,8 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Returns the hash code for the current instance."
-  remarks: "This method overrides the <xref:System.Object.GetHashCode%2A?displayProperty=fullName> method.       This method generates the same hash code for two objects that are equal according to the <xref:System.CodeDom.Compiler.CompilerInfo.Equals%2A> method."
+  summary: "Retorna o código hash para a instância atual."
+  remarks: "Esse método substitui o <xref:System.Object.GetHashCode%2A?displayProperty=fullName>método.</xref:System.Object.GetHashCode%2A?displayProperty=fullName>       Este método gera o mesmo código de hash de dois objetos são iguais de acordo com o <xref:System.CodeDom.Compiler.CompilerInfo.Equals%2A>método.</xref:System.CodeDom.Compiler.CompilerInfo.Equals%2A>"
   example:
   - "The following code example creates an instance of the <xref:Microsoft.VisualBasic.VBCodeProvider?displayProperty=fullName> class. The example displays the provider name, hash code, and default file name extension for the new provider instance. This code example is part of a larger example provided for the <xref:System.CodeDom.Compiler.CompilerInfo> class.  \n  \n [!code-cpp[CodeDom_CompilerInfo#3](~/add/codesnippet/cpp/m-system.codedom.compile_5_1.cpp)]\n [!code-vb[CodeDom_CompilerInfo#3](~/add/codesnippet/visualbasic/m-system.codedom.compile_5_1.vb)]\n [!code-cs[CodeDom_CompilerInfo#3](~/add/codesnippet/csharp/m-system.codedom.compile_5_1.cs)]"
   syntax:
@@ -220,7 +220,7 @@ items:
     parameters: []
     return:
       type: System.Int32
-      description: "A 32-bit signed integer hash code for the current <xref href=&quot;System.CodeDom.Compiler.CompilerInfo&quot;></xref> instance, suitable for use in hashing algorithms and data structures such as a hash table."
+      description: "Um código de hash de inteiro de 32 bits para atual <xref href=&quot;System.CodeDom.Compiler.CompilerInfo&quot;> </xref> instância, adequado para uso em algoritmos e estruturas de dados como uma tabela de hash de hash."
   overload: System.CodeDom.Compiler.CompilerInfo.GetHashCode*
   exceptions: []
   platform:
@@ -237,8 +237,8 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Gets the language names supported by the language provider."
-  remarks: "The [\\&lt;system.codedom\\&gt; Element](../Topic/%3Csystem.codedom%3E%20Element.md) in the machine configuration file contains the language provider and compiler configuration settings for each <xref:System.CodeDom.Compiler.CodeDomProvider> implementation on the computer. Each configured language provider supports one or more language names. For example, the <xref:System.CodeDom.Compiler.CompilerInfo> object for a <xref:Microsoft.CSharp.CSharpCodeProvider?displayProperty=fullName> might return an array with the language names &quot;c#&quot;, &quot;cs&quot;, and &quot;csharp&quot;."
+  summary: "Obtém os nomes de idiomas suportados pelo provedor de idioma."
+  remarks: "O [ \\&lt;system.codedom\\&gt; Elemento](../Topic/%3Csystem.codedom%3E%20Element.md) na configuração do computador o arquivo contém os compilador e o provedor de configuração configurações de idioma para cada <xref:System.CodeDom.Compiler.CodeDomProvider>implementação no computador.</xref:System.CodeDom.Compiler.CodeDomProvider> Cada provedor de idioma definidas dá suporte a um ou mais nomes de idioma. Por exemplo, o <xref:System.CodeDom.Compiler.CompilerInfo>de objeto para um <xref:Microsoft.CSharp.CSharpCodeProvider?displayProperty=fullName>pode retornar uma matriz com o idioma nomes &quot;c#&quot;, &quot;cs&quot; e &quot;csharp&quot;.</xref:Microsoft.CSharp.CSharpCodeProvider?displayProperty=fullName> </xref:System.CodeDom.Compiler.CompilerInfo>"
   example:
   - "The following code example enumerates the language providers on the computer and displays the configuration and compiler settings for each language provider. This code example is part of a larger example provided for the <xref:System.CodeDom.Compiler.CompilerInfo> class.  \n  \n [!code-cpp[CodeDom_CompilerInfo#8](~/add/codesnippet/cpp/m-system.codedom.compile_9_1.cpp)]\n [!code-vb[CodeDom_CompilerInfo#8](~/add/codesnippet/visualbasic/m-system.codedom.compile_9_1.vb)]\n [!code-cs[CodeDom_CompilerInfo#8](~/add/codesnippet/csharp/m-system.codedom.compile_9_1.cs)]"
   syntax:
@@ -246,7 +246,7 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: "An array of language names supported by the language provider."
+      description: "Uma matriz de nomes de idiomas suportados pelo provedor de idioma."
   overload: System.CodeDom.Compiler.CompilerInfo.GetLanguages*
   exceptions: []
   platform:
@@ -263,15 +263,15 @@ items:
   assemblies:
   - System
   namespace: System.CodeDom.Compiler
-  summary: "Returns a value indicating whether the language provider implementation is configured on the computer."
-  remarks: "Use the IsCodeDomProviderTypeValid property to check the <xref:System.CodeDom.Compiler.CodeDomProvider> implementation before accessing the provider properties or methods. For example, after you get the language provider settings from the <xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A> method, use the IsCodeDomProviderTypeValid property to verify the provider type implementation before calling the <xref:System.CodeDom.Compiler.CompilerInfo.CreateProvider%2A> method or using the <xref:System.CodeDom.Compiler.CompilerInfo.CodeDomProviderType%2A> property."
+  summary: "Retorna um valor que indica se a implementação de provedor de idioma está configurada no computador."
+  remarks: "Use a propriedade IsCodeDomProviderTypeValid para verificar a <xref:System.CodeDom.Compiler.CodeDomProvider>implementação antes de acessar as propriedades do provedor ou métodos.</xref:System.CodeDom.Compiler.CodeDomProvider> Por exemplo, após você obter o idioma as configurações do provedor do <xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A>método, use a propriedade IsCodeDomProviderTypeValid para verificar a implementação do tipo de provedor antes de chamar o <xref:System.CodeDom.Compiler.CompilerInfo.CreateProvider%2A>método ou usando o <xref:System.CodeDom.Compiler.CompilerInfo.CodeDomProviderType%2A>propriedade.</xref:System.CodeDom.Compiler.CompilerInfo.CodeDomProviderType%2A> </xref:System.CodeDom.Compiler.CompilerInfo.CreateProvider%2A> </xref:System.CodeDom.Compiler.CodeDomProvider.GetCompilerInfo%2A>"
   example:
   - "The following code example determines whether the input language has a configured <xref:System.CodeDom.Compiler.CodeDomProvider> implementation on the computer. If there is a provider configured for the specified language, the example displays the language provider configuration settings. This code example is part of a larger example provided for the <xref:System.CodeDom.Compiler.CompilerInfo> class.  \n  \n [!code-cpp[CodeDom_CompilerInfo#7](~/add/codesnippet/cpp/p-system.codedom.compile_12_1.cpp)]\n [!code-vb[CodeDom_CompilerInfo#7](~/add/codesnippet/visualbasic/p-system.codedom.compile_12_1.vb)]\n [!code-cs[CodeDom_CompilerInfo#7](~/add/codesnippet/csharp/p-system.codedom.compile_12_1.cs)]"
   syntax:
     content: public bool IsCodeDomProviderTypeValid { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the language provider implementation type is configured on the computer; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o tipo de implementação de provedor de idioma estiver configurado no computador. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.CodeDom.Compiler.CompilerInfo.IsCodeDomProviderTypeValid*
   exceptions: []
   platform:

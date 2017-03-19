@@ -15,8 +15,8 @@ items:
   nameWithType: SortKey
   fullName: System.Globalization.SortKey
   type: Class
-  summary: "Represents the result of mapping a string to its sort key."
-  remarks: "A culture-sensitive comparison of two strings depends on each character in the strings having several categories of sort weights, including script, alphabetic, case, and diacritic weights. A sort key serves as the repository of these weights for a particular string.       The <xref:System.Globalization.CompareInfo.GetSortKey%2A?displayProperty=fullName> method returns an instance of the SortKey class that reflects the culture-sensitive mapping of characters in a specified string. The value of a SortKey object is its key data, which is returned by the <xref:System.Globalization.SortKey.KeyData%2A> property. This key data consists of a series of bytes that encode the string, culture-specific sorting rules, and user-specified comparison options. A comparison using sort keys consists of a bitwise comparison of the corresponding key data in each sort key.  For example, if you create a sort key by calling the <xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29> method with a value of <xref:System.Globalization.CompareOptions?displayProperty=fullName>, a string comparison operation that uses the sort key is case-insensitive.       After you create a sort key for a string, you compare sort keys by calling the static <xref:System.Globalization.SortKey.Compare%2A?displayProperty=fullName> method. This method performs a simple byte-by-byte comparison, so it is much faster than the <xref:System.String.Compare%2A?displayProperty=fullName> or <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName> method.      ## Performance considerations    When performing a string comparison, the <xref:System.Globalization.SortKey.Compare%2A> and <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName> methods yield the same results, but they target different scenarios.       At a high level, the <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName> method generates the sort key for each string, performs the comparison, and then discards the sort key and returns the result of the comparison. However, the <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName> method actually doesn&quot;t generate an entire sort key to perform the comparison. Instead, the method generates the key data for each text element (that is, base character, surrogate pair, or combining character sequence) in each string. The method then compares the key data for the corresponding text elements. The operation terminates as soon as the ultimate result of the comparison is determined. Sort key information is computed, but no SortKey object is created. This strategy is economical in terms of performance if both strings are compared once, but becomes expensive if the same strings are compared many times.       The <xref:System.Globalization.SortKey.Compare%2A> method requires generation of a SortKey object for each string before performing the comparison. This strategy is expensive in terms of performance for the first comparison because of the time and memory invested to generate the SortKey objects. However, it becomes economical if the same sort keys are compared many times.       For example, suppose you write an application that searches a database table for the row in which the string-based index column matches a specified search string. The table contains thousands of rows, and comparing the search string to the index in each row will take a long time. Therefore, when the application stores a row and its index column, it also generates and stores the sort key for the index in a column dedicated to improving search performance. When the application searches for a target row, it compares the sort key for the search string to the sort key for the index string, instead of comparing the search string to the index string.      ## Security considerations    The <xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName> method returns a SortKey object with the value based on a specified string and <xref:System.Globalization.CompareOptions> value, and the culture associated with the underlying <xref:System.Globalization.CompareInfo> object. If a security decision depends on a string comparison or case change, you should use the <xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName> method of the invariant culture to ensure that the behavior of the operation is consistent, regardless of the culture settings of the operating system.       Use the following steps to obtain a sort key:      1.  Retrieve the invariant culture from the <xref:System.Globalization.CultureInfo.InvariantCulture?displayProperty=fullName> property.      2.  Retrieve a <xref:System.Globalization.CompareInfo> object for the invariant culture from the <xref:System.Globalization.CultureInfo.CompareInfo%2A?displayProperty=fullName> property.      3.  Call the <xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName> method.       Working with the value of a SortKey object is equivalent to calling the Windows `LCMapString` method with the LCMAP_SORTKEY value specified. However, for the SortKey object, the sort keys for English characters precede the sort keys for Korean characters.       SortKey objects can be serialized, but only so that they can cross <xref:System.AppDomain> objects. If an application serializes a SortKey object, the application must regenerate all the sort keys when there is a new version of the .NET Framework.       For more information about sort keys, see Unicode Technical Standard #10, &quot;Unicode Collation Algorithm&quot; on the [Unicode Consortium website](http://go.microsoft.com/fwlink/?linkid=37123)."
+  summary: "Representa o resultado de uma cadeia de caracteres de mapeamento a sua chave de classificação."
+  remarks: "Uma comparação de cultura de duas cadeias de caracteres depende de cada caractere em cadeias de caracteres com várias categorias de pesos de classificação, incluindo o script, em ordem alfabética, os pesos de maiusculas e minúsculas e sinais diacríticos. Uma chave de classificação funciona como repositório desses pesos para uma determinada cadeia de caracteres.       O <xref:System.Globalization.CompareInfo.GetSortKey%2A?displayProperty=fullName>método retorna uma instância da classe de chave de classificação que reflete o mapeamento sensíveis à cultura de caracteres em uma cadeia de caracteres especificada.</xref:System.Globalization.CompareInfo.GetSortKey%2A?displayProperty=fullName> O valor de um objeto de chave de classificação é seus dados de chave, que são retornados pelo <xref:System.Globalization.SortKey.KeyData%2A>propriedade.</xref:System.Globalization.SortKey.KeyData%2A> Essas chave dados consistem em uma série de bytes que codificar a cadeia de caracteres, as regras de classificação específicas de cultura e opções de comparação especificado pelo usuário. Uma comparação usando chaves de classificação consiste em uma comparação bit a bit dos dados da chave correspondentes em cada chave de classificação.  Por exemplo, se você criar uma chave de classificação chamando o <xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29>método com um valor de <xref:System.Globalization.CompareOptions?displayProperty=fullName>, uma operação de comparação de cadeia de caracteres que usa a chave de classificação diferencia maiusculas de minúsculas.</xref:System.Globalization.CompareOptions?displayProperty=fullName> </xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29>       Depois de criar uma chave de classificação para uma cadeia de caracteres, compare as chaves de classificação chamando estático <xref:System.Globalization.SortKey.Compare%2A?displayProperty=fullName>método.</xref:System.Globalization.SortKey.Compare%2A?displayProperty=fullName> Esse método executa uma comparação byte por byte simple, portanto, é muito mais rápido que o <xref:System.String.Compare%2A?displayProperty=fullName>ou <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName>método.</xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName> </xref:System.String.Compare%2A?displayProperty=fullName>      ## Considerações de desempenho ao executar uma comparação de cadeia de caracteres, o <xref:System.Globalization.SortKey.Compare%2A>e <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName>métodos geram os mesmos resultados, mas eles se destinam a cenários diferentes.</xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName> </xref:System.Globalization.SortKey.Compare%2A>       Em um nível alto, o <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName>método gera a chave de classificação para cada cadeia de caracteres, executar a comparação e, em seguida, descarta a chave de classificação e retorna o resultado da comparação.</xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName> No entanto, o <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName>método realmente não gera uma chave de classificação inteira para executar a comparação.</xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName> Em vez disso, o método gera os dados de chave para cada elemento de texto (ou seja, caractere base, par substituto ou combinação de sequência de caracteres) em cada cadeia de caracteres. O método compara os dados de chave para os elementos de texto correspondentes. A operação será encerrada, assim como o resultado final da comparação é determinado. Informações de chave de classificação são computadas, mas nenhum objeto de chave de classificação é criado. Essa estratégia é econômica em termos de desempenho se duas cadeias de caracteres são comparadas de uma vez, mas fica cara se o mesmo cadeias de caracteres são comparadas muitas vezes.       O <xref:System.Globalization.SortKey.Compare%2A>método requer a geração de um objeto de chave de classificação para cada cadeia de caracteres antes de executar a comparação.</xref:System.Globalization.SortKey.Compare%2A> Essa estratégia é cara em termos de desempenho para a primeira comparação devido a memória investido para gerar os objetos de chave de classificação e a hora. No entanto, ele se torna econômico se as mesmas chaves de classificação são comparadas muitas vezes.       Por exemplo, suponha que você escrever um aplicativo que procura uma tabela de banco de dados para a linha na qual a coluna de índice com base em cadeia de caracteres corresponde a uma cadeia de caracteres de pesquisa especificada. A tabela contém milhares de linhas e comparar a cadeia de caracteres de pesquisa para o índice em cada linha levará algum tempo. Portanto, quando o aplicativo armazena uma linha e sua coluna de índice, ele também gera e armazena a chave de classificação para o índice em uma coluna dedicada para melhorar o desempenho da pesquisa. Quando o aplicativo de pesquisa para uma linha de destino, ele compara a chave de classificação para a cadeia de caracteres de pesquisa para a chave de classificação para a cadeia de caracteres de índice, em vez de comparar a cadeia de caracteres de pesquisa para a cadeia de caracteres de índice.      ## Considerações de segurança de <xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName>método retorna um objeto de chave de classificação com o valor com base em uma cadeia de caracteres especificada e <xref:System.Globalization.CompareOptions>valor e a cultura associada com subjacente <xref:System.Globalization.CompareInfo>objeto.</xref:System.Globalization.CompareInfo> </xref:System.Globalization.CompareOptions> </xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName> Se uma decisão de segurança depende de uma comparação de cadeia de caracteres ou uma alteração, você deve usar o <xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName>método da cultura invariável para garantir que o comportamento da operação é consistente, independentemente das configurações de cultura do sistema operacional.</xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName>       Use as etapas a seguir para obter uma chave de classificação: 1.  Recuperar a cultura invariável do <xref:System.Globalization.CultureInfo.InvariantCulture?displayProperty=fullName>propriedade.</xref:System.Globalization.CultureInfo.InvariantCulture?displayProperty=fullName>      2.  Recuperar um <xref:System.Globalization.CompareInfo>objeto para a cultura invariável do <xref:System.Globalization.CultureInfo.CompareInfo%2A?displayProperty=fullName>propriedade.</xref:System.Globalization.CultureInfo.CompareInfo%2A?displayProperty=fullName> </xref:System.Globalization.CompareInfo>      3.  Chamar o <xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName>método.</xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName>       Trabalhando com o valor de uma chave de classificação objeto é equivalente a chamar o Windows `LCMapString` método com o valor LCMAP_SORTKEY especificado. No entanto, para o objeto de chave de classificação, as chaves de classificação de caracteres em inglês precedem as chaves de classificação para caracteres coreanos.       Objetos de chave de classificação podem ser serializado, mas somente para que eles podem cruzar <xref:System.AppDomain>objetos.</xref:System.AppDomain> Se um aplicativo serializa um objeto de chave de classificação, o aplicativo deve gerar novamente as chaves de classificação quando há uma nova versão do .NET Framework.       Para obter mais informações sobre chaves de classificação, consulte Unicode Technical Standard #10, &quot;Algoritmo de agrupamento Unicode&quot; sobre o [site de consórcio Unicode](http://go.microsoft.com/fwlink/?linkid=37123)."
   example:
   - "The following example compares the string \"llama\" using the \"en-US\" and \"es-ES\" cultures, and the \"en-US\" and \"es-ES\" traditional cultures.  \n  \n [!code-cpp[System.Globalization.SortKey.Compare#1](~/add/codesnippet/cpp/t-system.globalization.s_1_1.cpp)]\n [!code-cs[System.Globalization.SortKey.Compare#1](~/add/codesnippet/csharp/t-system.globalization.s_1_1.cs)]\n [!code-vb[System.Globalization.SortKey.Compare#1](~/add/codesnippet/visualbasic/t-system.globalization.s_1_1.vb)]  \n  \n The following example shows how you can use the SortKey class to improve performance in an application that relies extensively on sorting and searching a large array. The example creates an unordered array of names, which in this case has 13 elements. It then stores the sort key of each name in a parallel array, which it passes to the <xref:System.Array.Sort%28System.Array%2CSystem.Array%29?displayProperty=fullName> method. The result is a sorted array. The example then searches the array for three strings. For each search string, it calls the <xref:System.Globalization.CompareInfo.GetSortKey%28System.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName> method to retrieve the string's sort key, and then calls the <xref:System.Array.FindIndex%2A?displayProperty=fullName> method to retrieve the index of that sort key in the array of sort keys. Because the name and sort key arrays are parallel, the returned index is also the index of the name in the `names` array.  \n  \n [!code-vb[System.Globalization.SortKey.Class#1](~/add/codesnippet/visualbasic/t-system.globalization.s_1_2.vb)]\n [!code-cs[System.Globalization.SortKey.Class#1](~/add/codesnippet/csharp/t-system.globalization.s_1_2.cs)]"
   syntax:
@@ -42,8 +42,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Compares two sort keys."
-  remarks: "The Compare method compares the <xref:System.Globalization.SortKey.KeyData%2A> properties of the `sortkey1` and `sortkey2` parameters. The method yields the same results as the <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName> method.       For more information about the Compare method and the comparison of sort keys, see the <xref:System.Globalization.SortKey> class topic."
+  summary: "Compara duas chaves de classificação."
+  remarks: "O método de comparação compara o <xref:System.Globalization.SortKey.KeyData%2A>Propriedades do `sortkey1` e `sortkey2` parâmetros.</xref:System.Globalization.SortKey.KeyData%2A> O método produz os mesmos resultados que o <xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName>método.</xref:System.Globalization.CompareInfo.Compare%2A?displayProperty=fullName>       Para obter mais informações sobre o método de comparação e a comparação de chaves de classificação, consulte o <xref:System.Globalization.SortKey>tópico sobre a classe.</xref:System.Globalization.SortKey>"
   example:
   - "The following code example compares two strings using the Compare method and the equivalent <xref:System.Globalization.CompareInfo.Compare%28System.String%2CSystem.String%2CSystem.Globalization.CompareOptions%29?displayProperty=fullName> method.  \n  \n [!code-cs[sys.glob.sortkey.compare#1](~/add/codesnippet/csharp/4647647d-ce80-4fb7-82b7-_1.cs)]\n [!code-vb[sys.glob.sortkey.compare#1](~/add/codesnippet/visualbasic/4647647d-ce80-4fb7-82b7-_1.vb)]"
   syntax:
@@ -51,18 +51,18 @@ items:
     parameters:
     - id: sortkey1
       type: System.Globalization.SortKey
-      description: "The first sort key to compare."
+      description: "A primeira chave de classificação a ser comparado."
     - id: sortkey2
       type: System.Globalization.SortKey
-      description: "The second sort key to compare."
+      description: "A segunda chave de classificação a ser comparado."
     return:
       type: System.Int32
-      description: "A signed integer that indicates the relationship between <code>sortkey1</code> and <code>sortkey2</code>.       <table><thead><tr><th> Value       </th><th> Condition       </th></tr></thead><tbody><tr><td> Less than zero       </td><td><code>sortkey1</code> is less than <code>sortkey2</code>.       </td></tr><tr><td> Zero       </td><td><code>sortkey1</code> is equal to <code>sortkey2</code>.       </td></tr><tr><td> Greater than zero       </td><td><code>sortkey1</code> is greater than <code>sortkey2</code>.       </td></tr></tbody></table>"
+      description: "Um inteiro que indica a relação entre <code> sortkey1 </code> e <code> sortkey2 </code>.       <table><thead><tr><th> Valor       </th><th> Condição       </th></tr></thead><tbody><tr><td> Menor que zero       </td><td><code>sortkey1</code>is less than <code>sortkey2</code>.       </td></tr><tr><td> Zero       </td><td><code>sortkey1</code>is equal to <code>sortkey2</code>.       </td></tr><tr><td> Maior que zero       </td><td><code>sortkey1</code>é maior do que <code> sortkey2 </code>.       </td></tr></tbody></table>"
   overload: System.Globalization.SortKey.Compare*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>sortkey1</code> or <code>sortkey2</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>sortkey1</code>or <code>sortkey2</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Globalization.SortKey.Equals(System.Object)
@@ -77,8 +77,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Determines whether the specified object is equal to the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object."
-  remarks: "Two <xref:System.Globalization.SortKey> objects are considered equal if their <xref:System.Globalization.SortKey.KeyData%2A> properties are equal.       This method overrides <xref:System.Object.Equals%2A?displayProperty=fullName>."
+  summary: "Determina se o objeto especificado é igual ao atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto."
+  remarks: "Dois <xref:System.Globalization.SortKey>objetos são considerados iguais se seus <xref:System.Globalization.SortKey.KeyData%2A>propriedades são iguais.</xref:System.Globalization.SortKey.KeyData%2A> </xref:System.Globalization.SortKey>       Esse método substitui <xref:System.Object.Equals%2A?displayProperty=fullName>.</xref:System.Object.Equals%2A?displayProperty=fullName>"
   example:
   - "The following code example shows the results of Equals when compared with different <xref:System.Globalization.SortKey> objects.  \n  \n [!code-vb[System.Globalization.SortKey.Equals#1](~/add/codesnippet/visualbasic/m-system.globalization.s_0_1.vb)]\n [!code-cpp[System.Globalization.SortKey.Equals#1](~/add/codesnippet/cpp/m-system.globalization.s_0_1.cpp)]\n [!code-cs[System.Globalization.SortKey.Equals#1](~/add/codesnippet/csharp/m-system.globalization.s_0_1.cs)]"
   syntax:
@@ -86,15 +86,15 @@ items:
     parameters:
     - id: value
       type: System.Object
-      description: "The object to compare with the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object."
+      description: "O objeto a ser comparado com o atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <code>value</code> parameter is equal to the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <code> value </code> parâmetro for igual ao atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Globalization.SortKey.Equals*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>value</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>value</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Globalization.SortKey.GetHashCode
@@ -109,14 +109,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Serves as a hash function for the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object that is suitable for hashing algorithms and data structures such as a hash table."
-  remarks: "This method generates the same hash code for two objects that are equal according to the <xref:System.Globalization.SortKey.Equals%2A> method.       This method overrides <xref:System.Object.GetHashCode%2A?displayProperty=fullName>."
+  summary: "Serve como uma função de hash atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto que é adequado para o hash de algoritmos e estruturas de dados como uma tabela de hash."
+  remarks: "Este método gera o mesmo código de hash de dois objetos são iguais de acordo com o <xref:System.Globalization.SortKey.Equals%2A>método.</xref:System.Globalization.SortKey.Equals%2A>       Esse método substitui <xref:System.Object.GetHashCode%2A?displayProperty=fullName>.</xref:System.Object.GetHashCode%2A?displayProperty=fullName>"
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A hash code for the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object."
+      description: "Um código hash para a atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto."
   overload: System.Globalization.SortKey.GetHashCode*
   exceptions: []
   platform:
@@ -133,15 +133,15 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the byte array representing the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object."
-  remarks: "For more information about the use of the data returned by the KeyData property in comparing strings, see the <xref:System.Globalization.SortKey> class topic."
+  summary: "Obtém a matriz de bytes que representa o atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto."
+  remarks: "Para obter mais informações sobre o uso dos dados retornados pela propriedade KeyData na comparação de cadeias de caracteres, consulte o <xref:System.Globalization.SortKey>tópico sobre a classe.</xref:System.Globalization.SortKey>"
   example:
   - "The following code example displays an original string and the equivalent string and key data for a case-sensitive sort key and a case-insensitive sort key.  \n  \n [!code-vb[sys.glob.sortkey.tostring#1](~/add/codesnippet/visualbasic/p-system.globalization.s_0_1.vb)]\n [!code-cs[sys.glob.sortkey.tostring#1](~/add/codesnippet/csharp/p-system.globalization.s_0_1.cs)]"
   syntax:
     content: public virtual byte[] KeyData { get; }
     return:
       type: System.Byte[]
-      description: "A byte array representing the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object."
+      description: "Uma matriz de bytes que representa o atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto."
   overload: System.Globalization.SortKey.KeyData*
   exceptions: []
   platform:
@@ -158,7 +158,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Gets the original string used to create the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object."
+  summary: "Obtém a cadeia de caracteres original usada para criar atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto."
   remarks: ''
   example:
   - "The following code example displays an original string and the equivalent string and key data for a case-sensitive sort key and a case-insensitive sort key.  \n  \n [!code-vb[sys.glob.sortkey.tostring#1](~/add/codesnippet/visualbasic/p-system.globalization.s_1_1.vb)]\n [!code-cs[sys.glob.sortkey.tostring#1](~/add/codesnippet/csharp/p-system.globalization.s_1_1.cs)]"
@@ -166,7 +166,7 @@ items:
     content: public virtual string OriginalString { get; }
     return:
       type: System.String
-      description: "The original string used to create the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object."
+      description: "A cadeia de caracteres original usada para criar atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto."
   overload: System.Globalization.SortKey.OriginalString*
   exceptions: []
   platform:
@@ -183,8 +183,8 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Globalization
-  summary: "Returns a string that represents the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object."
-  remarks: "The return value is the concatenation of the string &quot;SortKey - &quot;, the culture identifier and compare options of the current <xref:System.Globalization.SortKey> object, and the value of the <xref:System.Globalization.SortKey.OriginalString%2A> property.       This method overrides <xref:System.Object.ToString%2A?displayProperty=fullName>."
+  summary: "Retorna uma cadeia de caracteres que representa o atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto."
+  remarks: "O valor de retorno é a concatenação de cadeia de caracteres &quot;Chave de classificação -&quot;, o identificador de cultura e opções de comparação do atual <xref:System.Globalization.SortKey>objeto e o valor de <xref:System.Globalization.SortKey.OriginalString%2A>propriedade.</xref:System.Globalization.SortKey.OriginalString%2A> </xref:System.Globalization.SortKey>       Esse método substitui <xref:System.Object.ToString%2A?displayProperty=fullName>.</xref:System.Object.ToString%2A?displayProperty=fullName>"
   example:
   - "The following code example displays an original string, the strings yielded by the ToString method for case-sensitive and case-insensitive sort keys, and the key data for case-sensitive and case-insensitive sort keys.  \n  \n [!code-vb[sys.glob.sortkey.tostring#1](~/add/codesnippet/visualbasic/m-system.globalization.s_1_1.vb)]\n [!code-cs[sys.glob.sortkey.tostring#1](~/add/codesnippet/csharp/m-system.globalization.s_1_1.cs)]"
   syntax:
@@ -192,7 +192,7 @@ items:
     parameters: []
     return:
       type: System.String
-      description: "A string that represents the current <xref href=&quot;System.Globalization.SortKey&quot;></xref> object."
+      description: "Uma cadeia de caracteres que representa o atual <xref href=&quot;System.Globalization.SortKey&quot;> </xref> objeto."
   overload: System.Globalization.SortKey.ToString*
   exceptions: []
   platform:

@@ -11,8 +11,8 @@ items:
   nameWithType: BYOT
   fullName: System.EnterpriseServices.BYOT
   type: Class
-  summary: "Wraps the COM+ <xref uid=&quot;langword_csharp_ByotServerEx&quot; name=&quot;ByotServerEx&quot; href=&quot;&quot;></xref> class and the COM+ DTC interfaces <xref uid=&quot;langword_csharp_ICreateWithTransactionEx&quot; name=&quot;ICreateWithTransactionEx&quot; href=&quot;&quot;></xref> and <xref uid=&quot;langword_csharp_ICreateWithTipTransactionEx&quot; name=&quot;ICreateWithTipTransactionEx&quot; href=&quot;&quot;></xref>. This class cannot be inherited."
-  remarks: "BYOT (Bring Your Own Transaction) allows a component to be created with or to inherit an external transaction. That is, a component that does not already have an associated transaction can acquire a transaction. COM+ allows setting an arbitrary pre-existing Distributed Transaction Coordinator (DTC) or Transaction Internet Protocol (TIP) transaction as the transaction property of a new component&quot;s context. This allows COM+ components to be associated with transactions whose lifetimes are controlled by a transaction processing (TP) monitor, Object/Task Selector (OTS), or database management system (DBMS).       BYOT transactions must be used with caution. In certain situations, they can result in a transaction spanning multiple synchronization domains—that is, they allow parallelism with another transaction, causing a deadlock condition.       Automatic transactions, rather than BYOT transactions, are the preferred programming model for writers of business components."
+  summary: "Encapsula o COM+ <xref uid=&quot;langword_csharp_ByotServerEx&quot; name=&quot;ByotServerEx&quot; href=&quot;&quot;> </xref> classe e as interfaces de COM+ DTC <xref uid=&quot;langword_csharp_ICreateWithTransactionEx&quot; name=&quot;ICreateWithTransactionEx&quot; href=&quot;&quot;> </xref> e <xref uid=&quot;langword_csharp_ICreateWithTipTransactionEx&quot; name=&quot;ICreateWithTipTransactionEx&quot; href=&quot;&quot;> </xref>. Essa classe não pode ser herdada."
+  remarks: "BYOT (Traga sua própria transação) permite que um componente a ser criada com ou herdar de uma transação externa. Ou seja, um componente que ainda não tiver uma transação associada pode adquirir uma transação. COM+ permite definir uma transação de coordenador de transações distribuídas (DTC) ou protocolo de Internet de transação (dica) pré-existente arbitrária como a propriedade de transação de contexto de um novo componente. Isso permite que os componentes COM+ deve ser associada com transações cujos tempos de vida são controlados por uma monitor (PA), o seletor de tarefa do objeto (OTS) ou o sistema de gerenciamento de banco de dados (DBMS) de processamento de transações.       Transações BYOT devem ser usadas com cuidado. Em determinadas situações, pode resultar em uma transação abrangendo vários domínios de sincronização — ou seja, eles permitem que o paralelismo em outra transação, fazendo com que uma condição de deadlock.       Transações automáticas, em vez de transações BYOT, são o modelo de programação preferido para os autores de componentes de negócios."
   syntax:
     content: public sealed class BYOT
   inheritance:
@@ -33,20 +33,20 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices
-  summary: "Creates an object that is enlisted within a manual transaction using the Transaction Internet Protocol (TIP)."
-  remarks: "CreateWithTipTransaction performs the managed equivalent of the COM+ DTC method `ICreateWithTIPTransaction::CreateInstance`."
+  summary: "Cria um objeto que está inscrita em uma transação manual usando a transação de protocolo TIP (Internet)."
+  remarks: "CreateWithTipTransaction executa o equivalente gerenciado do método COM+ DTC `ICreateWithTIPTransaction::CreateInstance`."
   syntax:
     content: public static object CreateWithTipTransaction (string url, Type t);
     parameters:
     - id: url
       type: System.String
-      description: "A TIP URL that specifies a transaction."
+      description: "Uma URL dica que especifica uma transação."
     - id: t
       type: System.Type
-      description: "The type."
+      description: "O tipo."
     return:
       type: System.Object
-      description: "The requested transaction."
+      description: "A transação solicitada."
   overload: System.EnterpriseServices.BYOT.CreateWithTipTransaction*
   exceptions: []
   platform:
@@ -63,20 +63,20 @@ items:
   assemblies:
   - System.EnterpriseServices
   namespace: System.EnterpriseServices
-  summary: "Creates an object that is enlisted within a manual transaction."
-  remarks: "CreateWithTransaction performs the managed equivalent of the COM+ Distributed Transaction Coordinator (DTC) method `ICreateWithTransaction::CreateInstance`."
+  summary: "Cria um objeto que está inscrita em uma transação manual."
+  remarks: "O equivalente gerenciado do método COM+ DTC Distributed Transaction Coordinator () executa a CreateWithTransaction `ICreateWithTransaction::CreateInstance`."
   syntax:
     content: public static object CreateWithTransaction (object transaction, Type t);
     parameters:
     - id: transaction
       type: System.Object
-      description: "The <xref href=&quot;System.EnterpriseServices.ITransaction&quot;></xref> or <xref href=&quot;System.Transactions.Transaction&quot;></xref> object that specifies a transaction."
+      description: "O <xref href=&quot;System.EnterpriseServices.ITransaction&quot;> </xref> ou <xref href=&quot;System.Transactions.Transaction&quot;> </xref> objeto que especifica uma transação."
     - id: t
       type: System.Type
-      description: "The specified type."
+      description: "O tipo especificado."
     return:
       type: System.Object
-      description: "The requested transaction."
+      description: "A transação solicitada."
   overload: System.EnterpriseServices.BYOT.CreateWithTransaction*
   exceptions: []
   platform:

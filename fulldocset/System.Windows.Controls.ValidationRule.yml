@@ -16,8 +16,8 @@ items:
   nameWithType: ValidationRule
   fullName: System.Windows.Controls.ValidationRule
   type: Class
-  summary: "Provides a way to create a custom rule in order to check the validity of user input."
-  remarks: "When you use the [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] data binding model, you can associate <xref:System.Windows.Data.Binding.ValidationRules%2A> with your binding object. To create custom rules, make a subclass of this class and implement the <xref:System.Windows.Controls.ValidationRule.Validate%2A> method. Optionally, use the built-in <xref:System.Windows.Controls.ExceptionValidationRule>, which catches exceptions that are thrown during source updates, or the <xref:System.Windows.Controls.DataErrorValidationRule>, which checks for errors raised by the <xref:System.ComponentModel.IDataErrorInfo> implementation of the source object.       The binding engine checks each ValidationRule that is associated with a binding every time it transfers an input value, which is the binding target property value, to the binding source property.       For detailed information about data validation, see [Data Binding Overview](~/add/includes/ajax-current-ext-md.md).       For information about how to validate user-provided data in a dialog box, see [Dialog Boxes Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Fornece uma maneira de criar uma regra personalizada para verificar a validade da entrada do usuário."
+  remarks: "Quando você usa o [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] modelo de associação de dados, você pode associar <xref:System.Windows.Data.Binding.ValidationRules%2A>com o seu objeto de associação.</xref:System.Windows.Data.Binding.ValidationRules%2A> Para criar regras personalizadas, fazer uma subclasse desta classe e implementar o <xref:System.Windows.Controls.ValidationRule.Validate%2A>método.</xref:System.Windows.Controls.ValidationRule.Validate%2A> Opcionalmente, use o interno <xref:System.Windows.Controls.ExceptionValidationRule>, que captura exceções geradas durante as atualizações de origem, ou o <xref:System.Windows.Controls.DataErrorValidationRule>, que verifica se há erros gerados pelo <xref:System.ComponentModel.IDataErrorInfo>implementação do objeto de origem.</xref:System.ComponentModel.IDataErrorInfo> </xref:System.Windows.Controls.DataErrorValidationRule> </xref:System.Windows.Controls.ExceptionValidationRule>       O mecanismo de associação verifica cada regra de validação que está associada uma associação toda vez que ele transfere um valor de entrada, que é o valor de propriedade de destino de associação, para a propriedade de fonte de associação.       Para obter informações detalhadas sobre a validação de dados, consulte [visão geral de associação de dados](~/add/includes/ajax-current-ext-md.md).       Para obter informações sobre como validar dados fornecidos pelo usuário na caixa de diálogo, consulte [visão geral de caixas de diálogo](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example shows how to implement a validation rule. The input value is invalid if it contains non-numeric characters or if it is outside the lower and upper bounds. If the value of the returned <xref:System.Windows.Controls.ValidationResult> is invalid, the <xref:System.Windows.Controls.ValidationResult.ErrorContent%2A> property is set to the appropriate error message and the <xref:System.Windows.Controls.ValidationResult.IsValid%2A> property is set to `false`.  \n  \n For the complete example, see [How to: Implement Binding Validation](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[BindValidation#3](~/add/codesnippet/csharp/BindingValidation/AgeRangeRule.cs#3)]"
   syntax:
@@ -40,7 +40,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Controls.ValidationRule&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Windows.Controls.ValidationRule&quot;> </xref> classe."
   syntax:
     content: protected ValidationRule ();
     parameters: []
@@ -60,16 +60,16 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Controls.ValidationRule&quot;></xref> class with the specified validation step and a value that indicates whether the validation rule runs when the target is updated."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Windows.Controls.ValidationRule&quot;> </xref> classe com a etapa de validação especificado e um valor que indica se a regra de validação é executado quando o destino é atualizado."
   syntax:
     content: protected ValidationRule (System.Windows.Controls.ValidationStep validationStep, bool validatesOnTargetUpdated);
     parameters:
     - id: validationStep
       type: System.Windows.Controls.ValidationStep
-      description: "One of the enumeration values that specifies when the validation rule runs."
+      description: "Um dos valores de enumeração que especifica quando executa a regra de validação."
     - id: validatesOnTargetUpdated
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to have the validation rule run when the target of the <xref href=&quot;System.Windows.Data.Binding&quot;></xref> is updated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para que a regra de validação executada quando o destino do <xref href=&quot;System.Windows.Data.Binding&quot;> </xref> atualizado; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Controls.ValidationRule.#ctor*
   exceptions: []
   platform:
@@ -86,8 +86,8 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "When overridden in a derived class, performs validation checks on a value."
-  remarks: "You must implement this method when you create a subclass of the <xref:System.Windows.Controls.ValidationRule> class in order to create a custom validation rule.       Each time the data binding engine transfers a value from the binding target property (from user input) to the binding source property (the underlying data), it checks whether any <xref:System.Windows.Data.Binding.ValidationRules%2A> are defined for that binding. If <xref:System.Windows.Data.Binding.ValidationRules%2A> are defined for the binding, the engine calls the Validate method on each <xref:System.Windows.Controls.ValidationRule> until one of them finds an error or until all of them pass.       For detailed information about data validation, see [Data Binding Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Quando substituído em uma classe derivada, executa verificações de validação em um valor."
+  remarks: "Você deve implementar esse método quando você cria uma subclasse do <xref:System.Windows.Controls.ValidationRule>classe para criar uma regra de validação personalizada.</xref:System.Windows.Controls.ValidationRule>       Cada vez que o mecanismo de associação de dados transfere um valor da propriedade de destino de associação (de entrada do usuário) para a propriedade de fonte de associação (os dados subjacentes), ele verifica se alguma <xref:System.Windows.Data.Binding.ValidationRules%2A>são definidos para essa associação.</xref:System.Windows.Data.Binding.ValidationRules%2A> Se <xref:System.Windows.Data.Binding.ValidationRules%2A>são definidos para a associação, o mecanismo de chama o método Validate em cada <xref:System.Windows.Controls.ValidationRule>até que um deles encontra um erro ou até que todos eles são aprovados.</xref:System.Windows.Controls.ValidationRule> </xref:System.Windows.Data.Binding.ValidationRules%2A>       Para obter informações detalhadas sobre a validação de dados, consulte [visão geral de associação de dados](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example shows how to implement a validation rule. In the following example, the input value is invalid if it contains non-numeric characters or if it is outside the lower and upper bounds. If the input value is invalid, the <xref:System.Windows.Controls.ValidationResult.ErrorContent%2A> property is set to the appropriate error message and the <xref:System.Windows.Controls.ValidationResult.IsValid%2A> property is set to `false`.  \n  \n For the complete example, see [How to: Implement Binding Validation](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[BindValidation#3](~/add/codesnippet/csharp/BindingValidation/AgeRangeRule.cs#3)]"
   syntax:
@@ -95,10 +95,10 @@ items:
     parameters:
     - id: value
       type: System.Object
-      description: "The value from the binding target to check."
+      description: "O valor de destino da associação para verificar."
     - id: cultureInfo
       type: System.Globalization.CultureInfo
-      description: "The culture to use in this rule."
+      description: "A cultura a ser usada nesta regra."
     return:
       type: System.Windows.Controls.ValidationResult
       description: "A <xref href=&quot;System.Windows.Controls.ValidationResult&quot;></xref> object."
@@ -118,19 +118,19 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Performs validation checks on a value."
+  summary: "Executa verificações de validação em um valor."
   syntax:
     content: public virtual System.Windows.Controls.ValidationResult Validate (object value, System.Globalization.CultureInfo cultureInfo, System.Windows.Data.BindingExpressionBase owner);
     parameters:
     - id: value
       type: System.Object
-      description: "The value from the binding target to check."
+      description: "O valor de destino da associação para verificar."
     - id: cultureInfo
       type: System.Globalization.CultureInfo
-      description: "The culture to use in this rule."
+      description: "A cultura a ser usada nesta regra."
     - id: owner
       type: System.Windows.Data.BindingExpressionBase
-      description: "The binding expression that uses the validation rule."
+      description: "A expressão de associação que usa a regra de validação."
     return:
       type: System.Windows.Controls.ValidationResult
       description: "A <xref href=&quot;System.Windows.Controls.ValidationResult&quot;></xref> object."
@@ -150,19 +150,19 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Performs validation checks on a value."
+  summary: "Executa verificações de validação em um valor."
   syntax:
     content: public virtual System.Windows.Controls.ValidationResult Validate (object value, System.Globalization.CultureInfo cultureInfo, System.Windows.Data.BindingGroup owner);
     parameters:
     - id: value
       type: System.Object
-      description: "The value from the binding target to check."
+      description: "O valor de destino da associação para verificar."
     - id: cultureInfo
       type: System.Globalization.CultureInfo
-      description: "The culture to use in this rule."
+      description: "A cultura a ser usada nesta regra."
     - id: owner
       type: System.Windows.Data.BindingGroup
-      description: "The binding group that uses the validation rule."
+      description: "O grupo de associação que usa a regra de validação."
     return:
       type: System.Windows.Controls.ValidationResult
       description: "A <xref href=&quot;System.Windows.Controls.ValidationResult&quot;></xref> object."
@@ -182,7 +182,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Gets or sets a value that indicates whether the validation rule runs when the target of the <xref href=&quot;System.Windows.Data.Binding&quot;></xref> is updated."
+  summary: "Obtém ou define um valor que indica se a regra de validação é executada quando o destino do <xref href=&quot;System.Windows.Data.Binding&quot;> </xref> é atualizada."
   remarks: ''
   example:
   - "The following example checks whether the <xref:System.Windows.Controls.TextBox> is empty. The <xref:System.Windows.Controls.ValidationRule>, `ValueIsNotNull`, has ValidatesOnTargetUpdated set to `true`, so that when the application starts, the <xref:System.Windows.Controls.ValidationRule> runs and displays a message if the <xref:System.Windows.Controls.TextBox> is empty.  \n  \n [!code-xml[BindingGroupSnippets#ValidatesOnTargetUpdated](~/add/codesnippet/xaml/BindingGroupSnippets/Window3.xaml#validatesontargetupdated)]  \n  \n The following example shows the <xref:System.Windows.Controls.ValidationRule> that is used in the previous example and the event handler for the <xref:System.Windows.Controls.Validation.Error> event.  \n  \n [!code-cs[BindingGroupSnippets#ValueIsNotNull](~/add/codesnippet/csharp/BindingGroupSnippets/Window3.xaml.cs#valueisnotnull)]\n [!code-vb[BindingGroupSnippets#ValueIsNotNull](~/add/codesnippet/visualbasic/bindinggroupsnippets/window3.xaml.vb#valueisnotnull)]"
@@ -190,7 +190,7 @@ items:
     content: public bool ValidatesOnTargetUpdated { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the validation rule runs when the target of the <xref href=&quot;System.Windows.Data.Binding&quot;></xref> is updated; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a regra de validação é executada quando o destino do <xref href=&quot;System.Windows.Data.Binding&quot;> </xref> atualizado; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Controls.ValidationRule.ValidatesOnTargetUpdated*
   exceptions: []
   platform:
@@ -207,7 +207,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Controls
-  summary: "Gets or sets when the validation rule runs."
+  summary: "Obtém ou define quando a regra de validação é executada."
   remarks: ''
   example:
   - "The following example sets the ValidationStep to <xref:System.Windows.Controls.ValidationStep> on the <xref:System.Windows.Controls.ValidationRule> called `ValidateDateAndPrice` so that when it runs, the <xref:System.Windows.Controls.ValidationRule.Validate%2A> method has access to values that are of the source property's type. When the rules `PriceIsAPositiveNumber` and `FutureDateRule` run, the values in each <xref:System.Windows.Controls.ValidationRule.Validate%2A> method are strings because the rules run before the values are converted to their respective types.  \n  \n [!code-xml[BindingGroupSnippets#WindowLayout](~/add/codesnippet/xaml/BindingGroupSnippets/Window1.xaml#windowlayout)]  \n  \n The following example shows the <xref:System.Windows.Controls.ValidationRule>`ValidateDateAndPrice`. In the `Validate` method override, the `Price` property is of type <xref:System.Double> and the `OfferExpires` property is of type <xref:System.DateTime> because the strings have been converted to their respective types by the time the <xref:System.Windows.Controls.ValidationRule> runs.  \n  \n [!code-cs[BindingGroupSnippets#ValidateObject](~/add/codesnippet/csharp/BindingGroupSnippets/Data.cs#validateobject)]\n [!code-vb[BindingGroupSnippets#ValidateObject](~/add/codesnippet/visualbasic/bindinggroupsnippets/data.vb#validateobject)]"
@@ -215,7 +215,7 @@ items:
     content: public System.Windows.Controls.ValidationStep ValidationStep { get; set; }
     return:
       type: System.Windows.Controls.ValidationStep
-      description: "One of the enumeration values.  The default is <xref href=&quot;System.Windows.Controls.ValidationStep&quot;></xref>."
+      description: "Um dos valores de enumeração.  O padrão é <xref href=&quot;System.Windows.Controls.ValidationStep&quot;> </xref>."
   overload: System.Windows.Controls.ValidationRule.ValidationStep*
   exceptions: []
   platform:

@@ -12,8 +12,8 @@ items:
   nameWithType: PrimaryInteropAssemblyAttribute
   fullName: System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute
   type: Class
-  summary: "Indicates that the attributed assembly is a primary interop assembly."
-  remarks: "You can apply this attribute to assemblies, although the [Tlbimp.exe (Type Library Importer)](~/add/includes/ajax-current-ext-md.md) typically applies it for you when it imports a type library.       An interop assembly contains metadata that describes existing COM types, which are often already described in a COM type library. Tlbimp.exe produces interop assemblies from COM type libraries. Interop assemblies typically only contain metadata (no code). Primary interop assemblies are provided by the same publisher as the type library they describe, and provide the official definitions of the types defined with that type library. Primary interop assemblies are always signed by their publisher to ensure uniqueness.       You can generate a primary interop assembly from a type library in the following ways:      -   Run TlbImp.exe with the `/primary` option from the command line.      -   Apply the PrimaryInteropAssemblyAttribute at design time.       To specify a primary interop assembly in managed source code, you must apply the <xref:System.Runtime.InteropServices.GuidAttribute?displayProperty=fullName> and PrimaryInteropAssemblyAttribute to the assembly at design time. The <xref:System.Runtime.InteropServices.GuidAttribute> on the primary interop assembly identifies the LIBID of the type library and the PrimaryInteropAssemblyAttribute identifies the version of the particular type library for which this assembly is the primary interop assembly. The PrimaryInteropAssemblyAttribute can appear multiple times if the assembly is the primary interop assembly for multiple versions of the same type library.       When using the types defined in a type library, always reference the primary interop assembly for that type library, rather than reimporting or redefining the types themselves. For guidelines and procedures on how to produce or use primary interop assemblies, see [Primary Interop Assemblies](http://msdn.microsoft.com/en-us/b977a8be-59a0-40a0-a806-b11ffba5c080). For a detailed description of the type library importing process, see [Type Library to Assembly Conversion Summary](http://msdn.microsoft.com/en-us/bf3f90c5-4770-4ab8-895c-3ba1055cc958)."
+  summary: "Indica que o assembly atribuído é um assembly de interoperabilidade primário."
+  remarks: "Você pode aplicar esse atributo para assemblies, embora o [Tlbimp.exe (importador da biblioteca)](~/add/includes/ajax-current-ext-md.md) normalmente aplica para você quando ele importa uma biblioteca de tipos.       Um assembly de interoperabilidade contém metadados que descrevem os tipos COM existente, o que geralmente já são descritos em uma biblioteca de tipos COM. Tlbimp.exe produz assemblies de interoperabilidade de bibliotecas de tipos COM. Assemblies de interoperabilidade normalmente só contêm metadados (sem código). Assemblies de interoperabilidade primários são fornecidos pelo mesmo publicador como a biblioteca de tipos que descrevem e fornecem as definições oficiais dos tipos definidos com esse tipo de biblioteca. Assemblies de interoperabilidade primários sempre são assinados por seu fornecedor para garantir a exclusividade.       Você pode gerar um assembly de interoperabilidade primária de uma biblioteca de tipos das seguintes maneiras:-TlbImp.exe executar com o `/primary` opção da linha de comando.      -Se aplicam a PrimaryInteropAssemblyAttribute em tempo de design.       Para especificar um assembly de interoperabilidade primária em código gerenciado, você deve aplicar o <xref:System.Runtime.InteropServices.GuidAttribute?displayProperty=fullName>e PrimaryInteropAssemblyAttribute para o assembly em tempo de design.</xref:System.Runtime.InteropServices.GuidAttribute?displayProperty=fullName> O <xref:System.Runtime.InteropServices.GuidAttribute>no primário assembly de interoperabilidade identifica a ID da biblioteca do tipo de biblioteca e o PrimaryInteropAssemblyAttribute identifica a versão da biblioteca de tipo específico para o qual este assembly é o assembly de interoperabilidade primária.</xref:System.Runtime.InteropServices.GuidAttribute> O PrimaryInteropAssemblyAttribute pode aparecer várias vezes se o assembly é o assembly de interoperabilidade primária para várias versões do mesmo tipo de biblioteca.       Ao usar os tipos definidos em uma biblioteca de tipos, sempre faça referência o assembly de interoperabilidade primária para essa biblioteca de tipos, em vez de reimportação ou redefinindo próprios tipos. Para obter diretrizes e procedimentos sobre como gerar ou usar assemblies de interoperabilidade primários, consulte [Assemblies de interoperabilidade primários](http://msdn.microsoft.com/en-us/b977a8be-59a0-40a0-a806-b11ffba5c080). Para obter uma descrição detalhada do processo de importação de biblioteca de tipos, consulte [biblioteca de tipos para o resumo da conversão de Assembly](http://msdn.microsoft.com/en-us/bf3f90c5-4770-4ab8-895c-3ba1055cc958)."
   syntax:
     content: >-
       [System.AttributeUsage(System.AttributeTargets.Assembly, AllowMultiple=true, Inherited=false)]
@@ -39,17 +39,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute&quot;></xref> class with the major and minor version numbers of the type library for which this assembly is the primary interop assembly."
-  remarks: "The <xref:System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute> can appear multiple times if the assembly is the primary interop assembly for multiple versions of the same type library."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute&quot;> </xref> classe com os números de versão primária e secundária da biblioteca de tipos para o qual este assembly é o assembly de interoperabilidade primário."
+  remarks: "O <xref:System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute>pode aparecer várias vezes se o assembly é o assembly de interoperabilidade primária para várias versões do mesmo tipo de biblioteca.</xref:System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute>"
   syntax:
     content: public PrimaryInteropAssemblyAttribute (int major, int minor);
     parameters:
     - id: major
       type: System.Int32
-      description: "The major version of the type library for which this assembly is the primary interop assembly."
+      description: "A versão principal da biblioteca de tipos para o qual este assembly é o assembly de interoperabilidade primário."
     - id: minor
       type: System.Int32
-      description: "The minor version of the type library for which this assembly is the primary interop assembly."
+      description: "A versão secundária da biblioteca de tipos para o qual este assembly é o assembly de interoperabilidade primário."
   overload: System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute.#ctor*
   exceptions: []
   platform:
@@ -66,12 +66,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Gets the major version number of the type library for which this assembly is the primary interop assembly."
+  summary: "Obtém o número de versão principal da biblioteca de tipos para o qual este assembly é o assembly de interoperabilidade primário."
   syntax:
     content: public int MajorVersion { get; }
     return:
       type: System.Int32
-      description: "The major version number of the type library for which this assembly is the primary interop assembly."
+      description: "O número de versão principal da biblioteca de tipos para o qual este assembly é o assembly de interoperabilidade primário."
   overload: System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute.MajorVersion*
   exceptions: []
   platform:
@@ -88,12 +88,12 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.InteropServices
-  summary: "Gets the minor version number of the type library for which this assembly is the primary interop assembly."
+  summary: "Obtém o número de versão secundária da biblioteca de tipos para o qual este assembly é o assembly de interoperabilidade primário."
   syntax:
     content: public int MinorVersion { get; }
     return:
       type: System.Int32
-      description: "The minor version number of the type library for which this assembly is the primary interop assembly."
+      description: "O número de versão secundária da biblioteca de tipos para o qual este assembly é o assembly de interoperabilidade primário."
   overload: System.Runtime.InteropServices.PrimaryInteropAssemblyAttribute.MinorVersion*
   exceptions: []
   platform:

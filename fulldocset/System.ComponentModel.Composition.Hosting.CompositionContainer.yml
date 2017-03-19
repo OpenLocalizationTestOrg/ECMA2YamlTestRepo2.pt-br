@@ -27,7 +27,7 @@ items:
   nameWithType: CompositionContainer
   fullName: System.ComponentModel.Composition.Hosting.CompositionContainer
   type: Class
-  summary: "Manages the composition of parts."
+  summary: "Gerencia a composição de partes."
   remarks: "A CompositionContainer object serves two major purposes in an application. First, it keeps track of which parts are available for composition and what their dependencies are, and performs composition whenever the set of available parts changes. Second, it provides the methods by which the application gets instances of composed parts or fills the dependencies of a composable part.  \n  \n> [!IMPORTANT]\n>  This type implements the <xref:System.IDisposable> interface. When you have finished using the type, you should dispose of it either directly or indirectly. To dispose of the type directly, call its <xref:System.IDisposable.Dispose%2A> method in a `try`/`catch` block. To dispose of it indirectly, use a language construct such as `using` (in C#) or `Using` (in Visual Basic). For more information, see the “Using an Object that Implements IDisposable” section in the <xref:System.IDisposable> interface topic.  \n  \n Parts can be made available to the container either directly or through the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Catalog%2A> property. All the parts discoverable in this <xref:System.ComponentModel.Composition.Primitives.ComposablePartCatalog> are available to the container to fulfill imports, along with any parts added directly.  \n  \n The <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Compose%2A> method allows instantiated parts to be added to an existing container. Assuming composition is successful, these parts will have their imports filled with parts retrieved from the container, and their exports will be available to other parts. Imports marked as recomposable will be registered for recomposition.  \n  \n The <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.SatisfyImportsOnce%2A> method allows a part to have its imports filled without being added to the container. If the composition is successful, the part's imports will be filled, but the part's exports will not be available to other parts and no imports will be registered for recomposition.  \n  \n CompositionContainer objects should always be disposed. When the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Dispose%2A> method is called, the CompositionContainer object also disposes all the parts that it has created.  \n  \n A CompositionContainer object that can be accessed from multiple threads must be constructed with the `isThreadSafe` parameter set to `true`, using the [CompositionContainer(ComposablePartCatalog, Boolean, ExportProvider\\[\\])](assetId:///M:System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor(System.ComponentModel.Composition.Primitives.ComposablePartCatalog,System.Boolean,System.ComponentModel.Composition.Hosting.ExportProvider[])?qualifyHint=False&autoUpgrade=False) constructor. Performance will be slightly slower when `isThreadSafe` is `true`, so we recommend that you set this parameter to `false` in single-threaded scenarios. The default is `false`.  \n  \n> [!WARNING]\n>  A CompositionContainer should never import itself, or a part that has a reference to it. Such a reference could allow an untrusted part to gain access all the parts in the container."
   example:
   - "In the following example, a CompositionContainer object is initialized with a catalog and is used to fill the imports of a part. This example uses the Attributed Programming Model.  \n  \n [!code-cs[Composition.CompositionContainer#1](~/add/codesnippet/csharp/composition.compositioncontainer.consoleapplication1/program.cs#1)]\n [!code-vb[Composition.CompositionContainer#1](~/add/codesnippet/visualbasic/compositioncontainerexample/module1.vb#1)]"
@@ -76,7 +76,7 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> classe."
   syntax:
     content: public CompositionContainer ();
     parameters: []
@@ -96,18 +96,18 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> class with the specified export providers."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> classe com os provedores de exportação especificado."
   syntax:
     content: public CompositionContainer (System.ComponentModel.Composition.Hosting.ExportProvider[] providers);
     parameters:
     - id: providers
       type: System.ComponentModel.Composition.Hosting.ExportProvider[]
-      description: "An array of <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;></xref> objects that provide the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> access to <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to set <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*> to an empty &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;."
+      description: "Uma matriz de <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;> </xref> objetos que fornecem o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> acesso <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> para definir <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>para vazio &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>"
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>providers</code> contains an element that is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>providers</code>contém um elemento que é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor(System.ComponentModel.Composition.Hosting.CompositionOptions,System.ComponentModel.Composition.Hosting.ExportProvider[])
@@ -122,21 +122,21 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> class with the specified export providers and options."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> classe com as opções e os provedores de exportação especificado."
   syntax:
     content: public CompositionContainer (System.ComponentModel.Composition.Hosting.CompositionOptions compositionOptions, System.ComponentModel.Composition.Hosting.ExportProvider[] providers);
     parameters:
     - id: compositionOptions
       type: System.ComponentModel.Composition.Hosting.CompositionOptions
-      description: "An object that specifies the behavior of this container."
+      description: "Um objeto que especifica o comportamento desse contêiner."
     - id: providers
       type: System.ComponentModel.Composition.Hosting.ExportProvider[]
-      description: "An array of <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;></xref> objects that provide the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> access to <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to set <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*> to an empty &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;."
+      description: "Uma matriz de <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;> </xref> objetos que fornecem o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> acesso <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> para definir <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>para vazio &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>"
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>providers</code> contains an element that is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>providers</code>contém um elemento que é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor(System.ComponentModel.Composition.Primitives.ComposablePartCatalog,System.ComponentModel.Composition.Hosting.ExportProvider[])
@@ -151,21 +151,21 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> class with the specified catalog and export providers."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> classe com o catálogo especificado e provedores de exportação."
   syntax:
     content: public CompositionContainer (System.ComponentModel.Composition.Primitives.ComposablePartCatalog catalog, System.ComponentModel.Composition.Hosting.ExportProvider[] providers);
     parameters:
     - id: catalog
       type: System.ComponentModel.Composition.Primitives.ComposablePartCatalog
-      description: "A catalog that provides <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects to the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref>."
+      description: "Um catálogo que fornece <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos para o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref>."
     - id: providers
       type: System.ComponentModel.Composition.Hosting.ExportProvider[]
-      description: "An array of <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;></xref> objects that provide the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> access to <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to set <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*> to an empty &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;."
+      description: "Uma matriz de <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;> </xref> objetos que fornecem o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> acesso <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> para definir <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>para vazio &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>"
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>providers</code> contains an element that is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>providers</code>contém um elemento que é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor(System.ComponentModel.Composition.Primitives.ComposablePartCatalog,System.Boolean,System.ComponentModel.Composition.Hosting.ExportProvider[])
@@ -180,25 +180,25 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> class with the specified catalog, thread-safe mode, and export providers."
-  remarks: "A <xref:System.ComponentModel.Composition.Hosting.CompositionContainer> object that can be accessed from multiple threads must set the `isThreadSafe` parameter to `true`. Performance will be slightly slower when `isThreadSafe` is `true`, so we recommend that you set this parameter to `false` in single-threaded scenarios. The default is `false`."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> classe com o catálogo especificado, o modo de thread-safe e provedores de exportação."
+  remarks: "Um <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>objeto que pode ser acessado por vários threads deve definir o `isThreadSafe` parâmetro para `true`.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer> O desempenho será um pouco mais lento quando `isThreadSafe` é `true`, portanto, é recomendável que você defina esse parâmetro para `false` em cenários de thread único. O padrão é `false`."
   syntax:
     content: public CompositionContainer (System.ComponentModel.Composition.Primitives.ComposablePartCatalog catalog, bool isThreadSafe, System.ComponentModel.Composition.Hosting.ExportProvider[] providers);
     parameters:
     - id: catalog
       type: System.ComponentModel.Composition.Primitives.ComposablePartCatalog
-      description: "A catalog that provides <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects to the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref>."
+      description: "Um catálogo que fornece <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos para o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref>."
     - id: isThreadSafe
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> object must be thread-safe; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> objeto deve ser thread-safe; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: providers
       type: System.ComponentModel.Composition.Hosting.ExportProvider[]
-      description: "An array of <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;></xref> objects that provide the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> access to <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to set the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*> property to an empty &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;."
+      description: "Uma matriz de <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;> </xref> objetos que fornecem o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> acesso <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> para definir o <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>propriedade vazio &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>"
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One or more elements of <code>providers</code> are <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "Um ou mais elementos de <code> providers </code> são <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor(System.ComponentModel.Composition.Primitives.ComposablePartCatalog,System.ComponentModel.Composition.Hosting.CompositionOptions,System.ComponentModel.Composition.Hosting.ExportProvider[])
@@ -213,24 +213,24 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Initializes a new instance of the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> class with the specified catalog, options, and export providers."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> classe com o catálogo especificado, opções e provedores de exportação."
   syntax:
     content: public CompositionContainer (System.ComponentModel.Composition.Primitives.ComposablePartCatalog catalog, System.ComponentModel.Composition.Hosting.CompositionOptions compositionOptions, System.ComponentModel.Composition.Hosting.ExportProvider[] providers);
     parameters:
     - id: catalog
       type: System.ComponentModel.Composition.Primitives.ComposablePartCatalog
-      description: "A catalog that provides <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects to the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref>."
+      description: "Um catálogo que fornece <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos para o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref>."
     - id: compositionOptions
       type: System.ComponentModel.Composition.Hosting.CompositionOptions
-      description: "An object that specifies options that affect the behavior of the container."
+      description: "Um objeto que especifica as opções que afetam o comportamento do contêiner."
     - id: providers
       type: System.ComponentModel.Composition.Hosting.ExportProvider[]
-      description: "An array of <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;></xref> objects that provide the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> access to <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to set <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*> to an empty &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;."
+      description: "Uma matriz de <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;> </xref> objetos que fornecem o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> acesso <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> para definir <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>para vazio &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*>"
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>providers</code> contains an element that is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>providers</code>contém um elemento que é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Composition.Hosting.CompositionContainer.Catalog
@@ -245,17 +245,17 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Gets the <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePartCatalog&quot;></xref> that provides the container access to <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects."
+  summary: "Obtém o <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePartCatalog&quot;> </xref> que fornece o acesso ao contêiner para <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos."
   syntax:
     content: public System.ComponentModel.Composition.Primitives.ComposablePartCatalog Catalog { get; }
     return:
       type: System.ComponentModel.Composition.Primitives.ComposablePartCatalog
-      description: "The catalog that provides the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> access to exports produced from <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;></xref> objects. The default is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "O catálogo que fornece o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> acesso para exportações produzidos de <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;> </xref> objetos. O padrão é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.Catalog*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> object has been disposed of."
+    description: "O <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> objeto foi descartado."
   platform:
   - net462
 - uid: System.ComponentModel.Composition.Hosting.CompositionContainer.Compose(System.ComponentModel.Composition.Hosting.CompositionBatch)
@@ -270,8 +270,8 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Adds or removes the parts in the specified <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionBatch&quot;></xref> from the container and executes composition."
-  remarks: "This method is the primary way of directly adding or removing parts from the container. The <xref:System.ComponentModel.Composition.Hosting.CompositionContainer> will always maintain a stable, composed state. Therefore, calling Compose with an empty <xref:System.ComponentModel.Composition.Hosting.CompositionBatch> is never necessary to start composition. Instead, call the Compose method whenever you need to make changes to the parts available to the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>.       The <xref:System.ComponentModel.Composition.Hosting.CompositionBatch> can contain both parts to be added and parts to be removed.  Recomposition will take place only once for each call to Compose."
+  summary: "Adiciona ou remove as partes do <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionBatch&quot;> </xref> do contêiner e executa a composição."
+  remarks: "Esse método é a principal maneira de adicionar ou remover partes do contêiner de diretamente. O <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>sempre mantém um estado estável, composto.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer> Portanto, chamando Redigir com vazio <xref:System.ComponentModel.Composition.Hosting.CompositionBatch>nunca é necessária para iniciar a composição.</xref:System.ComponentModel.Composition.Hosting.CompositionBatch> Em vez disso, chame o método de redação sempre que precisar fazer alterações às partes disponíveis para <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer>       O <xref:System.ComponentModel.Composition.Hosting.CompositionBatch>pode conter partes a serem adicionados e partes a ser removido.</xref:System.ComponentModel.Composition.Hosting.CompositionBatch>  Recomposition ocorrerá apenas uma vez para cada chamada de Compose."
   example:
   - "In this simple example, three parts are created and added to the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>, and one part is retrieved to show that all imports have been filled. This example uses the Attributed Programming Model.  \n  \n [!code-vb[Composition.CompositionContainer.Compose#1](~/add/codesnippet/visualbasic/consoleapplication6/module1.vb#1)]\n [!code-cs[Composition.CompositionContainer.Compose#1](~/add/codesnippet/csharp/consoleapplication5/program.cs#1)]"
   syntax:
@@ -279,7 +279,7 @@ items:
     parameters:
     - id: batch
       type: System.ComponentModel.Composition.Hosting.CompositionBatch
-      description: "Changes to the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> to include during the composition."
+      description: "Altera para o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> para serem incluídos durante a composição."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.Compose*
   exceptions: []
   platform:
@@ -296,8 +296,8 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Releases all resources used by the current instance of the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> class."
-  remarks: "Call `Dispose` when you are finished using the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>. The `Dispose` method leaves the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer> in an unusable state. After calling `Dispose`, you must release all references to the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer> so the garbage collector can reclaim the memory that the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer> was occupying.       For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call `Dispose` before you release your last reference to the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer> object&quot;s `Finalize` method."
+  summary: "Libera todos os recursos usados pela instância atual do <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> classe."
+  remarks: "Chamar `Dispose` quando terminar de usar o <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer> O `Dispose` método deixa o <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>em um estado inutilizável.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer> Depois de chamar `Dispose`, você deve liberar todas as referências para o <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>para o coletor de lixo possa recuperar a memória que o <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>estava ocupando.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer> </xref:System.ComponentModel.Composition.Hosting.CompositionContainer>       Para obter mais informações, consulte [limpeza de recursos não gerenciados](~/add/includes/ajax-current-ext-md.md) e [implementar um método Dispose](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Sempre chamada `Dispose` antes de liberar sua última referência a <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer> Caso contrário, os recursos que está usando não serão liberados até que o coletor de lixo chame o <xref:System.ComponentModel.Composition.Hosting.CompositionContainer>do objeto `Finalize` método.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -317,13 +317,13 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> and optionally releases the managed resources."
+  summary: "Libera os recursos não gerenciados usados pelo <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> e, opcionalmente, libera os recursos gerenciados."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para liberar recursos gerenciados e não gerenciados; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> para liberar apenas recursos não gerenciados."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.Dispose*
   exceptions: []
   platform:
@@ -340,20 +340,20 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Returns a collection of all exports that match the conditions in the specified <xref href=&quot;System.ComponentModel.Composition.Primitives.ImportDefinition&quot;></xref> object."
-  remarks: "Implementations should not treat cardinality-related mismatches as errors and should not throw exceptions for cardinality-related mismatches. For example, if the import requests exactly one export and the provider has either no matching exports or more than one, the GetExportsCore method should return an empty <xref:System.Collections.Generic.IEnumerable%601> collection of <xref:System.ComponentModel.Composition.Primitives.Export> objects."
+  summary: "Retorna uma coleção de todas as exportações que correspondem às condições do <xref href=&quot;System.ComponentModel.Composition.Primitives.ImportDefinition&quot;> </xref> objeto."
+  remarks: "Implementações não devem tratar incompatibilidades de cardinalidade como erros e não devem lançar exceções para incompatibilidades de cardinalidade. Por exemplo, se a importação solicita exatamente uma exportação e o provedor tem nenhum exportações de correspondência ou em mais de um, o método GetExportsCore deve retornar vazio <xref:System.Collections.Generic.IEnumerable%601>coleção de <xref:System.ComponentModel.Composition.Primitives.Export>objetos.</xref:System.ComponentModel.Composition.Primitives.Export> </xref:System.Collections.Generic.IEnumerable%601>"
   syntax:
     content: protected override System.Collections.Generic.IEnumerable<System.ComponentModel.Composition.Primitives.Export> GetExportsCore (System.ComponentModel.Composition.Primitives.ImportDefinition definition, System.ComponentModel.Composition.Hosting.AtomicComposition atomicComposition);
     parameters:
     - id: definition
       type: System.ComponentModel.Composition.Primitives.ImportDefinition
-      description: "The object that defines the conditions of the <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects to get."
+      description: "O objeto que define as condições do <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos a obter."
     - id: atomicComposition
       type: System.ComponentModel.Composition.Hosting.AtomicComposition
-      description: "The composition transaction to use, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> to disable transactional composition."
+      description: "A transação de composição para usar, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> para desabilitar a composição transacional."
     return:
       type: System.Collections.Generic.IEnumerable{System.ComponentModel.Composition.Primitives.Export}
-      description: "A collection of all the <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects in this <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> object that match the conditions specified by <code>definition</code>."
+      description: "Uma coleção de todos os <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos nesta <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> que correspondem às condições especificadas pelo objeto <code> definition </code>."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.GetExportsCore*
   exceptions: []
   platform:
@@ -370,17 +370,17 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Gets the export providers that provide the container access to additional <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePartCatalog&quot;></xref> objects."
+  summary: "Obtém os provedores de exportação que fornecem acesso a contêiner a adicionais <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePartCatalog&quot;> </xref> objetos."
   syntax:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.ComponentModel.Composition.Hosting.ExportProvider> Providers { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.ComponentModel.Composition.Hosting.ExportProvider}
-      description: "A collection of <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;></xref> objects that provide the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> access to additional <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects. The default is an empty &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;."
+      description: "Uma coleção de <xref href=&quot;System.ComponentModel.Composition.Hosting.ExportProvider&quot;> </xref> objetos que fornecem o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> acesso a mais <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos. O padrão é vazio &lt;xref:System.Collections.ObjectModel.ReadOnlyCollection%601&gt;."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.Providers*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> has been disposed of."
+    description: "O <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> foi descartado."
   platform:
   - net462
 - uid: System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExport(System.ComponentModel.Composition.Primitives.Export)
@@ -395,19 +395,19 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Releases the specified <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> object from the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref>."
-  remarks: "The behavior of this method may vary depending on the implementation of the <xref:System.ComponentModel.Composition.Hosting.ExportProvider> that produced the <xref:System.ComponentModel.Composition.Primitives.Export> instance. As a rule, non-shared exports should be detached from the container.       For example, the <xref:System.ComponentModel.Composition.Hosting.CatalogExportProvider> will only release an <xref:System.ComponentModel.Composition.Primitives.Export> if it comes from a <xref:System.ComponentModel.Composition.Primitives.ComposablePart> that was constructed under a <xref:System.ComponentModel.Composition.CreationPolicy> context. Release in this context means walking the dependency chain of the <xref:System.ComponentModel.Composition.Primitives.Export> objects, detaching references from the container and calling `Dispose` on the <xref:System.ComponentModel.Composition.Primitives.ComposablePart> objects as needed. If the <xref:System.ComponentModel.Composition.Primitives.Export> was constructed under a <xref:System.ComponentModel.Composition.CreationPolicy> context the <xref:System.ComponentModel.Composition.Hosting.CatalogExportProvider> will do nothing, as the specified <xref:System.ComponentModel.Composition.Primitives.Export> may being used by other requestors. Those will only be detached when the container is itself disposed."
+  summary: "Libera especificado <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> de objeto o <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref>."
+  remarks: "O comportamento desse método pode variar dependendo da implementação do <xref:System.ComponentModel.Composition.Hosting.ExportProvider>que produziu o <xref:System.ComponentModel.Composition.Primitives.Export>instância.</xref:System.ComponentModel.Composition.Primitives.Export> </xref:System.ComponentModel.Composition.Hosting.ExportProvider> Como regra, exportações não compartilhado devem ser desanexadas do contêiner.       Por exemplo, o <xref:System.ComponentModel.Composition.Hosting.CatalogExportProvider>será apenas a versão um <xref:System.ComponentModel.Composition.Primitives.Export>se se trata de um <xref:System.ComponentModel.Composition.Primitives.ComposablePart>que foi construída em uma <xref:System.ComponentModel.Composition.CreationPolicy>contexto.</xref:System.ComponentModel.Composition.CreationPolicy> </xref:System.ComponentModel.Composition.Primitives.ComposablePart> </xref:System.ComponentModel.Composition.Primitives.Export> </xref:System.ComponentModel.Composition.Hosting.CatalogExportProvider> Versão neste contexto significa percorrer a cadeia de dependência da <xref:System.ComponentModel.Composition.Primitives.Export>objetos, referências do contêiner e chamar a desanexação `Dispose` no <xref:System.ComponentModel.Composition.Primitives.ComposablePart>objetos conforme necessário.</xref:System.ComponentModel.Composition.Primitives.ComposablePart> </xref:System.ComponentModel.Composition.Primitives.Export> Se o <xref:System.ComponentModel.Composition.Primitives.Export>foi construído em uma <xref:System.ComponentModel.Composition.CreationPolicy>contexto a <xref:System.ComponentModel.Composition.Hosting.CatalogExportProvider>não fará nada, como especificado <xref:System.ComponentModel.Composition.Primitives.Export>maio sendo usado por outros solicitantes.</xref:System.ComponentModel.Composition.Primitives.Export> </xref:System.ComponentModel.Composition.Hosting.CatalogExportProvider> </xref:System.ComponentModel.Composition.CreationPolicy> </xref:System.ComponentModel.Composition.Primitives.Export> Aqueles só serão desanexados quando o contêiner é descartado."
   syntax:
     content: public void ReleaseExport (System.ComponentModel.Composition.Primitives.Export export);
     parameters:
     - id: export
       type: System.ComponentModel.Composition.Primitives.Export
-      description: "The <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> that needs to be released."
+      description: "O <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> que precisa ser liberado."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExport*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>export</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>export</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExport``1(System.Lazy{``0})
@@ -427,7 +427,7 @@ items:
     parameters:
     - id: export
       type: System.Lazy{T}
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExport<T>*
   exceptions: []
   platform:
@@ -444,22 +444,22 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Releases a set of <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects from the <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref>."
-  remarks: "The behavior of this method may vary depending on the context in which the <xref:System.ComponentModel.Composition.Primitives.Export> was constructed. For more information, see the <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExport%2A> method."
+  summary: "Libera um conjunto de <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> de objetos a partir de <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref>."
+  remarks: "O comportamento desse método pode variar dependendo do contexto no qual o <xref:System.ComponentModel.Composition.Primitives.Export>foi construído.</xref:System.ComponentModel.Composition.Primitives.Export> Para obter mais informações, consulte o <xref:System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExport%2A>método.</xref:System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExport%2A>"
   syntax:
     content: public void ReleaseExports (System.Collections.Generic.IEnumerable<System.ComponentModel.Composition.Primitives.Export> exports);
     parameters:
     - id: exports
       type: System.Collections.Generic.IEnumerable{System.ComponentModel.Composition.Primitives.Export}
-      description: "A collection of <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;></xref> objects to be released."
+      description: "Uma coleção de <xref href=&quot;System.ComponentModel.Composition.Primitives.Export&quot;> </xref> objetos sejam liberados."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExports*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>exports</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>exports</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>exports</code> contains an element that is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>exports</code>contém um elemento que é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExports``1(System.Collections.Generic.IEnumerable{System.Lazy{``0}})
@@ -479,7 +479,7 @@ items:
     parameters:
     - id: exports
       type: System.Collections.Generic.IEnumerable{System.Lazy{T}}
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExports<T>*
   exceptions: []
   platform:
@@ -501,7 +501,7 @@ items:
     parameters:
     - id: exports
       type: System.Collections.Generic.IEnumerable{System.Lazy{T,TMetadataView}}
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.ReleaseExports<T,TMetadataView>*
   exceptions: []
   platform:
@@ -518,24 +518,24 @@ items:
   assemblies:
   - System.ComponentModel.Composition
   namespace: System.ComponentModel.Composition.Hosting
-  summary: "Satisfies the imports of the specified <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;></xref> object without registering it for recomposition."
+  summary: "Satisfaz as importações do <xref href=&quot;System.ComponentModel.Composition.Primitives.ComposablePart&quot;> </xref> objeto sem registrá-lo para recomposition."
   syntax:
     content: public void SatisfyImportsOnce (System.ComponentModel.Composition.Primitives.ComposablePart part);
     parameters:
     - id: part
       type: System.ComponentModel.Composition.Primitives.ComposablePart
-      description: "The part to satisfy the imports of."
+      description: "A parte para atender as importações de."
   overload: System.ComponentModel.Composition.Hosting.CompositionContainer.SatisfyImportsOnce*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;></xref> object has been disposed of."
+    description: "O <xref href=&quot;System.ComponentModel.Composition.Hosting.CompositionContainer&quot;> </xref> objeto foi descartado."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>part</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>part</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.Composition.CompositionException
     commentId: T:System.ComponentModel.Composition.CompositionException
-    description: "An error occurred during composition. <xref:System.ComponentModel.Composition.CompositionException.Errors*> will contain a collection of the errors that occurred."
+    description: "Ocorreu um erro durante a composição. <xref:System.ComponentModel.Composition.CompositionException.Errors*>contém uma coleção dos erros ocorridos.</xref:System.ComponentModel.Composition.CompositionException.Errors*>"
   platform:
   - net462
 references:

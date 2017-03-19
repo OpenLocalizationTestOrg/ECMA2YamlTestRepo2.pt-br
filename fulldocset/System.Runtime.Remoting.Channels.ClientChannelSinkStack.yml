@@ -16,8 +16,8 @@ items:
   nameWithType: ClientChannelSinkStack
   fullName: System.Runtime.Remoting.Channels.ClientChannelSinkStack
   type: Class
-  summary: "Holds the stack of client channel sinks that must be invoked during an asynchronous message response decoding."
-  remarks: "This class makes a link demand. A security exception is thrown if the immediate caller does not have infrastructure permission. See [Link Demands](~/add/includes/ajax-current-ext-md.md) for more information."
+  summary: "Contém a pilha do cliente de Coletores de canal que devem ser invocados durante uma decodificação de resposta de mensagens assíncronas."
+  remarks: "Essa classe faz uma demanda de link. Uma exceção de segurança é gerada se o chamador imediato não tem permissão de infraestrutura. Consulte [demandas de Link](~/add/includes/ajax-current-ext-md.md) para obter mais informações."
   syntax:
     content: >-
       [System.Runtime.InteropServices.ComVisible(true)]
@@ -44,7 +44,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Remoting.Channels.ClientChannelSinkStack&quot;></xref> class with default values."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Runtime.Remoting.Channels.ClientChannelSinkStack&quot;> </xref> classe com valores padrão."
   syntax:
     content: public ClientChannelSinkStack ();
     parameters: []
@@ -64,13 +64,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Initializes a new instance of the <xref href=&quot;System.Runtime.Remoting.Channels.ClientChannelSinkStack&quot;></xref> class with the specified reply sink."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Runtime.Remoting.Channels.ClientChannelSinkStack&quot;> </xref> classe com o coletor de resposta especificado."
   syntax:
     content: public ClientChannelSinkStack (System.Runtime.Remoting.Messaging.IMessageSink replySink);
     parameters:
     - id: replySink
       type: System.Runtime.Remoting.Messaging.IMessageSink
-      description: "The <xref href=&quot;System.Runtime.Remoting.Messaging.IMessageSink&quot;></xref> that the current stack can use to reply to messages."
+      description: "O <xref href=&quot;System.Runtime.Remoting.Messaging.IMessageSink&quot;> </xref> que a pilha atual pode usar para responder a mensagens."
   overload: System.Runtime.Remoting.Channels.ClientChannelSinkStack.#ctor*
   exceptions: []
   platform:
@@ -87,22 +87,22 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Requests asynchronous processing of a method call on the sinks that are in the current sink stack."
-  remarks: "The AsyncProcessResponse method initializes asynchronous processing on the top sink in the current sink stack. For additional information, see <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A?displayProperty=fullName>."
+  summary: "Solicitações assíncronas de processamento de um método de chamar os coletores que estão na pilha do coletor atual."
+  remarks: "O método AsyncProcessResponse inicia o processamento assíncrono no coletor superior na pilha do coletor atual. Para obter mais informações, consulte <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A?displayProperty=fullName>.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A?displayProperty=fullName>"
   syntax:
     content: public void AsyncProcessResponse (System.Runtime.Remoting.Channels.ITransportHeaders headers, System.IO.Stream stream);
     parameters:
     - id: headers
       type: System.Runtime.Remoting.Channels.ITransportHeaders
-      description: "The headers that are retrieved from the server response stream."
+      description: "Os cabeçalhos que são recuperados do fluxo de resposta do servidor."
     - id: stream
       type: System.IO.Stream
-      description: "The stream that is returning from the transport sink."
+      description: "O fluxo que está retornando do coletor de transporte."
   overload: System.Runtime.Remoting.Channels.ClientChannelSinkStack.AsyncProcessResponse*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The current sink stack is empty."
+    description: "A pilha de coletor atual está vazia."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ClientChannelSinkStack.DispatchException(System.Exception)
@@ -117,14 +117,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Dispatches the specified exception on the reply sink."
-  remarks: "The DispatchException method dispatches the specified exception to the server through the reply sink that is specified in the constructor of the current sink stack. If the current sink stack was created without a reply sink, the exception is not transmitted, and no new exception is thrown."
+  summary: "Envia a exceção especificada no coletor de resposta."
+  remarks: "O método DispatchException envia a exceção especificada com o servidor usando o coletor de resposta especificado no construtor de pilha do coletor atual. Se a pilha do coletor atual foi criada sem um coletor de resposta, a exceção não é transmitida e nenhuma nova exceção é lançada."
   syntax:
     content: public void DispatchException (Exception e);
     parameters:
     - id: e
       type: System.Exception
-      description: "The exception to dispatch to the server."
+      description: "A exceção para enviar ao servidor."
   overload: System.Runtime.Remoting.Channels.ClientChannelSinkStack.DispatchException*
   exceptions: []
   platform:
@@ -141,14 +141,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Dispatches the specified reply message on the reply sink."
-  remarks: "The DispatchReplyMessage method dispatches the specified message to the server through the reply sink that is specified in the constructor of the current sink stack. If the current sink stack was created without a reply sink, the message is not transmitted, and no new exception is thrown."
+  summary: "Envia a mensagem de resposta especificado no coletor de resposta."
+  remarks: "O método DispatchReplyMessage envia a mensagem especificada com o servidor usando o coletor de resposta especificado no construtor de pilha do coletor atual. Se a pilha do coletor atual foi criada sem um coletor de resposta, a mensagem não é transmitida e nenhuma nova exceção é lançada."
   syntax:
     content: public void DispatchReplyMessage (System.Runtime.Remoting.Messaging.IMessage msg);
     parameters:
     - id: msg
       type: System.Runtime.Remoting.Messaging.IMessage
-      description: "The <xref href=&quot;System.Runtime.Remoting.Messaging.IMessage&quot;></xref> to dispatch."
+      description: "O <xref href=&quot;System.Runtime.Remoting.Messaging.IMessage&quot;> </xref> para expedição."
   overload: System.Runtime.Remoting.Channels.ClientChannelSinkStack.DispatchReplyMessage*
   exceptions: []
   platform:
@@ -165,21 +165,21 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pops the information that is associated with all the sinks from the sink stack up to and including the specified sink."
+  summary: "Exibe as informações que está associadas a todos os coletores de pilha do coletor até e incluindo o coletor especificado."
   syntax:
     content: public object Pop (System.Runtime.Remoting.Channels.IClientChannelSink sink);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IClientChannelSink
-      description: "The sink to remove and return from the sink stack."
+      description: "O coletor remover e retornar da pilha de coletor."
     return:
       type: System.Object
-      description: "Information generated on the request side and associated with the specified sink."
+      description: "Informações geradas no lado de solicitação e associado com o coletor especificado."
   overload: System.Runtime.Remoting.Channels.ClientChannelSinkStack.Pop*
   exceptions:
   - type: System.Runtime.Remoting.RemotingException
     commentId: T:System.Runtime.Remoting.RemotingException
-    description: "The current sink stack is empty, or the specified sink was never pushed onto the current stack."
+    description: "A pilha de coletor atual está vazia ou o coletor especificado nunca foi inserido na pilha atual."
   platform:
   - net462
 - uid: System.Runtime.Remoting.Channels.ClientChannelSinkStack.Push(System.Runtime.Remoting.Channels.IClientChannelSink,System.Object)
@@ -194,17 +194,17 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Runtime.Remoting.Channels
-  summary: "Pushes the specified sink and information that is associated with it onto the sink stack."
-  remarks: "The information generated on the request side and specified in the `state` parameter is returned in the `state` parameter of the <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A> method on the corresponding sink."
+  summary: "Envia as informações que está associadas a ele para a pilha de coletor e o coletor especificado."
+  remarks: "As informações geradas no lado de solicitação e especificado no `state` parâmetro é retornado no `state` parâmetro do <xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A>método no coletor correspondente.</xref:System.Runtime.Remoting.Channels.IClientChannelSink.AsyncProcessResponse%2A>"
   syntax:
     content: public void Push (System.Runtime.Remoting.Channels.IClientChannelSink sink, object state);
     parameters:
     - id: sink
       type: System.Runtime.Remoting.Channels.IClientChannelSink
-      description: "The sink to push onto the sink stack."
+      description: "O coletor para enviar por push para a pilha de coletor."
     - id: state
       type: System.Object
-      description: "Information generated on the request side that is needed on the response side."
+      description: "Informações geradas no lado de solicitação que é necessária no lado de resposta."
   overload: System.Runtime.Remoting.Channels.ClientChannelSinkStack.Push*
   exceptions: []
   platform:

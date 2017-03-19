@@ -12,8 +12,8 @@ items:
   nameWithType: DictationGrammar
   fullName: System.Speech.Recognition.DictationGrammar
   type: Class
-  summary: "Represents a speech recognition grammar used for free text dictation."
-  remarks: "This class provides applications with a predefined language model that can process spoken user input into text. This class supports both default and custom DictationGrammar objects. For information about selecting a dictation grammar, see the <xref:System.Speech.Recognition.DictationGrammar.%23ctor%28System.String%29> constructor.       By default, the DictationGrammar language model is context free. It does not make use of specific words or word order to identify and interpret audio input. To add context to the dictation grammar, use the <xref:System.Speech.Recognition.DictationGrammar.SetDictationContext%2A> method.      > [!NOTE] >  DictationGrammar objects do not support the <xref:System.Speech.Recognition.Grammar.Priority%2A> property. DictationGrammar throws a <xref:System.NotSupportedException> if <xref:System.Speech.Recognition.Grammar.Priority%2A> is set."
+  summary: "Representa uma gramática de reconhecimento de fala usada para ditado de texto livre."
+  remarks: "Essa classe fornece aplicativos com um modelo de idioma predefinido que pode processar a entrada do usuário falado em texto. Esta classe dá suporte ao padrão e objetos DictationGrammar personalizados. Para obter informações sobre como selecionar uma gramática ditado, consulte o <xref:System.Speech.Recognition.DictationGrammar.%23ctor%28System.String%29>construtor.</xref:System.Speech.Recognition.DictationGrammar.%23ctor%28System.String%29>       Por padrão, o modelo de idioma DictationGrammar é livre de contexto. Não faz uso de palavras específicas ou para identificar e interpretar a entrada de áudio do word. Para adicionar o contexto para a gramática ditado, use o <xref:System.Speech.Recognition.DictationGrammar.SetDictationContext%2A>método.</xref:System.Speech.Recognition.DictationGrammar.SetDictationContext%2A>      > [!NOTE] > Objetos DictationGrammar não dão suporte a <xref:System.Speech.Recognition.Grammar.Priority%2A>propriedade.</xref:System.Speech.Recognition.Grammar.Priority%2A> DictationGrammar lança um <xref:System.NotSupportedException>se <xref:System.Speech.Recognition.Grammar.Priority%2A>está definido.</xref:System.Speech.Recognition.Grammar.Priority%2A> </xref:System.NotSupportedException>"
   example:
   - "The following example creates three dictation grammars, adds them to a new <xref:System.Speech.Recognition.SpeechRecognitionEngine> object, and returns the new object. The first grammar is the default dictation grammar. The second grammar is the spelling dictation grammar. The third grammar is the default dictation grammar that includes a context phrase. The <xref:System.Speech.Recognition.DictationGrammar.SetDictationContext%2A> method is used to associate the context phrase with the dictation grammar after it is loaded to the <xref:System.Speech.Recognition.SpeechRecognitionEngine> object.  \n  \n```c#  \n  \nprivate SpeechRecognitionEngine LoadDictationGrammars()  \n{  \n  \n  // Create a default dictation grammar.  \n  DictationGrammar defaultDictationGrammar = new DictationGrammar();  \n  defaultDictationGrammar.Name = \"default dictation\";  \n  defaultDictationGrammar.Enabled = true;  \n  \n  // Create the spelling dictation grammar.  \n  DictationGrammar spellingDictationGrammar =  \n    new DictationGrammar(\"grammar:dictation#spelling\");  \n  spellingDictationGrammar.Name = \"spelling dictation\";  \n  spellingDictationGrammar.Enabled = true;  \n  \n  // Create the question dictation grammar.  \n  DictationGrammar customDictationGrammar =  \n    new DictationGrammar(\"grammar:dictation\");  \n  customDictationGrammar.Name = \"question dictation\";  \n  customDictationGrammar.Enabled = true;  \n  \n  // Create a SpeechRecognitionEngine object and add the grammars to it.  \n  SpeechRecognitionEngine recoEngine = new SpeechRecognitionEngine();  \n  recoEngine.LoadGrammar(defaultDictationGrammar);  \n  recoEngine.LoadGrammar(spellingDictationGrammar);  \n  recoEngine.LoadGrammar(customDictationGrammar);  \n  \n  // Add a context to customDictationGrammar.  \n  customDictationGrammar.SetDictationContext(\"How do you\", null);  \n  \n  return recoEngine;  \n}  \n  \n```"
   syntax:
@@ -48,8 +48,8 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Initializes a new instance of the <xref href=&quot;System.Speech.Recognition.DictationGrammar&quot;></xref> class for the default dictation grammar provided by Windows Desktop Speech Technology."
-  remarks: "The default dictation grammar emulates standard dictation practices, including punctuation. It does not support the spelling of a word."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Speech.Recognition.DictationGrammar&quot;> </xref> classe para a gramática de ditado padrão fornecida pela tecnologia de fala de área de trabalho do Windows."
+  remarks: "A gramática de ditado padrão emula práticas ditado padrão, inclusive a pontuação. Ele não oferece suporte a ortografia de uma palavra."
   syntax:
     content: public DictationGrammar ();
     parameters: []
@@ -69,14 +69,14 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Initializes a new instance of the <xref href=&quot;System.Speech.Recognition.DictationGrammar&quot;></xref> class with a specific dictation grammar."
-  remarks: "The Speech platform uses a specialized URI syntax to define the custom dictation grammar. The value `grammar:dictation` indicates the default dictation grammar. The value `grammar:dictation#spelling` indicates the spelling dictation grammar."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Speech.Recognition.DictationGrammar&quot;> </xref> classe com uma gramática ditado específico."
+  remarks: "Plataforma de fala usa uma sintaxe especializada do URI para definir a gramática ditado personalizado. O valor `grammar:dictation` indica a gramática de ditado padrão. O valor `grammar:dictation#spelling` indica a gramática de ditado de ortografia."
   syntax:
     content: public DictationGrammar (string topic);
     parameters:
     - id: topic
       type: System.String
-      description: "An XML-compliant Universal Resource Identifier (URI) that specifies the dictation grammar, either `grammar:dictation` or `grammar:dictation#spelling`."
+      description: "Um XML compatível Universal URI (Resource Identifier) que especifica a gramática de ditado ou `grammar:dictation` ou `grammar:dictation#spelling`."
   overload: System.Speech.Recognition.DictationGrammar.#ctor*
   exceptions: []
   platform:
@@ -93,17 +93,17 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Adds a context to a dictation grammar that has been loaded by a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or a <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> object."
-  remarks: "By default, the dictation grammar does not make use of specific words or word order to identify and interpret audio input. When a context is added to a dictation grammar, the recognition engine uses the `precedingText` and `subsequentText` to identify when to interpret speech as dictation.      > [!NOTE] >  A dictation grammar must be loaded by a <xref:System.Speech.Recognition.SpeechRecognizer> or <xref:System.Speech.Recognition.SpeechRecognitionEngine> object before you can use SetDictationContext to add a context.       The following table describes how the recognition engine uses the two parameters to determine when to use the dictation grammar.      |`precedingText`|`subsequentText`|Description|   |---------------------|----------------------|-----------------|   |not `null`|not `null`|The recognition engine uses the terms to bracket possible candidate phrases.|   |`null`|not `null`|The recognition engine uses the `subsequentText` to finish dictation.|   |not `null`|`null`|The recognition engine uses the `precedingText` to start dictation.|   |`null`|`null`|The recognition engine does not use a context when using the dictation grammar.|"
+  summary: "Adiciona um contexto a uma gramática ditado que foi carregada por um <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou um <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> objeto."
+  remarks: "Por padrão, a gramática ditado não fazer uso de palavras específicas ou para identificar e interpretar a entrada de áudio do word. Quando um contexto é adicionado a uma gramática ditado, usa o mecanismo de reconhecimento de `precedingText` e `subsequentText` para identificar quando interpretar fala como ditado.      > [!NOTE] > Uma gramática ditado deve ser carregada por um <xref:System.Speech.Recognition.SpeechRecognizer>ou <xref:System.Speech.Recognition.SpeechRecognitionEngine>antes de usar SetDictationContext para adicionar um contexto de objeto.</xref:System.Speech.Recognition.SpeechRecognitionEngine> </xref:System.Speech.Recognition.SpeechRecognizer>       A tabela a seguir descreve como o mecanismo de reconhecimento usa dois parâmetros para determinar quando usar a gramática ditado.      | `precedingText`|`subsequentText`| Descrição |   |---------------------|----------------------|-----------------|   |not `null`|not `null`| O mecanismo de reconhecimento usa os termos para colchete frases de candidato possível. |   | `null`|not `null`| Usa o mecanismo de reconhecimento de `subsequentText` conclusão ditado. |   |not `null`|`null`| Usa o mecanismo de reconhecimento de `precedingText` Iniciar ditado. |   | `null`|`null`| O mecanismo de reconhecimento não usa um contexto ao usar a gramática ditado. |"
   syntax:
     content: public void SetDictationContext (string precedingText, string subsequentText);
     parameters:
     - id: precedingText
       type: System.String
-      description: "Text that indicates the start of a dictation context."
+      description: "Texto que indica o início de um contexto de ditado."
     - id: subsequentText
       type: System.String
-      description: "Text that indicates the end of a dictation context."
+      description: "Texto que indica o final de um contexto de ditado."
   overload: System.Speech.Recognition.DictationGrammar.SetDictationContext*
   exceptions: []
   platform:

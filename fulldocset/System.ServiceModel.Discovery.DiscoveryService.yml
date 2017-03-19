@@ -16,8 +16,8 @@ items:
   nameWithType: DiscoveryService
   fullName: System.ServiceModel.Discovery.DiscoveryService
   type: Class
-  summary: "An abstract base class used to implement a discovery service."
-  remarks: "When a <xref:System.ServiceModel.Discovery.ServiceDiscoveryBehavior> is added to a service, a default DiscoveryService implementation is used to handle Find and Resolve requests. Extend this class to implement a custom discovery service that has behavior different from the default implementation, such as to reply to Find requests using a custom matching algorithm"
+  summary: "Uma classe base abstrata usada para implementar um serviço de descoberta."
+  remarks: "Quando um <xref:System.ServiceModel.Discovery.ServiceDiscoveryBehavior>é adicionado a um serviço, uma implementação de DiscoveryService padrão é usada para tratar de localizar e resolver as solicitações.</xref:System.ServiceModel.Discovery.ServiceDiscoveryBehavior> Estender a classe para implementar um serviço de detecção personalizada que tem um comportamento diferente da implementação do padrão, como responder a localizar as solicitações usando um algoritmo de correspondência personalizado"
   syntax:
     content: public abstract class DiscoveryService
   inheritance:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;> </xref> classe."
   syntax:
     content: protected DiscoveryService ();
     parameters: []
@@ -58,13 +58,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;></xref> class with the specified <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;></xref>."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;> </xref> classe com especificado <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;> </xref>."
   syntax:
     content: protected DiscoveryService (System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator discoveryMessageSequenceGenerator);
     parameters:
     - id: discoveryMessageSequenceGenerator
       type: System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator
-      description: "The discovery message sequence generator."
+      description: "O gerador de sequência da mensagem de descoberta."
   overload: System.ServiceModel.Discovery.DiscoveryService.#ctor*
   exceptions: []
   platform:
@@ -81,16 +81,16 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;></xref> class with the specified <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;></xref> and duplicate message history length."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ServiceModel.Discovery.DiscoveryService&quot;> </xref> classe com especificado <xref href=&quot;System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator&quot;> </xref> e duplicar o tamanho do histórico de mensagem."
   syntax:
     content: protected DiscoveryService (System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator discoveryMessageSequenceGenerator, int duplicateMessageHistoryLength);
     parameters:
     - id: discoveryMessageSequenceGenerator
       type: System.ServiceModel.Discovery.DiscoveryMessageSequenceGenerator
-      description: "The discovery message sequence generator."
+      description: "O gerador de sequência da mensagem de descoberta."
     - id: duplicateMessageHistoryLength
       type: System.Int32
-      description: "The maximum number of message hashes used by the transport for identifying duplicate messages. The default value is 0."
+      description: "O número máximo de mensagens de hash usado pelo transporte para identificar mensagens duplicadas. O valor padrão é 0."
   overload: System.ServiceModel.Discovery.DiscoveryService.#ctor*
   exceptions: []
   platform:
@@ -107,23 +107,23 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle a find operation."
-  remarks: "Find results are returned by calling the <xref:System.ServiceModel.Discovery.FindRequestContext.AddMatchingEndpoint%2A> method one or more times."
+  summary: "Substitua este método para lidar com uma operação de localização."
+  remarks: "Localizar resultados são retornados ao chamar o <xref:System.ServiceModel.Discovery.FindRequestContext.AddMatchingEndpoint%2A>método uma ou mais vezes.</xref:System.ServiceModel.Discovery.FindRequestContext.AddMatchingEndpoint%2A>"
   syntax:
     content: protected abstract IAsyncResult OnBeginFind (System.ServiceModel.Discovery.FindRequestContext findRequestContext, AsyncCallback callback, object state);
     parameters:
     - id: findRequestContext
       type: System.ServiceModel.Discovery.FindRequestContext
-      description: "The find request context that describes the service to discover."
+      description: "O contexto de solicitação de localização que descreve o serviço para descobrir."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation is completed."
+      description: "O representante de retorno de chamada para chamar quando a operação é concluída."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Os dados de estado definido pelo usuário."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "Uma referência para a operação assíncrona pendente."
   overload: System.ServiceModel.Discovery.DiscoveryService.OnBeginFind*
   exceptions: []
   platform:
@@ -140,22 +140,22 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle a resolve operation."
+  summary: "Substitua este método para lidar com uma operação de resolução."
   syntax:
     content: protected abstract IAsyncResult OnBeginResolve (System.ServiceModel.Discovery.ResolveCriteria resolveCriteria, AsyncCallback callback, object state);
     parameters:
     - id: resolveCriteria
       type: System.ServiceModel.Discovery.ResolveCriteria
-      description: "The find request context that describes the service to discover."
+      description: "O contexto de solicitação de localização que descreve o serviço para descobrir."
     - id: callback
       type: System.AsyncCallback
-      description: "The callback delegate to call when the operation is completed."
+      description: "O representante de retorno de chamada para chamar quando a operação é concluída."
     - id: state
       type: System.Object
-      description: "The user-defined state data."
+      description: "Os dados de estado definido pelo usuário."
     return:
       type: System.IAsyncResult
-      description: "A reference to the pending asynchronous operation."
+      description: "Uma referência para a operação assíncrona pendente."
   overload: System.ServiceModel.Discovery.DiscoveryService.OnBeginResolve*
   exceptions: []
   platform:
@@ -172,13 +172,13 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of a find operation."
+  summary: "Substitua este método para lidar com a conclusão de uma operação de localização."
   syntax:
     content: protected abstract void OnEndFind (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "Uma referência para a operação assíncrona concluída."
   overload: System.ServiceModel.Discovery.DiscoveryService.OnEndFind*
   exceptions: []
   platform:
@@ -195,16 +195,16 @@ items:
   assemblies:
   - System.ServiceModel.Discovery
   namespace: System.ServiceModel.Discovery
-  summary: "Override this method to handle the completion of a resolve operation."
+  summary: "Substitua este método para lidar com a conclusão de uma operação de resolução."
   syntax:
     content: protected abstract System.ServiceModel.Discovery.EndpointDiscoveryMetadata OnEndResolve (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "A reference to the completed asynchronous operation."
+      description: "Uma referência para a operação assíncrona concluída."
     return:
       type: System.ServiceModel.Discovery.EndpointDiscoveryMetadata
-      description: "The endpoint discovery metadata that describes the resolved service."
+      description: "Os metadados de descoberta do ponto de extremidade que descreve o serviço resolvido."
   overload: System.ServiceModel.Discovery.DiscoveryService.OnEndResolve*
   exceptions: []
   platform:

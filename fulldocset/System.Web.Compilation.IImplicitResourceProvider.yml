@@ -11,8 +11,8 @@ items:
   nameWithType: IImplicitResourceProvider
   fullName: System.Web.Compilation.IImplicitResourceProvider
   type: Interface
-  summary: "Defines methods a class implements to act as an implicit resource provider."
-  remarks: "Resources can be declared explicitly or implicitly within a page. Implicit resources allow the developer to assign a collection of resource values to a control in one statement rather than assigning each value individually. When the page parser encounters an implicit resource in the form of `meta:resourcekey=&quot;WelcomeLabel&quot;`, it assigns all the values with the `WelcomeLabel` resource key prefix to the corresponding values in the control. For example, if a resource file defines values for `WelcomeLabel.Text` and `WelcomeLabel.ToolTip`, those values would be assigned to a `Label` control with an implicit reference to `WelcomeLabel`.       The IImplicitResourceProvider interface defines the methods a resource provider implements to access implicit resources. You can obtain a particular value using the <xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A> method.       If you create a custom resource provider, you do not need to provide customized support for implicit resource localization. Implicit localization will work with your resource provider."
+  summary: "Define métodos que implementa uma classe para atuar como um provedor de recursos implícito."
+  remarks: "Recursos podem ser declarados explicitamente ou implicitamente em uma página. Recursos implícitos permitem ao desenvolvedor atribuir uma coleção de valores de recursos para um controle em uma instrução, em vez de atribuir a cada valor individualmente. Quando o analisador de página encontra um recurso implícita na forma de `meta:resourcekey=&quot;WelcomeLabel&quot;`, ele atribui todos os valores com o `WelcomeLabel` prefixo da chave de recurso para os valores correspondentes no controle. Por exemplo, se um arquivo de recurso define valores para `WelcomeLabel.Text` e `WelcomeLabel.ToolTip`, esses valores seriam atribuídos a um `Label` controle com uma referência implícita ao `WelcomeLabel`.       A interface IImplicitResourceProvider define os métodos que implementa um provedor de recursos para acessar os recursos implícita. Você pode obter um valor específico usando o <xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A>método.</xref:System.Web.Compilation.IImplicitResourceProvider.GetObject%2A>       Se você criar um provedor de recursos personalizado, não é necessário fornecer suporte personalizado para a localização do recurso implícita. Localização implícita funciona com seu provedor de recursos."
   syntax:
     content: public interface IImplicitResourceProvider
   implements: []
@@ -30,17 +30,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a collection of implicit resource keys as specified by the prefix."
-  remarks: "When implemented, the method returns a collection of implicit resource keys for a particular prefix. For example, `WelcomeLabel` is specified as the prefix in the expression `meta:resourcekey=&quot;WelcomeLabel&quot;`. Any properties in a local resource file with `WelcomeLabel` as a prefix should be returned with this method."
+  summary: "Obtém uma coleção de chaves de recurso implícita conforme especificado pelo prefixo."
+  remarks: "Quando implementada, o método retorna uma coleção de chaves de recurso implícita para um determinado prefixo. Por exemplo, `WelcomeLabel` é especificado como o prefixo da expressão `meta:resourcekey=&quot;WelcomeLabel&quot;`. As propriedades em um arquivo de recurso local com `WelcomeLabel` como um prefixo deve ser retornado com esse método."
   syntax:
     content: public System.Collections.ICollection GetImplicitResourceKeys (string keyPrefix);
     parameters:
     - id: keyPrefix
       type: System.String
-      description: "The prefix of the implicit resource keys to be collected."
+      description: "O prefixo das chaves implícita de recursos a serem coletados."
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of implicit resource keys."
+      description: "Um <xref:System.Collections.ICollection>de chaves de recurso implícito.</xref:System.Collections.ICollection>"
   overload: System.Web.Compilation.IImplicitResourceProvider.GetImplicitResourceKeys*
   exceptions: []
   platform:
@@ -57,20 +57,20 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets an object representing the value of the specified resource key."
-  remarks: "When implemented, the method returns the object for the value represented by the implicit resource key."
+  summary: "Obtém um objeto que representa o valor da chave de recurso especificado."
+  remarks: "Quando implementada, o método retorna o objeto para o valor representado pela chave implícita do recurso."
   syntax:
     content: public object GetObject (System.Web.Compilation.ImplicitResourceKey key, System.Globalization.CultureInfo culture);
     parameters:
     - id: key
       type: System.Web.Compilation.ImplicitResourceKey
-      description: "The resource key containing the prefix, filter, and property."
+      description: "A chave de recurso que contém o prefixo, o filtro e a propriedade."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The <xref:System.Globalization.CultureInfo> that represents the culture for which the resource is localized."
+      description: "O <xref:System.Globalization.CultureInfo>que representa a cultura para a qual o recurso está localizado.</xref:System.Globalization.CultureInfo>"
     return:
       type: System.Object
-      description: "An <xref:System.Object> representing the localized value of an implicit resource key."
+      description: "Um <xref:System.Object>que representa o valor localizado de uma chave de recurso implícito.</xref:System.Object>"
   overload: System.Web.Compilation.IImplicitResourceProvider.GetObject*
   exceptions: []
   platform:

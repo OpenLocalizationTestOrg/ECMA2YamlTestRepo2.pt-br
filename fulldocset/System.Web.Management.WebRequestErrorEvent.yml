@@ -14,8 +14,8 @@ items:
   nameWithType: WebRequestErrorEvent
   fullName: System.Web.Management.WebRequestErrorEvent
   type: Class
-  summary: "Defines the event that carries information about Web-request errors."
-  remarks: "The WebRequestErrorEvent is raised if an error occurs during a Web request. Your application should use this event to obtain request-related information as defined by the <xref:System.Web.Management.WebRequestInformation> and the <xref:System.Web.Management.WebThreadInformation> classes.      > [!NOTE] >  In most cases you will use the standard ASP.NET health monitoring types and control their behavior by setting the `healthMonitoring` configuration section. You can also create custom types, as shown in the next example. If you create your custom event type and you need to add your own information, customize the <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A> method, this will avoid overwriting or tampering with sensitive system information."
+  summary: "Define o evento que contém informações sobre erros de solicitação da Web."
+  remarks: "O WebRequestErrorEvent é gerado se ocorrer um erro durante uma solicitação da Web. Seu aplicativo deve usar esse evento para obter informações relacionadas à solicitação, conforme definido pelo <xref:System.Web.Management.WebRequestInformation>e o <xref:System.Web.Management.WebThreadInformation>classes.</xref:System.Web.Management.WebThreadInformation> </xref:System.Web.Management.WebRequestInformation>      > [!NOTE] > Na maioria dos casos você usará a tipos de monitoramento de integridade padrão do ASP.NET e controlar seu comportamento, definindo a `healthMonitoring` seção de configuração. Você também pode criar tipos personalizados, conforme mostrado no exemplo a seguir. Se você criar o tipo de evento personalizado e você precisará adicionar suas próprias informações, personalizar o <xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A>método, isso pode evitar a substituição ou violação com informações confidenciais.</xref:System.Web.Management.WebBaseEvent.FormatCustomEventDetails%2A>"
   example:
   - "The following code example has two parts. The first part is an excerpt of a configuration file that enables ASP.NET to use a custom event. The second part shows how to derive from the WebRequestErrorEvent class to create the custom event.  \n  \n```  \n<healthMonitoring enabled=\"true\" heartBeatInterval=\"0\">  \n  <eventMappings>  \n    <add  name=\"SampleWebRequestErrorEvent\" type=\"SamplesAspNet.SampleWebRequestErrorEvent,webrequesterrorevent,Version=1.0.1573.21654, Culture=neutral, PublicKeyToken=63ada862a6c5af13, processorArchitecture=MSIL\"/>  \n  </eventMappings>  \n  \n  <rules>  \n    <add   \n      name=\"Custom Web Request Error Events\"  \n      eventName=\"SampleWebRequestErrorEvent\"   \n      provider=\"EventLogProvider\"    \n      profile=\"Critical\"/>  \n  </rules>  \n</healthMonitoring>  \n```  \n  \n [!code-cs[System.Web.Management.WebRequestErrorEvent#1](~/add/codesnippet/csharp/t-system.web.management._18_1.cs)]\n [!code-vb[System.Web.Management.WebRequestErrorEvent#1](~/add/codesnippet/visualbasic/t-system.web.management._18_1.vb)]"
   syntax:
@@ -58,8 +58,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes the <xref href=&quot;System.Web.Management.WebRequestErrorEvent&quot;></xref> class with specified event parameters."
-  remarks: "This constructor allows you to create a <xref:System.Web.Management.WebRequestErrorEvent> event without needing to specify detailed code information about the event itself."
+  summary: "Inicializa o <xref href=&quot;System.Web.Management.WebRequestErrorEvent&quot;> </xref> classe com parâmetros de evento especificado."
+  remarks: "Este construtor permite que você crie um <xref:System.Web.Management.WebRequestErrorEvent>evento sem a necessidade de especificar informações de código detalhadas sobre o próprio evento.</xref:System.Web.Management.WebRequestErrorEvent>"
   example:
   - "The following code example shows how to use this constructor.  \n  \n [!code-cs[System.Web.Management.WebRequestErrorEvent#2](~/add/codesnippet/csharp/84cf93aa-3390-4177-aac6-_1.cs)]\n [!code-vb[System.Web.Management.WebRequestErrorEvent#2](~/add/codesnippet/visualbasic/84cf93aa-3390-4177-aac6-_1.vb)]"
   syntax:
@@ -67,16 +67,16 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: "The event description."
+      description: "A descrição do evento."
     - id: eventSource
       type: System.Object
-      description: "The object that is the source of the event."
+      description: "O objeto que é a origem do evento."
     - id: eventCode
       type: System.Int32
-      description: "The identifier associated with the event. It must be greater than the <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref> field constant."
+      description: "O identificador associado ao evento. Ele deve ser maior que o <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref> constante de campo."
     - id: exception
       type: System.Exception
-      description: "The <xref:System.Exception> associated with the error."
+      description: "O <xref:System.Exception>associado ao erro.</xref:System.Exception>"
   overload: System.Web.Management.WebRequestErrorEvent.#ctor*
   exceptions: []
   platform:
@@ -93,8 +93,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes the <xref href=&quot;System.Web.Management.WebRequestErrorEvent&quot;></xref> class with specified event parameters."
-  remarks: "Use this constructor if you need to specify detailed code information about the event."
+  summary: "Inicializa o <xref href=&quot;System.Web.Management.WebRequestErrorEvent&quot;> </xref> classe com parâmetros de evento especificado."
+  remarks: "Se você precisar especificar informações de código detalhada sobre o evento, use este construtor."
   example:
   - "The following code example shows how to use this constructor.  \n  \n [!code-cs[System.Web.Management.WebRequestErrorEvent#3](~/add/codesnippet/csharp/57bb3841-9fdf-4be9-bde2-_1.cs)]\n [!code-vb[System.Web.Management.WebRequestErrorEvent#3](~/add/codesnippet/visualbasic/57bb3841-9fdf-4be9-bde2-_1.vb)]"
   syntax:
@@ -102,19 +102,19 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: "The event description."
+      description: "A descrição do evento."
     - id: eventSource
       type: System.Object
-      description: "The object that is the source of the event."
+      description: "O objeto que é a origem do evento."
     - id: eventCode
       type: System.Int32
-      description: "The identifier associated with the event. It must be greater than <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref> field constant."
+      description: "O identificador associado ao evento. Ele deve ser maior que <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref> constante de campo."
     - id: eventDetailCode
       type: System.Int32
-      description: "The event detail code identifier."
+      description: "O identificador de código de detalhes do evento."
     - id: exception
       type: System.Exception
-      description: "The <xref:System.Exception> associated with the error."
+      description: "O <xref:System.Exception>associado ao erro.</xref:System.Exception>"
   overload: System.Web.Management.WebRequestErrorEvent.#ctor*
   exceptions: []
   platform:
@@ -131,7 +131,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Used internally to increment the relevant performance counters."
+  summary: "Usada internamente para incrementar os contadores de desempenho relevantes."
   syntax:
     content: protected override void IncrementPerfCounters ();
     parameters: []
@@ -151,15 +151,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the application request information."
-  remarks: "The standard request information is defined by the <xref:System.Web.Management.WebRequestInformation> class."
+  summary: "Obtém as informações de solicitação de aplicativo."
+  remarks: "As informações de solicitação padrão são definidas pela <xref:System.Web.Management.WebRequestInformation>classe.</xref:System.Web.Management.WebRequestInformation>"
   example:
   - "The following code example shows how to obtain the RequestInformation property value.  \n  \n [!code-cs[System.Web.Management.WebRequestErrorEvent#5](~/add/codesnippet/csharp/p-system.web.management._34_1.cs)]\n [!code-vb[System.Web.Management.WebRequestErrorEvent#5](~/add/codesnippet/visualbasic/p-system.web.management._34_1.vb)]"
   syntax:
     content: public System.Web.Management.WebRequestInformation RequestInformation { get; }
     return:
       type: System.Web.Management.WebRequestInformation
-      description: "The application request information."
+      description: "As informações de solicitação do aplicativo."
   overload: System.Web.Management.WebRequestErrorEvent.RequestInformation*
   exceptions: []
   platform:
@@ -176,15 +176,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Gets the application thread information."
-  remarks: "The standard thread information is defined by the <xref:System.Web.Management.WebThreadInformation> class."
+  summary: "Obtém as informações de thread do aplicativo."
+  remarks: "As informações de thread padrão são definidas pela <xref:System.Web.Management.WebThreadInformation>classe.</xref:System.Web.Management.WebThreadInformation>"
   example:
   - "The following code example shows how to obtain the ThreadInformation property value.  \n  \n [!code-cs[System.Web.Management.WebRequestErrorEvent#6](~/add/codesnippet/csharp/p-system.web.management._3_1.cs)]\n [!code-vb[System.Web.Management.WebRequestErrorEvent#6](~/add/codesnippet/visualbasic/p-system.web.management._3_1.vb)]"
   syntax:
     content: public System.Web.Management.WebThreadInformation ThreadInformation { get; }
     return:
       type: System.Web.Management.WebThreadInformation
-      description: "The application thread information."
+      description: "As informações de thread do aplicativo."
   overload: System.Web.Management.WebRequestErrorEvent.ThreadInformation*
   exceptions: []
   platform:

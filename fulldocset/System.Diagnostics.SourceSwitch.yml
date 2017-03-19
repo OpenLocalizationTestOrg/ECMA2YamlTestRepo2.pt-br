@@ -14,8 +14,8 @@ items:
   nameWithType: SourceSwitch
   fullName: System.Diagnostics.SourceSwitch
   type: Class
-  summary: "Provides a multilevel switch to control tracing and debug output without recompiling your code."
-  remarks: "The <xref:System.Diagnostics.TraceSource.Switch%2A> property of the <xref:System.Diagnostics.TraceSource> class is a SourceSwitch object. The SourceSwitch class provides a <xref:System.Diagnostics.SourceSwitch.Level%2A> property to test the event level of the switch. The <xref:System.Diagnostics.SourceSwitch.Level%2A> property gets or sets the switch&quot;s <xref:System.Diagnostics.TraceLevel> value.       You can set the event level of a SourceSwitch through the application configuration file and then use the configured SourceSwitch level in your application. Alternatively, you can create a SourceSwitch in your code and set the level directly, to instrument a specific section of code.       To configure a SourceSwitch, edit the configuration file that corresponds to the name of your application. Within this file, you can set a switch&quot;s value or clear all the switches previously set by the application. The configuration file should be formatted as shown in the following example.      ```   <switches>     <add name=&quot;SourceSwitch&quot; value=&quot;Verbose&quot;></add>   </switches>   ```       The switch is used to check whether a trace should be propagated or ignored. Each <xref:System.Diagnostics.TraceSource> trace method calls the <xref:System.Diagnostics.SourceSwitch.ShouldTrace%2A> method before calling the listeners. If the <xref:System.Diagnostics.SourceSwitch.ShouldTrace%2A> method returns `false`, the trace is ignored and the trace method exits. If the <xref:System.Diagnostics.SourceSwitch.ShouldTrace%2A> method returns `true`, the trace is passed to the listeners."
+  summary: "Fornece uma opção de vários níveis para controle de rastreamento e saída de depuração sem recompilar seu código."
+  remarks: "O <xref:System.Diagnostics.TraceSource.Switch%2A>propriedade o <xref:System.Diagnostics.TraceSource>classe é um objeto SourceSwitch.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.TraceSource.Switch%2A> A classe SourceSwitch fornece um <xref:System.Diagnostics.SourceSwitch.Level%2A>propriedade para testar o nível de evento do comutador.</xref:System.Diagnostics.SourceSwitch.Level%2A> O <xref:System.Diagnostics.SourceSwitch.Level%2A>propriedade obtém ou define a opção <xref:System.Diagnostics.TraceLevel>valor.</xref:System.Diagnostics.TraceLevel> </xref:System.Diagnostics.SourceSwitch.Level%2A>       Você pode definir o nível de evento de um SourceSwitch por meio do arquivo de configuração do aplicativo e, em seguida, use o nível de SourceSwitch configurado em seu aplicativo. Como alternativa, você pode criar um SourceSwitch no seu código e definir o nível diretamente, para instrumentar uma seção de código.       Para configurar um SourceSwitch, edite o arquivo de configuração que corresponde ao nome do seu aplicativo. Nesse arquivo, você pode definir o valor de um switch ou limpar todos os comutadores anteriormente definidos pelo aplicativo. O arquivo de configuração deve ser formatado como mostrado no exemplo a seguir.      ```   <switches>     <add name=&quot;SourceSwitch&quot; value=&quot;Verbose&quot;></add>   </switches>   ```A opção é usada para verificar se um rastreamento deve ser propagado ou ignorado. Cada <xref:System.Diagnostics.TraceSource>chamadas de método de rastreamento de <xref:System.Diagnostics.SourceSwitch.ShouldTrace%2A>método antes de chamar os ouvintes.</xref:System.Diagnostics.SourceSwitch.ShouldTrace%2A> </xref:System.Diagnostics.TraceSource> Se o <xref:System.Diagnostics.SourceSwitch.ShouldTrace%2A>método retorna `false`, o rastreamento será ignorado e o método trace será encerrado.</xref:System.Diagnostics.SourceSwitch.ShouldTrace%2A> Se o <xref:System.Diagnostics.SourceSwitch.ShouldTrace%2A>método retorna `true`, o rastreamento é passado para os ouvintes.</xref:System.Diagnostics.SourceSwitch.ShouldTrace%2A>"
   syntax:
     content: 'public class SourceSwitch : System.Diagnostics.Switch'
   inheritance:
@@ -44,14 +44,14 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.SourceSwitch&quot;></xref> class, specifying the name of the source."
-  remarks: "The `name` parameter is used to set the value of the <xref:System.Diagnostics.Switch.DisplayName%2A> property.       To set the level of your <xref:System.Diagnostics.SourceSwitch>, edit the configuration file that corresponds to the name of your application. Within this file, you can add a switch and set its value, remove a switch, or clear all the switches previously set by the application. To add a source switch, the configuration file should be formatted as shown in the following example.      ```   <configuration>     <system.diagnostics>       <switches>         <add name=&quot;SourceSwitch&quot; value=&quot;Verbose&quot; ></add>       </switches>     </system.diagnostics>   </configuration>   ```"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Diagnostics.SourceSwitch&quot;> </xref> classe, especificando o nome da fonte."
+  remarks: "O `name` parâmetro é usado para definir o valor de <xref:System.Diagnostics.Switch.DisplayName%2A>propriedade.</xref:System.Diagnostics.Switch.DisplayName%2A>       Para definir o nível de seu <xref:System.Diagnostics.SourceSwitch>, edite o arquivo de configuração que corresponde ao nome do seu aplicativo.</xref:System.Diagnostics.SourceSwitch> Nesse arquivo, você pode adicionar um comutador e defina seu valor, remova um comutador ou desmarcar todas as opções definidas anteriormente pelo aplicativo. Para adicionar uma alternância de origem, o arquivo de configuração deve ser formatado como mostrado no exemplo a seguir.      ```   <configuration>     <system.diagnostics>       <switches>         <add name=&quot;SourceSwitch&quot; value=&quot;Verbose&quot; ></add>       </switches>     </system.diagnostics>   </configuration>   ```"
   syntax:
     content: public SourceSwitch (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the source."
+      description: "O nome da origem."
   overload: System.Diagnostics.SourceSwitch.#ctor*
   exceptions: []
   platform:
@@ -68,8 +68,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.SourceSwitch&quot;></xref> class, specifying the display name and the default value for the source switch."
-  remarks: "The `displayName` parameter is used to set the value of the <xref:System.Diagnostics.Switch.DisplayName%2A> property; the `defaultSwitchValue` parameter is saved as a field and used to initialize the <xref:System.Diagnostics.Switch.Value%2A> property on first reference.      > [!NOTE] >  If the switch is defined in a configuration file and the `value` attribute is specified, the configuration file value takes precedence and the `defaultSwitchValue` is ignored.       To set the level of your <xref:System.Diagnostics.SourceSwitch>, edit the configuration file that corresponds to the name of your application. Within this file, you can add a switch and set its value, remove a switch, or clear all the switches previously set by the application. To add a source switch, the configuration file should be formatted as shown in the following example.      ```   <configuration>     <system.diagnostics>       <switches>         <add name=&quot;SourceSwitch&quot; value=&quot;Verbose&quot; ></add>       </switches>     </system.diagnostics>   </configuration>   ```"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Diagnostics.SourceSwitch&quot;> </xref> classe, especificando o nome de exibição e o valor padrão para a alternância de origem."
+  remarks: "O `displayName` parâmetro é usado para definir o valor da <xref:System.Diagnostics.Switch.DisplayName%2A>propriedade; o `defaultSwitchValue` parâmetro é salvo como um campo e usado para inicializar o <xref:System.Diagnostics.Switch.Value%2A>propriedade na primeira referência.</xref:System.Diagnostics.Switch.Value%2A> </xref:System.Diagnostics.Switch.DisplayName%2A>      > [!NOTE] > Se o comutador é definido em um arquivo de configuração e o `value` atributo for especificado, o valor do arquivo de configuração terá precedência e o `defaultSwitchValue` será ignorado.       Para definir o nível de seu <xref:System.Diagnostics.SourceSwitch>, edite o arquivo de configuração que corresponde ao nome do seu aplicativo.</xref:System.Diagnostics.SourceSwitch> Nesse arquivo, você pode adicionar um comutador e defina seu valor, remova um comutador ou desmarcar todas as opções definidas anteriormente pelo aplicativo. Para adicionar uma alternância de origem, o arquivo de configuração deve ser formatado como mostrado no exemplo a seguir.      ```   <configuration>     <system.diagnostics>       <switches>         <add name=&quot;SourceSwitch&quot; value=&quot;Verbose&quot; ></add>       </switches>     </system.diagnostics>   </configuration>   ```"
   example:
   - "The following code example creates a <xref:System.Diagnostics.SourceSwitch> with the name \"SourceSwitch\" and a default value of <xref:System.Diagnostics.SourceLevels>. This code example is part of a larger example provided for the <xref:System.Diagnostics.TraceSource> class.  \n  \n [!code-cs[System.Diagnostics.TraceSource#7](~/add/codesnippet/csharp/m-system.diagnostics.sou_0_1.cs)]\n [!code-vb[System.Diagnostics.TraceSource#7](~/add/codesnippet/visualbasic/m-system.diagnostics.sou_0_1.vb)]"
   syntax:
@@ -77,10 +77,10 @@ items:
     parameters:
     - id: displayName
       type: System.String
-      description: "The name of the source switch."
+      description: "O nome do comutador de origem."
     - id: defaultSwitchValue
       type: System.String
-      description: "The default value for the switch."
+      description: "O valor padrão para o comutador."
   overload: System.Diagnostics.SourceSwitch.#ctor*
   exceptions: []
   platform:
@@ -97,15 +97,15 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the level of the switch."
-  remarks: "This property gets its value from the <xref:System.Diagnostics.Switch.SwitchSetting%2A> property. Setting this property also modifies the <xref:System.Diagnostics.Switch.SwitchSetting%2A> property.      > [!NOTE] >  For extensibility, the Level property can be set to any integer, rather than being limited to a <xref:System.Diagnostics.SourceLevels> enumeration value."
+  summary: "Obtém ou define o nível do comutador."
+  remarks: "Essa propriedade obtém seu valor da <xref:System.Diagnostics.Switch.SwitchSetting%2A>propriedade.</xref:System.Diagnostics.Switch.SwitchSetting%2A> A definição dessa propriedade também modifica o <xref:System.Diagnostics.Switch.SwitchSetting%2A>propriedade.</xref:System.Diagnostics.Switch.SwitchSetting%2A>      > [!NOTE] > Para extensibilidade, a propriedade de nível pode ser definida como qualquer inteiro, em vez de estar limitado a um <xref:System.Diagnostics.SourceLevels>valor de enumeração.</xref:System.Diagnostics.SourceLevels>"
   example:
   - "The following code example displays the value of the Level property for a source switch. This code example is part of a larger example provided for the <xref:System.Diagnostics.TraceSource> class.  \n  \n [!code-cs[System.Diagnostics.TraceSource#8](~/add/codesnippet/csharp/p-system.diagnostics.sou_1.cs)]\n [!code-vb[System.Diagnostics.TraceSource#8](~/add/codesnippet/visualbasic/p-system.diagnostics.sou_1.vb)]"
   syntax:
     content: public System.Diagnostics.SourceLevels Level { get; set; }
     return:
       type: System.Diagnostics.SourceLevels
-      description: "One of the <xref href=&quot;System.Diagnostics.SourceLevels&quot;></xref> values that represents the event level of the switch."
+      description: "Uma da <xref href=&quot;System.Diagnostics.SourceLevels&quot;> </xref> valores que representa o nível de evento do comutador."
   overload: System.Diagnostics.SourceSwitch.Level*
   exceptions: []
   platform:
@@ -122,8 +122,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Invoked when the value of the <xref:System.Diagnostics.Switch.Value*> property changes."
-  remarks: "The OnValueChanged method converts the new value of the <xref:System.Diagnostics.Switch.Value%2A> property to the integer representation of the matching field in the <xref:System.Diagnostics.SourceLevels> enumeration, and then uses this integer to set the <xref:System.Diagnostics.Switch.SwitchSetting%2A> property."
+  summary: "Chamado quando o valor de <xref:System.Diagnostics.Switch.Value*>alterações de propriedade.</xref:System.Diagnostics.Switch.Value*>"
+  remarks: "O método OnValueChanged converte o novo valor da <xref:System.Diagnostics.Switch.Value%2A>propriedade para a representação de inteiro de campo correspondente no <xref:System.Diagnostics.SourceLevels>enumeração e, em seguida, usa esse número inteiro para definir o <xref:System.Diagnostics.Switch.SwitchSetting%2A>propriedade.</xref:System.Diagnostics.Switch.SwitchSetting%2A> </xref:System.Diagnostics.SourceLevels> </xref:System.Diagnostics.Switch.Value%2A>"
   syntax:
     content: protected override void OnValueChanged ();
     parameters: []
@@ -131,7 +131,7 @@ items:
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The new value of <xref:System.Diagnostics.Switch.Value*> is not one of the <xref href=&quot;System.Diagnostics.SourceLevels&quot;></xref> values."
+    description: "O novo valor de <xref:System.Diagnostics.Switch.Value*>não é um do <xref href=&quot;System.Diagnostics.SourceLevels&quot;> </xref> valores.</xref:System.Diagnostics.Switch.Value*>"
   platform:
   - net462
 - uid: System.Diagnostics.SourceSwitch.ShouldTrace(System.Diagnostics.TraceEventType)
@@ -146,17 +146,17 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Determines if trace listeners should be called, based on the trace event type."
-  remarks: "This method is called by the `Trace` methods in the <xref:System.Diagnostics.TraceSource> class to determine whether listeners should be called to write a trace.      > [!NOTE] >  Application code should not call this method; it is intended to be called only by methods in the <xref:System.Diagnostics.TraceSource> class."
+  summary: "Determina se os ouvintes de rastreamento devem ser chamados, com base no tipo de evento de rastreamento."
+  remarks: "Este método é chamado pelo `Trace` métodos de <xref:System.Diagnostics.TraceSource>classe para determinar se os ouvintes devem ser chamados para gravar um rastreamento.</xref:System.Diagnostics.TraceSource>      > [!NOTE] > Código do aplicativo não deve chamar esse método; ele se destina a ser chamado somente por métodos de <xref:System.Diagnostics.TraceSource>classe.</xref:System.Diagnostics.TraceSource>"
   syntax:
     content: public bool ShouldTrace (System.Diagnostics.TraceEventType eventType);
     parameters:
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref> if the trace listeners should be called; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_True&quot; name=&quot;True&quot; href=&quot;&quot;></xref>Se os ouvintes de rastreamento devem ser chamados; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Diagnostics.SourceSwitch.ShouldTrace*
   exceptions: []
   platform:

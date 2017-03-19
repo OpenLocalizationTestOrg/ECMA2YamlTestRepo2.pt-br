@@ -13,8 +13,8 @@ items:
   nameWithType: TryLoadRunnableWorkflowCommand
   fullName: System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand
   type: Class
-  summary: "Represents the command that a workflow host executes against an instance store to load runnable instances in the persistence store into the memory."
-  remarks: "An instance is *runnable*, if it is not in the suspended state or the completed state and satisfies the following conditions:      -   The instance is unlocked and has a pending timer that has expired.      -   The instance is unlocked and its status is **Executing**.      -   The instance has an expired lock on it.       An instance store should periodically search for runnable instances that belong to a workflow host that uses the store. It should raise the <xref:System.Activities.DurableInstancing.HasRunnableWorkflowEvent> when it finds a runnable instance in the persistence store that matches its workflow host type. If the instance store does not find a runnable instance in the persistence store, it should continue to monitor the persistence store for any runnable instances.       After raising the HasRunnableWorkflowEvent, the instance store should stop monitoring the persistence store for runnable instances until it receives and executes the TryLoadRunnableWorkflowCommand. The monitoring continues only if the TryLoadRunnableWorkflowCommand execution does not return any runnable instances.       When a workflow host receives the HasRunnableWorkflowEvent, it executes the TryLoadRunnableWorkflowCommand against the instance store to load the instance into the memory."
+  summary: "Representa o comando que um host de fluxo de trabalho é executada em um repositório de instância para instâncias executáveis no repositório de persistência de carga na memória."
+  remarks: "Uma instância é *executável*, se ele não está em estado suspenso ou o estado concluído e satisfaça as seguintes condições:-a instância está desbloqueada e tem um timer pendentes que expirou.      -A instância está desbloqueada e seu status é **executando**.      -A instância tem um bloqueio expirado.       Periodicamente, um repositório de instâncias deve pesquisar por instâncias executáveis que pertencem a um host de fluxo de trabalho que usa o repositório. Ele deve gerar o <xref:System.Activities.DurableInstancing.HasRunnableWorkflowEvent>quando encontrar uma instância executável no repositório de persistência que corresponde a seu tipo de host de fluxo de trabalho.</xref:System.Activities.DurableInstancing.HasRunnableWorkflowEvent> Se o repositório de instância não encontrar uma instância executável no repositório de persistência, ele deve continuar a monitorar o repositório de persistência para todas as instâncias executáveis.       Depois de gerar o HasRunnableWorkflowEvent, o armazenamento de instância deve interromper o monitoramento de armazenamento de persistência de instâncias executáveis até que ele recebe e executa o TryLoadRunnableWorkflowCommand. O monitoramento continua apenas se a execução de TryLoadRunnableWorkflowCommand não retorna qualquer instância executável.       Quando um host de fluxo de trabalho recebe o HasRunnableWorkflowEvent, ele executa o TryLoadRunnableWorkflowCommand em relação ao armazenamento de instância para carregar a instância na memória."
   syntax:
     content: 'public sealed class TryLoadRunnableWorkflowCommand : System.Runtime.DurableInstancing.InstancePersistenceCommand'
   inheritance:
@@ -37,7 +37,7 @@ items:
   assemblies:
   - System.Activities
   namespace: System.Activities.DurableInstancing
-  summary: "Initializes an instance of the <xref href=&quot;System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand&quot;></xref> class."
+  summary: "Inicializa uma instância do <xref href=&quot;System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand&quot;> </xref> classe."
   syntax:
     content: public TryLoadRunnableWorkflowCommand ();
     parameters: []
@@ -61,7 +61,7 @@ items:
     content: protected override bool AutomaticallyAcquiringLock { get; }
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand.AutomaticallyAcquiringLock*
   exceptions: []
   platform:
@@ -82,7 +82,7 @@ items:
     content: protected override bool IsTransactionEnlistmentOptional { get; }
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand.IsTransactionEnlistmentOptional*
   exceptions: []
   platform:
@@ -104,7 +104,7 @@ items:
     parameters:
     - id: view
       type: System.Runtime.DurableInstancing.InstanceView
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Activities.DurableInstancing.TryLoadRunnableWorkflowCommand.Validate*
   exceptions: []
   platform:

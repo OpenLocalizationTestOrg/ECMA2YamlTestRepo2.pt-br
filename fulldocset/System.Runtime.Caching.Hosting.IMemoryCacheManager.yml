@@ -11,8 +11,8 @@ items:
   nameWithType: IMemoryCacheManager
   fullName: System.Runtime.Caching.Hosting.IMemoryCacheManager
   type: Interface
-  summary: "Defines an interface that a cache uses in order to communicate cache memory usage to a host environment."
-  remarks: "The IMemoryCacheManager interface is implemented by host environments such as ASP.NET, and is consumed by <xref:System.Runtime.Caching.ObjectCache> implementations that must interact with the host environment to determine memory usage. Because caches often consume significant quantities of memory, the IMemoryCacheManager interface helps host environments manage memory usage.       Typically, only <xref:System.Runtime.Caching.ObjectCache> implementations that manage cache objects in memory would use this interface."
+  summary: "Define uma interface que um cache usa para comunicar-se a utilização de memória de cache para um ambiente de host."
+  remarks: "A interface IMemoryCacheManager é implementada por ambientes de host, como ASP.NET e é consumida por <xref:System.Runtime.Caching.ObjectCache>implementações devem interagir com o ambiente de host para determinar o uso de memória.</xref:System.Runtime.Caching.ObjectCache> Como caches geralmente consomem quantidades significativas de memória, a interface IMemoryCacheManager ajuda a ambientes de hospedagem gerenciar o uso de memória.       Normalmente, apenas <xref:System.Runtime.Caching.ObjectCache>implementações que gerenciam objetos do cache em memória usaria essa interface.</xref:System.Runtime.Caching.ObjectCache>"
   syntax:
     content: public interface IMemoryCacheManager
   implements: []
@@ -30,14 +30,14 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching.Hosting
-  summary: "Removes all references to a cache in the host environment."
-  remarks: "If a cache has previously registered itself with the host environment, the cache can call the ReleaseCache method to release the reference. When a cache is being disposed, it should call the ReleaseCache method to make sure that no reference to the cache is held on the host."
+  summary: "Remove todas as referências a um cache no ambiente de host."
+  remarks: "Se um cache tiver se registrado anteriormente com o ambiente de host, o cache pode chamar o método ReleaseCache para liberar a referência. Quando um cache está sendo descartado, ele deve chamar o método de ReleaseCache para certificar-se de que nenhuma referência para o cache é mantida no host."
   syntax:
     content: public void ReleaseCache (System.Runtime.Caching.MemoryCache cache);
     parameters:
     - id: cache
       type: System.Runtime.Caching.MemoryCache
-      description: "A reference to the cache."
+      description: "Uma referência para o cache."
   overload: System.Runtime.Caching.Hosting.IMemoryCacheManager.ReleaseCache*
   exceptions: []
   platform:
@@ -54,17 +54,17 @@ items:
   assemblies:
   - System.Runtime.Caching
   namespace: System.Runtime.Caching.Hosting
-  summary: "Reports the size of the current cache."
-  remarks: "A well-behaved cache implementation should use the UpdateCacheSize method to periodically report the size of the cache&quot;s memory footprint to the host environment.       The cache implementation that reports the size also passes a reference to itself as a parameter. This enables the host environment to perform the following tasks:      -   Maintain a list of known object caches.      -   Call the cache and request that the cache trim a percentage of cache items based on the reported size, if it is required."
+  summary: "Informa o tamanho do cache atual."
+  remarks: "Uma implementação de cache com bom comportamento deve usar o método UpdateCacheSize para relatar periodicamente o tamanho do espaço de memória do cache para o ambiente de host.       A implementação de cache que informa o tamanho também passa uma referência a mesmo como um parâmetro. Isso permite que o ambiente de host para executar as seguintes tarefas:-mantenha uma lista dos caches do objeto conhecido.      -Chamar o cache e solicitar que o cache cortar uma porcentagem de itens de cache com base no tamanho do relatado, se necessário."
   syntax:
     content: public void UpdateCacheSize (long size, System.Runtime.Caching.MemoryCache cache);
     parameters:
     - id: size
       type: System.Int64
-      description: "The size of the memory, in bytes, that the cache consumes."
+      description: "O tamanho da memória, em bytes, que consome o cache."
     - id: cache
       type: System.Runtime.Caching.MemoryCache
-      description: "A reference to the cache."
+      description: "Uma referência para o cache."
   overload: System.Runtime.Caching.Hosting.IMemoryCacheManager.UpdateCacheSize*
   exceptions: []
   platform:

@@ -15,8 +15,8 @@ items:
   nameWithType: Adorner
   fullName: System.Windows.Documents.Adorner
   type: Class
-  summary: "Abstract class that represents a <xref href=&quot;System.Windows.FrameworkElement&quot;></xref> that decorates a <xref href=&quot;System.Windows.UIElement&quot;></xref>."
-  remarks: "An adorner is a custom <xref:System.Windows.FrameworkElement> that is bound to a <xref:System.Windows.UIElement>. Adorners are rendered in an adorner layer, which is a rendering surface that is always on top of the adorned element or a collection of adorned elements; rendering of an adorner is independent from rendering of the <xref:System.Windows.UIElement> that the adorner is bound to. An adorner is typically positioned relative to the element to which it is bound, using the standard 2-D coordinate origin located at the upper-left of the adorned element.      > [!NOTE] >  The parent of an Adorner is the <xref:System.Windows.Documents.AdornerLayer> that renders the Adorner, not the element being adorned.      > [!NOTE] >  Anything placed in the adorner layer is rendered on top of the rest of any styles you have set. In other words, adorners are always visually on top and cannot be overridden using z-order."
+  summary: "Classe abstrata que representa um <xref href=&quot;System.Windows.FrameworkElement&quot;> </xref> que decora uma <xref href=&quot;System.Windows.UIElement&quot;> </xref>."
+  remarks: "Um adorno é um personalizado <xref:System.Windows.FrameworkElement>que é associado a um <xref:System.Windows.UIElement>.</xref:System.Windows.UIElement> </xref:System.Windows.FrameworkElement> Adornos são renderizados em uma camada de adorno, que é uma superfície de renderização que sempre está acima do elemento adornado ou uma coleção de elementos adornados; renderização de um adorno é independente da renderização do <xref:System.Windows.UIElement>que o qual ele está associado.</xref:System.Windows.UIElement> Um adorno geralmente é posicionado em relação ao elemento ao qual ele está vinculado, usando a origem de coordenada 2-D padrão localizada no canto superior esquerdo do elemento adornado.      > [!NOTE] > É o pai de um adorno de <xref:System.Windows.Documents.AdornerLayer>que renderiza o adorno, não o elemento sendo adornado.</xref:System.Windows.Documents.AdornerLayer>      > [!NOTE] > Qualquer coisa colocada na camada de adorno é renderizada em cima do resto de qualquer estilo que você definiu. Em outras palavras, adornos estão sempre visualmente acima e não podem ser substituídos usando a ordem z."
   syntax:
     content: 'public abstract class Adorner : System.Windows.FrameworkElement'
   inheritance:
@@ -609,19 +609,19 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.Documents.Adorner&quot;></xref> class."
-  remarks: "When implementing a class that inherits from <xref:System.Windows.Documents.Adorner>, ensure that the inheriting class&quot;s constructor calls the base class constructor."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Windows.Documents.Adorner&quot;> </xref> classe."
+  remarks: "Ao implementar uma classe que herda de <xref:System.Windows.Documents.Adorner>, certifique-se de que o construtor da classe herda chama o construtor de classe base.</xref:System.Windows.Documents.Adorner>"
   syntax:
     content: protected Adorner (System.Windows.UIElement adornedElement);
     parameters:
     - id: adornedElement
       type: System.Windows.UIElement
-      description: "The element to bind the adorner to."
+      description: "O elemento para associar o adorno de para."
   overload: System.Windows.Documents.Adorner.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: '*adornedElement* is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.'
+    description: '*adornedElement* é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.'
   platform:
   - net462
 - uid: System.Windows.Documents.Adorner.AdornedElement
@@ -636,12 +636,12 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets the <xref href=&quot;System.Windows.UIElement&quot;></xref> that this adorner is bound to."
+  summary: "Obtém o <xref href=&quot;System.Windows.UIElement&quot;> </xref> associado a este adorno."
   syntax:
     content: public System.Windows.UIElement AdornedElement { get; }
     return:
       type: System.Windows.UIElement
-      description: "The element that this adorner is bound to. The default value is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "O elemento que essa qual ele está associado. O valor padrão é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Documents.Adorner.AdornedElement*
   exceptions: []
   platform:
@@ -658,17 +658,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Returns a <xref href=&quot;System.Windows.Media.Transform&quot;></xref> for the adorner, based on the transform that is currently applied to the adorned element."
-  remarks: "An adorner may need to be transformed differently than the element it decorates. For instance, adorners which act like points, such as resize handles, should be translated and rotated along with the adorned element, but not scaled. By contrast, an adorner that displays a marquee on an element might require the same transform as the adorned element.       This method is called by the associated <xref:System.Windows.Documents.AdornerLayer> to provide an opportunity to filter unwanted or unneeded transforms. Implementations of this method should examine the incoming transform (which is the transform for the adorned element) and remove aspects that are not useful or should not be applied to the adorner itself. This method can also be used to add additional transform details at this time, for instance adding a translation that enables the adorner to control its position relative to the adorned element."
+  summary: "Retorna um <xref href=&quot;System.Windows.Media.Transform&quot;> </xref> para o adorno, com base na transformação que atualmente é aplicada ao elemento adornado."
+  remarks: "Um adorno pode precisar ser transformados diferente do elemento-decora. Por exemplo, adornos que atuam como pontos, como alças de redimensionamento, devem ser convertidos e girados juntamente com o elemento adornado, mas não expandidos. Por outro lado, um adorner que exibe uma marca de seleção em um elemento pode exigir a mesma transformação do elemento adornado.       Este método é chamado pelo associado <xref:System.Windows.Documents.AdornerLayer>para fornecer uma oportunidade para filtrar indesejados ou desnecessários transformações.</xref:System.Windows.Documents.AdornerLayer> As implementações desse método devem examinar a transformação de entrada (que é a transformação do elemento adornado) e remover aspectos que não são úteis ou não devem ser aplicados para o adorno de si mesmo. Esse método também pode ser usado para adicionar detalhes adicionais de transformação no momento, por exemplo, adicionar uma tradução que permite que o adorno de controle de sua posição em relação ao elemento adornado."
   syntax:
     content: public virtual System.Windows.Media.GeneralTransform GetDesiredTransform (System.Windows.Media.GeneralTransform transform);
     parameters:
     - id: transform
       type: System.Windows.Media.GeneralTransform
-      description: "The transform that is currently applied to the adorned element."
+      description: "A transformação é aplicada no momento para o elemento adornado."
     return:
       type: System.Windows.Media.GeneralTransform
-      description: "A transform to apply to the adorner."
+      description: "Uma transformação a ser aplicada para o adorno."
   overload: System.Windows.Documents.Adorner.GetDesiredTransform*
   exceptions: []
   platform:
@@ -685,17 +685,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "For a description of this member, see <xref:System.Windows.UIElement.GetLayoutClip*>."
-  remarks: "This implementation always returns `null`.       This method overrides <xref:System.Windows.FrameworkElement.GetLayoutClip%2A>.       To ensure that adorners are always rendered topmost, clipping constraints are ignored unless <xref:System.Windows.Documents.Adorner.IsClipEnabled%2A> is `true`. This enables an adorner to render outside of the adorned element&quot;s bounding rectangle."
+  summary: "Para obter uma descrição desse membro, consulte <xref:System.Windows.UIElement.GetLayoutClip*>.</xref:System.Windows.UIElement.GetLayoutClip*>"
+  remarks: "Essa implementação sempre retorna `null`.       Esse método substitui <xref:System.Windows.FrameworkElement.GetLayoutClip%2A>.</xref:System.Windows.FrameworkElement.GetLayoutClip%2A>       Para garantir que adornos são sempre renderizados mais altas, as restrições de recorte são ignoradas, a menos que <xref:System.Windows.Documents.Adorner.IsClipEnabled%2A>é `true`.</xref:System.Windows.Documents.Adorner.IsClipEnabled%2A> Isso permite que um adorno de renderizar fora do retângulo delimitador do elemento adornado."
   syntax:
     content: protected override System.Windows.Media.Geometry GetLayoutClip (System.Windows.Size layoutSlotSize);
     parameters:
     - id: layoutSlotSize
       type: System.Windows.Size
-      description: "The available size provided by the element."
+      description: "O tamanho disponível fornecido pelo elemento."
     return:
       type: System.Windows.Media.Geometry
-      description: "The potential clipping geometry. See Remarks."
+      description: "A geometria potencial de recorte. Consulte comentários."
   overload: System.Windows.Documents.Adorner.GetLayoutClip*
   exceptions: []
   platform:
@@ -712,13 +712,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Gets or sets a value that indicates whether clipping of the adorner is enabled."
-  remarks: "Enabling clipping an adorner incurs a substantial performance cost. In general, clipping of the adorner should be disabled."
+  summary: "Obtém ou define um valor que indica se o recorte de adorno está habilitado."
+  remarks: "Habilitar um adorno de recorte incorre em um custo de desempenho significativa. Em geral, o recorte de adorno deve ser desabilitado."
   syntax:
     content: public bool IsClipEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "A <xref uid=&quot;langword_csharp_Boolean&quot; name=&quot;Boolean&quot; href=&quot;&quot;></xref> value indicating whether clipping of the adorner is enabled.       If this property is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>, the adorner is not clipped.       If this property is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, the adorner is clipped using the same clipping geometry as the adorned element.       The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Um <xref uid=&quot;langword_csharp_Boolean&quot; name=&quot;Boolean&quot; href=&quot;&quot;> </xref> valor que indica se o recorte de adorno está habilitado.       Se essa propriedade for <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>, o adorno não é recortado.       Se essa propriedade for <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, o adorno é recortado usando geometria recorte mesmo como o elemento adornado.       O valor padrão é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Documents.Adorner.IsClipEnabled*
   exceptions: []
   platform:
@@ -735,17 +735,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Documents
-  summary: "Implements any custom measuring behavior for the adorner."
-  remarks: "By default, an adorner will size to match the adorned element.       This method overrides <xref:System.Windows.FrameworkElement.MeasureOverride%2A>."
+  summary: "Implementa qualquer comportamento personalizado de medição para o adorno."
+  remarks: "Por padrão, um adorno será dimensionado para coincidir com o elemento adornado.       Esse método substitui <xref:System.Windows.FrameworkElement.MeasureOverride%2A>.</xref:System.Windows.FrameworkElement.MeasureOverride%2A>"
   syntax:
     content: protected override System.Windows.Size MeasureOverride (System.Windows.Size constraint);
     parameters:
     - id: constraint
       type: System.Windows.Size
-      description: "A size to constrain the adorner to."
+      description: "Um tamanho para restringir o adorno de para."
     return:
       type: System.Windows.Size
-      description: "A <xref href=&quot;System.Windows.Size&quot;></xref> object representing the amount of layout space needed by the adorner."
+      description: "Um <xref href=&quot;System.Windows.Size&quot;> </xref> objeto que representa a quantidade de espaço de layout necessário pelo controle."
   overload: System.Windows.Documents.Adorner.MeasureOverride*
   exceptions: []
   platform:

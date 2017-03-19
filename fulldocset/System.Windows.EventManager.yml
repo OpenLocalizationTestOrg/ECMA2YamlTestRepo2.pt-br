@@ -14,8 +14,8 @@ items:
   nameWithType: EventManager
   fullName: System.Windows.EventManager
   type: Class
-  summary: "Provides event-related utility methods that register routed events for class owners and add class handlers."
-  remarks: "This class is most commonly used to register a new routed event, with <xref:System.Windows.EventManager.RegisterRoutedEvent%2A>.       The second most common [!INCLUDE[TLA2#tla_api](~/add/includes/tla2sharptla-api-md.md)] usage is <xref:System.Windows.EventManager.RegisterClassHandler%2A>. You use this method to enable class handling of a routed event on the class, or an attached event. For details, see [Marking Routed Events as Handled, and Class Handling](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Fornece métodos de utilitário relacionado ao evento que registrar eventos roteados para proprietários de classe e adicionar manipuladores de classe."
+  remarks: "Essa classe é mais comumente usada para registrar um novo evento roteado, com <xref:System.Windows.EventManager.RegisterRoutedEvent%2A>.</xref:System.Windows.EventManager.RegisterRoutedEvent%2A>       O segundo mais comuns [!INCLUDE[TLA2#tla_api](~/add/includes/tla2sharptla-api-md.md)] uso é <xref:System.Windows.EventManager.RegisterClassHandler%2A>.</xref:System.Windows.EventManager.RegisterClassHandler%2A> Você pode usar esse método para habilitar a manipulação de classe de um evento roteado na classe ou um evento. Para obter detalhes, consulte [marcar eventos roteados como Handled e tratamento de classe](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following example show how to use this class to register a new routed event as a class member, along with the routed event \"wrapper\" technique of overriding the add and remove implementations for a [!INCLUDE[TLA2#tla_clr](~/add/includes/tla2sharptla-clr-md.md)] event.  \n  \n [!code-cs[DPCustom#EventManagerClass](~/add/codesnippet/csharp/DPCustom/default.xaml.cs#eventmanagerclass)]\n [!code-vb[DPCustom#EventManagerClass](~/add/codesnippet/visualbasic/dpcustom/default.xaml.vb#eventmanagerclass)]"
   syntax:
@@ -38,14 +38,14 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Returns identifiers for routed events that have been registered to the event system."
-  remarks: "More <xref:System.Windows.RoutedEvent> objects can be registered later. This method gets a snapshot and the collection of routed events is writeable throughout an application&quot;s lifetime. The collection returned might be quite large. Even just counting the events that are part of the [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] [!INCLUDE[TLA2#tla_api#plural](~/add/includes/tla2sharptla-apisharpplural-md.md)], the collection count is in the high hundreds."
+  summary: "Retorna identificadores para eventos roteados que foram registrados para o sistema de eventos."
+  remarks: "Mais <xref:System.Windows.RoutedEvent>objetos podem ser registrados mais tarde.</xref:System.Windows.RoutedEvent> Esse método obtém um instantâneo e a coleção de eventos roteados é gravável ao longo do tempo de vida do aplicativo. A coleção retornada pode ser muito grande. Até mesmo contar os eventos que fazem parte do [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] [!INCLUDE[TLA2#tla_api#plural](~/add/includes/tla2sharptla-apisharpplural-md.md)], a contagem de coleta for alta centenas."
   syntax:
     content: public static System.Windows.RoutedEvent[] GetRoutedEvents ();
     parameters: []
     return:
       type: System.Windows.RoutedEvent[]
-      description: "An array of type <xref href=&quot;System.Windows.RoutedEvent&quot;></xref> that contains the registered objects."
+      description: "Uma matriz do tipo <xref href=&quot;System.Windows.RoutedEvent&quot;> </xref> que contém os objetos registrados."
   overload: System.Windows.EventManager.GetRoutedEvents*
   exceptions: []
   platform:
@@ -62,16 +62,16 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Finds all routed event identifiers for events that are registered with the provided owner type."
+  summary: "Localiza todos os identificadores de eventos roteados para eventos que são registrados com o tipo de proprietário fornecidos."
   syntax:
     content: public static System.Windows.RoutedEvent[] GetRoutedEventsForOwner (Type ownerType);
     parameters:
     - id: ownerType
       type: System.Type
-      description: "The type to start the search with. Base classes are included in the search."
+      description: "O tipo para iniciar a pesquisa. Classes base são incluídos na pesquisa."
     return:
       type: System.Windows.RoutedEvent[]
-      description: "An array of matching routed event identifiers if any match is found; otherwise, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Uma matriz de identificadores de evento roteado de correspondência se nenhuma correspondência for encontrada; Caso contrário, <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.EventManager.GetRoutedEventsForOwner*
   exceptions: []
   platform:
@@ -88,8 +88,8 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Registers a class handler for a particular routed event."
-  remarks: "Class handling is a feature that is available for routed events, including attached events that are implemented with routed event backing. A class handler is like a static handler that exists for all instances of the class. Because the handler is static, you cannot change instance properties directly with a class handler, but you can access instances through the `sender` parameter and/or the event data.       Class handlers are invoked before instance handlers. You can implement a class handler that has the behavior of marking the event as handled. Therefore, instance handlers for a class-handled event are not invoked unless the instance handlers register specifically for handled events.       Many of the [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] base element events provide class handling virtual methods. By overriding these methods in classes that inherit the base classes, you can implement class handling without calling RegisterClassHandler in static constructors. These class handling methods typically exist for input events and have names that start with &quot;On&quot; and end with the name of the event being class handled.       For more information about class handling, see [Marking Routed Events as Handled, and Class Handling](~/add/includes/ajax-current-ext-md.md).       Using this signature, class handlers will be registered to invoke only in response to unhandled events. You can also register class handlers to invoke even if the event arguments are marked handled, by using the <xref:System.Windows.EventManager.RegisterClassHandler%28System.Type%2CSystem.Windows.RoutedEvent%2CSystem.Delegate%2CSystem.Boolean%29> signature, with `handledEventsToo` set to `true`."
+  summary: "Registra um manipulador de classe para um determinado evento roteado."
+  remarks: "Tratamento de classe é um recurso que está disponível para eventos roteados, incluindo eventos anexados que são implementados com eventos roteados fazendo. Um manipulador de classe é como um manipulador estático que existe para todas as instâncias da classe. Porque o manipulador é estático, você não pode alterar as propriedades de instância diretamente com um manipulador de classe, mas você pode acessar instâncias por meio de `sender` parâmetro e/ou os dados do evento.       Manipuladores de classe são chamados antes de manipuladores de instância. Você pode implementar um manipulador de classe que tem o comportamento de marcar o evento como manipulado. Portanto, manipuladores de instância para um evento de classe tratado não serão chamados a menos que os manipuladores de instância registrarem especificamente para eventos manipulados.       Muitas do [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] eventos do elemento base fornecem métodos virtuais de manipulação de classe. Substituindo esses métodos em classes que herdam as classes base, você pode implementar o tratamento sem chamar RegisterClassHandler em construtores estáticos de classe. Esses métodos de manipulação de classe normalmente existem para eventos de entrada e têm nomes que começam com &quot;On&quot; e termina com o nome do evento que está sendo tratado de classe.       Para obter mais informações sobre tratamento de classe, consulte [marcar eventos roteados como Handled e tratamento de classe](~/add/includes/ajax-current-ext-md.md).       Usando essa assinatura, manipuladores de classe serão registrados para invocar apenas em resposta a eventos sem tratamento. Você também pode registrar manipuladores de classe para chamar, mesmo que os argumentos de evento são marcados como manipulados, usando o <xref:System.Windows.EventManager.RegisterClassHandler%28System.Type%2CSystem.Windows.RoutedEvent%2CSystem.Delegate%2CSystem.Boolean%29>assinatura, com `handledEventsToo` definido como `true`.</xref:System.Windows.EventManager.RegisterClassHandler%28System.Type%2CSystem.Windows.RoutedEvent%2CSystem.Delegate%2CSystem.Boolean%29>"
   example:
   - "The following example adds a handler for <xref:System.Windows.UIElement.PreviewMouseLeftButtonDown>, calling RegisterClassHandler.  \n  \n [!code-vb[ClassHandling#StaticAndRegisterClassHandler](~/add/codesnippet/visualbasic/ClassHandling.sdksamplelibrary/class1.vb#staticandregisterclasshandler)]\n [!code-cs[ClassHandling#StaticAndRegisterClassHandler](~/add/codesnippet/csharp/ClassHandling/SDKSampleLibrary/class1.cs#staticandregisterclasshandler)]"
   syntax:
@@ -97,13 +97,13 @@ items:
     parameters:
     - id: classType
       type: System.Type
-      description: "The type of the class that is declaring class handling."
+      description: "O tipo da classe que está declarando o tratamento de classe."
     - id: routedEvent
       type: System.Windows.RoutedEvent
-      description: "The routed event identifier of the event to handle."
+      description: "O identificador de eventos roteados do evento para manipular."
     - id: handler
       type: System.Delegate
-      description: "A reference to the class handler implementation."
+      description: "Uma referência para a implementação de manipulador de classe."
   overload: System.Windows.EventManager.RegisterClassHandler*
   exceptions: []
   platform:
@@ -120,23 +120,23 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Registers a class handler for a particular routed event, with the option to handle events where event data is already marked handled."
-  remarks: "Class handling is a feature that is available for routed events, including attached events that are implemented with routed event backing. A class handler is like a static handler that exists for all instances of the class. Because the handler is static, you cannot change instance properties directly with a class handler, but you can access instances through the `sender` parameter and/or the event data.       Class handlers are invoked before instance handlers. You can implement a class handler that has the behavior of marking the event as handled. Therefore, instance handlers for a class-handled event are not invoked unless the instance handlers register specifically for handled events.       Many of the [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] base element events provide class handling virtual methods. By overriding these methods in classes that inherit the base classes, you can implement class handling without calling <xref:System.Windows.EventManager.RegisterClassHandler%2A> in static constructors. These class handling methods typically exist for input events and have names that start with &quot;On&quot; and end with the name of the event being class handled.       For more information about class handling, see [Marking Routed Events as Handled, and Class Handling](~/add/includes/ajax-current-ext-md.md).       Using this signature, class handlers can be registered to invoke upon handled events, by setting `handledEventsToo` set to `true`. Generally, you should do this only if there is a known handling issue you are trying to work around, such as input system handling from mouse or keyboard events."
+  summary: "Registra um manipulador de classe para um determinado evento roteado, com a opção para tratar eventos manipulados onde os dados de evento já estão marcados."
+  remarks: "Tratamento de classe é um recurso que está disponível para eventos roteados, incluindo eventos anexados que são implementados com eventos roteados fazendo. Um manipulador de classe é como um manipulador estático que existe para todas as instâncias da classe. Porque o manipulador é estático, você não pode alterar as propriedades de instância diretamente com um manipulador de classe, mas você pode acessar instâncias por meio de `sender` parâmetro e/ou os dados do evento.       Manipuladores de classe são chamados antes de manipuladores de instância. Você pode implementar um manipulador de classe que tem o comportamento de marcar o evento como manipulado. Portanto, manipuladores de instância para um evento de classe tratado não serão chamados a menos que os manipuladores de instância registrarem especificamente para eventos manipulados.       Muitas do [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] eventos do elemento base fornecem métodos virtuais de manipulação de classe. Substituindo esses métodos em classes que herdam as classes base, você pode implementar classe tratamento sem chamar <xref:System.Windows.EventManager.RegisterClassHandler%2A>em construtores estáticos.</xref:System.Windows.EventManager.RegisterClassHandler%2A> Esses métodos de manipulação de classe normalmente existem para eventos de entrada e têm nomes que começam com &quot;On&quot; e termina com o nome do evento que está sendo tratado de classe.       Para obter mais informações sobre tratamento de classe, consulte [marcar eventos roteados como Handled e tratamento de classe](~/add/includes/ajax-current-ext-md.md).       Usando essa assinatura, manipuladores de classe podem ser registrados para invocar após eventos manipulados, definindo `handledEventsToo` definido como `true`. Em geral, você deve fazer isso somente se houver um problema de tratamento conhecidos que você está tentando solucionar o problema, como o sistema de entrada de tratamento de eventos de mouse ou teclado."
   syntax:
     content: public static void RegisterClassHandler (Type classType, System.Windows.RoutedEvent routedEvent, Delegate handler, bool handledEventsToo);
     parameters:
     - id: classType
       type: System.Type
-      description: "The type of the class that is declaring class handling."
+      description: "O tipo da classe que está declarando o tratamento de classe."
     - id: routedEvent
       type: System.Windows.RoutedEvent
-      description: "The routed event identifier of the event to handle."
+      description: "O identificador de eventos roteados do evento para manipular."
     - id: handler
       type: System.Delegate
-      description: "A reference to the class handler implementation."
+      description: "Uma referência para a implementação de manipulador de classe."
     - id: handledEventsToo
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to invoke this class handler even if arguments of the routed event have been marked as handled; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to retain the default behavior of not invoking the handler on any marked-handled event."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para invocar esse manipulador da classe, mesmo se os argumentos do evento roteado foram marcados como tratada; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> reter o comportamento padrão de não chamar o manipulador de qualquer evento tratado marcado."
   overload: System.Windows.EventManager.RegisterClassHandler*
   exceptions: []
   platform:
@@ -153,26 +153,26 @@ items:
   assemblies:
   - PresentationCore
   namespace: System.Windows
-  summary: "Registers a new routed event with the [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] event system."
-  remarks: "Use the return value of this method to create the static declaration for a unique <xref:System.Windows.RoutedEvent> identifier field. This field should be stored within the owner type.       There are a considerable number of conventions and best practices associated with how routed events should be named, registered, and exposed in a class. For more information, see [Routed Events Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Registra um novo evento roteado com o [!INCLUDE[TLA#tla_winclient](~/add/includes/ajax-current-ext-md.md)] sistema de eventos."
+  remarks: "Use o valor de retorno desse método para criar a declaração estática para uma única <xref:System.Windows.RoutedEvent>campo identificador.</xref:System.Windows.RoutedEvent> Este campo deve ser armazenado no tipo do proprietário.       Há um número considerável de convenções e práticas recomendadas associadas a eventos roteados como devem ser chamadas, registradas e expostas em uma classe. Para obter mais informações, consulte [visão geral sobre eventos roteados](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public static System.Windows.RoutedEvent RegisterRoutedEvent (string name, System.Windows.RoutingStrategy routingStrategy, Type handlerType, Type ownerType);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the routed event. The name must be unique within the owner type and cannot be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or an empty string."
+      description: "O nome do evento roteado. O nome deve ser exclusivo dentro do tipo de proprietário e não pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> ou uma cadeia de caracteres vazia."
     - id: routingStrategy
       type: System.Windows.RoutingStrategy
-      description: "The routing strategy of the event as a value of the enumeration."
+      description: "A estratégia de roteamento do evento como um valor da enumeração."
     - id: handlerType
       type: System.Type
-      description: "The type of the event handler. This must be a delegate type and cannot be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "O tipo do manipulador de eventos. Isso deve ser um tipo delegate e não pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     - id: ownerType
       type: System.Type
-      description: "The owner class type of the routed event. This cannot be <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "O tipo de classe do proprietário do evento roteado. Isso não pode ser <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
     return:
       type: System.Windows.RoutedEvent
-      description: "The identifier for the newly registered routed event. This identifier object can now be stored as a static field in a class and then used as a parameter for methods that attach handlers to the event. The routed event identifier is also used for other event system [!INCLUDE[TLA2#tla_api#plural](~/add/includes/tla2sharptla-apisharpplural-md.md)]."
+      description: "O identificador para o evento roteado registrado recentemente. Esse objeto de identificador agora pode ser armazenado como um campo estático em uma classe e, em seguida, usado como um parâmetro para métodos que anexam manipuladores de evento. O identificador de eventos roteados também é usado para outro sistema de evento [!INCLUDE[TLA2#tla_api#plural](~/add/includes/tla2sharptla-apisharpplural-md.md)]."
   overload: System.Windows.EventManager.RegisterRoutedEvent*
   exceptions: []
   platform:

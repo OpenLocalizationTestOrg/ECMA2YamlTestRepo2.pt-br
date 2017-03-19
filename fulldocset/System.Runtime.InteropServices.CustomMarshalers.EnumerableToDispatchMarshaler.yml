@@ -15,8 +15,8 @@ items:
   nameWithType: EnumerableToDispatchMarshaler
   fullName: System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler
   type: Class
-  summary: "Marshals the COM <xref uid=&quot;langword_csharp_IDispatch&quot; name=&quot;IDispatch&quot; href=&quot;&quot;></xref> interface to the .NET Framework <xref:System.Collections.IEnumerable> interface, and vice versa."
-  remarks: "This custom marshaler marshals `IDispatch` to <xref:System.Collections.IEnumerable> and marshals <xref:System.Collections.IEnumerable> to `IDispatch` when a member with a DISPID of -4 exists. When you use the Type Library Importer (Tlbimp.exe) to create a class that implements <xref:System.Collections.IEnumerable> , the CLR uses this custom marshaler automatically to bridge COM enumerators and .NET enumerators. Calling <xref:System.Collections.IEnumerable.GetEnumerator%2A> results in `IDispatch.Invoke` being called with a DISPID of -4, and vice versa."
+  summary: "Controla o COM <xref uid=&quot;langword_csharp_IDispatch&quot; name=&quot;IDispatch&quot; href=&quot;&quot;> </xref> interface para o .NET Framework <xref:System.Collections.IEnumerable>interface e vice-versa.</xref:System.Collections.IEnumerable>"
+  remarks: "Realiza marshaling este marshaler personalizado `IDispatch` para <xref:System.Collections.IEnumerable>e empacota <xref:System.Collections.IEnumerable>para `IDispatch` quando existe um membro com um DISPID de -4.</xref:System.Collections.IEnumerable> </xref:System.Collections.IEnumerable> Quando você usa o importador da biblioteca (Tlbimp.exe) para criar uma classe que implementa <xref:System.Collections.IEnumerable>, o CLR usa esse marshaler personalizado automaticamente para enumeradores de .NET e enumeradores de ponte COM.</xref:System.Collections.IEnumerable> Chamando <xref:System.Collections.IEnumerable.GetEnumerator%2A>resulta em `IDispatch.Invoke` que está sendo chamado com um DISPID de -4 e vice-versa.</xref:System.Collections.IEnumerable.GetEnumerator%2A>"
   syntax:
     content: 'public class EnumerableToDispatchMarshaler : System.Runtime.InteropServices.ICustomMarshaler'
   inheritance:
@@ -38,14 +38,14 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Performs necessary cleanup of the managed data when it is no longer needed."
-  remarks: "The CLR calls this method to clean up managed data allocated in the <xref:System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.MarshalNativeToManaged%2A> method."
+  summary: "Executa a limpeza necessária dos dados gerenciados quando ele não for mais necessário."
+  remarks: "O CLR chama esse método para limpar os dados gerenciados alocados a <xref:System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.MarshalNativeToManaged%2A>método.</xref:System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.MarshalNativeToManaged%2A>"
   syntax:
     content: public virtual void CleanUpManagedData (object pManagedObj);
     parameters:
     - id: pManagedObj
       type: System.Object
-      description: "The managed object to be destroyed."
+      description: "O objeto gerenciado a ser destruído."
   overload: System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.CleanUpManagedData*
   exceptions: []
   platform:
@@ -62,14 +62,14 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Performs necessary cleanup of the unmanaged data when it is no longer needed."
-  remarks: "The CLR calls this method to clean up the unmanaged data allocated in the <xref:System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.MarshalManagedToNative%2A> method."
+  summary: "Executa a limpeza necessária dos dados não gerenciados quando ele não for mais necessário."
+  remarks: "O CLR chama esse método para limpar os dados não gerenciados alocados a <xref:System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.MarshalManagedToNative%2A>método.</xref:System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.MarshalManagedToNative%2A>"
   syntax:
     content: public virtual void CleanUpNativeData (IntPtr pNativeData);
     parameters:
     - id: pNativeData
       type: System.IntPtr
-      description: "A pointer to the unmanaged data to be destroyed."
+      description: "Um ponteiro para os dados não gerenciados a serem destruídos."
   overload: System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.CleanUpNativeData*
   exceptions: []
   platform:
@@ -86,17 +86,17 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Returns an instance of the custom marshaler."
-  remarks: "All custom marshalers must implement this method, although it is not part of the <xref:System.Runtime.InteropServices.ICustomMarshaler> interface definition."
+  summary: "Retorna uma instância do marshaler personalizado."
+  remarks: "Todos os empacotadores personalizados devem implementar esse método, embora não seja parte do <xref:System.Runtime.InteropServices.ICustomMarshaler>definição de interface.</xref:System.Runtime.InteropServices.ICustomMarshaler>"
   syntax:
     content: public static System.Runtime.InteropServices.ICustomMarshaler GetInstance (string pstrCookie);
     parameters:
     - id: pstrCookie
       type: System.String
-      description: "String &quot;cookie&quot; parameter that can be used by the custom marshaler."
+      description: "Parâmetro de &quot;cookies&quot; cadeia de caracteres que pode ser usado pelo marshaler personalizado."
     return:
       type: System.Runtime.InteropServices.ICustomMarshaler
-      description: "An instance of the custom marshaler."
+      description: "Uma instância do marshaler personalizado."
   overload: System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.GetInstance*
   exceptions: []
   platform:
@@ -113,14 +113,14 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Returns the size in bytes of the unmanaged data to be marshaled."
-  remarks: "Because custom marshaling of value types is not supported in the .NET Framework, this method always returns -1."
+  summary: "Retorna o tamanho em bytes dos dados marshaling não gerenciados."
+  remarks: "Porque não há suporte para empacotamento personalizado de tipos de valor no .NET Framework, esse método sempre retornará -1."
   syntax:
     content: public virtual int GetNativeDataSize ();
     parameters: []
     return:
       type: System.Int32
-      description: "-1 to indicate the type this marshaler handles is not a value type."
+      description: "-1 para indicar o tipo que manipula esta marshaler não é um tipo de valor."
   overload: System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.GetNativeDataSize*
   exceptions: []
   platform:
@@ -137,22 +137,22 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Marshals an object from managed code to unmanaged code."
-  remarks: "The CLR calls this method with the specified instance of a managed object to convert that object from managed code to unmanaged code, and it returns a pointer to the appropriate unmanaged object, representing the COM view of that object."
+  summary: "Realiza marshaling de um objeto de código gerenciado para código não gerenciado."
+  remarks: "O CLR chama esse método com a instância especificada de um objeto gerenciado para converter esse objeto de código gerenciado para código não gerenciado e retorna um ponteiro para o objeto não gerenciado apropriado, que representa o modo de exibição do objeto COM."
   syntax:
     content: public virtual IntPtr MarshalManagedToNative (object pManagedObj);
     parameters:
     - id: pManagedObj
       type: System.Object
-      description: "The managed object to be converted."
+      description: "O objeto gerenciado a ser convertido."
     return:
       type: System.IntPtr
-      description: "A pointer to the unmanaged object."
+      description: "Um ponteiro para o objeto não gerenciado."
   overload: System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.MarshalManagedToNative*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>pManagedObj</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>pManagedObj</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.MarshalNativeToManaged(System.IntPtr)
@@ -167,22 +167,22 @@ items:
   assemblies:
   - CustomMarshalers
   namespace: System.Runtime.InteropServices.CustomMarshalers
-  summary: "Marshals an object from unmanaged code to managed code."
-  remarks: "The CLR calls this method with the specified pointer to an unmanaged object to convert that object from unmanaged code to managed code, and returns a managed object representing the managed view of the unmanaged data."
+  summary: "Realiza marshaling de um objeto de código não gerenciado para código gerenciado."
+  remarks: "O CLR chama esse método com o ponteiro especificado para um objeto não gerenciado para converter esse objeto de código não gerenciado para código gerenciado e retorna um objeto gerenciado que representa a exibição gerenciada de dados não gerenciados."
   syntax:
     content: public virtual object MarshalNativeToManaged (IntPtr pNativeData);
     parameters:
     - id: pNativeData
       type: System.IntPtr
-      description: "A pointer to the unmanaged object to be converted."
+      description: "Um ponteiro para o objeto não gerenciado a ser convertido."
     return:
       type: System.Object
-      description: "A managed object."
+      description: "Um objeto gerenciado."
   overload: System.Runtime.InteropServices.CustomMarshalers.EnumerableToDispatchMarshaler.MarshalNativeToManaged*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>pNativeData</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>pNativeData</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

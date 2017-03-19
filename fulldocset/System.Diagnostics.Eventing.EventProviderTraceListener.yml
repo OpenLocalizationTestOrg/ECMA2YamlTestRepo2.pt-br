@@ -26,8 +26,8 @@ items:
   nameWithType: EventProviderTraceListener
   fullName: System.Diagnostics.Eventing.EventProviderTraceListener
   type: Class
-  summary: "A listener for <xref href=&quot;System.Diagnostics.TraceSource&quot;></xref> that writes events to the ETW subsytem."
-  remarks: "All event data (trace or debug) from the source event is written to the ETW subsystem as a string. The data elements are delimited using a comma. To specify a different delimiter, use the <xref:System.Diagnostics.Eventing.EventProviderTraceListener.Delimiter%2A> property.       Adding the listener to <xref:System.Diagnostics.TraceSource?displayProperty=fullName> registers the provider with the ETW subsystem. You must create an ETW trace session using the Logman.exe executable program (or something similar) to write the events to a log file.       You do not need a manifest to consume events from the listener because the event data is a single string.       When you call the <xref:System.Diagnostics.TraceSource?displayProperty=fullName> methods to write events, you pass a <xref:System.Diagnostics.TraceEventType?displayProperty=fullName> enumeration value. The enumeration contains both level and keyword values. When you enable a trace listener provider from an ETW session, the level value that you specify can be the value associated with one of the following <xref:System.Diagnostics.TraceEventType?displayProperty=fullName> enumeration values:      -   Critical (value is 1)      -   Error (value is 2)      -   Information (value is 8)      -   Verbose (value is 16)      -   Warning (value is 4)       The keyword value that you specify for the session can be the value associated with one of the following <xref:System.Diagnostics.TraceEventType?displayProperty=fullName> enumeration values:      -   Resume (value is 2,048)      -   Start (value is 256)      -   Stop (value is 512)      -   Suspend (value is 1,024)      -   Transfer (value is 4,096)"
+  summary: "Um ouvinte para <xref href=&quot;System.Diagnostics.TraceSource&quot;> </xref> que grava eventos para o subsistema ETW."
+  remarks: "Todos os dados de evento (rastreamento ou depuração) a partir do evento de origem são gravados no subsistema ETW como uma cadeia de caracteres. Os elementos de dados são delimitados por vírgula. Para especificar um delimitador diferente, use o <xref:System.Diagnostics.Eventing.EventProviderTraceListener.Delimiter%2A>propriedade.</xref:System.Diagnostics.Eventing.EventProviderTraceListener.Delimiter%2A>       A adição do ouvinte para <xref:System.Diagnostics.TraceSource?displayProperty=fullName>registra o provedor com o subsistema ETW.</xref:System.Diagnostics.TraceSource?displayProperty=fullName> Você deve criar uma sessão de rastreamento ETW usando o programa executável Logman.exe (ou algo semelhante) para gravar os eventos em um arquivo de log.       Não é necessário um manifesto para consumir eventos do ouvinte, porque os dados de evento são uma única cadeia de caracteres.       Quando você chama o <xref:System.Diagnostics.TraceSource?displayProperty=fullName>métodos para gravar eventos, você passa uma <xref:System.Diagnostics.TraceEventType?displayProperty=fullName>valor de enumeração.</xref:System.Diagnostics.TraceEventType?displayProperty=fullName> </xref:System.Diagnostics.TraceSource?displayProperty=fullName> A enumeração contém valores nível e a palavra-chave. Quando você habilita um provedor de ouvinte de rastreamento de uma sessão do ETW, o valor do nível que você especificar pode ser o valor associado a um dos seguintes valores de enumeração <xref:System.Diagnostics.TraceEventType?displayProperty=fullName>: - crítico (o valor é 1) - erro (o valor é 2) - informações (o valor é 8) - Verbose (o valor é 16) - aviso (o valor é 4) o valor de palavra-chave que você especificar para a sessão pode ser o valor associado a um dos seguintes valores de enumeração <xref:System.Diagnostics.TraceEventType?displayProperty=fullName> :-Retomar (o valor é 2.048) - início (o valor é 256) - parar (o valor é 512) - Suspender (o valor é 1.024) - transferência (o valor é 4.096)</xref:System.Diagnostics.TraceEventType?displayProperty=fullName> </xref:System.Diagnostics.TraceEventType?displayProperty=fullName>"
   example:
   - "```  \nprivate static Guid providerId = new Guid(\"{B3F0C8FC-E8A8-4868-8901-1465E8A2F41B}\");  \n  \n    EventProviderTraceListener listener = new EventProviderTraceListener(providerId.ToString(), \"Test Listener\", \"::\");  \n  \n    // You should use the All default level and control the level using the  \n    // ETW session; otherwise, you may not log all the events requested by the  \n    // session.  \n    TraceSource source = new TraceSource(\"MyProvider\", SourceLevels.All);  \n  \n    source.Listeners.Add(listener);  \n  \n    source.TraceData(TraceEventType.Warning | TraceEventType.Start, 2, new object[] { \"abc\", \"def\", true, 123 });  \n  \n    source.TraceEvent(TraceEventType.Warning, 12, \"Provider guid: {0}\", new object[] { providerId });  \n  \n    source.TraceInformation(\"string {0}, bool {1}, int {2}, ushort {3}\", new object[] { \"abc\", false, 123, (UInt32)5 });  \n```"
   syntax:
@@ -73,13 +73,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.Eventing.EventProviderTraceListener&quot;></xref> class using the specified provider identifier."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Diagnostics.Eventing.EventProviderTraceListener&quot;> </xref> classe usando o identificador do provedor especificado."
   syntax:
     content: public EventProviderTraceListener (string providerId);
     parameters:
     - id: providerId
       type: System.String
-      description: "A unique string <xref:System.Guid> that identifies the provider."
+      description: "Uma cadeia de caracteres exclusiva <xref:System.Guid>que identifica o provedor.</xref:System.Guid>"
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.#ctor*
   exceptions: []
   platform:
@@ -96,16 +96,16 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.Eventing.EventProviderTraceListener&quot;></xref> class using the specified provider identifier and name of the listener."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Diagnostics.Eventing.EventProviderTraceListener&quot;> </xref> classe usando o identificador do provedor especificado e o nome do ouvinte."
   syntax:
     content: public EventProviderTraceListener (string providerId, string name);
     parameters:
     - id: providerId
       type: System.String
-      description: "A unique string <xref:System.Guid> that identifies the provider."
+      description: "Uma cadeia de caracteres exclusiva <xref:System.Guid>que identifica o provedor.</xref:System.Guid>"
     - id: name
       type: System.String
-      description: "Name of the listener."
+      description: "Nome do ouvinte."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.#ctor*
   exceptions: []
   platform:
@@ -122,20 +122,20 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.Eventing.EventProviderTraceListener&quot;></xref> class using the specified provider identifier, name of the listener, and delimiter."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Diagnostics.Eventing.EventProviderTraceListener&quot;> </xref> classe usando o identificador de provedor especificado, o nome do ouvinte e delimitador."
   remarks: '-'
   syntax:
     content: public EventProviderTraceListener (string providerId, string name, string delimiter);
     parameters:
     - id: providerId
       type: System.String
-      description: "A unique string <xref:System.Guid> that identifies the provider."
+      description: "Uma cadeia de caracteres exclusiva <xref:System.Guid>que identifica o provedor.</xref:System.Guid>"
     - id: name
       type: System.String
-      description: "Name of the listener."
+      description: "Nome do ouvinte."
     - id: delimiter
       type: System.String
-      description: "Delimiter used to delimit the event data. (For more details, see the <xref:System.Diagnostics.Eventing.EventProviderTraceListener.Delimiter*> property.)"
+      description: "Delimitador usado para delimitar os dados do evento. (Para obter mais detalhes, consulte o <xref:System.Diagnostics.Eventing.EventProviderTraceListener.Delimiter*>propriedade.)</xref:System.Diagnostics.Eventing.EventProviderTraceListener.Delimiter*>"
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.#ctor*
   exceptions: []
   platform:
@@ -152,7 +152,7 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Closes the output stream so it no longer receives tracing or debugging output."
+  summary: "Fecha o fluxo de saída para que ele não recebe a saída de rastreamento ou de depuração."
   syntax:
     content: public override void Close ();
     parameters: []
@@ -172,13 +172,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Gets and sets the delimiter used to delimit the event data that is written to the ETW subsystem."
-  remarks: "The listener converts the data elements to strings and then concatenates the strings together, using the specified delimiter to delimit each data element in the string. The string is then written as the event data in the ETW subsystem.       To successfully parse the string, the consumer must know the delimiter that was used.       If the data contains a string that may contain a comma, specify an appropriate delimiter, so that the event data can be correctly parsed.       You do not need a manifest to consume events from the listener because the event data is a single string.       The delimiter applies to event data written using the <xref:System.Diagnostics.TraceSource.TraceData%2A?displayProperty=fullName> method."
+  summary: "Obtém e define o delimitador usado para delimitar os dados de evento que são gravados no subsistema ETW."
+  remarks: "O ouvinte converte os elementos de dados em cadeias de caracteres e, em seguida, concatena as cadeias de caracteres, usando o delimitador especificado para delimitar a cada elemento de dados na cadeia de caracteres. A cadeia de caracteres é gravada como os dados de evento no subsistema ETW.       Para analisar com êxito a cadeia de caracteres, o consumidor deve saber o delimitador que foi usado.       Se os dados contêm uma cadeia de caracteres que pode conter uma vírgula, especifique um delimitador apropriado, para que os dados de evento podem ser analisados corretamente.       Não é necessário um manifesto para consumir eventos do ouvinte, porque os dados de evento são uma única cadeia de caracteres.       O delimitador aplica-se aos dados de evento escritos usando o <xref:System.Diagnostics.TraceSource.TraceData%2A?displayProperty=fullName>método.</xref:System.Diagnostics.TraceSource.TraceData%2A?displayProperty=fullName>"
   syntax:
     content: public string Delimiter { get; set; }
     return:
       type: System.String
-      description: "The delimiter used to delimit the event data. The default delimiter is a comma."
+      description: "O delimitador usado para delimitar os dados do evento. O delimitador padrão é uma vírgula."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.Delimiter*
   exceptions: []
   platform:
@@ -195,16 +195,16 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Emits an error message and a detailed error message to the listener you create when you implement the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class."
+  summary: "Emite um erro de mensagem e uma mensagem de erro detalhada para o ouvinte criar quando você implementa o <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe."
   syntax:
     content: public override void Fail (string message, string detailMessage);
     parameters:
     - id: message
       type: System.String
-      description: "A message to emit."
+      description: "Uma mensagem de emissão."
     - id: detailMessage
       type: System.String
-      description: "A detailed message to emit."
+      description: "Uma mensagem detalhada de emissão."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.Fail*
   exceptions: []
   platform:
@@ -221,7 +221,7 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Flushes the output buffer."
+  summary: "Libera o buffer de saída."
   syntax:
     content: public override sealed void Flush ();
     parameters: []
@@ -241,13 +241,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Gets the custom attributes supported by the trace listener."
+  summary: "Obtém os atributos personalizados que suporte o ouvinte de rastreamento."
   syntax:
     content: protected override string[] GetSupportedAttributes ();
     parameters: []
     return:
       type: System.String[]
-      description: "A string array naming the custom attributes supported by the trace listener, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there are no custom attributes."
+      description: "Uma matriz de cadeia de caracteres, os atributos personalizados que suporte o ouvinte de rastreamento de nomenclatura ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não houver nenhum atributo personalizado."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.GetSupportedAttributes*
   exceptions: []
   platform:
@@ -264,12 +264,12 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Gets a value indicating whether the trace listener is thread safe."
+  summary: "Obtém um valor que indica se o ouvinte de rastreamento é thread safe."
   syntax:
     content: public override sealed bool IsThreadSafe { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the trace listener is thread safe; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o ouvinte de rastreamento é thread-safe; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O padrão é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.IsThreadSafe*
   exceptions: []
   platform:
@@ -286,25 +286,25 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Writes trace information, a data object and event information to the listener specific output."
+  summary: "Grava o rastreamento de informações, informações de evento e do objeto de dados para a saída específica do ouvinte."
   syntax:
     content: public override sealed void TraceData (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, object data);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: data
       type: System.Object
-      description: "The trace data to emit."
+      description: "Os dados de rastreamento para emitir."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.TraceData*
   exceptions: []
   platform:
@@ -321,25 +321,25 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Writes trace information, a data object and event information to the listener specific output."
+  summary: "Grava o rastreamento de informações, informações de evento e do objeto de dados para a saída específica do ouvinte."
   syntax:
     content: public override sealed void TraceData (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, object[] data);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: data
       type: System.Object[]
-      description: "An array of objects to emit as data."
+      description: "Uma matriz de objetos para a emissão de dados."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.TraceData*
   exceptions: []
   platform:
@@ -356,22 +356,22 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Writes trace and event information to the listener specific output."
+  summary: "Informações gravações de rastreamento e eventos para a saída específica do ouvinte."
   syntax:
     content: public override sealed void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.TraceEvent*
   exceptions: []
   platform:
@@ -388,25 +388,25 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Writes trace information, a message, and event information to the listener specific output."
+  summary: "Grava informações de uma mensagem e informações de evento para a saída específica do ouvinte de rastreamento."
   syntax:
     content: public override sealed void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, string message);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.TraceEvent*
   exceptions: []
   platform:
@@ -423,28 +423,28 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Writes trace information, a formatted array of objects and event information to the listener specific output."
+  summary: "Grava informações de rastreamento, uma matriz formatada de objetos e informações de evento para a saída específica do ouvinte."
   syntax:
     content: public override sealed void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, string format, object[] args);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: format
       type: System.String
-      description: "A format string that contains zero or more format items, which correspond to objects in the `args` array."
+      description: "Uma cadeia de caracteres de formato que contém zero ou mais itens de formato, que correspondem aos objetos na `args` matriz."
     - id: args
       type: System.Object[]
-      description: "An <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref> array containing zero or more objects to format."
+      description: "Um <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;> </xref> matriz que contém zero ou mais objetos a serem formatados."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.TraceEvent*
   exceptions: []
   platform:
@@ -461,25 +461,25 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "Writes trace information, a message, a related activity identity and event information to the listener specific output."
+  summary: "Grava informações de rastreamento, uma mensagem, informações de identidade e eventos de atividade relacionada para a saída específica do ouvinte."
   syntax:
     content: public override sealed void TraceTransfer (System.Diagnostics.TraceEventCache eventCache, string source, int id, string message, Guid relatedActivityId);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
     - id: relatedActivityId
       type: System.Guid
-      description: "A <xref:System.Guid> object identifying a related activity."
+      description: "Um <xref:System.Guid>objeto identificando uma atividade relacionada.</xref:System.Guid>"
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.TraceTransfer*
   exceptions: []
   platform:
@@ -496,13 +496,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "When overridden in a derived class, writes the specified message to the listener you create in the derived class."
+  summary: "Quando substituído em uma classe derivada, grava a mensagem especificada para o ouvinte que você criar na classe derivada."
   syntax:
     content: public override sealed void Write (string message);
     parameters:
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.Write*
   exceptions: []
   platform:
@@ -519,13 +519,13 @@ items:
   assemblies:
   - System.Core
   namespace: System.Diagnostics.Eventing
-  summary: "When overridden in a derived class, writes a message to the listener you create in the derived class, followed by a line terminator."
+  summary: "Quando substituído em uma classe derivada, grava uma mensagem para o ouvinte que você criar na classe derivada, seguido por um terminador de linha."
   syntax:
     content: public override sealed void WriteLine (string message);
     parameters:
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
   overload: System.Diagnostics.Eventing.EventProviderTraceListener.WriteLine*
   exceptions: []
   platform:

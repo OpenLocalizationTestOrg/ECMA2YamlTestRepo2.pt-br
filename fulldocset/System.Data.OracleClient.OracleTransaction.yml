@@ -15,8 +15,8 @@ items:
   nameWithType: OracleTransaction
   fullName: System.Data.OracleClient.OracleTransaction
   type: Class
-  summary: "Represents a transaction to be made in the database."
-  remarks: "The application creates an OracleTransaction object by calling <xref:System.Data.OracleClient.OracleConnection.BeginTransaction%2A> on the <xref:System.Data.OracleClient.OracleConnection> object. All subsequent operations associated with the transaction (for example, committing or aborting the transaction), are performed on the OracleTransaction object."
+  summary: "Representa uma transação a ser feita no banco de dados."
+  remarks: "O aplicativo cria um objeto OracleTransaction chamando <xref:System.Data.OracleClient.OracleConnection.BeginTransaction%2A>no <xref:System.Data.OracleClient.OracleConnection>objeto.</xref:System.Data.OracleClient.OracleConnection> </xref:System.Data.OracleClient.OracleConnection.BeginTransaction%2A> Todas as operações subsequentes associadas à transação (por exemplo, confirmar ou anular a transação), são executadas no objeto OracleTransaction."
   example:
   - "The following example creates an <xref:System.Data.OracleClient.OracleConnection> and an OracleTransaction. It also demonstrates how to use the <xref:System.Data.OracleClient.OracleConnection.BeginTransaction%2A>, <xref:System.Data.OracleClient.OracleTransaction.Commit%2A>, and <xref:System.Data.OracleClient.OracleTransaction.Rollback%2A> methods.  \n  \n [!code-vb[Classic WebData OracleConnection.BeginTransaction#1](~/add/codesnippet/visualbasic/t-system.data.oracleclie_6_1.vb)]\n [!code-cs[Classic WebData OracleConnection.BeginTransaction#1](~/add/codesnippet/csharp/t-system.data.oracleclie_6_1.cs)]"
   syntax:
@@ -47,7 +47,7 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Commits the SQL database transaction."
+  summary: "Confirma a transação de banco de dados SQL."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.OracleClient.OracleConnection> and an <xref:System.Data.OracleClient.OracleTransaction>. It also demonstrates how to use the <xref:System.Data.OracleClient.OracleConnection.BeginTransaction%2A>, Commit, and <xref:System.Data.OracleClient.OracleTransaction.Rollback%2A> methods.  \n  \n [!code-vb[Classic WebData OracleConnection.BeginTransaction1#1](~/add/codesnippet/visualbasic/m-system.data.oracleclie_3_1.vb)]\n [!code-cs[Classic WebData OracleConnection.BeginTransaction1#1](~/add/codesnippet/csharp/m-system.data.oracleclie_3_1.cs)]"
@@ -58,10 +58,10 @@ items:
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An error occurred while trying to commit the transaction."
+    description: "Ocorreu um erro ao tentar confirmar a transação."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "A transação já foi confirmada ou revertida.       - ou - a conexão for interrompida."
   platform:
   - net462
 - uid: System.Data.OracleClient.OracleTransaction.Connection
@@ -76,13 +76,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Specifies the <xref href=&quot;System.Data.OracleClient.OracleConnection&quot;></xref> object associated with the transaction."
-  remarks: "A single application may have multiple data source connections, each with zero or more transactions. This property enables you to determine the connection object associated with a particular transaction."
+  summary: "Especifica o <xref href=&quot;System.Data.OracleClient.OracleConnection&quot;> </xref> objeto associado à transação."
+  remarks: "Um único aplicativo pode ter várias conexões de fonte de dados, cada uma com zero ou mais transações. Essa propriedade permite que você determine o objeto de conexão associado a uma transação específica."
   syntax:
     content: public System.Data.OracleClient.OracleConnection Connection { get; }
     return:
       type: System.Data.OracleClient.OracleConnection
-      description: "The <xref href=&quot;System.Data.OracleClient.OracleConnection&quot;></xref> object associated with the transaction."
+      description: "O <xref href=&quot;System.Data.OracleClient.OracleConnection&quot;> </xref> objeto associado à transação."
   overload: System.Data.OracleClient.OracleTransaction.Connection*
   exceptions: []
   platform:
@@ -103,7 +103,7 @@ items:
     content: protected override System.Data.Common.DbConnection DbConnection { get; }
     return:
       type: System.Data.Common.DbConnection
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Data.OracleClient.OracleTransaction.DbConnection*
   exceptions: []
   platform:
@@ -125,7 +125,7 @@ items:
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Data.OracleClient.OracleTransaction.Dispose*
   exceptions: []
   platform:
@@ -142,13 +142,13 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Specifies the <xref href=&quot;System.Data.IsolationLevel&quot;></xref> for this transaction."
-  remarks: "The .NET Framework Data Provider for Oracle only supports `ReadCommitted` and `Serializable` isolation levels. The behavior of these isolation levels does not correspond to the way they behave when used with the.NET Data Provider for SQL Server. For more information about how Oracle uses isolation levels, refer to your Oracle documentation.       Parallel transactions are not supported. Therefore, the <xref:System.Data.IsolationLevel> applies to the entire transaction."
+  summary: "Especifica o <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> para esta transação."
+  remarks: "O provedor de dados .NET Framework para Oracle oferece suporte apenas a `ReadCommitted` e `Serializable` níveis de isolamento. O comportamento desses níveis de isolamento não corresponde à forma como eles se comportam quando usado com o.NET Data Provider para SQL Server. Para obter mais informações sobre como o Oracle usa níveis de isolamento, consulte a documentação do Oracle.       Não há suporte para transações paralelas. Portanto, o <xref:System.Data.IsolationLevel>se aplica a toda a transação.</xref:System.Data.IsolationLevel>"
   syntax:
     content: public override System.Data.IsolationLevel IsolationLevel { get; }
     return:
       type: System.Data.IsolationLevel
-      description: "The <xref href=&quot;System.Data.IsolationLevel&quot;></xref> for this transaction. The default is <xref uid=&quot;langword_csharp_ReadCommitted&quot; name=&quot;ReadCommitted&quot; href=&quot;&quot;></xref>."
+      description: "O <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> para esta transação. O padrão é <xref uid=&quot;langword_csharp_ReadCommitted&quot; name=&quot;ReadCommitted&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.OracleClient.OracleTransaction.IsolationLevel*
   exceptions: []
   platform:
@@ -165,8 +165,8 @@ items:
   assemblies:
   - System.Data.OracleClient
   namespace: System.Data.OracleClient
-  summary: "Rolls back a transaction from a pending state."
-  remarks: "The transaction can be rolled back only from a pending state (after <xref:System.Data.OracleClient.OracleConnection.BeginTransaction%2A> has been called, but before <xref:System.Data.OracleClient.OracleTransaction.Commit%2A> is called)."
+  summary: "Reverte uma transação de um estado pendente."
+  remarks: "A transação pode ser revertida somente de um estado pendente (após <xref:System.Data.OracleClient.OracleConnection.BeginTransaction%2A>foi chamado, mas antes <xref:System.Data.OracleClient.OracleTransaction.Commit%2A>é chamado).</xref:System.Data.OracleClient.OracleTransaction.Commit%2A> </xref:System.Data.OracleClient.OracleConnection.BeginTransaction%2A>"
   example:
   - "The following example creates an <xref:System.Data.OracleClient.OracleConnection> and an <xref:System.Data.OracleClient.OracleTransaction>. It also demonstrates how to use the <xref:System.Data.OracleClient.OracleConnection.BeginTransaction%2A>, <xref:System.Data.OracleClient.OracleTransaction.Commit%2A>, and Rollback methods.  \n  \n [!code-vb[Classic WebData OracleConnection.BeginTransaction1#1](~/add/codesnippet/visualbasic/m-system.data.oracleclie_7_1.vb)]\n [!code-cs[Classic WebData OracleConnection.BeginTransaction1#1](~/add/codesnippet/csharp/m-system.data.oracleclie_7_1.cs)]"
   syntax:
@@ -176,10 +176,10 @@ items:
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An error occurred while trying to commit the transaction."
+    description: "Ocorreu um erro ao tentar confirmar a transação."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "A transação já foi confirmada ou revertida.       - ou - a conexão for interrompida."
   platform:
   - net462
 references:

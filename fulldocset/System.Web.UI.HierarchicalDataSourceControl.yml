@@ -25,8 +25,8 @@ items:
   nameWithType: HierarchicalDataSourceControl
   fullName: System.Web.UI.HierarchicalDataSourceControl
   type: Class
-  summary: "Provides a base class for data source controls that represent hierarchical data."
-  remarks: "ASP.NET supports a controls data-binding architecture that enables Web server controls to bind to data and present it in a consistent fashion. Web server controls that bind to data are called data-bound controls, and the classes that facilitate binding are called data source controls. Data source controls can represent any data source: a file, a stream, a relational database, a business object, and so on. Data source controls present data in a consistent way to data-bound controls, regardless of the source or format of the underlying data.       Data source controls that represent hierarchical data derive from the HierarchicalDataSourceControl class, while data source controls that represent lists or tables of data derive from the <xref:System.Web.UI.DataSourceControl> class. The HierarchicalDataSourceControl class is the base implementation of the <xref:System.Web.UI.IHierarchicalDataSource> interface, which defines a single method to retrieve hierarchical data source view objects associated with the data source control, <xref:System.Web.UI.IHierarchicalDataSource.GetHierarchicalView%2A>.       You can think of a data source control as the combination of the HierarchicalDataSourceControl object and its associated views on the underlying data, called data source view objects. While data source controls that represent tabular data are typically associated with only one named view, the HierarchicalDataSourceControl class supports a data source view for each level of hierarchical data that the data source control represents. The level of hierarchical data is identified by a unique hierarchical path, passed to the <xref:System.Web.UI.HierarchicalDataSourceControl.GetHierarchicalView%2A> method in the `viewPath` parameter. Each <xref:System.Web.UI.HierarchicalDataSourceView> object defines the capabilities of a data source control for the hierarchical level represented, and performs operations such as insert, update, delete, and sort.       Web server controls that derive from the <xref:System.Web.UI.WebControls.HierarchicalDataBoundControl> class, such as <xref:System.Web.UI.WebControls.TreeView>, use hierarchical data source controls to bind to hierarchical data.       Data source controls are implemented as controls to enable declarative persistence and to optionally permit participation in state management. Data source controls have no visual rendering, and therefore do not support themes."
+  summary: "Fornece uma classe base para controles de fonte de dados que representam dados hierárquicos."
+  remarks: "ASP.NET oferece suporte a uma arquitetura de associação de dados de controles que permite que os controles de servidor Web associar aos dados e apresentá-lo de forma consistente. Controles de servidor Web que associar aos dados são chamados de controles associados a dados e as classes que facilitam a vinculação são chamadas de controles da fonte de dados. Controles de fonte de dados podem representar qualquer fonte de dados: um arquivo, um fluxo, um banco de dados relacional, um objeto comercial e assim por diante. Fonte de dados controla apresentar dados de uma maneira consistente para controles associados a dados, independentemente da origem ou o formato dos dados subjacentes.       Controles de fonte de dados que representam dados hierárquicos é derivado da classe HierarchicalDataSourceControl, enquanto os controles de fonte de dados que representam listas ou tabelas de dados derivam de <xref:System.Web.UI.DataSourceControl>classe.</xref:System.Web.UI.DataSourceControl> A classe HierarchicalDataSourceControl é a implementação base da <xref:System.Web.UI.IHierarchicalDataSource>interface, que define um único método para recuperar objetos de exibição de fonte de dados hierárquicos associados com o controle de fonte de dados, <xref:System.Web.UI.IHierarchicalDataSource.GetHierarchicalView%2A>.</xref:System.Web.UI.IHierarchicalDataSource.GetHierarchicalView%2A> </xref:System.Web.UI.IHierarchicalDataSource>       Você pode pensar em um controle de fonte de dados como a combinação do objeto HierarchicalDataSourceControl e seus modos de exibição associados nos dados subjacentes, chamados de objetos de exibição de fonte de dados. Enquanto os controles de fonte de dados que representam dados tabulares normalmente estão associados somente uma exibição nomeada, a classe HierarchicalDataSourceControl oferece suporte a uma exibição da fonte de dados para cada nível de dados hierárquicos que representa o controle de fonte de dados. O nível de dados hierárquicos é identificado por um caminho hierárquico exclusivo, passado para o <xref:System.Web.UI.HierarchicalDataSourceControl.GetHierarchicalView%2A>método o `viewPath` parâmetro.</xref:System.Web.UI.HierarchicalDataSourceControl.GetHierarchicalView%2A> Cada <xref:System.Web.UI.HierarchicalDataSourceView>objeto define os recursos de um controle de fonte de dados para o nível hierárquico representado e executa operações, como insert, update, delete e classificação.</xref:System.Web.UI.HierarchicalDataSourceView>       Controles de servidor Web que derivam de <xref:System.Web.UI.WebControls.HierarchicalDataBoundControl>classe, como <xref:System.Web.UI.WebControls.TreeView>, usar controles da fonte de dados hierárquicos para associar a dados hierárquicos.</xref:System.Web.UI.WebControls.TreeView> </xref:System.Web.UI.WebControls.HierarchicalDataBoundControl>       Controles de fonte de dados são implementados como controles para habilitar a persistência declarativa e, opcionalmente, permitir a participação no gerenciamento de estado. Controles de fonte de dados não têm nenhum processamento visual e, portanto, não oferecem suporte a temas."
   example:
   - "The following code example demonstrates how to extend the abstract HierarchicalDataSourceControl class and the <xref:System.Web.UI.HierarchicalDataSourceView> class, and implement the <xref:System.Web.UI.IHierarchicalEnumerable> and <xref:System.Web.UI.IHierarchyData> interfaces to create a hierarchical data source control that retrieves file system information. The `FileSystemDataSource` control enables Web server controls to bind to <xref:System.IO.FileSystemInfo> objects and display basic file system information. The `FileSystemDataSource` class in the example provides the implementation of the <xref:System.Web.UI.HierarchicalDataSourceControl.GetHierarchicalView%2A> method, which retrieves a `FileSystemDataSourceView` object. The `FileSystemDataSourceView` object retrieves the data from the underlying data storage, in this case the file system information on the Web server. For security purposes, file system information is displayed only if the data source control is being used in a localhost, authenticated scenario, and only starts with the virtual directory that the Web Forms page using the data source control resides in. Finally, two classes that implement <xref:System.Web.UI.IHierarchicalEnumerable> and <xref:System.Web.UI.IHierarchyData> are provided to wrap the <xref:System.IO.FileSystemInfo> objects that `FileSystemDataSource` uses.  \n  \n [!code-cs[Urtue.Samples.Alexkr.FileSystemDataSource_1#2](~/add/codesnippet/csharp/t-system.web.ui.hierarch_1_1.cs)]\n [!code-vb[Urtue.Samples.Alexkr.FileSystemDataSource_1#2](~/add/codesnippet/visualbasic/t-system.web.ui.hierarch_1_1.vb)]  \n  \n The following code example demonstrates how to declaratively bind a <xref:System.Web.UI.WebControls.TreeView> control to file system data using the `FileSystemDataSource` example.  \n  \n [!code-vb[Urtue.Samples.Alexkr.FileSystemDataSource_webform_1#50](~/add/codesnippet/visualbasic/t-system.web.ui.hierarch_1_2.aspx)]\n [!code-cs[Urtue.Samples.Alexkr.FileSystemDataSource_webform_1#50](~/add/codesnippet/csharp/t-system.web.ui.hierarch_1_2.aspx)]"
   syntax:
@@ -157,7 +157,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.HierarchicalDataSourceControl&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.UI.HierarchicalDataSourceControl&quot;> </xref> classe."
   syntax:
     content: protected HierarchicalDataSourceControl ();
     parameters: []
@@ -177,13 +177,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Applies the style properties that are defined in the page style sheet to the control."
+  summary: "Aplica-se as propriedades de estilo que são definidas na folha de estilo da página para o controle."
   syntax:
     content: public override void ApplyStyleSheetSkin (System.Web.UI.Page page);
     parameters:
     - id: page
       type: System.Web.UI.Page
-      description: "The <xref href=&quot;System.Web.UI.Page&quot;></xref> containing the control."
+      description: "O <xref href=&quot;System.Web.UI.Page&quot;> </xref> que contém o controle."
   overload: System.Web.UI.HierarchicalDataSourceControl.ApplyStyleSheetSkin*
   exceptions: []
   platform:
@@ -200,12 +200,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the server control identifier generated by ASP.NET."
+  summary: "Obtém o identificador de controle de servidor gerado pelo ASP.NET."
   syntax:
     content: public override string ClientID { get; }
     return:
       type: System.String
-      description: "The server control identifier generated by ASP.NET."
+      description: "O identificador de controle de servidor gerado pelo ASP.NET."
   overload: System.Web.UI.HierarchicalDataSourceControl.ClientID*
   exceptions: []
   platform:
@@ -222,13 +222,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "This property is not used for data source controls."
-  remarks: "This property of the <xref:System.Web.UI.Control> base class is not used for data source controls because data source controls do not render markup."
+  summary: "Essa propriedade não é usada para controles de fonte de dados."
+  remarks: "Essa propriedade do <xref:System.Web.UI.Control>classe base não é usada para controles de fonte de dados porque os controles de fonte de dados não processam marcação.</xref:System.Web.UI.Control>"
   syntax:
     content: public override System.Web.UI.ClientIDMode ClientIDMode { get; set; }
     return:
       type: System.Web.UI.ClientIDMode
-      description: "This property is not used for data source controls."
+      description: "Essa propriedade não é usada para controles de fonte de dados."
   overload: System.Web.UI.HierarchicalDataSourceControl.ClientIDMode*
   exceptions: []
   platform:
@@ -245,12 +245,12 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a <xref href=&quot;System.Web.UI.ControlCollection&quot;></xref> object that represents the child controls for a specified server control in the UI hierarchy."
+  summary: "Obtém um <xref href=&quot;System.Web.UI.ControlCollection&quot;> </xref> objeto que representa os controles filho de um controle de servidor especificado na hierarquia de interface do usuário."
   syntax:
     content: public override System.Web.UI.ControlCollection Controls { get; }
     return:
       type: System.Web.UI.ControlCollection
-      description: "The collection of child controls for the specified server control."
+      description: "A coleção de controles filho para o controle de servidor especificado."
   overload: System.Web.UI.HierarchicalDataSourceControl.Controls*
   exceptions: []
   platform:
@@ -267,14 +267,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Creates a new <xref href=&quot;System.Web.UI.ControlCollection&quot;></xref> object to hold the child controls (both literal and server) of the server control."
-  remarks: "The CreateControlCollection method is overridden by the <xref:System.Web.UI.HierarchicalDataSourceControl> class to prevent child controls from being added."
+  summary: "Cria um novo <xref href=&quot;System.Web.UI.ControlCollection&quot;> </xref> objeto para manter os controles filho (literal e servidor) do controle do servidor."
+  remarks: "O método CreateControlCollection é substituído pelo <xref:System.Web.UI.HierarchicalDataSourceControl>classe para impedir que os controles filho que está sendo adicionado.</xref:System.Web.UI.HierarchicalDataSourceControl>"
   syntax:
     content: protected override System.Web.UI.ControlCollection CreateControlCollection ();
     parameters: []
     return:
       type: System.Web.UI.ControlCollection
-      description: "An <xref href=&quot;System.Web.UI.EmptyControlCollection&quot;></xref> that prevents any child controls from being added."
+      description: "Um <xref href=&quot;System.Web.UI.EmptyControlCollection&quot;> </xref> que impede que os controles filho que está sendo adicionado."
   overload: System.Web.UI.HierarchicalDataSourceControl.CreateControlCollection*
   exceptions: []
   platform:
@@ -291,18 +291,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a value indicating whether this control supports themes."
-  remarks: "Because the <xref:System.Web.UI.HierarchicalDataSourceControl> class has no visual rendering, it does not support themes."
+  summary: "Obtém um valor que indica se este controle dá suporte a temas."
+  remarks: "Porque o <xref:System.Web.UI.HierarchicalDataSourceControl>classe não tem nenhum processamento visual, ele não oferece suporte a temas.</xref:System.Web.UI.HierarchicalDataSourceControl>"
   syntax:
     content: public override bool EnableTheming { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> in all cases."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>em todos os casos."
   overload: System.Web.UI.HierarchicalDataSourceControl.EnableTheming*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "An attempt was made to set the value of the EnableTheming property."
+    description: "Foi feita uma tentativa para definir o valor da propriedade EnableTheming."
   platform:
   - net462
 - uid: System.Web.UI.HierarchicalDataSourceControl.FindControl(System.String)
@@ -317,16 +317,16 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Searches the current naming container for a server control with the specified <code>id</code> parameter."
+  summary: "Procura o contêiner de nomeação atual para um controle de servidor com especificado <code> id </code> parâmetro."
   syntax:
     content: public override System.Web.UI.Control FindControl (string id);
     parameters:
     - id: id
       type: System.String
-      description: "The identifier for the control to be found."
+      description: "O identificador para o controle a ser localizado."
     return:
       type: System.Web.UI.Control
-      description: "The specified control, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if the specified control does not exist."
+      description: "O controle especificado, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se o controle especificado não existe."
   overload: System.Web.UI.HierarchicalDataSourceControl.FindControl*
   exceptions: []
   platform:
@@ -343,8 +343,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Sets input focus to the control."
-  remarks: "Because the <xref:System.Web.UI.HierarchicalDataSourceControl> class has no visual rendering, calling the Focus method on it throws a <xref:System.NotSupportedException> exception."
+  summary: "Define o foco para o controle de entrada."
+  remarks: "Porque o <xref:System.Web.UI.HierarchicalDataSourceControl>classe não tem nenhum processamento visual, chamando o foco método lança um <xref:System.NotSupportedException>exceção.</xref:System.NotSupportedException> </xref:System.Web.UI.HierarchicalDataSourceControl>"
   syntax:
     content: public override void Focus ();
     parameters: []
@@ -352,7 +352,7 @@ items:
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "An attempt was made to call the Focus method."
+    description: "Foi feita uma tentativa de chamar o método de foco."
   platform:
   - net462
 - uid: System.Web.UI.HierarchicalDataSourceControl.GetHierarchicalView(System.String)
@@ -367,8 +367,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the view helper object for the <xref href=&quot;System.Web.UI.IHierarchicalDataSource&quot;></xref> interface for the specified path."
-  remarks: "This GetHierarchicalView method provides the default implementation for the <xref:System.Web.UI.HierarchicalDataSourceControl> class, which simply returns `null`. Classes that derive from the <xref:System.Web.UI.HierarchicalDataSourceControl> class override this method and provide an implementation to return a strongly typed view that derives from <xref:System.Web.UI.HierarchicalDataSourceView>."
+  summary: "Obtém o objeto auxiliar de modo de exibição para o <xref href=&quot;System.Web.UI.IHierarchicalDataSource&quot;> </xref> interface para o caminho especificado."
+  remarks: "Esse método GetHierarchicalView fornece a implementação do padrão para o <xref:System.Web.UI.HierarchicalDataSourceControl>classe, que simplesmente retorna `null`.</xref:System.Web.UI.HierarchicalDataSourceControl> Classes que derivam da <xref:System.Web.UI.HierarchicalDataSourceControl>classe substitua este método e fornecer uma implementação para retornar uma exibição fortemente tipada que deriva de <xref:System.Web.UI.HierarchicalDataSourceView>.</xref:System.Web.UI.HierarchicalDataSourceView> </xref:System.Web.UI.HierarchicalDataSourceControl>"
   example:
   - "The following code example demonstrates how to override the GetHierarchicalView method in a class that extends the <xref:System.Web.UI.HierarchicalDataSourceControl> class to return a strongly typed <xref:System.Web.UI.HierarchicalDataSourceView> object. This code example is part of a larger example provided for the <xref:System.Web.UI.HierarchicalDataSourceControl> class.  \n  \n [!code-cs[Urtue.Samples.Alexkr.FileSystemDataSource_1#1](~/add/codesnippet/csharp/m-system.web.ui.hierarch_0_1.cs)]\n [!code-vb[Urtue.Samples.Alexkr.FileSystemDataSource_1#1](~/add/codesnippet/visualbasic/m-system.web.ui.hierarch_0_1.vb)]"
   syntax:
@@ -376,10 +376,10 @@ items:
     parameters:
     - id: viewPath
       type: System.String
-      description: "The hierarchical path of the view to retrieve."
+      description: "O caminho hierárquico do modo de exibição para recuperar."
     return:
       type: System.Web.UI.HierarchicalDataSourceView
-      description: "A <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;></xref> that represents a single view of the data at the hierarchical level identified by the <code>viewPath</code> parameter."
+      description: "Um <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;> </xref> que representa uma única exibição dos dados no nível hierárquico identificado pelo <code> viewPath </code> parâmetro."
   overload: System.Web.UI.HierarchicalDataSourceControl.GetHierarchicalView*
   exceptions: []
   platform:
@@ -396,13 +396,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Determines if the server control contains any child controls."
+  summary: "Determina se o controle de servidor contém os controles filho."
   syntax:
     content: public override bool HasControls ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the control contains other controls; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o controle contiver outros controles. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.HierarchicalDataSourceControl.HasControls*
   exceptions: []
   platform:
@@ -419,14 +419,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Raises the <xref href=&quot;System.Web.UI.IHierarchicalDataSource.DataSourceChanged&quot;></xref> event."
-  remarks: "The OnDataSourceChanged method notifies a data-bound control that the underlying data source or the data cached in memory has changed, that the control should rebind, and that any necessary work should be performed.       Raising an event invokes the event handler through a delegate. For more information, see [NIB: Raising an Event](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       The OnDataSourceChanged method also allows derived classes to handle the event without attaching a delegate. This is the preferred technique for handling the event in a derived class."
+  summary: "Gera o <xref href=&quot;System.Web.UI.IHierarchicalDataSource.DataSourceChanged&quot;> </xref> eventos."
+  remarks: "O método OnDataSourceChanged notifica um controle associado a dados que a fonte de dados subjacente ou os dados armazenados em cache na memória foi alterado, se o controle deve associar novamente e que qualquer trabalho necessário deve ser executado.       Gerar um evento invoca o manipulador de eventos por meio de um representante. Para obter mais informações, consulte [NIB: gerar um evento](http://msdn.microsoft.com/en-us/f2adaf01-1ed1-42e1-8c31-8d467e7e0ee2).       O método OnDataSourceChanged também permite que classes derivadas manipular o evento sem anexar um representante. Isso é a técnica preferida para manipular o evento em uma classe derivada."
   syntax:
     content: protected virtual void OnDataSourceChanged (EventArgs e);
     parameters:
     - id: e
       type: System.EventArgs
-      description: "An <xref:System.EventArgs> that contains event data."
+      description: "Um <xref:System.EventArgs>que contém dados do evento.</xref:System.EventArgs>"
   overload: System.Web.UI.HierarchicalDataSourceControl.OnDataSourceChanged*
   exceptions: []
   platform:
@@ -443,13 +443,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Outputs server control content to a provided <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> object and stores tracing information about the control if tracing is enabled."
+  summary: "Gera o conteúdo do controle de servidor a um fornecido <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> de objeto e armazena informações de rastreamento sobre o controle se o rastreamento está habilitado."
   syntax:
     content: public override void RenderControl (System.Web.UI.HtmlTextWriter writer);
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "The <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> object that receives the control content."
+      description: "O <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> objeto que recebe o conteúdo do controle."
   overload: System.Web.UI.HierarchicalDataSourceControl.RenderControl*
   exceptions: []
   platform:
@@ -466,18 +466,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets or sets the skin to apply to the <xref href=&quot;System.Web.UI.HierarchicalDataSourceControl&quot;></xref> control."
-  remarks: "Because the <xref:System.Web.UI.HierarchicalDataSourceControl> has no visual rendering, it does not support themes or skins."
+  summary: "Obtém ou define a capa para aplicar ao <xref href=&quot;System.Web.UI.HierarchicalDataSourceControl&quot;> </xref> controle."
+  remarks: "Porque o <xref:System.Web.UI.HierarchicalDataSourceControl>não tem nenhum visual de renderização, não dá suporte a temas ou capas.</xref:System.Web.UI.HierarchicalDataSourceControl>"
   syntax:
     content: public override string SkinID { get; set; }
     return:
       type: System.String
-      description: '&lt;xref:System.String?displayProperty=fullName&gt; in all cases.'
+      description: '&lt;XRef:System.String?displayProperty=FullName&gt; em todos os casos.'
   overload: System.Web.UI.HierarchicalDataSourceControl.SkinID*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "An attempt was made to set the value of the SkinID property."
+    description: "Foi feita uma tentativa para definir o valor da propriedade SkinID."
   platform:
   - net462
 - uid: System.Web.UI.HierarchicalDataSourceControl.System#Web#UI#IHierarchicalDataSource#GetHierarchicalView(System.String)
@@ -493,17 +493,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the view helper object for the <xref href=&quot;System.Web.UI.IHierarchicalDataSource&quot;></xref> interface for the specified path."
-  remarks: "The <xref:System.Web.UI.IHierarchicalDataSource.GetHierarchicalView%2A> method is called by clients when a <xref:System.Web.UI.HierarchicalDataSourceControl> is manipulated as an <xref:System.Web.UI.IHierarchicalDataSource> interface. It delegates to the <xref:System.Web.UI.HierarchicalDataSourceControl.GetHierarchicalView%2A> method, which derived classes override to return strongly typed <xref:System.Web.UI.HierarchicalDataSourceView> objects."
+  summary: "Obtém o objeto auxiliar de modo de exibição para o <xref href=&quot;System.Web.UI.IHierarchicalDataSource&quot;> </xref> interface para o caminho especificado."
+  remarks: "O <xref:System.Web.UI.IHierarchicalDataSource.GetHierarchicalView%2A>método é chamado pelos clientes quando um <xref:System.Web.UI.HierarchicalDataSourceControl>é manipulado como uma <xref:System.Web.UI.IHierarchicalDataSource>interface.</xref:System.Web.UI.IHierarchicalDataSource> </xref:System.Web.UI.HierarchicalDataSourceControl> </xref:System.Web.UI.IHierarchicalDataSource.GetHierarchicalView%2A> Ela delega para o <xref:System.Web.UI.HierarchicalDataSourceControl.GetHierarchicalView%2A>substituição de método, que classes derivadas para retornar fortemente tipada <xref:System.Web.UI.HierarchicalDataSourceView>objetos.</xref:System.Web.UI.HierarchicalDataSourceView> </xref:System.Web.UI.HierarchicalDataSourceControl.GetHierarchicalView%2A>"
   syntax:
     content: System.Web.UI.HierarchicalDataSourceView IHierarchicalDataSource.GetHierarchicalView (string viewPath);
     parameters:
     - id: viewPath
       type: System.String
-      description: "The hierarchical path of the view to retrieve."
+      description: "O caminho hierárquico do modo de exibição para recuperar."
     return:
       type: System.Web.UI.HierarchicalDataSourceView
-      description: "Returns a <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;></xref> that represents a single view of the data at the hierarchical level identified by the <code>viewPath</code> parameter."
+      description: "Retorna um <xref href=&quot;System.Web.UI.HierarchicalDataSourceView&quot;> </xref> que representa uma única exibição dos dados no nível hierárquico identificado pelo <code> viewPath </code> parâmetro."
   overload: System.Web.UI.HierarchicalDataSourceControl.System#Web#UI#IHierarchicalDataSource#GetHierarchicalView*
   exceptions: []
   platform:
@@ -520,18 +520,18 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets or sets a value indicating whether the control is visually displayed."
-  remarks: "Because the <xref:System.Web.UI.HierarchicalDataSourceControl> class has no visual rendering, Visible always returns `false`."
+  summary: "Obtém ou define um valor que indica se o controle é exibido visualmente."
+  remarks: "Porque o <xref:System.Web.UI.HierarchicalDataSourceControl>classe não possui nenhum processamento visual, visível sempre retorna `false`.</xref:System.Web.UI.HierarchicalDataSourceControl>"
   syntax:
     content: public override bool Visible { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> in all cases."
+      description: "<xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>em todos os casos."
   overload: System.Web.UI.HierarchicalDataSourceControl.Visible*
   exceptions:
   - type: System.NotSupportedException
     commentId: T:System.NotSupportedException
-    description: "An attempt was made to set the value of the Visible property."
+    description: "Foi feita uma tentativa para definir o valor da propriedade Visible."
   platform:
   - net462
 references:

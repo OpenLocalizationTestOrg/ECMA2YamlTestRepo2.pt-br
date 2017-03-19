@@ -11,8 +11,8 @@ items:
   nameWithType: IPostBackDataHandler
   fullName: System.Web.UI.IPostBackDataHandler
   type: Interface
-  summary: "Defines methods that ASP.NET server controls must implement to automatically load postback data."
-  remarks: "You must implement the IPostBackDataHandler interface when creating a server control that needs to examine form data that is posted back to the server by the client. The contract that this interface defines allows a server control to determine whether its state should be altered as a result of the postback, and to raise the appropriate events. For more information, see [Server Event Handling in ASP.NET Web Forms Pages](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Define métodos que devem implementar controles de servidor ASP.NET para carregar automaticamente os dados de postagem."
+  remarks: "Você deve implementar a interface IPostBackDataHandler durante a criação de um controle de servidor que precisa examinar os dados de formulário que são lançados para o servidor pelo cliente. O contrato que define essa interface permite que um controle de servidor para determinar se o seu estado deve ser alterado como resultado de postback e a geração de eventos apropriados. Para obter mais informações, consulte [manipulação de eventos do servidor em páginas Web Forms do ASP.NET](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example demonstrates a custom text box server control that implements the IPostBackDataHandler interface. The <xref:System.Web.UI.WebControls.TextBox.Text%2A> property is changed as a result of the postback, and the server control raises a <xref:System.Web.UI.WebControls.TextBox.TextChanged> event after postback data has been loaded.  \n  \n [!code-cs[Classic IPostBackDataHandler Example#1](~/add/codesnippet/csharp/t-system.web.ui.ipostbac_0_1.cs)]\n [!code-vb[Classic IPostBackDataHandler Example#1](~/add/codesnippet/visualbasic/t-system.web.ui.ipostbac_0_1.vb)]"
   syntax:
@@ -32,8 +32,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When implemented by a class, processes postback data for an ASP.NET server control."
-  remarks: "The ASP.NET page framework tracks all the server controls that return `true` to this method call, and then invokes the <xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent%2A> method on those controls."
+  summary: "Quando implementado por uma classe, processos postback dados para um controle de servidor ASP.NET."
+  remarks: "A estrutura de página ASP.NET controla todos os controles de servidor que retornam `true` para esta chamada de método e, em seguida, invoca o <xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent%2A>método nesses controles.</xref:System.Web.UI.IPostBackDataHandler.RaisePostDataChangedEvent%2A>"
   example:
   - "The following code example demonstrates a server control that implements a version of the LoadPostData method.  \n  \n [!code-vb[Classic IPostBackDataHandler.LoadPostData Example#1](~/add/codesnippet/visualbasic/1a6863ac-1148-4133-b212-_1.vb)]\n [!code-cs[Classic IPostBackDataHandler.LoadPostData Example#1](~/add/codesnippet/csharp/1a6863ac-1148-4133-b212-_1.cs)]"
   syntax:
@@ -41,13 +41,13 @@ items:
     parameters:
     - id: postDataKey
       type: System.String
-      description: "The key identifier for the control."
+      description: "O identificador de chave para o controle."
     - id: postCollection
       type: System.Collections.Specialized.NameValueCollection
-      description: "The collection of all incoming name values."
+      description: "A coleção de todos os valores de nome de entrada."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the server control&quot;s state changes as a result of the postback; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o estado do controle de servidor é alterado como resultado de postback; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.IPostBackDataHandler.LoadPostData*
   exceptions: []
   platform:
@@ -64,8 +64,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "When implemented by a class, signals the server control to notify the ASP.NET application that the state of the control has changed."
-  remarks: "The RaisePostDataChangedEvent method raises any change events for the server control that implements the <xref:System.Web.UI.IPostBackDataHandler> interface."
+  summary: "Quando implementado por uma classe, sinaliza o controle de servidor para notificar o aplicativo ASP.NET que o estado do controle é alterado."
+  remarks: "O método RaisePostDataChangedEvent gera qualquer evento de alteração para o controle de servidor que implementa o <xref:System.Web.UI.IPostBackDataHandler>interface.</xref:System.Web.UI.IPostBackDataHandler>"
   example:
   - "The following code example demonstrates how a server control can implement the RaisePostDataChangedEvent method.  \n  \n [!code-vb[Classic IPostBackDataHandler.RaisePostDataChangedEvent Example#1](~/add/codesnippet/visualbasic/m-system.web.ui.ipostbac_1_1.vb)]\n [!code-cs[Classic IPostBackDataHandler.RaisePostDataChangedEvent Example#1](~/add/codesnippet/csharp/m-system.web.ui.ipostbac_1_1.cs)]"
   syntax:

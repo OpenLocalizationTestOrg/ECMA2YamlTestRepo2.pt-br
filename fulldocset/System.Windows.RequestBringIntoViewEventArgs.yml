@@ -12,8 +12,8 @@ items:
   nameWithType: RequestBringIntoViewEventArgs
   fullName: System.Windows.RequestBringIntoViewEventArgs
   type: Class
-  summary: "Provides data for the <xref href=&quot;System.Windows.FrameworkElement.RequestBringIntoView&quot;></xref> routed event."
-  remarks: "The <xref:System.Windows.FrameworkElement.RequestBringIntoView?displayProperty=fullName> event is raised by elements when you call <xref:System.Windows.FrameworkElement.BringIntoView%2A> from that element. Generally, this routed event is not handled by the source. Intermediate classes that do not implement scrollable regions or similar concepts that clip content should not handle the event.  The event should be permitted to bubble to parent elements that implement a scrollable region or otherwise specify <xref:System.Windows.UIElement.ClipToBounds%2A> `false`. Such parent elements typically provide class handling for the <xref:System.Windows.FrameworkElement.RequestBringIntoView> event, which is where the necessary rendering logic occurs whenever a given element requests that it be made viewable within the clipping region.       Content elements can cause the event to be raised by their content hosts (through calling <xref:System.Windows.FrameworkContentElement.BringIntoView%2A> and raising <xref:System.Windows.FrameworkElement.RequestBringIntoView?displayProperty=fullName> from the content host). Similarly, you can request logical tree elements to be brought into view with the helper method <xref:System.Windows.LogicalTreeHelper.BringIntoView%2A?displayProperty=fullName>.       A <xref:System.Windows.Controls.ListBox> implements a related but different method <xref:System.Windows.Controls.ListBox.ScrollIntoView%2A>."
+  summary: "Fornece dados para o <xref href=&quot;System.Windows.FrameworkElement.RequestBringIntoView&quot;> </xref> eventos roteados."
+  remarks: "O <xref:System.Windows.FrameworkElement.RequestBringIntoView?displayProperty=fullName>é gerado por elementos ao chamar <xref:System.Windows.FrameworkElement.BringIntoView%2A>desse elemento.</xref:System.Windows.FrameworkElement.BringIntoView%2A> </xref:System.Windows.FrameworkElement.RequestBringIntoView?displayProperty=fullName> Geralmente, esse evento roteado não é tratado pela origem. Classes intermediárias que não implementam roláveis regiões ou conceitos semelhantes que corta o conteúdo não devem manipular o evento.  O evento deve ter permissão para bolhas para elementos pai que implementam uma região de rolagem ou especifiquem <xref:System.Windows.UIElement.ClipToBounds%2A> `false`.</xref:System.Windows.UIElement.ClipToBounds%2A> Esses elementos pai normalmente fornecem manipulação de classe para o <xref:System.Windows.FrameworkElement.RequestBringIntoView>evento, que é onde a lógica de processamento necessário ocorre sempre que um determinado elemento solicita que ele se tornar visíveis dentro da região de recorte.</xref:System.Windows.FrameworkElement.RequestBringIntoView>       Elementos de conteúdo podem fazer com que o evento a ser gerado por seus hosts de conteúdo (chamando <xref:System.Windows.FrameworkContentElement.BringIntoView%2A>e gerando <xref:System.Windows.FrameworkElement.RequestBringIntoView?displayProperty=fullName>do host de conteúdo).</xref:System.Windows.FrameworkElement.RequestBringIntoView?displayProperty=fullName> </xref:System.Windows.FrameworkContentElement.BringIntoView%2A> Da mesma forma, você pode solicitar os elementos de árvore lógica para ser colocado em modo de exibição com o método auxiliar <xref:System.Windows.LogicalTreeHelper.BringIntoView%2A?displayProperty=fullName>.</xref:System.Windows.LogicalTreeHelper.BringIntoView%2A?displayProperty=fullName>       Um que <xref:System.Windows.Controls.ListBox>implementa um método relacionado, mas diferente <xref:System.Windows.Controls.ListBox.ScrollIntoView%2A>.</xref:System.Windows.Controls.ListBox.ScrollIntoView%2A> </xref:System.Windows.Controls.ListBox>"
   syntax:
     content: 'public class RequestBringIntoViewEventArgs : System.Windows.RoutedEventArgs'
   inheritance:
@@ -40,17 +40,17 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: "Invokes event handlers in a type-specific way, which can increase event system efficiency."
-  remarks: "This implementation casts the generic handler as a <xref:System.Windows.RequestBringIntoViewEventHandler> and then invokes it. For details on this implementation pattern and the reasons for it, see <xref:System.Windows.RoutedEventArgs.InvokeEventHandler%2A> and [Routed Events Overview](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Invoca manipuladores de eventos de uma maneira de um tipo específico, que pode aumentar a eficiência do sistema de eventos."
+  remarks: "Essa implementação converte o manipulador genérico como um <xref:System.Windows.RequestBringIntoViewEventHandler>e, em seguida, invoca o proprietário.</xref:System.Windows.RequestBringIntoViewEventHandler> Para obter detalhes sobre esse padrão de implementação e os motivos para ele, consulte <xref:System.Windows.RoutedEventArgs.InvokeEventHandler%2A>e [visão geral sobre eventos roteados](~/add/includes/ajax-current-ext-md.md).</xref:System.Windows.RoutedEventArgs.InvokeEventHandler%2A>"
   syntax:
     content: protected override void InvokeEventHandler (Delegate genericHandler, object genericTarget);
     parameters:
     - id: genericHandler
       type: System.Delegate
-      description: "The generic handler to call in a type-specific way."
+      description: "O manipulador genérico para chamar em uma forma de um tipo específico."
     - id: genericTarget
       type: System.Object
-      description: "The target to call the handler on."
+      description: "O destino para chamar o manipulador no."
   overload: System.Windows.RequestBringIntoViewEventArgs.InvokeEventHandler*
   exceptions: []
   platform:
@@ -67,13 +67,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: "Gets the object that should be made visible in response to the event."
-  remarks: "This object is typically the same object as returned by <xref:System.Windows.RoutedEventArgs.Source%2A?displayProperty=fullName>."
+  summary: "Obtém o objeto que deve ficar visível em resposta ao evento."
+  remarks: "Esse objeto normalmente é o mesmo objeto, como retornado por <xref:System.Windows.RoutedEventArgs.Source%2A?displayProperty=fullName>.</xref:System.Windows.RoutedEventArgs.Source%2A?displayProperty=fullName>"
   syntax:
     content: public System.Windows.DependencyObject TargetObject { get; }
     return:
       type: System.Windows.DependencyObject
-      description: "The object that called <xref:System.Windows.FrameworkElement.BringIntoView*>."
+      description: "O objeto que chamou <xref:System.Windows.FrameworkElement.BringIntoView*>.</xref:System.Windows.FrameworkElement.BringIntoView*>"
   overload: System.Windows.RequestBringIntoViewEventArgs.TargetObject*
   exceptions: []
   platform:
@@ -90,13 +90,13 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: "Gets the rectangular region in the object&quot;s coordinate space which should be made visible."
-  remarks: "If the signature of <xref:System.Windows.FrameworkElement.BringIntoView%2A> that was invoked to raise the event didn&quot;t specify a target rectangle, this property may be the <xref:System.Windows.Rect.Empty%2A> value of the <xref:System.Windows.Rect> structure."
+  summary: "Obtém a região retangular no espaço de coordenadas do objeto que deve ficar visível."
+  remarks: "Se a assinatura de <xref:System.Windows.FrameworkElement.BringIntoView%2A>que foi chamado gerar o evento não especificou um retângulo de destino, essa propriedade pode ser o <xref:System.Windows.Rect.Empty%2A>valor o <xref:System.Windows.Rect>estrutura.</xref:System.Windows.Rect> </xref:System.Windows.Rect.Empty%2A> </xref:System.Windows.FrameworkElement.BringIntoView%2A>"
   syntax:
     content: public System.Windows.Rect TargetRect { get; }
     return:
       type: System.Windows.Rect
-      description: "The requested rectangular space."
+      description: "O espaço retangular solicitado."
   overload: System.Windows.RequestBringIntoViewEventArgs.TargetRect*
   exceptions: []
   platform:

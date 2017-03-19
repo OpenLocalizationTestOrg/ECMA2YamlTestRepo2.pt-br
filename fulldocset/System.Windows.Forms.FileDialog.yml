@@ -35,8 +35,8 @@ items:
   nameWithType: FileDialog
   fullName: System.Windows.Forms.FileDialog
   type: Class
-  summary: "Displays a dialog box from which the user can select a file."
-  remarks: "FileDialog is an abstract class that contains common behavior for the <xref:System.Windows.Forms.OpenFileDialog> and <xref:System.Windows.Forms.SaveFileDialog> classes. It is not intended to be used directly but contains common behavior for those two classes. You cannot create an instance of FileDialog. Although the class is declared public, you cannot inherit from it, as it contains internal abstract methods. To create a dialog box to select or save a file, use <xref:System.Windows.Forms.OpenFileDialog> or <xref:System.Windows.Forms.SaveFileDialog>.       FileDialog is a modal dialog box; therefore, when shown, it blocks the rest of the application until the user has chosen a file. When a dialog box is displayed modally, no input (keyboard or mouse click) can occur except to objects on the dialog box. The program must hide or close the dialog box (usually in response to some user action) before input to the calling program can occur.      > [!CAUTION] >  When you use classes derived from FileDialog, such as <xref:System.Windows.Forms.OpenFileDialog> and <xref:System.Windows.Forms.SaveFileDialog>, avoid using string literals containing absolute paths. Instead, dynamically obtain the path using one or more of the techniques described in the following table.       If you want to enable users to select a folder instead of a file, use the <xref:System.Windows.Forms.FolderBrowserDialog>.       Depending upon the type of application, how data associated with the application is stored, and the reason for accessing the file system, there are many possible ways in which you can create a directory path. The following table shows the techniques for creating paths dynamically.      |Path or program category|Class and members to use|   |------------------------------|------------------------------|   |Standard Windows paths, such as Program Files, MyDocuments, the Desktop and so on|The <xref:System.Environment?displayProperty=fullName> class is the most complete source for these, either through its static methods, such as <xref:System.Environment.SystemDirectory%2A>, or through the <xref:System.Environment.GetFolderPath%2A> method, using one of the <xref:System.Environment.SpecialFolder> enumerated values.|   |Paths related to the current application|The <xref:System.Windows.Forms.Application> class has static members to obtain certain paths, such as <xref:System.Windows.Forms.Application.StartupPath%2A>, <xref:System.Windows.Forms.Application.ExecutablePath%2A>, <xref:System.Windows.Forms.Application.LocalUserAppDataPath%2A>, and <xref:System.Windows.Forms.Application.CommonAppDataPath%2A>.<br /><br /> The <xref:System.IO.Path.GetTempPath%2A> method of the <xref:System.IO.Path?displayProperty=fullName> returns the path of the temporary folder.<br /><br /> The <xref:System.IO.Directory.GetCurrentDirectory%2A> method of the <xref:System.IO.Directory?displayProperty=fullName> class returns the application&quot;s current executing directory.<br /><br /> The <xref:System.IO.DriveInfo.RootDirectory%2A> property of the <xref:System.IO.DriveInfo> class represents the specified drive&quot;s root directory.|   |Paths stored as application settings|Access the corresponding applications settings property of the wrapper class derived from <xref:System.Configuration.ApplicationSettingsBase>. For more information, see [Application Settings for Windows Forms](~/add/includes/ajax-current-ext-md.md).|   |Registry storage|Some applications store directory information in the registry. The <xref:System.Windows.Forms.Application> class has the <xref:System.Windows.Forms.Application.CommonAppDataPath%2A> and <xref:System.Windows.Forms.Application.LocalUserAppDataPath%2A> properties that resolve to a <xref:Microsoft.Win32.RegistryKey> value.|   |ClickOnce applications|For ClickOnce applications, use <xref:System.Windows.Forms.Application> class members such as <xref:System.Windows.Forms.Application.UserAppDataPath%2A>, which will return a pointer to the ClickOnce data directory. For more information, see [Accessing Local and Remote Data in ClickOnce Applications](~/add/includes/ajax-current-ext-md.md).|   |International applications|For international applications, retrieve the relative path portion from a string resource in your application by using the <xref:System.Resources.ResourceReader?displayProperty=fullName> class. For more information about globalization and localization, see the topic [Globalization and Localization](~/add/includes/ajax-current-ext-md.md).|       Notice that a full path may be built up using one or more of the described techniques. For example, the <xref:System.Environment.GetFolderPath%2A> method might be used to obtain the path to the MyDocuments folder, then an application setting may be used to add a relative subdirectory portion.       The <xref:System.IO.Path?displayProperty=fullName> class contains static members to assist in manipulating absolute and relative path strings, whereas the <xref:System.IO.File?displayProperty=fullName> and <xref:System.IO.Directory?displayProperty=fullName> classes have static members that actually manipulate files and directories, respectively.      > [!IMPORTANT] >  If the user of your application changes the folder in the FileDialog, then the current working directory for your application is set to the location specified in the FileDialog. To prevent this, set the <xref:System.Windows.Forms.FileDialog.RestoreDirectory%2A> property to `true`."
+  summary: "Exibe uma caixa de diálogo na qual o usuário pode selecionar um arquivo."
+  remarks: "FileDialog é uma classe abstrata que contém o comportamento comum para o <xref:System.Windows.Forms.OpenFileDialog>e <xref:System.Windows.Forms.SaveFileDialog>classes.</xref:System.Windows.Forms.SaveFileDialog> </xref:System.Windows.Forms.OpenFileDialog> Ele não se destina a ser usada diretamente, mas contém o comportamento comum para essas duas classes. Não é possível criar uma instância do FileDialog. Embora a classe é declarado como pública, você não pode herdar de, porque ele contém métodos abstratos internos. Para criar uma caixa de diálogo para selecionar ou salvar um arquivo, use <xref:System.Windows.Forms.OpenFileDialog>ou <xref:System.Windows.Forms.SaveFileDialog>.</xref:System.Windows.Forms.SaveFileDialog> </xref:System.Windows.Forms.OpenFileDialog>       FileDialog é uma caixa de diálogo modal Portanto, quando exibido, ele bloqueia o restante do aplicativo até que o usuário escolheu um arquivo. Quando uma caixa de diálogo é exibida modalmente, nenhuma entrada (clique de mouse ou teclado) pode ocorrer exceto para objetos na caixa de diálogo. O programa deve ocultar ou fechar a caixa de diálogo (normalmente em resposta a uma ação do usuário) antes de entrada para o programa de chamada pode ocorrer.      > [!CAUTION] > Quando você usa classes derivadas de FileDialog, tais como <xref:System.Windows.Forms.OpenFileDialog>e <xref:System.Windows.Forms.SaveFileDialog>, evite usar literais de cadeia de caracteres que contém os caminhos absolutos.</xref:System.Windows.Forms.SaveFileDialog> </xref:System.Windows.Forms.OpenFileDialog> Em vez disso, obtenha dinamicamente o caminho usando uma ou mais das técnicas descritas na tabela a seguir.       Se você quiser permitir que os usuários selecionar uma pasta em vez de um arquivo, use <xref:System.Windows.Forms.FolderBrowserDialog>.</xref:System.Windows.Forms.FolderBrowserDialog>       Dependendo do tipo de aplicativo, como são armazenados os dados associados ao aplicativo e o motivo para acessar o sistema de arquivos, há muitas maneiras possíveis, em que você pode criar um caminho de diretório. A tabela a seguir mostra as técnicas para criar caminhos dinamicamente.      | Categoria de caminho ou programa | Classe e membros para usar |   |------------------------------|------------------------------|   | Os caminhos padrão do Windows, como arquivos de programas, Meus documentos, a área de trabalho e assim por diante | A classe <xref:System.Environment?displayProperty=fullName>é a origem mais completa para esses, por meio de seus métodos estáticos, como <xref:System.Environment.SystemDirectory%2A>, ou por meio do método <xref:System.Environment.GetFolderPath%2A>, usando um do <xref:System.Environment.SpecialFolder>valores enumerados. |   | Caminhos relacionados ao aplicativo atual | O <xref:System.Windows.Forms.Application>classe tem membros estáticos para obter alguns caminhos, como <xref:System.Windows.Forms.Application.StartupPath%2A>, <xref:System.Windows.Forms.Application.ExecutablePath%2A>, <xref:System.Windows.Forms.Application.LocalUserAppDataPath%2A>e <xref:System.Windows.Forms.Application.CommonAppDataPath%2A>.</xref:System.Windows.Forms.Application.CommonAppDataPath%2A> </xref:System.Windows.Forms.Application.LocalUserAppDataPath%2A> </xref:System.Windows.Forms.Application.ExecutablePath%2A> </xref:System.Windows.Forms.Application.StartupPath%2A> </xref:System.Windows.Forms.Application> </xref:System.Environment.SpecialFolder> </xref:System.Environment.GetFolderPath%2A> </xref:System.Environment.SystemDirectory%2A> </xref:System.Environment?displayProperty=fullName><br /><br /> O <xref:System.IO.Path.GetTempPath%2A>método o <xref:System.IO.Path?displayProperty=fullName>retorna o caminho da pasta temporária.</xref:System.IO.Path?displayProperty=fullName> </xref:System.IO.Path.GetTempPath%2A><br /><br /> O <xref:System.IO.Directory.GetCurrentDirectory%2A>método o <xref:System.IO.Directory?displayProperty=fullName>classe retorna o diretório do aplicativo atual em execução.</xref:System.IO.Directory?displayProperty=fullName> </xref:System.IO.Directory.GetCurrentDirectory%2A><br /><br /> A propriedade <xref:System.IO.DriveInfo.RootDirectory%2A>da classe <xref:System.IO.DriveInfo>representa o diretório de raiz da unidade especificada. |   | Caminhos armazenados como configurações de aplicativo | Acesso a propriedade de configurações de aplicativos correspondente da classe wrapper derivada de <xref:System.Configuration.ApplicationSettingsBase>.</xref:System.Configuration.ApplicationSettingsBase> </xref:System.IO.DriveInfo> </xref:System.IO.DriveInfo.RootDirectory%2A> Para obter mais informações, consulte [configurações de aplicativo para o Windows Forms](~/add/includes/ajax-current-ext-md.md). |   | Armazenamento de registro | Alguns aplicativos armazenam informações de diretório no registro. A classe <xref:System.Windows.Forms.Application>tem o <xref:System.Windows.Forms.Application.CommonAppDataPath%2A>e propriedades de <xref:System.Windows.Forms.Application.LocalUserAppDataPath%2A>que possui um valor de <xref:Microsoft.Win32.RegistryKey>. |   | Aplicativos ClickOnce | Para aplicativos ClickOnce, use <xref:System.Windows.Forms.Application>como membros de classe <xref:System.Windows.Forms.Application.UserAppDataPath%2A>, que retorna um ponteiro para o diretório de dados ClickOnce.</xref:System.Windows.Forms.Application.UserAppDataPath%2A> </xref:System.Windows.Forms.Application> </xref:Microsoft.Win32.RegistryKey> </xref:System.Windows.Forms.Application.LocalUserAppDataPath%2A> </xref:System.Windows.Forms.Application.CommonAppDataPath%2A> </xref:System.Windows.Forms.Application> Para obter mais informações, consulte [acesso Local e remoto de dados em aplicativos ClickOnce](~/add/includes/ajax-current-ext-md.md). |   | Aplicativos internacionais | Aplicativos internacionais, recuperar a parte do caminho relativo de um recurso de cadeia de caracteres em seu aplicativo usando a <xref:System.Resources.ResourceReader?displayProperty=fullName>classe.</xref:System.Resources.ResourceReader?displayProperty=fullName> Para obter mais informações sobre globalização e localização, consulte o tópico [globalização e localização](~/add/includes/ajax-current-ext-md.md). |       Observe que um caminho completo pode ser criado usando um ou mais as técnicas descritas. Por exemplo, o <xref:System.Environment.GetFolderPath%2A>método pode ser usado para obter o caminho para a pasta Meus documentos e, em seguida, uma configuração de aplicativo pode ser usada para adicionar uma parte de subdiretório relativo.</xref:System.Environment.GetFolderPath%2A>       O <xref:System.IO.Path?displayProperty=fullName>classe contém membros estáticos para auxiliar na manipulação de cadeias de caracteres de caminho absolutas e relativas, enquanto o <xref:System.IO.File?displayProperty=fullName>e <xref:System.IO.Directory?displayProperty=fullName>classes tem membros estáticos que realmente manipulam arquivos e diretórios, respectivamente.</xref:System.IO.Directory?displayProperty=fullName> </xref:System.IO.File?displayProperty=fullName> </xref:System.IO.Path?displayProperty=fullName>      > [!IMPORTANT] > Se o usuário do seu aplicativo altera a pasta em que o FileDialog, o diretório de trabalho atual para o seu aplicativo é definido para o local especificado na FileDialog. Para evitar isso, defina o <xref:System.Windows.Forms.FileDialog.RestoreDirectory%2A>propriedade `true`.</xref:System.Windows.Forms.FileDialog.RestoreDirectory%2A>"
   example:
   - "The following code example uses the <xref:System.Windows.Forms.OpenFileDialog> implementation of FileDialog and illustrates creating, setting of properties, and showing the dialog box. The example uses the <xref:System.Windows.Forms.CommonDialog.ShowDialog%2A> method to display the dialog box and return the <xref:System.Windows.Forms.DialogResult>. The example requires a form with a <xref:System.Windows.Forms.Button> placed on it and the <xref:System.IO> namespace added to it.  \n  \n [!code-cpp[Classic OpenFileDialog Example#1](~/add/codesnippet/cpp/t-system.windows.forms.f_8_1.cpp)]\n [!code-cs[Classic OpenFileDialog Example#1](~/add/codesnippet/csharp/t-system.windows.forms.f_8_1.cs)]\n [!code-vb[Classic OpenFileDialog Example#1](~/add/codesnippet/visualbasic/t-system.windows.forms.f_8_1.vb)]"
   syntax:
@@ -86,13 +86,13 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets a value indicating whether the dialog box automatically adds an extension to a file name if the user omits the extension."
-  remarks: "The extension added to a file name depends on the currently selected file filter and the value of the <xref:System.Windows.Forms.FileDialog.CheckFileExists%2A> property.       If the <xref:System.Windows.Forms.FileDialog.CheckFileExists%2A> property is `true`, the dialog box adds the first extension from the current file filter that matches an existing file. If no files match the current file filter, the dialog box adds the extension specified in the <xref:System.Windows.Forms.FileDialog.DefaultExt%2A> property.       If the <xref:System.Windows.Forms.FileDialog.CheckFileExists%2A> property is `false`, the dialog box adds the first valid file name extension from the current file filter. If the current file filter contains no valid file name extensions, the dialog box adds the extension specified in the <xref:System.Windows.Forms.FileDialog.DefaultExt%2A> property."
+  summary: "Obtém ou define um valor que indica se o caixa de diálogo adiciona automaticamente uma extensão para um nome de arquivo se o usuário omite a extensão."
+  remarks: "A extensão adicionada a um nome de arquivo depende do filtro de arquivo atualmente selecionado e o valor da <xref:System.Windows.Forms.FileDialog.CheckFileExists%2A>propriedade.</xref:System.Windows.Forms.FileDialog.CheckFileExists%2A>       Se o <xref:System.Windows.Forms.FileDialog.CheckFileExists%2A>é de propriedade `true`, a caixa de diálogo adiciona a primeira extensão do filtro atual do arquivo que corresponde a um arquivo existente.</xref:System.Windows.Forms.FileDialog.CheckFileExists%2A> Se nenhum arquivo corresponde ao filtro de arquivo atual, a caixa de diálogo adiciona a extensão especificada no <xref:System.Windows.Forms.FileDialog.DefaultExt%2A>propriedade.</xref:System.Windows.Forms.FileDialog.DefaultExt%2A>       Se o <xref:System.Windows.Forms.FileDialog.CheckFileExists%2A>é de propriedade `false`, a caixa de diálogo adiciona a primeira extensão de nome de arquivo válido do filtro atual do arquivo.</xref:System.Windows.Forms.FileDialog.CheckFileExists%2A> Se o filtro de arquivo atual não contiver nenhuma extensão de nome de arquivo válido, a caixa de diálogo adiciona a extensão especificada no <xref:System.Windows.Forms.FileDialog.DefaultExt%2A>propriedade.</xref:System.Windows.Forms.FileDialog.DefaultExt%2A>"
   syntax:
     content: public bool AddExtension { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the dialog box adds an extension to a file name if the user omits the extension; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a caixa de diálogo adiciona uma extensão para um nome de arquivo, se o usuário omite a extensão. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O valor padrão é <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.AddExtension*
   exceptions: []
   platform:
@@ -109,13 +109,13 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets a value indicating whether this <xref href=&quot;System.Windows.Forms.FileDialog&quot;></xref> instance should automatically upgrade appearance and behavior when running on [!INCLUDE[wiprlhext](~/add/includes/wiprlhext-md.md)]."
-  remarks: "If this property is `false`, the <xref:System.Windows.Forms.FileDialog> class will have a [!INCLUDE[winxp](~/add/includes/winxp-md.md)]-style appearance and behavior on [!INCLUDE[wiprlhext](~/add/includes/wiprlhext-md.md)].       On [!INCLUDE[winxp](~/add/includes/winxp-md.md)], this property does not have any effect."
+  summary: "Obtém ou define um valor que indica se este <xref href=&quot;System.Windows.Forms.FileDialog&quot;> </xref> instância deve atualizar automaticamente aparência e comportamento durante a execução em [!INCLUDE[wiprlhext](~/add/includes/wiprlhext-md.md)]."
+  remarks: "Se essa propriedade for `false`, o <xref:System.Windows.Forms.FileDialog>classe terá um [!INCLUDE[winxp](~/add/includes/winxp-md.md)]-estilo de aparência e comportamento em [!INCLUDE[wiprlhext](~/add/includes/wiprlhext-md.md)].</xref:System.Windows.Forms.FileDialog>       Em [!INCLUDE[winxp](~/add/includes/winxp-md.md)], essa propriedade não tem nenhum efeito."
   syntax:
     content: public bool AutoUpgradeEnabled { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Windows.Forms.FileDialog&quot;></xref> instance should automatically upgrade appearance and behavior when running on [!INCLUDE[wiprlhext](~/add/includes/wiprlhext-md.md)]; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Windows.Forms.FileDialog&quot;> </xref> instância deve atualizar automaticamente aparência e comportamento durante a execução em [!INCLUDE[wiprlhext](~/add/includes/wiprlhext-md.md)]; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O padrão é <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.AutoUpgradeEnabled*
   exceptions: []
   platform:
@@ -132,13 +132,13 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets a value indicating whether the dialog box displays a warning if the user specifies a file name that does not exist."
-  remarks: "The default value is `true` for an inheriting <xref:System.Windows.Forms.OpenFileDialog> and `false` for an inheriting <xref:System.Windows.Forms.SaveFileDialog>."
+  summary: "Obtém ou define um valor que indica se a caixa de diálogo exibe um aviso se o usuário Especifica um nome de arquivo que não existe."
+  remarks: "O valor padrão é `true` de uma herança <xref:System.Windows.Forms.OpenFileDialog>e `false` de uma herança de <xref:System.Windows.Forms.SaveFileDialog>.</xref:System.Windows.Forms.SaveFileDialog> </xref:System.Windows.Forms.OpenFileDialog>"
   syntax:
     content: public virtual bool CheckFileExists { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the dialog box displays a warning if the user specifies a file name that does not exist; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a caixa de diálogo exibirá um aviso se o usuário Especifica um nome de arquivo que não existe; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O valor padrão é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.CheckFileExists*
   exceptions: []
   platform:
@@ -155,12 +155,12 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets a value indicating whether the dialog box displays a warning if the user specifies a path that does not exist."
+  summary: "Obtém ou define um valor que indica se a caixa de diálogo exibe um aviso se o usuário Especifica um caminho que não existe."
   syntax:
     content: public bool CheckPathExists { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the dialog box displays a warning when the user specifies a path that does not exist; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a caixa de diálogo exibe um aviso quando o usuário Especifica um caminho que não existe; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O valor padrão é <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.CheckPathExists*
   exceptions: []
   platform:
@@ -177,15 +177,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets the custom places collection for this <xref href=&quot;System.Windows.Forms.FileDialog&quot;></xref> instance."
-  remarks: "On [!INCLUDE[winxp](~/add/includes/winxp-md.md)], this property does not have any effect."
+  summary: "Obtém a coleção de locais personalizados para este <xref href=&quot;System.Windows.Forms.FileDialog&quot;> </xref> instância."
+  remarks: "Em [!INCLUDE[winxp](~/add/includes/winxp-md.md)], essa propriedade não tem nenhum efeito."
   example:
   - "The following code example demonstrates how to use the CustomPlaces collection. To run this example, paste the following code into a Windows Form and call `InitializeDialogAndButton` from the form's constructor or <xref:System.Windows.Forms.Form.Load> event-handling method.  \n  \n [!code-vb[System.Windows.Forms.FileDialogCommonPlaces#1](~/add/codesnippet/visualbasic/p-system.windows.forms.f_53_1.vb)]\n [!code-cs[System.Windows.Forms.FileDialogCommonPlaces#1](~/add/codesnippet/csharp/p-system.windows.forms.f_53_1.cs)]"
   syntax:
     content: public System.Windows.Forms.FileDialogCustomPlacesCollection CustomPlaces { get; }
     return:
       type: System.Windows.Forms.FileDialogCustomPlacesCollection
-      description: "The custom places collection for this <xref href=&quot;System.Windows.Forms.FileDialog&quot;></xref> instance."
+      description: "Personalizado coloca a coleção para este <xref href=&quot;System.Windows.Forms.FileDialog&quot;> </xref> instância."
   overload: System.Windows.Forms.FileDialog.CustomPlaces*
   exceptions: []
   platform:
@@ -202,15 +202,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets the default file name extension."
-  remarks: "When the user of your application specifies a file name without an extension, the <xref:System.Windows.Forms.FileDialog> appends an extension to the file name. The extension that is used is determined by the <xref:System.Windows.Forms.FileDialog.Filter%2A> and DefaultExt properties. If a filter is selected in the <xref:System.Windows.Forms.FileDialog> and the filter specifies an extension, then that extension is used. If the filter selected uses a wildcard in place of the extension, then the extension specified in the DefaultExt property is used."
+  summary: "Obtém ou define a extensão de nome de arquivo padrão."
+  remarks: "Quando o usuário do seu aplicativo especifica um nome de arquivo sem uma extensão, o <xref:System.Windows.Forms.FileDialog>acrescenta uma extensão para o nome do arquivo.</xref:System.Windows.Forms.FileDialog> A extensão que é usada é determinada pelo <xref:System.Windows.Forms.FileDialog.Filter%2A>e propriedades DefaultExt.</xref:System.Windows.Forms.FileDialog.Filter%2A> Se um filtro estiver selecionado no <xref:System.Windows.Forms.FileDialog>e o filtro especifica uma extensão, essa extensão é usada.</xref:System.Windows.Forms.FileDialog> Se o filtro selecionado usa um caractere curinga no lugar da extensão, em seguida, a extensão especificada na propriedade DefaultExt é usada."
   example:
   - "The following code example demonstrates using the <xref:System.Windows.Forms.RichTextBox.SaveFile%2A?displayProperty=fullName> and <xref:System.Windows.Forms.RichTextBox.LoadFile%2A?displayProperty=fullName> methods with streams. It also demonstrates using the <xref:System.Windows.Forms.FileDialog.FileName%2A>, DefaultExt, <xref:System.Windows.Forms.SaveFileDialog.CreatePrompt%2A?displayProperty=fullName>, and <xref:System.Windows.Forms.SaveFileDialog.OverwritePrompt%2A?displayProperty=fullName> members.  \n  \n This is a complete example that is ready to run when you copy it to your project.  \n  \n [!code-cs[System.Windows.Forms.RichTextBoxSaveFile#1](~/add/codesnippet/csharp/p-system.windows.forms.f_16_1.cs)]\n [!code-vb[System.Windows.Forms.RichTextBoxSaveFile#1](~/add/codesnippet/visualbasic/p-system.windows.forms.f_16_1.vb)]\n [!code-cpp[System.Windows.Forms.RichTextBoxSaveFile#1](~/add/codesnippet/cpp/p-system.windows.forms.f_16_1.cpp)]"
   syntax:
     content: public string DefaultExt { get; set; }
     return:
       type: System.String
-      description: "The default file name extension. The returned string does not include the period. The default value is an empty string (&quot;&quot;)."
+      description: "A extensão de nome de arquivo padrão. A cadeia de caracteres retornada não inclui o período. O valor padrão é uma cadeia de caracteres vazia (&quot;&quot;)."
   overload: System.Windows.Forms.FileDialog.DefaultExt*
   exceptions: []
   platform:
@@ -227,12 +227,12 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets a value indicating whether the dialog box returns the location of the file referenced by the shortcut or whether it returns the location of the shortcut (.lnk)."
+  summary: "Obtém ou define um valor que indica se a caixa de diálogo retorna o local do arquivo referenciado pelo atalho ou se ele retorna o local do atalho (. lnk)."
   syntax:
     content: public bool DereferenceLinks { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the dialog box returns the location of the file referenced by the shortcut; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a caixa de diálogo retorna o local do arquivo referenciado pelo atalho. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O valor padrão é <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.DereferenceLinks*
   exceptions: []
   platform:
@@ -249,12 +249,12 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Owns the <xref href=&quot;System.Windows.Forms.FileDialog.FileOk&quot;></xref> event."
+  summary: "Possui a <xref href=&quot;System.Windows.Forms.FileDialog.FileOk&quot;> </xref> eventos."
   syntax:
     content: protected static readonly object EventFileOk;
     return:
       type: System.Object
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -270,15 +270,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets a string containing the file name selected in the file dialog box."
-  remarks: "The file name includes both the file path and the extension. If no files are selected, this method returns an empty string (&quot;&quot;).       When used from the <xref:System.Windows.Forms.SaveFileDialog> class, this property represents the file being saved; when used from the <xref:System.Windows.Forms.OpenFileDialog> class, it represents the file being opened.       This property can only be the name of one selected file. If you want to return an array containing the names of all selected files in a multiple-selection dialog box, use <xref:System.Windows.Forms.FileDialog.FileNames%2A>."
+  summary: "Obtém ou define uma cadeia de caracteres que contém o nome do arquivo selecionado na caixa de diálogo de arquivo."
+  remarks: "O nome do arquivo inclui o caminho do arquivo e a extensão. Se nenhum arquivo for selecionado, esse método retorna uma cadeia de caracteres vazia (&quot;&quot;).       Quando usado o <xref:System.Windows.Forms.SaveFileDialog>classe, essa propriedade representa o arquivo seja salvo; quando usado o <xref:System.Windows.Forms.OpenFileDialog>classe representa o arquivo que está sendo aberto.</xref:System.Windows.Forms.OpenFileDialog> </xref:System.Windows.Forms.SaveFileDialog>       Essa propriedade só pode ser o nome de um arquivo selecionado. Se você quiser retornar uma matriz que contém os nomes de todos os arquivos selecionados em uma caixa de diálogo de seleção múltipla, use <xref:System.Windows.Forms.FileDialog.FileNames%2A>.</xref:System.Windows.Forms.FileDialog.FileNames%2A>"
   example:
   - "The following code example demonstrates using the <xref:System.Windows.Forms.RichTextBox.SaveFile%2A?displayProperty=fullName> and <xref:System.Windows.Forms.RichTextBox.LoadFile%2A?displayProperty=fullName> methods with streams. It also demonstrates using the FileName, <xref:System.Windows.Forms.FileDialog.DefaultExt%2A>, <xref:System.Windows.Forms.SaveFileDialog.CreatePrompt%2A?displayProperty=fullName>, and <xref:System.Windows.Forms.SaveFileDialog.OverwritePrompt%2A?displayProperty=fullName> members.  \n  \n This is a complete example that is ready to run when you copy it to your project.  \n  \n [!code-cs[System.Windows.Forms.RichTextBoxSaveFile#1](~/add/codesnippet/csharp/p-system.windows.forms.f_44_1.cs)]\n [!code-vb[System.Windows.Forms.RichTextBoxSaveFile#1](~/add/codesnippet/visualbasic/p-system.windows.forms.f_44_1.vb)]\n [!code-cpp[System.Windows.Forms.RichTextBoxSaveFile#1](~/add/codesnippet/cpp/p-system.windows.forms.f_44_1.cpp)]"
   syntax:
     content: public string FileName { get; set; }
     return:
       type: System.String
-      description: "The file name selected in the file dialog box. The default value is an empty string (&quot;&quot;)."
+      description: "O nome do arquivo selecionado na caixa de diálogo de arquivo. O valor padrão é uma cadeia de caracteres vazia (&quot;&quot;)."
   overload: System.Windows.Forms.FileDialog.FileName*
   exceptions: []
   platform:
@@ -295,15 +295,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets the file names of all selected files in the dialog box."
-  remarks: "Each file name includes both the file path and the extension. If no files are selected, this method returns an empty array."
+  summary: "Obtém os nomes de arquivo de todos os arquivos selecionados na caixa de diálogo."
+  remarks: "Cada nome de arquivo inclui o caminho do arquivo e a extensão. Se nenhum arquivo for selecionado, esse método retorna uma matriz vazia."
   example:
   - "The following code example allows the user to select a number of images and display them in <xref:System.Windows.Forms.PictureBox> controls on a Form. It demonstrates initializing an <xref:System.Windows.Forms.OpenFileDialog>, setting the <xref:System.Windows.Forms.FileDialog.Title%2A> and <xref:System.Windows.Forms.FileDialog.Filter%2A> properties, and allowing the user to select multiple files by setting the <xref:System.Windows.Forms.OpenFileDialog.Multiselect%2A> property to true. This code example assumes that your form already has an <xref:System.Windows.Forms.OpenFileDialog> control named `openFileDialog1`, a <xref:System.Windows.Forms.Button> named `SelectFileButton`, and a <xref:System.Windows.Forms.FlowLayoutPanel> named `flowLayoutPanel1`.  \n  \n [!code-vb[System.Windows.Forms.OpenFileDialog.MultiSelect#1](~/add/codesnippet/visualbasic/TestOpenFileDialogMultiSelectVB/Form1.vb#1)]\n [!code-cs[System.Windows.Forms.OpenFileDialog.MultiSelect#1](~/add/codesnippet/csharp/TestOpenFileDialogMultiSelect/Form1.cs#1)]"
   syntax:
     content: public string[] FileNames { get; }
     return:
       type: System.String[]
-      description: "An array of type <xref:System.String>, containing the file names of all selected files in the dialog box."
+      description: "Uma matriz do tipo <xref:System.String>, que contém os nomes de arquivo de todos os arquivos selecionados na caixa de diálogo.</xref:System.String>"
   overload: System.Windows.Forms.FileDialog.FileNames*
   exceptions: []
   platform:
@@ -320,15 +320,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Occurs when the user clicks on the **Open** or **Save** button on a file dialog box."
-  remarks: "For information about handling events, see [Handling and Raising Events](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Ocorre quando o usuário clica no **abrir** ou **salvar** botão em uma caixa de diálogo."
+  remarks: "Para obter informações sobre a manipulação de eventos, consulte [tratamento e gerando eventos](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example demonstrates using the <xref:System.Windows.Forms.FileDialog.FileNames%2A> property, handling the FileOk event and using the <xref:System.Windows.Forms.Application.DoEvents%2A?displayProperty=fullName> method. When the example runs, a user can select graphics files from an <xref:System.Windows.Forms.OpenFileDialog> object. The selected files are displayed in the form. The <xref:System.Windows.Forms.Application.DoEvents%2A?displayProperty=fullName> method forces a repaint of the form for each graphics file opened. To run this example paste the following code in a form containing a <xref:System.Windows.Forms.PictureBox> named `PictureBox1`, an <xref:System.Windows.Forms.OpenFileDialog> named `OpenFileDialog1`, and a <xref:System.Windows.Forms.Button> named `fileButton`. Call the `InitializePictureBox` and `InitializeOpenFileDialog` methods from the form's constructor or `Load` method. When the example is running, display the dialog box by clicking the button.  \n  \n [!code-cs[System.Windows.Forms.FileDialog#1](~/add/codesnippet/csharp/e-system.windows.forms.f_1_1.cs)]\n [!code-cpp[System.Windows.Forms.FileDialog#1](~/add/codesnippet/cpp/e-system.windows.forms.f_1_1.cpp)]\n [!code-vb[System.Windows.Forms.FileDialog#1](~/add/codesnippet/visualbasic/e-system.windows.forms.f_1_1.vb)]"
   syntax:
     content: public event System.ComponentModel.CancelEventHandler FileOk;
     return:
       type: System.ComponentModel.CancelEventHandler
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -344,20 +344,20 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets the current file name filter string, which determines the choices that appear in the &quot;Save as file type&quot; or &quot;Files of type&quot; box in the dialog box."
-  remarks: "For each filtering option, the filter string contains a description of the filter, followed by the vertical bar (&#124;) and the filter pattern. The strings for different filtering options are separated by the vertical bar.       The following is an example of a filter string:       `Text files (*.txt)|*.txt|All files (*.*)|*.*`       You can add several filter patterns to a filter by separating the file types with semicolons, for example:       `Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*`       Use the <xref:System.Windows.Forms.FileDialog.FilterIndex%2A> property to set which filtering option is shown first to the user."
+  summary: "Obtém ou define o atual arquivo de cadeia de filtro de nome, que determina as opções que aparecem em &quot;Salvar como tipo de arquivo&quot; ou &quot;Arquivos do tipo&quot; caixa na caixa de diálogo."
+  remarks: "Para cada opção de filtragem, a cadeia de caracteres de filtro contém uma descrição do filtro, seguido por vertical barra (|) e o padrão de filtro. As cadeias de caracteres para diferentes opções de filtragem são separadas por barra vertical.       A seguir está um exemplo de uma cadeia de caracteres de filtro: `Text files (*.txt)|*.txt|All files (*.*)|*.*` você pode adicionar vários padrões a um filtro de filtro, separando os tipos de arquivo com ponto e vírgula, por exemplo: `Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*` Use o <xref:System.Windows.Forms.FileDialog.FilterIndex%2A>propriedade para definir a opção de filtragem que é exibida primeira para o usuário.</xref:System.Windows.Forms.FileDialog.FilterIndex%2A>"
   example:
   - "The following code example uses the <xref:System.Windows.Forms.OpenFileDialog> implementation of <xref:System.Windows.Forms.FileDialog> and illustrates creating, setting of properties, and showing the dialog box. The example uses the Filter and <xref:System.Windows.Forms.FileDialog.FilterIndex%2A> properties to provide a list of filters for the user. The example requires a form with a <xref:System.Windows.Forms.Button> placed on it and the <xref:System.IO> namespace added to it.  \n  \n [!code-cpp[Classic OpenFileDialog Example#1](~/add/codesnippet/cpp/p-system.windows.forms.f_54_1.cpp)]\n [!code-cs[Classic OpenFileDialog Example#1](~/add/codesnippet/csharp/p-system.windows.forms.f_54_1.cs)]\n [!code-vb[Classic OpenFileDialog Example#1](~/add/codesnippet/visualbasic/p-system.windows.forms.f_54_1.vb)]"
   syntax:
     content: public string Filter { get; set; }
     return:
       type: System.String
-      description: "The file filtering options available in the dialog box."
+      description: "O arquivo de opções disponíveis na caixa de diálogo de filtragem."
   overload: System.Windows.Forms.FileDialog.Filter*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>Filter</code> format is invalid."
+    description: "<code>Filter</code>formato é inválido."
   platform:
   - net462
 - uid: System.Windows.Forms.FileDialog.FilterIndex
@@ -372,15 +372,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets the index of the filter currently selected in the file dialog box."
-  remarks: "Use the FilterIndex property to set which filtering option is shown first to the user. You can also use the value of FilterIndex after showing the file dialog to perform special file operations depending upon the filter chosen.      > [!NOTE] >  The index value of the first filter entry is 1."
+  summary: "Obtém ou define o índice do filtro selecionado atualmente na caixa de diálogo de arquivo."
+  remarks: "Use a propriedade de FilterIndex para definir a opção de filtragem que é exibida primeira para o usuário. Você também pode usar o valor de FilterIndex após mostrar a caixa de diálogo de arquivo para executar operações de arquivo especial, dependendo do modo de filtro escolhido.      > [!NOTE] > O valor de índice da primeira entrada de filtro é 1."
   example:
   - "The following code example uses the <xref:System.Windows.Forms.OpenFileDialog> implementation of <xref:System.Windows.Forms.FileDialog> and illustrates creating, setting of properties, and showing the dialog box. The example uses the <xref:System.Windows.Forms.FileDialog.Filter%2A> and FilterIndex properties to provide a list of filters for the user. The example requires a form with a <xref:System.Windows.Forms.Button> placed on it and the <xref:System.IO> namespace added to it.  \n  \n [!code-cpp[Classic OpenFileDialog Example#1](~/add/codesnippet/cpp/p-system.windows.forms.f_0_1.cpp)]\n [!code-cs[Classic OpenFileDialog Example#1](~/add/codesnippet/csharp/p-system.windows.forms.f_0_1.cs)]\n [!code-vb[Classic OpenFileDialog Example#1](~/add/codesnippet/visualbasic/p-system.windows.forms.f_0_1.vb)]"
   syntax:
     content: public int FilterIndex { get; set; }
     return:
       type: System.Int32
-      description: "A value containing the index of the filter currently selected in the file dialog box. The default value is 1."
+      description: "Um valor que contém o índice do filtro selecionado atualmente na caixa de diálogo de arquivo. O valor padrão é 1."
   overload: System.Windows.Forms.FileDialog.FilterIndex*
   exceptions: []
   platform:
@@ -397,26 +397,26 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Defines the common dialog box hook procedure that is overridden to add specific functionality to the file dialog box."
-  remarks: "A hook procedure allows the user to connect or insert other routines into a routine or application for the purpose of debugging or enhancing functionality.       By default, the hook procedure centers the dialog box on the screen in response to a WM_INITDIALOG message."
+  summary: "Define o procedimento de gancho de caixa diálogo comum que é substituído para adicionar funcionalidade específica para a caixa de diálogo de arquivo."
+  remarks: "Um procedimento de gancho permite ao usuário para se conectar ou inserir outras rotinas em uma rotina ou o aplicativo para fins de depuração ou aprimorar a funcionalidade.       Por padrão, o procedimento de gancho centraliza a caixa de diálogo na tela em resposta a uma mensagem WM_INITDIALOG."
   syntax:
     content: protected override IntPtr HookProc (IntPtr hWnd, int msg, IntPtr wparam, IntPtr lparam);
     parameters:
     - id: hWnd
       type: System.IntPtr
-      description: "The handle to the dialog box window."
+      description: "O identificador para a janela da caixa de diálogo."
     - id: msg
       type: System.Int32
-      description: "The message received by the dialog box."
+      description: "A mensagem recebida pela caixa de diálogo."
     - id: wparam
       type: System.IntPtr
-      description: "Additional information about the message."
+      description: "Informações adicionais sobre a mensagem."
     - id: lparam
       type: System.IntPtr
-      description: "Additional information about the message."
+      description: "Informações adicionais sobre a mensagem."
     return:
       type: System.IntPtr
-      description: "Returns zero if the default dialog box procedure processes the message; returns a nonzero value if the default dialog box procedure ignores the message."
+      description: "Retorna zero se o procedimento de caixa de diálogo padrão processa a mensagem. Retorna um valor diferente de zero se o procedimento de caixa de diálogo padrão ignora a mensagem."
   overload: System.Windows.Forms.FileDialog.HookProc*
   exceptions: []
   platform:
@@ -433,15 +433,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets the initial directory displayed by the file dialog box."
-  remarks: "The InitialDirectory property is typically set using one of the following sources:      -   A path that was previously used in the program, perhaps retained from the last directory or file operation.      -   A path read from a persistent source, such as an application setting, a <xref:Microsoft.Win32.Registry> or a string resource in the application.      -   Standard Windows system and user paths, such as Program Files, MyDocuments, MyMusic, and so on (which you can obtain using the <xref:System.Environment.GetFolderPath%2A> method)      -   A path related to the current application, such as its startup directory (which you can obtain using properties on the <xref:System.Windows.Forms.Application> object).       For more information about creating dynamic paths, see the <xref:System.Windows.Forms.FileDialog> class overview.       On [!INCLUDE[wiprlhext](~/add/includes/wiprlhext-md.md)], if InitialDirectory is set to a full file name instead of just a directory path, the initial directory will default either to the application path, or to the directory from which the user last selected a file."
+  summary: "Obtém ou define o diretório inicial exibido pela caixa de diálogo de arquivo."
+  remarks: "A propriedade InitialDirectory normalmente é definida usando uma das seguintes fontes:-um caminho que foi usado anteriormente no programa, talvez retido da última operação de diretório ou arquivo.      -Um caminho de leitura de uma fonte persistente, como uma configuração de aplicativo, um <xref:Microsoft.Win32.Registry>ou um recurso de cadeia de caracteres no aplicativo.</xref:Microsoft.Win32.Registry>      -Padrão sistema e usuário caminhos do Windows, como arquivos de programas, Meus documentos, Minhas músicas e assim por diante (que você pode obter usando o <xref:System.Environment.GetFolderPath%2A>método)-relacionados de um caminho para o aplicativo atual, como o diretório de inicialização (que você pode obter usando propriedades no <xref:System.Windows.Forms.Application>objeto).</xref:System.Windows.Forms.Application> </xref:System.Environment.GetFolderPath%2A>       Para obter mais informações sobre como criar caminhos dinâmicos, consulte o <xref:System.Windows.Forms.FileDialog>Visão geral da classe.</xref:System.Windows.Forms.FileDialog>       Em [!INCLUDE[wiprlhext](~/add/includes/wiprlhext-md.md)], se InitialDirectory for definido como um nome de arquivo completo em vez de apenas um caminho de diretório, o diretório inicial será padrão para o caminho do aplicativo ou para o diretório do qual o usuário selecionou última um arquivo."
   example:
   - "The following code example uses the <xref:System.Windows.Forms.OpenFileDialog> implementation of <xref:System.Windows.Forms.FileDialog> and illustrates creating, setting of properties, and showing the dialog box. The example uses the InitialDirectory property to set what the initial directory is when the dialog box is displayed to the user. The example requires a form with a <xref:System.Windows.Forms.Button> placed on it and the <xref:System.IO> namespace added to it.  \n  \n [!code-cpp[Classic OpenFileDialog Example#1](~/add/codesnippet/cpp/p-system.windows.forms.f_30_1.cpp)]\n [!code-cs[Classic OpenFileDialog Example#1](~/add/codesnippet/csharp/p-system.windows.forms.f_30_1.cs)]\n [!code-vb[Classic OpenFileDialog Example#1](~/add/codesnippet/visualbasic/p-system.windows.forms.f_30_1.vb)]"
   syntax:
     content: public string InitialDirectory { get; set; }
     return:
       type: System.String
-      description: "The initial directory displayed by the file dialog box. The default is an empty string (&quot;&quot;)."
+      description: "O diretório inicial exibido pela caixa de diálogo de arquivo. O padrão é uma cadeia de caracteres vazia (&quot;&quot;)."
   overload: System.Windows.Forms.FileDialog.InitialDirectory*
   exceptions: []
   platform:
@@ -458,12 +458,12 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets the Win32 instance handle for the application."
+  summary: "Obtém o identificador de instância do Win32 para o aplicativo."
   syntax:
     content: protected virtual IntPtr Instance { get; }
     return:
       type: System.IntPtr
-      description: "A Win32 instance handle for the application."
+      description: "Um identificador de instância Win32 para o aplicativo."
   overload: System.Windows.Forms.FileDialog.Instance*
   exceptions: []
   platform:
@@ -480,13 +480,13 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Raises the <xref href=&quot;System.Windows.Forms.FileDialog.FileOk&quot;></xref> event."
+  summary: "Gera o <xref href=&quot;System.Windows.Forms.FileDialog.FileOk&quot;> </xref> eventos."
   syntax:
     content: protected void OnFileOk (System.ComponentModel.CancelEventArgs e);
     parameters:
     - id: e
       type: System.ComponentModel.CancelEventArgs
-      description: "A <xref:System.ComponentModel.CancelEventArgs> that contains the event data."
+      description: "Um <xref:System.ComponentModel.CancelEventArgs>que contém os dados de evento.</xref:System.ComponentModel.CancelEventArgs>"
   overload: System.Windows.Forms.FileDialog.OnFileOk*
   exceptions: []
   platform:
@@ -503,13 +503,13 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets values to initialize the <xref href=&quot;System.Windows.Forms.FileDialog&quot;></xref>."
-  remarks: "The Options property corresponds to the flags used to initialize a file dialog box using Win32. Use the properties of the <xref:System.Windows.Forms.FileDialog> class to get and set the options."
+  summary: "Obtém os valores para inicializar o <xref href=&quot;System.Windows.Forms.FileDialog&quot;> </xref>."
+  remarks: "A propriedade Options corresponde aos sinalizadores usados para inicializar uma caixa de diálogo usando Win32. Use as propriedades do <xref:System.Windows.Forms.FileDialog>classe para obter e definir as opções.</xref:System.Windows.Forms.FileDialog>"
   syntax:
     content: protected int Options { get; }
     return:
       type: System.Int32
-      description: "A bitwise combination of internal values that initializes the <xref href=&quot;System.Windows.Forms.FileDialog&quot;></xref>."
+      description: "Uma combinação bit a bit de valores internos que inicializa o <xref href=&quot;System.Windows.Forms.FileDialog&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.Options*
   exceptions: []
   platform:
@@ -526,7 +526,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Resets all properties to their default values."
+  summary: "Redefine todas as propriedades para seus valores padrão."
   syntax:
     content: public override void Reset ();
     parameters: []
@@ -546,7 +546,7 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets a value indicating whether the dialog box restores the directory to the previously selected directory before closing."
+  summary: "Obtém ou define um valor que indica se a caixa de diálogo restaura o diretório para o diretório selecionado anteriormente antes de fechar."
   remarks: ''
   example:
   - "The following code example uses the <xref:System.Windows.Forms.OpenFileDialog> implementation of <xref:System.Windows.Forms.FileDialog> and illustrates creating, setting of properties, and showing the dialog box. The example uses the RestoreDirectory property to ensure that the previously selected directory is restored when the dialog box is closed. The example requires a form with a <xref:System.Windows.Forms.Button> placed on it and the <xref:System.IO> namespace added to it.  \n  \n [!code-cpp[Classic OpenFileDialog Example#1](~/add/codesnippet/cpp/p-system.windows.forms.f_5_1.cpp)]\n [!code-cs[Classic OpenFileDialog Example#1](~/add/codesnippet/csharp/p-system.windows.forms.f_5_1.cs)]\n [!code-vb[Classic OpenFileDialog Example#1](~/add/codesnippet/visualbasic/p-system.windows.forms.f_5_1.vb)]"
@@ -554,7 +554,7 @@ items:
     content: public bool RestoreDirectory { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the dialog box restores the current directory to the previously selected directory if the user changed the directory while searching for files; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a caixa de diálogo restaura o diretório atual para o diretório selecionado anteriormente, se o usuário alterou o diretório durante a pesquisa de arquivos; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O valor padrão é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.RestoreDirectory*
   exceptions: []
   platform:
@@ -571,17 +571,17 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Specifies a common dialog box."
-  remarks: "This method provides an implementation of <xref:System.Windows.Forms.CommonDialog.RunDialog%2A>, and is invoked when the user of a file dialog invokes <xref:System.Windows.Forms.CommonDialog.ShowDialog%2A>.       In the derived classes <xref:System.Windows.Forms.OpenFileDialog> and <xref:System.Windows.Forms.SaveFileDialog> an invalid file name <xref:System.Exception> can be raised."
+  summary: "Especifica uma caixa de diálogo comum."
+  remarks: "Esse método fornece uma implementação de <xref:System.Windows.Forms.CommonDialog.RunDialog%2A>e é invocado quando o usuário de uma caixa de diálogo de arquivo chama <xref:System.Windows.Forms.CommonDialog.ShowDialog%2A>.</xref:System.Windows.Forms.CommonDialog.ShowDialog%2A> </xref:System.Windows.Forms.CommonDialog.RunDialog%2A>       Em classes derivadas <xref:System.Windows.Forms.OpenFileDialog>e <xref:System.Windows.Forms.SaveFileDialog>um nome de arquivo inválido <xref:System.Exception>pode ser gerado.</xref:System.Exception> </xref:System.Windows.Forms.SaveFileDialog> </xref:System.Windows.Forms.OpenFileDialog>"
   syntax:
     content: protected override bool RunDialog (IntPtr hWndOwner);
     parameters:
     - id: hWndOwner
       type: System.IntPtr
-      description: "A value that represents the window handle of the owner window for the common dialog box."
+      description: "Um valor que representa o identificador de janela da janela do proprietário para a caixa de diálogo comuns."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the file could be opened; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o arquivo foi aberto; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.RunDialog*
   exceptions: []
   platform:
@@ -598,13 +598,13 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets a value indicating whether the **Help** button is displayed in the file dialog box."
-  remarks: "A <xref:System.Windows.Forms.Control.HelpRequested> event is raised when the user clicks the **Help** button."
+  summary: "Obtém ou define um valor que indica se o **ajuda** botão é exibido na caixa de diálogo de arquivo."
+  remarks: "Um <xref:System.Windows.Forms.Control.HelpRequested>é gerado quando o usuário clica o **ajuda** botão.</xref:System.Windows.Forms.Control.HelpRequested>"
   syntax:
     content: public bool ShowHelp { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the dialog box includes a help button; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a caixa de diálogo inclui um botão de Ajuda. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O valor padrão é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.ShowHelp*
   exceptions: []
   platform:
@@ -621,15 +621,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets whether the dialog box supports displaying and saving files that have multiple file name extensions."
-  remarks: "Sometimes users must open and save files that use multiple file name extensions. For example, the application manifest files used by the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] deployment technology end in the complex file name extension &quot;.exe.manifest&quot;. Setting this property to `true` enables you to set the <xref:System.Windows.Forms.FileDialog.Filter%2A> property to a multi-dotted extension.       If SupportMultiDottedExtensions is `false`, and you assign a multi-dotted extension to <xref:System.Windows.Forms.FileDialog.Filter%2A>, derived controls such as <xref:System.Windows.Forms.SaveFileDialog> will only use the last extension in the string. For example, &quot;.manifest&quot; will be used instead of &quot;.exe.manifest&quot;."
+  summary: "Obtém ou define se a caixa de diálogo oferece suporte à exibição e salvar arquivos que têm várias extensões de nome de arquivo."
+  remarks: "Às vezes, os usuários devem abrir e salvar arquivos que usam várias extensões de nome de arquivo. Por exemplo, os aplicativo arquivos de manifesto usados pelo [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] final de tecnologia de implantação na extensão de nome de arquivo complexo &quot;. manifest&quot;. Definir essa propriedade como `true` permite que você defina o <xref:System.Windows.Forms.FileDialog.Filter%2A>propriedade a uma extensão com vários pontos.</xref:System.Windows.Forms.FileDialog.Filter%2A>       Se for SupportMultiDottedExtensions `false`, e atribuir uma extensão com vários pontos <xref:System.Windows.Forms.FileDialog.Filter%2A>, controles derivados, como <xref:System.Windows.Forms.SaveFileDialog>somente usará a última extensão na cadeia de caracteres.</xref:System.Windows.Forms.SaveFileDialog> </xref:System.Windows.Forms.FileDialog.Filter%2A> Por exemplo, &quot;. manifest&quot; será usado em vez de &quot;. manifest&quot;."
   example:
   - "The following code example saves files with the extension \".data.txt\". This code example requires that your application host a <xref:System.Windows.Forms.SaveFileDialog> named `saveFileDialog1` and a <xref:System.Windows.Forms.Button> named `button1`.  \n  \n [!code-cs[SupportMultiDottedExtensions#1](~/add/codesnippet/csharp/TestSaveFileDialog/Form1.cs#1)]\n [!code-vb[SupportMultiDottedExtensions#1](~/add/codesnippet/visualbasic/TestSaveFileDialogVB/Form1.vb#1)]"
   syntax:
     content: public bool SupportMultiDottedExtensions { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the dialog box supports multiple file name extensions; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a caixa de diálogo oferece suporte a várias extensões de nome de arquivo; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O padrão é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.SupportMultiDottedExtensions*
   exceptions: []
   platform:
@@ -646,15 +646,15 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets the file dialog box title."
-  remarks: "The string is placed in the title bar of the dialog box. If the title is an empty string, the system uses a default title, which is either &quot;Save As&quot; or &quot;Open&quot;."
+  summary: "Obtém ou define o título da caixa de diálogo de arquivo."
+  remarks: "A cadeia de caracteres é colocada na barra de título da caixa de diálogo. Se o título é uma cadeia de caracteres vazia, o sistema usa um título padrão, que é &quot;Salvar como&quot; ou &quot;Aberta&quot;."
   example:
   - "The following code example demonstrates initializing an <xref:System.Windows.Forms.OpenFileDialog>, setting the Title and <xref:System.Windows.Forms.FileDialog.Filter%2A> properties, and allowing the user to select multiple files by setting the <xref:System.Windows.Forms.OpenFileDialog.Multiselect%2A?displayProperty=fullName> property to true. To run this example, paste the following code in a form containing an <xref:System.Windows.Forms.OpenFileDialog> named `OpenFileDialog1` and a <xref:System.Windows.Forms.Button> named `fileButton`. Call the `InitializeOpenFileDialog` method in the form's constructor or `Load` method. The example also requires that the `Click` event of the `Button` control is connected to the event handler defined in the example.  \n  \n [!code-cs[System.Windows.Forms.FileDialog#6](~/add/codesnippet/csharp/p-system.windows.forms.f_25_1.cs)]\n [!code-cpp[System.Windows.Forms.FileDialog#6](~/add/codesnippet/cpp/p-system.windows.forms.f_25_1.cpp)]\n [!code-vb[System.Windows.Forms.FileDialog#6](~/add/codesnippet/visualbasic/p-system.windows.forms.f_25_1.vb)]"
   syntax:
     content: public string Title { get; set; }
     return:
       type: System.String
-      description: "The file dialog box title. The default value is an empty string (&quot;&quot;)."
+      description: "O título de caixa de diálogo de arquivo. O valor padrão é uma cadeia de caracteres vazia (&quot;&quot;)."
   overload: System.Windows.Forms.FileDialog.Title*
   exceptions: []
   platform:
@@ -671,13 +671,13 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Provides a string version of this object."
+  summary: "Fornece uma versão de cadeia de caracteres deste objeto."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string version of this object."
+      description: "Uma versão de cadeia de caracteres deste objeto."
   overload: System.Windows.Forms.FileDialog.ToString*
   exceptions: []
   platform:
@@ -694,13 +694,13 @@ items:
   assemblies:
   - System.Windows.Forms
   namespace: System.Windows.Forms
-  summary: "Gets or sets a value indicating whether the dialog box accepts only valid Win32 file names."
-  remarks: "If the edit control contains anything but spaces when the user clicks **OK**, the dialog box returns the file name, whether it is valid or not. No default extension is added to the text."
+  summary: "Obtém ou define um valor que indica se a caixa de diálogo aceita somente nomes de arquivo Win32 válidos."
+  remarks: "Se o controle de edição contiver qualquer coisa, mas espaços quando o usuário clica **Okey**, a caixa de diálogo retorna o nome do arquivo, se ele é válido ou não. Nenhuma extensão padrão é adicionado ao texto."
   syntax:
     content: public bool ValidateNames { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the dialog box accepts only valid Win32 file names; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a caixa de diálogo aceita apenas Win32 nomes de arquivo válidos; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O valor padrão é <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Windows.Forms.FileDialog.ValidateNames*
   exceptions: []
   platform:

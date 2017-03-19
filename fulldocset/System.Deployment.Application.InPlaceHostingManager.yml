@@ -23,8 +23,8 @@ items:
   nameWithType: InPlaceHostingManager
   fullName: System.Deployment.Application.InPlaceHostingManager
   type: Class
-  summary: "Install or update a [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] deployment on a computer."
-  remarks: "You can use InPlaceHostingManager to write programs that install [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] applications programmatically. For example, you can use this class in a controlled system management software (SMS) environment or in situations where you need a complex installation that performs a number of pre-installation or post-installation operations on the local computer. Generally, you will want to use the members of this class in a specific order:      1.  Create a new instance of InPlaceHostingManager.      2.  Download the deployment manifest by using <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A>.      3.  Check that the application can be run with the appropriate permissions by using <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A>.      4.  Download and install the application by using <xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A>.      -   If you call any of these parameters out of order, they will throw an exception.       InPlaceHostingManager can install a [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application, but cannot execute it. Some methods in this class, such as <xref:System.Deployment.Application.InPlaceHostingManager.Execute%2A>, are reserved for use when downloading a Windows Presentation Foundation-based application that runs inside a Web browser.       To use InPlaceHostingManager to download and install applications, you must make sure that the certificate for signing the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] applications you plan to install is already installed on client computers as a trusted publisher. For more information on trusted publishers, see [Trusted Application Deployment Overview](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  There is currently a product limitation that prevents InPlaceHostingManager from working correctly when you debug your code using [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)]. If you debug your application in [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] by using the F5 key, the sample will throw mysterious exceptions when you call <xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A>. To debug using [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)], start the application without debugging, and then attach the debugger. Alternatively, you can use another debugger, such as WinDbg."
+  summary: "Instalar ou atualizar um [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] implantação em um computador."
+  remarks: "Você pode usar InPlaceHostingManager para gravar programas que instalam [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativos por meio de programação. Por exemplo, você pode usar essa classe em um ambiente de software (SMS) de gerenciamento controlada do sistema ou em situações em que você precisa de uma instalação complexas que realiza uma série de operações de pré-instalação ou pós-instalação no computador local. Em geral, você deve usar os membros dessa classe em uma ordem específica: 1.  Crie uma nova instância da InPlaceHostingManager.      2.  Baixe o manifesto de implantação usando <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A>.</xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A>      3.  Verifique se o aplicativo pode ser executado com as permissões apropriadas usando <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A>.</xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A>      4.  Baixar e instalar o aplicativo usando <xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A>.</xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A>      -Se você chamar qualquer um desses parâmetros fora de ordem, eles lançará uma exceção.       InPlaceHostingManager pode instalar um [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativo, mas não é possível executá-lo. Alguns métodos na classe, como <xref:System.Deployment.Application.InPlaceHostingManager.Execute%2A>, são reservados para uso durante o download de um aplicativo baseado em Windows Presentation Foundation que é executado dentro de um navegador da Web.</xref:System.Deployment.Application.InPlaceHostingManager.Execute%2A>       Para usar InPlaceHostingManager para baixar e instalar aplicativos, você deve garantir que o certificado para assinar o [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativos você planeja instalar já está instalado nos computadores cliente como um editor confiável. Para obter mais informações sobre editores confiáveis, consulte [visão geral de implantação do aplicativo confiável](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Atualmente, há uma limitação do produto que impede que InPlaceHostingManager funcione corretamente quando você depurar seu código usando [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)]. Se você depurar seu aplicativo no [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)] usando a tecla F5, o exemplo lançarão exceções misteriosas ao chamar <xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A>.</xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A> Depurar usando [!INCLUDE[vsprvs](~/add/includes/vsprvs-md.md)], inicie o aplicativo sem depuração e, em seguida, anexar o depurador. Como alternativa, você pode usar outro depurador, como o WinDbg."
   example:
   - "The following code example shows how to use InPlaceHostingManager to install a [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application programmatically on a client computer.  \n  \n [!code-vb[System.Deployment.Application.InPlaceHostingManager#1](~/add/codesnippet/visualbasic/InPlaceHostingManagerProjectVB/Form1.vb#1)]\n [!code-cs[System.Deployment.Application.InPlaceHostingManager#1](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#1)]"
   syntax:
@@ -48,25 +48,25 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Creates a new instance of <xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;></xref> to download and install the specified browser-hosted application."
-  remarks: "This constructor is used when you want to download a Windows Presentation Foundation-based application that is hosted in a Web browser. To download Windows Forms-based applications that are deployed using [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)], use the <xref:System.Deployment.Application.InPlaceHostingManager.%23ctor%2A> constructor with the `launchInHostProcess` parameter set to `false`."
+  summary: "Cria uma nova instância da <xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;> </xref> para baixar e instalar o aplicativo especificado hospedados pelo navegador."
+  remarks: "Este construtor é usado quando você deseja baixar um aplicativo baseado em Windows Presentation Foundation que é hospedado em um navegador da Web. Para baixar aplicativos baseados em Windows Forms que são implantados usando [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)], use o <xref:System.Deployment.Application.InPlaceHostingManager.%23ctor%2A>construtor com a `launchInHostProcess` parâmetro definido como `false`.</xref:System.Deployment.Application.InPlaceHostingManager.%23ctor%2A>"
   syntax:
     content: public InPlaceHostingManager (Uri deploymentManifest);
     parameters:
     - id: deploymentManifest
       type: System.Uri
-      description: "A Uniform Resource Identifier (<xref:System.Uri>) to a [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application&quot;s deployment manifest."
+      description: "Um identificador de recurso uniforme (<xref:System.Uri>) para um [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] o manifesto de implantação do aplicativo.</xref:System.Uri>"
   overload: System.Deployment.Application.InPlaceHostingManager.#ctor*
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "<xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;></xref> can be used only in Windows XP or in later versions of the Windows operating system."
+    description: "<xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;></xref>pode ser usado somente no Windows XP ou em versões posteriores do sistema operacional Windows."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "Cannot pass <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> for the <code>deploymentManifest</code> argument."
+    description: "Não é possível passar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> para o <code> deploymentManifest </code> argumento."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>deploymentManifest</code> uses a URI scheme that is not supported by [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)]."
+    description: "<code>deploymentManifest</code>usa um esquema URI não é suportado pelo [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)]."
   platform:
   - net462
 - uid: System.Deployment.Application.InPlaceHostingManager.#ctor(System.Uri,System.Boolean)
@@ -81,7 +81,7 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Creates a new instance of <xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;></xref> to download and install the specified application, which can be either a stand-alone Windows Forms-based application or an application hosted in a Web browser."
+  summary: "Cria uma nova instância da <xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;> </xref> para baixar e instalar o aplicativo especificado, o que pode ser um aplicativo autônomo com base em formulários do Windows ou um aplicativo hospedado em um navegador da Web."
   remarks: ''
   example:
   - "The following code example demonstrates how to create an instance of <xref:System.Deployment.Application.InPlaceHostingManager> that allows you to download Windows Forms-based applications deployed using [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)].  \n  \n [!code-vb[System.Deployment.Application.InPlaceHostingManager#2](~/add/codesnippet/visualbasic/InPlaceHostingManagerProjectVB/Form1.vb#2)]\n [!code-cs[System.Deployment.Application.InPlaceHostingManager#2](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#2)]"
@@ -90,21 +90,21 @@ items:
     parameters:
     - id: deploymentManifest
       type: System.Uri
-      description: "The Uniform Resource Identifier (URI) to the deployment manifest of the application that will be installed."
+      description: "O identificador de URI (Uniform Resource) para o manifesto de implantação do aplicativo que será instalado."
     - id: launchInHostProcess
       type: System.Boolean
-      description: "Whether this application will be run in a host, such as a Web browser. For a stand-alone application, set this value to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Se este aplicativo será executado em um host, como um navegador da Web. Para um aplicativo autônomo, defina esse valor como <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Deployment.Application.InPlaceHostingManager.#ctor*
   exceptions:
   - type: System.PlatformNotSupportedException
     commentId: T:System.PlatformNotSupportedException
-    description: "<xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;></xref> can be used only in Windows XP or in later versions of the Windows operating system."
+    description: "<xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;></xref>pode ser usado somente no Windows XP ou em versões posteriores do sistema operacional Windows."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "Cannot pass <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> for the <code>deploymentManifest</code> argument."
+    description: "Não é possível passar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> para o <code> deploymentManifest </code> argumento."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>deploymentManifest</code> uses a URI scheme that is not supported by [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)]."
+    description: "<code>deploymentManifest</code>usa um esquema URI não é suportado pelo [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)]."
   platform:
   - net462
 - uid: System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements
@@ -119,8 +119,8 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Determines whether the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application has the appropriate permissions and platform dependencies to run on the local computer."
-  remarks: "You must call AssertApplicationRequirements after <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A> returns successfully. You must not call <xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A> unless you call AssertApplicationRequirements, and it returns without error."
+  summary: "Determina se o [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativo tem as permissões apropriadas e dependências de plataforma para ser executado no computador local."
+  remarks: "Você deve chamar AssertApplicationRequirements após <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A>retorna com êxito.</xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A> Você não deve chamar <xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A>, a menos que você chamar AssertApplicationRequirements e retorna sem erro.</xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A>"
   example:
   - "The following code example demonstrates the use of AssertApplicationRequirements, which it calls in the body of a successful <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestCompleted> event handler.  \n  \n [!code-vb[System.Deployment.Application.InPlaceHostingManager#3](~/add/codesnippet/visualbasic/InPlaceHostingManagerProjectVB/Form1.vb#3)]\n [!code-cs[System.Deployment.Application.InPlaceHostingManager#3](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#3)]"
   syntax:
@@ -130,7 +130,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Raised if this method is called before the <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync*> method."
+    description: "Gerado se esse método é chamado antes do <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync*>método.</xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync*>"
   platform:
   - net462
 - uid: System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements(System.Boolean)
@@ -145,14 +145,14 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Determines whether the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application has the appropriate permissions and platform dependencies to run on the local computer."
-  remarks: "If `grantApplicationTrust` is `true`, <xref:System.Deployment.Application.InPlaceHostingManager> will grant the application elevated permissions if it requires them. This is only possible if <xref:System.Deployment.Application.InPlaceHostingManager> is able to grant those permissions. For example, if a [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application is being installed as part of a larger package and the installer has been granted full trust, <xref:System.Deployment.Application.InPlaceHostingManager> will be able to grant the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application full trust. If `grantApplicationTrust` is `false`, the application will not be granted any permissions."
+  summary: "Determina se o [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativo tem as permissões apropriadas e dependências de plataforma para ser executado no computador local."
+  remarks: "Se `grantApplicationTrust` é `true`, <xref:System.Deployment.Application.InPlaceHostingManager>concederá permissões elevadas pelo aplicativo se isso for exigido.</xref:System.Deployment.Application.InPlaceHostingManager> Isso só é possível se <xref:System.Deployment.Application.InPlaceHostingManager>é capaz de conceder essas permissões.</xref:System.Deployment.Application.InPlaceHostingManager> Por exemplo, se um [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativo está sendo instalado como parte de um pacote maior e o instalador tenha confiança total, <xref:System.Deployment.Application.InPlaceHostingManager>poderá conceder a [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativo confiança total.</xref:System.Deployment.Application.InPlaceHostingManager> Se `grantApplicationTrust` é `false`, o aplicativo não receberá nenhuma permissão."
   syntax:
     content: public void AssertApplicationRequirements (bool grantApplicationTrust);
     parameters:
     - id: grantApplicationTrust
       type: System.Boolean
-      description: "If <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>, the application will attempt to elevate its permissions to the required level."
+      description: "Se <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>, o aplicativo tenta elevar as permissões para o nível necessário."
   overload: System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements*
   exceptions: []
   platform:
@@ -169,7 +169,7 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Cancels an asynchronous download operation."
+  summary: "Cancela uma operação de download assíncrono."
   syntax:
     content: public void CancelAsync ();
     parameters: []
@@ -189,8 +189,8 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Releases all resources used by the <xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;></xref>."
-  remarks: "Call Dispose when you are finished using the <xref:System.Deployment.Application.InPlaceHostingManager>. The Dispose method leaves the <xref:System.Deployment.Application.InPlaceHostingManager> in an unusable state. After calling Dispose, you must release all references to the <xref:System.Deployment.Application.InPlaceHostingManager> so the garbage collector can reclaim the memory that the <xref:System.Deployment.Application.InPlaceHostingManager> was occupying. For more information, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md) and [Implementing a Dispose Method](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] >  Always call Dispose before you release your last reference to the <xref:System.Deployment.Application.InPlaceHostingManager>. Otherwise, the resources it is using will not be freed until the garbage collector calls the <xref:System.Deployment.Application.InPlaceHostingManager> object&quot;s `Finalize` method."
+  summary: "Libera todos os recursos usados pelo <xref href=&quot;System.Deployment.Application.InPlaceHostingManager&quot;> </xref>."
+  remarks: "Chamar Dispose quando terminar de usar o <xref:System.Deployment.Application.InPlaceHostingManager>.</xref:System.Deployment.Application.InPlaceHostingManager> O método Dispose deixa a <xref:System.Deployment.Application.InPlaceHostingManager>em um estado inutilizável.</xref:System.Deployment.Application.InPlaceHostingManager> Depois de chamar Dispose, você deve liberar todas as referências para o <xref:System.Deployment.Application.InPlaceHostingManager>para o coletor de lixo possa recuperar a memória que o <xref:System.Deployment.Application.InPlaceHostingManager>estava ocupando.</xref:System.Deployment.Application.InPlaceHostingManager> </xref:System.Deployment.Application.InPlaceHostingManager> Para obter mais informações, consulte [limpeza de recursos não gerenciados](~/add/includes/ajax-current-ext-md.md) e [implementar um método Dispose](~/add/includes/ajax-current-ext-md.md).      > [!NOTE] > Sempre chamada Dispose antes de liberar sua última referência a <xref:System.Deployment.Application.InPlaceHostingManager>.</xref:System.Deployment.Application.InPlaceHostingManager> Caso contrário, os recursos que está usando não serão liberados até que o coletor de lixo chame o <xref:System.Deployment.Application.InPlaceHostingManager>do objeto `Finalize` método.</xref:System.Deployment.Application.InPlaceHostingManager>"
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -210,8 +210,8 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Downloads an application update in the background."
-  remarks: "You must call this method after calling <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A>."
+  summary: "Faz o download de uma atualização do aplicativo em segundo plano."
+  remarks: "Você deve chamar este método depois de chamar <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A>.</xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A>"
   example:
   - "The following code example demonstrates the use of DownloadApplicationAsync, which it calls at the end of a successful <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestCompleted> event handler.  \n  \n The following code examples assume that you have already defined and created an instance of <xref:System.Deployment.Application.InPlaceHostingManager> named `iphm`.  \n  \n [!code-vb[System.Deployment.Application.InPlaceHostingManager#3](~/add/codesnippet/visualbasic/InPlaceHostingManagerProjectVB/Form1.vb#3)]\n [!code-cs[System.Deployment.Application.InPlaceHostingManager#3](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#3)]"
   syntax:
@@ -221,7 +221,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "Raised if this method is called before the <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync*> and <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements*> methods."
+    description: "Gerado se esse método é chamado antes do <> </> *> e <> </> *> métodos."
   platform:
   - net462
 - uid: System.Deployment.Application.InPlaceHostingManager.DownloadApplicationCompleted
@@ -236,15 +236,15 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Occurs when the application has finished downloading to the local computer."
-  remarks: "If you are installing a Windows Forms-based application, you will need to instruct users to launch the application themselves; you cannot start Windows Forms-based applications programmatically by using the <xref:System.Deployment.Application.InPlaceHostingManager.Execute%2A> method."
+  summary: "Ocorre quando o aplicativo concluiu o download no computador local."
+  remarks: "Se você estiver instalando um aplicativo baseado em formulários do Windows, você precisará instruir os usuários para iniciar o aplicativo em si; Você não pode iniciar aplicativos baseados em Windows Forms programaticamente usando o <xref:System.Deployment.Application.InPlaceHostingManager.Execute%2A>método.</xref:System.Deployment.Application.InPlaceHostingManager.Execute%2A>"
   example:
   - "The following code example demonstrates a handler for the DownloadApplicationCompleted event.  \n  \n [!code-vb[System.Deployment.Application.InPlaceHostingManager#7](~/add/codesnippet/visualbasic/InPlaceHostingManagerProjectVB/Form1.vb#7)]\n [!code-cs[System.Deployment.Application.InPlaceHostingManager#7](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#7)]"
   syntax:
     content: public event EventHandler<System.Deployment.Application.DownloadApplicationCompletedEventArgs> DownloadApplicationCompleted;
     return:
       type: System.EventHandler{System.Deployment.Application.DownloadApplicationCompletedEventArgs}
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -260,15 +260,15 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Occurs when there is a change in the status of an application or manifest download."
-  remarks: "In a console application, events are assigned to threads from a thread pool. Therefore, you might receive progress update events out of order, with a subsequent event showing a decrease compared with a previous event. You will not see such behavior in a Windows Forms-based application, because events in Windows Forms are processed sequentially out of the user interface (UI) thread&quot;s message queue."
+  summary: "Ocorre quando há uma alteração no status do download de um aplicativo ou manifesto."
+  remarks: "Em um aplicativo de console, eventos são atribuídos a threads em um pool de threads. Portanto, você pode receber eventos de atualização de andamento fora de ordem, com um evento subsequente mostrando uma redução em comparação com um evento anterior. Você não verá esse comportamento em um aplicativo baseado em Windows Forms, porque eventos em formulários do Windows são processados sequencialmente fora da fila de mensagens do thread da interface do usuário do usuário."
   example:
   - "The following code example demonstrates how to update a <xref:System.Windows.Forms.ToolStripProgressBar> that is contained within a <xref:System.Windows.Forms.StatusStrip>.  \n  \n [!code-vb[System.Deployment.Application.InPlaceHostingManager#6](~/add/codesnippet/visualbasic/InPlaceHostingManagerProjectVB/Form1.vb#6)]\n [!code-cs[System.Deployment.Application.InPlaceHostingManager#6](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#6)]"
   syntax:
     content: public event EventHandler<System.Deployment.Application.DownloadProgressChangedEventArgs> DownloadProgressChanged;
     return:
       type: System.EventHandler{System.Deployment.Application.DownloadProgressChangedEventArgs}
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -284,14 +284,14 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Launches the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application, if and only if it is a Windows Presentation Foundation-based application running in a Web browser."
-  remarks: "This method is valid only for Windows Presentation Foundation-based applications that can be hosted in a Web browser (that is, their deployment manifests define the `hostInBrowser` XML element)."
+  summary: "Inicia o [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativo, se e somente se ele é um aplicativo baseado em Windows Presentation Foundation em execução em um navegador da Web."
+  remarks: "Este método é válido somente para aplicativos baseados em Windows Presentation Foundation que podem ser hospedados em um navegador da Web (ou seja, seus manifestos de implantação é definir o `hostInBrowser` elemento XML)."
   syntax:
     content: public System.Runtime.Remoting.ObjectHandle Execute ();
     parameters: []
     return:
       type: System.Runtime.Remoting.ObjectHandle
-      description: "An <xref href=&quot;System.Runtime.Remoting.ObjectHandle&quot;></xref> corresponding to the launched application."
+      description: "Um <xref href=&quot;System.Runtime.Remoting.ObjectHandle&quot;> </xref> correspondente para o aplicativo iniciado."
   overload: System.Deployment.Application.InPlaceHostingManager.Execute*
   exceptions: []
   platform:
@@ -308,8 +308,8 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Downloads the deployment manifest of the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application in the background, and raises an event when the operation has either completed or encountered an error."
-  remarks: "To receive notification of when this event completes, create an event handler for the <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestCompleted> event. If this event is called, and no error is indicated by <xref:System.Deployment.Application.GetManifestCompletedEventArgs>, you should next call <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A> to verify that the application will have permission to run on the local computer."
+  summary: "Baixa o manifesto de implantação do [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativo em segundo plano e gera um evento quando a operação foi concluída ou encontrou um erro."
+  remarks: "Para receber notificação de quando esse evento for concluído, criar um manipulador de eventos para o <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestCompleted>evento.</xref:System.Deployment.Application.InPlaceHostingManager.GetManifestCompleted> Se esse evento é chamado e nenhum erro é indicado por <xref:System.Deployment.Application.GetManifestCompletedEventArgs>, em seguida, você deve chamar <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A>para verificar que o aplicativo terá permissão para executar no computador local.</xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A> </xref:System.Deployment.Application.GetManifestCompletedEventArgs>"
   example:
   - "The following code examples demonstrate how to call the GetManifestAsync method. The handler for the <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestCompleted> event callback checks to see if the manifest download completed successfully, and if so, prompts the user with additional information about the application. If the user agrees to continue the installation, the handler calls <xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A>.  \n  \n The following code examples assume that you have already defined and created an instance of <xref:System.Deployment.Application.InPlaceHostingManager> named `iphm`.  \n  \n [!code-vb[System.Deployment.Application.InPlaceHostingManager#3](~/add/codesnippet/visualbasic/InPlaceHostingManagerProjectVB/Form1.vb#3)]\n [!code-cs[System.Deployment.Application.InPlaceHostingManager#3](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#3)]  \n  \n [!code-cs[System.Deployment.Application.InPlaceHostingManager#4](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#4)]"
   syntax:
@@ -331,15 +331,15 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Occurs when the deployment manifest has been downloaded to the local computer."
-  remarks: "Use the <xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A> property of <xref:System.Deployment.Application.GetManifestCompletedEventArgs> to check whether <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A> completed successfully or returned an error. If <xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A> is null, <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A> completed successfully, and you can call <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A>."
+  summary: "Ocorre quando o manifesto de implantação foi baixado no computador local."
+  remarks: "Use o <xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A>propriedade <xref:System.Deployment.Application.GetManifestCompletedEventArgs>para verificar se <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A>foi concluída com êxito ou retornou um erro.</xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A> </xref:System.Deployment.Application.GetManifestCompletedEventArgs> </xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A> Se <xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A>for nulo, <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A>concluída com êxito, e você pode chamar <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A>.</xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A> </xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A> </xref:System.ComponentModel.AsyncCompletedEventArgs.Error%2A>"
   example:
   - "The following code examples demonstrate how to call the <xref:System.Deployment.Application.InPlaceHostingManager.GetManifestAsync%2A> method. The handler for the GetManifestCompleted event callback checks to see if the manifest download completed successfully, and if so, prompts the user with additional information about the application. If the user agrees to continue the installation, the handler calls <xref:System.Deployment.Application.InPlaceHostingManager.DownloadApplicationAsync%2A>.  \n  \n The following code examples assume that you have already defined and created an instance of <xref:System.Deployment.Application.InPlaceHostingManager> named `iphm`.  \n  \n [!code-vb[System.Deployment.Application.InPlaceHostingManager#2](~/add/codesnippet/visualbasic/InPlaceHostingManagerProjectVB/Form1.vb#2)]\n [!code-cs[System.Deployment.Application.InPlaceHostingManager#2](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#2)]  \n  \n [!code-vb[System.Deployment.Application.InPlaceHostingManager#3](~/add/codesnippet/visualbasic/InPlaceHostingManagerProjectVB/Form1.vb#3)]\n [!code-cs[System.Deployment.Application.InPlaceHostingManager#3](~/add/codesnippet/csharp/InPlaceHostingManagerProject/Form1.cs#3)]"
   syntax:
     content: public event EventHandler<System.Deployment.Application.GetManifestCompletedEventArgs> GetManifestCompleted;
     return:
       type: System.EventHandler{System.Deployment.Application.GetManifestCompletedEventArgs}
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -355,21 +355,21 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Removes a previously installed user-defined component of an application."
+  summary: "Remove um componente instalado anteriormente definido pelo usuário de um aplicativo."
   syntax:
     content: public static void UninstallCustomAddIn (string subscriptionId);
     parameters:
     - id: subscriptionId
       type: System.String
-      description: "A string that contains a subscription identifier, which indicates the add-in to remove."
+      description: "Uma cadeia de caracteres que contém um identificador de assinatura, que indica o suplemento para remover."
   overload: System.Deployment.Application.InPlaceHostingManager.UninstallCustomAddIn*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>subscriptionId</code> is not a valid subscription identity, or does not include a name, public key token, processor architecture, and version number."
+    description: "<code>subscriptionId</code>não é uma identidade de assinatura válida ou não incluir um nome, token de chave pública, a arquitetura do processador e número de versão."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>subscriptionId</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>subscriptionId</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Deployment.Application.InPlaceHostingManager.UninstallCustomUXApplication(System.String)
@@ -384,14 +384,14 @@ items:
   assemblies:
   - System.Deployment
   namespace: System.Deployment.Application
-  summary: "Removes a [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application that includes the &lt;customUX&gt; element."
+  summary: "Remove um [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativo que inclui o &lt;customUX&gt; elemento."
   remarks: "This method uninstalls a previously installed [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application that uses the `<customUX>` element in the [\\&lt;entryPoint\\&gt; Element](../Topic/%3CentryPoint%3E%20Element%20\\(ClickOnce%20Application\\).md).  \n  \n Custom installers that do not create an Add or Remove Programs entry for the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application must store the subscription identifier found in the <xref:System.Deployment.Application.GetManifestCompletedEventArgs.SubscriptionIdentity%2A> property during installation."
   syntax:
     content: public static void UninstallCustomUXApplication (string subscriptionId);
     parameters:
     - id: subscriptionId
       type: System.String
-      description: "A string that contains a subscription identifier, which indicates the [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] application to remove."
+      description: "Uma cadeia de caracteres que contém um identificador de assinatura, que indica o [!INCLUDE[ndptecclick](~/add/includes/ndptecclick-md.md)] aplicativo a ser removido."
   overload: System.Deployment.Application.InPlaceHostingManager.UninstallCustomUXApplication*
   exceptions: []
   platform:

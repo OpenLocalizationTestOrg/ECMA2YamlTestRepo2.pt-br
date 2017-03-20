@@ -19,7 +19,7 @@ items:
   nameWithType: ProjectElement
   fullName: Microsoft.Build.Construction.ProjectElement
   type: Class
-  summary: "Abstract base class for MSBuild construction object model elements."
+  summary: "Classe base abstrata para MSBuild elementos de modelo de objeto de construção."
   syntax:
     content: public abstract class ProjectElement
   inheritance:
@@ -40,12 +40,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "All parent elements of this element, going up to the ProjectRootElement.       None if this is a ProjectRootElement.       None if this has not been attached to a parent yet."
+  summary: "Todos os elementos desse elemento, indo até o ProjectRootElement de pai.       Nenhum, se esse for um ProjectRootElement.       Nenhum, se isso não foi anexado a um pai ainda."
   syntax:
     content: public System.Collections.Generic.IEnumerable<Microsoft.Build.Construction.ProjectElementContainer> AllParents { get; }
     return:
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Construction.ProjectElementContainer}
-      description: "Returns an enumerator over all parent elements. There are no parents elements if the project element is a ProjectRootElement or if this is not yet attached to a parent element."
+      description: "Retorna um enumerador sobre todos os elementos pai. Não há nenhum elemento de pais se o elemento de projeto é um ProjectRootElement ou se isso ainda não está anexado a um elemento pai."
   overload: Microsoft.Build.Construction.ProjectElement.AllParents*
   exceptions: []
   platform:
@@ -62,13 +62,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "Gets or sets the Condition value.       It will return empty string IFF a condition attribute is legal but it’s not present or has no value.       It will return null IFF a Condition attribute is illegal on that element.       Removes the attribute if the value to set is empty.       It is possible for derived classes to throw an <xref:System.InvalidOperationException> if setting the condition is not applicable for those elements."
-  remarks: "Removes the Condition attribute if the value to set is set to null or an empty string. If the Condition attribute is not present, returns an empty string instead of throwing an exception because a nonexistent condition is implicitly true       For the &quot;ProjectExtensions&quot; element, the getter returns null and the setter throws an exception for any value."
+  summary: "Obtém ou define o valor de condição.       Se um atributo de condição de cadeia de caracteres vazia é válida, mas ele não está presente ou não tem nenhum valor será retornado.       Ele retornará que nulo se um atributo de condição é inválido no elemento.       Remove o atributo se o valor a ser definido está vazio.       É possível que as classes derivadas lançar uma <xref:System.InvalidOperationException>se definir a condição não é aplicável para esses elementos.</xref:System.InvalidOperationException>"
+  remarks: "Remove o atributo de condição se o valor a ser definido é definido como nulo ou uma cadeia de caracteres vazia. Se o atributo de condição não estiver presente, retorna uma cadeia de caracteres vazia em vez de gerar uma exceção porque uma condição que não existe é implicitamente verdadeira para o elemento &quot;ProjectExtensions&quot;, o getter retorna null e o setter lançará uma exceção para qualquer valor."
   syntax:
     content: public virtual string Condition { get; set; }
     return:
       type: System.String
-      description: "Returns the Condition attribute value. Returns an empty string if the attribute is not present."
+      description: "Retorna o valor do atributo de condição. Retorna uma cadeia de caracteres vazia se o atributo não estiver presente."
   overload: Microsoft.Build.Construction.ProjectElement.Condition*
   exceptions: []
   platform:
@@ -85,7 +85,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "Location of the &quot;Condition&quot; attribute on this element, if any.       If there is no such attribute, returns null."
+  summary: "Local do atributo &quot;Condição&quot; neste elemento, se houver.       Se não houver nenhum atributo, retorna null."
   syntax:
     content: public virtual Microsoft.Build.Construction.ElementLocation ConditionLocation { get; }
     return:
@@ -107,12 +107,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "ProjectRootElement (possibly imported) that contains this Xml.       Cannot be null."
+  summary: "ProjectRootElement (possivelmente importado) que contém esse Xml.       Não pode ser nulo."
   syntax:
     content: public Microsoft.Build.Construction.ProjectRootElement ContainingProject { get; }
     return:
       type: Microsoft.Build.Construction.ProjectRootElement
-      description: "Returns the project root container that contains this project."
+      description: "Retorna o contêiner raiz do projeto que contém este projeto."
   overload: Microsoft.Build.Construction.ProjectElement.ContainingProject*
   exceptions: []
   platform:
@@ -129,13 +129,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "Gets or sets the Label value.       Returns empty string if it is not present.       Removes the attribute if the value to set is empty."
-  remarks: "Removes the attribute if the value to set is empty."
+  summary: "Obtém ou define o valor de rótulo.       Retorna o cadeia de caracteres vazia se não estiver presente.       Remove o atributo se o valor a ser definido está vazio."
+  remarks: "Remove o atributo se o valor a ser definido está vazio."
   syntax:
     content: public string Label { get; set; }
     return:
       type: System.String
-      description: "Returns the label. Returns an empty string if no label is present."
+      description: "Retorna o rótulo. Retorna uma cadeia de caracteres vazia se nenhum rótulo estiver presente."
   overload: Microsoft.Build.Construction.ProjectElement.Label*
   exceptions: []
   platform:
@@ -152,7 +152,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "Location of the &quot;Label&quot; attribute on this element, if any.       If there is no such attribute, returns null;"
+  summary: "Local do atributo &quot;Rótulo&quot; neste elemento, se houver.       Se não houver nenhum atributo, retorna nulo."
   syntax:
     content: public Microsoft.Build.Construction.ElementLocation LabelLocation { get; }
     return:
@@ -174,7 +174,7 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "Location of the corresponding Xml element.       May not be correct if file is not saved, or file has been edited since it was last saved.       In the case of an unsaved edit, the location only contains the path to the file that the element originates from."
+  summary: "Local do elemento Xml correspondente.       Pode não estar correta se o arquivo não é salvo, ou o arquivo foi editado desde que foi salvo pela última vez.       No caso de uma edição não salva, o local contém apenas o caminho para o arquivo que o elemento se origina."
   syntax:
     content: public Microsoft.Build.Construction.ElementLocation Location { get; }
     return:
@@ -196,12 +196,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "Next sibling element.       May be null."
+  summary: "Próximo elemento irmão.       Pode ser nulo."
   syntax:
     content: public Microsoft.Build.Construction.ProjectElement NextSibling { get; }
     return:
       type: Microsoft.Build.Construction.ProjectElement
-      description: "Returns the next sibling of this project element. Returns null if no next sibling exists."
+      description: "Retorna o próximo irmão deste elemento de projeto. Retorna nulo se não existir nenhum próximo irmão."
   overload: Microsoft.Build.Construction.ProjectElement.NextSibling*
   exceptions: []
   platform:
@@ -218,13 +218,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "Null if this is a ProjectRootElement.       Null if this has not been attached to a parent yet."
-  remarks: "Parent should only be set by ProjectElementContainer."
+  summary: "NULL se este é um ProjectRootElement.       NULL se esta ainda não foi anexado a um pai."
+  remarks: "Pai só deve ser definido por ProjectElementContainer."
   syntax:
     content: public Microsoft.Build.Construction.ProjectElementContainer Parent { get; }
     return:
       type: Microsoft.Build.Construction.ProjectElementContainer
-      description: "Returns the project element container that contains this project."
+      description: "Retorna o contêiner de elemento de projeto que contém este projeto."
   overload: Microsoft.Build.Construction.ProjectElement.Parent*
   exceptions: []
   platform:
@@ -241,12 +241,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Construction
-  summary: "Previous sibling element.       May be null."
+  summary: "Elemento irmão anterior.       Pode ser nulo."
   syntax:
     content: public Microsoft.Build.Construction.ProjectElement PreviousSibling { get; }
     return:
       type: Microsoft.Build.Construction.ProjectElement
-      description: "Returns the previous sibling of this project element. Returns null if no previous sibling exists."
+      description: "Retorna o irmão anterior desse elemento de projeto. Retorna nulo se não existir nenhum irmão anterior."
   overload: Microsoft.Build.Construction.ProjectElement.PreviousSibling*
   exceptions: []
   platform:

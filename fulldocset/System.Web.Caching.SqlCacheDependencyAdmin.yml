@@ -16,8 +16,8 @@ items:
   nameWithType: SqlCacheDependencyAdmin
   fullName: System.Web.Caching.SqlCacheDependencyAdmin
   type: Class
-  summary: "Performs administrative tasks required on a SQL Server database to support the <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;></xref> class when using polling-based dependencies. This class cannot be inherited."
-  remarks: "You can use the methods of this class to programmatically enable and disable a SQL Server database and its tables for <xref:System.Web.Caching.SqlCacheDependency> object change notifications. In addition, this class obtains information about which tables in a database are enabled for change notifications using the <xref:System.Web.Caching.SqlCacheDependencyAdmin.GetTablesEnabledForNotifications%2A> method. However, you can also use the Aspnet_regsql command-line tool to manage change notifications for a SQL Server database and its tables.      > [!NOTE] >  To call any of the methods in this class, the account you use to access the SQL Server database must have permissions to create tables and stored procedures. To enable notifications on a specific table, you must have permissions to create a SQL Server trigger on that table. For more information on how to set permissions on a database, see the SQL Server documentation. For more information about the account used by the ASP.NET process, see [ASP.NET Impersonation](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Executa tarefas administrativas necessárias em um banco de dados do SQL Server para dar suporte a <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;> </xref> classe ao usar dependências de sondagem. Essa classe não pode ser herdada."
+  remarks: "Você pode usar os métodos dessa classe para habilitar e desabilitar um banco de dados do SQL Server e suas tabelas para programaticamente <xref:System.Web.Caching.SqlCacheDependency>notificações de alteração de objeto.</xref:System.Web.Caching.SqlCacheDependency> Além disso, esta classe obtém informações sobre quais tabelas em um banco de dados são habilitadas para notificações de alteração usando o <xref:System.Web.Caching.SqlCacheDependencyAdmin.GetTablesEnabledForNotifications%2A>método.</xref:System.Web.Caching.SqlCacheDependencyAdmin.GetTablesEnabledForNotifications%2A> No entanto, você também pode usar a ferramenta de linha de comando Aspnet_regsql para gerenciar notificações de alteração para um banco de dados do SQL Server e suas tabelas.      > [!NOTE] > Para chamar qualquer um dos métodos nessa classe, a conta usada para acessar o banco de dados do SQL Server deve ter permissões para criar tabelas e procedimentos armazenados. Para habilitar as notificações em uma tabela específica, você deve ter permissões para criar um gatilho SQL Server nessa tabela. Para obter mais informações sobre como definir permissões em um banco de dados, consulte a documentação do SQL Server. Para obter mais informações sobre a conta usada pelo processo do ASP.NET, consulte [representação do ASP.NET](~/add/includes/ajax-current-ext-md.md)."
   example:
   - "The following code example is a simple ASP.NET page for enabling and disabling change notifications on SQL Server database tables. It uses the SqlCacheDependencyAdmin object to manage change notifications in the database specified in a connection string called `MyConnectionString`. The example includes two files, an .aspx file that defines the user interface and a code-behind file containing the source code for the ASP.NET events.  \n  \n The first sample is the .aspx file that defines the user interface.  \n  \n> [!IMPORTANT]\n>  This example has a text box that accepts user input, which is a potential security threat. By default, ASP.NET Web pages validate that user input does not include script or HTML elements. For more information, see [Script Exploits Overview](~/add/includes/ajax-current-ext-md.md).  \n  \n [!code-cs[System.Web.Caching.SqlCacheDependencyAdmin#10](~/add/codesnippet/csharp/t-system.web.caching.sql_0_1.aspx)]  \n  \n The second sample is the code-behind file containing the source code for the page events.  \n  \n [!code-cs[System.Web.Caching.SqlCacheDependencyAdmin#1](~/add/codesnippet/csharp/t-system.web.caching.sql_0_2.cs)]\n [!code-vb[System.Web.Caching.SqlCacheDependencyAdmin#1](~/add/codesnippet/visualbasic/t-system.web.caching.sql_0_2.vb)]"
   syntax:
@@ -40,8 +40,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Disables <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;></xref> change notifications for the specified database."
-  remarks: "The DisableNotifications method removes support for change notifications from the database specified in the `connectionString` parameter. Once you have run the DisableNotifications method, you must run the <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableNotifications%2A> method if you wish to re-enable change notifications for a database."
+  summary: "Desabilita <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;> </xref> notificações de alteração para o banco de dados especificado."
+  remarks: "O método DisableNotifications remove o suporte para notificações de alteração do banco de dados especificado no `connectionString` parâmetro. Depois de executar o método DisableNotifications, você deve executar o <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableNotifications%2A>notificações para um banco de dados de alteração do método se você deseja reativar.</xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableNotifications%2A>"
   example:
   - "The following code example uses the DisableNotifications method to disable change notifications for the database specified by the connection string `MyConnectionString`.  \n  \n For the full code required to run the example, see the Example section of the <xref:System.Web.Caching.SqlCacheDependencyAdmin> class overview topic.  \n  \n [!code-vb[CachingSamples_SqlCacheDependencyAdmin#1](~/add/codesnippet/visualbasic/m-system.web.caching.sql_2_1.aspx)]"
   syntax:
@@ -49,12 +49,12 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "A connection string used to connect to the SQL Server database."
+      description: "Uma cadeia de caracteres de conexão usada para se conectar ao banco de dados do SQL Server."
   overload: System.Web.Caching.SqlCacheDependencyAdmin.DisableNotifications*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A connection to the database could not be established.       -or-       The security context of the ASP.NET application does not have permission to connect to the database.       -or-       The security context of the ASP.NET application does not have permission to disable notifications for the database."
+    description: "Não foi possível estabelecer uma conexão ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para se conectar ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para desabilitar notificações para o banco de dados."
   platform:
   - net462
 - uid: System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications(System.String,System.String)
@@ -69,8 +69,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Disables <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;></xref> change notifications on a SQL Server database table."
-  remarks: "The DisableTableForNotifications method disables change notifications for the table specified in the `table` parameter, which must be in the database specified in the `connectionString` parameter.       Once you have used the DisableTableForNotifications method to disable change notifications for a table, you must use one of the <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A> overloads if you wish to re-enable change notifications."
+  summary: "Desabilita <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;> </xref> alterar notificações em uma tabela de banco de dados do SQL Server."
+  remarks: "O método DisableTableForNotifications desativa as notificações de alteração para a tabela especificada no `table` parâmetro, que deve estar no banco de dados especificado no `connectionString` parâmetro.       Depois que você usou o método DisableTableForNotifications para desabilitar notificações de alteração para uma tabela, você deve usar uma da <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A>sobrecargas se você quiser habilitar novamente as notificações de alteração.</xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A>"
   example:
   - "The following code example disables change notification on a table specified in the connection string `MyConnectionString`.  \n  \n For the full code required to run the example, see the Example section of the <xref:System.Web.Caching.SqlCacheDependencyAdmin> class overview topic.  \n  \n [!code-cs[System.Web.Caching.SqlCacheDependencyAdmin#7](~/add/codesnippet/csharp/ce251019-f9e7-4b3f-84b5-_1.cs)]\n [!code-vb[System.Web.Caching.SqlCacheDependencyAdmin#7](~/add/codesnippet/visualbasic/ce251019-f9e7-4b3f-84b5-_1.vb)]"
   syntax:
@@ -78,24 +78,24 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "A connection string used to connect to the SQL Server database."
+      description: "Uma cadeia de caracteres de conexão usada para se conectar ao banco de dados do SQL Server."
     - id: table
       type: System.String
-      description: "The database table on which to disable change notifications."
+      description: "A tabela de banco de dados na qual desabilitar notificações de alteração."
   overload: System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications*
   exceptions:
   - type: System.Web.Caching.DatabaseNotEnabledForNotificationException
     commentId: T:System.Web.Caching.DatabaseNotEnabledForNotificationException
-    description: "The database is not enabled for change notifications."
+    description: "O banco de dados não está habilitado para notificações de alteração."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>table</code> is an empty string (&quot;&quot;)."
+    description: "<code>table</code> é uma cadeia de caracteres vazia (&quot;&quot;)."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "<code>table</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A connection to the database could not be established.       -or-       The security context of the ASP.NET application does not have permission to connect to the database.       -or-       The security context of the ASP.NET application does not have permission to disable notifications for the database."
+    description: "Não foi possível estabelecer uma conexão ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para se conectar ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para desabilitar notificações para o banco de dados."
   platform:
   - net462
 - uid: System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications(System.String,System.String[])
@@ -110,31 +110,31 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Disables <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;></xref> change notifications on an array of SQL Server database tables."
-  remarks: "The DisableTableForNotifications method removes change notifications from the tables specified in the `tables` parameter. These tables must be in the database specified in the `connectionString` parameter.       Once you have used the <xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications%2A> method to disable change notifications for a list of tables, you must use one of the <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A> overloads if you wish to re-enable change notifications."
+  summary: "Desabilita <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;> </xref> alterar notificações em uma matriz de tabelas de banco de dados do SQL Server."
+  remarks: "O método DisableTableForNotifications remove as notificações de alteração de tabelas especificadas no `tables` parâmetro. Essas tabelas devem estar no banco de dados especificado no `connectionString` parâmetro.       Depois que você usou o <xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications%2A>método para desabilitar notificações de alteração para uma lista das tabelas, você deve usar uma da <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A>sobrecargas se você quiser habilitar novamente as notificações de alteração.</xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A> </xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications%2A>"
   syntax:
     content: public static void DisableTableForNotifications (string connectionString, string[] tables);
     parameters:
     - id: connectionString
       type: System.String
-      description: "A connection string used to connect to the SQL Server database."
+      description: "Uma cadeia de caracteres de conexão usada para se conectar ao banco de dados do SQL Server."
     - id: tables
       type: System.String[]
-      description: "The array of SQL Server database tables on which to disable change notifications."
+      description: "A matriz de tabelas de banco de dados do SQL Server na qual deseja desabilitar as notificações de alteração."
   overload: System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications*
   exceptions:
   - type: System.Web.Caching.DatabaseNotEnabledForNotificationException
     commentId: T:System.Web.Caching.DatabaseNotEnabledForNotificationException
-    description: "The database is not enabled for change notifications."
+    description: "O banco de dados não está habilitado para notificações de alteração."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One of the values in the <code>tables</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       One of the values in the <code>tables</code> parameter is an empty string (&quot;&quot;)."
+    description: "Um dos valores a <code> tables </code> parâmetro é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.       - ou - um dos valores a <code> tables </code> parâmetro é uma cadeia de caracteres vazia (&quot;&quot;)."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>tables</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>tables</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A connection to the database could not be established.       -or-       The security context of the ASP.NET application does not have permission to connect to the database.       -or-       The security context of the ASP.NET application does not have permission to disable notifications for the database."
+    description: "Não foi possível estabelecer uma conexão ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para se conectar ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para desabilitar notificações para o banco de dados."
   platform:
   - net462
 - uid: System.Web.Caching.SqlCacheDependencyAdmin.EnableNotifications(System.String)
@@ -149,8 +149,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Enables <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;></xref> change notifications on the specified database."
-  remarks: "The EnableNotifications method adds support for change notifications from the database specified in the `connectionString` parameter. Once you have run the EnableNotifications method, you must run the <xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableNotifications%2A> method if you wish to disable change notifications for a database."
+  summary: "Permite <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;> </xref> alterar notificações no banco de dados especificado."
+  remarks: "O método EnableNotifications adiciona suporte para notificações de alteração do banco de dados especificado no `connectionString` parâmetro. Depois de executar o método EnableNotifications, você deve executar o <xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableNotifications%2A>método se você desejar desabilitar notificações de alteração para um banco de dados.</xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableNotifications%2A>"
   example:
   - "The following code example uses the EnableNotifications method to enable change notifications for the database specified by the connection string `MyConnectionString`.  \n  \n For the full code required to run the example, see the Example section of the <xref:System.Web.Caching.SqlCacheDependencyAdmin> class overview topic.  \n  \n [!code-cs[System.Web.Caching.SqlCacheDependencyAdmin#3](~/add/codesnippet/csharp/m-system.web.caching.sql_0_1.cs)]\n [!code-vb[System.Web.Caching.SqlCacheDependencyAdmin#3](~/add/codesnippet/visualbasic/m-system.web.caching.sql_0_1.vb)]"
   syntax:
@@ -158,12 +158,12 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "A connection string used to connect to the SQL Server database."
+      description: "Uma cadeia de caracteres de conexão usada para se conectar ao banco de dados do SQL Server."
   overload: System.Web.Caching.SqlCacheDependencyAdmin.EnableNotifications*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A connection to the database could not be established.       -or-       The security context of the ASP.NET application does not have permission to connect to the database.       -or-       The security context of the ASP.NET application does not have permission to disable notifications for the database."
+    description: "Não foi possível estabelecer uma conexão ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para se conectar ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para desabilitar notificações para o banco de dados."
   platform:
   - net462
 - uid: System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications(System.String,System.String)
@@ -178,8 +178,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Connects to the specified SQL Server database and enables the specified database table for <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;></xref> change notifications."
-  remarks: "The EnableTableForNotifications method adds change notifications for the table specified in the `table` parameter, which must be in the database specified in the `connectionString` parameter.       Once you have used the EnableTableForNotifications method to add change notifications to a table, you must use one of the <xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications%2A> overloads if you wish to disable change notifications."
+  summary: "Conecta-se ao banco de dados do SQL Server especificado e permite que a tabela de banco de dados especificado para <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;> </xref> notificações de alteração."
+  remarks: "O método EnableTableForNotifications adiciona as notificações de alteração para a tabela especificada no `table` parâmetro, que deve estar no banco de dados especificado no `connectionString` parâmetro.       Depois que você usou o método EnableTableForNotifications para adicionar notificações de alteração em uma tabela, você deve usar uma da <xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications%2A>sobrecargas se você desejar desabilitar notificações de alteração.</xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications%2A>"
   example:
   - "The following code example uses the EnableTableForNotifications method to enable change notifications on the specified table in the database specified in the connection string `MyConnectionString`.  \n  \n For the full code required to run the example, see the Example section of the <xref:System.Web.Caching.SqlCacheDependencyAdmin> class overview topic.  \n  \n [!code-cs[System.Web.Caching.SqlCacheDependencyAdmin#7](~/add/codesnippet/csharp/7a7475e1-662d-4954-97d2-_1.cs)]\n [!code-vb[System.Web.Caching.SqlCacheDependencyAdmin#7](~/add/codesnippet/visualbasic/7a7475e1-662d-4954-97d2-_1.vb)]"
   syntax:
@@ -187,21 +187,21 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "A connection string used to connect to the SQL Server database."
+      description: "Uma cadeia de caracteres de conexão usada para se conectar ao banco de dados do SQL Server."
     - id: table
       type: System.String
-      description: "The database table on which to enable change notifications."
+      description: "A tabela de banco de dados no qual habilitar notificações de alteração."
   overload: System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications*
   exceptions:
   - type: System.Web.Caching.DatabaseNotEnabledForNotificationException
     commentId: T:System.Web.Caching.DatabaseNotEnabledForNotificationException
-    description: "The database is not enabled for change notifications."
+    description: "O banco de dados não está habilitado para notificações de alteração."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
     description: "<code>table</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A connection to the database could not be established.       -or-       The security context of the ASP.NET application does not have permission to connect to the database.       -or-       The security context of the ASP.NET application does not have permission to disable notifications for the database."
+    description: "Não foi possível estabelecer uma conexão ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para se conectar ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para desabilitar notificações para o banco de dados."
   platform:
   - net462
 - uid: System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications(System.String,System.String[])
@@ -216,8 +216,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Connects to the specified SQL Server database and enables the specified array of database tables for <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;></xref> change notification."
-  remarks: "The <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A> method adds change notifications for the tables specified in the `tables` parameter. These tables must be in the database specified in the `connectionString` parameter.       Once you have used the <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A> method to add change notifications to a group of tables, you must use one of the <xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications%2A> overloads if you wish to disable change notifications."
+  summary: "Conecta-se ao banco de dados do SQL Server especificado e permite que a matriz especificada das tabelas de banco de dados para <xref href=&quot;System.Web.Caching.SqlCacheDependency&quot;> </xref> de notificação de alteração."
+  remarks: "O <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A>método adiciona as notificações de alteração para as tabelas especificadas no `tables` parâmetro.</xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A> Essas tabelas devem estar no banco de dados especificado no `connectionString` parâmetro.       Depois que você usou o <xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A>notificações de alteração de método para adicionar a um grupo de tabelas, você deve usar uma da <xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications%2A>sobrecargas se você desejar desabilitar notificações de alteração.</xref:System.Web.Caching.SqlCacheDependencyAdmin.DisableTableForNotifications%2A> </xref:System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications%2A>"
   example:
   - "The following code example uses the EnableTableForNotifications method to enable change notifications on the tables specified in a semicolon-delimited list in the database specified in the connection string `MyConnectionString`.  \n  \n For the full code required to run the example, see the Example section of the <xref:System.Web.Caching.SqlCacheDependencyAdmin> class overview topic.  \n  \n [!code-cs[System.Web.Caching.SqlCacheDependencyAdmin#7](~/add/codesnippet/csharp/543f78d8-ea7c-46ef-82a6-_1.cs)]\n [!code-vb[System.Web.Caching.SqlCacheDependencyAdmin#7](~/add/codesnippet/visualbasic/543f78d8-ea7c-46ef-82a6-_1.vb)]"
   syntax:
@@ -225,24 +225,24 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "A connection string used to connect to the SQL Server database."
+      description: "Uma cadeia de caracteres de conexão usada para se conectar ao banco de dados do SQL Server."
     - id: tables
       type: System.String[]
-      description: "The array of SQL Server database tables on which to enable change notifications."
+      description: "A matriz de tabelas de banco de dados do SQL Server na qual habilitar notificações de alteração."
   overload: System.Web.Caching.SqlCacheDependencyAdmin.EnableTableForNotifications*
   exceptions:
   - type: System.Web.Caching.DatabaseNotEnabledForNotificationException
     commentId: T:System.Web.Caching.DatabaseNotEnabledForNotificationException
-    description: "The database is not enabled for change notifications."
+    description: "O banco de dados não está habilitado para notificações de alteração."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "One of the values in the <code>tables</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>.       -or-       One of the values in the <code>tables</code> parameter is an empty string (&quot;&quot;)."
+    description: "Um dos valores a <code> tables </code> parâmetro é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.       - ou - um dos valores a <code> tables </code> parâmetro é uma cadeia de caracteres vazia (&quot;&quot;)."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>tables</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>tables</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A connection to the database could not be established.       -or-       The security context of the ASP.NET application does not have permission to connect to the database.       -or-       The security context of the ASP.NET application does not have permission to disable notifications for the database."
+    description: "Não foi possível estabelecer uma conexão ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para se conectar ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para desabilitar notificações para o banco de dados."
   platform:
   - net462
 - uid: System.Web.Caching.SqlCacheDependencyAdmin.GetTablesEnabledForNotifications(System.String)
@@ -257,8 +257,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Retrieves a string array containing the name of every table that is enabled for change notifications in a SQL Server database."
-  remarks: "The GetTablesEnabledForNotifications method returns a string array containing the names of all tables in the database specified in the `connectionString` parameter that are enabled for change notifications."
+  summary: "Recupera uma matriz de cadeia de caracteres que contém o nome de cada tabela que está habilitado para notificações de alteração em um banco de dados do SQL Server."
+  remarks: "O método GetTablesEnabledForNotifications retorna uma matriz de cadeia de caracteres que contém os nomes de todas as tabelas no banco de dados especificado no `connectionString` parâmetro que são habilitados para notificações de alteração."
   example:
   - "The following code example creates a string array of the tables enabled for change notifications in the database specified in the connection string `MyConnectionString`.  \n  \n For the full code required to run the example, see the Example section of the <xref:System.Web.Caching.SqlCacheDependencyAdmin> class overview topic.  \n  \n [!code-cs[System.Web.Caching.SqlCacheDependencyAdmin#2](~/add/codesnippet/csharp/097dd13e-550d-4774-b331-_1.cs)]\n [!code-vb[System.Web.Caching.SqlCacheDependencyAdmin#2](~/add/codesnippet/visualbasic/097dd13e-550d-4774-b331-_1.vb)]"
   syntax:
@@ -266,18 +266,18 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "A connection string used to connect to the SQL Server database."
+      description: "Uma cadeia de caracteres de conexão usada para se conectar ao banco de dados do SQL Server."
     return:
       type: System.String[]
-      description: "A string array that contains the names of the SQL Server database tables."
+      description: "Uma matriz de cadeia de caracteres que contém os nomes das tabelas de banco de dados do SQL Server."
   overload: System.Web.Caching.SqlCacheDependencyAdmin.GetTablesEnabledForNotifications*
   exceptions:
   - type: System.Web.Caching.DatabaseNotEnabledForNotificationException
     commentId: T:System.Web.Caching.DatabaseNotEnabledForNotificationException
-    description: "The database is not enabled for change notifications"
+    description: "O banco de dados não está habilitado para notificações de alteração"
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "A connection to the database could not be established.       -or-       The security context of the ASP.NET application does not have permission to connect to the database.       -or-       The security context of the ASP.NET application does not have permission to disable notifications for the database."
+    description: "Não foi possível estabelecer uma conexão ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para se conectar ao banco de dados.       - ou - o contexto de segurança do aplicativo ASP.NET não tem permissão para desabilitar notificações para o banco de dados."
   platform:
   - net462
 references:

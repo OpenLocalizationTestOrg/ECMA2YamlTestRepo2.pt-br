@@ -48,7 +48,7 @@ items:
   nameWithType: Domain
   fullName: System.DirectoryServices.ActiveDirectory.Domain
   type: Class
-  summary: "The Domain class represents an Active Directory domain."
+  summary: "A classe de domínio representa um domínio do Active Directory."
   syntax:
     content: 'public class Domain : System.DirectoryServices.ActiveDirectory.ActiveDirectoryPartition'
   inheritance:
@@ -74,17 +74,17 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the domains that are children of this domain."
+  summary: "Obtém os domínios que sejam filhos deste domínio."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainCollection Children { get; }
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainCollection
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainCollection&quot;></xref> object that contains the child domains."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainCollection&quot;> </xref> objeto que contém os domínios filho."
   overload: System.DirectoryServices.ActiveDirectory.Domain.Children*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.CreateLocalSideOfTrustRelationship(System.String,System.DirectoryServices.ActiveDirectory.TrustDirection,System.String)
@@ -99,46 +99,46 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Creates the local side of a trust relationship with the specified domain."
-  remarks: "This method creates one side of a trust relationship. The trust is not established until both sides of the trust have been created.       The `trustPassword` parameter associates a password with the created trust. When the other side of the trust is created, the same password is provided and the two local trusts are then bound to each other.       To programmatically create both sides of a trust relationship in a single method call, use the <xref:System.DirectoryServices.ActiveDirectory.Domain.CreateTrustRelationship%2A?displayProperty=fullName> method."
+  summary: "Cria o lado local de uma relação de confiança com o domínio especificado."
+  remarks: "Esse método cria um lado de uma relação de confiança. A relação de confiança é estabelecida não até que os dois lados da relação de confiança foi criados.       O `trustPassword` parâmetro associa uma senha com a relação de confiança criada. Quando o outro lado da relação de confiança é criado, a mesma senha é fornecida e as duas relações de confiança locais, em seguida, são vinculadas entre si.       Para criar programaticamente os dois lados de uma relação de confiança em uma única chamada de método, use o <xref:System.DirectoryServices.ActiveDirectory.Domain.CreateTrustRelationship%2A?displayProperty=fullName>método.</xref:System.DirectoryServices.ActiveDirectory.Domain.CreateTrustRelationship%2A?displayProperty=fullName>"
   syntax:
     content: public void CreateLocalSideOfTrustRelationship (string targetDomainName, System.DirectoryServices.ActiveDirectory.TrustDirection direction, string trustPassword);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain that the trust is created with."
+      description: "O nome DNS do domínio criada com a relação de confiança."
     - id: direction
       type: System.DirectoryServices.ActiveDirectory.TrustDirection
-      description: "One of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> members that determines the direction of the trust, relative to this domain."
+      description: "Uma da <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> membros que determina a direção da relação de confiança, relativo a esse domínio."
     - id: trustPassword
       type: System.String
-      description: "The password for the trust. See remarks below."
+      description: "A senha para a relação de confiança. Consulte os comentários abaixo."
   overload: System.DirectoryServices.ActiveDirectory.Domain.CreateLocalSideOfTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectExistsException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectExistsException
-    description: "The trust relationship already exists."
+    description: "Já existe uma relação de confiança."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> or <code>trustPassword</code> is empty."
+    description: "<code>targetDomainName</code>ou <code>trustPassword</code> está vazio."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> or <code>trustPassword</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>or <code>trustPassword</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>direction</code> is not a valid <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> value."
+    description: "<code>direction</code>não é válido <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> valor."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.CreateTrustRelationship(System.DirectoryServices.ActiveDirectory.Domain,System.DirectoryServices.ActiveDirectory.TrustDirection)
@@ -153,40 +153,40 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Creates both sides of a trust relationship with the specified domain."
-  remarks: "This method creates both sides of a trust relationship with a single method call. The <xref:System.DirectoryServices.ActiveDirectory.Domain.CreateLocalSideOfTrustRelationship%2A?displayProperty=fullName> method is used to create only one side of a trust."
+  summary: "Cria os dois lados de uma relação de confiança com o domínio especificado."
+  remarks: "Esse método cria os dois lados de uma relação de confiança com uma única chamada de método. O <xref:System.DirectoryServices.ActiveDirectory.Domain.CreateLocalSideOfTrustRelationship%2A?displayProperty=fullName>método é usado para criar apenas um dos lados de uma relação de confiança.</xref:System.DirectoryServices.ActiveDirectory.Domain.CreateLocalSideOfTrustRelationship%2A?displayProperty=fullName>"
   syntax:
     content: public void CreateTrustRelationship (System.DirectoryServices.ActiveDirectory.Domain targetDomain, System.DirectoryServices.ActiveDirectory.TrustDirection direction);
     parameters:
     - id: targetDomain
       type: System.DirectoryServices.ActiveDirectory.Domain
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the domain that the trust is being created with."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto que representa o domínio ao qual a relação de confiança que está sendo criada com."
     - id: direction
       type: System.DirectoryServices.ActiveDirectory.TrustDirection
-      description: "One of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> members that determines the direction of the trust, relative to this domain."
+      description: "Uma da <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> membros que determina a direção da relação de confiança, relativo a esse domínio."
   overload: System.DirectoryServices.ActiveDirectory.Domain.CreateTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectExistsException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectExistsException
-    description: "The trust relationship already exists."
+    description: "Já existe uma relação de confiança."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomain</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomain</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>direction</code> is not a valid <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> value."
+    description: "<code>direction</code>não é válido <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> valor."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.DeleteLocalSideOfTrustRelationship(System.String)
@@ -201,37 +201,37 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Deletes the local side of a trust relationship."
-  remarks: "When one side of a trust relationship is deleted, the trust longer exists.       To delete both sides of a trust relationship with one method call, use the <xref:System.DirectoryServices.ActiveDirectory.Domain.DeleteTrustRelationship%2A?displayProperty=fullName> method."
+  summary: "Exclui o lado local de uma relação de confiança."
+  remarks: "Quando um lado de uma relação de confiança é excluído, existe a relação de confiança mais.       Para excluir os dois lados de uma relação de confiança com a chamada de um método, use o <xref:System.DirectoryServices.ActiveDirectory.Domain.DeleteTrustRelationship%2A?displayProperty=fullName>método.</xref:System.DirectoryServices.ActiveDirectory.Domain.DeleteTrustRelationship%2A?displayProperty=fullName>"
   syntax:
     content: public void DeleteLocalSideOfTrustRelationship (string targetDomainName);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain that the trust exists with."
+      description: "O nome DNS do domínio no qual existe a relação de confiança com."
   overload: System.DirectoryServices.ActiveDirectory.Domain.DeleteLocalSideOfTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> that is specified by the <code>targetDomainName</code> parameter."
+    description: "Não há nenhuma relação de confiança com o <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> que é especificado pelo <code> targetDomainName </code> parâmetro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> is an empty string."
+    description: "<code>targetDomainName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.DeleteTrustRelationship(System.DirectoryServices.ActiveDirectory.Domain)
@@ -246,34 +246,34 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Deletes both sides of a trust relationship."
-  remarks: "To delete only one side of a trust relationship, use the <xref:System.DirectoryServices.ActiveDirectory.Domain.DeleteLocalSideOfTrustRelationship%2A?displayProperty=fullName> method."
+  summary: "Exclui os dois lados de uma relação de confiança."
+  remarks: "Para excluir apenas um lado de uma relação de confiança, use o <xref:System.DirectoryServices.ActiveDirectory.Domain.DeleteLocalSideOfTrustRelationship%2A?displayProperty=fullName>método.</xref:System.DirectoryServices.ActiveDirectory.Domain.DeleteLocalSideOfTrustRelationship%2A?displayProperty=fullName>"
   syntax:
     content: public void DeleteTrustRelationship (System.DirectoryServices.ActiveDirectory.Domain targetDomain);
     parameters:
     - id: targetDomain
       type: System.DirectoryServices.ActiveDirectory.Domain
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the domain that the trust exists with."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto que representa o domínio ao qual a relação de confiança existe com."
   overload: System.DirectoryServices.ActiveDirectory.Domain.DeleteTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the specified <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref>."
+    description: "Não há nenhuma relação de confiança com especificado <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref>."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomain</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomain</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.DomainControllers
@@ -288,17 +288,17 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the domain controllers in this domain."
+  summary: "Obtém os controladores de domínio nesse domínio."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainControllerCollection DomainControllers { get; }
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainControllerCollection
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;></xref> object that contains the domain controllers in this domain."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;> </xref> objeto que contém os controladores de domínio nesse domínio."
   overload: System.DirectoryServices.ActiveDirectory.Domain.DomainControllers*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.DomainMode
@@ -313,17 +313,17 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the mode that this domain is operating in."
+  summary: "Obtém o modo que este domínio está operando."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainMode DomainMode { get; }
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainMode
-      description: "One of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainMode&quot;></xref> values that indicates the mode that this domain is operating in."
+      description: "Uma da <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainMode&quot;> </xref> valores que indicam o que este domínio está operando no modo."
   overload: System.DirectoryServices.ActiveDirectory.Domain.DomainMode*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.DomainModeLevel
@@ -338,12 +338,12 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the mode level that this domain is operating in."
+  summary: "Obtém o nível de modo que este domínio está operando."
   syntax:
     content: public int DomainModeLevel { get; }
     return:
       type: System.Int32
-      description: "The domain mode level."
+      description: "O nível de modo de domínio."
   overload: System.DirectoryServices.ActiveDirectory.Domain.DomainModeLevel*
   exceptions: []
   platform:
@@ -360,22 +360,22 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Finds all of the discoverable domain controllers in this domain."
-  remarks: "You can find discoverable domain controllers by querying DNS SRV records. Only those domain controllers that register the generic, non-site-specific, domain controller SRV record will be returned by this method."
+  summary: "Localiza todos os controladores de domínio detectável nesse domínio."
+  remarks: "Você pode localizar controladores de domínio detectável consultando registros SRV do DNS. Somente os controladores de domínio que registrar o genérico, não específica de site, o registro SRV do controlador de domínio serão retornados por este método."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainControllerCollection FindAllDiscoverableDomainControllers ();
     parameters: []
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainControllerCollection
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;></xref> that contains the domain controller objects that were found by this method."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;> </xref> que contém os objetos do controlador de domínio que foram encontrados por esse método."
   overload: System.DirectoryServices.ActiveDirectory.Domain.FindAllDiscoverableDomainControllers*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.FindAllDiscoverableDomainControllers(System.String)
@@ -390,31 +390,31 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Finds all of the discoverable domain controllers in this domain that are also in the specified site."
-  remarks: "You can find discoverable domain controllers by querying DNS SRV records.  If a domain controller does not register an SRV record for the specified site, it will not be returned by this method, even if the domain controller is physically located within that site.       All domain controllers that register an SRV record for the specified site will be returned by this method, even if they are not physically located within that site."
+  summary: "Localiza todos os controladores de domínio detectável nesse domínio que também estão no site especificado."
+  remarks: "Você pode localizar controladores de domínio detectável consultando registros SRV do DNS.  Se um controlador de domínio não registra um registro SRV para o site especificado, ele não será retornado por esse método, mesmo se o controlador de domínio estiver localizado fisicamente nesse site.       Todos os controladores de domínio que registrar um registro SRV para o site especificado serão retornados por esse método, mesmo que não estejam localizados fisicamente nesse site."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainControllerCollection FindAllDiscoverableDomainControllers (string siteName);
     parameters:
     - id: siteName
       type: System.String
-      description: "The name of the site to search for the domain controllers."
+      description: "O nome do site para procurar os controladores de domínio."
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainControllerCollection
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;></xref> that contains the domain controller objects that were found by this method."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;> </xref> que contém os objetos do controlador de domínio que foram encontrados por esse método."
   overload: System.DirectoryServices.ActiveDirectory.Domain.FindAllDiscoverableDomainControllers*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>siteName</code> is an empty string."
+    description: "<code>siteName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>siteName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>siteName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.FindAllDomainControllers
@@ -429,21 +429,21 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Finds all of the domain controllers in this domain."
+  summary: "Localiza todos os controladores de domínio nesse domínio."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainControllerCollection FindAllDomainControllers ();
     parameters: []
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainControllerCollection
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;></xref> that contains the domain controller objects that were found by this method."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;> </xref> que contém os objetos do controlador de domínio que foram encontrados por esse método."
   overload: System.DirectoryServices.ActiveDirectory.Domain.FindAllDomainControllers*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.FindAllDomainControllers(System.String)
@@ -458,30 +458,30 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Finds all of the domain controllers in this domain that are also in the specified site."
+  summary: "Localiza todos os controladores de domínio nesse domínio que também estão no site especificado."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainControllerCollection FindAllDomainControllers (string siteName);
     parameters:
     - id: siteName
       type: System.String
-      description: "The name of the site to search for the domain controllers."
+      description: "O nome do site para procurar os controladores de domínio."
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainControllerCollection
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;></xref> that contains the domain controller objects that were found by this method."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainControllerCollection&quot;> </xref> que contém os objetos do controlador de domínio que foram encontrados por esse método."
   overload: System.DirectoryServices.ActiveDirectory.Domain.FindAllDomainControllers*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>siteName</code> is an empty string."
+    description: "<code>siteName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>siteName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>siteName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.FindDomainController
@@ -496,25 +496,25 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Finds any domain controller in this domain."
-  remarks: "This method finds any domain controller in the domain. There is no guarantee that the same domain controller will be found by another call to this method."
+  summary: "Localiza qualquer controlador de domínio nesse domínio."
+  remarks: "Esse método localiza qualquer controlador de domínio no domínio. Não há nenhuma garantia de que o mesmo controlador de domínio será encontrado por outra chamada para esse método."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainController FindDomainController ();
     parameters: []
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainController
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;></xref> that represents the domain controller that is found by this method."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;> </xref> que representa o controlador de domínio que é encontrado por esse método."
   overload: System.DirectoryServices.ActiveDirectory.Domain.FindDomainController*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "A domain controller cannot be located."
+    description: "Um controlador de domínio não pode ser localizado."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.FindDomainController(System.DirectoryServices.ActiveDirectory.LocatorOptions)
@@ -529,30 +529,30 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Finds a domain controller in this domain that meets the specified criteria."
+  summary: "Localiza um controlador de domínio nesse domínio que atendem aos critérios especificados."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainController FindDomainController (System.DirectoryServices.ActiveDirectory.LocatorOptions flag);
     parameters:
     - id: flag
       type: System.DirectoryServices.ActiveDirectory.LocatorOptions
-      description: "A combination of one or more of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.LocatorOptions&quot;></xref> members that defines the type of domain controller to find."
+      description: "Uma combinação de um ou mais do <xref href=&quot;System.DirectoryServices.ActiveDirectory.LocatorOptions&quot;> </xref> membros que define o tipo de controlador de domínio para localizar."
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainController
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;></xref> that represents the domain controller that is found by this method."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;> </xref> que representa o controlador de domínio que é encontrado por esse método."
   overload: System.DirectoryServices.ActiveDirectory.Domain.FindDomainController*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "A domain controller cannot be located."
+    description: "Um controlador de domínio não pode ser localizado."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>flag</code> parameter contains an invalid value."
+    description: "O <code> flag </code> parâmetro contém um valor inválido."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.FindDomainController(System.String)
@@ -567,33 +567,33 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Finds a domain controller in this domain and in the specified site."
+  summary: "Localiza um controlador de domínio nesse domínio e no site especificado."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainController FindDomainController (string siteName);
     parameters:
     - id: siteName
       type: System.String
-      description: "The name of the site to search for the domain controller."
+      description: "O nome do site para pesquisar o controlador de domínio."
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainController
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;></xref> object that represents the domain controller that is found by this method."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;> </xref> objeto que representa o controlador de domínio que é encontrado por esse método."
   overload: System.DirectoryServices.ActiveDirectory.Domain.FindDomainController*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "A domain controller cannot be located."
+    description: "Um controlador de domínio não pode ser localizado."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>siteName</code> is an empty string."
+    description: "<code>siteName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>siteName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>siteName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.FindDomainController(System.String,System.DirectoryServices.ActiveDirectory.LocatorOptions)
@@ -608,36 +608,36 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Finds a domain controller in this domain and in the specified site that meets the specified criteria."
+  summary: "Localiza um controlador de domínio nesse domínio e no site especificado que atenda aos critérios especificados."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainController FindDomainController (string siteName, System.DirectoryServices.ActiveDirectory.LocatorOptions flag);
     parameters:
     - id: siteName
       type: System.String
-      description: "The name of the site to search for the domain controller."
+      description: "O nome do site para pesquisar o controlador de domínio."
     - id: flag
       type: System.DirectoryServices.ActiveDirectory.LocatorOptions
-      description: "A combination of one or more of the <xref href=&quot;System.DirectoryServices.ActiveDirectory.LocatorOptions&quot;></xref> members that defines the type of domain controller to find."
+      description: "Uma combinação de um ou mais do <xref href=&quot;System.DirectoryServices.ActiveDirectory.LocatorOptions&quot;> </xref> membros que define o tipo de controlador de domínio para localizar."
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainController
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;></xref> object that represents the domain controller that is found by this method."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;> </xref> objeto que representa o controlador de domínio que é encontrado por esse método."
   overload: System.DirectoryServices.ActiveDirectory.Domain.FindDomainController*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "A domain controller cannot be located."
+    description: "Um controlador de domínio não pode ser localizado."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "This exception will occur for any of the following reasons.      -   <code>siteName</code> is an empty string.      -   <code>flag</code> contains an invalid value."
+    description: "Essa exceção ocorrerá para qualquer um dos motivos a seguir.      - <code> siteName </code> é uma cadeia de caracteres vazia.      - <code> flag </code> contém um valor inválido."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>siteName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>siteName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.Forest
@@ -652,17 +652,17 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the forest that this domain is a member of."
+  summary: "Obtém a que este domínio é um membro da floresta."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.Forest Forest { get; }
     return:
       type: System.DirectoryServices.ActiveDirectory.Forest
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.Forest&quot;></xref> object that represents the forest that this domain is a member of."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Forest&quot;> </xref> objeto que representa a que este domínio é um membro da floresta."
   overload: System.DirectoryServices.ActiveDirectory.Domain.Forest*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.GetAllTrustRelationships
@@ -677,27 +677,27 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Retrieves all of the trust relationships for this domain."
+  summary: "Recupera todas as relações de confiança para este domínio."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.TrustRelationshipInformationCollection GetAllTrustRelationships ();
     parameters: []
     return:
       type: System.DirectoryServices.ActiveDirectory.TrustRelationshipInformationCollection
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustRelationshipInformationCollection&quot;></xref> object that contains all of the trust relationships for this domain."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustRelationshipInformationCollection&quot;> </xref> objeto que contém todas as relações de confiança para este domínio."
   overload: System.DirectoryServices.ActiveDirectory.Domain.GetAllTrustRelationships*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.GetComputerDomain
@@ -712,19 +712,19 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the domain to which the local computer is joined."
-  remarks: "The return value of the GetComputerDomain method is a <xref:System.DirectoryServices.ActiveDirectory.Domain> object representing the domain to which the computer running the application is joined.  This return value is independent of the domain credentials under which the application is run. This method will retrieve the computer&quot;s domain regardless of the trusted account domain credentials it is run under.  To retrieve the <xref:System.DirectoryServices.ActiveDirectory.Domain> object that represents the domain corresponding to the user credentials in effect for the security context under which the application is running, use the <xref:System.DirectoryServices.ActiveDirectory.Domain.GetCurrentDomain%2A> method instead."
+  summary: "Obtém o <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto que representa o domínio ao qual o computador local está associado."
+  remarks: "O valor de retorno do método GetComputerDomain é um <xref:System.DirectoryServices.ActiveDirectory.Domain>objeto que representa o domínio ao qual o computador que executa o aplicativo está associado.</xref:System.DirectoryServices.ActiveDirectory.Domain>  Esse valor de retorno é independente das credenciais de domínio sob a qual o aplicativo é executado. Esse método recupera o domínio do computador, independentemente das credenciais de domínio de conta confiável em que é executado.  Para recuperar o <xref:System.DirectoryServices.ActiveDirectory.Domain>objeto que representa o domínio correspondente ao usuário credenciais em vigor para o contexto de segurança sob a qual o aplicativo está em execução, use o <xref:System.DirectoryServices.ActiveDirectory.Domain.GetCurrentDomain%2A>método em vez disso.</xref:System.DirectoryServices.ActiveDirectory.Domain.GetCurrentDomain%2A> </xref:System.DirectoryServices.ActiveDirectory.Domain>"
   syntax:
     content: public static System.DirectoryServices.ActiveDirectory.Domain GetComputerDomain ();
     parameters: []
     return:
       type: System.DirectoryServices.ActiveDirectory.Domain
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the domain to which the local machine is joined."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto que representa o domínio ao qual o computador local está associado."
   overload: System.DirectoryServices.ActiveDirectory.Domain.GetComputerDomain*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "A connection to the domain could not be made."
+    description: "Não foi possível estabelecer uma conexão para o domínio."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.GetCurrentDomain
@@ -739,19 +739,19 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object for the current user credentials in effect for the security context under which the application is running."
-  remarks: "GetCurrentDomain method is determined by the domain credentials under which the application is running.  To retrieve the <xref:System.DirectoryServices.ActiveDirectory.Domain> object representing the domain to which the computer running the application is joined, regardless of the credentials associated with that application, use the <xref:System.DirectoryServices.ActiveDirectory.Domain.GetComputerDomain%2A> method instead.      ## See Also    <xref:System.DirectoryServices.ActiveDirectory.Domain.GetComputerDomain%2A>"
+  summary: "Obtém o <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto para as credenciais do usuário atual em vigor para o contexto de segurança sob a qual o aplicativo está em execução."
+  remarks: "Método GetCurrentDomain é determinado pelas credenciais de domínio sob a qual o aplicativo está em execução.  Para recuperar o <xref:System.DirectoryServices.ActiveDirectory.Domain>objeto que representa o domínio ao qual o computador que executa o aplicativo está associado, independentemente das credenciais associadas a esse aplicativo, use o <xref:System.DirectoryServices.ActiveDirectory.Domain.GetComputerDomain%2A>método em vez disso.</xref:System.DirectoryServices.ActiveDirectory.Domain.GetComputerDomain%2A> </xref:System.DirectoryServices.ActiveDirectory.Domain>      ## Consulte também<xref:System.DirectoryServices.ActiveDirectory.Domain.GetComputerDomain%2A></xref:System.DirectoryServices.ActiveDirectory.Domain.GetComputerDomain%2A>"
   syntax:
     content: public static System.DirectoryServices.ActiveDirectory.Domain GetCurrentDomain ();
     parameters: []
     return:
       type: System.DirectoryServices.ActiveDirectory.Domain
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the domain for the specified user credentials in effect for the security context under which the application is running."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> credenciais de objeto que representa o domínio para o usuário especificado para o contexto de segurança sob a qual o aplicativo está em execução em vigor."
   overload: System.DirectoryServices.ActiveDirectory.Domain.GetCurrentDomain*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "A connection to the current context could not be made."
+    description: "Não foi possível estabelecer uma conexão ao contexto atual."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.GetDirectoryEntry
@@ -766,18 +766,18 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Retrieves a <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;></xref> object that represents the default naming context of the domain."
+  summary: "Recupera um <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;> </xref> objeto que representa o contexto de nomenclatura padrão do domínio."
   syntax:
     content: public override System.DirectoryServices.DirectoryEntry GetDirectoryEntry ();
     parameters: []
     return:
       type: System.DirectoryServices.DirectoryEntry
-      description: "A <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;></xref> object that represents the domain."
+      description: "Um <xref href=&quot;System.DirectoryServices.DirectoryEntry&quot;> </xref> objeto que representa o domínio."
   overload: System.DirectoryServices.ActiveDirectory.Domain.GetDirectoryEntry*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current object has been disposed."
+    description: "O objeto atual foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.GetDomain(System.DirectoryServices.ActiveDirectory.DirectoryContext)
@@ -792,27 +792,27 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object for the specified context."
+  summary: "Obtém o <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto para o contexto especificado."
   syntax:
     content: public static System.DirectoryServices.ActiveDirectory.Domain GetDomain (System.DirectoryServices.ActiveDirectory.DirectoryContext context);
     parameters:
     - id: context
       type: System.DirectoryServices.ActiveDirectory.DirectoryContext
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;></xref> object that contains the target and credentials to use to retrieve the object. The type of the context must be a domain or directory server."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DirectoryContext&quot;> </xref> objeto que contém o destino e as credenciais a serem usadas para recuperar o objeto. O tipo de contexto deve ser um servidor de domínio ou diretório."
     return:
       type: System.DirectoryServices.ActiveDirectory.Domain
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the domain for the specified context."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto que representa o domínio para o contexto especificado."
   overload: System.DirectoryServices.ActiveDirectory.Domain.GetDomain*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "A connection to the target specified in <code>context</code> could not be made."
+    description: "Uma conexão para o destino especificado em <code> context </code> não pôde ser feita."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>context</code> is not valid."
+    description: "<code>context</code>não é válido."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>context</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>context</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.GetSelectiveAuthenticationStatus(System.String)
@@ -827,39 +827,39 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Determines the authentication type of an inbound trust."
+  summary: "Determina o tipo de autenticação de uma relação de confiança de entrada."
   syntax:
     content: public bool GetSelectiveAuthenticationStatus (string targetDomainName);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain which with the trust exists."
+      description: "O nome DNS do domínio que existe com a relação de confiança."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the authentication of the trust is selective; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the authentication is domain-wide."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a autenticação da relação de confiança é seletiva; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se a autenticação for todo o domínio."
   overload: System.DirectoryServices.ActiveDirectory.Domain.GetSelectiveAuthenticationStatus*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the <xref href=&quot;System.DirectoryServices.ActiveDirectory.Forest&quot;></xref> that is specified by the <code>targetForestName</code> parameter."
+    description: "Não há nenhuma relação de confiança com o <xref href=&quot;System.DirectoryServices.ActiveDirectory.Forest&quot;> </xref> que é especificado pelo <code> targetForestName </code> parâmetro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "The call to LsaQueryTrustedDomainInfoByName failed. For more information, see the topic [LsaQueryTrustedDomainInfoByName](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/secmgmt/security/lsaquerytrusteddomaininfobyname.asp) in the MSDN Library at [http://msdn.microsoft.com/library](http://msdn.microsoft.com/library)."
+    description: "Falha na chamada para LsaQueryTrustedDomainInfoByName. Para obter mais informações, consulte o tópico [LsaQueryTrustedDomainInfoByName](http://msdn.microsoft.com/library/default.asp?url=/library/en-us/secmgmt/security/lsaquerytrusteddomaininfobyname.asp) na biblioteca MSDN em [http://msdn.microsoft.com/library](http://msdn.microsoft.com/library)."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> is an empty string."
+    description: "<code>targetDomainName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current object has been disposed."
+    description: "O objeto atual foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.GetSidFilteringStatus(System.String)
@@ -874,39 +874,39 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Determines the SID filtering status of a trust."
+  summary: "Determina o status de uma relação de confiança de filtragem de SID."
   syntax:
     content: public bool GetSidFilteringStatus (string targetDomainName);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain which with the trust relationship exists."
+      description: "O nome DNS do domínio que existe com a relação de confiança."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if SID filtering is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a filtragem de SID está habilitado; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.DirectoryServices.ActiveDirectory.Domain.GetSidFilteringStatus*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the <xref href=&quot;System.DirectoryServices.ActiveDirectory.Forest&quot;></xref> that is specified by the <code>targetForestName</code> parameter."
+    description: "Não há nenhuma relação de confiança com o <xref href=&quot;System.DirectoryServices.ActiveDirectory.Forest&quot;> </xref> que é especificado pelo <code> targetForestName </code> parâmetro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> is an empty string."
+    description: "<code>targetDomainName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current object has been disposed."
+    description: "O objeto atual foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.GetTrustRelationship(System.String)
@@ -921,39 +921,39 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the trust relationship between this domain and the specified domain."
+  summary: "Obtém a relação de confiança entre este domínio e o domínio especificado."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.TrustRelationshipInformation GetTrustRelationship (string targetDomainName);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain with which the trust relationship exists."
+      description: "O nome DNS do domínio com o qual existe a relação de confiança."
     return:
       type: System.DirectoryServices.ActiveDirectory.TrustRelationshipInformation
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustRelationshipInformation&quot;></xref> object that represents the trust relationship between this domain and the specified domain."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustRelationshipInformation&quot;> </xref> objeto que representa a relação de confiança entre este domínio e o domínio especificado."
   overload: System.DirectoryServices.ActiveDirectory.Domain.GetTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the <xref href=&quot;System.DirectoryServices.ActiveDirectory.Forest&quot;></xref> that is specified by the <code>targetForestName</code> parameter."
+    description: "Não há nenhuma relação de confiança com o <xref href=&quot;System.DirectoryServices.ActiveDirectory.Forest&quot;> </xref> que é especificado pelo <code> targetForestName </code> parâmetro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> is an empty string."
+    description: "<code>targetDomainName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current object has been disposed."
+    description: "O objeto atual foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.InfrastructureRoleOwner
@@ -968,17 +968,17 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the infrastructure role owner for this domain."
+  summary: "Obtém o proprietário da função de infra-estrutura para este domínio."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainController InfrastructureRoleOwner { get; }
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainController
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;></xref> object that represents the domain controller that holds the infrastructure owner role."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;> </xref> objeto que representa o controlador de domínio que detém a função de proprietário de infraestrutura."
   overload: System.DirectoryServices.ActiveDirectory.Domain.InfrastructureRoleOwner*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.Parent
@@ -993,17 +993,17 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the parent domain of this domain."
+  summary: "Obtém o domínio pai deste domínio."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.Domain Parent { get; }
     return:
       type: System.DirectoryServices.ActiveDirectory.Domain
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the parent domain of this domain. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if this domain has no parent domain."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto que representa o domínio pai deste domínio. <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>Se este domínio não possui nenhum domínio pai."
   overload: System.DirectoryServices.ActiveDirectory.Domain.Parent*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.PdcRoleOwner
@@ -1018,17 +1018,17 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;></xref> object that holds the primary domain controller (PDC) for this domain."
+  summary: "Obtém o <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;> </xref> objeto que contém o controlador de domínio primário (PDC) para este domínio."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainController PdcRoleOwner { get; }
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainController
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;></xref> object that represents the domain controller that holds the PDC emulator role for this domain."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;> </xref> objeto que representa o controlador de domínio que detém a função de emulador PDC para esse domínio."
   overload: System.DirectoryServices.ActiveDirectory.Domain.PdcRoleOwner*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.RaiseDomainFunctionality(System.DirectoryServices.ActiveDirectory.DomainMode)
@@ -1043,34 +1043,34 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Raises the mode of operation for the domain."
-  remarks: "The <xref:System.DirectoryServices.ActiveDirectory.DomainMode> value can be raised but not lowered. This means that raising the functionality level of the domain is not reversible and the decision to do this should be made carefully.       For more information about domain operational modes, see [Domain and forest functionality](http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/sag_levels.asp).       The following table defines the valid values for `domainMode` based on the current operating mode of the domain.      |Current mode|Mode can be raised to|   |------------------|---------------------------|   |<xref:System.DirectoryServices.ActiveDirectory.DomainMode>|<xref:System.DirectoryServices.ActiveDirectory.DomainMode><br /><br /> <xref:System.DirectoryServices.ActiveDirectory.DomainMode><br /><br /> <xref:System.DirectoryServices.ActiveDirectory.DomainMode>|   |<xref:System.DirectoryServices.ActiveDirectory.DomainMode>|<xref:System.DirectoryServices.ActiveDirectory.DomainMode>|   |<xref:System.DirectoryServices.ActiveDirectory.DomainMode>|<xref:System.DirectoryServices.ActiveDirectory.DomainMode>|   |<xref:System.DirectoryServices.ActiveDirectory.DomainMode>|None|"
+  summary: "Gera o modo de operação para o domínio."
+  remarks: "O <xref:System.DirectoryServices.ActiveDirectory.DomainMode>valor pode ser gerado, mas não reduzida.</xref:System.DirectoryServices.ActiveDirectory.DomainMode> Isso significa que não é reversível aumentar o nível de funcionalidade do domínio e a decisão de fazer isso deve ser feita com cuidado.       Para obter mais informações sobre os modos operacionais de domínio, consulte [funcionalidade de domínio e floresta](http://www.microsoft.com/resources/documentation/WindowsServ/2003/standard/proddocs/en-us/sag_levels.asp).       A tabela a seguir define os valores válidos para `domainMode` com base no modo de operação atual do domínio.      | O modo atual | O modo pode ser aumentado para |   |------------------|---------------------------|   | <xref:System.DirectoryServices.ActiveDirectory.DomainMode>| <xref:System.DirectoryServices.ActiveDirectory.DomainMode></xref:System.DirectoryServices.ActiveDirectory.DomainMode></xref:System.DirectoryServices.ActiveDirectory.DomainMode><br /><br /> <xref:System.DirectoryServices.ActiveDirectory.DomainMode></xref:System.DirectoryServices.ActiveDirectory.DomainMode><br /><br /> <xref:System.DirectoryServices.ActiveDirectory.DomainMode>|   | <xref:System.DirectoryServices.ActiveDirectory.DomainMode>| <xref:System.DirectoryServices.ActiveDirectory.DomainMode>|   | <xref:System.DirectoryServices.ActiveDirectory.DomainMode>| <xref:System.DirectoryServices.ActiveDirectory.DomainMode>|   | <xref:System.DirectoryServices.ActiveDirectory.DomainMode>| None|</xref:System.DirectoryServices.ActiveDirectory.DomainMode></xref:System.DirectoryServices.ActiveDirectory.DomainMode></xref:System.DirectoryServices.ActiveDirectory.DomainMode></xref:System.DirectoryServices.ActiveDirectory.DomainMode></xref:System.DirectoryServices.ActiveDirectory.DomainMode></xref:System.DirectoryServices.ActiveDirectory.DomainMode>"
   syntax:
     content: public void RaiseDomainFunctionality (System.DirectoryServices.ActiveDirectory.DomainMode domainMode);
     parameters:
     - id: domainMode
       type: System.DirectoryServices.ActiveDirectory.DomainMode
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainMode&quot;></xref> enumeration value that specifies the new operation level for the domain."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainMode&quot;> </xref> valor de enumeração que especifica o novo nível de operação para o domínio."
   overload: System.DirectoryServices.ActiveDirectory.Domain.RaiseDomainFunctionality*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "Based on the current operating mode of the domain, the value specified for <code>domainMode</code> is not valid."
+    description: "Com base no modo de operação atual do domínio, o valor especificado para <code> domainMode </code> não é válido."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>domainMode</code> is not a valid <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainMode&quot;></xref> enumeration value."
+    description: "<code>domainMode</code>não é válido <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainMode&quot;> </xref> valor de enumeração."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.RaiseDomainFunctionalityLevel(System.Int32)
@@ -1085,13 +1085,13 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Raises the functionality level for the domain."
+  summary: "Aumenta o nível de funcionalidade para o domínio."
   syntax:
     content: public void RaiseDomainFunctionalityLevel (int domainMode);
     parameters:
     - id: domainMode
       type: System.Int32
-      description: "A value representing the new level."
+      description: "Um valor que representa o novo nível."
   overload: System.DirectoryServices.ActiveDirectory.Domain.RaiseDomainFunctionalityLevel*
   exceptions: []
   platform:
@@ -1108,34 +1108,34 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Repairs a trust relationship."
-  remarks: "This method repairs the trust by resetting the secure channel for the trust. If the operation fails to reset the secure channel, then it will also reset the trust password."
+  summary: "Repara uma relação de confiança."
+  remarks: "Esse método repara a relação de confiança, redefinindo o canal seguro para a relação de confiança. Se a operação falhar redefinir o canal seguro, em seguida, ele também redefinirá a senha de relação de confiança."
   syntax:
     content: public void RepairTrustRelationship (System.DirectoryServices.ActiveDirectory.Domain targetDomain);
     parameters:
     - id: targetDomain
       type: System.DirectoryServices.ActiveDirectory.Domain
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the domain with which the trust exists."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto que representa o domínio com o qual existe a relação de confiança."
   overload: System.DirectoryServices.ActiveDirectory.Domain.RepairTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> that is specified by <code>targetDomain</code>."
+    description: "Não há nenhuma relação de confiança com o <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> especificado por <code> targetDomain </code>."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target or source server is either busy or unavailable."
+    description: "O servidor de origem ou de destino está ocupado ou indisponível."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomain</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomain</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.RidRoleOwner
@@ -1150,17 +1150,17 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Gets the RID master role holder for this domain."
+  summary: "Obtém o detentor da função de mestre de RID para este domínio."
   syntax:
     content: public System.DirectoryServices.ActiveDirectory.DomainController RidRoleOwner { get; }
     return:
       type: System.DirectoryServices.ActiveDirectory.DomainController
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;></xref> object that represents the domain controller that holds the relative identifier (RID) master role for this domain."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.DomainController&quot;> </xref> objeto que representa o controlador de domínio que detém a função de mestre de identificador relativo (RID) para este domínio."
   overload: System.DirectoryServices.ActiveDirectory.Domain.RidRoleOwner*
   exceptions:
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.SetSelectiveAuthenticationStatus(System.String,System.Boolean)
@@ -1175,39 +1175,39 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Enables or disables selective authentication for an inbound trust."
+  summary: "Habilita ou desabilita a autenticação seletiva para uma relação de confiança de entrada."
   syntax:
     content: public void SetSelectiveAuthenticationStatus (string targetDomainName, bool enable);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain with which the inbound trust exists."
+      description: "O nome DNS do domínio com o qual existe a relação de confiança de entrada."
     - id: enable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if selective authentication is enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a autenticação seletiva estiver habilitada; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.DirectoryServices.ActiveDirectory.Domain.SetSelectiveAuthenticationStatus*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the domain controller that is specified by <code>targetDomainName</code>."
+    description: "Não há nenhuma relação de confiança com o controlador de domínio que é especificado pelo <code> targetDomainName </code>."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> is an empty string."
+    description: "<code>targetDomainName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current object has been disposed."
+    description: "O objeto atual foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.SetSidFilteringStatus(System.String,System.Boolean)
@@ -1222,36 +1222,36 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Sets the SID filtering state for the specified domain."
+  summary: "Define o estado para o domínio especificado de filtragem de SID."
   syntax:
     content: public void SetSidFilteringStatus (string targetDomainName, bool enable);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain with which the trust exists."
+      description: "O nome DNS do domínio com o qual existe a relação de confiança."
     - id: enable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if SID filtering must be enabled; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a filtragem SID deve ser habilitado; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.DirectoryServices.ActiveDirectory.Domain.SetSidFilteringStatus*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the domain that is specified by <code>targetDomainName</code>."
+    description: "Não há nenhuma relação de confiança com o domínio especificado por <code> targetDomainName </code>."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> is an empty string."
+    description: "<code>targetDomainName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The current object has been disposed."
+    description: "O objeto atual foi descartado."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.UpdateLocalSideOfTrustRelationship(System.String,System.String)
@@ -1266,40 +1266,40 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Updates the password for the local side of a trust relationship."
-  remarks: "To re-establish the trust, both sides of the trust must be updated with the same password."
+  summary: "Atualiza a senha para o lado local de uma relação de confiança."
+  remarks: "Para restabelecer a relação de confiança, ambos os lados da relação de confiança devem ser atualizados com a mesma senha."
   syntax:
     content: public void UpdateLocalSideOfTrustRelationship (string targetDomainName, string newTrustPassword);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain with which a trust exists."
+      description: "O nome DNS do domínio com o qual existe uma relação de confiança."
     - id: newTrustPassword
       type: System.String
-      description: "The new password for the trust."
+      description: "A nova senha para a relação de confiança."
   overload: System.DirectoryServices.ActiveDirectory.Domain.UpdateLocalSideOfTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the domain that is specified by <code>targetDomainName</code>."
+    description: "Não há nenhuma relação de confiança com o domínio especificado por <code> targetDomainName </code>."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> or <code>newTrustPassword</code> is an empty string."
+    description: "<code>targetDomainName</code>ou <code>newTrustPassword</code> é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> or <code>newTrustPassword</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>or <code>newTrustPassword</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.UpdateLocalSideOfTrustRelationship(System.String,System.DirectoryServices.ActiveDirectory.TrustDirection,System.String)
@@ -1314,45 +1314,45 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Updates the password and trust direction for the local side of a trust relationship."
+  summary: "Atualiza a direção de relação de confiança e senha para o lado local de uma relação de confiança."
   syntax:
     content: public void UpdateLocalSideOfTrustRelationship (string targetDomainName, System.DirectoryServices.ActiveDirectory.TrustDirection newTrustDirection, string newTrustPassword);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain with which a trust exists."
+      description: "O nome DNS do domínio com o qual existe uma relação de confiança."
     - id: newTrustDirection
       type: System.DirectoryServices.ActiveDirectory.TrustDirection
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> value for the new trust direction for the trust relationship."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> valor para a nova direção de confiança para a relação de confiança."
     - id: newTrustPassword
       type: System.String
-      description: "The new password for the trust."
+      description: "A nova senha para a relação de confiança."
   overload: System.DirectoryServices.ActiveDirectory.Domain.UpdateLocalSideOfTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the domain that is specified by the <code>targetDomainName</code> parameter."
+    description: "Não há nenhuma relação de confiança com o domínio que é especificado pelo <code> targetDomainName </code> parâmetro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> or <code>newTrustPassword</code> is an empty string."
+    description: "<code>targetDomainName</code>ou <code>newTrustPassword</code> é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> or <code>newTrustPassword</code> are <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>or <code>newTrustPassword</code> are <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>newTrustDirection</code> is not a valid <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> value."
+    description: "<code>newTrustDirection</code>não é válido <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> valor."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.UpdateTrustRelationship(System.DirectoryServices.ActiveDirectory.Domain,System.DirectoryServices.ActiveDirectory.TrustDirection)
@@ -1367,39 +1367,39 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Updates the trust direction for an existing trust relationship. The trust directions are updated on both sides of the trust."
+  summary: "Atualiza a direção da relação de confiança para uma relação de confiança. As instruções de confiança são atualizadas nos dois lados da relação de confiança."
   syntax:
     content: public void UpdateTrustRelationship (System.DirectoryServices.ActiveDirectory.Domain targetDomain, System.DirectoryServices.ActiveDirectory.TrustDirection newTrustDirection);
     parameters:
     - id: targetDomain
       type: System.DirectoryServices.ActiveDirectory.Domain
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the domain with which the trust exists."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto que representa o domínio com o qual existe a relação de confiança."
     - id: newTrustDirection
       type: System.DirectoryServices.ActiveDirectory.TrustDirection
-      description: "An <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> value that specifies the new trust direction for the trust relationship."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> valor que especifica a direção da relação de confiança novo para a relação de confiança."
   overload: System.DirectoryServices.ActiveDirectory.Domain.UpdateTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the domain that is specified by the <code>targetDomain</code> parameter."
+    description: "Não há nenhuma relação de confiança com o domínio que é especificado pelo <code> targetDomain </code> parâmetro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomain</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomain</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>newTrustDirection</code> is not a valid <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> value."
+    description: "<code>newTrustDirection</code>não é válido <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> valor."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.VerifyOutboundTrustRelationship(System.String)
@@ -1414,37 +1414,37 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Verifies that a previously established outbound trust with the specified domain is valid."
-  remarks: "This method is used to verify that a trust relationship has been fully established. The trust is not established until both sides of the trust have been created."
+  summary: "Verifica se uma relação de confiança de saída já estabelecida com o domínio especificado é válida."
+  remarks: "Esse método é usado para verificar uma relação de confiança foi estabelecida totalmente. A relação de confiança é estabelecida não até que os dois lados da relação de confiança foi criados."
   syntax:
     content: public void VerifyOutboundTrustRelationship (string targetDomainName);
     parameters:
     - id: targetDomainName
       type: System.String
-      description: "The DNS name of the domain with which the trust exists."
+      description: "O nome DNS do domínio com o qual existe a relação de confiança."
   overload: System.DirectoryServices.ActiveDirectory.Domain.VerifyOutboundTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no outbound trust relationship with the domain that is specified by <code>targetDomainName</code>."
+    description: "Não há nenhuma relação de confiança de saída com o domínio especificado por <code> targetDomainName </code>."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>targetDomainName</code> is an empty string."
+    description: "<code>targetDomainName</code>é uma cadeia de caracteres vazia."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomainName</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomainName</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 - uid: System.DirectoryServices.ActiveDirectory.Domain.VerifyTrustRelationship(System.DirectoryServices.ActiveDirectory.Domain,System.DirectoryServices.ActiveDirectory.TrustDirection)
@@ -1459,40 +1459,40 @@ items:
   assemblies:
   - System.DirectoryServices
   namespace: System.DirectoryServices.ActiveDirectory
-  summary: "Verifies that a previously established trust with the specified domain is valid."
-  remarks: "This method verifies that a trust relationship has been fully established. The trust is not established until both sides of the trust have been created."
+  summary: "Verifica se uma relação de confiança estabelecida anteriormente com o domínio especificado é válida."
+  remarks: "Esse método verifica se uma relação de confiança foi estabelecida totalmente. A relação de confiança é estabelecida não até que os dois lados da relação de confiança foi criados."
   syntax:
     content: public void VerifyTrustRelationship (System.DirectoryServices.ActiveDirectory.Domain targetDomain, System.DirectoryServices.ActiveDirectory.TrustDirection direction);
     parameters:
     - id: targetDomain
       type: System.DirectoryServices.ActiveDirectory.Domain
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;></xref> object that represents the domain with which the trust exists."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.Domain&quot;> </xref> objeto que representa o domínio com o qual existe a relação de confiança."
     - id: direction
       type: System.DirectoryServices.ActiveDirectory.TrustDirection
-      description: "A <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> value that specifies the direction, relative to this domain, of the trust."
+      description: "Um <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> valor que especifica a direção, em relação a esse domínio, da relação de confiança."
   overload: System.DirectoryServices.ActiveDirectory.Domain.VerifyTrustRelationship*
   exceptions:
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryObjectNotFoundException
-    description: "There is no trust relationship with the domain that is specified by the <code>targetDomain</code> parameter, or the target domain does not have the trust direction that is specified by the <code>direction</code> parameter."
+    description: "Não há nenhuma relação de confiança com o domínio que é especificado pelo <code> targetDomain </code> parâmetro ou o domínio de destino não tem a direção da relação de confiança especificada pelo <code> direction </code> parâmetro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryOperationException
-    description: "A call to the underlying directory service resulted in an error."
+    description: "Uma chamada para o serviço de diretório resultou em erro."
   - type: System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
     commentId: T:System.DirectoryServices.ActiveDirectory.ActiveDirectoryServerDownException
-    description: "The target server is either busy or unavailable."
+    description: "O servidor de destino está ocupado ou indisponível."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>targetDomain</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>targetDomain</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.ComponentModel.InvalidEnumArgumentException
     commentId: T:System.ComponentModel.InvalidEnumArgumentException
-    description: "<code>direction</code> is not a valid <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;></xref> value."
+    description: "<code>direction</code>não é válido <xref href=&quot;System.DirectoryServices.ActiveDirectory.TrustDirection&quot;> </xref> valor."
   - type: System.ObjectDisposedException
     commentId: T:System.ObjectDisposedException
-    description: "The object has been disposed."
+    description: "O objeto foi descartado."
   - type: System.UnauthorizedAccessException
     commentId: T:System.UnauthorizedAccessException
-    description: "The specified account does not have permission to perform this operation."
+    description: "A conta especificada não tem permissão para executar esta operação."
   platform:
   - net462
 references:

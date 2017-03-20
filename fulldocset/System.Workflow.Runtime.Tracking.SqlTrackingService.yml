@@ -25,8 +25,8 @@ items:
   nameWithType: SqlTrackingService
   fullName: System.Workflow.Runtime.Tracking.SqlTrackingService
   type: Class
-  summary: "Represents a tracking service that uses a SQL database to store tracking information."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       The SqlTrackingService class represents a fully functional tracking service. You can use this service out-of-box to collect and store tracking information, and to store tracking profiles and provide them when requested by the workflow runtime engine. The SQL tracking service writes tracking data sent to it by the runtime tracking infrastructure to a SQL database.       In many scenarios it is important for the SqlTrackingService to maintain consistency between its database and the state of the workflow runtime engine. Therefore, the `SqlTrackingChannel` class makes use of the <xref:System.Workflow.Runtime.IPendingWork> interface to participate in the workflow transaction batching functionality provided by the <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>. You can set <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A> or pass the appropriate parameters to the constructor to configure the SqlTrackingService to participate in batching and add objects that represent pending changes to the SQL database to the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>.       The SqlTrackingService also maintains tracking profiles in its database. The workflow runtime engine must be kept apprised of changes to any of the tracking profiles that it is using. The SqlTrackingService implements the <xref:System.Workflow.Runtime.Tracking.IProfileNotification> interface and periodically examines the tracking profiles in its database in order to notify the workflow runtime engine of changes to a <xref:System.Workflow.Runtime.Tracking.TrackingProfile> stored in its database. You can set <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A> or pass the appropriate parameter to the constructor in order to set the interval at which the SqlTrackingService examines its tracking profiles to notify the tracking runtime of any profile changes.      > [!NOTE] >  When using both the SqlTrackingService and the <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> in a workflow application, it is recommended that you use a single database for both persistence and tracking."
+  summary: "Representa um serviço de acompanhamento que usa um banco de dados SQL para armazenar informações de rastreamento."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]A classe SqlTrackingService representa um serviço de controle totalmente funcional. Você pode usar este serviço fora da caixa para coletar e armazenar informações de controle e para armazenar os perfis de rastreamento e fornecê-los quando solicitado pelo mecanismo de tempo de execução de fluxo de trabalho. O serviço de rastreamento de SQL grava dados de rastreamento enviado a ele pelo tempo de execução de infra-estrutura de controle para um banco de dados SQL.       Em muitos cenários, é importante para SqlTrackingService manter a consistência entre o banco de dados e o estado do mecanismo de tempo de execução do fluxo de trabalho. Portanto, o `SqlTrackingChannel` classe torna a usar a <xref:System.Workflow.Runtime.IPendingWork>interface para participar a funcionalidade de envio em lote de transação do fluxo de trabalho fornecida pelo <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>.</xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService> </xref:System.Workflow.Runtime.IPendingWork> Você pode definir <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>ou passar os parâmetros adequados para o construtor para configurar o SqlTrackingService para participar de envio em lote e adicionar objetos que representam alterações pendentes no banco de dados SQL para <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>.</xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>       SqlTrackingService também mantém os perfis de rastreamento em seu banco de dados. O mecanismo de tempo de execução do fluxo de trabalho deve ser mantido informado sobre alterações para qualquer um dos perfis de rastreamento que está usando. SqlTrackingService implementa o <xref:System.Workflow.Runtime.Tracking.IProfileNotification>interface e periodicamente examina os perfis de rastreamento em seu banco de dados para notificar o mecanismo de tempo de execução do fluxo de trabalho de alterações para um <xref:System.Workflow.Runtime.Tracking.TrackingProfile>armazenados no banco de dados.</xref:System.Workflow.Runtime.Tracking.TrackingProfile> </xref:System.Workflow.Runtime.Tracking.IProfileNotification> Você pode definir <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>ou passar o parâmetro adequado para o construtor para definir o intervalo no qual o SqlTrackingService examina seus perfis de rastreamento para notificar o tempo de execução do controle de alterações de perfil.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>      > [!NOTE] > Ao usar ambos os SqlTrackingService e <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>em um aplicativo de fluxo de trabalho, é recomendável que você use um único banco de dados de persistência e rastreamento.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -59,22 +59,22 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;></xref> class by using the specified <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref>."
-  remarks: "This constructor is called by the workflow runtime engine when the workflow runtime engine is initialized from an application configuration file that specifies a <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>. You can also use this constructor to initialize the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> from a host application. The <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> is initialized according to the key-value pairs that are contained in the <xref:System.Collections.Specialized.NameValueCollection>. The following table enumerates the potential keys, the property which each value initializes, and the type of each property. The value associated with each key should be a string that represents the appropriate type for the property referred to by that key. You can specify one or more of these key-value pairs.      |Key|Property Type|Property Description|   |---------|-------------------|--------------------------|   |`&quot;IsTransactional&quot;`|`bool`|Specifies whether <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> participates in workflow transactions by using the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>. The default is `true`, specifying that tracking changes are written to the database in a synchronous manner.|   |`&quot;UseDefaultProfile&quot;`|`bool`|Specifies whether the default tracking profile will be returned if a tracking profile cannot be found for a <xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A> call. The default is `true`, specifying that the default tracking profile will be used.|   |`&quot;ProfileChangeCheckInterval&quot;`|`double`|Specifies the time in milliseconds at which to examine the database for changes to its tracking profiles. The default is 60000 milliseconds.|   |`&quot;ConnectionString&quot;`|`string`|Specifies the database connection string. The default is a null reference (`Nothing` in Visual Basic).|   |`&quot;PartitionOnCompletion&quot;`|`bool`|Specifies whether tracking data for a workflow instance should be moved to the currently active partition in the database when the workflow instance is completed.|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;> </xref> classe usando especificado <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref>."
+  remarks: "Este construtor é chamado pelo mecanismo de tempo de execução de fluxo de trabalho quando o mecanismo de tempo de execução do fluxo de trabalho é inicializado a partir de um arquivo de configuração de aplicativo que especifica um <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> Você também pode usar esse construtor para inicializar o <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>de um aplicativo host.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> O que <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>é inicializada de acordo com os pares chave-valor que estão contidos em <xref:System.Collections.Specialized.NameValueCollection>.</xref:System.Collections.Specialized.NameValueCollection> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService> A tabela a seguir enumera as chaves potenciais, a propriedade que inicializa cada valor e o tipo de cada propriedade. O valor associado a cada chave deve ser uma cadeia de caracteres que representa o tipo apropriado para a propriedade referida por chave. Você pode especificar um ou mais desses pares chave-valor.      | Chave | Tipo de propriedade | Descrição da propriedade |   |---------|-------------------|--------------------------|   | `&quot;IsTransactional&quot;`|`bool`| Especifica se <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>participa de transações de fluxo de trabalho usando o <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>.</xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService> O padrão é `true`, especificando que o controle de alterações são gravadas no banco de dados de forma síncrona. |   | `&quot;UseDefaultProfile&quot;`|`bool`| Especifica se o perfil de controle padrão será retornado se um perfil de rastreamento não é possível encontrar um <xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A>chame.</xref:System.Workflow.Runtime.Tracking.TrackingService.GetProfile%2A> O padrão é `true`, especificando que o perfil de controle padrão será usado. |   | `&quot;ProfileChangeCheckInterval&quot;`|`double`| Especifica o tempo em milissegundos no qual examinar o banco de dados para seus perfis de controle de alterações. O padrão é 60.000 milissegundos. |   | `&quot;ConnectionString&quot;`|`string`| Especifica a cadeia de caracteres de conexão do banco de dados. O padrão é uma referência nula (`Nothing` no Visual Basic). |   | `&quot;PartitionOnCompletion&quot;`|`bool`| Especifica se os dados para uma instância de fluxo de trabalho de controle devem ser movido para a partição ativa no momento no banco de dados quando a instância de fluxo de trabalho for concluída. |"
   syntax:
     content: public SqlTrackingService (System.Collections.Specialized.NameValueCollection parameters);
     parameters:
     - id: parameters
       type: System.Collections.Specialized.NameValueCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> that specifies properties of <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;></xref> and their initial values."
+      description: "Um <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref> que especifica as propriedades de <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;> </xref> e seus valores iniciais."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>parameters</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>parameters</code>é uma referência nula (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> no Visual Basic)."
   - type: System.FormatException
     commentId: T:System.FormatException
-    description: "The <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref> value associated with a <xref uid=&quot;langword_csharp_Boolean&quot; name=&quot;Boolean&quot; href=&quot;&quot;></xref> property key in <code>parameters</code> is not represented by either <xref:System.Boolean.TrueString> or <xref:System.Boolean.FalseString>."
+    description: "O <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;> </xref> valor associado com um <xref uid=&quot;langword_csharp_Boolean&quot; name=&quot;Boolean&quot; href=&quot;&quot;> </xref> chave de propriedade no <code> parameters </code> não é representado por um <xref:System.Boolean.TrueString>ou <xref:System.Boolean.FalseString>.</xref:System.Boolean.FalseString> </xref:System.Boolean.TrueString>"
   platform:
   - net462
 - uid: System.Workflow.Runtime.Tracking.SqlTrackingService.#ctor(System.String)
@@ -89,18 +89,18 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Initializes a new instance of the <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;></xref> class by using the specified database connection string."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;> </xref> classe usando a cadeia de caracteres de conexão do banco de dados especificado."
   syntax:
     content: public SqlTrackingService (string connectionString);
     parameters:
     - id: connectionString
       type: System.String
-      description: "A valid database connection string."
+      description: "Uma cadeia de caracteres de conexão do banco de dados válido."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The database connection string is not valid."
+    description: "A cadeia de caracteres de conexão do banco de dados não é válida."
   platform:
   - net462
 - uid: System.Workflow.Runtime.Tracking.SqlTrackingService.ConnectionString
@@ -115,12 +115,12 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets the connection string for the tracking database."
+  summary: "Obtém a cadeia de caracteres de conexão para o banco de dados de rastreamento."
   syntax:
     content: public string ConnectionString { get; }
     return:
       type: System.String
-      description: "The connection string for the tracking database."
+      description: "A cadeia de conexão para o banco de dados de rastreamento."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.ConnectionString*
   exceptions: []
   platform:
@@ -137,13 +137,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets and sets a value specifying whether the <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;></xref> will retry when performing a database operation."
-  remarks: "If the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A> property is set to `false` and EnableRetries is set to `true`, then all transaction retries depend on the value of the EnableRetries property.       If <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A> is set to `true`, then certain work is batched and retries of those work batch transactions are handled by a derived type of <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>, such as <xref:System.Workflow.Runtime.Hosting.DefaultWorkflowCommitWorkBatchService> or <xref:System.Workflow.Runtime.Hosting.SharedConnectionWorkflowCommitWorkBatchService>.       Regardless of whether <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A> is set to `true`, the following work items cannot be batched and any transaction retries must be handled through the EnableRetries property.      -   Polling for tracking profile changes.      -   All writes to a SQL Server database when <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A> is set to `false`.       Besides being set programmatically, this functionality can be enabled through a configuration file. For more information about how to set this property through a configuration file, see [Workflow Configuration Files](http://msdn.microsoft.com/en-us/ada4bb90-6c9d-4f3d-a9d0-b559bb0f9909).       For general information about retrying work batch transactions, see [Batching State Information in Workflows](http://msdn.microsoft.com/en-us/ecda18ba-9140-4bd7-b13d-6787fdf5959d)."
+  summary: "Obtém e define um valor que especifica se o <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;> </xref> tentará novamente ao executar uma operação de banco de dados."
+  remarks: "Se o <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>está definida como `false` e EnableRetries é definido como `true`, em seguida, todas as tentativas de transação dependem do valor da propriedade EnableRetries.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>       Se <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>for definido como `true`, determinado trabalho é colocado em lote e repetições dessas transações de lote de trabalho são tratadas por um tipo derivado de <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>, como <xref:System.Workflow.Runtime.Hosting.DefaultWorkflowCommitWorkBatchService>ou <xref:System.Workflow.Runtime.Hosting.SharedConnectionWorkflowCommitWorkBatchService>.</xref:System.Workflow.Runtime.Hosting.SharedConnectionWorkflowCommitWorkBatchService> </xref:System.Workflow.Runtime.Hosting.DefaultWorkflowCommitWorkBatchService> </xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>       Independentemente se <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>for definido como `true`, os seguintes itens de trabalho não podem ser colocado em lote e quaisquer tentativas de transação devem ser tratadas por meio da propriedade EnableRetries.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>      -Sondagem para controle de alterações do perfil.      -Todas as gravações em um SQL Server do banco de dados quando <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>está definido como `false`.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional%2A>       Além do que está sendo definido programaticamente, essa funcionalidade pode ser habilitada por meio de um arquivo de configuração. Para obter mais informações sobre como definir essa propriedade através de um arquivo de configuração, consulte [arquivos de configuração do fluxo de trabalho](http://msdn.microsoft.com/en-us/ada4bb90-6c9d-4f3d-a9d0-b559bb0f9909).       Para obter informações gerais sobre como recuperar as transações do trabalho em lotes, consulte [informações de estado de processamento em lotes em fluxos de trabalho](http://msdn.microsoft.com/en-us/ecda18ba-9140-4bd7-b13d-6787fdf5959d)."
   syntax:
     content: public bool EnableRetries { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;></xref> should retry the operation; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;> </xref> deverá repetir a operação; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.EnableRetries*
   exceptions: []
   platform:
@@ -165,10 +165,10 @@ items:
     parameters:
     - id: scheduleInstanceId
       type: System.Guid
-      description: "To be added."
+      description: "A ser adicionado."
     return:
       type: System.Workflow.Runtime.Tracking.TrackingProfile
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.GetProfile*
   exceptions: []
   platform:
@@ -190,13 +190,13 @@ items:
     parameters:
     - id: workflowType
       type: System.Type
-      description: "To be added."
+      description: "A ser adicionado."
     - id: profileVersion
       type: System.Version
-      description: "To be added."
+      description: "A ser adicionado."
     return:
       type: System.Workflow.Runtime.Tracking.TrackingProfile
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.GetProfile*
   exceptions: []
   platform:
@@ -218,10 +218,10 @@ items:
     parameters:
     - id: parameters
       type: System.Workflow.Runtime.Tracking.TrackingParameters
-      description: "To be added."
+      description: "A ser adicionado."
     return:
       type: System.Workflow.Runtime.Tracking.TrackingChannel
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.GetTrackingChannel*
   exceptions: []
   platform:
@@ -238,13 +238,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets or sets a value that indicates whether <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;></xref> participates in workflow transactions."
-  remarks: "Ordinarily tracking data is written to the database synchronously, that is, the data is written as soon as it is received on the Tracking Channel. If IsTransactional is `true`, <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> participates in the workflow transaction. That is, it follows the semantics defined by <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService> and adds any changes to its database as work items to the <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>. The service commits these changes when instructed to by the workflow runtime engine."
+  summary: "Obtém ou define um valor que indica se <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;> </xref> participa de transações de fluxo de trabalho."
+  remarks: "Normalmente os dados de rastreamento é gravado no banco de dados de forma síncrona, ou seja, os dados são gravados como ela é recebida no canal de controle. Se for IsTransactional `true`, <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>participa de transações de fluxo de trabalho.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> Ou seja, ele segue a semântica definida por <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>e adiciona as alterações ao banco de dados como itens de trabalho às <xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A>.</xref:System.Workflow.Runtime.WorkflowEnvironment.WorkBatch%2A> </xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService> O serviço confirma essas alterações quando instruído pelo mecanismo de tempo de execução de fluxo de trabalho."
   syntax:
     content: public bool IsTransactional { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;></xref> participates in the workflow transaction; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;> </xref> participa de transações de fluxo de trabalho; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O padrão é <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.IsTransactional*
   exceptions: []
   platform:
@@ -261,13 +261,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets or sets a value that specifies whether tracking data for a workflow instance should be moved to the currently active partition in the database when the workflow instance is completed."
-  remarks: "The <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> allows you to partition the database in order to provide an efficient method for archiving and deleting tracking records. If your database experiences long periods between down times or your database has no planned downtime, you can set PartitionOnCompletion to move tracking records associated with a workflow instance from the active instance tables to the currently active partition when the workflow instance completes. This allows you to archive or delete these records without having to lock the data in the active instance tables of the database. For more information about partitioning, see [Data Maintenance with SqlTrackingService](http://msdn.microsoft.com/en-us/a62d5719-d6cd-4871-a3ab-56ea629d4e00)."
+  summary: "Obtém ou define um valor que especifica se os dados para uma instância de fluxo de trabalho de controle devem ser movido para a partição ativa no momento no banco de dados quando a instância de fluxo de trabalho for concluída."
+  remarks: "O <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>permite particionar o banco de dados para fornecer um método eficiente para arquivamento e exclusão de registros de controle.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> Se seu banco de dados passa por longos períodos entre para baixo vezes ou o banco de dados tem sem tempo de inatividade planejado, você pode definir PartitionOnCompletion para mover os registros de controle associado com uma instância de fluxo de trabalho das tabelas de instância ativa para a partição ativa no momento quando a instância de fluxo de trabalho for concluído. Isso permite que você arquivar ou excluir esses registros sem precisar bloquear os dados nas tabelas de instância ativa do banco de dados. Para obter mais informações sobre particionamento, consulte [manutenção de dados com SqlTrackingService](http://msdn.microsoft.com/en-us/a62d5719-d6cd-4871-a3ab-56ea629d4e00)."
   syntax:
     content: public bool PartitionOnCompletion { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if tracking data should be moved to the currently active partition on workflow completion; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se os dados de controle devem ser movido para a partição ativa no momento na conclusão do fluxo de trabalho; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O padrão é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.PartitionOnCompletion*
   exceptions: []
   platform:
@@ -284,13 +284,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets or sets a value that specifies the interval at which the database should be checked for changes to one or more of its tracking profiles."
-  remarks: "The <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> periodically examines the database to determine whether one or more of its tracking profiles have been changed or have been deleted. When the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> determines that a <xref:System.Workflow.Runtime.Tracking.TrackingProfile> has been deleted it raises an <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileRemoved> event; when it determines that a profile has been changed it raises a <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileUpdated> event. The runtime tracking infrastructure subscribes to both of these events and updates its tracking profile cache appropriately when they occur. You can also subscribe to either or both of these events if you want to be notified of changes to a tracking profile. You can set ProfileChangeCheckInterval to specify the frequency with which the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> should test for such changes. When you specify a new value for ProfileChangeCheckInterval, the timer interval is immediately set to this new value."
+  summary: "Obtém ou define um valor que especifica o intervalo no qual o banco de dados deve ser verificado para um ou mais dos seus perfis de controle de alterações."
+  remarks: "O <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>examina periodicamente o banco de dados para determinar se um ou mais dos seus perfis de rastreamento foram alteradas ou tem sido excluído.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> Quando o <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>determina que uma <xref:System.Workflow.Runtime.Tracking.TrackingProfile>foi excluído gera um <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileRemoved>evento; quando ele determina se um perfil foi alterado gera um <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileUpdated>evento.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileUpdated> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileRemoved> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService> A infra-estrutura de controle de tempo de execução se inscreve para esses eventos e atualizações para o perfil de rastreamento armazenar em cache adequadamente quando eles ocorrem. Você também pode assinar para uma ou ambas desses eventos se você deseja ser notificado das alterações a um perfil de rastreamento. Você pode definir ProfileChangeCheckInterval para especificar a frequência com que o <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>devem testar essas alterações.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> Quando você especificar um novo valor de ProfileChangeCheckInterval, o intervalo de timer é definido imediatamente para esse novo valor."
   syntax:
     content: public double ProfileChangeCheckInterval { get; set; }
     return:
       type: System.Double
-      description: "The interval length in milliseconds. The default is 60000."
+      description: "O comprimento do intervalo em milissegundos. O padrão é 60000."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval*
   exceptions: []
   platform:
@@ -307,13 +307,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Occurs when the <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;></xref> detects that a <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> has been deleted."
-  remarks: "The <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> periodically examines its database to determine whether one or more of its tracking profiles have been deleted. If it detects that a <xref:System.Workflow.Runtime.Tracking.TrackingProfile> has been deleted, it raises the ProfileRemoved event and puts the workflow <xref:System.Type> in the <xref:System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs>. The runtime tracking infrastructure uses this event to update its profile cache. You can set <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A> to specify the frequency at which the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> examines its database."
+  summary: "Ocorre quando o <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;> </xref> detecta que um <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref> foi excluído."
+  remarks: "O <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>examina periodicamente seu banco de dados para determinar se um ou mais dos seus perfis de rastreamento foi excluído.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> Se detectar que um <xref:System.Workflow.Runtime.Tracking.TrackingProfile>foi excluído, ele gera o evento ProfileRemoved e coloca o fluxo de trabalho <xref:System.Type>em <xref:System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs>.</xref:System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs> </xref:System.Type> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> A infra-estrutura de controle de tempo de execução usa esse evento para atualizar seu perfil no cache. Você pode definir <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>para especificar a frequência em que o <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>examina o seu banco de dados.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>"
   syntax:
     content: public event EventHandler<System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs> ProfileRemoved;
     return:
       type: System.EventHandler{System.Workflow.Runtime.Tracking.ProfileRemovedEventArgs}
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -329,13 +329,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Occurs when the <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;></xref> detects that a <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> has been changed."
-  remarks: "The <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> periodically examines its database to determine whether one or more of its tracking profiles have been changed. If it detects such a change in a <xref:System.Workflow.Runtime.Tracking.TrackingProfile>, it raises the ProfileUpdated event with the tracking profile encapsulated in a <xref:System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs>. The runtime tracking infrastructure uses this event to update its profile cache. You can set <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A> to specify the frequency at which the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> examines its database."
+  summary: "Ocorre quando o <xref href=&quot;System.Workflow.Runtime.Tracking.SqlTrackingService&quot;> </xref> detecta que um <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref> foi alterado."
+  remarks: "O <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>examina periodicamente seu banco de dados para determinar se um ou mais dos seus perfis de rastreamento foi alterado.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> Se detectar uma alteração em um <xref:System.Workflow.Runtime.Tracking.TrackingProfile>ele gera o evento ProfileUpdated com o perfil de rastreamento encapsulado em <xref:System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs>.</xref:System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> A infra-estrutura de controle de tempo de execução usa esse evento para atualizar seu perfil no cache. Você pode definir <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>para especificar a frequência em que o <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>examina o seu banco de dados.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>"
   syntax:
     content: public event EventHandler<System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs> ProfileUpdated;
     return:
       type: System.EventHandler{System.Workflow.Runtime.Tracking.ProfileUpdatedEventArgs}
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -375,13 +375,13 @@ items:
     parameters:
     - id: workflowType
       type: System.Type
-      description: "To be added."
+      description: "A ser adicionado."
     - id: profile
       type: System.Workflow.Runtime.Tracking.TrackingProfile
-      description: "To be added."
+      description: "A ser adicionado."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.TryGetProfile*
   exceptions: []
   platform:
@@ -403,16 +403,16 @@ items:
     parameters:
     - id: workflowType
       type: System.Type
-      description: "To be added."
+      description: "A ser adicionado."
     - id: scheduleInstanceId
       type: System.Guid
-      description: "To be added."
+      description: "A ser adicionado."
     - id: profile
       type: System.Workflow.Runtime.Tracking.TrackingProfile
-      description: "To be added."
+      description: "A ser adicionado."
     return:
       type: System.Boolean
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.TryReloadProfile*
   exceptions: []
   platform:
@@ -429,13 +429,13 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime.Tracking
-  summary: "Gets or sets a value specifying whether a default <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;></xref> should be used for workflow types that do not have a tracking profile."
-  remarks: "If UseDefaultProfile is `true`, the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> will return a default <xref:System.Workflow.Runtime.Tracking.TrackingProfile> whenever the workflow runtime engine tries to get a tracking profile for a workflow <xref:System.Type> for which the tracking service has no associated <xref:System.Workflow.Runtime.Tracking.TrackingProfile>.       The out-of-box default tracking profile matches all activity events, user events, and workflow events emitted by a workflow instance. You can change the default tracking profile by using the `UpdateDefaultProfile` stored procedure.      > [!NOTE] >  The `UpdateDefaultProfile` stored procedure will change the default tracking profile. This new default profile will be returned when the workflow runtime engine requests a profile for a workflow type for which the tracking service has no associated tracking profile. Workflow types that were previously associated with the old default profile will still be associated with that profile even after `UpdateDefaultProfile` is called; you must explicitly call the `UpdateTrackingProfile` stored procedure on any of these workflow types that you want to associate with the new default profile.       While UseDefaultProfile is true, the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> will return the default tracking profile to the workflow runtime engine for any workflow type for which it doesn&quot;t have a tracking profile associated in its database. If you later set UseDefaultProfile to false, the default profile will still be associated with these workflow types in the database. You can call the `DeleteTrackingProfile` stored procedure on a workflow type to no longer associate a tracking profile with that type, or you can call the `UpdateTrackingProfile` stored procedure on a workflow type to change the tracking profile associated with that type.      > [!NOTE] >  The workflow runtime engine caches its tracking profiles. Therefore, it must receive a <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileRemoved> event for any workflow type for which it already has a tracking profile associated in its cache before it will stop using its cached profile for new instances of that workflow type. Likewise, the workflow runtime engine must receive a <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileUpdated> event for such workflow types before it will load a new tracking profile into its cache to associate with new instances of the workflow type. The <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> raises the appropriate events for applicable workflow types when it examines the database for changes to its tracking profiles. The frequency at which the <xref:System.Workflow.Runtime.Tracking.SqlTrackingService> performs this operation is set by <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>.  Therefore, whenever you call the `UpdateTrackingProfile` or `DeleteTrackingProfile` stored procedures there may be a delay of up to the period specified by <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A> before the workflow runtime engine will reflect your changes in its profile cache.   >    >  For more information about tracking profiles, see [Creating and Using Tracking Profiles](http://msdn.microsoft.com/en-us/f018ad09-d20f-4626-9792-31d9f278d0b0)."
+  summary: "Obtém ou define um valor que especifica se um padrão <xref href=&quot;System.Workflow.Runtime.Tracking.TrackingProfile&quot;> </xref> devem ser usados para tipos de fluxo de trabalho que não têm um perfil de rastreamento."
+  remarks: "Se for UseDefaultProfile `true`, que <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>retornará um padrão <xref:System.Workflow.Runtime.Tracking.TrackingProfile>sempre que o mecanismo de tempo de execução do fluxo de trabalho tenta obter um perfil de rastreamento para um fluxo de trabalho <xref:System.Type>para o qual o serviço de rastreamento não tem nenhum associado <xref:System.Workflow.Runtime.Tracking.TrackingProfile>.</xref:System.Workflow.Runtime.Tracking.TrackingProfile> </xref:System.Type> </xref:System.Workflow.Runtime.Tracking.TrackingProfile> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService>       O padrão de fora da caixa perfil de rastreamento corresponde a todos os eventos de atividade, eventos de usuário e eventos de fluxo de trabalho emitidos por uma instância de fluxo de trabalho. Você pode alterar o padrão de perfil de rastreamento usando o `UpdateDefaultProfile` procedimento armazenado.      > [!NOTE] > O `UpdateDefaultProfile` procedimento armazenado alterará o perfil de controle padrão. Esse novo perfil padrão será retornado quando o mecanismo de tempo de execução do fluxo de trabalho solicita um perfil para um tipo de fluxo de trabalho para o qual o serviço de rastreamento não tiver nenhum perfil de rastreamento associado. Tipos de fluxo de trabalho que foram anteriormente associados com o perfil padrão antigo ainda será associados ao perfil após `UpdateDefaultProfile` é chamado; você deve chamar explicitamente o `UpdateTrackingProfile` procedimento armazenado em qualquer um desses tipos de fluxo de trabalho que você deseja associar o novo perfil padrão.       Enquanto UseDefaultProfile for true, o <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>retornará o controle de perfil para o mecanismo de tempo de execução do fluxo de trabalho para qualquer tipo de fluxo de trabalho para o qual ele não tem um perfil de rastreamento associado no banco de dados padrão.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> Se você definir posteriormente UseDefaultProfile como false, o perfil padrão será associado esses tipos de fluxo de trabalho no banco de dados. Você pode chamar o `DeleteTrackingProfile` procedimento armazenado em um tipo de fluxo de trabalho para não associar um controle de perfil desse tipo, ou você pode chamar o `UpdateTrackingProfile` procedimento armazenado em um tipo de fluxo de trabalho para alterar o perfil de rastreamento associado a esse tipo.      > [!NOTE] > O mecanismo de tempo de execução do fluxo de trabalho armazena em cache seus perfis de rastreamento. Portanto, ele deve receber um <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileRemoved>evento para qualquer tipo de fluxo de trabalho para que ele já tem um perfil de rastreamento associado em seu cache antes que ele irá parar de usar seu perfil em cache para novas instâncias desse tipo de fluxo de trabalho.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileRemoved> Da mesma forma, o mecanismo de tempo de execução do fluxo de trabalho deve receber um <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileUpdated>evento para esses tipos de fluxo de trabalho antes que ele irá carregar um novo perfil de rastreamento em seu cache para associar novas instâncias do tipo de fluxo de trabalho.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileUpdated> O <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>gera os eventos adequados para tipos de fluxo de trabalho aplicável ao examinar o banco de dados para seus perfis de controle de alterações.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService> A frequência em que o <xref:System.Workflow.Runtime.Tracking.SqlTrackingService>executa esta operação é definida por <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A> </xref:System.Workflow.Runtime.Tracking.SqlTrackingService>  Portanto, sempre que você chamar o `UpdateTrackingProfile` ou `DeleteTrackingProfile` pode haver um atraso de até o limite especificado de procedimentos armazenados <xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>antes do fluxo de trabalho do mecanismo de tempo de execução refletirá as alterações no cache do perfil.</xref:System.Workflow.Runtime.Tracking.SqlTrackingService.ProfileChangeCheckInterval%2A>   >> Para obter mais informações sobre perfis, consulte [criando e usando perfis de controle](http://msdn.microsoft.com/en-us/f018ad09-d20f-4626-9792-31d9f278d0b0)."
   syntax:
     content: public bool UseDefaultProfile { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if a default tracking profile should be used; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se um padrão de perfil de rastreamento deve ser usado; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O padrão é <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Runtime.Tracking.SqlTrackingService.UseDefaultProfile*
   exceptions: []
   platform:

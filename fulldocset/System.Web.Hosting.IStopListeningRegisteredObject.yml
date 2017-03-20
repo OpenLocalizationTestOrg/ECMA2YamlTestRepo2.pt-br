@@ -10,8 +10,8 @@ items:
   nameWithType: IStopListeningRegisteredObject
   fullName: System.Web.Hosting.IStopListeningRegisteredObject
   type: Interface
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       Listens for `GL_STOP_LISTENING` notifications from IIS."
-  remarks: "You can implement the IStopListeningRegisteredObject interface by passing an object to the <xref:System.Web.Hosting.HostingEnvironment.RegisterObject%2A> method. The passed object listens for `GL_STOP_LISTENING` notifications from IIS. You can call this implementation when ASP.NET receives a `GL_STOP_LISTENING` notification from IIS, which signals that IIS is no longer listening for new requests for this application. The web server can allow requests that are in progress to run to completion. If your application processes long running requests, you might want to have the application listen for these IIS notifications to gracefully wind down the request. The <xref:System.Web.Hosting.IStopListeningRegisteredObject.StopListening%2A> method contrasts with the <xref:System.Web.Hosting.IRegisteredObject.Stop%2A> method, which signals immediate application shutdown."
+  summary: "[Com suporte no .NET Framework 4.5.1 e versões posteriores]       Escuta `GL_STOP_LISTENING` notificações do IIS."
+  remarks: "Você pode implementar a interface IStopListeningRegisteredObject passando um objeto para o <xref:System.Web.Hosting.HostingEnvironment.RegisterObject%2A>método.</xref:System.Web.Hosting.HostingEnvironment.RegisterObject%2A> Verifica se o objeto passado para `GL_STOP_LISTENING` notificações do IIS. Você pode chamar essa implementação quando ASP.NET recebe um `GL_STOP_LISTENING` notificação do IIS, que indica que o IIS não está escutando para novas solicitações para esse aplicativo. O servidor web pode permitir solicitações que estão em andamento para executar até a conclusão. Se seus processos de aplicativo solicitações de longa execução, talvez você queira ter o aplicativo espere essas notificações do IIS para terminar normalmente a solicitação. O <xref:System.Web.Hosting.IStopListeningRegisteredObject.StopListening%2A>método contrasta com o <xref:System.Web.Hosting.IRegisteredObject.Stop%2A>método, que sinaliza o encerramento do aplicativo imediata.</xref:System.Web.Hosting.IRegisteredObject.Stop%2A> </xref:System.Web.Hosting.IStopListeningRegisteredObject.StopListening%2A>"
   syntax:
     content: 'public interface IStopListeningRegisteredObject : System.Web.Hosting.IRegisteredObject'
   implements:
@@ -30,8 +30,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Hosting
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       Stops listening for new requests."
-  remarks: "The StopListening method is supported only when running in IIS integrated mode. The ASP.NET runtime does not guarantee that the StopListening method will ever fire.       The StopListening method must not throw exceptions, otherwise the behavior is undefined and the process will likely be terminated. Further, to avoid creating deadlocks, the StopListening method should not block execution.      > [!IMPORTANT] >  In many applications the StopListening method can run at the same time as the <xref:System.AppDomain.Unload%2A> method.  If <xref:System.AppDomain> unload occurs, the StopListening method might be forcibly aborted before it finishes executing."
+  summary: "[Com suporte no .NET Framework 4.5.1 e versões posteriores]       Interrompe a escutar novas solicitações."
+  remarks: "O método StopListening é suportado apenas quando executado no modo integrado do IIS. O tempo de execução do ASP.NET não garante que o método StopListening nunca será acionado.       O método StopListening não deve lançar exceções, caso contrário, o comportamento será indefinido e o processo provavelmente será encerrado. Além disso, para evitar a criação de deadlocks, o método StopListening não deve bloquear a execução.      > [!IMPORTANT] > Em muitos aplicativos de StopListening método pode ser executado ao mesmo tempo como o <xref:System.AppDomain.Unload%2A>método.</xref:System.AppDomain.Unload%2A>  Se <xref:System.AppDomain>unload ocorre, o método StopListening pode ser anulado à força antes de concluir a execução.</xref:System.AppDomain>"
   syntax:
     content: public void StopListening ();
     parameters: []

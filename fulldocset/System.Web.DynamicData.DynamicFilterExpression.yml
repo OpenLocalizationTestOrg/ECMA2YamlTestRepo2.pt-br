@@ -13,8 +13,8 @@ items:
   nameWithType: DynamicFilterExpression
   fullName: System.Web.DynamicData.DynamicFilterExpression
   type: Class
-  summary: "Modifies a database query by using a value from specified filter control."
-  remarks: "The DynamicFilterExpression class enables you to modify a database query using the values that are assigned in a <xref:System.Web.DynamicData.DynamicFilter> control. This control delegates the task of building of the <xref:System.Linq.IQueryable> query to a specialized control such as <xref:System.Web.DynamicData.QueryableFilterRepeater> control or <xref:System.Web.DynamicData.DynamicFilter> control.       The filter controls in turn delegate the building of the query to the filter template that they reference. The query is then executed by the data source control that is referenced by the <xref:System.Web.UI.WebControls.QueryExtender> control.       To use the DynamicFilterExpression class in a page, you follow these steps:      -   Add a <xref:System.Web.UI.WebControls.QueryExtender> control to the page.      -   Set the `TargetControlID` property of the <xref:System.Web.UI.WebControls.QueryExtender> control to reference the data source control.      -   Add a DynamicFilterExpression object as a child of the <xref:System.Web.UI.WebControls.QueryExtender> control.      -   Set the `ControlID` property of the DynamicFilterExpression object to reference the filter control.       In the previous steps it is assumed that the related filter controls, data-bound controls, and data source control are defined in the page."
+  summary: "Modifica uma consulta de banco de dados usando um valor de controle de filtro especificado."
+  remarks: "A classe DynamicFilterExpression permite que você modifique uma consulta de banco de dados usando os valores que são atribuídos em um <xref:System.Web.DynamicData.DynamicFilter>controle.</xref:System.Web.DynamicData.DynamicFilter> Esse controle delega a tarefa de criação do <xref:System.Linq.IQueryable>consulta a um controle especializado, tais como <xref:System.Web.DynamicData.QueryableFilterRepeater>controle ou <xref:System.Web.DynamicData.DynamicFilter>controle.</xref:System.Web.DynamicData.DynamicFilter> </xref:System.Web.DynamicData.QueryableFilterRepeater> </xref:System.Linq.IQueryable>       Por sua vez, os controles de filtro delegam a criação da consulta para o modelo de filtro que fazem referência a eles. A consulta é executada pelo controle de fonte de dados que é referenciado pelo <xref:System.Web.UI.WebControls.QueryExtender>controle.</xref:System.Web.UI.WebControls.QueryExtender>       Para usar a classe DynamicFilterExpression em uma página, você execute as seguintes etapas:-adicionar um <xref:System.Web.UI.WebControls.QueryExtender>controle para a página.</xref:System.Web.UI.WebControls.QueryExtender>      -Definir o `TargetControlID` propriedade o <xref:System.Web.UI.WebControls.QueryExtender>controle para referenciar o controle de fonte de dados.</xref:System.Web.UI.WebControls.QueryExtender>      -Adicionar um objeto DynamicFilterExpression como um filho de <xref:System.Web.UI.WebControls.QueryExtender>controle.</xref:System.Web.UI.WebControls.QueryExtender>      -Definir o `ControlID` propriedade do objeto DynamicFilterExpression para referenciar o controle de filtro.       Nas etapas anteriores presume-se que os controles de filtro relacionados, controles associados a dados e controle de fonte de dados são definidos na página."
   example:
   - "The following example shows how to use the DynamicFilterExpression control to select a filter template in a page. The filter template is selected by the <xref:System.Web.DynamicData.DynamicFilter> control that is identified by DynamicFilterExpression control through its `ControID` property.  \n  \n```  \n<asp:QueryExtender ID=\"QueryExtender1\"   \n    TargetControlID=\"GridDataSource\" runat=\"server\">  \n    <asp:DynamicFilterExpression ControlID=\"CategoryFilterID\" />  \n</asp:QueryExtender>  \n```"
   syntax:
@@ -51,7 +51,7 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;> </xref> classe."
   syntax:
     content: public DynamicFilterExpression ();
     parameters: []
@@ -71,15 +71,15 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets or sets the filter control identifier."
-  remarks: "This control identifier is used by the <xref:System.Web.DynamicData.DynamicFilterExpression> class to select the filter control to which it delegates the task of building of the query, which is in turn executed by the data source control.       The filter control delegates the task of building of the query to the filter template it references. The query is then executed by the data source control that is referenced by the <xref:System.Web.UI.WebControls.QueryExtender> control."
+  summary: "Obtém ou define o identificador de controle de filtro."
+  remarks: "Esse identificador de controle é usado pelo <xref:System.Web.DynamicData.DynamicFilterExpression>classe para selecionar o filtro de controle para o qual ela delega a tarefa de compilação de consulta, que por sua vez é executada pelo controle de fonte de dados.</xref:System.Web.DynamicData.DynamicFilterExpression>       O controle de filtro delega a tarefa de compilação da consulta para o modelo de filtro-referências. A consulta é executada pelo controle de fonte de dados que é referenciado pelo <xref:System.Web.UI.WebControls.QueryExtender>controle.</xref:System.Web.UI.WebControls.QueryExtender>"
   example:
   - "The following example shows how to use the <xref:System.Web.DynamicData.DynamicFilterExpression> class to select a filter control in a page.  \n  \n```  \n<asp:QueryExtender ID=\"QueryExtender1\"   \n    TargetControlID=\"GridDataSource\" runat=\"server\">  \n    <asp:DynamicFilterExpression ControlID=\"CategoryFilterID\" />  \n</asp:QueryExtender>  \n```"
   syntax:
     content: public string ControlID { get; set; }
     return:
       type: System.String
-      description: "The filter control identifier."
+      description: "O identificador de controle de filtro."
   overload: System.Web.DynamicData.DynamicFilterExpression.ControlID*
   exceptions: []
   platform:
@@ -96,17 +96,17 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Gets the modified query using the current filter value."
-  remarks: "The GetQueryable method delegates the task of building of the query to the filter template referenced by the filter control that is specified by the <xref:System.Web.DynamicData.DynamicFilterExpression.ControlID%2A> property."
+  summary: "Obtém a consulta modificada usando o valor do filtro atual."
+  remarks: "O método GetQueryable delega a tarefa de compilação de consulta para o modelo de filtro referenciado pelo controle de filtro que é especificado pelo <xref:System.Web.DynamicData.DynamicFilterExpression.ControlID%2A>propriedade.</xref:System.Web.DynamicData.DynamicFilterExpression.ControlID%2A>"
   syntax:
     content: public override System.Linq.IQueryable GetQueryable (System.Linq.IQueryable source);
     parameters:
     - id: source
       type: System.Linq.IQueryable
-      description: "The data source query to modify."
+      description: "A consulta de fonte de dados para modificar."
     return:
       type: System.Linq.IQueryable
-      description: "The data source query that is modified by using the current value that is contained in the <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;></xref> instance."
+      description: "A consulta de fonte de dados que é modificada usando o valor atual que está contido no <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;> </xref> instância."
   overload: System.Web.DynamicData.DynamicFilterExpression.GetQueryable*
   exceptions: []
   platform:
@@ -123,19 +123,19 @@ items:
   assemblies:
   - System.Web.DynamicData
   namespace: System.Web.DynamicData
-  summary: "Initializes the expression with data source information."
+  summary: "Inicializa a expressão com informações de fonte de dados."
   syntax:
     content: public override void SetContext (System.Web.UI.Control owner, System.Web.HttpContext context, System.Web.UI.WebControls.IQueryableDataSource dataSource);
     parameters:
     - id: owner
       type: System.Web.UI.Control
-      description: "The control that contains the <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;></xref> instance, such as the <xref href=&quot;System.Web.UI.WebControls.QueryExtender&quot;></xref> control."
+      description: "O controle que contém o <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;> </xref> instância, como o <xref href=&quot;System.Web.UI.WebControls.QueryExtender&quot;> </xref> controle."
     - id: context
       type: System.Web.HttpContext
-      description: "The current <xref href=&quot;System.Web.HttpContext&quot;></xref> object."
+      description: "Atual <xref href=&quot;System.Web.HttpContext&quot;> </xref> objeto."
     - id: dataSource
       type: System.Web.UI.WebControls.IQueryableDataSource
-      description: "The target data source for the <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;></xref> instance."
+      description: "Fonte de dados de destino para o <xref href=&quot;System.Web.DynamicData.DynamicFilterExpression&quot;> </xref> instância."
   overload: System.Web.DynamicData.DynamicFilterExpression.SetContext*
   exceptions: []
   platform:

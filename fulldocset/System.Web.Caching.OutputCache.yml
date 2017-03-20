@@ -13,8 +13,8 @@ items:
   nameWithType: OutputCache
   fullName: System.Web.Caching.OutputCache
   type: Class
-  summary: "Provides programmatic access to the output-cache providers that are specified in the configuration file for a Web site."
-  remarks: "Output caching stores the generated output of pages, controls, and HTTP responses in memory. Output caching enables you to cache different versions of content depending on the query string and on form-post parameters to a page, on browser type, or on the language of the user. You can configure ASP.NET to cache an output-cache entry for a specific period. You can also configure ASP.NET to evict a cache entry automatically based on an external event such as changes in the database that the cache depends on.       The OutputCache class enables you to extend output caching. For example, you can configure one or more custom output-cache providers that target other storage devices such as local or remote disks, databases, cloud storage, and distributed cache engines."
+  summary: "Fornece acesso programático aos provedores de cache de saída que são especificados no arquivo de configuração para um site da Web."
+  remarks: "Cache de saída armazena a saída gerada de páginas, controles e respostas HTTP na memória. Cache de saída permite armazenar em cache versões diferentes de conteúdo, dependendo da cadeia de caracteres de consulta e em parâmetros de postagem de formulário para uma página, no tipo de navegador ou no idioma do usuário. Você pode configurar o ASP.NET para armazenar em cache uma entrada de cache de saída para um período específico. Você também pode configurar o ASP.NET para remover uma entrada de cache automaticamente com base em um evento externo, como as alterações no banco de dados depende do cache.       A classe OutputCache permite estender o cache de saída. Por exemplo, você pode configurar um ou mais personalizada cache de saída provedores que outros dispositivos de armazenamento como discos locais ou remotos e mecanismos de cache distribuído, armazenamento em nuvem e bancos de dados de destino."
   syntax:
     content: public static class OutputCache
   inheritance:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Gets the name of the default provider that is configured for the output cache."
-  remarks: "By default, all HTTP responses, rendered pages, and controls use `AspNetInternalProvider`, the in-memory output cache provider. To use a different provider, set the `defaultProvider` attribute to the name of the alternative provider."
+  summary: "Obtém o nome do provedor padrão que é configurado para o cache de saída."
+  remarks: "Por padrão, todas as respostas HTTP, renderizado páginas e controles usam `AspNetInternalProvider`, o provedor de cache de saída na memória. Para usar um provedor diferente, defina o `defaultProvider` de atributo para o nome do provedor alternativo."
   syntax:
     content: public static string DefaultProviderName { get; }
     return:
       type: System.String
-      description: "The name of the default provider."
+      description: "O nome do provedor padrão."
   overload: System.Web.Caching.OutputCache.DefaultProviderName*
   exceptions: []
   platform:
@@ -58,25 +58,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Deserializes a binary object into output-cache data."
-  remarks: "This method is used by output-cache providers that are operating under partial trust."
+  summary: "Desserializa um objeto binário em dados de cache de saída."
+  remarks: "Esse método é usado por provedores de cache de saída que estejam operando em confiança parcial."
   syntax:
     content: public static object Deserialize (System.IO.Stream stream);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The data to deserialize."
+      description: "Os dados a ser desserializado."
     return:
       type: System.Object
-      description: "An object that contains the deserialized data."
+      description: "Um objeto que contém dados desserializados."
   overload: System.Web.Caching.OutputCache.Deserialize*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The deserialized object that is returned by the method is not a valid output-cache type."
+    description: "O objeto desserializado que é retornado pelo método não é um tipo de cache de saída válido."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>stream</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Web.Caching.OutputCache.Providers
@@ -91,13 +91,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Gets a collection of the output-cache providers that are specified in the configuration file for a Web site."
-  remarks: "You configure one or more custom output-cache providers that target other storage devices, such as local or remote disks, databases, cloud storage, and distributed cache engines. To configure custom output-cache providers, you add a provider to the collection that is represented by the Providers property."
+  summary: "Obtém uma coleção de provedores de cache de saída que são especificadas no arquivo de configuração para um site da Web."
+  remarks: "Você configurar um ou mais cache de saída provedores personalizados que se destinam a outros dispositivos de armazenamento, como discos locais ou remotos, bancos de dados, o armazenamento em nuvem e mecanismos de cache distribuído. Para configurar provedores personalizados de cache de saída, você pode adicionar um provedor à coleção que é representada pela propriedade de provedores."
   syntax:
     content: public static System.Web.Caching.OutputCacheProviderCollection Providers { get; }
     return:
       type: System.Web.Caching.OutputCacheProviderCollection
-      description: "The collection of configured providers."
+      description: "A coleção de provedores configurados."
   overload: System.Web.Caching.OutputCache.Providers*
   exceptions: []
   platform:
@@ -114,25 +114,25 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Caching
-  summary: "Serializes output-cache data into binary data."
-  remarks: "This method is used by output-cache providers that are operating under partial trust."
+  summary: "Serializa os dados de cache de saída em dados binários."
+  remarks: "Esse método é usado por provedores de cache de saída que estejam operando em confiança parcial."
   syntax:
     content: public static void Serialize (System.IO.Stream stream, object data);
     parameters:
     - id: stream
       type: System.IO.Stream
-      description: "The object to contain the serialized binary data."
+      description: "O objeto que contém os dados binários serializados."
     - id: data
       type: System.Object
-      description: "The output-cache data to serialize."
+      description: "Os dados de cache de saída para serializar."
   overload: System.Web.Caching.OutputCache.Serialize*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>data</code> is not one of the specified output-cache types."
+    description: "<code>data</code>não é um dos tipos de cache de saída especificados."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>data</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>data</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> or <code>stream</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 references:

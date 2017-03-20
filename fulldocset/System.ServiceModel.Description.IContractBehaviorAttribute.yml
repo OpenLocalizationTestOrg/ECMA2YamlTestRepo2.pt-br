@@ -10,8 +10,8 @@ items:
   nameWithType: IContractBehaviorAttribute
   fullName: System.ServiceModel.Description.IContractBehaviorAttribute
   type: Interface
-  summary: "Specifies the contract for which an attribute that implements the &lt;xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName&gt; interface is active."
-  remarks: "Implement the IContractBehaviorAttribute interface on an attribute that is also an <xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName> object to enable the use of that contract behavior attribute on a service type but restrict its application to the contract specified in the <xref:System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract%2A> property.       There is no requirement to implement IContractBehaviorAttribute on custom contract behavior attributes, and if the attribute is applied either to a contract interface or to a duplex callback class the value of the <xref:System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract%2A> property is ignored.       For more information, see <xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName>."
+  summary: "Especifica o contrato para o qual um atributo que implementa o &lt;xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName&gt; interface está ativa."
+  remarks: "Implementar a interface IContractBehaviorAttribute em um atributo que é também um <xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName>objeto para permitir o uso desse atributo de comportamento de contrato em um tipo de serviço, mas restringe o seu aplicativo para o contrato especificado no <xref:System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract%2A>propriedade.</xref:System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract%2A> </xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName>       Não é necessário para implementar IContractBehaviorAttribute em atributos de comportamento de contrato personalizados e se o atributo é aplicado a uma interface de contrato ou para um retorno de chamada duplex classe o valor de <xref:System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract%2A>propriedade será ignorada.</xref:System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract%2A>       Para obter mais informações, consulte <xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName>.</xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName>"
   example:
   - "The following code example assumes a custom <xref:System.ServiceModel.Dispatcher.IInstanceProvider?displayProperty=fullName> implementation called `ObjectProviderBehavior` that provides a \"singleton\" behavior; it always returns the same service instance and does not recycle it.  \n  \n To insert the instance provider customization, the example shows how to implement a custom attribute (`SingletonBehaviorAttribute`) that implements <xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName> to insert the custom service instance provider. It also implements IContractBehaviorAttribute, which binds its application to the `ISampleService` contract.  \n  \n [!code-cs[IContractBehavior#2](~/add/codesnippet/csharp/icontractbehavior.client/objectproviderbehavior.cs#2)]\n [!code-vb[IContractBehavior#2](~/add/codesnippet/visualbasic/icontractbehavior.client/objectproviderbehavior.vb#2)]"
   syntax:
@@ -31,15 +31,15 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets the type of the contract to which the contract behavior is applicable."
-  remarks: "Implement the TargetContract property to specify the contract to which the contract behavior is applied when the implementing <xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName> attribute is applied to a service class."
+  summary: "Obtém o tipo do contrato ao qual o comportamento de contrato é aplicável."
+  remarks: "Implementa a propriedade TargetContract para especificar o contrato ao qual o comportamento de contrato é aplicado quando a implementação <xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName>atributo é aplicado a uma classe de serviço.</xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName>"
   example:
   - "The following code example assumes a custom <xref:System.ServiceModel.Dispatcher.IInstanceProvider?displayProperty=fullName> implementation called `ObjectProviderBehavior` that provides a \"singleton\" behavior; it always returns the same service instance and does not recycle it.  \n  \n To insert the instance provider customization, the example shows how to implement a custom attribute (`SingletonBehaviorAttribute`) that implements <xref:System.ServiceModel.Description.IContractBehavior?displayProperty=fullName> to insert the custom service instance provider. It also implements <xref:System.ServiceModel.Description.IContractBehaviorAttribute>, which binds its application to the `ISampleService` contract.  \n  \n [!code-cs[IContractBehavior#2](~/add/codesnippet/csharp/icontractbehavior.client/objectproviderbehavior.cs#2)]\n [!code-vb[IContractBehavior#2](~/add/codesnippet/visualbasic/icontractbehavior.client/objectproviderbehavior.vb#2)]"
   syntax:
     content: public Type TargetContract { get; }
     return:
       type: System.Type
-      description: "The contract to which the contract behavior is applicable."
+      description: "O contrato ao qual o comportamento de contrato é aplicável."
   overload: System.ServiceModel.Description.IContractBehaviorAttribute.TargetContract*
   exceptions: []
   platform:

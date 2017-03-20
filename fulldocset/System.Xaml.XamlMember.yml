@@ -65,8 +65,8 @@ items:
   nameWithType: XamlMember
   fullName: System.Xaml.XamlMember
   type: Class
-  summary: "Provides the XAML type system identifier for members of XAML types. The identifier is used by XAML readers and XAML writers during processing of member nodes (when the XAML reader is positioned on a <xref href=&quot;System.Xaml.XamlNodeType&quot;></xref>) and also for general XAML type system logic."
-  remarks: "XamlMember can use three methodologies for returning information about a XAML member: standard common language runtime (CLR) reflection; a reference-only reflection technique calling internal APIs that use optimized bit flags; or calling into virtual overrides of the `Lookup*` API that is provided by possible XamlMember subclasses. For most uses of .NET Framework XAML Services APIs and the XamlMember API, you use the default XAML schema context. The default XAML schema context for .NET Framework XAML Services uses CLR backing for the type system. This enables the XAML readers and XAML writers to work with any type or member that is defined in, or otherwise available to, the CLR and its reflection techniques.      ## Lookup* APIs and XamlMember Derived Classes    XamlMember defines several virtual members that derived classes might override. These members have names that always start with the string `Lookup`. The remainder of the API name then references the property that the virtual method influences. For example, a XamlMember derived class might override <xref:System.Xaml.XamlMember.LookupTargetType%2A> to influence what the base-defined property <xref:System.Xaml.XamlMember.TargetType%2A> returns in a derived class. You can predict return values for such properties in XamlMember or existing derived classes by reading the documentation for the relevant `Lookup*` methods.       The purpose of the `Lookup*` methods is to provide a XAML type system extension technique that incorporates the XamlMember base class. By deriving from XamlMember and overriding the `Lookup` virtual members, you can define the concept of a XAML member for a XAML schema in a XAML type system without being tied to the specifics of a backing type system or technology. You can also use a provided XAML schema context under this scheme and still return the results you want.       As an example, consider the XamlMember property <xref:System.Xaml.XamlMember.IsWritePublic%2A>. This property informs callers that operations such as using a <xref:System.Xaml.XamlWriter> for serialization can write a value for this member on a target object. In the default implementation, the determination of whether the member is writable is made by using reflection techniques against the backing CLR <xref:System.Type> and its members (the <xref:System.Reflection.MemberInfo>). Therefore, by default, the XAML type system depends on the CLR type system. However, you can remove this dependency for your XAML type system reporting of <xref:System.Xaml.XamlMember.IsWritePublic%2A> by overriding the API <xref:System.Xaml.XamlMember.LookupIsWritePublic%2A>. Within your override, you can use other determinations, such as metadata that is specific to your technology, a master lookup table that is optimized for a fixed XAML vocabulary, or a variety of other strategies for determining whether a XAML member is writable in your XAML vocabulary.      ## Constructing XamlMember Without XAML Schema Context    Most constructors of XamlMember require a <xref:System.Xaml.XamlSchemaContext> as part of their initialization. The <xref:System.Xaml.XamlSchemaContext> is also necessary for many internal <xref:System.Xaml.XamlSchemaContext> operations, such as obtaining information that is being forwarded from the backing type. When you are working with the XamlMember API, you typically have a <xref:System.Xaml.XamlSchemaContext> that is available from a surrounding construct such as a <xref:System.Xaml.XamlWriter>. In this case, you can pass the <xref:System.Xaml.XamlSchemaContext> reference through to all XAML type system calls that require a XAML schema context.       One specific constructor, <xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29>, does not require a <xref:System.Xaml.XamlSchemaContext>. However, a XamlMember that is constructed with the <xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29> signature returns `true` for <xref:System.Xaml.XamlMember.IsUnknown%2A>.       For a load path that involves <xref:System.Xaml.XamlObjectWriter>, such a member cannot be written into an object graph. Using the .NET Framework XAML services implementation, the <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName> call throws a <xref:System.Xaml.XamlObjectWriterException> when the relevant XamlMember reports `true` for <xref:System.Xaml.XamlMember.IsUnknown%2A>.       You should not construct a XamlMember that has a value of `true` for <xref:System.Xaml.XamlMember.IsUnknown%2A> unless your implementation can handle the exceptions from <xref:System.Xaml.XamlObjectWriter>, or you have other ways to adjust the <xref:System.Xaml.XamlObjectWriter> behavior. For example, one or more of the  following might be true of your implementation:      -   The XAML schema context is available later.      -   You use a member invoker pattern.      -   You deliberately override <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName> in a custom XAML writer."
+  summary: "Fornece o identificador do sistema de tipo XAML para membros de tipos XAML. O identificador é usado por leitores XAML e autores de XAML durante o processamento de nós de membro (quando o leitor XAML está posicionado em uma <xref href=&quot;System.Xaml.XamlNodeType&quot;> </xref>) e também para lógica geral do sistema de tipo XAML."
+  remarks: "XamlMember pode usar as metodologias de três para retornar informações sobre um membro XAML: padrão reflexão comum de tempo de execução (CLR) do idioma; uma técnica de reflexão somente para referência interna ao chamar esse bit de otimização do uso de APIs sinalizadores; ou chamar virtual substituições do `Lookup*` API que é fornecido por subclasses de XamlMember possíveis. Para a maioria dos usos de APIs de serviços XAML do .NET Framework e a API do XamlMember, use o contexto do esquema XAML padrão. O contexto do esquema padrão XAML para serviços XAML do .NET Framework usa backup para o sistema de tipo CLR. Isso permite que os leitores XAML e gravadores XAML trabalhar com qualquer tipo ou membro que é definido em ou não disponível para, o CLR e suas técnicas de reflexão.      ## APIs de pesquisa * e XamlMember de Classes derivadas do XamlMember define vários membros virtuais que classes derivadas podem substituir. Esses membros com nomes que iniciam sempre com a cadeia de caracteres `Lookup`. O restante da API de referências, em seguida, o propriedade name que influencia o método virtual. Por exemplo, uma classe derivada de XamlMember pode substituir <xref:System.Xaml.XamlMember.LookupTargetType%2A>para influenciar a que a propriedade base <xref:System.Xaml.XamlMember.TargetType%2A>retorna na classe derivada.</xref:System.Xaml.XamlMember.TargetType%2A> </xref:System.Xaml.XamlMember.LookupTargetType%2A> Você pode prever valores de retorno para essas propriedades no XamlMember ou existentes classes derivadas lendo a documentação relevante `Lookup*` métodos.       A finalidade de `Lookup*` métodos é fornecer uma técnica de extensão de sistema de tipo XAML que incorpora a classe base XamlMember. Derivando de XamlMember e substituindo o `Lookup` membros virtuais, você pode definir o conceito de um membro XAML para um esquema XAML em um sistema de tipo XAML sem ser vinculado às especificações de um sistema de tipos de backup ou uma tecnologia. Você pode também usar um contexto de esquema XAML fornecido sob esse esquema e ainda retornará os resultados desejados.       Por exemplo, considere a propriedade XamlMember <xref:System.Xaml.XamlMember.IsWritePublic%2A>.</xref:System.Xaml.XamlMember.IsWritePublic%2A> Essa propriedade informa os chamadores que operações como usando um <xref:System.Xaml.XamlWriter>para serialização pode gravar um valor para esse membro em um objeto de destino.</xref:System.Xaml.XamlWriter> Na implementação do padrão, a determinação se o membro é gravável é feita usando técnicas de reflexão em relação a CLR de apoio <xref:System.Type>e seus membros (o <xref:System.Reflection.MemberInfo>).</xref:System.Reflection.MemberInfo> </xref:System.Type> Portanto, por padrão, o sistema de tipo XAML depende do sistema de tipo CLR. No entanto, você pode remover essa dependência para o sistema de tipo XAML relatórios de <xref:System.Xaml.XamlMember.IsWritePublic%2A>, substituindo a API <xref:System.Xaml.XamlMember.LookupIsWritePublic%2A>.</xref:System.Xaml.XamlMember.LookupIsWritePublic%2A> </xref:System.Xaml.XamlMember.IsWritePublic%2A> Dentro de sua substituição, você pode usar outras decisões, como metadados específicos para sua tecnologia, de uma tabela de pesquisa principal que é otimizada para um vocabulário XAML fixado ou uma variedade de outras estratégias para determinar se um membro XAML é gravável no seu vocabulário XAML.      ## Construindo XamlMember sem XAML esquema contexto mais construtores de XamlMember exigem um <xref:System.Xaml.XamlSchemaContext>como parte da sua inicialização.</xref:System.Xaml.XamlSchemaContext> O <xref:System.Xaml.XamlSchemaContext>também é necessária para muitos interno <xref:System.Xaml.XamlSchemaContext>operações, como obter as informações que está sendo encaminhadas do tipo de backup.</xref:System.Xaml.XamlSchemaContext> </xref:System.Xaml.XamlSchemaContext> Quando você estiver trabalhando com a API do XamlMember, você normalmente tem um <xref:System.Xaml.XamlSchemaContext>disponível em uma construção ao redor como <xref:System.Xaml.XamlWriter>.</xref:System.Xaml.XamlWriter> </xref:System.Xaml.XamlSchemaContext> Nesse caso, você pode passar o <xref:System.Xaml.XamlSchemaContext>referência por meio de todas as chamadas de sistema de tipo XAML que exigem um contexto de esquema XAML.</xref:System.Xaml.XamlSchemaContext>       Um construtor específico <xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29>, não requer um <xref:System.Xaml.XamlSchemaContext>.</xref:System.Xaml.XamlSchemaContext> </xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29> No entanto, um XamlMember que é construído com o <xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29>assinatura retorna `true` para <xref:System.Xaml.XamlMember.IsUnknown%2A>.</xref:System.Xaml.XamlMember.IsUnknown%2A> </xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29>       Para um caminho de carga que envolve <xref:System.Xaml.XamlObjectWriter>, esse membro não pode ser gravado em um gráfico de objeto.</xref:System.Xaml.XamlObjectWriter> Com a implementação de serviços XAML do .NET Framework, o <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>chamar lança um <xref:System.Xaml.XamlObjectWriterException>quando relata o relevante XamlMember `true` para <xref:System.Xaml.XamlMember.IsUnknown%2A>.</xref:System.Xaml.XamlMember.IsUnknown%2A> </xref:System.Xaml.XamlObjectWriterException> </xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>       Você não deve criar um XamlMember que tem um valor de `true` para <xref:System.Xaml.XamlMember.IsUnknown%2A>, a menos que sua implementação pode manipular as exceções de <xref:System.Xaml.XamlObjectWriter>, ou você tiver outras maneiras de ajustar o <xref:System.Xaml.XamlObjectWriter>comportamento.</xref:System.Xaml.XamlObjectWriter> </xref:System.Xaml.XamlObjectWriter> </xref:System.Xaml.XamlMember.IsUnknown%2A> Por exemplo, um ou mais dos itens a seguir podem ser verdadeiro para sua implementação:-contexto do esquema XAML o está disponível mais tarde.      -Você usar um padrão de chamador do membro.      -Você substituir deliberadamente <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>em um gravador XAML personalizado.</xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>"
   syntax:
     content: 'public class XamlMember : IEquatable<System.Xaml.XamlMember>'
   inheritance:
@@ -88,17 +88,17 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> class using CLR type system <xref:System.Reflection.EventInfo> and a <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref>."
-  remarks: "Use this constructor if the member represents an event (event handler connection-point property)."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> classe usando o sistema de tipos CLR <xref:System.Reflection.EventInfo>e um <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref>.</xref:System.Reflection.EventInfo>"
+  remarks: "Use este construtor se o membro representa um evento (propriedade de ponto de conexão de manipulador de eventos)."
   syntax:
     content: public XamlMember (System.Reflection.EventInfo eventInfo, System.Xaml.XamlSchemaContext schemaContext);
     parameters:
     - id: eventInfo
       type: System.Reflection.EventInfo
-      description: "The CLR type system <xref:System.Reflection.EventInfo> that represents the event member."
+      description: "O sistema de tipos CLR <xref:System.Reflection.EventInfo>que representa o membro de evento.</xref:System.Reflection.EventInfo>"
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
-      description: "The <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref> context that qualifies the member."
+      description: "O <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref> contexto que qualifica o membro."
   overload: System.Xaml.XamlMember.#ctor*
   exceptions: []
   platform:
@@ -115,17 +115,17 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> class using CLR type system <xref:System.Reflection.PropertyInfo> and a <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref>."
-  remarks: "Use this constructor if the member represents a property (and specifically is not an event handler connection)."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> classe usando o sistema de tipos CLR <xref:System.Reflection.PropertyInfo>e um <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref>.</xref:System.Reflection.PropertyInfo>"
+  remarks: "Use este construtor se o membro representa uma propriedade (e especificamente não é uma conexão de manipulador de eventos)."
   syntax:
     content: public XamlMember (System.Reflection.PropertyInfo propertyInfo, System.Xaml.XamlSchemaContext schemaContext);
     parameters:
     - id: propertyInfo
       type: System.Reflection.PropertyInfo
-      description: "The CLR type system <xref:System.Reflection.PropertyInfo> that represents the property member."
+      description: "O sistema de tipos CLR <xref:System.Reflection.PropertyInfo>que representa o membro de propriedade.</xref:System.Reflection.PropertyInfo>"
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
-      description: "The <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref> context that qualifies the member."
+      description: "O <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref> contexto que qualifica o membro."
   overload: System.Xaml.XamlMember.#ctor*
   exceptions: []
   platform:
@@ -142,20 +142,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> class using CLR type system <xref:System.Reflection.EventInfo> and a <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref>, including <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> information."
-  remarks: "Use this constructor if the member represents an event (or an event handler connection-point property)."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> classe usando o sistema de tipos CLR <xref:System.Reflection.EventInfo>e um <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref>, incluindo <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> informações.</xref:System.Reflection.EventInfo>"
+  remarks: "Use este construtor se o membro representa um evento (ou uma propriedade de ponto de conexão do manipulador de eventos)."
   syntax:
     content: public XamlMember (System.Reflection.EventInfo eventInfo, System.Xaml.XamlSchemaContext schemaContext, System.Xaml.Schema.XamlMemberInvoker invoker);
     parameters:
     - id: eventInfo
       type: System.Reflection.EventInfo
-      description: "The CLR type system <xref:System.Reflection.EventInfo> that represents the event member."
+      description: "O sistema de tipos CLR <xref:System.Reflection.EventInfo>que representa o membro de evento.</xref:System.Reflection.EventInfo>"
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
-      description: "The <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref> context that qualifies the member."
+      description: "O <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref> contexto que qualifica o membro."
     - id: invoker
       type: System.Xaml.Schema.XamlMemberInvoker
-      description: "The <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> implementation that handles run-time reflection calls against the <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
+      description: "O <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> implementação que manipula a reflexão em tempo de execução chama em relação a <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
   overload: System.Xaml.XamlMember.#ctor*
   exceptions: []
   platform:
@@ -172,20 +172,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> class using reflection <xref:System.Reflection.PropertyInfo> and a <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref>, including <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> information."
-  remarks: "Use this constructor only if the member represents a property and if it is not an event handler connection."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> classe usando a reflexão <xref:System.Reflection.PropertyInfo>e um <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref>, incluindo <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> informações.</xref:System.Reflection.PropertyInfo>"
+  remarks: "Use este construtor somente se o membro representa uma propriedade e se não for uma conexão de manipulador de eventos."
   syntax:
     content: public XamlMember (System.Reflection.PropertyInfo propertyInfo, System.Xaml.XamlSchemaContext schemaContext, System.Xaml.Schema.XamlMemberInvoker invoker);
     parameters:
     - id: propertyInfo
       type: System.Reflection.PropertyInfo
-      description: "The CLR type system <xref:System.Reflection.PropertyInfo> that represents the property member."
+      description: "O sistema de tipos CLR <xref:System.Reflection.PropertyInfo>que representa o membro de propriedade.</xref:System.Reflection.PropertyInfo>"
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
-      description: "The <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref> context that qualifies the member."
+      description: "O <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref> contexto que qualifica o membro."
     - id: invoker
       type: System.Xaml.Schema.XamlMemberInvoker
-      description: "The <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> implementation that handles run-time invocation calls against the <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
+      description: "O <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> implementação que manipula a invocação de tempo de execução chama em relação a <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
   overload: System.Xaml.XamlMember.#ctor*
   exceptions: []
   platform:
@@ -202,20 +202,20 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> class for a <xref href=&quot;System.Xaml.XamlMember&quot;></xref> that represents an attachable event."
-  remarks: "Use this constructor if the member represents an attachable event member."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> de classe para um <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> que representa um evento anexável."
+  remarks: "Use este construtor se o membro representa um membro de evento anexável."
   syntax:
     content: public XamlMember (string attachableEventName, System.Reflection.MethodInfo adder, System.Xaml.XamlSchemaContext schemaContext);
     parameters:
     - id: attachableEventName
       type: System.String
-      description: "The string name of the attachable event."
+      description: "O nome da cadeia de caracteres do evento anexável."
     - id: adder
       type: System.Reflection.MethodInfo
-      description: "The CLR type system <xref:System.Reflection.MethodInfo> for the handler <xref uid=&quot;langword_csharp_Add&quot; name=&quot;Add&quot; href=&quot;&quot;></xref> method of the attachable member&quot;s backing implementation."
+      description: "O sistema de tipos CLR <xref:System.Reflection.MethodInfo>para o manipulador <xref uid=&quot;langword_csharp_Add&quot; name=&quot;Add&quot; href=&quot;&quot;> </xref> método do membro anexável do fazendo implementação.</xref:System.Reflection.MethodInfo>"
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
-      description: "The <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref> context that qualifies the member."
+      description: "O <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref> contexto que qualifica o membro."
   overload: System.Xaml.XamlMember.#ctor*
   exceptions: []
   platform:
@@ -232,25 +232,25 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> class using a string name and declaring <xref href=&quot;System.Xaml.XamlType&quot;></xref> information. A <xref href=&quot;System.Xaml.XamlMember&quot;></xref> that is constructed with this signature has significant limitations; see Remarks."
-  remarks: "A <xref:System.Xaml.XamlMember> that is constructed with the XamlMember signature returns `true` for <xref:System.Xaml.XamlMember.IsUnknown%2A>.       For a load path that involves <xref:System.Xaml.XamlObjectWriter>, such a member cannot be written into an object graph. Using the .NET Framework XAML Services implementation, the <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName> call throws a <xref:System.Xaml.XamlObjectWriterException> when the relevant <xref:System.Xaml.XamlMember> reports `true` for <xref:System.Xaml.XamlMember.IsUnknown%2A>.       You should not construct a <xref:System.Xaml.XamlMember> with <xref:System.Xaml.XamlMember.IsUnknown%2A>`true` unless your implementation can handle the exceptions from <xref:System.Xaml.XamlObjectWriter>, or you have other ways to adjust the <xref:System.Xaml.XamlObjectWriter> behavior. For example, one or more of the following might be true of your implementation:      -   The XAML schema context is available later.      -   You use a member invoker pattern.      -   You deliberately override <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName> in a custom XAML writer."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> usando um nome de cadeia de caracteres e a declaração de classe <xref href=&quot;System.Xaml.XamlType&quot;> </xref> informações. Um <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> que é construído com esta assinatura apresenta limitações significativas; consulte comentários."
+  remarks: "Um <xref:System.Xaml.XamlMember>que é construído com o XamlMember assinatura retorna `true` para <xref:System.Xaml.XamlMember.IsUnknown%2A>.</xref:System.Xaml.XamlMember.IsUnknown%2A> </xref:System.Xaml.XamlMember>       Para um caminho de carga que envolve <xref:System.Xaml.XamlObjectWriter>, esse membro não pode ser gravado em um gráfico de objeto.</xref:System.Xaml.XamlObjectWriter> Com a implementação de serviços XAML do .NET Framework, o <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>chamar lança um <xref:System.Xaml.XamlObjectWriterException>quando relevante <xref:System.Xaml.XamlMember>relatórios `true` para <xref:System.Xaml.XamlMember.IsUnknown%2A>.</xref:System.Xaml.XamlMember.IsUnknown%2A> </xref:System.Xaml.XamlMember> </xref:System.Xaml.XamlObjectWriterException> </xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>       Você não deve criar um <xref:System.Xaml.XamlMember>com <xref:System.Xaml.XamlMember.IsUnknown%2A> `true` , a menos que sua implementação pode manipular as exceções de <xref:System.Xaml.XamlObjectWriter>, ou você tiver outras maneiras de ajustar o <xref:System.Xaml.XamlObjectWriter>comportamento.</xref:System.Xaml.XamlObjectWriter> </xref:System.Xaml.XamlObjectWriter> </xref:System.Xaml.XamlMember.IsUnknown%2A> </xref:System.Xaml.XamlMember> Por exemplo, um ou mais dos itens a seguir podem ser verdadeiro para sua implementação:-contexto do esquema XAML o está disponível mais tarde.      -Você usar um padrão de chamador do membro.      -Você substituir deliberadamente <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>em um gravador XAML personalizado.</xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>"
   syntax:
     content: public XamlMember (string name, System.Xaml.XamlType declaringType, bool isAttachable);
     parameters:
     - id: name
       type: System.String
-      description: "The string name of the member."
+      description: "O nome da cadeia de caracteres do membro."
     - id: declaringType
       type: System.Xaml.XamlType
-      description: "The <xref href=&quot;System.Xaml.XamlType&quot;></xref> information for the declaring type."
+      description: "O <xref href=&quot;System.Xaml.XamlType&quot;> </xref> informações para o tipo de declaração."
     - id: isAttachable
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to indicate that the member is attachable; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para indicar que o membro anexável; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>name</code> or <code>declaringType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>name</code>or <code>declaringType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.Xaml.XamlMember.#ctor(System.String,System.Reflection.MethodInfo,System.Reflection.MethodInfo,System.Xaml.XamlSchemaContext)
@@ -265,23 +265,23 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> class for a <xref href=&quot;System.Xaml.XamlMember&quot;></xref> that represents an attachable property."
-  remarks: "Use this constructor if the member represents an attachable property."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> de classe para um <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> que representa uma propriedade anexável."
+  remarks: "Use este construtor se o membro representa uma propriedade anexável."
   syntax:
     content: public XamlMember (string attachablePropertyName, System.Reflection.MethodInfo getter, System.Reflection.MethodInfo setter, System.Xaml.XamlSchemaContext schemaContext);
     parameters:
     - id: attachablePropertyName
       type: System.String
-      description: "The string name of the attachable property."
+      description: "O nome da cadeia de caracteres da propriedade anexável."
     - id: getter
       type: System.Reflection.MethodInfo
-      description: "The CLR type system <xref:System.Reflection.MethodInfo> for the <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor of the attachable member&quot;s backing implementation."
+      description: "O sistema de tipos CLR <xref:System.Reflection.MethodInfo>para o <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> acessador do membro anexável do fazendo implementação.</xref:System.Reflection.MethodInfo>"
     - id: setter
       type: System.Reflection.MethodInfo
-      description: "The CLR type system <xref:System.Reflection.MethodInfo> for the <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor of the attachable member&quot;s backing implementation."
+      description: "O sistema de tipos CLR <xref:System.Reflection.MethodInfo>para o <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> acessador do membro anexável do fazendo implementação.</xref:System.Reflection.MethodInfo>"
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
-      description: "The <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref> context that qualifies the member."
+      description: "O <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref> contexto que qualifica o membro."
   overload: System.Xaml.XamlMember.#ctor*
   exceptions: []
   platform:
@@ -298,23 +298,23 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> class for a <xref href=&quot;System.Xaml.XamlMember&quot;></xref> that represents an attachable event, including <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> information."
-  remarks: "Use this constructor if the member represents an attachable event member."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> de classe para um <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> que representa um evento anexável, incluindo <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> informações."
+  remarks: "Use este construtor se o membro representa um membro de evento anexável."
   syntax:
     content: public XamlMember (string attachableEventName, System.Reflection.MethodInfo adder, System.Xaml.XamlSchemaContext schemaContext, System.Xaml.Schema.XamlMemberInvoker invoker);
     parameters:
     - id: attachableEventName
       type: System.String
-      description: "The string name of the attachable event."
+      description: "O nome da cadeia de caracteres do evento anexável."
     - id: adder
       type: System.Reflection.MethodInfo
-      description: "The CLR type system <xref:System.Reflection.MethodInfo> for the handler <xref uid=&quot;langword_csharp_Add&quot; name=&quot;Add&quot; href=&quot;&quot;></xref> method of the attachable member&quot;s backing implementation."
+      description: "O sistema de tipos CLR <xref:System.Reflection.MethodInfo>para o manipulador <xref uid=&quot;langword_csharp_Add&quot; name=&quot;Add&quot; href=&quot;&quot;> </xref> método do membro anexável do fazendo implementação.</xref:System.Reflection.MethodInfo>"
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
-      description: "The <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref> context that qualifies the member."
+      description: "O <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref> contexto que qualifica o membro."
     - id: invoker
       type: System.Xaml.Schema.XamlMemberInvoker
-      description: "The <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> implementation that handles run-time invocation calls against the <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
+      description: "O <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> implementação que manipula a invocação de tempo de execução chama em relação a <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
   overload: System.Xaml.XamlMember.#ctor*
   exceptions: []
   platform:
@@ -331,26 +331,26 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Initializes a new instance of the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> class for a <xref href=&quot;System.Xaml.XamlMember&quot;></xref> that represents an attachable property, including <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> information."
-  remarks: "Use this constructor if the member represents an attachable property member."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> de classe para um <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> que representa uma propriedade anexável, incluindo <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> informações."
+  remarks: "Use este construtor se o membro representa um membro de uma propriedade anexável."
   syntax:
     content: public XamlMember (string attachablePropertyName, System.Reflection.MethodInfo getter, System.Reflection.MethodInfo setter, System.Xaml.XamlSchemaContext schemaContext, System.Xaml.Schema.XamlMemberInvoker invoker);
     parameters:
     - id: attachablePropertyName
       type: System.String
-      description: "The string name of the attachable property."
+      description: "O nome da cadeia de caracteres da propriedade anexável."
     - id: getter
       type: System.Reflection.MethodInfo
-      description: "The CLR type system <xref:System.Reflection.MethodInfo> for the <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor of the attachable member&quot;s backing implementation."
+      description: "O sistema de tipos CLR <xref:System.Reflection.MethodInfo>para o <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> acessador do membro anexável do fazendo implementação.</xref:System.Reflection.MethodInfo>"
     - id: setter
       type: System.Reflection.MethodInfo
-      description: "The CLR type system <xref:System.Reflection.MethodInfo> for the <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor of the attachable member&quot;s backing implementation."
+      description: "O sistema de tipos CLR <xref:System.Reflection.MethodInfo>para o <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> acessador do membro anexável do fazendo implementação.</xref:System.Reflection.MethodInfo>"
     - id: schemaContext
       type: System.Xaml.XamlSchemaContext
-      description: "The <xref href=&quot;System.Xaml.XamlSchemaContext&quot;></xref> context that qualifies the member."
+      description: "O <xref href=&quot;System.Xaml.XamlSchemaContext&quot;> </xref> contexto que qualifica o membro."
     - id: invoker
       type: System.Xaml.Schema.XamlMemberInvoker
-      description: "The <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> implementation that handles run-time invocation calls against the <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
+      description: "O <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> implementação que manipula a invocação de tempo de execução chama em relação a <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
   overload: System.Xaml.XamlMember.#ctor*
   exceptions: []
   platform:
@@ -367,13 +367,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets the <xref href=&quot;System.Xaml.XamlType&quot;></xref> for the type that declares the member that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "This value is typically set during initialization and is usually not `null`.      > [!IMPORTANT] >  DeclaringType information can be passed in by constructors for initialization. By calling directly into base constructors, initialization for <xref:System.Xaml.XamlMember> derived classes can omit some of the value-checks that are made in the base class. Therefore, the derived initialization can change the reported type-member relationship information of a XAML member so that it no longer aligns in an expected way with the type system information of its underlying CLR declaration. For any security-critical checks of declaring type information, use the underlying CLR type instead."
+  summary: "Obtém o <xref href=&quot;System.Xaml.XamlType&quot;> </xref> para o tipo que declara o membro que é associado a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "Esse valor normalmente é definida durante a inicialização e não costuma ser `null`.      > [!IMPORTANT] > DeclaringType informações podem ser passadas por construtores para inicialização. Por chamar diretamente os construtores base, a inicialização para <xref:System.Xaml.XamlMember>derivadas de classes podem omitir algumas das verificações de valor que são feitas na classe base.</xref:System.Xaml.XamlMember> Portanto, a inicialização derivada pode alterar as informações de relação de membro de tipo relatado de um membro XAML para que ele não se alinha de forma esperada com as informações de sua declaração de CLR subjacente do sistema de tipo. Para verificações da declaração de tipo informações críticas de segurança, use o tipo CLR subjacente."
   syntax:
     content: public System.Xaml.XamlType DeclaringType { get; }
     return:
       type: System.Xaml.XamlType
-      description: "The <xref href=&quot;System.Xaml.XamlType&quot;></xref> for the type that declares the member that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
+      description: "O <xref href=&quot;System.Xaml.XamlType&quot;> </xref> para o tipo que declara o membro que é associado a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
   overload: System.Xaml.XamlMember.DeclaringType*
   exceptions: []
   platform:
@@ -390,13 +390,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; object, which is used for deferred loading of XAML declared objects."
-  remarks: "Calling DeferringLoader invokes <xref:System.Xaml.XamlMember.LookupDeferringLoader%2A> or a specific override of that method. This behavior occurs in cases where the initial internal reflection logic has not already set the information."
+  summary: "Obtém um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; objeto, que é usado para carregamento adiado dos XAML declarado objetos."
+  remarks: "Chamar DeferringLoader invoca <xref:System.Xaml.XamlMember.LookupDeferringLoader%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupDeferringLoader%2A> Esse comportamento ocorre nos casos em que a lógica de reflexão interno inicial ainda não tiver definido as informações."
   syntax:
     content: public System.Xaml.Schema.XamlValueConverter<System.Xaml.XamlDeferringLoader> DeferringLoader { get; }
     return:
       type: System.Xaml.Schema.XamlValueConverter{System.Xaml.XamlDeferringLoader}
-      description: "A &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; with <xref href=&quot;System.Xaml.XamlDeferringLoader&quot;></xref> constraint on the generic."
+      description: "Um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; com <xref href=&quot;System.Xaml.XamlDeferringLoader&quot;> </xref> restrição genérica."
   overload: System.Xaml.XamlMember.DeferringLoader*
   exceptions: []
   platform:
@@ -413,13 +413,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a list of <xref href=&quot;System.Xaml.XamlMember&quot;></xref> objects. These report the members where dependency relationships for initialization order exist relative to this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "Calling DependsOn invokes <xref:System.Xaml.XamlMember.LookupDependsOn%2A> or a specific override of that method. This behavior occurs in cases where the initial internal reflection logic has not already set the information.       The `DependsOn` pattern can be applied to object model cases that deliberately contradict a general XAML rule. The general XAML rule is that members of a type that are not passed as initialization text (or by a factory method in XAML 2009) must be able to be assigned in any order. By applying a `DependsOn` pattern to a member, you can instruct XAML writers to always process the referenced member before this member. You can apply this pattern in situations where the value of the current member requires context or other information that is only available after the other member is set.       The `DependsOn` pattern should be applied judiciously and reserved for property scenarios where it serves an architectural purpose. Large numbers of dependencies have the potential to slow down XAML processing. Also, it is possible to produce circular dependencies, in which case the XAML processing behavior is undefined.       Example `DependsOn` scenarios from WPF include certain properties on <xref:System.Windows.Controls.ControlTemplate> and <xref:System.Windows.DataTemplate>, on <xref:System.Windows.Trigger>, and on <xref:System.Windows.Setter>."
+  summary: "Obtém uma lista de <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> objetos. Eles reportam os membros em que relações de dependência para ordem de inicialização existem em relação a esse <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "Chamar DependsOn invoca <xref:System.Xaml.XamlMember.LookupDependsOn%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupDependsOn%2A> Esse comportamento ocorre nos casos em que a lógica de reflexão interno inicial ainda não tiver definido as informações.       O `DependsOn` padrão pode ser aplicado a casos de modelo de objeto que deliberadamente contradigam a regra XAML geral. A regra XAML geral é que os membros de um tipo que não são transmitidos como texto de inicialização (ou por um método de fábrica em XAML 2009) devem poder ser atribuídas em qualquer ordem. Aplicando um `DependsOn` padrão para um membro, você pode instruir gravadores XAML para processar sempre o membro referenciado antes desse membro. Você pode aplicar esse padrão em situações em que o valor do membro atual requer contexto ou outras informações que está disponíveis somente depois de outro membro é definido.       O `DependsOn` padrão deve ser aplicado criteriosamente e reservado para cenários de propriedade em que ele tem uma finalidade de arquitetura. Grandes números de dependências têm potencial para reduzir a velocidade de processamento de XAML. Além disso, é possível produzir dependências circulares, caso em que o comportamento de processamento de XAML é indefinido.       Exemplo `DependsOn` cenários do WPF incluem determinadas propriedades em <xref:System.Windows.Controls.ControlTemplate>e <xref:System.Windows.DataTemplate>, na <xref:System.Windows.Trigger>e em <xref:System.Windows.Setter>.</xref:System.Windows.Setter> </xref:System.Windows.Trigger> </xref:System.Windows.DataTemplate> </xref:System.Windows.Controls.ControlTemplate>"
   syntax:
     content: public System.Collections.Generic.IList<System.Xaml.XamlMember> DependsOn { get; }
     return:
       type: System.Collections.Generic.IList{System.Xaml.XamlMember}
-      description: "A list of <xref href=&quot;System.Xaml.XamlMember&quot;></xref> objects."
+      description: "Uma lista de <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> objetos."
   overload: System.Xaml.XamlMember.DependsOn*
   exceptions: []
   platform:
@@ -436,16 +436,16 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Indicates whether the current object is equal to another object."
+  summary: "Indica se o objeto atual é igual a outro objeto."
   syntax:
     content: public override bool Equals (object obj);
     parameters:
     - id: obj
       type: System.Object
-      description: "The object to compare with this object."
+      description: "O objeto a ser comparado com este objeto."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current object is equal to the <code>obj</code> parameter; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o objeto atual é igual a <code> obj </code> parâmetro; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.Equals*
   exceptions: []
   platform:
@@ -462,16 +462,16 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Indicates whether the current object is equal to another object of the same type."
+  summary: "Indica se o objeto atual é igual a outro objeto do mesmo tipo."
   syntax:
     content: public bool Equals (System.Xaml.XamlMember other);
     parameters:
     - id: other
       type: System.Xaml.XamlMember
-      description: "An object to compare with this object."
+      description: "Um objeto a ser comparado com este objeto."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current object is equal to the <code>other</code> parameter; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o objeto atual é igual a <code> other </code> parâmetro; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.Equals*
   exceptions: []
   platform:
@@ -488,13 +488,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns the hash code for this object."
+  summary: "Retorna o código hash para este objeto."
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "An integer hash code."
+      description: "Um código de hash de número inteiro."
   overload: System.Xaml.XamlMember.GetHashCode*
   exceptions: []
   platform:
@@ -511,14 +511,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a list of XAML namespaces where this XAML member can exist."
-  remarks: "The default implementation returns the <xref:System.Xaml.XamlType.GetXamlNamespaces%2A?displayProperty=fullName> call result from the <xref:System.Xaml.XamlMember.DeclaringType%2A> that is associated with this <xref:System.Xaml.XamlMember>."
+  summary: "Retorna uma lista de namespaces XAML onde esse membro XAML pode existir."
+  remarks: "A implementação padrão retorna a <xref:System.Xaml.XamlType.GetXamlNamespaces%2A?displayProperty=fullName>chamar resultado a partir do <xref:System.Xaml.XamlMember.DeclaringType%2A>que está associado esta <xref:System.Xaml.XamlMember>.</xref:System.Xaml.XamlMember> </xref:System.Xaml.XamlMember.DeclaringType%2A> </xref:System.Xaml.XamlType.GetXamlNamespaces%2A?displayProperty=fullName>"
   syntax:
     content: public virtual System.Collections.Generic.IList<string> GetXamlNamespaces ();
     parameters: []
     return:
       type: System.Collections.Generic.IList{System.String}
-      description: "A list of XAML namespace identifiers as strings."
+      description: "Uma lista de identificadores de namespace XAML como cadeias de caracteres."
   overload: System.Xaml.XamlMember.GetXamlNamespaces*
   exceptions: []
   platform:
@@ -535,13 +535,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets the <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> implementation that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "The `Invoker` pattern is an advanced XAML type system extension technique. The `Invoker` pattern provides a way to inject different schema type mapping behavior, while still using XAML type system definitions from .NET Framework XAML Services.       If a <xref:System.Xaml.XamlMember.LookupInvoker%2A> override returns `null`, or if the default implementation returns `null` because it lacks the <xref:System.Xaml.XamlMember.UnderlyingMember%2A> for this <xref:System.Xaml.XamlMember>, the Invoker property returns <xref:System.Xaml.Schema.XamlMemberInvoker.UnknownInvoker%2A?displayProperty=fullName>.       <xref:System.Xaml.Schema.XamlMemberInvoker.UnknownInvoker%2A?displayProperty=fullName> is the default. This is true for most operations that use .NET Framework XAML Services and the default XAML schema context, and where no specific override `Invoker` patterns are passed for construction of XAML type system entities.       Calling Invoker invokes <xref:System.Xaml.XamlMember.LookupInvoker%2A> or a specific override of that method."
+  summary: "Obtém o <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> implementação que está associada a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "O `Invoker` padrão é uma técnica de extensão do sistema de tipo XAML avançada. O `Invoker` padrão fornece uma maneira de inserir o comportamento de mapeamento de tipo de esquema diferente, enquanto estiver usando definições de sistema de tipo XAML de serviços XAML do .NET Framework.       Se um <xref:System.Xaml.XamlMember.LookupInvoker%2A>Substituir retorna `null`, ou se a implementação padrão retorna `null` porque ele não tem a <xref:System.Xaml.XamlMember.UnderlyingMember%2A>para este <xref:System.Xaml.XamlMember>a propriedade do chamador retorna <xref:System.Xaml.Schema.XamlMemberInvoker.UnknownInvoker%2A?displayProperty=fullName>.</xref:System.Xaml.Schema.XamlMemberInvoker.UnknownInvoker%2A?displayProperty=fullName> </xref:System.Xaml.XamlMember> </xref:System.Xaml.XamlMember.UnderlyingMember%2A> </xref:System.Xaml.XamlMember.LookupInvoker%2A>       <xref:System.Xaml.Schema.XamlMemberInvoker.UnknownInvoker%2A?displayProperty=fullName>é o padrão.</xref:System.Xaml.Schema.XamlMemberInvoker.UnknownInvoker%2A?displayProperty=fullName> Isso é verdadeiro para a maioria das operações que usam serviços XAML do .NET Framework e o contexto do esquema XAML padrão e em nenhum específicos substituir `Invoker` padrões são passados para a construção de entidades do sistema de tipo XAML.       Chamar um chamador chama <xref:System.Xaml.XamlMember.LookupInvoker%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupInvoker%2A>"
   syntax:
     content: public System.Xaml.Schema.XamlMemberInvoker Invoker { get; }
     return:
       type: System.Xaml.Schema.XamlMemberInvoker
-      description: "The <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> implementation that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
+      description: "O <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> implementação que está associada a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
   overload: System.Xaml.XamlMember.Invoker*
   exceptions: []
   platform:
@@ -558,13 +558,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> is reported as an ambient property."
-  remarks: "Calling IsAmbient invokes <xref:System.Xaml.XamlMember.LookupIsAmbient%2A> or a specific override of that method. This behavior occurs in implementations where the initial internal reflection logic has not already set the information.       Checking for ambient properties is are usually part of XAML processing logic to make sure that objects and values that rely on ambient usage for type qualification can function correctly. The .NET Framework XAML Services APIs and the default XAML schema context populates this value based on attribution with <xref:System.Windows.Markup.AmbientAttribute>. The default implementation of <xref:System.Xaml.XamlMember.LookupIsAmbient%2A> uses this existing <xref:System.Windows.Markup.AmbientAttribute> technique, and it returns `true` if <xref:System.Windows.Markup.AmbientAttribute> exists on a member declaration.       <xref:System.Windows.Markup.AmbientAttribute> is found on members of several WPF types, which include <xref:System.Windows.Application>, <xref:System.Windows.Setter>, and <xref:System.Windows.Style>. It is also found on the <xref:System.Windows.ResourceDictionary> type, which connotes that any member that uses <xref:System.Windows.ResourceDictionary> as its type should be considered ambient even if the member is not specifically attributed."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> será relatado como uma propriedade de ambiente."
+  remarks: "Chamar IsAmbient invoca <xref:System.Xaml.XamlMember.LookupIsAmbient%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupIsAmbient%2A> Esse comportamento ocorre em implementações onde a lógica de reflexão interno inicial ainda não tiver definido as informações.       Verificando para propriedades de ambiente é geralmente fazem parte da lógica de processamento de XAML para certificar-se de que os objetos e os valores que se baseiam no uso de ambiente para a qualificação do tipo podem funcionar corretamente. APIs de serviços XAML do .NET Framework e o contexto do esquema padrão XAML preenche esse valor com base na atribuição com <xref:System.Windows.Markup.AmbientAttribute>.</xref:System.Windows.Markup.AmbientAttribute> A implementação padrão de <xref:System.Xaml.XamlMember.LookupIsAmbient%2A>usa esse existente <xref:System.Windows.Markup.AmbientAttribute>técnica e retornará `true` se <xref:System.Windows.Markup.AmbientAttribute>existe em uma declaração de membro.</xref:System.Windows.Markup.AmbientAttribute> </xref:System.Windows.Markup.AmbientAttribute> </xref:System.Xaml.XamlMember.LookupIsAmbient%2A>       <xref:System.Windows.Markup.AmbientAttribute>foi encontrado em membros de vários tipos WPF, que incluem <xref:System.Windows.Application>, <xref:System.Windows.Setter>e <xref:System.Windows.Style>.</xref:System.Windows.Style> </xref:System.Windows.Setter> </xref:System.Windows.Application></xref:System.Windows.Markup.AmbientAttribute> Ele também é encontrado na <xref:System.Windows.ResourceDictionary>tipo, que dá a ideia de que qualquer membro que usa <xref:System.Windows.ResourceDictionary>como seu tipo deve ser considerado ambiente mesmo se o membro não é especificamente atribuído.</xref:System.Windows.ResourceDictionary> </xref:System.Windows.ResourceDictionary>"
   syntax:
     content: public bool IsAmbient { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> is reported as an ambient property; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> relatados como uma propriedade de ambiente; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.IsAmbient*
   exceptions: []
   platform:
@@ -581,13 +581,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> is an attachable member."
-  remarks: "The IsAttachable value is initialized based on which constructor was used to construct a <xref:System.Xaml.XamlMember>."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> é um membro anexável."
+  remarks: "O valor de IsAttachable é inicializado com base em qual construtor foi usado para construir um <xref:System.Xaml.XamlMember>.</xref:System.Xaml.XamlMember>"
   syntax:
     content: public bool IsAttachable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> is an attachable member; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> é um membro anexável; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.IsAttachable*
   exceptions: []
   platform:
@@ -604,13 +604,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> is a XAML directive."
-  remarks: "The IsDirective value is initialized based on which constructor was used to construct a <xref:System.Xaml.XamlMember>. The base <xref:System.Xaml.XamlMember> constructors initialize so that IsDirective is `false`. However, the <xref:System.Xaml.XamlDirective> class (a <xref:System.Xaml.XamlMember> derived class) initializes so that IsDirective is `true`.       If you want to report IsDirective as `true` to callers of a custom XAML schema class for XAML members, make sure you derive from <xref:System.Xaml.XamlDirective> because that is the only way to enable that behavior."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> é uma diretiva XAML."
+  remarks: "O valor de IsDirective é inicializado com base em qual construtor foi usado para construir um <xref:System.Xaml.XamlMember>.</xref:System.Xaml.XamlMember> A base <xref:System.Xaml.XamlMember>construtores inicializar para que seja IsDirective `false`.</xref:System.Xaml.XamlMember> No entanto, a <xref:System.Xaml.XamlDirective>classe (um <xref:System.Xaml.XamlMember>classe derivada) inicializa para que seja IsDirective `true`.</xref:System.Xaml.XamlMember> </xref:System.Xaml.XamlDirective>       Se você deseja relatar IsDirective como `true` para chamadores de uma classe personalizada de esquema XAML para membros XAML, verifique se você derivar da <xref:System.Xaml.XamlDirective>porque é a única maneira de habilitar esse comportamento.</xref:System.Xaml.XamlDirective>"
   syntax:
     content: public bool IsDirective { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> is a XAML directive; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> é uma XAML diretiva; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.IsDirective*
   exceptions: []
   platform:
@@ -627,13 +627,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents an event member."
-  remarks: "Calling IsEvent invokes <xref:System.Xaml.XamlMember.LookupIsEvent%2A> or a specific override of that method."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro de evento."
+  remarks: "Chamar IsEvent invoca <xref:System.Xaml.XamlMember.LookupIsEvent%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupIsEvent%2A>"
   syntax:
     content: public bool IsEvent { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents an event; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um evento; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.IsEvent*
   exceptions: []
   platform:
@@ -650,12 +650,12 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> is initialized with a valid <xref uid=&quot;langword_csharp_xamlName&quot; name=&quot;xamlName&quot; href=&quot;&quot;></xref> string as its <xref:System.Xaml.XamlMember.Name*>."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> é inicializada com uma validade <xref uid=&quot;langword_csharp_xamlName&quot; name=&quot;xamlName&quot; href=&quot;&quot;> </xref> cadeia de caracteres como seu <xref:System.Xaml.XamlMember.Name*>.</xref:System.Xaml.XamlMember.Name*>"
   syntax:
     content: public bool IsNameValid { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> is initialized with a valid <xref uid=&quot;langword_csharp_xamlName&quot; name=&quot;xamlName&quot; href=&quot;&quot;></xref> string; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> é inicializada com uma validade <xref uid=&quot;langword_csharp_xamlName&quot; name=&quot;xamlName&quot; href=&quot;&quot;> </xref> de cadeia de caracteres; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.IsNameValid*
   exceptions: []
   platform:
@@ -672,13 +672,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a read-only member."
-  remarks: "Calling IsReadOnly invokes <xref:System.Xaml.XamlMember.LookupIsReadOnly%2A> or a specific override of that method."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro somente leitura."
+  remarks: "Chamar IsReadOnly invoca <xref:System.Xaml.XamlMember.LookupIsReadOnly%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupIsReadOnly%2A>"
   syntax:
     content: public bool IsReadOnly { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a read-only member; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro somente leitura; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.IsReadOnly*
   exceptions: []
   platform:
@@ -695,13 +695,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a member with a callable public <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor."
-  remarks: "The IsReadPublic value checks whether the <xref:System.Xaml.XamlMember.DeclaringType%2A> is public. If <xref:System.Xaml.XamlMember.DeclaringType%2A> is nonpublic, the `get` accessor is not callable in a practical way, and IsReadPublic returns `false`.       Calling IsReadPublic invokes <xref:System.Xaml.XamlMember.LookupIsReadPublic%2A> or a specific override of that method.      > [!IMPORTANT] >  The <xref:System.Xaml.XamlMember.LookupIsReadPublic%2A> method is virtual and therefore, can be overridden. The override has the potential to change (maliciously or otherwise) the reported access information of a XAML member so that it no longer aligns in an expected way with the type system access information of its underlying CLR declaration. For any security-critical checks of access levels, use the underlying CLR type instead."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro com um público que pode ser chamado <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> acessador."
+  remarks: "O IsReadPublic valor verifica se o <xref:System.Xaml.XamlMember.DeclaringType%2A>é público.</xref:System.Xaml.XamlMember.DeclaringType%2A> Se <xref:System.Xaml.XamlMember.DeclaringType%2A>é não público, o `get` acessador não é chamado em uma forma prática e retorna IsReadPublic `false`.</xref:System.Xaml.XamlMember.DeclaringType%2A>       Chamar IsReadPublic invoca <xref:System.Xaml.XamlMember.LookupIsReadPublic%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupIsReadPublic%2A>      > [!IMPORTANT] > O <xref:System.Xaml.XamlMember.LookupIsReadPublic%2A>método é virtual e, portanto, pode ser substituído.</xref:System.Xaml.XamlMember.LookupIsReadPublic%2A> A substituição tem o potencial de mudar (maliciosamente ou não) as informações de acesso reportadas de um membro XAML para que ele não alinhe de forma esperada com as informações de acesso de sua declaração de CLR subjacente do tipo system. Para qualquer verificação de segurança crítica dos níveis de acesso, use o tipo CLR subjacente."
   syntax:
     content: public bool IsReadPublic { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a callable public <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um público que pode ser chamado <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> acessador; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.IsReadPublic*
   exceptions: []
   platform:
@@ -718,13 +718,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether the member is not resolvable by the backing system that is used for type and member resolution."
-  remarks: "A <xref:System.Xaml.XamlMember> that is constructed with the <xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29> signature returns `true` for IsUnknown.       For a load path that involves <xref:System.Xaml.XamlObjectWriter>, a <xref:System.Xaml.XamlMember> with `true` for IsUnknown cannot be written into an object graph. Under the default implementations in .NET Framework XAML Services APIs, the <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName> call throws a <xref:System.Xaml.XamlObjectWriterException> when the relevant <xref:System.Xaml.XamlMember> reports `true` for IsUnknown.       You should not construct a <xref:System.Xaml.XamlMember> that has a value of `true` for IsUnknown unless your implementation can handle the exceptions from <xref:System.Xaml.XamlObjectWriter>, or you have other ways to adjust the <xref:System.Xaml.XamlObjectWriter> behavior.       Calling IsUnknown invokes <xref:System.Xaml.XamlMember.LookupIsUnknown%2A> or a specific override of that method."
+  summary: "Obtém um valor que indica se o membro não é resolvido pelo sistema de backup que é usado para resolução de tipo e membro."
+  remarks: "Um <xref:System.Xaml.XamlMember>que é construído com o <xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29>assinatura retorna `true` para IsUnknown.</xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29> </xref:System.Xaml.XamlMember>       Para um caminho de carga que envolve <xref:System.Xaml.XamlObjectWriter>, um <xref:System.Xaml.XamlMember>com `true` para IsUnknown não pode ser gravado em um gráfico de objeto.</xref:System.Xaml.XamlMember> </xref:System.Xaml.XamlObjectWriter> Sob as implementações padrão de APIs de serviços de XAML do .NET Framework, o <xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>chamar lança um <xref:System.Xaml.XamlObjectWriterException>quando relevante <xref:System.Xaml.XamlMember>relatórios `true` para IsUnknown.</xref:System.Xaml.XamlMember> </xref:System.Xaml.XamlObjectWriterException> </xref:System.Xaml.XamlObjectWriter.WriteStartMember%2A?displayProperty=fullName>       Você não deve criar um <xref:System.Xaml.XamlMember>que tem um valor de `true` para IsUnknown, a menos que sua implementação pode manipular as exceções de <xref:System.Xaml.XamlObjectWriter>, ou você tiver outras maneiras de ajustar o <xref:System.Xaml.XamlObjectWriter>comportamento.</xref:System.Xaml.XamlObjectWriter> </xref:System.Xaml.XamlObjectWriter> </xref:System.Xaml.XamlMember>       Chamar IsUnknown invoca <xref:System.Xaml.XamlMember.LookupIsUnknown%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupIsUnknown%2A>"
   syntax:
     content: public bool IsUnknown { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the member is not resolvable; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the member is resolvable."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o membro não pode ser resolvido; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se o membro puder ser resolvido."
   overload: System.Xaml.XamlMember.IsUnknown*
   exceptions: []
   platform:
@@ -741,13 +741,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a write-only member."
-  remarks: "Calling IsWriteOnly invokes <xref:System.Xaml.XamlMember.LookupIsWriteOnly%2A> or a specific override of that method."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro de somente gravação."
+  remarks: "Chamar IsWriteOnly invoca <xref:System.Xaml.XamlMember.LookupIsWriteOnly%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupIsWriteOnly%2A>"
   syntax:
     content: public bool IsWriteOnly { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a write-only member; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro somente gravação; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.IsWriteOnly*
   exceptions: []
   platform:
@@ -764,13 +764,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a value that indicates whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a member that has a callable public <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor."
-  remarks: "The IsWritePublic value considers whether the <xref:System.Xaml.XamlMember.DeclaringType%2A> is public as part of the determination. If <xref:System.Xaml.XamlMember.DeclaringType%2A> is nonpublic, the `set` accessor is not callable in a practical way, and IsWritePublic returns `false`.       Calling IsWritePublic invokes <xref:System.Xaml.XamlMember.LookupIsWritePublic%2A> or a specific override of that method.      > [!IMPORTANT] >  The <xref:System.Xaml.XamlMember.LookupIsWritePublic%2A> method is virtual and therefore, can be overridden. The override has the potential to change (maliciously or otherwise) the reported access information of a XAML member so that it no longer aligns in an expected way with the type system access information of its underlying CLR declaration. For any security-critical checks of access levels, use the underlying CLR type instead."
+  summary: "Obtém um valor que indica se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro que tem um público que pode ser chamado <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> acessador."
+  remarks: "O valor de IsWritePublic considera se o <xref:System.Xaml.XamlMember.DeclaringType%2A>é público como parte da determinação.</xref:System.Xaml.XamlMember.DeclaringType%2A> Se <xref:System.Xaml.XamlMember.DeclaringType%2A>é não público, o `set` acessador não é chamado em uma forma prática e retorna IsWritePublic `false`.</xref:System.Xaml.XamlMember.DeclaringType%2A>       Chamar IsWritePublic invoca <xref:System.Xaml.XamlMember.LookupIsWritePublic%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupIsWritePublic%2A>      > [!IMPORTANT] > O <xref:System.Xaml.XamlMember.LookupIsWritePublic%2A>método é virtual e, portanto, pode ser substituído.</xref:System.Xaml.XamlMember.LookupIsWritePublic%2A> A substituição tem o potencial de mudar (maliciosamente ou não) as informações de acesso reportadas de um membro XAML para que ele não alinhe de forma esperada com as informações de acesso de sua declaração de CLR subjacente do tipo system. Para qualquer verificação de segurança crítica dos níveis de acesso, use o tipo CLR subjacente."
   syntax:
     content: public bool IsWritePublic { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a callable public <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um público que pode ser chamado <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> acessador; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.IsWritePublic*
   exceptions: []
   platform:
@@ -787,14 +787,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "When implemented in a derived class, returns an <xref href=&quot;System.Reflection.ICustomAttributeProvider&quot;></xref> implementation."
-  remarks: "Override this method to provide the internal reflection with an alternative way to obtain CLR attribute values. In the absence of an override, the internal reflector uses typical CLR reflection logic such as calls to <xref:System.Reflection.CustomAttributeData.GetCustomAttributes%2A>.       The default implementation returns `null`."
+  summary: "Quando implementada em uma classe derivada, retorna um <xref href=&quot;System.Reflection.ICustomAttributeProvider&quot;> </xref> implementação."
+  remarks: "Substitua este método para fornecer a reflexão interna com uma maneira alternativa para obter valores de atributo do CLR. Na ausência de uma substituição, o reflector interno usa a lógica de reflexão típica do CLR como chamadas ao <xref:System.Reflection.CustomAttributeData.GetCustomAttributes%2A>.</xref:System.Reflection.CustomAttributeData.GetCustomAttributes%2A>       A implementação padrão retorna `null`."
   syntax:
     content: protected virtual System.Reflection.ICustomAttributeProvider LookupCustomAttributeProvider ();
     parameters: []
     return:
       type: System.Reflection.ICustomAttributeProvider
-      description: "An <xref href=&quot;System.Reflection.ICustomAttributeProvider&quot;></xref> implementation."
+      description: "Um <xref href=&quot;System.Reflection.ICustomAttributeProvider&quot;> </xref> implementação."
   overload: System.Xaml.XamlMember.LookupCustomAttributeProvider*
   exceptions: []
   platform:
@@ -811,14 +811,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; object, which is used for deferred loading of XAML declared objects."
-  remarks: "This method is invoked when a caller gets a value from the <xref:System.Xaml.XamlMember.DeferringLoader%2A> property. Override this method if you want <xref:System.Xaml.XamlMember.DeferringLoader%2A> to return a value that differs from the value that is enabled by default internal reflection, and if you are also providing custom <xref:System.Xaml.Schema.XamlMemberInvoker> information.       The default implementation returns an object either by reading <xref:System.Windows.Markup.XamlDeferLoadAttribute> or using a <xref:System.Xaml.XamlDeferringLoader> from the declaring type. If neither object is available, this method might return `null`."
+  summary: "Retorna um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; objeto, que é usado para carregamento adiado dos XAML declarado objetos."
+  remarks: "Esse método é chamado quando um chamador obtém um valor da <xref:System.Xaml.XamlMember.DeferringLoader%2A>propriedade.</xref:System.Xaml.XamlMember.DeferringLoader%2A> Substitua este método se desejar <xref:System.Xaml.XamlMember.DeferringLoader%2A>para retornar um valor diferente do valor que é habilitado por reflexão interno do padrão, e se você estiver fornecendo também personalizado <xref:System.Xaml.Schema.XamlMemberInvoker>informações.</xref:System.Xaml.Schema.XamlMemberInvoker> </xref:System.Xaml.XamlMember.DeferringLoader%2A>       A implementação padrão retorna um objeto lendo <xref:System.Windows.Markup.XamlDeferLoadAttribute>ou usando um <xref:System.Xaml.XamlDeferringLoader>do tipo declarativo.</xref:System.Xaml.XamlDeferringLoader> </xref:System.Windows.Markup.XamlDeferLoadAttribute> Se nenhum objeto estiver disponível, esse método pode retornar `null`."
   syntax:
     content: protected virtual System.Xaml.Schema.XamlValueConverter<System.Xaml.XamlDeferringLoader> LookupDeferringLoader ();
     parameters: []
     return:
       type: System.Xaml.Schema.XamlValueConverter{System.Xaml.XamlDeferringLoader}
-      description: "A &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; that has a <xref href=&quot;System.Xaml.XamlDeferringLoader&quot;></xref> constraint on the generic."
+      description: "Um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; que tem um <xref href=&quot;System.Xaml.XamlDeferringLoader&quot;> </xref> restrição genérica."
   overload: System.Xaml.XamlMember.LookupDeferringLoader*
   exceptions: []
   platform:
@@ -835,14 +835,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a list of <xref href=&quot;System.Xaml.XamlMember&quot;></xref> objects. Items in the list report the members where dependency relationships for initialization order exist relative to this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "This method is invoked when a caller gets a value from the <xref:System.Xaml.XamlMember.DependsOn%2A> property. Override this method if you want <xref:System.Xaml.XamlMember.DependsOn%2A> to return a value that differs from the value that is enabled by default internal reflection, and if you are also providing custom <xref:System.Xaml.Schema.XamlMemberInvoker> information.       The WPF XAML reader and writer implementations attribute this case with <xref:System.Windows.Markup.DependsOnAttribute>. The default implementation uses this existing <xref:System.Windows.Markup.DependsOnAttribute> technique.       Override this method if you are not using <xref:System.Windows.Markup.DependsOnAttribute> for this purpose and intend to replace that technique for indicating property processing order with your own technique. If you do not intend to support a property processing order, you can use the default implementation because it returns no results, which is appropriate.       The list is read-only."
+  summary: "Retorna uma lista de <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> objetos. Relatam de itens na lista os membros em que relações de dependência para ordem de inicialização existem em relação a esse <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "Esse método é chamado quando um chamador obtém um valor da <xref:System.Xaml.XamlMember.DependsOn%2A>propriedade.</xref:System.Xaml.XamlMember.DependsOn%2A> Substitua este método se desejar <xref:System.Xaml.XamlMember.DependsOn%2A>para retornar um valor diferente do valor que é habilitado por reflexão interno do padrão, e se você estiver fornecendo também personalizado <xref:System.Xaml.Schema.XamlMemberInvoker>informações.</xref:System.Xaml.Schema.XamlMemberInvoker> </xref:System.Xaml.XamlMember.DependsOn%2A>       As implementações de leitor e gravador do WPF XAML atributo nesse caso com <xref:System.Windows.Markup.DependsOnAttribute>.</xref:System.Windows.Markup.DependsOnAttribute> A implementação padrão usa esse existente <xref:System.Windows.Markup.DependsOnAttribute>técnica.</xref:System.Windows.Markup.DependsOnAttribute>       Substitua este método se você não estiver usando <xref:System.Windows.Markup.DependsOnAttribute>para essa finalidade e a intenção de substituir essa técnica para indicar a ordem de processamento de propriedade com sua própria técnica.</xref:System.Windows.Markup.DependsOnAttribute> Se você não pretende dar suporte a uma ordem de processamento de propriedade, você pode usar a implementação padrão porque ele não retorna nenhum resultado, que é apropriado.       A lista é somente leitura."
   syntax:
     content: protected virtual System.Collections.Generic.IList<System.Xaml.XamlMember> LookupDependsOn ();
     parameters: []
     return:
       type: System.Collections.Generic.IList{System.Xaml.XamlMember}
-      description: "A list of <xref href=&quot;System.Xaml.XamlMember&quot;></xref> objects."
+      description: "Uma lista de <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> objetos."
   overload: System.Xaml.XamlMember.LookupDependsOn*
   exceptions: []
   platform:
@@ -859,8 +859,8 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;></xref> that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "This method is invoked by calls to <xref:System.Xaml.XamlMember.Invoker%2A>.       The default implementation does not require that a <xref:System.Xaml.XamlMember> be constructed by using one of the constructors that pass an initial <xref:System.Xaml.Schema.XamlMemberInvoker>. However, an <xref:System.Xaml.XamlMember.UnderlyingMember%2A> value must exist for the <xref:System.Xaml.XamlMember>; otherwise, the default implementation returns `null`.       Override this method if you also derive from <xref:System.Xaml.Schema.XamlMemberInvoker> and intend to return the derived class. If you return `null`, <xref:System.Xaml.XamlMember.Invoker%2A> returns <xref:System.Xaml.Schema.XamlMemberInvoker.UnknownInvoker%2A?displayProperty=fullName> to callers."
+  summary: "Retorna um <xref href=&quot;System.Xaml.Schema.XamlMemberInvoker&quot;> </xref> que é associada a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "Esse método é invocado por chamadas para <xref:System.Xaml.XamlMember.Invoker%2A>.</xref:System.Xaml.XamlMember.Invoker%2A>       A implementação padrão não requer que um <xref:System.Xaml.XamlMember>ser construídas usando um dos construtores que passam um inicial <xref:System.Xaml.Schema.XamlMemberInvoker>.</xref:System.Xaml.Schema.XamlMemberInvoker> </xref:System.Xaml.XamlMember> No entanto, um <xref:System.Xaml.XamlMember.UnderlyingMember%2A>valor deve existir para o <xref:System.Xaml.XamlMember>; caso contrário, retorna a implementação padrão `null`.</xref:System.Xaml.XamlMember> </xref:System.Xaml.XamlMember.UnderlyingMember%2A>       Substitua este método se você também deriva <xref:System.Xaml.Schema.XamlMemberInvoker>e pretendia retornar classe derivada.</xref:System.Xaml.Schema.XamlMemberInvoker> Se você retornar `null`, <xref:System.Xaml.XamlMember.Invoker%2A>retorna <xref:System.Xaml.Schema.XamlMemberInvoker.UnknownInvoker%2A?displayProperty=fullName>para chamadores.</xref:System.Xaml.Schema.XamlMemberInvoker.UnknownInvoker%2A?displayProperty=fullName> </xref:System.Xaml.XamlMember.Invoker%2A>"
   syntax:
     content: protected virtual System.Xaml.Schema.XamlMemberInvoker LookupInvoker ();
     parameters: []
@@ -883,14 +883,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> is reported as an ambient property."
-  remarks: "This method is invoked by internal calls that check for ambient XAML property information. Ambient property behavior is accounted for in the public API behavior of XAML readers and XAML writers. The internal calls that reference LookupIsAmbient are usually part of XAML processing logic to make sure that objects and values that rely on ambient usage for type qualification can function correctly. The default .NET Framework XAML Services implementation uses CLR attributing to obtain this information from reflection over backing types. Specifically, the default implementation checks for <xref:System.Windows.Markup.AmbientAttribute> and returns `true` for LookupIsAmbient if <xref:System.Windows.Markup.AmbientAttribute> exists on a member definition.       Override this method if you are not using <xref:System.Windows.Markup.AmbientAttribute> for this purpose and intend to replace that technique for indicating ambient XAML properties with your own technique.       Example APIs from WPF that attribute with <xref:System.Windows.Markup.AmbientAttribute> are <xref:System.Windows.Trigger.Property%2A?displayProperty=fullName> and <xref:System.Windows.Style.BasedOn%2A?displayProperty=fullName>."
+  summary: "Retorna se isso <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> será relatado como uma propriedade de ambiente."
+  remarks: "Esse método é invocado por chamadas internas que verificar se há informações de propriedade do ambiente XAML. Comportamento de propriedade de ambiente é contabilizado no comportamento de API público de leitores XAML e gravadores XAML. As chamadas internas que fazem referência a LookupIsAmbient geralmente fazem parte da lógica de processamento de XAML para certificar-se de que os objetos e os valores que se baseiam no uso de ambiente para a qualificação do tipo podem funcionar corretamente. A implementação de serviços XAML do .NET Framework padrão usa a atribuição para obter essas informações de reflexão fazendo tipos CLR. Especificamente, a implementação padrão procura <xref:System.Windows.Markup.AmbientAttribute>e retorna `true` para LookupIsAmbient se <xref:System.Windows.Markup.AmbientAttribute>existe em uma definição de membro.</xref:System.Windows.Markup.AmbientAttribute> </xref:System.Windows.Markup.AmbientAttribute>       Substitua este método se você não estiver usando <xref:System.Windows.Markup.AmbientAttribute>para essa finalidade e a intenção de substituir essa técnica para propriedades de ambiente XAML com sua própria técnica, indicando.</xref:System.Windows.Markup.AmbientAttribute>       APIs de exemplo de atributo com <xref:System.Windows.Markup.AmbientAttribute>são <xref:System.Windows.Trigger.Property%2A?displayProperty=fullName>e <xref:System.Windows.Style.BasedOn%2A?displayProperty=fullName>.</xref:System.Windows.Style.BasedOn%2A?displayProperty=fullName> </xref:System.Windows.Trigger.Property%2A?displayProperty=fullName> </xref:System.Windows.Markup.AmbientAttribute> do WPF"
   syntax:
     content: protected virtual bool LookupIsAmbient ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to report this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> as an ambient property; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>relate isto <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> como uma propriedade de ambiente; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.LookupIsAmbient*
   exceptions: []
   platform:
@@ -907,14 +907,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents an event."
-  remarks: "The default implementation checks whether <xref:System.Xaml.XamlMember.UnderlyingMember%2A> is of type <xref:System.Reflection.EventInfo>, and if it is, returns `true`.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.IsEvent%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available that can be interpreted to determine XAML type system representations on a per-case basis."
+  summary: "Retorna se isso <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um evento."
+  remarks: "As verificações de implementação padrão se <xref:System.Xaml.XamlMember.UnderlyingMember%2A>é do tipo <xref:System.Reflection.EventInfo>e se for, retorna `true`.</xref:System.Reflection.EventInfo> </xref:System.Xaml.XamlMember.UnderlyingMember%2A>       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.IsEvent%2A>.</xref:System.Xaml.XamlMember.IsEvent%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis que podem ser interpretados para determinar o XAML tipo representações de sistema em uma base por caso.</xref:System.Xaml.XamlMember>"
   syntax:
     content: protected virtual bool LookupIsEvent ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to report that this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents an event; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para relatórios que este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um evento; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.LookupIsEvent*
   exceptions: []
   platform:
@@ -931,14 +931,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents an intended read-only property."
-  remarks: "The default implementation returns `true` if <xref:System.Xaml.XamlMember.UnderlyingMember%2A> exists, but a public `set` accessor does not exist for it, as determined by internal reflection.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.IsReadOnly%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available that can be interpreted to determine XAML type system representations on a per-case basis."
+  summary: "Retorna se isso <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa uma propriedade somente leitura pretendida."
+  remarks: "A implementação padrão retorna `true` se <xref:System.Xaml.XamlMember.UnderlyingMember%2A>existe, mas um público `set` acessador não existe para ele, conforme determinado pela reflexão interno.</xref:System.Xaml.XamlMember.UnderlyingMember%2A>       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.IsReadOnly%2A>.</xref:System.Xaml.XamlMember.IsReadOnly%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis que podem ser interpretados para determinar o XAML tipo representações de sistema em uma base por caso.</xref:System.Xaml.XamlMember>"
   syntax:
     content: protected virtual bool LookupIsReadOnly ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to report this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> as an intended read-only property; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>relate isto <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> como uma propriedade somente leitura pretendida; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.LookupIsReadOnly*
   exceptions: []
   platform:
@@ -955,14 +955,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a property that has a public <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor."
-  remarks: "The default implementation returns results based either on internal reflection or the negation of <xref:System.Xaml.XamlMember.IsWriteOnly%2A>, processing in that order.       LookupIsReadPublic returns whether the member itself is public; it returns `true` for a public member on a nonpublic declaring type. Use <xref:System.Xaml.XamlMember.IsReadPublic%2A> instead, if you also want to consider the visibility of the declaring type.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.IsReadPublic%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis.      > [!IMPORTANT] >  The LookupIsReadPublic method is virtual and therefore, can be overridden. The override has the potential to change (maliciously or otherwise) the reported access information of a XAML member so that it no longer aligns in an expected way with the type system access information of its underlying CLR declaration. For any security-critical checks of access levels, use the underlying CLR type instead."
+  summary: "Retorna se isso <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa uma propriedade que tem um público <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> acessador."
+  remarks: "A implementação padrão retorna resultados com base em reflexão interno ou a negação de <xref:System.Xaml.XamlMember.IsWriteOnly%2A>, o processamento nessa ordem.</xref:System.Xaml.XamlMember.IsWriteOnly%2A>       LookupIsReadPublic retorna se o próprio membro é público; ele retorna `true` para um membro público em um confidenciais tipo declarativo. Use <xref:System.Xaml.XamlMember.IsReadPublic%2A>em vez disso, se você também queira considerar a visibilidade do tipo declarativo.</xref:System.Xaml.XamlMember.IsReadPublic%2A>       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.IsReadPublic%2A>.</xref:System.Xaml.XamlMember.IsReadPublic%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember>      > [!IMPORTANT] > LookupIsReadPublic o método é virtual e, portanto, pode ser substituído. A substituição tem o potencial de mudar (maliciosamente ou não) as informações de acesso reportadas de um membro XAML para que ele não alinhe de forma esperada com as informações de acesso de sua declaração de CLR subjacente do tipo system. Para qualquer verificação de segurança crítica dos níveis de acesso, use o tipo CLR subjacente."
   syntax:
     content: protected virtual bool LookupIsReadPublic ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a property that has a public <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa uma propriedade que tem um público <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> acessador; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.LookupIsReadPublic*
   exceptions: []
   platform:
@@ -979,14 +979,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a member that is not resolvable by the backing system that is used for type and member resolution."
-  remarks: "This method may be invoked when a caller gets a value from <xref:System.Xaml.XamlMember.IsUnknown%2A>. The default implementation returns results that are based on either internal reflection or checking for a `null` value of <xref:System.Xaml.XamlMember.UnderlyingMember%2A>, processing in that order.       Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis."
+  summary: "Retorna se isso <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro que não pode ser resolvido pelo sistema de backup que é usado para resolução de tipo e membro."
+  remarks: "Esse método pode ser chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.IsUnknown%2A>.</xref:System.Xaml.XamlMember.IsUnknown%2A> A implementação padrão retorna resultados com base em qualquer reflexão interno ou verificando um `null` valor <xref:System.Xaml.XamlMember.UnderlyingMember%2A>, o processamento nessa ordem.</xref:System.Xaml.XamlMember.UnderlyingMember%2A>       Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember>"
   syntax:
     content: protected virtual bool LookupIsUnknown ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a non-resolvable member; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro não pode ser resolvido; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.LookupIsUnknown*
   exceptions: []
   platform:
@@ -1003,14 +1003,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a member that has a public <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor but not a public <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor."
-  remarks: "The default implementation returns `true` if an <xref:System.Xaml.XamlMember.UnderlyingMember%2A> exists that has a public `set` accessor and a nonpublic `get` accessor, as determined by internal reflection.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.IsWriteOnly%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis."
+  summary: "Retorna se isso <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro que tem um público <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> acessador mas não um público <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> acessador."
+  remarks: "A implementação padrão retorna `true` se um <xref:System.Xaml.XamlMember.UnderlyingMember%2A>existe que tem um público `set` acessador e um confidenciais `get` acessador, conforme determinado pela reflexão interno.</xref:System.Xaml.XamlMember.UnderlyingMember%2A>       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.IsWriteOnly%2A>.</xref:System.Xaml.XamlMember.IsWriteOnly%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember>"
   syntax:
     content: protected virtual bool LookupIsWriteOnly ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a write-only member; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro somente gravação; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.LookupIsWriteOnly*
   exceptions: []
   platform:
@@ -1027,14 +1027,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns whether this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a member that has a public <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor."
-  remarks: "The default implementation returns results based  either internal reflection or the negation of <xref:System.Xaml.XamlMember.IsReadOnly%2A>, processing in that order.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.IsWritePublic%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis.      > [!IMPORTANT] >  The LookupIsWritePublic method is virtual and therefore, can be overridden. The override has the potential to change (maliciously or otherwise) the reported access information of a XAML member so that it no longer aligns in an expected way with the type system access information of its underlying CLR declaration. For any security-critical checks of access levels, use the underlying CLR type instead."
+  summary: "Retorna se isso <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro que tem um público <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> acessador."
+  remarks: "A implementação padrão retorna resultados com base em reflexão interno ou a negação de <xref:System.Xaml.XamlMember.IsReadOnly%2A>, o processamento nessa ordem.</xref:System.Xaml.XamlMember.IsReadOnly%2A>       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.IsWritePublic%2A>.</xref:System.Xaml.XamlMember.IsWritePublic%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember>      > [!IMPORTANT] > LookupIsWritePublic o método é virtual e, portanto, pode ser substituído. A substituição tem o potencial de mudar (maliciosamente ou não) as informações de acesso reportadas de um membro XAML para que ele não alinhe de forma esperada com as informações de acesso de sua declaração de CLR subjacente do tipo system. Para qualquer verificação de segurança crítica dos níveis de acesso, use o tipo CLR subjacente."
   syntax:
     content: protected virtual bool LookupIsWritePublic ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if this <xref href=&quot;System.Xaml.XamlMember&quot;></xref> represents a writable member; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> representa um membro gravável; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.LookupIsWritePublic*
   exceptions: []
   platform:
@@ -1051,14 +1051,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns the <xref href=&quot;System.Xaml.XamlType&quot;></xref> of the type where the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> can exist."
-  remarks: "The default implementation distinguishes between attachable and non-attachable members. For non-attachable members, LookupTargetType always returns <xref:System.Xaml.XamlMember.DeclaringType%2A>. For attachable members, LookupTargetType returns a result based on examining the <xref:System.Xaml.XamlMember.UnderlyingMember%2A> accessor parameter type and interprets that type based on XAML schema context.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.TargetType%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis."
+  summary: "Retorna o <xref href=&quot;System.Xaml.XamlType&quot;> </xref> do tipo onde o <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> pode existir."
+  remarks: "A implementação padrão faz distinção entre os membros anexáveis e não anexável. Para membros não anexável, LookupTargetType sempre retorna <xref:System.Xaml.XamlMember.DeclaringType%2A>.</xref:System.Xaml.XamlMember.DeclaringType%2A> Para membros anexáveis, LookupTargetType retorna um resultado com base em examinar o <xref:System.Xaml.XamlMember.UnderlyingMember%2A>tipo de parâmetro do acessador e interpreta que tipo com base no contexto do esquema XAML.</xref:System.Xaml.XamlMember.UnderlyingMember%2A>       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.TargetType%2A>.</xref:System.Xaml.XamlMember.TargetType%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember>"
   syntax:
     content: protected virtual System.Xaml.XamlType LookupTargetType ();
     parameters: []
     return:
       type: System.Xaml.XamlType
-      description: "The type where the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> can exist. See Remarks."
+      description: "O tipo de onde o <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> pode existir. Consulte comentários."
   overload: System.Xaml.XamlMember.LookupTargetType*
   exceptions: []
   platform:
@@ -1075,14 +1075,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns the <xref href=&quot;System.Xaml.XamlType&quot;></xref> of the type that is used by the member. See Remarks."
-  remarks: "This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.Type%2A>. Override this method if you want <xref:System.Xaml.XamlMember.Type%2A> to return a value that differs from the value that is enabled by default internal reflection, and if you are also providing custom <xref:System.Xaml.Schema.XamlMemberInvoker> information.       The default implementation uses different code paths and conceptual meanings for the returned <xref:System.Xaml.XamlType> that is based on whether this <xref:System.Xaml.XamlMember> represents a property, method, or event.      -   For a property, the returned <xref:System.Xaml.XamlType> is the type that sets the property or is returned by the property.      -   For an event, the returned <xref:System.Xaml.XamlType> is the required event handler type (a delegate in a CLR implementation).      -   For a method, <xref:System.Xaml.XamlType> is the return type.       In each case, XAML schema context is used to evaluate the XAML type from the underlying system type.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.Type%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis."
+  summary: "Retorna o <xref href=&quot;System.Xaml.XamlType&quot;> </xref> do tipo que é usado pelo membro. Consulte comentários."
+  remarks: "Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.Type%2A>.</xref:System.Xaml.XamlMember.Type%2A> Substitua este método se desejar <xref:System.Xaml.XamlMember.Type%2A>para retornar um valor diferente do valor que é habilitado por reflexão interno do padrão, e se você estiver fornecendo também personalizado <xref:System.Xaml.Schema.XamlMemberInvoker>informações.</xref:System.Xaml.Schema.XamlMemberInvoker> </xref:System.Xaml.XamlMember.Type%2A>       A implementação padrão usa caminhos de código diferentes e significados conceituais para retornado <xref:System.Xaml.XamlType>que baseia-se isso <xref:System.Xaml.XamlMember>representa uma propriedade, método ou evento.</xref:System.Xaml.XamlMember> </xref:System.Xaml.XamlType>      -Para uma propriedade, retornada <xref:System.Xaml.XamlType>é o tipo que define a propriedade ou é retornado pela propriedade.</xref:System.Xaml.XamlType>      -Para um evento, retornado <xref:System.Xaml.XamlType>é o tipo de manipulador de eventos necessários (um delegado em uma implementação de CLR).</xref:System.Xaml.XamlType>      -Para um método, <xref:System.Xaml.XamlType>é o tipo de retorno.</xref:System.Xaml.XamlType>       Em cada caso, o contexto do esquema XML é usado para avaliar o tipo XAML do tipo de sistema subjacente.       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.Type%2A>.</xref:System.Xaml.XamlMember.Type%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember>"
   syntax:
     content: protected virtual System.Xaml.XamlType LookupType ();
     parameters: []
     return:
       type: System.Xaml.XamlType
-      description: "The <xref href=&quot;System.Xaml.XamlType&quot;></xref> of the type that is used by the member. See Remarks."
+      description: "O <xref href=&quot;System.Xaml.XamlType&quot;> </xref> do tipo que é usado pelo membro. Consulte comentários."
   overload: System.Xaml.XamlMember.LookupType*
   exceptions: []
   platform:
@@ -1099,14 +1099,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a type converter implementation that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "The default implementation uses the following logic and processing order:      -   If attributing exists at the member level (<xref:System.ComponentModel.TypeConverterAttribute>), the attribute information is used for a call to <xref:System.Xaml.XamlSchemaContext.GetValueConverter%2A> against the XAML schema context.      -   If <xref:System.Xaml.XamlMember.Type%2A> is valid, a type converter that is associated with the type is returned.      -   If the member is an event, an event-specific type converter is returned.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.TypeConverter%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis."
+  summary: "Retorna uma implementação de conversor de tipo que é associada a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "A implementação padrão usa a seguinte lógica e a ordem de processamento: - se a atribuição existe no nível de membro (<xref:System.ComponentModel.TypeConverterAttribute>), as informações de atributo são usadas para chamar <xref:System.Xaml.XamlSchemaContext.GetValueConverter%2A>em relação ao contexto de esquema XAML.</xref:System.Xaml.XamlSchemaContext.GetValueConverter%2A> </xref:System.ComponentModel.TypeConverterAttribute>      -Se <xref:System.Xaml.XamlMember.Type%2A>for válido, um conversor de tipo que está associado com o tipo será retornado.</xref:System.Xaml.XamlMember.Type%2A>      -Se o membro é um evento, será retornado um conversor de tipo de evento específico.       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.TypeConverter%2A>.</xref:System.Xaml.XamlMember.TypeConverter%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember>"
   syntax:
     content: protected virtual System.Xaml.Schema.XamlValueConverter<System.ComponentModel.TypeConverter> LookupTypeConverter ();
     parameters: []
     return:
       type: System.Xaml.Schema.XamlValueConverter{System.ComponentModel.TypeConverter}
-      description: "A &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; instance with <xref href=&quot;System.ComponentModel.TypeConverter&quot;></xref> constraint; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; instância com <xref href=&quot;System.ComponentModel.TypeConverter&quot;> </xref> restrição; ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.LookupTypeConverter*
   exceptions: []
   platform:
@@ -1123,14 +1123,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "The default implementation interprets the <xref:System.Xaml.XamlMember.UnderlyingMember%2A> property as <xref:System.Reflection.PropertyInfo> and returns the value of <xref:System.Reflection.PropertyInfo.GetGetMethod%2A?displayProperty=fullName> (with the parameter set to `true`), which means that the returned method can be nonpublic. This behavior can result in `null` for certain cases. including cases where no associated accessor exists or the member is not a property.       This method is invoked when a caller gets a value from the <xref:System.Xaml.Schema.XamlMemberInvoker.UnderlyingGetter%2A> property on an associated <xref:System.Xaml.Schema.XamlMemberInvoker>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis. Make sure to implement LookupUnderlyingGetter, <xref:System.Xaml.XamlMember.LookupUnderlyingSetter%2A>, and <xref:System.Xaml.XamlMember.LookupUnderlyingMember%2A> so that they all return correlated results."
+  summary: "Retorna um <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> acessador que está associado a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "A implementação padrão interpreta o <xref:System.Xaml.XamlMember.UnderlyingMember%2A>a propriedade como <xref:System.Reflection.PropertyInfo>e retorna o valor de <xref:System.Reflection.PropertyInfo.GetGetMethod%2A?displayProperty=fullName>(com o parâmetro definido `true`), que significa que o método retornado pode ser confidenciais.</xref:System.Reflection.PropertyInfo.GetGetMethod%2A?displayProperty=fullName> </xref:System.Reflection.PropertyInfo> </xref:System.Xaml.XamlMember.UnderlyingMember%2A> Esse comportamento pode resultar em `null` para determinados casos. incluindo casos em que nenhum acessador associado existe ou o membro não é uma propriedade.       Esse método é chamado quando um chamador obtém um valor da <xref:System.Xaml.Schema.XamlMemberInvoker.UnderlyingGetter%2A>propriedade em um associado <xref:System.Xaml.Schema.XamlMemberInvoker>.</xref:System.Xaml.Schema.XamlMemberInvoker> </xref:System.Xaml.Schema.XamlMemberInvoker.UnderlyingGetter%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember> Certifique-se de implementar LookupUnderlyingGetter, <xref:System.Xaml.XamlMember.LookupUnderlyingSetter%2A>, e <xref:System.Xaml.XamlMember.LookupUnderlyingMember%2A>para que retornem resultados correlacionados.</xref:System.Xaml.XamlMember.LookupUnderlyingMember%2A> </xref:System.Xaml.XamlMember.LookupUnderlyingSetter%2A>"
   syntax:
     content: protected virtual System.Reflection.MethodInfo LookupUnderlyingGetter ();
     parameters: []
     return:
       type: System.Reflection.MethodInfo
-      description: "The <xref:System.Reflection.MethodInfo> for the associated <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;></xref> accessor; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "O <xref:System.Reflection.MethodInfo>associado <xref uid=&quot;langword_csharp_get&quot; name=&quot;get&quot; href=&quot;&quot;> </xref> acessador; ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Reflection.MethodInfo>"
   overload: System.Xaml.XamlMember.LookupUnderlyingGetter*
   exceptions: []
   platform:
@@ -1147,14 +1147,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a CLR type system <xref:System.Reflection.MemberInfo> that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "The default implementation returns the underlying member information, which is based on construction. If the <xref:System.Reflection.MemberInfo> object is constructed with a signature that does not provide enough information to set the underlying member, this method returns `null`.       If an underlying member was set during construction, you should not need to call this method.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.UnderlyingMember%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis. Make sure to implement <xref:System.Xaml.XamlMember.LookupUnderlyingGetter%2A>, <xref:System.Xaml.XamlMember.LookupUnderlyingSetter%2A>, and LookupUnderlyingMember so that they all return correlated results."
+  summary: "Retorna um sistema de tipos CLR <xref:System.Reflection.MemberInfo>que é associada a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>.</xref:System.Reflection.MemberInfo>"
+  remarks: "A implementação padrão retorna as informações de membro subjacente, que se baseia em construção. Se o <xref:System.Reflection.MemberInfo>objeto for construído com uma assinatura que não fornece informações suficientes para definir o membro base, esse método retorna `null`.</xref:System.Reflection.MemberInfo>       Se um membro subjacente foi definido durante a construção, você não precisará chamar esse método.       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.UnderlyingMember%2A>.</xref:System.Xaml.XamlMember.UnderlyingMember%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember> Certifique-se de implementar <xref:System.Xaml.XamlMember.LookupUnderlyingGetter%2A>, <xref:System.Xaml.XamlMember.LookupUnderlyingSetter%2A>, LookupUnderlyingMember para que todos eles retornem resultados correlacionados.</xref:System.Xaml.XamlMember.LookupUnderlyingSetter%2A> </xref:System.Xaml.XamlMember.LookupUnderlyingGetter%2A>"
   syntax:
     content: protected virtual System.Reflection.MemberInfo LookupUnderlyingMember ();
     parameters: []
     return:
       type: System.Reflection.MemberInfo
-      description: "A CLR type system <xref:System.Reflection.MemberInfo> object that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Um sistema de tipos CLR <xref:System.Reflection.MemberInfo>objeto que está associado com esta <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>; ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Reflection.MemberInfo>"
   overload: System.Xaml.XamlMember.LookupUnderlyingMember*
   exceptions: []
   platform:
@@ -1171,14 +1171,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "The default implementation interprets <xref:System.Xaml.XamlMember.UnderlyingMember%2A> as <xref:System.Reflection.PropertyInfo> and returns the value of <xref:System.Reflection.PropertyInfo.GetSetMethod%2A?displayProperty=fullName> (with the parameter set to `true`), which means that the returned method can be nonpublic. This can result in `null` for certain cases, including cases where there is no such accessor, or the member is not a property.       This method is invoked when a caller gets a value from <xref:System.Xaml.Schema.XamlMemberInvoker.UnderlyingSetter%2A> on an associated <xref:System.Xaml.Schema.XamlMemberInvoker>.Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis. Make sure to implement <xref:System.Xaml.XamlMember.LookupUnderlyingGetter%2A>, LookupUnderlyingSetter, and <xref:System.Xaml.XamlMember.LookupUnderlyingMember%2A> so that they all return correlated results."
+  summary: "Retorna um <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> acessador que está associado a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "A implementação padrão interpreta <xref:System.Xaml.XamlMember.UnderlyingMember%2A>como <xref:System.Reflection.PropertyInfo>e retorna o valor de <xref:System.Reflection.PropertyInfo.GetSetMethod%2A?displayProperty=fullName>(com o parâmetro definido `true`), que significa que o método retornado pode ser confidenciais.</xref:System.Reflection.PropertyInfo.GetSetMethod%2A?displayProperty=fullName> </xref:System.Reflection.PropertyInfo> </xref:System.Xaml.XamlMember.UnderlyingMember%2A> Isso pode resultar em `null` para certos casos, inclusive os casos em que não há nenhum tal acessador ou o membro não é uma propriedade.       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.Schema.XamlMemberInvoker.UnderlyingSetter%2A>em um <xref:System.Xaml.Schema.XamlMemberInvoker>associado. Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember> </xref:System.Xaml.Schema.XamlMemberInvoker> </xref:System.Xaml.Schema.XamlMemberInvoker.UnderlyingSetter%2A> Certifique-se de implementar <xref:System.Xaml.XamlMember.LookupUnderlyingGetter%2A>, LookupUnderlyingSetter, e <xref:System.Xaml.XamlMember.LookupUnderlyingMember%2A>para que retornem resultados correlacionados.</xref:System.Xaml.XamlMember.LookupUnderlyingMember%2A> </xref:System.Xaml.XamlMember.LookupUnderlyingGetter%2A>"
   syntax:
     content: protected virtual System.Reflection.MethodInfo LookupUnderlyingSetter ();
     parameters: []
     return:
       type: System.Reflection.MethodInfo
-      description: "The <xref:System.Reflection.MethodInfo> for the associated <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;></xref> accessor; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "O <xref:System.Reflection.MethodInfo>associado <xref uid=&quot;langword_csharp_set&quot; name=&quot;set&quot; href=&quot;&quot;> </xref> acessador; ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Reflection.MethodInfo>"
   overload: System.Xaml.XamlMember.LookupUnderlyingSetter*
   exceptions: []
   platform:
@@ -1195,14 +1195,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a value serializer implementation that is associated with this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "The default implementation uses the following logic and processing order:      -   If attributing exists at the member level (<xref:System.Windows.Markup.ValueSerializerAttribute>), the attribute information is used for a call to <xref:System.Xaml.XamlSchemaContext.GetValueConverter%2A> against the XAML schema context.      -   If <xref:System.Xaml.XamlMember.Type%2A> is valid, a value converter that is associated with the type is returned.      -   If the previous conditions do not apply, `null` is returned.       This method is invoked when a caller gets a value from <xref:System.Xaml.XamlMember.ValueSerializer%2A>. Override this method if you want to report uniform results for an entire <xref:System.Xaml.XamlMember> derived class, or if you have specialized metadata available to determine this on a per-case basis."
+  summary: "Retorna uma implementação de serializador de valor que é associada a essa <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "A implementação padrão usa a seguinte lógica e a ordem de processamento: - se a atribuição existe no nível de membro (<xref:System.Windows.Markup.ValueSerializerAttribute>), as informações de atributo são usadas para chamar <xref:System.Xaml.XamlSchemaContext.GetValueConverter%2A>em relação ao contexto de esquema XAML.</xref:System.Xaml.XamlSchemaContext.GetValueConverter%2A> </xref:System.Windows.Markup.ValueSerializerAttribute>      -Se <xref:System.Xaml.XamlMember.Type%2A>for válido, um conversor de valor que está associado com o tipo será retornado.</xref:System.Xaml.XamlMember.Type%2A>      -Se não se aplicam as condições anteriores, `null` será retornado.       Esse método é chamado quando um chamador obtém um valor de <xref:System.Xaml.XamlMember.ValueSerializer%2A>.</xref:System.Xaml.XamlMember.ValueSerializer%2A> Substitua este método se você deseja relatar resultados uniforme para toda uma <xref:System.Xaml.XamlMember>derivado da classe, ou se você tiver um especializado metadados disponíveis para determinar isso em uma base por caso.</xref:System.Xaml.XamlMember>"
   syntax:
     content: protected virtual System.Xaml.Schema.XamlValueConverter<System.Windows.Markup.ValueSerializer> LookupValueSerializer ();
     parameters: []
     return:
       type: System.Xaml.Schema.XamlValueConverter{System.Windows.Markup.ValueSerializer}
-      description: "A &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; instance with <xref:System.Windows.Markup.ValueSerializer> constraint, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; instância com <xref:System.Windows.Markup.ValueSerializer>restrição, ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>.</xref:System.Windows.Markup.ValueSerializer>"
   overload: System.Xaml.XamlMember.LookupValueSerializer*
   exceptions: []
   platform:
@@ -1219,13 +1219,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets the <xref uid=&quot;langword_csharp_xamlName&quot; name=&quot;xamlName&quot; href=&quot;&quot;></xref> name string that declares this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "This value is always set during construction. The constructors that are implemented by <xref:System.Xaml.XamlMember> typically throw an exception if an initial name is not specified; therefore, do not expect this property to be `null` or an empty string, if you are using default .NET Framework XAML Services implementations.       [XamlName Grammar](~/add/includes/ajax-current-ext-md.md) and naming rules for CLR type and members are not an exact intersect. It is possible to declare a member name that is legal under CLR but not valid under XAML naming. You should avoid this situation if possible."
+  summary: "Obtém o <xref uid=&quot;langword_csharp_xamlName&quot; name=&quot;xamlName&quot; href=&quot;&quot;> </xref> nome de cadeia de caracteres que declara isso <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "Esse valor é sempre definido durante a construção. Os construtores que são implementados por <xref:System.Xaml.XamlMember>normalmente lançar uma exceção se não for especificado um nome inicial; portanto, não espere essa propriedade para ser `null` ou uma cadeia de caracteres vazia, se você estiver usando as implementações padrão de serviços XAML do .NET Framework.</xref:System.Xaml.XamlMember>       [Gramática XamlName](~/add/includes/ajax-current-ext-md.md) e as regras de nomenclatura para o tipo CLR e os membros não são uma interseção exata. É possível declarar um nome de membro que é válido em CLR, mas não é válido em XAML de nomenclatura. Você deve evitar essa situação, se possível."
   syntax:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "The <xref uid=&quot;langword_csharp_xamlName&quot; name=&quot;xamlName&quot; href=&quot;&quot;></xref> name string that declares this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
+      description: "O <xref uid=&quot;langword_csharp_xamlName&quot; name=&quot;xamlName&quot; href=&quot;&quot;> </xref> nome de cadeia de caracteres que declara isso <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
   overload: System.Xaml.XamlMember.Name*
   exceptions: []
   platform:
@@ -1242,7 +1242,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Determines whether two specified <xref href=&quot;System.Xaml.XamlMember&quot;></xref> objects have the same value."
+  summary: "Determina se duas especificadas <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> objetos têm o mesmo valor."
   syntax:
     content: public static bool op_Equality (System.Xaml.XamlMember xamlMember1, System.Xaml.XamlMember xamlMember2);
     parameters:
@@ -1254,7 +1254,7 @@ items:
       description: "A <xref href=&quot;System.Xaml.XamlMember&quot;></xref> or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the value of <code>xamlMember1</code> is the same as the value of <code>xamlMember2</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o valor de <code> xamlMember1 </code> é o mesmo que o valor de <code> xamlMember2 </code>; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.op_Equality*
   exceptions: []
   platform:
@@ -1271,7 +1271,7 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Determines whether two specified <xref href=&quot;System.Xaml.XamlMember&quot;></xref> objects have different values."
+  summary: "Determina se duas especificadas <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> objetos têm valores diferentes."
   syntax:
     content: public static bool op_Inequality (System.Xaml.XamlMember xamlMember1, System.Xaml.XamlMember xamlMember2);
     parameters:
@@ -1283,7 +1283,7 @@ items:
       description: "A <xref href=&quot;System.Xaml.XamlMember&quot;></xref> or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the value of <code>xamlMember1</code> differs from the value of <code>xamlMember2</code>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o valor de <code> xamlMember1 </code> difere do valor de <code> xamlMember2 </code>; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.op_Inequality*
   exceptions: []
   platform:
@@ -1300,13 +1300,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets the single XAML namespace URI that identifies the primary XAML namespace for this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "The PreferredXamlNamespace property provides the same value as calling <xref:System.Xaml.XamlMember.GetXamlNamespaces%2A> and then getting the first value string from the returned list. The preferred XAML namespace should be used when writing the member back to text or other representations that preserve XAML namespace information."
+  summary: "Obtém o namespace XAML URI que identifica o namespace XAML primário para esse único <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "A propriedade PreferredXamlNamespace fornece o mesmo valor que a chamada <xref:System.Xaml.XamlMember.GetXamlNamespaces%2A>e, em seguida, obter a primeira cadeia de caracteres do valor da lista retornada.</xref:System.Xaml.XamlMember.GetXamlNamespaces%2A> O namespace XAML preferencial deve ser usado ao gravar o membro de volta para o texto ou outras representações que preservam as informações de namespace XAML."
   syntax:
     content: public string PreferredXamlNamespace { get; }
     return:
       type: System.String
-      description: "The identifier for the primary XAML namespace for this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>, as a string."
+      description: "O identificador do namespace XAML primário para este <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>, como uma cadeia de caracteres."
   overload: System.Xaml.XamlMember.PreferredXamlNamespace*
   exceptions: []
   platform:
@@ -1323,12 +1323,12 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a <xref href=&quot;System.ComponentModel.DesignerSerializationVisibility&quot;></xref> value, which indicates how a visual designer should process the member."
+  summary: "Obtém um <xref href=&quot;System.ComponentModel.DesignerSerializationVisibility&quot;> </xref> valor que indica como um designer visual deve processar o membro."
   syntax:
     content: public System.ComponentModel.DesignerSerializationVisibility SerializationVisibility { get; }
     return:
       type: System.ComponentModel.DesignerSerializationVisibility
-      description: "A value of the <xref href=&quot;System.ComponentModel.DesignerSerializationVisibility&quot;></xref> enumeration. The default is <xref href=&quot;System.ComponentModel.DesignerSerializationVisibility&quot;></xref>."
+      description: "Um valor de <xref href=&quot;System.ComponentModel.DesignerSerializationVisibility&quot;> </xref> enumeração. O padrão é <xref href=&quot;System.ComponentModel.DesignerSerializationVisibility&quot;> </xref>."
   overload: System.Xaml.XamlMember.SerializationVisibility*
   exceptions: []
   platform:
@@ -1345,13 +1345,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets the <xref href=&quot;System.Xaml.XamlType&quot;></xref> of the type where the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> can exist."
-  remarks: "The returned value is different for attachable and non-attachable members. For non-attachable members, TargetType returns <xref:System.Xaml.XamlMember.DeclaringType%2A>. For attachable members, <xref:System.Xaml.XamlMember.LookupTargetType%2A> returns a result that is based on this logic:      -   If reflection cannot resolve a backing (<xref:System.Xaml.XamlMember.IsUnknown%2A> `true`), this method returns an internal constant that represents a generic object type.      -   If the previous condition does not apply, <xref:System.Xaml.XamlMember.LookupTargetType%2A> is called. The default implementation returns a <xref:System.Xaml.XamlType> that is based on examining the methods that implement the `get` and `set` accessors. A class might override <xref:System.Xaml.XamlMember.LookupTargetType%2A> to use a different behavior such as other metadata forms that might report target types for attachable members."
+  summary: "Obtém o <xref href=&quot;System.Xaml.XamlType&quot;> </xref> do tipo onde o <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> pode existir."
+  remarks: "O valor retornado é diferente para membros anexáveis e não anexável. Para membros não anexável, TargetType retorna <xref:System.Xaml.XamlMember.DeclaringType%2A>.</xref:System.Xaml.XamlMember.DeclaringType%2A> Para membros anexáveis, <xref:System.Xaml.XamlMember.LookupTargetType%2A>retorna um resultado com base em lógica: - se de reflexão não é possível resolver um backup (<xref:System.Xaml.XamlMember.IsUnknown%2A> `true`), esse método retorna uma constante interna que representa um tipo de objeto genérico.</xref:System.Xaml.XamlMember.IsUnknown%2A> </xref:System.Xaml.XamlMember.LookupTargetType%2A>      -Se a condição anterior não se aplica, <xref:System.Xaml.XamlMember.LookupTargetType%2A>é chamado.</xref:System.Xaml.XamlMember.LookupTargetType%2A> A implementação padrão retorna um <xref:System.Xaml.XamlType>que se baseia no examinando os métodos que implementam o `get` e `set` acessadores.</xref:System.Xaml.XamlType> Uma classe pode substituir <xref:System.Xaml.XamlMember.LookupTargetType%2A>usar um comportamento diferente, como outros metadados de formulários que poderá reportar os tipos de destino para membros anexáveis.</xref:System.Xaml.XamlMember.LookupTargetType%2A>"
   syntax:
     content: public System.Xaml.XamlType TargetType { get; }
     return:
       type: System.Xaml.XamlType
-      description: "The type where the <xref href=&quot;System.Xaml.XamlMember&quot;></xref> can exist. See Remarks."
+      description: "O tipo de onde o <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> pode existir. Consulte comentários."
   overload: System.Xaml.XamlMember.TargetType*
   exceptions: []
   platform:
@@ -1368,14 +1368,14 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Returns a string representation of this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
-  remarks: "This implementation returns <xref:System.Xaml.XamlMember.Name%2A>."
+  summary: "Retorna uma representação de cadeia de caracteres deste <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
+  remarks: "Essa implementação retorna <xref:System.Xaml.XamlMember.Name%2A>.</xref:System.Xaml.XamlMember.Name%2A>"
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "A string representation of this <xref href=&quot;System.Xaml.XamlMember&quot;></xref>."
+      description: "Uma representação de cadeia de caracteres deste <xref href=&quot;System.Xaml.XamlMember&quot;> </xref>."
   overload: System.Xaml.XamlMember.ToString*
   exceptions: []
   platform:
@@ -1392,13 +1392,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets the <xref href=&quot;System.Xaml.XamlType&quot;></xref> of the type that is used by the member."
-  remarks: "Calling Type invokes <xref:System.Xaml.XamlMember.LookupType%2A> or a specific override of that method. This occurs when the initial internal reflection logic has not already set the information.       In the default behavior (no <xref:System.Xaml.XamlMember.LookupType%2A> override), the returned <xref:System.Xaml.XamlType> can have different conceptual meanings. Which meaning applies depends on whether this <xref:System.Xaml.XamlMember> represents a property, method, or event, as the following list shows:      -   For a property, the returned <xref:System.Xaml.XamlType> is the type that sets the property or is returned by the property.      -   For an event, the returned <xref:System.Xaml.XamlType> is the required event handler type (a delegate in a CLR implementation).      -   For a method, <xref:System.Xaml.XamlType> is the return type of that method, which may be `null`.       In each case, the XAML schema context is used to evaluate the XAML type from the backing type."
+  summary: "Obtém o <xref href=&quot;System.Xaml.XamlType&quot;> </xref> do tipo que é usado pelo membro."
+  remarks: "Tipo de chamada invoca <xref:System.Xaml.XamlMember.LookupType%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupType%2A> Isso ocorre quando a lógica de reflexão interno inicial ainda não tiver definido as informações.       No comportamento padrão (nenhuma <xref:System.Xaml.XamlMember.LookupType%2A>Substituir), retornado <xref:System.Xaml.XamlType>pode ter diferentes significados conceituais.</xref:System.Xaml.XamlType> </xref:System.Xaml.XamlMember.LookupType%2A> Aplica-se qual significado depende se isso <xref:System.Xaml.XamlMember>representa uma propriedade, método ou evento, como mostra a lista a seguir: - para uma propriedade, retornada <xref:System.Xaml.XamlType>é o tipo que define a propriedade ou é retornado pela propriedade.</xref:System.Xaml.XamlType> </xref:System.Xaml.XamlMember>      -Para um evento, retornado <xref:System.Xaml.XamlType>é o tipo de manipulador de eventos necessários (um delegado em uma implementação de CLR).</xref:System.Xaml.XamlType>      -Para um método, <xref:System.Xaml.XamlType>é o tipo de retorno desse método, o que pode ser `null`.</xref:System.Xaml.XamlType>       Em cada caso, o contexto do esquema XAML é usado para avaliar o tipo XAML do tipo de backup."
   syntax:
     content: public System.Xaml.XamlType Type { get; }
     return:
       type: System.Xaml.XamlType
-      description: "The <xref href=&quot;System.Xaml.XamlType&quot;></xref> of the type that is used by the member. See Remarks."
+      description: "O <xref href=&quot;System.Xaml.XamlType&quot;> </xref> do tipo que é usado pelo membro. Consulte comentários."
   overload: System.Xaml.XamlMember.Type*
   exceptions: []
   platform:
@@ -1415,13 +1415,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; object, which can be used for type conversion construction of XAML declared objects."
-  remarks: "Calling TypeConverter invokes <xref:System.Xaml.XamlMember.LookupTypeConverter%2A> or a specific override of that method. This behavior occurs when the initial internal reflection logic has not already set the information.       Implementations that return a non-null property value for TypeConverter are not necessarily a working <xref:System.ComponentModel.TypeConverter>. The following is a list of possible non-null return values for TypeConverter and what these values represent:      -   The return value reports a type converter that is attributed specifically to that member or more generally to the target type of the converter. This behavior is typically what most XAML type systems and XAML processors look for in order to instantiate a type converter and invoke its methods.      -   The return value reports a built-in value converter. These converters exist for certain internal operations that are performed by a XAML writer. In particular, these built-in value converters convert the raw attribute string values to the XAML language-level primitives. For the .NET Framework XAML Services implementation, these built-in type conversions often forward to a type converter that is defined in the System assembly. For example, a conversion for an <xref:System.Int32> value has built-in forwarded conversion, and therefore, the <xref:System.Xaml.Schema.XamlValueConverter%601.ConverterType%2A> value references <xref:System.ComponentModel.Int32Converter>.      -   The return value reports the special case of an unconstrained object model; that is, the <xref:System.Xaml.XamlMember> has a <xref:System.Xaml.XamlMember.Type%2A> value of <xref:System.Object>. In this case, the <xref:System.Xaml.Schema.XamlValueConverter%601> reports that the <xref:System.Xaml.Schema.XamlValueConverter%601.Name%2A?displayProperty=fullName> is {`Object}`. However, <xref:System.Xaml.Schema.XamlValueConverter%601.ConverterInstance%2A> is `null` because no actual type or instance is available to perform this conversion. Instead, the object model behavior cannot be determined until run time, when the runtime of the specific technology determines the handling of its object graph.       If you can access a working <xref:System.ComponentModel.TypeConverter> from <xref:System.Xaml.Schema.XamlValueConverter%601.ConverterInstance%2A>, you can invoke its conversion methods. However, many conversion methods rely on service context. If you do not have the same service context available that the type converter expects for its typical role of writing objects for object graphs, the converter methods can throw exceptions."
+  summary: "Obtém um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; objeto, que pode ser usado para a construção de conversão de tipo de XAML declarado objetos."
+  remarks: "Chamar TypeConverter invoca <xref:System.Xaml.XamlMember.LookupTypeConverter%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupTypeConverter%2A> Esse comportamento ocorre quando a lógica de reflexão interno inicial ainda não tiver definido as informações.       Implementações que retornam um valor de propriedade nulos para TypeConverter não são necessariamente um trabalho <xref:System.ComponentModel.TypeConverter>.</xref:System.ComponentModel.TypeConverter> A seguir está uma lista de possíveis valores de retorno não nulo para TypeConverter e esses valores representam:-o valor de retorno relata um conversor de tipo é atribuído especificamente para esse membro ou de forma geral para o tipo de destino do conversor. Normalmente, esse comportamento é que a maioria dos sistemas de tipo XAML e procure processadores XAML para instanciar um conversor de tipo e chamar seus métodos.      -O valor de retorno relata um conversor de valor interno. Esses conversores existem para determinadas operações internas que são executadas por um autor XAML. Em particular, esses conversores de valor interno converter os valores de cadeia de caracteres bruta de atributo para os primitivos de nível de linguagem XAML. Para a implementação de serviços XAML do .NET Framework, essas conversões de tipo interno geralmente encaminham para um conversor de tipo é definido no assembly System. Por exemplo, uma conversão para um <xref:System.Int32>valor tem interno encaminhado conversão e, portanto, as <xref:System.Xaml.Schema.XamlValueConverter%601.ConverterType%2A>referências de valor <xref:System.ComponentModel.Int32Converter>.</xref:System.ComponentModel.Int32Converter> </xref:System.Xaml.Schema.XamlValueConverter%601.ConverterType%2A> </xref:System.Int32>      -O valor de retorno relatórios caso especial de um modelo de objeto irrestrita; ou seja, o <xref:System.Xaml.XamlMember>tem um <xref:System.Xaml.XamlMember.Type%2A>valor de <xref:System.Object>.</xref:System.Object> </xref:System.Xaml.XamlMember.Type%2A> </xref:System.Xaml.XamlMember> Nesse caso, a <xref:System.Xaml.Schema.XamlValueConverter%601>relata que o <xref:System.Xaml.Schema.XamlValueConverter%601.Name%2A?displayProperty=fullName>é {`Object}`.</xref:System.Xaml.Schema.XamlValueConverter%601.Name%2A?displayProperty=fullName> </xref:System.Xaml.Schema.XamlValueConverter%601> No entanto, <xref:System.Xaml.Schema.XamlValueConverter%601.ConverterInstance%2A>é `null` porque nenhum tipo real ou a instância está disponível para realizar essa conversão.</xref:System.Xaml.Schema.XamlValueConverter%601.ConverterInstance%2A> Em vez disso, o comportamento do modelo de objeto não pode ser determinado até o tempo de execução, quando o tempo de execução da tecnologia específica determina a manipulação de seu gráfico de objeto.       Se você puder acessar um trabalho <xref:System.ComponentModel.TypeConverter>de <xref:System.Xaml.Schema.XamlValueConverter%601.ConverterInstance%2A>, você pode chamar seus métodos de conversão.</xref:System.Xaml.Schema.XamlValueConverter%601.ConverterInstance%2A> </xref:System.ComponentModel.TypeConverter> No entanto, vários métodos de conversão confiam no contexto do serviço. Se você não tem o mesmo contexto de serviço disponível que o conversor de tipo de espera para sua função típica de gravação de objetos para gráficos de objeto, os métodos de conversor podem gerar exceções."
   syntax:
     content: public System.Xaml.Schema.XamlValueConverter<System.ComponentModel.TypeConverter> TypeConverter { get; }
     return:
       type: System.Xaml.Schema.XamlValueConverter{System.ComponentModel.TypeConverter}
-      description: "A &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; value, with a <xref href=&quot;System.ComponentModel.TypeConverter&quot;></xref> constraint on the generic. See Remarks."
+      description: "Um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; valor, com um <xref href=&quot;System.ComponentModel.TypeConverter&quot;> </xref> restrição genérica. Consulte comentários."
   overload: System.Xaml.XamlMember.TypeConverter*
   exceptions: []
   platform:
@@ -1438,13 +1438,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets the CLR type system <xref:System.Reflection.MemberInfo> that is available for a member that is constructed by <xref:System.Reflection.PropertyInfo>, <xref:System.Reflection.MethodInfo>, or <xref:System.Reflection.EventInfo>."
-  remarks: "Calling UnderlyingMember invokes <xref:System.Xaml.XamlMember.LookupUnderlyingMember%2A> or a specific override of that method."
+  summary: "Obtém o sistema de tipos CLR <xref:System.Reflection.MemberInfo>que está disponível para um membro que é criado por <xref:System.Reflection.PropertyInfo>, <xref:System.Reflection.MethodInfo>, ou <xref:System.Reflection.EventInfo>.</xref:System.Reflection.EventInfo> </xref:System.Reflection.MethodInfo> </xref:System.Reflection.PropertyInfo> </xref:System.Reflection.MemberInfo>"
+  remarks: "Chamar UnderlyingMember invoca <xref:System.Xaml.XamlMember.LookupUnderlyingMember%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupUnderlyingMember%2A>"
   syntax:
     content: public System.Reflection.MemberInfo UnderlyingMember { get; }
     return:
       type: System.Reflection.MemberInfo
-      description: "CLR type system <xref:System.Reflection.MemberInfo> information, as cast from the initial constructor parameters. A <xref href=&quot;System.Xaml.XamlMember&quot;></xref> that is constructed with the &lt;xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29&gt; signature returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+      description: "Sistema de tipos CLR <xref:System.Reflection.MemberInfo>informações, como conversão de parâmetros de construtor inicial.</xref:System.Reflection.MemberInfo> Um <xref href=&quot;System.Xaml.XamlMember&quot;> </xref> que é construído com a &lt;xref:System.Xaml.XamlMember.%23ctor%28System.String%2CSystem.Xaml.XamlType%2CSystem.Boolean%29&gt; assinatura retorna <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   overload: System.Xaml.XamlMember.UnderlyingMember*
   exceptions: []
   platform:
@@ -1461,13 +1461,13 @@ items:
   assemblies:
   - System.Xaml
   namespace: System.Xaml
-  summary: "Gets a &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; object, which is used for value serialization of XAML declared objects."
-  remarks: "Calling ValueSerializer invokes <xref:System.Xaml.XamlMember.LookupValueSerializer%2A> or a specific override of that method. This behavior occurs when the initial internal reflection logic has not already set the information.       Not all cases that return a non-null property value for ValueSerializer are necessarily a working <xref:System.Windows.Markup.ValueSerializer>. See Remarks in <xref:System.Xaml.XamlMember.TypeConverter%2A>; the same considerations apply to ValueSerializer."
+  summary: "Obtém um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; objeto, que é usado para serialização de valor de XAML declarado objetos."
+  remarks: "Chamar ValueSerializer invoca <xref:System.Xaml.XamlMember.LookupValueSerializer%2A>ou uma substituição específica desse método.</xref:System.Xaml.XamlMember.LookupValueSerializer%2A> Esse comportamento ocorre quando a lógica de reflexão interno inicial ainda não tiver definido as informações.       Nem todos os casos que retornam um valor de propriedade nulos para ValueSerializer são necessariamente um trabalho <xref:System.Windows.Markup.ValueSerializer>.</xref:System.Windows.Markup.ValueSerializer> Consulte comentários em <xref:System.Xaml.XamlMember.TypeConverter%2A>; as mesmas considerações se aplicam a ValueSerializer.</xref:System.Xaml.XamlMember.TypeConverter%2A>"
   syntax:
     content: public System.Xaml.Schema.XamlValueConverter<System.Windows.Markup.ValueSerializer> ValueSerializer { get; }
     return:
       type: System.Xaml.Schema.XamlValueConverter{System.Windows.Markup.ValueSerializer}
-      description: "A &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; with <xref:System.Windows.Markup.ValueSerializer> constraint on the generic."
+      description: "Um &lt;xref:System.Xaml.Schema.XamlValueConverter%601&gt; com <xref:System.Windows.Markup.ValueSerializer>restrição genérica.</xref:System.Windows.Markup.ValueSerializer>"
   overload: System.Xaml.XamlMember.ValueSerializer*
   exceptions: []
   platform:

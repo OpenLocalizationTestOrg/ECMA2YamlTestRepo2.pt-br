@@ -12,7 +12,7 @@ items:
   nameWithType: IBuildEngine4
   fullName: Microsoft.Build.Framework.IBuildEngine4
   type: Interface
-  summary: "This interface extends IBuildEngine to provide a mechanism allowing tasks to share data between task invocations."
+  summary: "Essa interface estende IBuildEngine para fornecer um mecanismo que permite compartilhar dados entre invocações de tarefa de tarefas."
   syntax:
     content: 'public interface IBuildEngine4 : Microsoft.Build.Framework.IBuildEngine3'
   implements:
@@ -31,19 +31,19 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Retrieves a previously registered task object stored with the specified key."
+  summary: "Recupera um objeto de tarefa registrado anteriormente armazenado com a chave especificada."
   syntax:
     content: public object GetRegisteredTaskObject (object key, Microsoft.Build.Framework.RegisteredTaskObjectLifetime lifetime);
     parameters:
     - id: key
       type: System.Object
-      description: "The key used to retrieve the object."
+      description: "A chave usada para recuperar o objeto."
     - id: lifetime
       type: Microsoft.Build.Framework.RegisteredTaskObjectLifetime
-      description: "The lifetime of the object."
+      description: "O tempo de vida do objeto."
     return:
       type: System.Object
-      description: "Returns a registered object, or null if there is no object registered under that key or if the object has been discarded through early collection."
+      description: "Retorna um objeto registrado ou null se não houver nenhum objeto registrado sob essa chave ou se o objeto foi descartado por meio de coleção antecipada."
   overload: Microsoft.Build.Framework.IBuildEngine4.GetRegisteredTaskObject*
   exceptions: []
   platform:
@@ -60,23 +60,23 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Registers an object with the system that will be disposed of at some specified time in the future."
-  remarks: "This method may be called by tasks which need to maintain state across task invocations, such as data caching tasks. It is strongly recommended that `allowEarlyCollection` be set to `true` if the object will retain any significant amount of data.       The thread on which the object is disposed may be arbitrarily, but it will not be disposed while the task is executing, even if `allowEarlyCollection` is set to `true`.       If the object implements IDisposable, IDisposable.Dispose will be invoked on the object before discarding it."
+  summary: "Registra um objeto com o sistema que seja descartado em algum momento especificado no futuro."
+  remarks: "Esse método pode ser chamado pelas tarefas que precisam para manter o estado entre invocações de tarefas, como tarefas de cache de dados. É altamente recomendável que `allowEarlyCollection` ser definido como `true` se o objeto manterá qualquer quantidade significativa de dados.       O thread no qual o objeto é descartado pode ser arbitrariamente, mas ele não será descartado enquanto a tarefa está em execução, mesmo se `allowEarlyCollection` é definido como `true`.       Se o objeto implementa IDisposable, IDisposable. Dispose será chamado no objeto antes de descartá-lo."
   syntax:
     content: public void RegisterTaskObject (object key, object obj, Microsoft.Build.Framework.RegisteredTaskObjectLifetime lifetime, bool allowEarlyCollection);
     parameters:
     - id: key
       type: System.Object
-      description: "The key used to retrieve the object."
+      description: "A chave usada para recuperar o objeto."
     - id: obj
       type: System.Object
-      description: "The object to be held for later disposal."
+      description: "O objeto a ser mantido para descarte posterior."
     - id: lifetime
       type: Microsoft.Build.Framework.RegisteredTaskObjectLifetime
-      description: "The lifetime of the object."
+      description: "O tempo de vida do objeto."
     - id: allowEarlyCollection
       type: System.Boolean
-      description: "Flag that determines whether the object can be disposed earlier than the requested time."
+      description: "Sinalizador que determina se o objeto pode ser descartado antes da hora solicitada."
   overload: Microsoft.Build.Framework.IBuildEngine4.RegisterTaskObject*
   exceptions: []
   platform:
@@ -93,19 +93,19 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Unregisters a previously registered task object."
+  summary: "Cancela o registro de um objeto de tarefa registrado anteriormente."
   syntax:
     content: public object UnregisterTaskObject (object key, Microsoft.Build.Framework.RegisteredTaskObjectLifetime lifetime);
     parameters:
     - id: key
       type: System.Object
-      description: "The key used to retrieve the object."
+      description: "A chave usada para recuperar o objeto."
     - id: lifetime
       type: Microsoft.Build.Framework.RegisteredTaskObjectLifetime
-      description: "The lifetime of the object."
+      description: "O tempo de vida do objeto."
     return:
       type: System.Object
-      description: "Returns a previously registered object, or null if there is no object registered under that key or if the object has been discarded through early collection."
+      description: "Retorna um objeto registrado anteriormente, ou null se não houver nenhum objeto registrado sob essa chave ou se o objeto foi descartado por meio de coleção antecipada."
   overload: Microsoft.Build.Framework.IBuildEngine4.UnregisterTaskObject*
   exceptions: []
   platform:

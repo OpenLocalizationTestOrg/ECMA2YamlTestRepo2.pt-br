@@ -21,8 +21,8 @@ items:
   nameWithType: AttributeCollection
   fullName: System.Web.UI.AttributeCollection
   type: Class
-  summary: "Provides object-model access to all attributes declared in the opening tag of an ASP.NET server control element. This class cannot be inherited."
-  remarks: "Individual items in the collection return a <xref:System.String> object as their value. If there are no attribute items in the collection, the collection returns `null`.       Attributes on an HTML server control are programmatically available through the <xref:System.Web.UI.HtmlControls.HtmlControl.Attributes%2A> property, which is inherited by all HTML server controls. ASP.NET exposes attributes of HTML server controls as properties of those controls.       You can add attributes to a Web server control through the <xref:System.Web.UI.WebControls.WebControl.Attributes%2A> property, which is inherited by all Web server controls. The attributes in the attributes collection for a Web server control do not necessarily correspond to the control&quot;s strongly typed properties for that control."
+  summary: "Fornece acesso ao modelo de objeto para todos os atributos declarados na marca de abertura de um elemento de controle de servidor ASP.NET. Essa classe não pode ser herdada."
+  remarks: "Itens individuais na coleção de retornam um <xref:System.String>objeto como seu valor.</xref:System.String> Não se houver nenhum item de atributo na coleção, a coleção retorna `null`.       Atributos em um controle de servidor HTML estão disponíveis por meio de programação por meio de <xref:System.Web.UI.HtmlControls.HtmlControl.Attributes%2A>propriedade, que é herdada por todos os controles de servidor HTML.</xref:System.Web.UI.HtmlControls.HtmlControl.Attributes%2A> ASP.NET expõe os atributos de controles de servidor HTML como propriedades desses controles.       Você pode adicionar atributos a um controle de servidor Web por meio de <xref:System.Web.UI.WebControls.WebControl.Attributes%2A>propriedade, que é herdada por todos os controles de servidor Web.</xref:System.Web.UI.WebControls.WebControl.Attributes%2A> Os atributos da coleção de atributos para um controle de servidor Web não necessariamente correspondem a propriedades com rigidez de tipos do controle para o controle."
   example:
   - "The following example creates a new AttributeCollection object that is named `myAttributeCollection`, and then checks whether the page has been posted back. If it has not, the code adds two attributes to the collection. It then gets the number of attributes in the collection and iterates through the collection, writing the key to each attribute to the page. If the page is a postback, the code gets the new number of attributes and iterates through the collection, writing the key and value of each attribute to the page.  \n  \n [!code-cs[AttributeCollection_AttributeCollection#1](~/add/codesnippet/csharp/t-system.web.ui.attribut_1.aspx)]\n [!code-vb[AttributeCollection_AttributeCollection#1](~/add/codesnippet/visualbasic/t-system.web.ui.attribut_1.aspx)]"
   syntax:
@@ -45,7 +45,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref> classe."
   remarks: ''
   example:
   - "The following example shows how to use the <xref:System.Web.UI.AttributeCollection> constructor to create an instance of the class named it `myAttributeCollection`. The code passes the control's <xref:System.Web.UI.Control.ViewState%2A> property as a parameter argument.  \n  \n [!code-cs[AttributeCollection_AttributeCollection#2](~/add/codesnippet/csharp/m-system.web.ui.attribut_2_1.aspx)]\n [!code-vb[AttributeCollection_AttributeCollection#2](~/add/codesnippet/visualbasic/m-system.web.ui.attribut_2_1.aspx)]"
@@ -54,7 +54,7 @@ items:
     parameters:
     - id: bag
       type: System.Web.UI.StateBag
-      description: "An object that contains the attribute keys and their values from the opening tag of the server control."
+      description: "Um objeto que contém as chaves de atributo e seus valores de marca de abertura do controle de servidor."
   overload: System.Web.UI.AttributeCollection.#ctor*
   exceptions: []
   platform:
@@ -71,8 +71,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Adds an attribute to a server control&quot;s <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref> object."
-  remarks: "If the string in the `value` parameter contains an ampersand (&), the character is automatically encoded. The resulting HTML representation is &quot;&amp;&quot;."
+  summary: "Adiciona um atributo a um controle de servidor <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref> objeto."
+  remarks: "Se a cadeia de caracteres no `value` parâmetro contiver um e comercial (&), o caractere é codificado automaticamente. A representação de HTML resultante é &quot;&amp;&quot;."
   example:
   - "The following example shows how to use the Add method to programmatically add an attribute to an ASP.NET server control <xref:System.Web.UI.AttributeCollection> object.  \n  \n [!code-vb[Classic AttributeCollection.Add Example#1](~/add/codesnippet/visualbasic/m-system.web.ui.attribut_4_1.aspx)]\n [!code-cs[Classic AttributeCollection.Add Example#1](~/add/codesnippet/csharp/m-system.web.ui.attribut_4_1.aspx)]"
   syntax:
@@ -80,10 +80,10 @@ items:
     parameters:
     - id: key
       type: System.String
-      description: "The attribute name."
+      description: "O nome do atributo."
     - id: value
       type: System.String
-      description: "The attribute value."
+      description: "O valor do atributo."
   overload: System.Web.UI.AttributeCollection.Add*
   exceptions: []
   platform:
@@ -100,8 +100,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Adds attributes from the <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref> class to the <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> object that is responsible for rendering the attributes as markup."
-  remarks: "This method copies all the server control&quot;s attributes to an <xref:System.Web.UI.HtmlTextWriter> object so that they can be rendered by the next call to the <xref:System.Web.UI.HtmlTextWriter.RenderBeginTag%2A> method.       For controls that are contained in other controls such as <xref:System.Web.UI.WebControls.Calendar> and <xref:System.Web.UI.WebControls.CheckBoxList>, you can potentially improve performance by rendering the contained controls directly. Rendering directly can be faster than rendering through the container control because container controls require that you copy all the child control attributes to the container control and render them after they are copied."
+  summary: "Adiciona os atributos de <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref> de classe para o <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> objeto que é responsável por processar os atributos como marcação."
+  remarks: "Esse método copia todos os servidor atributos do controle para um <xref:System.Web.UI.HtmlTextWriter>do objeto para que eles podem ser renderizados pela próxima chamada para o <xref:System.Web.UI.HtmlTextWriter.RenderBeginTag%2A>método.</xref:System.Web.UI.HtmlTextWriter.RenderBeginTag%2A> </xref:System.Web.UI.HtmlTextWriter>       Para controles que estão contidos em outros controles, como <xref:System.Web.UI.WebControls.Calendar>e <xref:System.Web.UI.WebControls.CheckBoxList>, você pode melhorar potencialmente o desempenho renderizando controles contidos diretamente.</xref:System.Web.UI.WebControls.CheckBoxList> </xref:System.Web.UI.WebControls.Calendar> Pode ser mais rápido do que a renderização por meio do controle de contêiner, porque os controles de contêiner exigem que você copie todos os atributos do controle filho para o controle de contêiner e renderizá-los depois que eles forem copiados diretamente de renderização."
   example:
   - "The following example shows how to add new attributes to a <xref:System.Web.UI.WebControls.Button> server control named `myButton` and a <xref:System.Web.UI.WebControls.TextBox> server control named `myTextBox`. It then adds those attributes to a custom <xref:System.Web.UI.HtmlTextWriter> object that will write those attributes to an output stream for each of those controls.  \n  \n [!code-cs[AttributeCollection_Item#1](~/add/codesnippet/csharp/m-system.web.ui.attribut_1_1.aspx)]\n [!code-vb[AttributeCollection_Item#1](~/add/codesnippet/visualbasic/m-system.web.ui.attribut_1_1.aspx)]"
   syntax:
@@ -109,7 +109,7 @@ items:
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "An <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> instance that writes the attribute to the opening tag of an ASP.NET server control."
+      description: "Um <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> instância que grava o atributo à marca de abertura de um controle de servidor ASP.NET."
   overload: System.Web.UI.AttributeCollection.AddAttributes*
   exceptions: []
   platform:
@@ -126,7 +126,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Removes all attributes from a server control&quot;s <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref> object."
+  summary: "Remove todos os atributos de um controle de servidor <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref> objeto."
   remarks: ''
   example:
   - "The following example shows how to programmatically remove all attributes from an HTML server control's <xref:System.Web.UI.AttributeCollection> object.  \n  \n [!code-vb[Classic AttributeCollection.Clear Example#1](~/add/codesnippet/visualbasic/m-system.web.ui.attribut_3_1.aspx)]\n [!code-cs[Classic AttributeCollection.Clear Example#1](~/add/codesnippet/csharp/m-system.web.ui.attribut_3_1.aspx)]"
@@ -149,7 +149,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets the number of attributes in the <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref> object."
+  summary: "Obtém o número de atributos de <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref> objeto."
   remarks: ''
   example:
   - "The following example shows how to use the Count property to write the number of attributes on a control to the containing page.  \n  \n [!code-cs[AttributeCollection_AttributeCollection#4](~/add/codesnippet/csharp/p-system.web.ui.attribut_1_1.aspx)]\n [!code-vb[AttributeCollection_AttributeCollection#4](~/add/codesnippet/visualbasic/p-system.web.ui.attribut_1_1.aspx)]"
@@ -157,7 +157,7 @@ items:
     content: public int Count { get; }
     return:
       type: System.Int32
-      description: "The number of items in the collection."
+      description: "O número de itens na coleção."
   overload: System.Web.UI.AttributeCollection.Count*
   exceptions: []
   platform:
@@ -174,15 +174,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a collection of styles for the ASP.NET server control to which the current <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref> object belongs."
-  remarks: "Any style declared for a particular HTML server control is added to the <xref:System.Web.UI.CssStyleCollection> object when the containing ASP.NET Web page is parsed. You can use this property to add, remove, and iterate through the styles declared for the server control."
+  summary: "Obtém uma coleção de estilos para o controle de servidor ASP.NET para o qual atual <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref> objeto pertence."
+  remarks: "Qualquer estilo declarado para um determinado controle de servidor HTML é adicionado para o <xref:System.Web.UI.CssStyleCollection>objeto quando a página da Web do ASP.NET contém é analisada.</xref:System.Web.UI.CssStyleCollection> Você pode usar essa propriedade para adicionar, remover e percorrer os estilos declarados para o controle de servidor."
   example:
   - "The following example shows how to add a CSS style value programmatically to a server control's <xref:System.Web.UI.AttributeCollection> object. When a button is clicked, the background color of a <xref:System.Web.UI.WebControls.TextBox> server control named `TextBox1` is set to the selected item in a <xref:System.Web.UI.WebControls.DropDownList> server control named `DropDownList1`.  \n  \n [!code-cs[AttributeCollection_CssStyle#1](~/add/codesnippet/csharp/p-system.web.ui.attribut_3_1.aspx)]\n [!code-vb[AttributeCollection_CssStyle#1](~/add/codesnippet/visualbasic/p-system.web.ui.attribut_3_1.aspx)]"
   syntax:
     content: public System.Web.UI.CssStyleCollection CssStyle { get; }
     return:
       type: System.Web.UI.CssStyleCollection
-      description: "A collection that contains the styles for the current server control."
+      description: "Uma coleção que contém os estilos para o controle de servidor atual."
   overload: System.Web.UI.AttributeCollection.CssStyle*
   exceptions: []
   platform:
@@ -199,17 +199,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Determines whether the current instance of the <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref> object is equal to the specified object."
-  remarks: "For the compared objects to be equal, they must meet the following criteria:      -   The object that is contained in the `o` parameter must be an <xref:System.Web.UI.AttributeCollection> object.      -   Both collections must contain the same number of items.      -   The key value of each entry in both collections must match.          > [!NOTE]     >  This method is primarily used by control developers."
+  summary: "Determina se a instância atual do <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref> objeto é igual ao objeto especificado."
+  remarks: "Para os objetos comparados são iguais, eles devem atender aos seguintes critérios:-o objeto que está contido no `o` parâmetro deve ser um <xref:System.Web.UI.AttributeCollection>objeto.</xref:System.Web.UI.AttributeCollection>      -Ambas as coleções devem conter o mesmo número de itens.      -O valor da chave de cada entrada em ambas as coleções deve corresponder.          > [!NOTE] > Esse método é usado principalmente por desenvolvedores de controle."
   syntax:
     content: public override bool Equals (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "The object instance to compare with this instance."
+      description: "A instância do objeto a ser comparado com esta instância."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the object that is contained in the <code>o</code> parameter is equal to the current instance of <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref>; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o objeto que está contido no <code> o </code> parâmetro for igual à instância atual do <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref>; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.UI.AttributeCollection.Equals*
   exceptions: []
   platform:
@@ -226,14 +226,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Returns the hash code for this instance."
-  remarks: "Use the GetHashCode method to determine the hash code for this <xref:System.Web.UI.AttributeCollection> object."
+  summary: "Retorna o código hash para essa instância."
+  remarks: "Use o método GetHashCode para determinar o código hash para este <xref:System.Web.UI.AttributeCollection>objeto.</xref:System.Web.UI.AttributeCollection>"
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A 32-bit signed integer hash code."
+      description: "Um código de hash de inteiro de 32 bits."
   overload: System.Web.UI.AttributeCollection.GetHashCode*
   exceptions: []
   platform:
@@ -250,8 +250,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets or sets a specified attribute value for a server control."
-  remarks: "You can add an attribute to or retrieve one from an ASP.NET server control that uses this property."
+  summary: "Obtém ou define um valor de atributo especificado para um controle de servidor."
+  remarks: "Você pode adicionar um atributo ou recuperar uma em um controle de servidor ASP.NET que usa essa propriedade."
   example:
   - "The following example shows how to set a dynamic HTML `onblur` attribute to run an ECMAScript (JavaScript) command when a <xref:System.Web.UI.WebControls.TextBox> Web server control loses focus.  \n  \n [!code-cs[Classic AttributeCollection Example 2#1](~/add/codesnippet/csharp/p-system.web.ui.attribut_0_1.aspx)]\n [!code-vb[Classic AttributeCollection Example 2#1](~/add/codesnippet/visualbasic/p-system.web.ui.attribut_0_1.aspx)]"
   syntax:
@@ -259,10 +259,10 @@ items:
     parameters:
     - id: key
       type: System.String
-      description: "The location of the attribute in the collection."
+      description: "O local do atributo na coleção."
     return:
       type: System.String
-      description: "The attribute value."
+      description: "O valor do atributo."
   overload: System.Web.UI.AttributeCollection.Item*
   exceptions: []
   platform:
@@ -279,15 +279,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Gets a collection of keys to all attributes in the server control&quot;s <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref> object."
-  remarks: "This property contains all the keys that are in the <xref:System.Web.UI.AttributeCollection> of an ASP.NET server control, whether you have added them programmatically with the <xref:System.Web.UI.AttributeCollection.Add%2A> method, or declaratively."
+  summary: "Obtém uma coleção de chaves para todos os atributos do controle de servidor <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref> objeto."
+  remarks: "Esta propriedade contém todas as chaves que estão na <xref:System.Web.UI.AttributeCollection>de um controle de servidor ASP.NET, se você tiver adicionado programaticamente com o <xref:System.Web.UI.AttributeCollection.Add%2A>método, ou declarativamente.</xref:System.Web.UI.AttributeCollection.Add%2A> </xref:System.Web.UI.AttributeCollection>"
   example:
   - "The following example shows how to iterate through the Keys property of the <xref:System.Web.UI.AttributeCollection> object for an <xref:System.Web.UI.HtmlControls.HtmlSelect> server control.  \n  \n [!code-cs[Classic AttributeCollection.Keys Example#1](~/add/codesnippet/csharp/p-system.web.ui.attribut_2_1.aspx)]\n [!code-vb[Classic AttributeCollection.Keys Example#1](~/add/codesnippet/visualbasic/p-system.web.ui.attribut_2_1.aspx)]"
   syntax:
     content: public System.Collections.ICollection Keys { get; }
     return:
       type: System.Collections.ICollection
-      description: "The collection of keys."
+      description: "A coleção de chaves."
   overload: System.Web.UI.AttributeCollection.Keys*
   exceptions: []
   platform:
@@ -304,8 +304,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Removes an attribute from a server control&quot;s <xref href=&quot;System.Web.UI.AttributeCollection&quot;></xref> object."
-  remarks: "If the <xref:System.Web.UI.AttributeCollection> object does not contain an attribute that has the specified `key`, the collection remains unchanged. No exception is thrown."
+  summary: "Remove um atributo de um controle de servidor <xref href=&quot;System.Web.UI.AttributeCollection&quot;> </xref> objeto."
+  remarks: "Se o <xref:System.Web.UI.AttributeCollection>objeto não contém um atributo que foi especificado `key`, a coleção permaneça inalterada.</xref:System.Web.UI.AttributeCollection> Nenhuma exceção é lançada."
   example:
   - "The following example shows how to programmatically remove an attribute from an HTML server control's <xref:System.Web.UI.AttributeCollection> object.  \n  \n [!code-vb[Classic AttributeCollection.Remove Example#1](~/add/codesnippet/visualbasic/m-system.web.ui.attribut_0_1.aspx)]\n [!code-cs[Classic AttributeCollection.Remove Example#1](~/add/codesnippet/csharp/m-system.web.ui.attribut_0_1.aspx)]"
   syntax:
@@ -313,7 +313,7 @@ items:
     parameters:
     - id: key
       type: System.String
-      description: "The name of the attribute to remove."
+      description: "O nome do atributo a ser removido."
   overload: System.Web.UI.AttributeCollection.Remove*
   exceptions: []
   platform:
@@ -330,7 +330,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.UI
-  summary: "Writes the collection of attributes to the specified <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> output stream for the control to which the collection belongs."
+  summary: "Grava a coleção de atributos especificado <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> fluxo de saída para o controle ao qual pertence a coleção."
   remarks: ''
   example:
   - "This section contains two code examples. The first code example shows how to inherit from the <xref:System.Web.UI.WebControls.WebControl> class to create a custom control named `AttribRender` that overrides the Render method. The second code example shows how to use the custom control in an ASP.NET Web page.  \n  \n The following example shows how to create a custom control named `AttribRender` that overrides the <xref:System.Web.UI.WebControls.WebControl.Render%2A> method of the <xref:System.Web.UI.WebControls.WebControl> class without calling the <xref:System.Web.UI.WebControls.WebControl.Render%2A> method of the base class. Instead, `AttribRender` invokes the Render method.  \n  \n [!code-cs[AttributeCollection.Render_Sample1#1](~/add/codesnippet/csharp/m-system.web.ui.attribut_5_1.cs)]\n [!code-vb[AttributeCollection.Render_Sample1#1](~/add/codesnippet/visualbasic/m-system.web.ui.attribut_5_1.vb)]  \n  \n The following example shows how to use the `AttribRender` custom control in a Web page. It assumes that the code file for the custom control is in the App_Code folder for the application.  \n  \n [!code-cs[AttributeCollection.Render_Sample1#2](~/add/codesnippet/csharp/m-system.web.ui.attribut_5_2.aspx)]\n [!code-vb[AttributeCollection.Render_Sample1#2](~/add/codesnippet/visualbasic/m-system.web.ui.attribut_5_2.aspx)]"
@@ -339,7 +339,7 @@ items:
     parameters:
     - id: writer
       type: System.Web.UI.HtmlTextWriter
-      description: "An <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;></xref> instance that writes the attribute collection to the current output stream."
+      description: "Um <xref href=&quot;System.Web.UI.HtmlTextWriter&quot;> </xref> instância que grava a coleção de atributos para o fluxo de saída atual."
   overload: System.Web.UI.AttributeCollection.Render*
   exceptions: []
   platform:

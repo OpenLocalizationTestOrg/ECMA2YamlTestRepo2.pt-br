@@ -12,8 +12,8 @@ items:
   nameWithType: ITask
   fullName: Microsoft.Build.Framework.ITask
   type: Interface
-  summary: "Defines a task, which is a unit of executable code used by [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] to perform build operations."
-  remarks: "All task classes must implement this interface to be recognized by the build engine. Instead of implenting this interface directly, you can also derive your class from the helper class, <xref:Microsoft.Build.Utilities.Task>, which provides default implementations of some ITask members."
+  summary: "Define uma tarefa, que é uma unidade de código executável usada por [!INCLUDE[vstecmsbuild](~/add/includes/vstecmsbuild-md.md)] para executar operações de compilação."
+  remarks: "Todas as classes de tarefa devem implementar essa interface para ser reconhecido pelo mecanismo de compilação. Em vez de implementarmos essa interface diretamente, você também pode derivar a classe de classe auxiliar, <xref:Microsoft.Build.Utilities.Task>, que fornece implementações padrão de alguns membros ITask.</xref:Microsoft.Build.Utilities.Task>"
   example:
   - "The following example shows the code from a complete task implementation.  \n  \n [!code-cs[msbuild_MakeDirTask#1](~/add/codesnippet/csharp/msbuild_MakeDirTask/msbuild_MakeDirTask.cs#1)]"
   syntax:
@@ -33,12 +33,12 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets or sets the build engine associated with the task."
+  summary: "Obtém ou define o mecanismo de compilação associado à tarefa."
   syntax:
     content: public Microsoft.Build.Framework.IBuildEngine BuildEngine { get; set; }
     return:
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The build engine associated with the task."
+      description: "O mecanismo de compilação associado à tarefa."
   overload: Microsoft.Build.Framework.ITask.BuildEngine*
   exceptions: []
   platform:
@@ -55,14 +55,14 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Executes a task."
-  remarks: "This method is called by the build engine to execute a task. Upon termination of this method, a task should indicate if the execution was successful. If a task throws an exception from this method, the engine assumes that the task has failed."
+  summary: "Executa uma tarefa."
+  remarks: "Este método é chamado pelo mecanismo de compilação para executar uma tarefa. Após o término desse método, uma tarefa deve indicar se a execução foi bem-sucedida. Se uma tarefa gera uma exceção desse método, o mecanismo pressupõe que a tarefa falhou."
   syntax:
     content: public bool Execute ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the task executed successfully; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a tarefa foi executada com êxito; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.Build.Framework.ITask.Execute*
   exceptions: []
   platform:
@@ -79,13 +79,13 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Gets or sets any host object that is associated with the task."
-  remarks: "This property can be a null reference (`Nothing` in [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)])."
+  summary: "Obtém ou define a qualquer objeto de host que esteja associado à tarefa."
+  remarks: "Essa propriedade pode ser uma referência nula (`Nothing` em [!INCLUDE[vbprvb](~/add/includes/vbprvb-md.md)])."
   syntax:
     content: public Microsoft.Build.Framework.ITaskHost HostObject { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskHost
-      description: "The host object associated with the task."
+      description: "O objeto de host associado à tarefa."
   overload: Microsoft.Build.Framework.ITask.HostObject*
   exceptions: []
   platform:

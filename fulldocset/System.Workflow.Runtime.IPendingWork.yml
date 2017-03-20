@@ -12,8 +12,8 @@ items:
   nameWithType: IPendingWork
   fullName: System.Workflow.Runtime.IPendingWork
   type: Interface
-  summary: "Provides methods to participate in a work batch."
-  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]       The IPendingWork interface is provided for services that want to participate in the workflow runtime engine batching mechanism. The batching mechanism is especially useful for services that use a durable store. It is often important in these cases to maintain consistency between the durable store used by the service and the internal state of the workflow runtime engine.       If you want your service to participate in workflow transaction batching provided by the <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>, you must implement the methods defined by the IPendingWork interface. The workflow runtime engine will call the <xref:System.Workflow.Runtime.IPendingWork.Commit%2A> method on your service to commit the batch.       The <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> class implements the IPendingWork interface."
+  summary: "Fornece métodos para participar de um lote de trabalho."
+  remarks: "> [!NOTE] >  [!INCLUDE[DeprecatedContent](~/add/includes/ajax-current-ext-md.md)]A interface IPendingWork é fornecida para os serviços que desejam participar no mecanismo de tempo de execução de fluxo de trabalho mecanismo de processamento em lotes. O mecanismo de envio em lote é especialmente útil para serviços que usam um armazenamento durável. Geralmente é importante para manter a consistência entre o armazenamento durável usado pelo serviço e o estado interno do mecanismo de tempo de execução do fluxo de trabalho nesses casos.       Se você quiser que o seu serviço para participar de lotes de transações de fluxo de trabalho fornecida pelo <xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService>, você deve implementar os métodos definidos pela interface IPendingWork.</xref:System.Workflow.Runtime.Hosting.WorkflowCommitWorkBatchService> O mecanismo de tempo de execução do fluxo de trabalho chamará o <xref:System.Workflow.Runtime.IPendingWork.Commit%2A>método no seu serviço para confirmar o lote.</xref:System.Workflow.Runtime.IPendingWork.Commit%2A>       O <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>classe implementa a interface IPendingWork.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>"
   syntax:
     content: >-
       [System.Obsolete("The System.Workflow.* types are deprecated.  Instead, please use the new types from System.Activities.*")]
@@ -34,17 +34,17 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime
-  summary: "Commits the list of work items by using the specified <xref href=&quot;System.Transactions.Transaction&quot;></xref> object."
-  remarks: "The workflow runtime engine calls the Commit method when its semantics dictate that the pending work in the work batch should be committed. When it reaches a commit point, the workflow runtime engine calls the Commit method on each <xref:System.Workflow.Runtime.IPendingWork> object in its work batch; the workflow runtime engine passes the Commit method the collection of items associated with that <xref:System.Workflow.Runtime.IPendingWork> object. Either all of the work in a batch succeeds or none of it succeeds. You should throw an exception if any of the work items passed to the Commit method in your implementation cannot be committed. Depending on your implementation, you may want to perform some rollback in your Commit method if it cannot commit its work items. If the workflow runtime engine successfully commits all of the work in the work batch, it calls <xref:System.Workflow.Runtime.IPendingWork.Complete%2A> with the `succeeded` parameter set to `true`; otherwise, it calls <xref:System.Workflow.Runtime.IPendingWork.Complete%2A> with `succeeded` set to `false`."
+  summary: "Confirma a lista de itens de trabalho usando especificado <xref href=&quot;System.Transactions.Transaction&quot;> </xref> objeto."
+  remarks: "O mecanismo de tempo de execução do fluxo de trabalho chama o método Commit quando sua semântica ditam que o trabalho pendente no lote de trabalho deve ser confirmado. Quando chega a um ponto de confirmação, o mecanismo de tempo de execução do fluxo de trabalho chama o método Commit em cada <xref:System.Workflow.Runtime.IPendingWork>objeto em seu lote de trabalho; o mecanismo de tempo de execução do fluxo de trabalho passa o método Commit a coleção de itens associados que <xref:System.Workflow.Runtime.IPendingWork>objeto.</xref:System.Workflow.Runtime.IPendingWork> </xref:System.Workflow.Runtime.IPendingWork> Todo o trabalho em um lote obtenha êxito ou nada é bem-sucedida. Você deve lançar uma exceção se qualquer um dos itens de trabalho passados para o método Commit em sua implementação não pode ser confirmada. Dependendo da implementação, convém executar alguns reversão em seu método de confirmação, se ele não é possível confirmar seus itens de trabalho. Se o mecanismo de tempo de execução do fluxo de trabalho confirmar todo o trabalho em lote de trabalho com êxito, ele chama <xref:System.Workflow.Runtime.IPendingWork.Complete%2A>com o `succeeded` parâmetro definido como `true`; caso contrário, ele chama <xref:System.Workflow.Runtime.IPendingWork.Complete%2A>com `succeeded` definido como `false`.</xref:System.Workflow.Runtime.IPendingWork.Complete%2A> </xref:System.Workflow.Runtime.IPendingWork.Complete%2A>"
   syntax:
     content: public void Commit (System.Transactions.Transaction transaction, System.Collections.ICollection items);
     parameters:
     - id: transaction
       type: System.Transactions.Transaction
-      description: "The <xref href=&quot;System.Transactions.Transaction&quot;></xref> associated with the pending work."
+      description: "O <xref href=&quot;System.Transactions.Transaction&quot;> </xref> associados com o trabalho pendente."
     - id: items
       type: System.Collections.ICollection
-      description: "The work items to be committed."
+      description: "Os itens de trabalho para ser confirmada."
   overload: System.Workflow.Runtime.IPendingWork.Commit*
   exceptions: []
   platform:
@@ -61,17 +61,17 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime
-  summary: "Called when the transaction has completed."
-  remarks: "If `succeeded` is `true`, the transaction succeeded and any resources used by the work batch may be released. If `succeeded` is `false`, the transaction failed. Depending on your implementation, you can perform any appropriate roll back on the work in the work batch when the transaction fails."
+  summary: "Chamado quando a transação foi concluída."
+  remarks: "Se `succeeded` é `true`, a transação foi bem-sucedida e qualquer recurso usado pelo lote de trabalho pode ser liberado. Se `succeeded` é `false`, a transação falhou. Dependendo da implementação, você pode executar qualquer roll apropriado no trabalho em lote de trabalho quando a transação falhar."
   syntax:
     content: public void Complete (bool succeeded, System.Collections.ICollection items);
     parameters:
     - id: succeeded
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the transaction succeeded; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a transação foi bem-sucedida. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
     - id: items
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of work items."
+      description: "Um <xref:System.Collections.ICollection>de itens de trabalho.</xref:System.Collections.ICollection>"
   overload: System.Workflow.Runtime.IPendingWork.Complete*
   exceptions: []
   platform:
@@ -88,17 +88,17 @@ items:
   assemblies:
   - System.Workflow.Runtime
   namespace: System.Workflow.Runtime
-  summary: "Allows the items in the work batch to assert whether they must commit immediately."
-  remarks: "If MustCommit returns `false`, the work can be postponed to a future commit point. If any of the items must be committed, then return `true` and all items will be committed at the current commit point. For a discussion about possible commit points, see the <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService> class."
+  summary: "Permite que os itens no lote de trabalho declarar se deve confirmar imediatamente."
+  remarks: "Se retornar MustCommit `false`, o trabalho pode ser adiado para um ponto de confirmação futuras. Se qualquer um dos itens deve ser confirmada, em seguida, retornar `true` e todos os itens serão confirmados no ponto de confirmação atual. Para obter uma discussão sobre pontos de confirmação possíveis, consulte a <xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>classe.</xref:System.Workflow.Runtime.Hosting.SqlWorkflowPersistenceService>"
   syntax:
     content: public bool MustCommit (System.Collections.ICollection items);
     parameters:
     - id: items
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> of work items."
+      description: "Um <xref:System.Collections.ICollection>de itens de trabalho.</xref:System.Collections.ICollection>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if any item in the collection must be committed immediately; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se qualquer item na coleção deve ser confirmada imediatamente. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Workflow.Runtime.IPendingWork.MustCommit*
   exceptions: []
   platform:

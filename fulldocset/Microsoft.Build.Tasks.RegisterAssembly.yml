@@ -17,7 +17,7 @@ items:
   nameWithType: RegisterAssembly
   fullName: Microsoft.Build.Tasks.RegisterAssembly
   type: Class
-  summary: "Implements the `RegisterAssembly` task. Use the `RegisterAssembly` element in your project file to create and execute this task. For usage and parameter information, see [RegisterAssembly Task](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Implementa o `RegisterAssembly` tarefa. Use o `RegisterAssembly` elemento no arquivo de projeto para criar e executar essa tarefa. Para obter informações de uso e de parâmetro, consulte [tarefa RegisterAssembly](~/add/includes/ajax-current-ext-md.md)."
   remarks: "Framework64/\\<version>/RegisterAssemblyTask cannot resolve a library of COM objects registered as 32-bit components. Framework/\\<version>/RegisterAssemblyTask cannot resolve a library of COM objects registered as 64-bit components.  \n  \n For example, if you register a library of COM objects called ClassLibrary1 as 32-bit components on a 64-bit machine, run Visual Studio, and change the target to x64, the build fails with the following error:  \n  \n `ClassLibrary1.dll is not a valid assembly`"
   syntax:
     content: 'public class RegisterAssembly : Microsoft.Build.Tasks.AppDomainIsolatedTaskExtension, System.Runtime.InteropServices.ITypeLibExporterNotifySink'
@@ -52,7 +52,7 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Initializes a new instance of the <xref href=&quot;Microsoft.Build.Tasks.RegisterAssembly&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;Microsoft.Build.Tasks.RegisterAssembly&quot;> </xref> classe."
   syntax:
     content: public RegisterAssembly ();
     parameters: []
@@ -72,12 +72,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the assemblies to be registered with COM."
+  summary: "Obtém ou define os assemblies a ser registrado com COM."
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem[] Assemblies { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem[]
-      description: "The assemblies to be registered with COM."
+      description: "Os assemblies a ser registrado com COM."
   overload: Microsoft.Build.Tasks.RegisterAssembly.Assemblies*
   exceptions: []
   platform:
@@ -94,12 +94,12 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets information about the state between the `RegisterAssembly` task and the [UnregisterAssembly](~/add/includes/ajax-current-ext-md.md) task. This prevents the `UnregisterAssembly` task from attempting to unregister an assembly that failed to register in the `RegisterAssembly` task."
+  summary: "Obtém ou define informações sobre o estado entre a `RegisterAssembly` tarefa e o [UnregisterAssembly](~/add/includes/ajax-current-ext-md.md) tarefa. Isso impede que o `UnregisterAssembly` tarefa da tentativa de cancelar o registro de um assembly que falhou ao se registrar no `RegisterAssembly` tarefa."
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem AssemblyListFile { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem
-      description: "The state information necessary for the `UnregisterAssembly` task to do proper clean-up."
+      description: "As informações de estado necessárias para a `UnregisterAssembly` tarefas para fazer a limpeza apropriada."
   overload: Microsoft.Build.Tasks.RegisterAssembly.AssemblyListFile*
   exceptions: []
   platform:
@@ -116,13 +116,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets a Boolean value that specifies whether the task creates a codebase entry in the registry, which specifies the file path for an assembly that is not installed in the global assembly cache."
-  remarks: "You should not specify this option if you will subsequently install the assembly that you are registering into the global assembly cache."
+  summary: "Obtém ou define um valor booleano que especifica se a tarefa cria uma entrada de base de código no registro, que especifica o caminho do arquivo para um assembly que não está instalado no cache de assembly global."
+  remarks: "Você não deve especificar essa opção se, posteriormente, você instalará o assembly que você está registrando no cache de assembly global."
   syntax:
     content: public bool CreateCodeBase { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the task creates a codebase entry in the registry; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a tarefa cria uma entrada de base de código no registro. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.Build.Tasks.RegisterAssembly.CreateCodeBase*
   exceptions: []
   platform:
@@ -139,13 +139,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Executes the `RegisterAssembly` task."
+  summary: "Executa o `RegisterAssembly` tarefa."
   syntax:
     content: public override bool Execute ();
     parameters: []
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if task execution succeeded; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a execução da tarefa for bem-sucedida; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: Microsoft.Build.Tasks.RegisterAssembly.Execute*
   exceptions: []
   platform:
@@ -162,19 +162,19 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Callback method for reporting the type library export events."
+  summary: "Método de retorno de chamada para a biblioteca de tipos de relatório Exportar eventos."
   syntax:
     content: public void ReportEvent (System.Runtime.InteropServices.ExporterEventKind kind, int code, string msg);
     parameters:
     - id: kind
       type: System.Runtime.InteropServices.ExporterEventKind
-      description: "Describes the callbacks that the type library exporter makes when exporting a type library."
+      description: "Descreve os retornos de chamada que faz com que o exportador da biblioteca ao exportar uma biblioteca de tipos."
     - id: code
       type: System.Int32
-      description: "The error code of the export event."
+      description: "O código de erro do evento de exportação."
     - id: msg
       type: System.String
-      description: "The message of the export event."
+      description: "A mensagem do evento de exportação."
   overload: Microsoft.Build.Tasks.RegisterAssembly.ReportEvent*
   exceptions: []
   platform:
@@ -191,17 +191,17 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Callback method for finding the type library for the specified assembly."
-  remarks: "Logs an error indicating that the specified assembly is not registered for COM interop in all cases."
+  summary: "Método de retorno de chamada para localizar a biblioteca de tipos para o assembly especificado."
+  remarks: "Registra um erro indicando que o assembly especificado não está registrado para interoperabilidade COM em todos os casos."
   syntax:
     content: public object ResolveRef (System.Reflection.Assembly assemblyToResolve);
     parameters:
     - id: assemblyToResolve
       type: System.Reflection.Assembly
-      description: "The assembly to find type libraries for."
+      description: "O assembly para localizar as bibliotecas de tipo para."
     return:
       type: System.Object
-      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> in all cases."
+      description: "<xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>em todos os casos."
   overload: Microsoft.Build.Tasks.RegisterAssembly.ResolveRef*
   exceptions: []
   platform:
@@ -218,13 +218,13 @@ items:
   assemblies:
   - Microsoft.Build.Tasks.v4.0
   namespace: Microsoft.Build.Tasks
-  summary: "Gets or sets the type library to generate from the specified assembly."
-  remarks: "The generated type library contains definitions of the accessible types defined within the assembly. The type library is only generated if one of the following is true:      -   A type library of that name does not exist at that location.      -   A type library exists but it is older than the assembly being passed in.       If the type library is newer than the assembly being passed, a new one will not be created, but the assembly will still be registered.       If this property is specified, it must have the same number of items as the <xref:Microsoft.Build.Tasks.RegisterAssembly.Assemblies%2A> property or the task will fail. If no inputs are specified, the task will default to the name of the assembly and change the extension of the item to .tlb."
+  summary: "Obtém ou define a biblioteca de tipos para gerar o assembly especificado."
+  remarks: "A biblioteca de tipo gerado contém as definições dos tipos de acessível definido dentro do assembly. A biblioteca de tipos é gerada apenas se uma das seguintes opções for verdadeira:-uma biblioteca de tipos do nome não existe nesse local.      -Uma biblioteca de tipos existe, mas ele é mais antigo que o assembly que está sendo transmitido.       Se a biblioteca de tipos é mais recente do que o assembly que está sendo passado, não será criado um novo, mas o assembly ainda será registrado.       Se essa propriedade for especificada, ela deve ter o mesmo número de itens como o <xref:Microsoft.Build.Tasks.RegisterAssembly.Assemblies%2A>propriedade ou a tarefa falhará.</xref:Microsoft.Build.Tasks.RegisterAssembly.Assemblies%2A> Se nenhuma entrada for especificada, a tarefa será o padrão para o nome do assembly e altere a extensão do item para. tlb."
   syntax:
     content: public Microsoft.Build.Framework.ITaskItem[] TypeLibFiles { get; set; }
     return:
       type: Microsoft.Build.Framework.ITaskItem[]
-      description: "The type library to generate from the specified assembly."
+      description: "A biblioteca de tipos para gerar o assembly especificado."
   overload: Microsoft.Build.Tasks.RegisterAssembly.TypeLibFiles*
   exceptions: []
   platform:

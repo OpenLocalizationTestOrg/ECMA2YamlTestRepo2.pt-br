@@ -13,8 +13,8 @@ items:
   nameWithType: UrlAuthorizationModule
   fullName: System.Web.Security.UrlAuthorizationModule
   type: Class
-  summary: "Verifies that the user has permission to access the URL requested. This class cannot be inherited."
-  remarks: "The UrlAuthorizationModule determines whether the current user is permitted access to the requested URL, based on the user <xref:System.Security.Principal.IIdentity.Name%2A> or the list of roles that a user is a member of. For information about how the user name is determined, see [ASP.NET Authentication](~/add/includes/ajax-current-ext-md.md). For information about how to manage user roles, see [Managing Authorization Using Roles](~/add/includes/ajax-current-ext-md.md).       Authorization for a user or a role is managed using the  configuration element. You can allow or deny a user or a role using the `allow` or `deny` subelements, respectively. The `allow` and `deny` subelements are interpreted in the order they appear in the configuration. Once an element specifies that access is allowed or denied, the UrlAuthorizationModule completes its authorization check. For example, the following  section from a Web.config file requires users to log on (by denying anonymous users), and then allows only users in the Administrators role to have access. Users not in the Administrators role are denied.      ```   <authorization>     <deny users=&quot;?&quot; />     <allow roles=&quot;Administrators&quot; />     <deny users=&quot;*&quot; />   </authorization>   ```       A user or role must be specifically denied to refuse the user or role permission to a URL. That is, if the previous example had not specified the `<deny users=&quot;*&quot; />` element, then all authenticated users would have been allowed access to the requested URL, regardless of what role they were a member of."
+  summary: "Verifica se o usuário tem permissão para acessar a URL solicitada. Essa classe não pode ser herdada."
+  remarks: "O UrlAuthorizationModule determina se o usuário atual tem permissão acesso para a URL solicitada, com base no usuário <xref:System.Security.Principal.IIdentity.Name%2A>ou a lista de funções que um usuário é membro.</xref:System.Security.Principal.IIdentity.Name%2A> Para obter informações sobre como o nome de usuário é determinado, consulte [autenticação ASP.NET](~/add/includes/ajax-current-ext-md.md). Para obter informações sobre como gerenciar funções de usuário, consulte [Gerenciando autorização usando funções](~/add/includes/ajax-current-ext-md.md).       A autorização para um usuário ou uma função é gerenciada usando o elemento de configuração. Você pode permitir ou negar a um usuário ou uma função usando o `allow` ou `deny` subelementos, respectivamente. O `allow` e `deny` subelementos são interpretados na ordem em que aparecem na configuração. Depois que um elemento Especifica que o acesso é permitido ou negado, UrlAuthorizationModule concluir sua verificação de autorização. Por exemplo, a seção a seguir de um arquivo Web. config requer que os usuários façam logon (negando a usuários anônimos) e, em seguida, permite que somente usuários na função de administradores tenham acesso. Os usuários não da função de administradores são negados.      ```   <authorization>     <deny users=&quot;?&quot; />     <allow roles=&quot;Administrators&quot; />     <deny users=&quot;*&quot; />   </authorization>   ```Um usuário ou função deve ser negada especificamente para recusar o usuário ou a permissão de função para uma URL. Ou seja, se o exemplo anterior não especificou o `<deny users=&quot;*&quot; />` elemento e, em seguida, todos os usuários autenticados seriam ter tido acesso à URL solicitada, independentemente de qual função fossem um membro de."
   example:
   - "The following code example grants access to Kim and members of the Admins role, while denying it to John and all anonymous users.  \n  \n```  \n<authorization>  \n  <allow users=\"Kim\"/>  \n  <allow roles=\"Admins\"/>  \n  <deny users=\"John\"/>  \n  <deny users=\"?\"/>  \n</authorization>  \n```"
   syntax:
@@ -38,8 +38,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Creates an instance of the <xref href=&quot;System.Web.Security.UrlAuthorizationModule&quot;></xref> class."
-  remarks: "This constructor is not intended to be called from application code.       ASP.NET calls this constructor to create an instance of the <xref:System.Web.Security.UrlAuthorizationModule> class. After calling the constructor, it calls the <xref:System.Web.Security.UrlAuthorizationModule.Init%2A> method to initialize the new <xref:System.Web.Security.UrlAuthorizationModule> object."
+  summary: "Cria uma instância de <xref href=&quot;System.Web.Security.UrlAuthorizationModule&quot;> </xref> classe."
+  remarks: "Este construtor não se destina a ser chamado no código do aplicativo.       ASP.NET chama este construtor para criar uma instância da <xref:System.Web.Security.UrlAuthorizationModule>classe.</xref:System.Web.Security.UrlAuthorizationModule> Depois de chamar o construtor, ele chama o <xref:System.Web.Security.UrlAuthorizationModule.Init%2A>método para inicializar o novo <xref:System.Web.Security.UrlAuthorizationModule>objeto.</xref:System.Web.Security.UrlAuthorizationModule> </xref:System.Web.Security.UrlAuthorizationModule.Init%2A>"
   syntax:
     content: public UrlAuthorizationModule ();
     parameters: []
@@ -59,23 +59,23 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Determines whether the user has access to the requested file."
-  remarks: "The CheckUrlAccessForPrincipal method checks to see whether the current user is granted access to the requested file in the Web.config file for the application.       If the HTTP verb used to make the request is `GET`, `POST`, or `HEAD`, the CheckUrlAccessForPrincipal method checks for read access to the file. If any other verb is used, the CheckUrlAccessForPrincipal checks for read/write access to the file.       For more information and an example Web.config file, see the <xref:System.Web.Security.UrlAuthorizationModule> class documentation."
+  summary: "Determina se o usuário tem acesso ao arquivo solicitado."
+  remarks: "O método CheckUrlAccessForPrincipal verifica se o usuário atual será concedido acesso ao arquivo solicitado no arquivo Web. config para o aplicativo.       Se o verbo HTTP usado para fazer a solicitação é `GET`, `POST`, ou `HEAD`, o método CheckUrlAccessForPrincipal verifica para acesso de leitura para o arquivo. Se qualquer outro verbo for usado, o CheckUrlAccessForPrincipal verifica para acesso de leitura/gravação para o arquivo.       Para obter mais informações e um exemplo de arquivo Web. config, consulte o <xref:System.Web.Security.UrlAuthorizationModule>documentação de classe.</xref:System.Web.Security.UrlAuthorizationModule>"
   syntax:
     content: public static bool CheckUrlAccessForPrincipal (string virtualPath, System.Security.Principal.IPrincipal user, string verb);
     parameters:
     - id: virtualPath
       type: System.String
-      description: "The virtual path to the file."
+      description: "O caminho virtual para o arquivo."
     - id: user
       type: System.Security.Principal.IPrincipal
-      description: "An <xref:System.Security.Principal.IPrincipal> object representing the current user."
+      description: "Um <xref:System.Security.Principal.IPrincipal>objeto representando o usuário atual.</xref:System.Security.Principal.IPrincipal>"
     - id: verb
       type: System.String
-      description: "The HTTP verb used to make the request."
+      description: "O verbo HTTP usado para fazer a solicitação."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the current user can access the file; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o usuário atual pode acessar o arquivo. Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Security.UrlAuthorizationModule.CheckUrlAccessForPrincipal*
   exceptions:
   - type: System.ArgumentNullException
@@ -83,7 +83,7 @@ items:
     description: "<code>virtualPath</code> is <xref uid=\"langword_csharp_null\" name=\"null\" href=\"\"></xref>.  \n  \n \\- or -  \n  \n <code>user</code> is <xref uid=\"langword_csharp_null\" name=\"null\" href=\"\"></xref>.  \n  \n \\- or -  \n  \n <code>verb</code> is <xref uid=\"langword_csharp_null\" name=\"null\" href=\"\"></xref>."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "<code>virtualPath</code> is outside of the application root path."
+    description: "<code>virtualPath</code>está fora do caminho raiz do aplicativo."
   platform:
   - net462
 - uid: System.Web.Security.UrlAuthorizationModule.Dispose
@@ -98,8 +98,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Releases all resources, other than memory, used by the <xref href=&quot;System.Web.Security.UrlAuthorizationModule&quot;></xref>."
-  remarks: "This method is not intended to be called from application code."
+  summary: "Libera todos os recursos, que não seja a memória usada pelo <xref href=&quot;System.Web.Security.UrlAuthorizationModule&quot;> </xref>."
+  remarks: "Esse método não se destina a ser chamado no código do aplicativo."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -119,14 +119,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Security
-  summary: "Initializes the <xref href=&quot;System.Web.Security.UrlAuthorizationModule&quot;></xref> object."
-  remarks: "This method is not intended to be called from application code.       The Init method ensures that the <xref:System.Web.Security.UrlAuthorizationModule> is included in the processing of the <xref:System.Web.HttpApplication.AuthorizeRequest> event."
+  summary: "Inicializa o <xref href=&quot;System.Web.Security.UrlAuthorizationModule&quot;> </xref> objeto."
+  remarks: "Esse método não se destina a ser chamado no código do aplicativo.       O método Init garante que o <xref:System.Web.Security.UrlAuthorizationModule>está incluído no processamento do <xref:System.Web.HttpApplication.AuthorizeRequest>evento.</xref:System.Web.HttpApplication.AuthorizeRequest> </xref:System.Web.Security.UrlAuthorizationModule>"
   syntax:
     content: public void Init (System.Web.HttpApplication app);
     parameters:
     - id: app
       type: System.Web.HttpApplication
-      description: "The current <xref href=&quot;System.Web.HttpApplication&quot;></xref> instance."
+      description: "Atual <xref href=&quot;System.Web.HttpApplication&quot;> </xref> instância."
   overload: System.Web.Security.UrlAuthorizationModule.Init*
   exceptions: []
   platform:

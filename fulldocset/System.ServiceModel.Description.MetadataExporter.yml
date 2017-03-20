@@ -16,8 +16,8 @@ items:
   nameWithType: MetadataExporter
   fullName: System.ServiceModel.Description.MetadataExporter
   type: Class
-  summary: "Exports service description information into metadata."
-  remarks: "Metadata export is the process of describing service endpoints and projecting them into a parallel, standardized representation (typically, but not necessarily XML) that applications can access to implement a client that uses the service. To export metadata from <xref:System.ServiceModel.Description.ServiceEndpoint?displayProperty=fullName> objects, use an implementation of the MetadataExporter abstract class.  A MetadataExporter implementation generates metadata that is encapsulated in a <xref:System.ServiceModel.Description.MetadataSet?displayProperty=fullName> instance.       The MetadataExporter class provides a framework for generating policy expressions that describe the capabilities and requirements of an endpoint binding and its associated operations, messages and faults. These policy expressions are captured in a <xref:System.ServiceModel.Description.PolicyConversionContext?displayProperty=fullName> instance. A MetadataExporter implementation can then attach these policy expressions to the metadata it generates.       The MetadataExporter calls into each <xref:System.ServiceModel.Channels.BindingElement?displayProperty=fullName> that implements the <xref:System.ServiceModel.Description.IPolicyExportExtension?displayProperty=fullName> interface in the binding of a <xref:System.ServiceModel.Description.ServiceEndpoint> when generating a <xref:System.ServiceModel.Description.PolicyConversionContext> object for the MetadataExporter implementation to use. You can export new policy assertions by implementing the <xref:System.ServiceModel.Description.IPolicyExportExtension> interface on your custom implementations of the <xref:System.ServiceModel.Channels.BindingElement?displayProperty=fullName> type.       The <xref:System.ServiceModel.Description.WsdlExporter?displayProperty=fullName> type is the implementation of the MetadataExporter class included with [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)]. The <xref:System.ServiceModel.Description.WsdlExporter> type generates WSDL metadata with attached policy expressions.       To export custom WSDL metadata or WSDL extensions for endpoint behaviors, contract behaviors or binding elements in a service endpoint, you can implement the <xref:System.ServiceModel.Description.IWsdlExportExtension?displayProperty=fullName> interface. The <xref:System.ServiceModel.Description.WsdlExporter> type calls into parts of a service endpoint that implement this interface when generating the WSDL document from that endpoint."
+  summary: "Exportações de informações de descrição nos metadados do serviço."
+  remarks: "Exportação de metadados é o processo de descrever os pontos de extremidade de serviço e projeção-los em uma representação paralela, padronizada (normalmente, mas não necessariamente XML) que os aplicativos podem acessar para implementar um cliente que usa o serviço. Para exportar metadados de <xref:System.ServiceModel.Description.ServiceEndpoint?displayProperty=fullName>objetos, use uma implementação da classe abstrata MetadataExporter.</xref:System.ServiceModel.Description.ServiceEndpoint?displayProperty=fullName>  Uma implementação de MetadataExporter gera metadados que é encapsulado em um <xref:System.ServiceModel.Description.MetadataSet?displayProperty=fullName>instância.</xref:System.ServiceModel.Description.MetadataSet?displayProperty=fullName>       A classe MetadataExporter fornece uma estrutura para gerar expressões de política que descrevem os recursos e requisitos de uma associação de ponto de extremidade e suas operações associadas, mensagens e falhas. Essas expressões de política são capturadas em um <xref:System.ServiceModel.Description.PolicyConversionContext?displayProperty=fullName>instância.</xref:System.ServiceModel.Description.PolicyConversionContext?displayProperty=fullName> Uma implementação de MetadataExporter, em seguida, pode anexar essas expressões de política para os metadados que ele gera.       As chamadas MetadataExporter em cada <xref:System.ServiceModel.Channels.BindingElement?displayProperty=fullName>que implementa o <xref:System.ServiceModel.Description.IPolicyExportExtension?displayProperty=fullName>interface na associação de um <xref:System.ServiceModel.Description.ServiceEndpoint>ao gerar uma <xref:System.ServiceModel.Description.PolicyConversionContext>objeto para a implementação de MetadataExporter usar.</xref:System.ServiceModel.Description.PolicyConversionContext> </xref:System.ServiceModel.Description.ServiceEndpoint> </xref:System.ServiceModel.Description.IPolicyExportExtension?displayProperty=fullName> </xref:System.ServiceModel.Channels.BindingElement?displayProperty=fullName> Você pode exportar novas declarações de política Implementando o <xref:System.ServiceModel.Description.IPolicyExportExtension>interface em suas implementações personalizadas do <xref:System.ServiceModel.Channels.BindingElement?displayProperty=fullName>tipo.</xref:System.ServiceModel.Channels.BindingElement?displayProperty=fullName> </xref:System.ServiceModel.Description.IPolicyExportExtension>       O <xref:System.ServiceModel.Description.WsdlExporter?displayProperty=fullName>tipo é a implementação da classe MetadataExporter incluída com [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)].</xref:System.ServiceModel.Description.WsdlExporter?displayProperty=fullName> O <xref:System.ServiceModel.Description.WsdlExporter>tipo gera metadados WSDL com expressões de política anexada.</xref:System.ServiceModel.Description.WsdlExporter>       Para exportar metadados WSDL personalizado ou extensões WSDL para comportamentos de ponto de extremidade, comportamentos de contrato ou elementos de associação em um ponto de extremidade de serviço, você pode implementar o <xref:System.ServiceModel.Description.IWsdlExportExtension?displayProperty=fullName>interface.</xref:System.ServiceModel.Description.IWsdlExportExtension?displayProperty=fullName> O <xref:System.ServiceModel.Description.WsdlExporter>Digite chamadas em partes de um ponto de extremidade de serviço que implementam esta interface ao gerar o documento WSDL do ponto de extremidade.</xref:System.ServiceModel.Description.WsdlExporter>"
   example:
   - "The following code example is an <xref:System.ServiceModel.Description.IWsdlExportExtension.ExportContract%2A?displayProperty=fullName> method that demonstrates how the <xref:System.ServiceModel.Description.MetadataExporter.State%2A> property of the class <xref:System.ServiceModel.Description.WsdlExporter> is used to attach a custom <xref:System.Runtime.Serialization.XsdDataContractExporter?displayProperty=fullName> that modifies the export of data contracts in the endpoint.  \n  \n [!code-cs[C_CustomWSDLExtensions#6](~/add/codesnippet/csharp/c_customwsdlextensions.client/wsdldocumentationattribute.cs#6)]  \n[!code-cs[C_CustomWSDLExtensions#5](~/add/codesnippet/csharp/c_customwsdlextensions.client/wsdldocumentationattribute.cs#5)]"
   syntax:
@@ -40,13 +40,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets a collection of errors that occurred during metadata export."
-  remarks: "This property is populated with errors that occurred during the metadata export process. Users of derived classes should check the Errors property prior to using the exported metadata."
+  summary: "Obtém uma coleção de erros que ocorreram durante a exportação de metadados."
+  remarks: "Essa propriedade é preenchida com erros que ocorreram durante o processo de exportação de metadados. Os usuários de classes derivadas devem verificar a propriedade de erros antes de usar os metadados exportado."
   syntax:
     content: public System.Collections.ObjectModel.Collection<System.ServiceModel.Description.MetadataConversionError> Errors { get; }
     return:
       type: System.Collections.ObjectModel.Collection{System.ServiceModel.Description.MetadataConversionError}
-      description: "The export errors that occurred."
+      description: "Os erros de exportação que ocorreram."
   overload: System.ServiceModel.Description.MetadataExporter.Errors*
   exceptions: []
   platform:
@@ -63,14 +63,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "When overridden in a derived class, exports a contract description into metadata."
-  remarks: "Override and implement ExportContract to convert a contract description into metadata."
+  summary: "Quando substituído em uma classe derivada, exporta uma descrição do contrato nos metadados."
+  remarks: "Substituir e implementar ExportContract para converter uma descrição do contrato em metadados."
   syntax:
     content: public abstract void ExportContract (System.ServiceModel.Description.ContractDescription contract);
     parameters:
     - id: contract
       type: System.ServiceModel.Description.ContractDescription
-      description: "The contract to export."
+      description: "O contrato para exportar."
   overload: System.ServiceModel.Description.MetadataExporter.ExportContract*
   exceptions: []
   platform:
@@ -87,14 +87,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "When overridden in a derived class, converts an endpoint into metadata."
-  remarks: "Override and implement ExportEndpoint to convert a contract description into metadata."
+  summary: "Quando substituído em uma classe derivada, converte um ponto de extremidade em metadados."
+  remarks: "Substituir e implementar ExportEndpoint para converter uma descrição do contrato em metadados."
   syntax:
     content: public abstract void ExportEndpoint (System.ServiceModel.Description.ServiceEndpoint endpoint);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The endpoint to convert."
+      description: "O ponto de extremidade para converter."
   overload: System.ServiceModel.Description.MetadataExporter.ExportEndpoint*
   exceptions: []
   platform:
@@ -111,16 +111,16 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Converts policy assertions into a <xref href=&quot;System.ServiceModel.Description.PolicyConversionContext&quot;></xref> object."
+  summary: "Converte as declarações de política em um <xref href=&quot;System.ServiceModel.Description.PolicyConversionContext&quot;> </xref> objeto."
   syntax:
     content: protected System.ServiceModel.Description.PolicyConversionContext ExportPolicy (System.ServiceModel.Description.ServiceEndpoint endpoint);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The endpoint from which to extract policy assertions."
+      description: "O ponto de extremidade do qual extrair declarações de política."
     return:
       type: System.ServiceModel.Description.PolicyConversionContext
-      description: "An object that contains policy assertion information for the endpoint. The policy assertions can then be embedded in a metadata document."
+      description: "Um objeto que contém informações de declaração de política para o ponto de extremidade. As declarações de política, em seguida, podem ser inseridas em um documento de metadados."
   overload: System.ServiceModel.Description.MetadataExporter.ExportPolicy*
   exceptions: []
   platform:
@@ -137,14 +137,14 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "When overridden in a derived class, returns the metadata generated by a call to either <xref:System.ServiceModel.Description.MetadataExporter.ExportContract*>, <xref:System.ServiceModel.Description.MetadataExporter.ExportEndpoint*>, or <xref:System.ServiceModel.Description.MetadataExporter.ExportPolicy*>."
-  remarks: "Use the GetGeneratedMetadata method to retrieve the metadata generated from earlier calls. Check the <xref:System.ServiceModel.Description.MetadataExporter.Errors%2A> property prior to retrieving the metadata to ensure that you have the metadata you want."
+  summary: "Quando substituído em uma classe derivada, retorna os metadados gerado por uma chamada para a <> </> *>, <> </> *>, ou <xref:System.ServiceModel.Description.MetadataExporter.ExportPolicy*>.</xref:System.ServiceModel.Description.MetadataExporter.ExportPolicy*>"
+  remarks: "Use o método GetGeneratedMetadata para recuperar os metadados gerados a partir de chamadas anteriores. Verifique o <xref:System.ServiceModel.Description.MetadataExporter.Errors%2A>propriedade antes de recuperar os metadados para garantir que você tenha os metadados que você deseja.</xref:System.ServiceModel.Description.MetadataExporter.Errors%2A>"
   syntax:
     content: public abstract System.ServiceModel.Description.MetadataSet GetGeneratedMetadata ();
     parameters: []
     return:
       type: System.ServiceModel.Description.MetadataSet
-      description: "An enumerable collection of <xref href=&quot;System.ServiceModel.Description.MetadataSection&quot;></xref> objects that contain the exported metadata."
+      description: "Uma coleção enumerável de <xref href=&quot;System.ServiceModel.Description.MetadataSection&quot;> </xref> objetos que contêm os metadados exportado."
   overload: System.ServiceModel.Description.MetadataExporter.GetGeneratedMetadata*
   exceptions: []
   platform:
@@ -161,13 +161,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Specifies the version of WS-Policy specification being used."
-  remarks: "The <xref:System.ServiceModel.Description.PolicyVersion> class contains the namespace for the version of WS-Policy the metadata exporter uses. WS-Policy 1.2 and 1.5 are currently supported."
+  summary: "Especifica a versão da especificação WS-Policy sendo usada."
+  remarks: "O <xref:System.ServiceModel.Description.PolicyVersion>classe contém o namespace para a versão do WS-Policy usa o exportador de metadados.</xref:System.ServiceModel.Description.PolicyVersion> Atualmente há suporte para WS-Policy 1.2 e 1.5."
   syntax:
     content: public System.ServiceModel.Description.PolicyVersion PolicyVersion { get; set; }
     return:
       type: System.ServiceModel.Description.PolicyVersion
-      description: "A <xref href=&quot;System.ServiceModel.Description.PolicyVersion&quot;></xref> instance."
+      description: "Um <xref href=&quot;System.ServiceModel.Description.PolicyVersion&quot;> </xref> instância."
   overload: System.ServiceModel.Description.MetadataExporter.PolicyVersion*
   exceptions: []
   platform:
@@ -184,15 +184,15 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Description
-  summary: "Gets a dictionary of objects used in the export of metadata."
-  remarks: "Use the `State` property to pass a <xref:System.ServiceModel.Description.MetadataExporter> state data required to successfully export endpoints or contracts."
+  summary: "Obtém um dicionário de objetos usados na exportação de metadados."
+  remarks: "Use o `State` propriedade para passar um <xref:System.ServiceModel.Description.MetadataExporter>necessários para exportar com êxito pontos de extremidade ou contratos de dados de estado.</xref:System.ServiceModel.Description.MetadataExporter>"
   example:
   - "The following code example is an <xref:System.ServiceModel.Description.IWsdlExportExtension.ExportContract%2A?displayProperty=fullName> method that demonstrates how the State property of the derived class <xref:System.ServiceModel.Description.WsdlImporter> is used to attach a custom <xref:System.Runtime.Serialization.XsdDataContractExporter?displayProperty=fullName> that modifies the export of data contracts in the endpoint.  \n  \n [!code-cs[C_CustomWSDLExtensions#6](~/add/codesnippet/csharp/c_customwsdlextensions.client/wsdldocumentationattribute.cs#6)]  \n[!code-cs[C_CustomWSDLExtensions#5](~/add/codesnippet/csharp/c_customwsdlextensions.client/wsdldocumentationattribute.cs#5)]"
   syntax:
     content: public System.Collections.Generic.Dictionary<object,object> State { get; }
     return:
       type: System.Collections.Generic.Dictionary{System.Object,System.Object}
-      description: "A dictionary of objects used by the importer to export contracts and endpoints."
+      description: "Um dicionário de objetos usados pelo importador para exportar os contratos e pontos de extremidade."
   overload: System.ServiceModel.Description.MetadataExporter.State*
   exceptions: []
   platform:

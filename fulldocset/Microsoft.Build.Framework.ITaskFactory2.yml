@@ -11,7 +11,7 @@ items:
   nameWithType: ITaskFactory2
   fullName: Microsoft.Build.Framework.ITaskFactory2
   type: Interface
-  summary: "Describes and extended <xref href=&quot;Microsoft.Build.Framework.ITaskFactory&quot;></xref> interface that a task factory instance should implement."
+  summary: "Descreve e estendidos <xref href=&quot;Microsoft.Build.Framework.ITaskFactory&quot;> </xref> interface deve implementar a uma instância da fábrica de tarefas."
   syntax:
     content: 'public interface ITaskFactory2 : Microsoft.Build.Framework.ITaskFactory'
   implements:
@@ -30,20 +30,20 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Create an instance of the task to be used, with an optional set of &quot;special&quot; parameters set on the individual task invocation using the MSBuildRuntime and MSBuildArchitecture default task parameters. MSBuild provides an implementation of this interface, TaskHostFactory, that uses &quot;MSBuildRuntime&quot;, with values &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot;, and &quot;*&quot; (Any); and &quot;MSBuildArchitecture&quot;, with values &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot;, and &quot;\\*&quot; (Any). An implementer of ITaskFactory2 can choose to use these pre-defined MSBuildRuntime and MSBuildArchitecture values, or can specify new values for these parameters."
-  remarks: "If a task factory implements ITaskFactory2, MSBuild will call this method instead of ITaskFactory.CreateTask."
+  summary: "Crie uma instância da tarefa a ser usado com um conjunto opcional de parâmetros &quot;especiais&quot; definidos na invocação de tarefa individual usando os parâmetros da tarefa MSBuildRuntime e MSBuildArchitecture padrão. O MSBuild fornece uma implementação desta interface, TaskHostFactory, que usa &quot;MSBuildRuntime&quot;, com valores &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot; e &quot;*&quot; (qualquer); e &quot;MSBuildArchitecture&quot;, com valores &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot; e &quot;\\*&quot; (qualquer). Um implementador de ITaskFactory2 pode optar por usar esses valores predefinidos MSBuildRuntime e MSBuildArchitecture, ou pode especificar novos valores para esses parâmetros."
+  remarks: "Se uma fábrica de tarefas implementa ITaskFactory2, MSBuild chamará esse método em vez de ITaskFactory.CreateTask."
   syntax:
     content: public Microsoft.Build.Framework.ITask CreateTask (Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost, System.Collections.Generic.IDictionary<string,string> taskIdentityParameters);
     parameters:
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The task factory logging host will log messages in the context of the task."
+      description: "O host de registro em log da fábrica de tarefa registrará em log mensagens no contexto da tarefa."
     - id: taskIdentityParameters
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Special parameters that the task factory can use to modify how it executes tasks, such as Runtime and Architecture."
+      description: "Parâmetros especiais que a fábrica de tarefas pode usar para modificar como executar tarefas, como tempo de execução e arquitetura."
     return:
       type: Microsoft.Build.Framework.ITask
-      description: "The generated task, or `null` if the task failed to be created."
+      description: "A tarefa gerada, ou `null` se a tarefa não pôde ser criada."
   overload: Microsoft.Build.Framework.ITaskFactory2.CreateTask*
   exceptions: []
   platform:
@@ -60,29 +60,29 @@ items:
   assemblies:
   - Microsoft.Build.Framework
   namespace: Microsoft.Build.Framework
-  summary: "Initializes this factory for instantiating tasks with a particular inline task block and a set of UsingTask parameters. MSBuild provides an implementation of this interface, TaskHostFactory, that uses &quot;Runtime&quot;, with values &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot;, and &quot;*&quot; (Any); and &quot;Architecture&quot;, with values &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot;, and &quot;\\*&quot; (Any). An implementer of ITaskFactory2 can choose to use these pre-defined Runtime and Architecture values, or can specify new values for these parameters."
-  remarks: "MSBuild engine will call this to initialize the factory. This should initialize the factory enough so that the factory can be asked whether or not task names can be created by the factory. If a task factory implements ITaskFactory2, this Initialize method will be called in place of ITaskFactory.Initialize.       The taskFactoryLoggingHost will log messages in the context of the target where the task is first used."
+  summary: "Inicializa essa fábrica para criar uma instância tarefas com um bloco de tarefa embutida específico e um conjunto de parâmetros de UsingTask. O MSBuild fornece uma implementação desta interface, TaskHostFactory, que usa o &quot;Tempo de execução&quot;, com valores &quot;CLR2&quot;, &quot;CLR4&quot;, &quot;CurrentRuntime&quot; e &quot;*&quot; (qualquer); e &quot;Arquitetura&quot;, com valores &quot;x86&quot;, &quot;x64&quot;, &quot;CurrentArchitecture&quot; e &quot;\\*&quot; (qualquer). Um implementador de ITaskFactory2 pode optar por usar esses valores predefinidos de arquitetura e tempo de execução, ou pode especificar novos valores para esses parâmetros."
+  remarks: "Mecanismo MSBuild chamará isso para inicializar a fábrica. Isso deve inicializar a fábrica suficiente para que a fábrica pode ser feita ou não os nomes de tarefas podem ser criados pela fábrica. Se uma fábrica de tarefas implementa ITaskFactory2, esse método de inicialização será chamado no lugar de ITaskFactory.Initialize.       O taskFactoryLoggingHost registrará em log mensagens no contexto de destino em que a tarefa é usada pela primeira vez."
   syntax:
     content: public bool Initialize (string taskName, System.Collections.Generic.IDictionary<string,string> factoryIdentityParameters, System.Collections.Generic.IDictionary<string,Microsoft.Build.Framework.TaskPropertyInfo> parameterGroup, string taskBody, Microsoft.Build.Framework.IBuildEngine taskFactoryLoggingHost);
     parameters:
     - id: taskName
       type: System.String
-      description: "Name of the task."
+      description: "Nome da tarefa."
     - id: factoryIdentityParameters
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Special parameters that the task factory can use to modify how it executes tasks, such as Runtime and Architecture. The key is the name of the parameter and the value is the parameter&quot;s value. This is the set of parameters that was set on the UsingTask using e.g. the UsingTask Runtime and Architecture parameters."
+      description: "Parâmetros especiais que a fábrica de tarefas pode usar para modificar como executar tarefas, como tempo de execução e arquitetura. A chave é o nome do parâmetro e o valor é o valor do parâmetro. Este é o conjunto de parâmetros que foi definido no UsingTask usando, por exemplo, os parâmetros de arquitetura e UsingTask Runtime."
     - id: parameterGroup
       type: System.Collections.Generic.IDictionary{System.String,Microsoft.Build.Framework.TaskPropertyInfo}
-      description: "The parameter group."
+      description: "O grupo de parâmetro."
     - id: taskBody
       type: System.String
-      description: "The task body."
+      description: "O corpo da tarefa."
     - id: taskFactoryLoggingHost
       type: Microsoft.Build.Framework.IBuildEngine
-      description: "The task factory logging host."
+      description: "O host de registro em log da fábrica de tarefa."
     return:
       type: System.Boolean
-      description: "A value indicating whether initialization was successful."
+      description: "Um valor que indica se a inicialização foi bem-sucedida."
   overload: Microsoft.Build.Framework.ITaskFactory2.Initialize*
   exceptions: []
   platform:

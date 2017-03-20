@@ -11,8 +11,8 @@ items:
   nameWithType: TraceContextEventArgs
   fullName: System.Web.TraceContextEventArgs
   type: Class
-  summary: "Provides a collection of trace records to any method that handles the <xref href=&quot;System.Web.TraceContext.TraceFinished&quot;></xref> event. This class cannot be inherited."
-  remarks: "The TraceContextEventArgs class is used by the <xref:System.Web.TraceContext> class to provide access to trace records after all the tracing information is gathered during HTTP request processing. By adding an event handler delegate to handle the <xref:System.Web.TraceContext.TraceFinished> event, you can process the records, record them to your own data store, or provide them as input to a profiling tool."
+  summary: "Fornece um conjunto de registros de rastreamento para qualquer método que manipula o <xref href=&quot;System.Web.TraceContext.TraceFinished&quot;> </xref> eventos. Essa classe não pode ser herdada."
+  remarks: "A classe TraceContextEventArgs é usada pelo <xref:System.Web.TraceContext>classe para fornecer acesso a registros de rastreamento depois que todas as informações de rastreamento é coletada durante o processamento de solicitação HTTP.</xref:System.Web.TraceContext> Adicionando um delegado de manipulador de eventos para lidar com o <xref:System.Web.TraceContext.TraceFinished>eventos, você pode processar os registros, registrá-los para seu próprio repositório de dados ou fornecê-los como entrada para uma ferramenta de criação de perfil.</xref:System.Web.TraceContext.TraceFinished>"
   example:
   - "The following code example demonstrates how you can register a <xref:System.Web.TraceContextEventHandler> delegate to handle the <xref:System.Web.TraceContext.TraceFinished> event. In this example, the `OnTraceFinished` method accesses the collection of <xref:System.Web.TraceContextRecord> objects through the <xref:System.Web.TraceContextEventArgs.TraceRecords%2A> property, iterates through them, and writes them to the response stream.  \n  \n [!code-cs[System.Web.Trace_3#1](~/add/codesnippet/csharp/t-system.web.tracecontex_0_1.aspx)]\n [!code-vb[System.Web.Trace_3#1](~/add/codesnippet/visualbasic/t-system.web.tracecontex_0_1.aspx)]"
   syntax:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.TraceContextEventArgs&quot;></xref> class, using the provided collection of trace records."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.TraceContextEventArgs&quot;> </xref> de classe, usando a coleção fornecida de registros de rastreamento."
   syntax:
     content: public TraceContextEventArgs (System.Collections.ICollection records);
     parameters:
     - id: records
       type: System.Collections.ICollection
-      description: "A collection of <xref href=&quot;System.Web.TraceContextRecord&quot;></xref> objects that represent all the trace records logged for the current request."
+      description: "Uma coleção de <xref href=&quot;System.Web.TraceContextRecord&quot;> </xref> objetos que representam todos os registros de rastreamento registrados para a solicitação atual."
   overload: System.Web.TraceContextEventArgs.#ctor*
   exceptions: []
   platform:
@@ -58,15 +58,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets a collection of <xref href=&quot;System.Web.TraceContextRecord&quot;></xref> messages that are associated with the current request."
-  remarks: "Every call to the <xref:System.Web.TraceContext.Write%2A?displayProperty=fullName> and <xref:System.Web.TraceContext.Warn%2A?displayProperty=fullName> methods generates a <xref:System.Web.TraceContextRecord> object that is added to the TraceRecords messages collection. The <xref:System.Web.TraceContext.Warn%2A> method call sets the <xref:System.Web.TraceContextRecord.IsWarning%2A> property to `true`, while the other method calls set it to `false`.       You can iterate through the TraceRecords messages and examine records with specific categories or messages, and whether they are warnings."
+  summary: "Obtém uma coleção de <xref href=&quot;System.Web.TraceContextRecord&quot;> </xref> mensagens que estão associadas com a solicitação atual."
+  remarks: "Todas as chamadas para o <xref:System.Web.TraceContext.Write%2A?displayProperty=fullName>e <xref:System.Web.TraceContext.Warn%2A?displayProperty=fullName>métodos gera um <xref:System.Web.TraceContextRecord>coleção de mensagens do objeto que é adicionado ao TraceRecords.</xref:System.Web.TraceContextRecord> </xref:System.Web.TraceContext.Warn%2A?displayProperty=fullName> </xref:System.Web.TraceContext.Write%2A?displayProperty=fullName> O <xref:System.Web.TraceContext.Warn%2A>conjuntos de chamada do método de <xref:System.Web.TraceContextRecord.IsWarning%2A>propriedade `true`, enquanto outras chamadas de método defini-lo como `false`.</xref:System.Web.TraceContextRecord.IsWarning%2A> </xref:System.Web.TraceContext.Warn%2A>       Você pode percorrer as mensagens TraceRecords e examinar os registros com categorias específicas ou mensagens, e se eles são avisos."
   example:
   - "The following code example demonstrates how you can register a <xref:System.Web.TraceContextEventHandler> delegate to handle the <xref:System.Web.TraceContext.TraceFinished> event. In this example, the `OnTraceFinished` method accesses the collection of <xref:System.Web.TraceContextRecord> objects through the TraceRecords property, iterates through them, and writes them to the response stream.  \n  \n [!code-cs[System.Web.Trace_3#1](~/add/codesnippet/csharp/p-system.web.tracecontex_3_1.aspx)]\n [!code-vb[System.Web.Trace_3#1](~/add/codesnippet/visualbasic/p-system.web.tracecontex_3_1.aspx)]"
   syntax:
     content: public System.Collections.ICollection TraceRecords { get; }
     return:
       type: System.Collections.ICollection
-      description: "A collection of trace records that are associated with the current request."
+      description: "Uma coleção de registros de rastreamento que estão associados com a solicitação atual."
   overload: System.Web.TraceContextEventArgs.TraceRecords*
   exceptions: []
   platform:

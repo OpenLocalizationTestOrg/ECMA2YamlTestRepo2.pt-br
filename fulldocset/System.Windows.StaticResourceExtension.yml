@@ -13,8 +13,8 @@ items:
   nameWithType: StaticResourceExtension
   fullName: System.Windows.StaticResourceExtension
   type: Class
-  summary: "Implements a markup extension that supports static (XAML load time) resource references made from XAML."
-  remarks: "This class is a markup extension implementation. Markup extension classes in WPF exist mainly to provide infrastructure support for some aspect of the [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] XAML  processor implementation, and the members exposed by a markup extension are not typically called from user code. This extension supports the [StaticResource Markup Extension](~/add/includes/ajax-current-ext-md.md) usage from XAML. For more information on the mechanics of static resource lookup in WPF XAML, see [StaticResource Markup Extension](../Topic/StaticResource%20Markup%20Extension.md) or [XAML Resources](~/add/includes/ajax-current-ext-md.md).       `{StaticResource}` is a markup extension that is specific to the WPF implementation of XAML. You can use `{StaticResource}` when referencing the default XAML namespace for WPF, without using a prefix. In contrast, markup extensions that are defined for XAML language support (such as `{x:Type}`) require the prefix for the XAML language XAML namespace in the usage. For more information, see [Markup Extensions and WPF XAML](~/add/includes/ajax-current-ext-md.md).       Static resource references are generally used in XAML whenever a [DynamicResource Markup Extension](~/add/includes/ajax-current-ext-md.md) is not explicitly necessary.      <a name=&quot;xamlTextUsage_StaticResourceExtension&quot;></a>    ## XAML Text Usage    See Remarks"
+  summary: "Implementa uma extensão de marcação que dá suporte ao recurso (tempo de carregamento do XAML) estático referências feitas do XAML."
+  remarks: "Essa classe é uma implementação de extensão de marcação. Classes de extensão de marcação no WPF existem principalmente para oferecer suporte à infraestrutura para alguns aspectos do [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] implementação do processador XAML e os membros expostos por uma extensão de marcação não normalmente são chamados de código do usuário. Essa extensão oferece suporte a [StaticResource Markup Extension](~/add/includes/ajax-current-ext-md.md) uso do XAML. Para obter mais informações sobre os mecanismos de pesquisa por recursos estáticos em WPF XAML, consulte [StaticResource Markup Extension](../Topic/StaticResource%20Markup%20Extension.md) ou [recursos XAML](~/add/includes/ajax-current-ext-md.md).       `{StaticResource}`é uma extensão de marcação que é específica para a implementação do WPF XAML. Você pode usar `{StaticResource}` ao referenciar o namespace XAML padrão para WPF, sem usar um prefixo. Por outro lado, suportam a extensões de marcação que são definidas para a linguagem XAML (como `{x:Type}`) requerem o prefixo do namespace XAML linguagem XAML no uso. Para obter mais informações, consulte [extensões de marcação e WPF XAML](~/add/includes/ajax-current-ext-md.md).       Referências a recursos estáticos são geralmente usadas em XAML sempre que um [DynamicResource Markup Extension](~/add/includes/ajax-current-ext-md.md) não é necessário explicitamente.      <a name=&quot;xamlTextUsage_StaticResourceExtension&quot;></a># # XAML texto uso consulte comentários"
   syntax:
     content: >-
       [System.Windows.Localizability(System.Windows.LocalizationCategory.NeverLocalize)]
@@ -40,7 +40,7 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.StaticResourceExtension&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Windows.StaticResourceExtension&quot;> </xref> classe."
   syntax:
     content: public StaticResourceExtension ();
     parameters: []
@@ -60,18 +60,18 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: "Initializes a new instance of the <xref href=&quot;System.Windows.StaticResourceExtension&quot;></xref> class, with the provided initial key."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Windows.StaticResourceExtension&quot;> </xref> classe, com a chave inicial fornecida."
   syntax:
     content: public StaticResourceExtension (object resourceKey);
     parameters:
     - id: resourceKey
       type: System.Object
-      description: "The key of the resource that this markup extension references."
+      description: "A chave do recurso que faz referência a esta extensão de marcação."
   overload: System.Windows.StaticResourceExtension.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>resourceKey</code> parameter is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, either through markup extension usage or explicit construction."
+    description: "<code>resourceKey</code>o parâmetro é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, por meio do uso de extensão de marcação ou construção explícita."
   platform:
   - net462
 - uid: System.Windows.StaticResourceExtension.ProvideValue(System.IServiceProvider)
@@ -86,22 +86,22 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: "Returns an object that should be set on the property where this extension is applied. For <xref href=&quot;System.Windows.StaticResourceExtension&quot;></xref>, this is the object found in a resource dictionary, where the object to find is identified by the <xref:System.Windows.StaticResourceExtension.ResourceKey*>."
-  remarks: "This method supports [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] XAML processor implementation, and is not intended to be called directly. The XAML processor implementation uses this method for proper handling of `StaticResource` extension values during object creation.       The property to be set can be identified by a <xref:System.Reflection.PropertyInfo> (standard property) or <xref:System.Windows.DependencyProperty> (dependency property).       This implementation relies on XAML-related services based on the passed `serviceProvider`. It must not be `null`. In the [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] implementation, the following are required services from service context:      -   <xref:System.Xaml.IXamlSchemaContextProvider>      -   <xref:System.Xaml.IAmbientProvider>      -   <xref:System.Xaml.IRootObjectProvider>       If any of these services are missing, usage of the markup extension throws an exception."
+  summary: "Retorna um objeto que deve ser definido na propriedade onde essa extensão é aplicada. Para <xref href=&quot;System.Windows.StaticResourceExtension&quot;> </xref>, esse é o objeto encontrado em um dicionário de recursos, onde o objeto localizar é identificado pelo <xref:System.Windows.StaticResourceExtension.ResourceKey*>.</xref:System.Windows.StaticResourceExtension.ResourceKey*>"
+  remarks: "Este método dá suporte à [!INCLUDE[TLA2#tla_winclient](~/add/includes/tla2sharptla-winclient-md.md)] implementação do processador XAML e não se destina a ser chamado diretamente. A implementação de processador XAML usa esse método para manipulação adequada de `StaticResource` valores de durante a criação do objeto de extensão.       A propriedade a ser definido pode ser identificada por um <xref:System.Reflection.PropertyInfo>(propriedade padrão) ou <xref:System.Windows.DependencyProperty>(propriedade de dependência).</xref:System.Windows.DependencyProperty> </xref:System.Reflection.PropertyInfo>       Esta implementação se baseia em serviços relacionados a XAML com base no passado `serviceProvider`. Ele não deve ser `null`. No [!INCLUDE[net_v40_short](~/add/includes/net-v40-short-md.md)] implementação, estes são os serviços necessários do contexto do serviço:- <xref:System.Xaml.IXamlSchemaContextProvider>- <xref:System.Xaml.IAmbientProvider>- <xref:System.Xaml.IRootObjectProvider>se qualquer um desses serviços estiver ausente, o uso da extensão de marcação lança uma exceção.</xref:System.Xaml.IRootObjectProvider> </xref:System.Xaml.IAmbientProvider> </xref:System.Xaml.IXamlSchemaContextProvider>"
   syntax:
     content: public override object ProvideValue (IServiceProvider serviceProvider);
     parameters:
     - id: serviceProvider
       type: System.IServiceProvider
-      description: "Object that can provide services for the markup extension."
+      description: "Objeto que pode fornecer serviços para a extensão de marcação."
     return:
       type: System.Object
-      description: "The object value to set on the property where the markup extension provided value is evaluated."
+      description: "O valor de objeto a ser definido na propriedade de extensão de marcação onde o valor fornecido é avaliado."
   overload: System.Windows.StaticResourceExtension.ProvideValue*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "<code>serviceProvider</code> was <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, or failed to implement a required service."
+    description: "<code>serviceProvider</code>foi <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, ou com falha implementar um serviço necessário."
   platform:
   - net462
 - uid: System.Windows.StaticResourceExtension.ResourceKey
@@ -116,18 +116,18 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows
-  summary: "Gets or sets the key value passed by this static resource reference. They key is used  to return the object matching that key in resource dictionaries."
-  remarks: "For [!INCLUDE[TLA2#tla_xaml](~/add/includes/tla2sharptla-xaml-md.md)] usage information, see [StaticResource Markup Extension](~/add/includes/ajax-current-ext-md.md).      <a name=&quot;xamlTextUsage_ResourceKey&quot;></a>    ## XAML Text Usage"
+  summary: "Obtém ou define o valor da chave passado por referência esse recurso estático. Chave é usada para retornar o objeto correspondente a essa chave nos dicionários de recursos."
+  remarks: "Para [!INCLUDE[TLA2#tla_xaml](~/add/includes/tla2sharptla-xaml-md.md)] informações de uso, consulte [StaticResource Markup Extension](~/add/includes/ajax-current-ext-md.md).      <a name=&quot;xamlTextUsage_ResourceKey&quot;></a># # Uso de texto XAML"
   syntax:
     content: public object ResourceKey { get; set; }
     return:
       type: System.Object
-      description: "The resource key for a resource."
+      description: "A chave de recurso para um recurso."
   overload: System.Windows.StaticResourceExtension.ResourceKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "Specified value as <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, either through markup extension usage or explicit construction."
+    description: "Especificado valor como <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, por meio do uso de extensão de marcação ou construção explícita."
   platform:
   - net462
 references:

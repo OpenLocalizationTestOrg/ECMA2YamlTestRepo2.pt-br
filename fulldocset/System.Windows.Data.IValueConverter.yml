@@ -11,8 +11,8 @@ items:
   nameWithType: IValueConverter
   fullName: System.Windows.Data.IValueConverter
   type: Interface
-  summary: "Provides a way to apply custom logic to a binding."
-  remarks: "If you want to associate a value converter with a binding, create a class that implements the IValueConverter interface and then implement the <xref:System.Windows.Data.IValueConverter.Convert%2A> and <xref:System.Windows.Data.IValueConverter.ConvertBack%2A> methods. Converters can change data from one type to another, translate data based on cultural information, or modify other aspects of the presentation. For examples of some typical converter scenarios, see &quot;Data Conversion&quot; in [Data Binding Overview](~/add/includes/ajax-current-ext-md.md).       Value converters are culture-aware. Both the <xref:System.Windows.Data.IValueConverter.Convert%2A> and <xref:System.Windows.Data.IValueConverter.ConvertBack%2A> methods have a `culture` parameter that indicates the cultural information. If cultural information is irrelevant to the conversion, then you can ignore that parameter in your custom converter.       The <xref:System.Windows.Data.IValueConverter.Convert%2A> and <xref:System.Windows.Data.IValueConverter.ConvertBack%2A> methods also have a parameter called `parameter` so that you can use the same instance of the converter with different parameters. For example, you can write a formatting converter that produces different formats of data based on the input parameter that you use. You can use the <xref:System.Windows.Data.Binding.ConverterParameter%2A> of the <xref:System.Windows.Data.Binding> class to pass a parameter as an argument into the <xref:System.Windows.Data.IValueConverter.Convert%2A> and <xref:System.Windows.Data.IValueConverter.ConvertBack%2A> methods."
+  summary: "Fornece uma maneira de aplicar lógica personalizada para uma associação."
+  remarks: "Se você deseja associar um conversor de valor com uma associação, crie uma classe que implementa a interface IValueConverter e, em seguida, implementar a <xref:System.Windows.Data.IValueConverter.Convert%2A>e <xref:System.Windows.Data.IValueConverter.ConvertBack%2A>métodos.</xref:System.Windows.Data.IValueConverter.ConvertBack%2A> </xref:System.Windows.Data.IValueConverter.Convert%2A> Conversores podem alterar dados de um tipo para outro, converter os dados com base nas informações de culturais ou modifique outros aspectos da apresentação. Para obter exemplos de alguns cenários típicos de conversor, consulte &quot;Conversão de dados&quot; em [visão geral de associação de dados](~/add/includes/ajax-current-ext-md.md).       Conversores de valor têm suporte para a cultura. Tanto o <xref:System.Windows.Data.IValueConverter.Convert%2A>e <xref:System.Windows.Data.IValueConverter.ConvertBack%2A>métodos têm um `culture` parâmetro que indica as informações culturais.</xref:System.Windows.Data.IValueConverter.ConvertBack%2A> </xref:System.Windows.Data.IValueConverter.Convert%2A> Se informações culturais são irrelevantes para a conversão, você pode ignorar esse parâmetro no seu conversor personalizado.       O <xref:System.Windows.Data.IValueConverter.Convert%2A>e <xref:System.Windows.Data.IValueConverter.ConvertBack%2A>métodos também têm um parâmetro chamado `parameter` para que você possa usar a mesma instância do conversor com parâmetros diferentes.</xref:System.Windows.Data.IValueConverter.ConvertBack%2A> </xref:System.Windows.Data.IValueConverter.Convert%2A> Por exemplo, você pode escrever um conversor de formatação que produz diferentes formatos de dados com base no parâmetro de entrada que você usar. Você pode usar o <xref:System.Windows.Data.Binding.ConverterParameter%2A>do <xref:System.Windows.Data.Binding>classe para passar um parâmetro como um argumento para o <xref:System.Windows.Data.IValueConverter.Convert%2A>e <xref:System.Windows.Data.IValueConverter.ConvertBack%2A>métodos.</xref:System.Windows.Data.IValueConverter.ConvertBack%2A> </xref:System.Windows.Data.IValueConverter.Convert%2A> </xref:System.Windows.Data.Binding> </xref:System.Windows.Data.Binding.ConverterParameter%2A>"
   syntax:
     content: public interface IValueConverter
   implements: []
@@ -30,26 +30,26 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Data
-  summary: "Converts a value."
-  remarks: "The data binding engine calls this method when it propagates a value from the binding source to the binding target.       The data binding engine does not catch exceptions that are thrown by a user-supplied converter. Any exception that is thrown by the Convert method, or any uncaught exceptions that are thrown by methods that the Convert method calls, are treated as run-time errors. Handle anticipated problems by returning <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>.       A return value of <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName> indicates that the converter produced no value and that the binding uses the <xref:System.Windows.Data.BindingBase.FallbackValue%2A>, if available, or the default value instead.       A return value of <xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName> indicates that the binding does not transfer the value or use the <xref:System.Windows.Data.BindingBase.FallbackValue%2A> or default value."
+  summary: "Converte um valor."
+  remarks: "O mecanismo de associação de dados chama esse método quando ele propaga um valor da fonte de associação para o destino da associação.       O mecanismo de associação de dados não capturar exceções geradas por um conversor fornecido pelo usuário. Qualquer exceção que é lançada pelo método Convert ou todas as exceções geradas por métodos que chama o método Convert, são tratadas como erros de tempo de execução. Tratar problemas antecipados retornando <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>.</xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>       Um valor de retorno <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>indica que o conversor não produzidos nenhum valor e que a associação usa o <xref:System.Windows.Data.BindingBase.FallbackValue%2A>, se disponível, ou o valor padrão em vez disso.</xref:System.Windows.Data.BindingBase.FallbackValue%2A> </xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>       Um valor de retorno <xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName>indica que a associação não transferir o valor ou usar o <xref:System.Windows.Data.BindingBase.FallbackValue%2A>ou o valor padrão.</xref:System.Windows.Data.BindingBase.FallbackValue%2A> </xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName>"
   syntax:
     content: public object Convert (object value, Type targetType, object parameter, System.Globalization.CultureInfo culture);
     parameters:
     - id: value
       type: System.Object
-      description: "The value produced by the binding source."
+      description: "O valor produzido pela fonte de associação."
     - id: targetType
       type: System.Type
-      description: "The type of the binding target property."
+      description: "O tipo da propriedade de destino de associação."
     - id: parameter
       type: System.Object
-      description: "The converter parameter to use."
+      description: "O parâmetro de conversor para usar."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The culture to use in the converter."
+      description: "A cultura a ser usada no conversor."
     return:
       type: System.Object
-      description: "A converted value. If the method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the valid null value is used."
+      description: "Um valor convertido. Se o método retornar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, será usado o valor nulo válido."
   overload: System.Windows.Data.IValueConverter.Convert*
   exceptions: []
   platform:
@@ -66,26 +66,26 @@ items:
   assemblies:
   - PresentationFramework
   namespace: System.Windows.Data
-  summary: "Converts a value."
-  remarks: "The data binding engine calls this method when it propagates a value from the binding target to the binding source.       The implementation of this method must be the inverse of the <xref:System.Windows.Data.IValueConverter.Convert%2A> method.       The data binding engine does not catch exceptions that are thrown by a user-supplied converter. Any exception that is thrown by the ConvertBack method, or any uncaught exceptions that are thrown by methods that the ConvertBack method calls, are treated as run-time errors. Handle anticipated problems by returning <xref:System.Windows.DependencyProperty>.<xref:System.Windows.DependencyProperty.UnsetValue>.       A return value of <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName> indicates that the converter produced no value and that the binding uses the <xref:System.Windows.Data.BindingBase.FallbackValue%2A>, if available, or the default value instead.       A return value of <xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName> indicates that the binding does not transfer the value or use the <xref:System.Windows.Data.BindingBase.FallbackValue%2A> or default value."
+  summary: "Converte um valor."
+  remarks: "O mecanismo de associação de dados chama esse método quando ele propaga um valor de destino da associação a origem da associação.       A implementação deste método deve ser o inverso do <xref:System.Windows.Data.IValueConverter.Convert%2A>método.</xref:System.Windows.Data.IValueConverter.Convert%2A>       O mecanismo de associação de dados não capturar exceções geradas por um conversor fornecido pelo usuário. Qualquer exceção que é lançada pelo método ConvertBack ou todas as exceções geradas por métodos que chama o método ConvertBack, são tratadas como erros de tempo de execução. Tratar problemas antecipados retornando <xref:System.Windows.DependencyProperty>.<xref:System.Windows.DependencyProperty.UnsetValue>.</xref:System.Windows.DependencyProperty.UnsetValue> </xref:System.Windows.DependencyProperty>       Um valor de retorno <xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>indica que o conversor não produzidos nenhum valor e que a associação usa o <xref:System.Windows.Data.BindingBase.FallbackValue%2A>, se disponível, ou o valor padrão em vez disso.</xref:System.Windows.Data.BindingBase.FallbackValue%2A> </xref:System.Windows.DependencyProperty.UnsetValue?displayProperty=fullName>       Um valor de retorno <xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName>indica que a associação não transferir o valor ou usar o <xref:System.Windows.Data.BindingBase.FallbackValue%2A>ou o valor padrão.</xref:System.Windows.Data.BindingBase.FallbackValue%2A> </xref:System.Windows.Data.Binding.DoNothing?displayProperty=fullName>"
   syntax:
     content: public object ConvertBack (object value, Type targetType, object parameter, System.Globalization.CultureInfo culture);
     parameters:
     - id: value
       type: System.Object
-      description: "The value that is produced by the binding target."
+      description: "O valor que é produzido pelo destino da associação."
     - id: targetType
       type: System.Type
-      description: "The type to convert to."
+      description: "O tipo para converter."
     - id: parameter
       type: System.Object
-      description: "The converter parameter to use."
+      description: "O parâmetro de conversor para usar."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The culture to use in the converter."
+      description: "A cultura a ser usada no conversor."
     return:
       type: System.Object
-      description: "A converted value. If the method returns <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the valid null value is used."
+      description: "Um valor convertido. Se o método retornar <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, será usado o valor nulo válido."
   overload: System.Windows.Data.IValueConverter.ConvertBack*
   exceptions: []
   platform:

@@ -13,8 +13,8 @@ items:
   nameWithType: ReceiveErrorHandling
   fullName: System.ServiceModel.ReceiveErrorHandling
   type: Enum
-  summary: "An enumeration that specifies handling for a poison message."
-  remarks: "A poison message is a message that fails repeated attempts to deliver to the application. This is applicable only when using a Message Queuing (MSMQ)-based binding. The default value is `Fault`, which faults the listener and therefore the ServiceHost. In the case where the service was to fault because of a poison message, a <xref:System.ServiceModel.MsmqPoisonMessageException> is thrown. The exception contains the `LookupId` of the MSMQ message that can be used to move the message out of the way using System.Messaging API. Certain values of the ReceiveErrorHandling enumeration such as `Reject` and `Move` are only available on [!INCLUDE[wv](~/add/includes/wv-md.md)]. You control poison message handling by setting the <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A> property to one of the values of this enumeration."
+  summary: "Uma enumeração que especifica o tratamento de uma mensagem suspeita."
+  remarks: "Uma mensagem suspeita é uma mensagem que falha repetidas tentativas de entrega para o aplicativo. Isso é aplicável somente ao usar uma associação de serviço de enfileiramento de mensagens MSMQ. O valor padrão é `Fault`, falhas de que o ouvinte e, portanto, o ServiceHost. No caso em que o serviço foi a falha devido a uma mensagem suspeita, um <xref:System.ServiceModel.MsmqPoisonMessageException>é gerada.</xref:System.ServiceModel.MsmqPoisonMessageException> A exceção contém o `LookupId` da mensagem do MSMQ que pode ser usada para mover a mensagem do caminho usando a API de System. Messaging. Certos valores de enumeração ReceiveErrorHandling como `Reject` e `Move` só estão disponíveis em [!INCLUDE[wv](~/add/includes/wv-md.md)]. Controle de mensagens suspeitas tratamento definindo o <xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>propriedade para um dos valores da enumeração.</xref:System.ServiceModel.Channels.MsmqBindingElementBase.ReceiveErrorHandling%2A>"
   example:
   - "The following configuration code illustrates how to set this property in the service configuration file:  \n  \n [!code-cs[XpsCreate#XpsCreateAddPkgContent](~/add/codesnippet/csharp/XpsCreate/XpsCreate.cs#xpscreateaddpkgcontent)]"
   syntax:
@@ -35,13 +35,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option drops the poison message. The message never gets delivered to the application. If the message&quot;s TTL had already expired at this point, then the message may appear in the sender&quot;s Dead Letter Queue. If not, the message does not appear anywhere. This option indicates that the user does not really care if the message is lost."
-  remarks: 'Applicable platforms: [!INCLUDE[wxp](~/add/includes/wxp-md.md)], [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)], and [!INCLUDE[wv](~/add/includes/wv-md.md)].'
+  summary: "Essa opção remove a mensagem suspeita. A mensagem nunca é entregues ao aplicativo. Se o TTL da mensagem já expirou neste ponto, a mensagem pode aparecer na fila de mensagens mortas do remetente. Caso contrário, a mensagem não aparece em qualquer lugar. Esta opção indica que o usuário não realmente importa se a mensagem for perdida."
+  remarks: 'Plataformas aplicáveis: [!INCLUDE[wxp](~/add/includes/wxp-md.md)], [!INCLUDE[ws2003](~/add/includes/ws2003-md.md)], e [!INCLUDE[wv](~/add/includes/wv-md.md)].'
   syntax:
     content: Drop
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -57,13 +57,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This option sends a fault to the listener that caused the ServiceHost to fault. The message must be removed from the application queue by some external mechanism before the application can continue to process messages from the queue."
-  remarks: 'Applicable platforms: Windows XP, Windows Server 2003, and Windows Vista.'
+  summary: "Essa opção envia uma falha para o ouvinte que causou o ServiceHost para falha. A mensagem deve ser removida da fila de aplicativos por algum mecanismo externo antes do aplicativo pode continuar a processar mensagens da fila."
+  remarks: 'Plataformas aplicáveis: Windows XP, Windows Server 2003 e Windows Vista.'
   syntax:
     content: Fault
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -79,13 +79,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This moves the poison message to a Poison Message Queue for later processing by a poison message handling application."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "Isso move a mensagem suspeita para uma fila de mensagens suspeitas para processamento posterior por uma aplicativo de tratamento de mensagens suspeitas."
+  remarks: 'Plataformas aplicáveis: [!INCLUDE[wv](~/add/includes/wv-md.md)] somente.'
   syntax:
     content: Move
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462
@@ -101,13 +101,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "This instructs MSMQ to send a negative acknowledgement back to the sending queue manager that the message cannot be received by the application. The message is placed in the sending queue manager&quot;s Dead Letter Queue."
-  remarks: 'Applicable platforms: [!INCLUDE[wv](~/add/includes/wv-md.md)] only.'
+  summary: "Isso instrui o MSMQ para enviar uma mensagem de confirmação negativa para o Gerenciador de fila de envio que a mensagem não pode ser recebida pelo aplicativo. A mensagem é colocada na fila de mensagens mortas do Gerenciador de fila envio."
+  remarks: 'Plataformas aplicáveis: [!INCLUDE[wv](~/add/includes/wv-md.md)] somente.'
   syntax:
     content: Reject
     return:
       type: System.ServiceModel.ReceiveErrorHandling
-      description: "To be added."
+      description: "A ser adicionado."
   exceptions: []
   platform:
   - net462

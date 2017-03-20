@@ -15,8 +15,8 @@ items:
   nameWithType: RegisterInfo
   fullName: System.ServiceModel.PeerResolvers.RegisterInfo
   type: Class
-  summary: "Defines the  peer registration information to be supplied to a peer resolver service."
-  remarks: "This class defines the information used to register the tuple of a peer node and a mesh ID with a peer resolver service. This information is inserted as an entry in the registration lookup table of the resolver service, which can be queried by other peers for the endpoint addresses of the inserted peer.       Instances of this class are created when <xref:System.ServiceModel.PeerResolvers.CustomPeerResolverService.Register%2A> (or an implementation of  <xref:System.ServiceModel.PeerResolvers.IPeerResolverContract.Register%2A>) is called to register with a peer resolver service. They are primarily used to pass registration request information to a peer resolver service from a network client of that service."
+  summary: "Define as informações de registro de ponto a ser fornecido para um serviço resolvedor de pares."
+  remarks: "Essa classe define as informações usadas para registrar a tupla de um nó de mesmo nível e uma identificação de malha com um serviço resolvedor de pares. Essa informação é inserida como uma entrada na tabela de pesquisa de registro do serviço resolvedor, que pode ser consultado por outros pontos para os endereços de ponto de extremidade do ponto inserido.       As instâncias dessa classe são criadas quando <xref:System.ServiceModel.PeerResolvers.CustomPeerResolverService.Register%2A>(ou uma implementação de <xref:System.ServiceModel.PeerResolvers.IPeerResolverContract.Register%2A>) é chamado para registrar com um serviço de resolvedor peer.</xref:System.ServiceModel.PeerResolvers.IPeerResolverContract.Register%2A> </xref:System.ServiceModel.PeerResolvers.CustomPeerResolverService.Register%2A> Eles são usados principalmente para transmitir informações de solicitação de registro para um serviço resolvedor de pares de um cliente de rede desse serviço."
   syntax:
     content: >-
       [System.ServiceModel.MessageContract(IsWrapped=false)]
@@ -40,7 +40,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Initializes a new default instance of the <xref href=&quot;System.ServiceModel.PeerResolvers.RegisterInfo&quot;></xref> class."
+  summary: "Inicializa uma nova instância padrão do <xref href=&quot;System.ServiceModel.PeerResolvers.RegisterInfo&quot;> </xref> classe."
   syntax:
     content: public RegisterInfo ();
     parameters: []
@@ -60,19 +60,19 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.PeerResolvers.RegisterInfo&quot;></xref> class with the supplied client ID, mesh ID, and endpoint address(es)."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ServiceModel.PeerResolvers.RegisterInfo&quot;> </xref> classe com a ID de cliente fornecido, a ID de malha e o endereço do ponto de extremidade."
   syntax:
     content: public RegisterInfo (Guid client, string meshId, System.ServiceModel.PeerNodeAddress address);
     parameters:
     - id: client
       type: System.Guid
-      description: "<xref:System.Guid> that uniquely identifies the peer node to be registered."
+      description: "<xref:System.Guid>que identifica exclusivamente o nó par a ser registrado.</xref:System.Guid>"
     - id: meshId
       type: System.String
-      description: "<xref:System.String> that specifies the ID of the mesh in which the peer node participates."
+      description: "<xref:System.String>que especifica a ID da malha na qual o nó par participa.</xref:System.String>"
     - id: address
       type: System.ServiceModel.PeerNodeAddress
-      description: "<xref href=&quot;System.ServiceModel.PeerNodeAddress&quot;></xref> that specifies the endpoint address(es) of the peer node to be registered."
+      description: "<xref href=&quot;System.ServiceModel.PeerNodeAddress&quot;></xref>que especifica os endereços de ponto de extremidade do nó par a ser registrado."
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.#ctor*
   exceptions: []
   platform:
@@ -89,12 +89,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Gets a <xref:System.Guid> that uniquely identifies the registration entry for a peer node."
+  summary: "Obtém um <xref:System.Guid>que identifica exclusivamente a entrada de registro para um nó par.</xref:System.Guid>"
   syntax:
     content: public Guid ClientId { get; }
     return:
       type: System.Guid
-      description: "<xref:System.Guid> that uniquely identifies the registration entry of a peer node."
+      description: "<xref:System.Guid>que identifica exclusivamente a entrada de registro de um nó ponto a ponto.</xref:System.Guid>"
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.ClientId*
   exceptions: []
   platform:
@@ -111,13 +111,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Indicates whether the body of the message containing a serialized instance of this type is correctly formed."
+  summary: "Indica se o corpo da mensagem que contém uma instância serializada desse tipo é formado corretamente."
   syntax:
     content: public bool HasBody ();
     parameters: []
     return:
       type: System.Boolean
-      description: "True if the registration information body is correctly-formed by the sender; false if it is not."
+      description: "True se o corpo de informações de registro está formado corretamente pelo remetente; False se não for."
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.HasBody*
   exceptions: []
   platform:
@@ -134,12 +134,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Gets a mesh ID associated with the registration entry."
+  summary: "Obtém uma ID de malha associada à entrada de registro."
   syntax:
     content: public string MeshId { get; }
     return:
       type: System.String
-      description: "<xref:System.String> that contains the mesh ID (or mesh name) associated with the registration entry."
+      description: "<xref:System.String>que contém a malha ID (ou nome de malha) associado à entrada de registro.</xref:System.String>"
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.MeshId*
   exceptions: []
   platform:
@@ -156,12 +156,12 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.PeerResolvers
-  summary: "Gets the endpoint address(es) to associate with the node that is registering with the resolver service."
+  summary: "Obtém os endereços de ponto de extremidade para associar o nó que está sendo registrada com o serviço de resolução."
   syntax:
     content: public System.ServiceModel.PeerNodeAddress NodeAddress { get; }
     return:
       type: System.ServiceModel.PeerNodeAddress
-      description: "<xref href=&quot;System.ServiceModel.PeerNodeAddress&quot;></xref> that contains the endpoint address(es) to associate with the node that is registering with the resolver service. The address or addresses contained in this instance can be used to connect with the peer node within the mesh."
+      description: "<xref href=&quot;System.ServiceModel.PeerNodeAddress&quot;></xref>que contém os endereços de ponto de extremidade para associar o nó que está sendo registrada com o serviço de resolução. O endereço ou endereços contidos nesta instância podem ser usados para conectar-se com o nó par dentro da malha."
   overload: System.ServiceModel.PeerResolvers.RegisterInfo.NodeAddress*
   exceptions: []
   platform:

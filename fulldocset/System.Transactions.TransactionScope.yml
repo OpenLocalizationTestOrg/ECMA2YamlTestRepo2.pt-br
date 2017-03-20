@@ -25,8 +25,8 @@ items:
   nameWithType: TransactionScope
   fullName: System.Transactions.TransactionScope
   type: Class
-  summary: "Makes a code block transactional. This class cannot be inherited."
-  remarks: "The <xref:System.Transactions> infrastructure provides both an explicit programming model based on the <xref:System.Transactions.Transaction> class, as well as an implicit programming model using the TransactionScope class, in which transactions are automatically managed by the infrastructure.      > [!IMPORTANT] >  It is recommended that you create implicit transactions using the TransactionScope class, so that the ambient transaction context is automatically managed for you. You should also use the TransactionScope and <xref:System.Transactions.DependentTransaction> class for applications that require the use of the same transaction across multiple function calls or multiple thread calls. For more information on this model, see the [Implementing An Implicit Transaction Using Transaction Scope](http://msdn.microsoft.com/en-us/1ddba95e-7587-48b2-8838-708c275e7199) topic. For more information on writing a transactional application, see [Writing A Transactional Application](http://msdn.microsoft.com/en-us/4a7cc4d1-0891-4605-941f-a933b9ce5bc8).       Upon instantiating a TransactionScope by the `new` statement, the transaction manager determines which transaction to participate in. Once determined, the scope always participates in that transaction. The decision is based on two factors: whether an ambient transaction is present and the value of the `TransactionScopeOption` parameter in the constructor.  The ambient transaction is the transaction your code executes in. You can obtain a reference to the ambient transaction by calling the static <xref:System.Transactions.Transaction.Current%2A> property of the <xref:System.Transactions.Transaction> class. For more information on how this parameter is used, please see the &quot;Transaction Flow Management&quot; section of the [Implementing An Implicit Transaction Using Transaction Scope](http://msdn.microsoft.com/en-us/1ddba95e-7587-48b2-8838-708c275e7199) topic.       If no exception occurs within the transaction scope (that is, between the initialization of the TransactionScope object and the calling of its <xref:System.Transactions.TransactionScope.Dispose%2A> method), then the transaction in which the scope participates is allowed to proceed. If an exception does occur within the transaction scope, the transaction in which it participates will be rolled back.       When your application completes all work it wants to perform in a transaction, you should call the <xref:System.Transactions.TransactionScope.Complete%2A> method only once to inform that transaction manager that it is acceptable to commit the transaction. Failing to call this method aborts the transaction.       A call to the <xref:System.Transactions.TransactionScope.Dispose%2A> method marks the end of the transaction scope. Exceptions that occur after calling this method may not affect the transaction.       If you modify the value of <xref:System.Transactions.Transaction.Current%2A> inside a scope, an exception is thrown when <xref:System.Transactions.TransactionScope.Dispose%2A> is called. However, at the end of the scope, the previous value is restored. In addition, if you call <xref:System.Transactions.TransactionScope.Dispose%2A> on <xref:System.Transactions.Transaction.Current%2A> inside a transaction scope that created the transaction, the transaction aborts at the end of the scope."
+  summary: "Torna um bloco de código transacional. Essa classe não pode ser herdada."
+  remarks: "O <xref:System.Transactions>infraestrutura fornece dois um modelo de programação explícito com base no <xref:System.Transactions.Transaction>classe, bem como um modelo de programação implícito através da classe TransactionScope, na qual as transações são automaticamente gerenciadas pela infraestrutura.</xref:System.Transactions.Transaction> </xref:System.Transactions>      > [!IMPORTANT] > É recomendável que você crie transações implícitas através da classe TransactionScope, para que o contexto de transação de ambiente é gerenciado automaticamente para você. Você também deve usar o TransactionScope e <xref:System.Transactions.DependentTransaction>classe para aplicativos que exigem o uso da mesma transação em várias chamadas de função ou várias chamadas de thread.</xref:System.Transactions.DependentTransaction> Para obter mais informações sobre esse modelo, consulte o [implementando um implícita transação usando o escopo da transação](http://msdn.microsoft.com/en-us/1ddba95e-7587-48b2-8838-708c275e7199) tópico. Para obter mais informações sobre como escrever um aplicativo transacional, consulte [escrevendo um aplicativo transacional](http://msdn.microsoft.com/en-us/4a7cc4d1-0891-4605-941f-a933b9ce5bc8).       Ao instanciar um TransactionScope pelo `new` instrução, o Gerenciador de transações determina qual transação participar. Uma vez determinado, o escopo sempre participa da transação. A decisão se baseia em dois fatores: se houver uma transação de ambiente e o valor da `TransactionScopeOption` parâmetro no construtor.  A transação de ambiente é a transação que é executado em seu código. Você pode obter uma referência para a transação de ambiente chamando a <xref:System.Transactions.Transaction.Current%2A>propriedade de <xref:System.Transactions.Transaction>classe</xref:System.Transactions.Transaction> </xref:System.Transactions.Transaction.Current%2A> estática Para obter mais informações sobre como esse parâmetro é usado, consulte a seção &quot;Gerenciamento de fluxo de transação&quot; do [implementando um implícita transação usando o escopo da transação](http://msdn.microsoft.com/en-us/1ddba95e-7587-48b2-8838-708c275e7199) tópico.       Se nenhuma exceção ocorrer dentro do escopo da transação (ou seja, entre a inicialização do TransactionScope do objeto e a chamada de seu <xref:System.Transactions.TransactionScope.Dispose%2A>método), em seguida, a transação do qual participa o escopo pode continuar.</xref:System.Transactions.TransactionScope.Dispose%2A> Se uma exceção ocorrer dentro do escopo de transação, as transações nas quais ela participa serão revertida.       Quando seu aplicativo conclui todo o trabalho que deseja executar em uma transação, você deve chamar o <xref:System.Transactions.TransactionScope.Complete%2A>método apenas uma vez para informar que o Gerenciador de transação que é aceitável para confirmar a transação.</xref:System.Transactions.TransactionScope.Complete%2A> Falha ao chamar este método anula a transação.       Uma chamada para o <xref:System.Transactions.TransactionScope.Dispose%2A>método marca o fim do escopo de transação.</xref:System.Transactions.TransactionScope.Dispose%2A> Exceções que ocorrem depois de chamar esse método podem não afetar a transação.       Se você modificar o valor de <xref:System.Transactions.Transaction.Current%2A>dentro de um escopo, uma exceção é lançada quando <xref:System.Transactions.TransactionScope.Dispose%2A>é chamado.</xref:System.Transactions.TransactionScope.Dispose%2A> </xref:System.Transactions.Transaction.Current%2A> No entanto, no final do escopo, o valor anterior é restaurado. Além disso, se você chamar <xref:System.Transactions.TransactionScope.Dispose%2A>em <xref:System.Transactions.Transaction.Current%2A>dentro de um escopo de transação que criou a transação, a transação é anulada no final do escopo.</xref:System.Transactions.Transaction.Current%2A> </xref:System.Transactions.TransactionScope.Dispose%2A>"
   example:
   - "The following example demonstrates how to use the TransactionScope class to define a block of code to participate in a transaction.  \n  \n [!code-vb[TransactionScope#1](~/add/codesnippet/visualbasic/t-system.transactions.tr_0_1.vb)]\n [!code-cs[TransactionScope#1](~/add/codesnippet/csharp/t-system.transactions.tr_0_1.cs)]"
   syntax:
@@ -50,8 +50,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class."
-  remarks: "This constructor creates a new transaction scope with the transaction scope option equal to <xref:System.Transactions.TransactionScopeOption>. This means that a transaction is required by the new scope and the ambient transaction is used if one already exists. Otherwise, it creates a new transaction before entering the scope."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe."
+  remarks: "Este construtor cria um novo escopo de transação com a opção de escopo de transação igual a <xref:System.Transactions.TransactionScopeOption>.</xref:System.Transactions.TransactionScopeOption> Isso significa que uma transação é necessária para o novo escopo e a transação de ambiente será usada se já existir uma. Caso contrário, ele cria uma nova transação antes de inserir o escopo."
   syntax:
     content: public TransactionScope ();
     parameters: []
@@ -71,13 +71,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class and sets the specified transaction as the ambient transaction, so that transactional work done inside the scope uses this transaction."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe e define a transação especificada como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
   syntax:
     content: public TransactionScope (System.Transactions.Transaction transactionToUse);
     parameters:
     - id: transactionToUse
       type: System.Transactions.Transaction
-      description: "The transaction to be set as the ambient transaction, so that transactional work done inside the scope uses this transaction."
+      description: "A transação a ser definido como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -94,13 +94,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified asynchronous flow option."
+  summary: "[Com suporte no .NET Framework 4.5.1 e versões posteriores]       Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com a opção de fluxo assíncrono especificado."
   syntax:
     content: public TransactionScope (System.Transactions.TransactionScopeAsyncFlowOption asyncFlowOption);
     parameters:
     - id: asyncFlowOption
       type: System.Transactions.TransactionScopeAsyncFlowOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;></xref> enumeration that describes whether the ambient transaction associated with the transaction scope will flow across thread continuations when using Task or async/await .NET async programming patterns."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;> </xref> enumeração que descreve se a transação de ambiente associada ao escopo de transação será flua por continuações de thread, ao usar a tarefa ou async/await .NET programação assíncrona padrões."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -117,13 +117,13 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified requirements."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com requisitos especificados."
   syntax:
     content: public TransactionScope (System.Transactions.TransactionScopeOption scopeOption);
     parameters:
     - id: scopeOption
       type: System.Transactions.TransactionScopeOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeOption&quot;></xref> enumeration that describes the transaction requirements associated with this transaction scope."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeOption&quot;> </xref> enumeração que descreve os requisitos de transação associados a este escopo de transação."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -140,16 +140,16 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified timeout value, and sets the specified transaction as the ambient transaction, so that transactional work done inside the scope uses this transaction."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com o valor de tempo limite especificado e define a transação especificada como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
   syntax:
     content: public TransactionScope (System.Transactions.Transaction transactionToUse, TimeSpan scopeTimeout);
     parameters:
     - id: transactionToUse
       type: System.Transactions.Transaction
-      description: "The transaction to be set as the ambient transaction, so that transactional work done inside the scope uses this transaction."
+      description: "A transação a ser definido como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
     - id: scopeTimeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> after which the transaction scope times out and aborts the transaction."
+      description: "O <xref:System.TimeSpan>depois que o escopo da transação atingir o tempo limite e anula a transação.</xref:System.TimeSpan>"
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -166,16 +166,16 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class and sets the specified transaction as the ambient transaction, so that transactional work done inside the scope uses this transaction."
+  summary: "[Com suporte no .NET Framework 4.5.1 e versões posteriores]       Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe e define a transação especificada como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
   syntax:
     content: public TransactionScope (System.Transactions.Transaction transactionToUse, System.Transactions.TransactionScopeAsyncFlowOption asyncFlowOption);
     parameters:
     - id: transactionToUse
       type: System.Transactions.Transaction
-      description: "The transaction to be set as the ambient transaction, so that transactional work done inside the scope uses this transaction."
+      description: "A transação a ser definido como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
     - id: asyncFlowOption
       type: System.Transactions.TransactionScopeAsyncFlowOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;></xref> enumeration that describes whether the ambient transaction associated with the transaction scope will flow across thread continuations when using Task or async/await .NET async programming patterns."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;> </xref> enumeração que descreve se a transação de ambiente associada ao escopo de transação será flua por continuações de thread, ao usar a tarefa ou async/await .NET programação assíncrona padrões."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -192,16 +192,16 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified timeout value and requirements."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com os requisitos e o valor de tempo limite especificado."
   syntax:
     content: public TransactionScope (System.Transactions.TransactionScopeOption scopeOption, TimeSpan scopeTimeout);
     parameters:
     - id: scopeOption
       type: System.Transactions.TransactionScopeOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeOption&quot;></xref> enumeration that describes the transaction requirements associated with this transaction scope."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeOption&quot;> </xref> enumeração que descreve os requisitos de transação associados a este escopo de transação."
     - id: scopeTimeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> after which the transaction scope times out and aborts the transaction."
+      description: "O <xref:System.TimeSpan>depois que o escopo da transação atingir o tempo limite e anula a transação.</xref:System.TimeSpan>"
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -218,17 +218,17 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified requirements."
-  remarks: "When you use the `transactionOptions` parameter to specify an <xref:System.Transactions.IsolationLevel>, and the scope creates a transaction later, the new transaction is associated with the specified isolation level. If an isolation level is passed in together with a transaction, the transaction must have an identical isolation level, or an exception is thrown."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com requisitos especificados."
+  remarks: "Quando você usa o `transactionOptions` parâmetro para especificar um <xref:System.Transactions.IsolationLevel>e o escopo cria uma transação posteriormente, a nova transação está associada com o nível de isolamento especificado.</xref:System.Transactions.IsolationLevel> Se um nível de isolamento é passado junto com uma transação, a transação deve ter um nível de isolamento idênticos ou uma exceção será lançada."
   syntax:
     content: public TransactionScope (System.Transactions.TransactionScopeOption scopeOption, System.Transactions.TransactionOptions transactionOptions);
     parameters:
     - id: scopeOption
       type: System.Transactions.TransactionScopeOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeOption&quot;></xref> enumeration that describes the transaction requirements associated with this transaction scope."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeOption&quot;> </xref> enumeração que descreve os requisitos de transação associados a este escopo de transação."
     - id: transactionOptions
       type: System.Transactions.TransactionOptions
-      description: "A <xref href=&quot;System.Transactions.TransactionOptions&quot;></xref> structure that describes the transaction options to use if a new transaction is created. If an existing transaction is used, the timeout value in this parameter applies to the transaction scope. If that time expires before the scope is disposed, the transaction is aborted."
+      description: "Um <xref href=&quot;System.Transactions.TransactionOptions&quot;> </xref> estrutura que descreve as opções de transação a ser usado se uma nova transação é criada. Se uma transação existente for usada, o valor de tempo limite nesse parâmetro se aplica ao escopo de transação. Se esse tempo expirar antes que o escopo é descartado, a transação será anulada."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -245,16 +245,16 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified requirements and asynchronous flow option."
+  summary: "[Com suporte no .NET Framework 4.5.1 e versões posteriores]       Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com a opção de fluxo assíncrono e requisitos especificados."
   syntax:
     content: public TransactionScope (System.Transactions.TransactionScopeOption scopeOption, System.Transactions.TransactionScopeAsyncFlowOption asyncFlowOption);
     parameters:
     - id: scopeOption
       type: System.Transactions.TransactionScopeOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeOption&quot;></xref> enumeration that describes the transaction requirements associated with this transaction scope."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeOption&quot;> </xref> enumeração que descreve os requisitos de transação associados a este escopo de transação."
     - id: asyncFlowOption
       type: System.Transactions.TransactionScopeAsyncFlowOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;></xref> enumeration that describes whether the ambient transaction associated with the transaction scope will flow across thread continuations when using Task or async/await .NET async programming patterns."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;> </xref> enumeração que descreve se a transação de ambiente associada ao escopo de transação será flua por continuações de thread, ao usar a tarefa ou async/await .NET programação assíncrona padrões."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -271,20 +271,20 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified timeout value and COM+ interoperability requirements, and sets the specified transaction as the ambient transaction, so that transactional work done inside the scope uses this transaction."
-  remarks: '**Note** This method uses <xref:System.Security.Permissions.SecurityAction> to prevent it from being called from untrusted code; however, only the immediate caller is required to possess the `FullTrust` permission set.'
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com o valor de tempo limite especificado e o COM+ requisitos de interoperabilidade e define a transação especificada como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
+  remarks: '**Observação** esse método usa <xref:System.Security.Permissions.SecurityAction>impedir que ele está sendo chamado de código não confiável; no entanto, apenas o chamador imediato é necessário ter o `FullTrust` conjunto de permissões.</xref:System.Security.Permissions.SecurityAction>'
   syntax:
     content: public TransactionScope (System.Transactions.Transaction transactionToUse, TimeSpan scopeTimeout, System.Transactions.EnterpriseServicesInteropOption interopOption);
     parameters:
     - id: transactionToUse
       type: System.Transactions.Transaction
-      description: "The transaction to be set as the ambient transaction, so that transactional work done inside the scope uses this transaction."
+      description: "A transação a ser definido como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
     - id: scopeTimeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> after which the transaction scope times out and aborts the transaction."
+      description: "O <xref:System.TimeSpan>depois que o escopo da transação atingir o tempo limite e anula a transação.</xref:System.TimeSpan>"
     - id: interopOption
       type: System.Transactions.EnterpriseServicesInteropOption
-      description: "An instance of the <xref href=&quot;System.Transactions.EnterpriseServicesInteropOption&quot;></xref> enumeration that describes how the associated transaction interacts with COM+ transactions."
+      description: "Uma instância do <xref href=&quot;System.Transactions.EnterpriseServicesInteropOption&quot;> </xref> enumeração que descreve como a transação associada interage com transações COM+."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -301,19 +301,19 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified timeout value, and sets the specified transaction as the ambient transaction, so that transactional work done inside the scope uses this transaction."
+  summary: "[Com suporte no .NET Framework 4.5.1 e versões posteriores]       Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com o valor de tempo limite especificado e define a transação especificada como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
   syntax:
     content: public TransactionScope (System.Transactions.Transaction transactionToUse, TimeSpan scopeTimeout, System.Transactions.TransactionScopeAsyncFlowOption asyncFlowOption);
     parameters:
     - id: transactionToUse
       type: System.Transactions.Transaction
-      description: "The transaction to be set as the ambient transaction, so that transactional work done inside the scope uses this transaction."
+      description: "A transação a ser definido como a transação de ambiente, para que use o trabalho transacional dentro do escopo desta transação."
     - id: scopeTimeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> after which the transaction scope times out and aborts the transaction."
+      description: "O <xref:System.TimeSpan>depois que o escopo da transação atingir o tempo limite e anula a transação.</xref:System.TimeSpan>"
     - id: asyncFlowOption
       type: System.Transactions.TransactionScopeAsyncFlowOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;></xref> enumeration that describes whether the ambient transaction associated with the transaction scope will flow across thread continuations when using Task or async/await .NET async programming patterns."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;> </xref> enumeração que descreve se a transação de ambiente associada ao escopo de transação será flua por continuações de thread, ao usar a tarefa ou async/await .NET programação assíncrona padrões."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -330,19 +330,19 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified timeout value, requirements, and asynchronous flow option."
+  summary: "[Com suporte no .NET Framework 4.5.1 e versões posteriores]       Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com o valor de tempo limite especificado, requisitos e opção de fluxo assíncrono."
   syntax:
     content: public TransactionScope (System.Transactions.TransactionScopeOption scopeOption, TimeSpan scopeTimeout, System.Transactions.TransactionScopeAsyncFlowOption asyncFlowOption);
     parameters:
     - id: scopeOption
       type: System.Transactions.TransactionScopeOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeOption&quot;></xref> enumeration that describes the transaction requirements associated with this transaction scope."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeOption&quot;> </xref> enumeração que descreve os requisitos de transação associados a este escopo de transação."
     - id: scopeTimeout
       type: System.TimeSpan
-      description: "The <xref:System.TimeSpan> after which the transaction scope times out and aborts the transaction."
+      description: "O <xref:System.TimeSpan>depois que o escopo da transação atingir o tempo limite e anula a transação.</xref:System.TimeSpan>"
     - id: asyncFlowOption
       type: System.Transactions.TransactionScopeAsyncFlowOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;></xref> enumeration that describes whether the ambient transaction associated with the transaction scope will flow across thread continuations when using Task or async/await .NET async programming patterns."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;> </xref> enumeração que descreve se a transação de ambiente associada ao escopo de transação será flua por continuações de thread, ao usar a tarefa ou async/await .NET programação assíncrona padrões."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -359,20 +359,20 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified scope and COM+ interoperability requirements, and transaction options."
-  remarks: "When you use the `transactionOptions` parameter to specify an <xref:System.Transactions.IsolationLevel>, and the scope creates a transaction later, the new transaction is associated with the specified isolation level. If an isolation level is passed in together with a transaction, the transaction must have an identical isolation level, or an exception is thrown.       **Note** This method uses <xref:System.Security.Permissions.SecurityAction> to prevent it from being called from untrusted code; however, only the immediate caller is required to possess the `FullTrust` permission set."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com o escopo especificado e os requisitos de interoperabilidade COM+ e opções de transação."
+  remarks: "Quando você usa o `transactionOptions` parâmetro para especificar um <xref:System.Transactions.IsolationLevel>e o escopo cria uma transação posteriormente, a nova transação está associada com o nível de isolamento especificado.</xref:System.Transactions.IsolationLevel> Se um nível de isolamento é passado junto com uma transação, a transação deve ter um nível de isolamento idênticos ou uma exceção será lançada.       **Observação** esse método usa <xref:System.Security.Permissions.SecurityAction>impedir que ele está sendo chamado de código não confiável; no entanto, apenas o chamador imediato é necessário ter o `FullTrust` conjunto de permissões.</xref:System.Security.Permissions.SecurityAction>"
   syntax:
     content: public TransactionScope (System.Transactions.TransactionScopeOption scopeOption, System.Transactions.TransactionOptions transactionOptions, System.Transactions.EnterpriseServicesInteropOption interopOption);
     parameters:
     - id: scopeOption
       type: System.Transactions.TransactionScopeOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeOption&quot;></xref> enumeration that describes the transaction requirements associated with this transaction scope."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeOption&quot;> </xref> enumeração que descreve os requisitos de transação associados a este escopo de transação."
     - id: transactionOptions
       type: System.Transactions.TransactionOptions
-      description: "A <xref href=&quot;System.Transactions.TransactionOptions&quot;></xref> structure that describes the transaction options to use if a new transaction is created. If an existing transaction is used, the timeout value in this parameter applies to the transaction scope. If that time expires before the scope is disposed, the transaction is aborted."
+      description: "Um <xref href=&quot;System.Transactions.TransactionOptions&quot;> </xref> estrutura que descreve as opções de transação a ser usado se uma nova transação é criada. Se uma transação existente for usada, o valor de tempo limite nesse parâmetro se aplica ao escopo de transação. Se esse tempo expirar antes que o escopo é descartado, a transação será anulada."
     - id: interopOption
       type: System.Transactions.EnterpriseServicesInteropOption
-      description: "An instance of the <xref href=&quot;System.Transactions.EnterpriseServicesInteropOption&quot;></xref> enumeration that describes how the associated transaction interacts with COM+ transactions."
+      description: "Uma instância do <xref href=&quot;System.Transactions.EnterpriseServicesInteropOption&quot;> </xref> enumeração que descreve como a transação associada interage com transações COM+."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -389,19 +389,19 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "[Supported in the .NET Framework 4.5.1 and later versions]       Initializes a new instance of the <xref href=&quot;System.Transactions.TransactionScope&quot;></xref> class with the specified requirements and asynchronous flow option."
+  summary: "[Com suporte no .NET Framework 4.5.1 e versões posteriores]       Inicializa uma nova instância do <xref href=&quot;System.Transactions.TransactionScope&quot;> </xref> classe com a opção de fluxo assíncrono e requisitos especificados."
   syntax:
     content: public TransactionScope (System.Transactions.TransactionScopeOption scopeOption, System.Transactions.TransactionOptions transactionOptions, System.Transactions.TransactionScopeAsyncFlowOption asyncFlowOption);
     parameters:
     - id: scopeOption
       type: System.Transactions.TransactionScopeOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeOption&quot;></xref> enumeration that describes the transaction requirements associated with this transaction scope."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeOption&quot;> </xref> enumeração que descreve os requisitos de transação associados a este escopo de transação."
     - id: transactionOptions
       type: System.Transactions.TransactionOptions
-      description: "A <xref href=&quot;System.Transactions.TransactionOptions&quot;></xref> structure that describes the transaction options to use if a new transaction is created. If an existing transaction is used, the timeout value in this parameter applies to the transaction scope. If that time expires before the scope is disposed, the transaction is aborted."
+      description: "Um <xref href=&quot;System.Transactions.TransactionOptions&quot;> </xref> estrutura que descreve as opções de transação a ser usado se uma nova transação é criada. Se uma transação existente for usada, o valor de tempo limite nesse parâmetro se aplica ao escopo de transação. Se esse tempo expirar antes que o escopo é descartado, a transação será anulada."
     - id: asyncFlowOption
       type: System.Transactions.TransactionScopeAsyncFlowOption
-      description: "An instance of the <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;></xref> enumeration that describes whether the ambient transaction associated with the transaction scope will flow across thread continuations when using Task or async/await .NET async programming patterns."
+      description: "Uma instância do <xref href=&quot;System.Transactions.TransactionScopeAsyncFlowOption&quot;> </xref> enumeração que descreve se a transação de ambiente associada ao escopo de transação será flua por continuações de thread, ao usar a tarefa ou async/await .NET programação assíncrona padrões."
   overload: System.Transactions.TransactionScope.#ctor*
   exceptions: []
   platform:
@@ -418,8 +418,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Indicates that all operations within the scope are completed successfully."
-  remarks: "When you are satisfied that all operations within the scope are completed successfully, you should call this method only once to inform that transaction manager that the state across all resources is consistent, and the transaction can be committed. It is very good practice to put the call as the last statement in the `using` block.       For more information on how this method is used, see the [Implementing An Implicit Transaction Using Transaction Scope](http://msdn.microsoft.com/en-us/1ddba95e-7587-48b2-8838-708c275e7199) topic.       Failing to call this method aborts the transaction, because the transaction manager interprets this as a system failure, or exceptions thrown within the scope of transaction. However, you should also note that calling this method does not guarantee a commit of the transaction. It is merely a way of informing the transaction manager of your status. After calling this method, you can no longer access the ambient transaction via the <xref:System.Transactions.Transaction.Current%2A> property, and trying to do so results in an exception being thrown.       The actual work of commit between the resources manager happens at the `End Using` statement if the <xref:System.Transactions.TransactionScope> object created the transaction. If it did not create the transaction, the commit occurs whenever <xref:System.Transactions.CommittableTransaction.Commit%2A> is called by the owner of the <xref:System.Transactions.CommittableTransaction> object. At that point the Transaction Manager calls the resource managers and informs them to either commit or rollback, based on whether this method was called on the <xref:System.Transactions.TransactionScope> object."
+  summary: "Indica que todas as operações dentro do escopo são concluídas com êxito."
+  remarks: "Quando estiver satisfeito que todas as operações dentro do escopo são concluídas com êxito, você deve chamar esse método apenas uma vez para informar o Gerenciador de transações que o estado em todos os recursos seja consistente e a transação pode ser confirmada. É muito bom colocar a chamada como a última instrução no `using` bloco.       Para obter mais informações sobre como esse método é usado, consulte o [implementando um implícita transação usando o escopo da transação](http://msdn.microsoft.com/en-us/1ddba95e-7587-48b2-8838-708c275e7199) tópico.       Falha ao chamar este método anula a transação, porque o Gerenciador de transações interpreta como uma falha do sistema ou exceções lançadas dentro do escopo da transação. No entanto, observe também que a chamar esse método não garante uma confirmação da transação. É simplesmente uma maneira de informar o Gerenciador de transações do seu status. Depois de chamar esse método, você não pode mais acessar a transação de ambiente por meio de <xref:System.Transactions.Transaction.Current%2A>propriedade e tentar fazer isso resulta em uma exceção sendo lançada.</xref:System.Transactions.Transaction.Current%2A>       O trabalho real de confirmação entre o Gerenciador de recursos ocorre durante o `End Using` instrução se a <xref:System.Transactions.TransactionScope>objeto criou a transação.</xref:System.Transactions.TransactionScope> Se ele não criou a transação, a confirmação ocorre sempre que <xref:System.Transactions.CommittableTransaction.Commit%2A>é chamada pelo proprietário do <xref:System.Transactions.CommittableTransaction>objeto.</xref:System.Transactions.CommittableTransaction> </xref:System.Transactions.CommittableTransaction.Commit%2A> Nesse ponto o Gerenciador de transações chama o recurso de gerentes e informa a confirmação ou reversão, com base em se esse método foi chamado no <xref:System.Transactions.TransactionScope>objeto.</xref:System.Transactions.TransactionScope>"
   example:
   - "The following example demonstrates how to use the <xref:System.Transactions.TransactionScope> class to define a block of code to participate in a transaction.  \n  \n [!code-vb[TransactionScope#1](~/add/codesnippet/visualbasic/m-system.transactions.tr_1_1.vb)]\n [!code-cs[TransactionScope#1](~/add/codesnippet/csharp/m-system.transactions.tr_1_1.cs)]"
   syntax:
@@ -429,7 +429,7 @@ items:
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "This method has already been called once."
+    description: "Este método já foi chamado uma vez."
   platform:
   - net462
 - uid: System.Transactions.TransactionScope.Dispose
@@ -444,8 +444,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Ends the transaction scope."
-  remarks: "Calling this method marks the end of the transaction scope. If the <xref:System.Transactions.TransactionScope> object created the transaction and <xref:System.Transactions.TransactionScope.Complete%2A> was called on the scope, the <xref:System.Transactions.TransactionScope> object attempts to commit the transaction when this method is called.       The use of the C# `using` construction ensures that this method is called even if an exception occurs. Exceptions that occur after calling this method may not affect the transaction. This method also restores the ambient transaction to it original state. A <xref:System.Transactions.TransactionAbortedException> is thrown if the transaction is not actually committed.       This method is synchronous and blocks until the transaction has been committed or aborted. Because of this, you should be extremely careful when using this method in a Windows Form (WinForm) application, or a deadlock can occur. If you call this method inside one WinForm Control event (for example, clicking a button), and use the synchronous <xref:System.Windows.Forms.Control.Invoke%2A> method to direct the control to perform some UI tasks (for example, changing colors) in the middle of processing the transaction, a deadlock will happen. This is because the <xref:System.Windows.Forms.Control.Invoke%2A> method is synchronous and blocks the worker thread until the UI thread finishes its job. However, in our scenario, the UI thread is also waiting for the worker thread to commit the transaction. The result is that none is able to proceed and the scope waits indefinitely for the Commit to finish. You should use <xref:System.Windows.Forms.Control.BeginInvoke%2A> rather than <xref:System.Windows.Forms.Control.Invoke%2A> wherever possible, because it is asynchronous and thus less prone to deadlock.       For more information on how this method is used, see the [Implementing An Implicit Transaction Using Transaction Scope](http://msdn.microsoft.com/en-us/1ddba95e-7587-48b2-8838-708c275e7199) topic."
+  summary: "Termina o escopo da transação."
+  remarks: "Chamar esse método marca o fim do escopo de transação. Se o <xref:System.Transactions.TransactionScope>objeto criou a transação e <xref:System.Transactions.TransactionScope.Complete%2A>foi chamado no escopo, o <xref:System.Transactions.TransactionScope>objeto tenta confirmar a transação quando este método é chamado.</xref:System.Transactions.TransactionScope> </xref:System.Transactions.TransactionScope.Complete%2A> </xref:System.Transactions.TransactionScope>       O uso de c# `using` construção garante que esse método é chamado, mesmo que ocorra uma exceção. Exceções que ocorrem depois de chamar esse método podem não afetar a transação. Esse método também restaura a transação de ambiente para ele estado original. Um <xref:System.Transactions.TransactionAbortedException>é gerada se a transação não é realmente confirmada.</xref:System.Transactions.TransactionAbortedException>       Esse método é síncrono e bloqueia até que a transação foi confirmada ou anulada. Por isso, você deve ser extremamente cuidadoso ao usar esse método em um aplicativo Windows Form (WinForm) ou pode ocorrer um deadlock. Se você chamar esse método dentro de um evento de controle do WinForm (por exemplo, clicar em um botão) e usar o síncrona <xref:System.Windows.Forms.Control.Invoke%2A>método para direcionar o controle para executar algumas tarefas de interface do usuário (por exemplo, altera cores) no meio de processamento de transação, ocorrerá um deadlock.</xref:System.Windows.Forms.Control.Invoke%2A> Isso ocorre porque o <xref:System.Windows.Forms.Control.Invoke%2A>método é síncrono e bloqueia o thread de trabalho até que o thread de interface do usuário de seu trabalho seja concluído.</xref:System.Windows.Forms.Control.Invoke%2A> No entanto, em nosso cenário, o thread de interface do usuário também está esperando para o thread de trabalho confirmar a transação. O resultado é que nenhum é capaz de continuar e o escopo aguardará indefinidamente para conclusão da confirmação. Você deve usar <xref:System.Windows.Forms.Control.BeginInvoke%2A>em vez de <xref:System.Windows.Forms.Control.Invoke%2A>sempre que possível, porque ele é assíncrona e, portanto, menos propenso a deadlocks.</xref:System.Windows.Forms.Control.Invoke%2A> </xref:System.Windows.Forms.Control.BeginInvoke%2A>       Para obter mais informações sobre como esse método é usado, consulte o [implementando um implícita transação usando o escopo da transação](http://msdn.microsoft.com/en-us/1ddba95e-7587-48b2-8838-708c275e7199) tópico."
   example:
   - "The following example demonstrates how to use the <xref:System.Transactions.TransactionScope> class to define a block of code to participate in a transaction.  \n  \n [!code-vb[TransactionScope#1](~/add/codesnippet/visualbasic/m-system.transactions.tr_0_1.vb)]\n [!code-cs[TransactionScope#1](~/add/codesnippet/csharp/m-system.transactions.tr_0_1.cs)]"
   syntax:

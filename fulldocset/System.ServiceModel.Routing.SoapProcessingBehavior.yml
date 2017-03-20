@@ -15,8 +15,8 @@ items:
   nameWithType: SoapProcessingBehavior
   fullName: System.ServiceModel.Routing.SoapProcessingBehavior
   type: Class
-  summary: "Defines the client endpoint behavior used to marshal messages between different binding types and message versions."
-  remarks: "SOAP processing is the process where messages are converted between message versions.       Processing messages from one <xref:System.ServiceModel.Channels.MessageVersion> to another is accomplished by constructing a new WCF message that contains the body part and relevant headers from the incoming WCF message. Headers that are specific to addressing, or that are understood at the router level, are not used during construction of the new WCF message because these headers are either of a different version (in the case of addressing headers) or have been processed as part of the communication between the client and the router.       Whether a header is placed in the outbound message is determined by whether or not it was marked as understood as it passed through the incoming channel layer. Headers that are not understood (such as custom headers) are not removed and so pass through the routing service."
+  summary: "Define o comportamento de ponto de extremidade de cliente usado para realizar marshaling de mensagens entre tipos de associação diferentes e versões de mensagem."
+  remarks: "Processamento de SOAP é o processo em que as mensagens são convertidas entre as versões de mensagem.       Processamento de mensagens de um <xref:System.ServiceModel.Channels.MessageVersion>para outro é feito criando uma nova mensagem WCF que contém a parte do corpo e os cabeçalhos relevantes da mensagem recebida do WCF.</xref:System.ServiceModel.Channels.MessageVersion> Cabeçalhos específicos de endereçamento, ou que são entendidas no nível do roteador, não são usados durante a construção da nova mensagem WCF porque esses cabeçalhos são de uma versão diferente (no caso de cabeçalhos de endereçamento) ou tem sido processados como parte da comunicação entre o cliente e o roteador.       Se um cabeçalho é colocado na mensagem de saída é determinado pelo ou não foi marcado como compreender quando transmitidas por meio da camada de canal de entrada. Cabeçalhos que não são compreendidos (como cabeçalhos personalizados) não são removidos e passam para o serviço de roteamento."
   syntax:
     content: 'public class SoapProcessingBehavior : System.ServiceModel.Description.IEndpointBehavior'
   inheritance:
@@ -38,7 +38,7 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Creates a new instance of the <xref href=&quot;System.ServiceModel.Routing.SoapProcessingBehavior&quot;></xref> class."
+  summary: "Cria uma nova instância do <xref href=&quot;System.ServiceModel.Routing.SoapProcessingBehavior&quot;> </xref> classe."
   syntax:
     content: public SoapProcessingBehavior ();
     parameters: []
@@ -58,16 +58,16 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Adds new binding elements to an endpoint."
+  summary: "Adiciona novos elementos de associação a um ponto de extremidade."
   syntax:
     content: public void AddBindingParameters (System.ServiceModel.Description.ServiceEndpoint endpoint, System.ServiceModel.Channels.BindingParameterCollection bindingParameters);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint to apply the binding elements to."
+      description: "O ponto de extremidade de serviço para aplicar os elementos de associação."
     - id: bindingParameters
       type: System.ServiceModel.Channels.BindingParameterCollection
-      description: "The binding parameter collection to apply to the endpoint."
+      description: "A coleção de parâmetros de associação para aplicar ao ponto de extremidade."
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.AddBindingParameters*
   exceptions: []
   platform:
@@ -84,16 +84,16 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Applies the specified endpoint behavior to the client."
+  summary: "Aplica o comportamento de ponto de extremidade especificado para o cliente."
   syntax:
     content: public void ApplyClientBehavior (System.ServiceModel.Description.ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.ClientRuntime clientRuntime);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint to apply to the client."
+      description: "O ponto de extremidade de serviço para aplicar ao cliente."
     - id: clientRuntime
       type: System.ServiceModel.Dispatcher.ClientRuntime
-      description: "The runtime on the client."
+      description: "O tempo de execução no cliente."
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.ApplyClientBehavior*
   exceptions: []
   platform:
@@ -110,16 +110,16 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Applies the specified endpoint behavior to the endpoint dispatcher."
+  summary: "Aplica o comportamento de ponto de extremidade especificado para o distribuidor do ponto de extremidade."
   syntax:
     content: public void ApplyDispatchBehavior (System.ServiceModel.Description.ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.EndpointDispatcher endpointDispatcher);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint to apply to the client."
+      description: "O ponto de extremidade de serviço para aplicar ao cliente."
     - id: endpointDispatcher
       type: System.ServiceModel.Dispatcher.EndpointDispatcher
-      description: "The endpoint dispatcher."
+      description: "O dispatcher do ponto de extremidade."
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.ApplyDispatchBehavior*
   exceptions: []
   platform:
@@ -136,13 +136,13 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Gets or sets a value that indicates whether messages should be processed."
-  remarks: "By default, the <xref:System.ServiceModel.Routing.RoutingBehavior> creates and attaches a new <xref:System.ServiceModel.Routing.SoapProcessingBehavior> with ProcessMessages set to `true` for each client endpoint. If you do not want to use the <xref:System.ServiceModel.Routing.SoapProcessingBehavior> on a specific endpoint, create a new <xref:System.ServiceModel.Routing.SoapProcessingBehavior> with this value set to `false`, and then attach it to the endpoint on which you do not want processing to occur. If the <xref:System.ServiceModel.Routing.RoutingBehavior> observes that a client already has a <xref:System.ServiceModel.Routing.SoapProcessingBehavior>, it does not attempt to attach another.       To disable the application of <xref:System.ServiceModel.Routing.SoapProcessingBehavior> on any endpoint, disable SOAP processing on the <xref:System.ServiceModel.Routing.RoutingBehavior> and the <xref:System.ServiceModel.Routing.RoutingConfiguration>."
+  summary: "Obtém ou define um valor que indica se as mensagens devem ser processadas."
+  remarks: "Por padrão, o <xref:System.ServiceModel.Routing.RoutingBehavior>cria e anexa um novo <xref:System.ServiceModel.Routing.SoapProcessingBehavior>com ProcessMessages definido como `true` para cada ponto de extremidade do cliente.</xref:System.ServiceModel.Routing.SoapProcessingBehavior> </xref:System.ServiceModel.Routing.RoutingBehavior> Se você não quiser usar o <xref:System.ServiceModel.Routing.SoapProcessingBehavior>em um ponto de extremidade específico, crie um novo <xref:System.ServiceModel.Routing.SoapProcessingBehavior>com esse valor é definido `false`e, em seguida, anexá-lo para o ponto de extremidade no qual você deseja não processamento ocorra.</xref:System.ServiceModel.Routing.SoapProcessingBehavior> </xref:System.ServiceModel.Routing.SoapProcessingBehavior> Se o <xref:System.ServiceModel.Routing.RoutingBehavior>observa que um cliente já tem um <xref:System.ServiceModel.Routing.SoapProcessingBehavior>, ele não tentará anexar outro.</xref:System.ServiceModel.Routing.SoapProcessingBehavior> </xref:System.ServiceModel.Routing.RoutingBehavior>       Para desabilitar a aplicação de <xref:System.ServiceModel.Routing.SoapProcessingBehavior>qualquer ponto de extremidade, desativar o processamento de SOAP no <xref:System.ServiceModel.Routing.RoutingBehavior>e <xref:System.ServiceModel.Routing.RoutingConfiguration>.</xref:System.ServiceModel.Routing.RoutingConfiguration> </xref:System.ServiceModel.Routing.RoutingBehavior> </xref:System.ServiceModel.Routing.SoapProcessingBehavior>"
   syntax:
     content: public bool ProcessMessages { get; set; }
     return:
       type: System.Boolean
-      description: '**true** if messages should be marshaled; otherwise, **false**. The default value is **true**.'
+      description: '**True** se as mensagens devem ser empacotado; caso contrário, **false**. O valor padrão é **true**.'
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.ProcessMessages*
   exceptions: []
   platform:
@@ -159,13 +159,13 @@ items:
   assemblies:
   - System.ServiceModel.Routing
   namespace: System.ServiceModel.Routing
-  summary: "Validates the service endpoint."
+  summary: "Valida o ponto de extremidade de serviço."
   syntax:
     content: public void Validate (System.ServiceModel.Description.ServiceEndpoint endpoint);
     parameters:
     - id: endpoint
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The service endpoint to validate."
+      description: "O ponto de extremidade de serviço para validar."
   overload: System.ServiceModel.Routing.SoapProcessingBehavior.Validate*
   exceptions: []
   platform:

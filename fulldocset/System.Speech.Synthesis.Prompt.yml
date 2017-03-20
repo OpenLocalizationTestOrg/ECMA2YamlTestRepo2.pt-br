@@ -13,8 +13,8 @@ items:
   nameWithType: Prompt
   fullName: System.Speech.Synthesis.Prompt
   type: Class
-  summary: "Represents information about what can be rendered, either text or an audio file, by the <xref href=&quot;System.Speech.Synthesis.SpeechSynthesizer&quot;></xref>."
-  remarks: "A Prompt object can contain plain text, text formatted with markup language, or audio files.       An empty Prompt object is created with each new instance of <xref:System.Speech.Synthesis.PromptBuilder>.  The <xref:System.Speech.Synthesis.PromptBuilder> class provides methods for adding content, including text, SSML markup, bookmarks, and prerecorded audio files (such as .wav files), to the empty Prompt object that it contains. Typically, applications will use <xref:System.Speech.Synthesis.PromptBuilder>, rather than a Prompt object, to create prompts and populate them with content.       To generate speech from the contents of a Prompt object, use the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A> method."
+  summary: "Representa informações sobre o que pode ser renderizado, texto ou um arquivo de áudio, pelo <xref href=&quot;System.Speech.Synthesis.SpeechSynthesizer&quot;> </xref>."
+  remarks: "Um objeto Prompt pode conter texto sem formatação, o texto formatado com linguagem de marcação ou arquivos de áudio.       Um objeto de solicitação vazio é criado com cada nova instância de <xref:System.Speech.Synthesis.PromptBuilder>.</xref:System.Speech.Synthesis.PromptBuilder>  O <xref:System.Speech.Synthesis.PromptBuilder>classe fornece métodos para adicionar conteúdos, incluindo texto, marcação SSML, indicadores e os arquivos de áudio pré-gravados (como arquivos. wav) para o objeto de solicitação vazio que ele contém.</xref:System.Speech.Synthesis.PromptBuilder> Normalmente, os aplicativos usará <xref:System.Speech.Synthesis.PromptBuilder>, em vez de um objeto Prompt, criar solicitações e populá-las com conteúdo.</xref:System.Speech.Synthesis.PromptBuilder>       Para gerar a voz do conteúdo de um objeto de solicitação, use o <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A>método.</xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A>"
   syntax:
     content: >-
       [System.Diagnostics.DebuggerDisplay("{_text}")]
@@ -38,13 +38,13 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Creates a new instance of the <xref href=&quot;System.Speech.Synthesis.Prompt&quot;></xref> class from a <xref href=&quot;System.Speech.Synthesis.PromptBuilder&quot;></xref> object."
+  summary: "Cria uma nova instância do <xref href=&quot;System.Speech.Synthesis.Prompt&quot;> </xref> classe um <xref href=&quot;System.Speech.Synthesis.PromptBuilder&quot;> </xref> objeto."
   syntax:
     content: public Prompt (System.Speech.Synthesis.PromptBuilder promptBuilder);
     parameters:
     - id: promptBuilder
       type: System.Speech.Synthesis.PromptBuilder
-      description: "The content to be spoken."
+      description: "O conteúdo a ser falado."
   overload: System.Speech.Synthesis.Prompt.#ctor*
   exceptions: []
   platform:
@@ -61,7 +61,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Creates a new instance of the <xref href=&quot;System.Speech.Synthesis.Prompt&quot;></xref> class and specifies the text to be spoken."
+  summary: "Cria uma nova instância do <xref href=&quot;System.Speech.Synthesis.Prompt&quot;> </xref> classe e especifica o texto a ser falado."
   remarks: ''
   example:
   - "The following example creates a <xref:System.Speech.Synthesis.Prompt> object from a string and passes the object as an argument to the <xref:System.Speech.Synthesis.SpeechSynthesizer.Speak%2A> method.  \n  \n```c#  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Create a prompt from a string.  \n        Prompt color = new Prompt(\"What is your favorite color?\");  \n  \n        // Speak the contents of the prompt synchronously.  \n        synth.Speak(color);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n```"
@@ -70,7 +70,7 @@ items:
     parameters:
     - id: textToSpeak
       type: System.String
-      description: "The text to be spoken."
+      description: "O texto a ser falado."
   overload: System.Speech.Synthesis.Prompt.#ctor*
   exceptions: []
   platform:
@@ -87,8 +87,8 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Creates a new instance of the <xref href=&quot;System.Speech.Synthesis.Prompt&quot;></xref> class and specifies the text to be spoken and whether its format is plain text or markup language."
-  remarks: "The contents of the `textToSpeak` parameter must include a `speak` element and must conform to the [Speech Synthesis Markup Language (SSML) Version 1.0](http://go.microsoft.com/fwlink/?LinkId=201763). For more information, see [Speech Synthesis Markup Language Reference](http://msdn.microsoft.com/en-us/0c51279e-84d2-4f73-a924-8832039abf94)."
+  summary: "Cria uma nova instância do <xref href=&quot;System.Speech.Synthesis.Prompt&quot;> </xref> classe e especifica o texto a ser falado e se o seu formato é texto sem formatação ou linguagem de marcação."
+  remarks: "O conteúdo do `textToSpeak` parâmetro deve incluir um `speak` elemento e deve estar de acordo com o [linguagem de marcação de síntese de fala (SSML) versão 1.0](http://go.microsoft.com/fwlink/?LinkId=201763). Para obter mais informações, consulte [referência de linguagem de marcação de síntese de fala](http://msdn.microsoft.com/en-us/0c51279e-84d2-4f73-a924-8832039abf94)."
   example:
   - "The following example builds a string that contains SSML markup, creates a <xref:System.Speech.Synthesis.Prompt> object from the string, and speaks the prompt.  \n  \n```c#  \nusing System;  \nusing System.Speech.Synthesis;  \n  \nnamespace SampleSynthesis  \n{  \n  class Program  \n  {  \n    static void Main(string[] args)  \n    {  \n  \n      // Initialize a new instance of the SpeechSynthesizer.  \n      using (SpeechSynthesizer synth = new SpeechSynthesizer())  \n      {  \n  \n        // Configure the audio output.   \n        synth.SetOutputToDefaultAudioDevice();  \n  \n        // Build an SSML prompt in a string.  \n        string fileName = \"<speak version=\\\"1.0\\\" \";  \n        fileName += \"xmlns=\\\"http://www.w3.org/2001/10/synthesis\\\" \";  \n        fileName += \"xml:lang=\\\"en-US\\\">\";  \n        fileName += \"Say a name for the new file <mark name=\\\"fileName\\\" />.\";  \n        fileName += \"</speak>\";  \n  \n        // Create a Prompt object from the string.  \n        Prompt ssmlFile = new Prompt(fileName, SynthesisTextFormat.Ssml);  \n  \n        // Speak the contents of the SSML prompt.  \n        synth.Speak(ssmlFile);  \n      }  \n  \n      Console.WriteLine();  \n      Console.WriteLine(\"Press any key to exit...\");  \n      Console.ReadKey();  \n    }  \n  }  \n}  \n  \n```"
   syntax:
@@ -96,10 +96,10 @@ items:
     parameters:
     - id: textToSpeak
       type: System.String
-      description: "The text to be spoken."
+      description: "O texto a ser falado."
     - id: media
       type: System.Speech.Synthesis.SynthesisTextFormat
-      description: "A value that specifies the format of the text."
+      description: "Um valor que especifica o formato do texto."
   overload: System.Speech.Synthesis.Prompt.#ctor*
   exceptions: []
   platform:
@@ -116,12 +116,12 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Synthesis
-  summary: "Gets whether the <xref href=&quot;System.Speech.Synthesis.Prompt&quot;></xref> has finished playing."
+  summary: "Obtém se o <xref href=&quot;System.Speech.Synthesis.Prompt&quot;> </xref> concluiu a execução."
   syntax:
     content: public bool IsCompleted { get; }
     return:
       type: System.Boolean
-      description: "Returns <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the prompt has completed; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "Retorna <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref> se o prompt foi concluída; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Speech.Synthesis.Prompt.IsCompleted*
   exceptions: []
   platform:

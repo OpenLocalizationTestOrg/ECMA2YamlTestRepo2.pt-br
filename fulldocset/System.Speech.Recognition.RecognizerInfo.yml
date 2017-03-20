@@ -16,8 +16,8 @@ items:
   nameWithType: RecognizerInfo
   fullName: System.Speech.Recognition.RecognizerInfo
   type: Class
-  summary: "Represents information about a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
-  remarks: "You can obtain identifying information for an initialized recognition engine using <xref:System.Speech.Recognition.SpeechRecognizer.RecognizerInfo%2A?displayProperty=fullName> for a <xref:System.Speech.Recognition.SpeechRecognizer> object or <xref:System.Speech.Recognition.SpeechRecognitionEngine.RecognizerInfo%2A?displayProperty=fullName> for a <xref:System.Speech.Recognition.SpeechRecognitionEngine> object.       The information returned in instances of RecognizerInfo obtained from a <xref:System.Speech.Recognition.SpeechRecognizer> is determined by the settings in the **Speech Properties** member of the **Control Panel**.       You can use instances of RecognizerInfo to construct a specific configuration of <xref:System.Speech.Recognition.SpeechRecognitionEngine> using the <xref:System.Speech.Recognition.SpeechRecognitionEngine.%23ctor%28System.Speech.Recognition.RecognizerInfo%29> constructor.       The static method <xref:System.Speech.Recognition.SpeechRecognitionEngine.InstalledRecognizers%2A> returns a list of all available <xref:System.Speech.Recognition.SpeechRecognitionEngine> configurations as RecognizerInfo instances."
+  summary: "Representa informações sobre um <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
+  remarks: "Você pode obter informações de identificação para um mecanismo de reconhecimento inicializado usando <xref:System.Speech.Recognition.SpeechRecognizer.RecognizerInfo%2A?displayProperty=fullName>para um <xref:System.Speech.Recognition.SpeechRecognizer>objeto ou <xref:System.Speech.Recognition.SpeechRecognitionEngine.RecognizerInfo%2A?displayProperty=fullName>para um <xref:System.Speech.Recognition.SpeechRecognitionEngine>objeto.</xref:System.Speech.Recognition.SpeechRecognitionEngine> </xref:System.Speech.Recognition.SpeechRecognitionEngine.RecognizerInfo%2A?displayProperty=fullName> </xref:System.Speech.Recognition.SpeechRecognizer> </xref:System.Speech.Recognition.SpeechRecognizer.RecognizerInfo%2A?displayProperty=fullName>       As informações retornadas em instâncias do RecognizerInfo obtido um <xref:System.Speech.Recognition.SpeechRecognizer>é determinado pelas configurações no **propriedades de fala** membro do **painel de controle**.</xref:System.Speech.Recognition.SpeechRecognizer>       Você pode usar instâncias de RecognizerInfo para construir uma configuração específica do <xref:System.Speech.Recognition.SpeechRecognitionEngine>usando o <xref:System.Speech.Recognition.SpeechRecognitionEngine.%23ctor%28System.Speech.Recognition.RecognizerInfo%29>construtor.</xref:System.Speech.Recognition.SpeechRecognitionEngine.%23ctor%28System.Speech.Recognition.RecognizerInfo%29> </xref:System.Speech.Recognition.SpeechRecognitionEngine>       O método estático <xref:System.Speech.Recognition.SpeechRecognitionEngine.InstalledRecognizers%2A>retorna uma lista de todas as <xref:System.Speech.Recognition.SpeechRecognitionEngine>configurações como instâncias de RecognizerInfo.</xref:System.Speech.Recognition.SpeechRecognitionEngine> </xref:System.Speech.Recognition.SpeechRecognitionEngine.InstalledRecognizers%2A>"
   example:
   - "The following example validates a given <xref:System.Globalization.CultureInfo> and identifier string against the permitted <xref:System.Speech.Recognition.SpeechRecognitionEngine> configurations, expressed as a list of RecognizerInfo objects.  \n  \n If the <xref:System.Globalization.CultureInfo> and identifier string are valid, the example creates a new instance of <xref:System.Speech.Recognition.SpeechRecognitionEngine> using the RecognizerInfo instance as an argument.  \n  \n```c#  \n  \nprivate SpeechRecognitionEngine SelectRecognizer(CultureInfo requiredCulture, string requiredId)   \n{  \n  // Select based on a specific recognizer configuration  \n  SpeechRecognitionEngine speechRecognitionEngine=null;  \n  foreach (RecognizerInfo config in SpeechRecognitionEngine.InstalledRecognizers())   \n  {  \n    if (config.Culture.Equals(requiredCulture) && config.Id== requiredId)   \n    {  \n      speechRecognitionEngine = new SpeechRecognitionEngine(config);  \n      break;  \n    }  \n  }  \n  return speechRecognitionEngine;  \n}  \n```"
   syntax:
@@ -41,7 +41,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets additional information about a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
+  summary: "Obtém informações adicionais um <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
   remarks: ''
   example:
   - "The example below implements a button click which displays all the information in a <xref:System.Speech.Recognition.RecognizerInfo> object in a <xref:System.Windows.Forms.MessageBox>.  \n  \n The key/value pairs contained in the <xref:System.Collections.Generic.IDictionary%602> instance returned by AdditionalInfo are concatenated into a text table.  \n  \n```c#  \nprivate void recognizerInfoButton_Click(object sender, EventArgs e)   \n{  \n  RecognizerInfo info = _recognizer.RecognizerInfo;  \n  string AudioFormats = \"\";  \n  foreach (SpeechAudioFormatInfo fmt in info.SupportedAudioFormats)   \n  {  \n    AudioFormats += String.Format(\"       {0}\\n\", fmt.EncodingFormat.ToString());  \n  }  \n  string AdditionalInfo = \"\";  \n  foreach (string key in info.AdditionalInfo.Keys)   \n  {  \n    AdditionalInfo += String.Format(\"      {0}: {1}\\n\", key, info.AdditionalInfo[key]);  \n  }  \n  MessageBox.Show(String.Format(  \n                     \"Name:                 {0 } \\n\" +  \n                     \"Description:          {1} \\n\" +  \n                     \"SupportedAudioFormats:\\n\" +  \n                     \" {2} \" +  \n                     \"Culture:              {3} \\n\" +  \n                     \"AdditionalInfo:       \\n\" +  \n                     \" {4}\\n\",  \n                     info.Name.ToString(),  \n                     info.Description.ToString(),  \n                     AudioFormats,  \n                     info.Culture.ToString(),  \n                     AdditionalInfo));  \n}  \n```"
@@ -49,7 +49,7 @@ items:
     content: public System.Collections.Generic.IDictionary<string,string> AdditionalInfo { get; }
     return:
       type: System.Collections.Generic.IDictionary{System.String,System.String}
-      description: "Returns an instance of &lt;xref:System.Collections.Generic.IDictionary%602&gt; containing information about the configuration of a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> object."
+      description: "Retorna uma instância de &lt;xref:System.Collections.Generic.IDictionary%602&gt; que contém informações sobre a configuração de um <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> objeto."
   overload: System.Speech.Recognition.RecognizerInfo.AdditionalInfo*
   exceptions: []
   platform:
@@ -66,15 +66,15 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets the culture supported by a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
-  remarks: "A <xref:System.Globalization.CultureInfo> object can include the name of the culture, the associated language, the country/region, the calendar used, and how to format dates and sort strings."
+  summary: "Obtém a cultura com suporte por um <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
+  remarks: "Um <xref:System.Globalization.CultureInfo>objeto pode incluir o nome da cultura, o idioma associado, o país/região, o calendário usado e como formatar datas e cadeias de caracteres de classificação.</xref:System.Globalization.CultureInfo>"
   example:
   - "The following example implements a button click that displays all the information in a <xref:System.Speech.Recognition.RecognizerInfo> instance. The example uses the Culture property to obtain the identifying string for the <xref:System.Globalization.CultureInfo> used by the recognition engine configuration.  \n  \n```c#  \nprivate void recognizerInfoButton_Click(object sender, EventArgs e)   \n{  \n  RecognizerInfo info = _recognizer.RecognizerInfo;  \n  string AudioFormats = \"\";  \n  foreach (SpeechAudioFormatInfo fmt in info.SupportedAudioFormats)   \n  {  \n    AudioFormats += String.Format(\"       {0}\\n\", fmt.EncodingFormat.ToString());  \n  }  \n  string AdditionalInfo = \"\";  \n  foreach (string key in info.AdditionalInfo.Keys)   \n  {  \n    AdditionalInfo += String.Format(\"      {0}: {1}\\n\", key, info.AdditionalInfo[key]);  \n  }  \n  MessageBox.Show(String.Format(  \n                     \"Name:                 {0 }\\n\" +  \n                     \"Description:          {1} \\n\" +  \n                     \"SupportedAudioFormats:\\n\" +  \n                     \"{2} \" +  \n                     \"Culture:              {3} \\n\" +  \n                     \"AdditionalInfo:       \\n\" +  \n                     \" {4}\\n\",  \n                     info.Name.ToString(),  \n                     info.Description.ToString(),  \n                     AudioFormats,  \n                     info.Culture.ToString(),  \n                     AdditionalInfo));  \n}  \n```"
   syntax:
     content: public System.Globalization.CultureInfo Culture { get; }
     return:
       type: System.Globalization.CultureInfo
-      description: "Returns information about the culture supported by a given <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
+      description: "Retorna informações sobre a cultura com suporte por um determinado <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
   overload: System.Speech.Recognition.RecognizerInfo.Culture*
   exceptions: []
   platform:
@@ -91,7 +91,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets the description of a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
+  summary: "Obtém a descrição de um <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
   remarks: ''
   example:
   - "The following example below implements a button click that displays all the information in a <xref:System.Speech.Recognition.RecognizerInfo> instance. The example uses the Description property to obtain the description of a speech recognition engine configuration, and then displays it in a <xref:System.Windows.Forms.MessageBox>.  \n  \n```c#  \nprivate void recognizerInfoButton_Click(object sender, EventArgs e)   \n{  \n  RecognizerInfo info = _recognizer.RecognizerInfo;  \n  string AudioFormats = \"\";  \n  foreach (SpeechAudioFormatInfo fmt in info.SupportedAudioFormats)   \n  {  \n    AudioFormats += String.Format(\"       {0}\\n\", fmt.EncodingFormat.ToString());  \n  }  \n  string AdditionalInfo = \"\";  \n  foreach (string key in info.AdditionalInfo.Keys)   \n  {  \n    AdditionalInfo += String.Format(\"      {0}: {1}\\n\", key, info.AdditionalInfo[key]);  \n  }  \n  MessageBox.Show(String.Format(  \n                     \"Name:                 {0 }\\n\" +  \n                     \"Description:          {1} \\n\" +  \n                     \"SupportedAudioFormats:\\n\" +  \n                     \"{2} \" +  \n                     \"Culture:              {3} \\n\" +  \n                     \"AdditionalInfo:       \\n\" +  \n                     \" {4}\\n\",  \n                     info.Name.ToString(),  \n                     info.Description.ToString(),  \n                     AudioFormats,  \n                     info.Culture.ToString(),  \n                     AdditionalInfo));  \n}  \n```"
@@ -99,7 +99,7 @@ items:
     content: public string Description { get; }
     return:
       type: System.String
-      description: "Returns a <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;></xref> that describes the configuration for a specific <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
+      description: "Retorna um <xref uid=&quot;langword_csharp_string&quot; name=&quot;string&quot; href=&quot;&quot;> </xref> que descreve a configuração para um determinado <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
   overload: System.Speech.Recognition.RecognizerInfo.Description*
   exceptions: []
   platform:
@@ -116,7 +116,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Disposes the `RecognizerInfo` object."
+  summary: "Descarta o `RecognizerInfo` objeto."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -136,15 +136,15 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets the identifier of a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
-  remarks: "The identifier returned by the Id property is the same as the token name of the recognition engine in the Windows registry."
+  summary: "Obtém o identificador de um <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
+  remarks: "O identificador retornado pela propriedade Id é o mesmo que o nome do token do mecanismo de reconhecimento no registro do Windows."
   example:
   - "The following example implements a button click that displays all the information in a <xref:System.Speech.Recognition.RecognizerInfo> instance. The example uses the Id property to obtain the identifier string of a recognition engine configuration, and then displays it in a <xref:System.Windows.Forms.MessageBox>.  \n  \n```  \nprivate void recognizerInfoButton_Click(object sender, EventArgs e)   \n{  \n  RecognizerInfo info = _recognizer.RecognizerInfo;  \n  string AudioFormats = \"\";  \n  foreach (SpeechAudioFormatInfo fmt in info.SupportedAudioFormats)   \n  {  \n    AudioFormats += String.Format(\"       {0}\\n\",  fmt.EncodingFormat.ToString());  \n  }  \n  string AdditionalInfo = \"\";  \n  foreach (string key in info.AdditionalInfo.Keys)   \n  {  \n    AdditionalInfo += String.Format(\"      {0}: {1}\\n\", key, info.AdditionalInfo[key]);  \n  }  \n  MessageBox.Show(String.Format(  \n                           \"Name:                 {0 }\\n\" +  \n                           \"Description:          {1} \\n\" +  \n                           \"SupportedAudioFormats:\\n\" +  \n                           \"{2} \" +  \n                           \"Culture:              {3} \\n\" +  \n                           \"AdditionalInfo:       \\n\" +  \n                           \" {4}\\n\",  \n                           info.Name.ToString(),  \n                           info.Description.ToString(),  \n                           AudioFormats,  \n                           info.Culture.ToString(),  \n                           AdditionalInfo));  \n}  \n```"
   syntax:
     content: public string Id { get; }
     return:
       type: System.String
-      description: "Returns the identifier for a specific <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
+      description: "Retorna o identificador para um determinado <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
   overload: System.Speech.Recognition.RecognizerInfo.Id*
   exceptions: []
   platform:
@@ -161,7 +161,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets the friendly name of a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
+  summary: "Obtém o nome amigável de um <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
   remarks: ''
   example:
   - "The following example implements a button click that displays all the information in a <xref:System.Speech.Recognition.RecognizerInfo> instance. The example uses the Name property to obtain the friendly name of a recognition engine configuration, and then displays it in a <xref:System.Windows.Forms.MessageBox>.  \n  \n```  \nprivate void recognizerInfoButton_Click(object sender, EventArgs e)   \n{  \n  RecognizerInfo info = _recognizer.RecognizerInfo;  \n  string AudioFormats = \"\";  \n  foreach (SpeechAudioFormatInfo fmt in info.SupportedAudioFormats)   \n  {  \n    AudioFormats += String.Format(\"       {0}\\n\", fmt.EncodingFormat.ToString());  \n  }  \n  string AdditionalInfo = \"\";  \n  foreach (string key in info.AdditionalInfo.Keys)   \n  {  \n    AdditionalInfo += String.Format(\"      {0}: {1}\\n\", key, info.AdditionalInfo[key]);  \n  }  \n  MessageBox.Show(String.Format(  \n                           \"Name:                 {0 }\\n\" +  \n                           \"Description:          {1} \\n\" +  \n                           \"SupportedAudioFormats:\\n\" +  \n                           \"{2} \" +  \n                           \"Culture:              {3} \\n\" +  \n                           \"AdditionalInfo:       \\n\" +  \n                           \" {4}\\n\",  \n                           info.Name.ToString(),  \n                           info.Description.ToString(),  \n                           AudioFormats,  \n                           info.Culture.ToString(),  \n                           AdditionalInfo));  \n}  \n```"
@@ -169,7 +169,7 @@ items:
     content: public string Name { get; }
     return:
       type: System.String
-      description: "Returns the friendly name for a specific <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
+      description: "Retorna o nome amigável para um determinado <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
   overload: System.Speech.Recognition.RecognizerInfo.Name*
   exceptions: []
   platform:
@@ -186,7 +186,7 @@ items:
   assemblies:
   - System.Speech
   namespace: System.Speech.Recognition
-  summary: "Gets the audio formats supported by a <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
+  summary: "Obtém os áudio formatos suportados por um <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
   remarks: ''
   example:
   - "The following example implements a button click that displays all the information in a <xref:System.Speech.Recognition.RecognizerInfo> instance. The example uses the SupportedAudioFormats property to obtain the encoding formats supported by a recognition engine configuration, and then displays it in a <xref:System.Windows.Forms.MessageBox>.  \n  \n```  \nprivate void recognizerInfoButton_Click(object sender, EventArgs e)   \n{  \n  RecognizerInfo info = _recognizer.RecognizerInfo;  \n  string AudioFormats = \"\";  \n  foreach (SpeechAudioFormatInfo fmt in info.SupportedAudioFormats)   \n  {  \n    AudioFormats += String.Format(\"       {0}\\n\", fmt.EncodingFormat.ToString());  \n  }  \n  string AdditionalInfo = \"\";  \n  foreach (string key in info.AdditionalInfo.Keys)   \n  {  \n    AdditionalInfo += String.Format(\"      {0}: {1}\\n\", key, info.AdditionalInfo[key]);  \n  }  \n  MessageBox.Show(String.Format(  \n                           \"Name:                 {0 }\\n\" +  \n                           \"Description:          {1} \\n\" +  \n                           \"SupportedAudioFormats:\\n\" +  \n                           \"{2} \" +  \n                           \"Culture:              {3} \\n\" +  \n                           \"AdditionalInfo:       \\n\" +  \n                           \" {4}\\n\",  \n                           info.Name.ToString(),  \n                           info.Description.ToString(),  \n                           AudioFormats,  \n                           info.Culture.ToString(),  \n                           AdditionalInfo));  \n}  \n```"
@@ -194,7 +194,7 @@ items:
     content: public System.Collections.ObjectModel.ReadOnlyCollection<System.Speech.AudioFormat.SpeechAudioFormatInfo> SupportedAudioFormats { get; }
     return:
       type: System.Collections.ObjectModel.ReadOnlyCollection{System.Speech.AudioFormat.SpeechAudioFormatInfo}
-      description: "Returns a list of audio formats supported by a specific <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;></xref> or <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;></xref> instance."
+      description: "Retorna uma lista de formatos de áudio com suporte por um determinado <xref href=&quot;System.Speech.Recognition.SpeechRecognizer&quot;> </xref> ou <xref href=&quot;System.Speech.Recognition.SpeechRecognitionEngine&quot;> </xref> instância."
   overload: System.Speech.Recognition.RecognizerInfo.SupportedAudioFormats*
   exceptions: []
   platform:

@@ -10,8 +10,8 @@ items:
   nameWithType: DependentTransaction
   fullName: System.Transactions.DependentTransaction
   type: Class
-  summary: "Describes a clone of a transaction providing guarantee that the transaction cannot be committed until the application comes to rest regarding work on the transaction. This class cannot be inherited."
-  remarks: "The DependentTransaction is a clone of a <xref:System.Transactions.Transaction> object created using the <xref:System.Transactions.Transaction.DependentClone%2A> method.  Its sole purpose is to allow the application to come to rest and guarantee that the transaction cannot commit while work is still being performed on the transaction (for example, on a worker thread).       When the work done within the cloned transaction is finally complete and ready to be committed, it can inform the creator of the transaction using the <xref:System.Transactions.DependentTransaction.Complete%2A> method. Thus you can preserve the consistency and correctness of data.       The <xref:System.Transactions.DependentCloneOption> enumeration is used to determine the behavior on commit.  This behavior control allows an application to come to rest, as well as provides concurrency support. For more information on how this enumeration is used, see [Managing Concurrency with DependentTransaction](http://msdn.microsoft.com/en-us/bdad8468-2a90-4b81-8375-278067120cab)."
+  summary: "Descreve um clone de uma transação, fornecendo a garantia de que a transação não pode ser confirmada até que o aplicativo é fornecido para o rest sobre o trabalho na transação. Essa classe não pode ser herdada."
+  remarks: "O DependentTransaction é um clone de um <xref:System.Transactions.Transaction>objeto criado usando o <xref:System.Transactions.Transaction.DependentClone%2A>método.</xref:System.Transactions.Transaction.DependentClone%2A> </xref:System.Transactions.Transaction>  Sua única finalidade é permitir que o aplicativo fique rest e garantir que a transação não pode ser confirmada enquanto o trabalho ainda está sendo executado na transação (por exemplo, em um thread de trabalho).       Quando o trabalho feito na transação clonada finalmente é concluído e pronto para ser confirmada, ele pode informar o criador da transação usando o <xref:System.Transactions.DependentTransaction.Complete%2A>método.</xref:System.Transactions.DependentTransaction.Complete%2A> Portanto, você pode preservar a consistência e a exatidão dos dados.       O <xref:System.Transactions.DependentCloneOption>enumeração é usada para determinar o comportamento de confirmação.</xref:System.Transactions.DependentCloneOption>  Este controle do comportamento permite que um aplicativo parar, bem como fornece suporte à simultaneidade. Para obter mais informações sobre como essa enumeração é usada, consulte [gerenciamento de simultaneidade com DependentTransaction](http://msdn.microsoft.com/en-us/bdad8468-2a90-4b81-8375-278067120cab)."
   example:
   - "The following example shows you how to create a dependent transaction.  \n  \n [!code-vb[Tx_DependentTx#1](~/add/codesnippet/visualbasic/t-system.transactions.de_0_1.vb)]\n [!code-cs[Tx_DependentTx#1](~/add/codesnippet/csharp/t-system.transactions.de_0_1.cs)]"
   syntax:
@@ -59,8 +59,8 @@ items:
   assemblies:
   - System.Transactions
   namespace: System.Transactions
-  summary: "Attempts to complete the dependent transaction."
-  remarks: "Call this method when the dependent clone wants to inform the creator of the transaction that it has finished its work, and the transaction can be committed if the parent is also ready.       After this call is invoked, you should not attempt any additional work on the transaction, or an exception is thrown.       If the application domain goes down after this method is called, and before the transaction is completed, the transaction might abort.       **Note** This method should be called only once during the dependent transaction&quot;s lifetime."
+  summary: "Tenta concluir a transação dependente."
+  remarks: "Chame este método quando quiser que o clone dependente informar o criador da transação que concluiu seu trabalho e a transação pode ser confirmada se o pai também está pronto.       Depois que essa chamada é invocada, não tente qualquer trabalho adicional na transação, ou uma exceção será lançada.       Se o domínio do aplicativo falhar depois que este método é chamado e antes que a transação seja concluída, a transação pode anular.       **Observação** esse método deve ser chamado apenas uma vez durante o tempo de vida da transação dependente."
   syntax:
     content: public void Complete ();
     parameters: []
@@ -68,7 +68,7 @@ items:
   exceptions:
   - type: System.Transactions.TransactionException
     commentId: T:System.Transactions.TransactionException
-    description: "Any attempt for additional work on the transaction after this method is called. These include invoking methods such as <xref:System.Transactions.Transaction.EnlistVolatile*>, <xref:System.Transactions.Transaction.EnlistDurable*>, <xref:System.Transactions.Transaction.Clone*>, <xref:System.Transactions.Transaction.DependentClone*> , or any serialization operations on the transaction."
+    description: "Qualquer tentativa de trabalho adicional na transação depois que este método é chamado. Isso inclui chamar métodos como <> </> *>, <> </> *>, <> </> *>, <> </> *>, ou todas as operações na transação de serialização."
   platform:
   - net462
 references:

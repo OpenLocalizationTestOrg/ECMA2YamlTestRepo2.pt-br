@@ -22,8 +22,8 @@ items:
   nameWithType: ServiceHost
   fullName: System.ServiceModel.ServiceHost
   type: Class
-  summary: "Provides a host for services."
-  remarks: "Implements the host used by the [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] service model programming model.       Use the ServiceHost class to configure and expose a service for use by client applications when you are not using Internet Information Services (IIS) or Windows Activation Services (WAS) to expose a service. Both IIS and WAS interact with a ServiceHost object on your behalf.       To expose a service for use by callers, [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] requires a complete service description (represented by the <xref:System.ServiceModel.Description.ServiceDescription> class). The ServiceHost class creates a <xref:System.ServiceModel.Description.ServiceDescription> from the service type and configuration information and then uses that description to create <xref:System.ServiceModel.Dispatcher.ChannelDispatcher> objects for each endpoint in the description.       Use a ServiceHost object to load a service, configure endpoints, apply security settings, and start listeners to handle incoming requests."
+  summary: "Fornece um host de serviços."
+  remarks: "Implementa o host usado pelo [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] modelo de programação do modelo de serviço.       Use a classe ServiceHost para configurar e expor um serviço para uso por aplicativos cliente quando você não estiver usando o Internet Information Services (IIS) ou serviços de ativação do Windows (WAS) para expor um serviço. IIS e WAS interagem com um objeto ServiceHost em seu nome.       Para expor um serviço para uso por chamadores, [!INCLUDE[indigo2](~/add/includes/ajax-current-ext-md.md)] requer uma descrição de serviço concluída (representado pela <xref:System.ServiceModel.Description.ServiceDescription>classe).</xref:System.ServiceModel.Description.ServiceDescription> A classe ServiceHost cria um <xref:System.ServiceModel.Description.ServiceDescription>das informações de configuração e tipo de serviço e, em seguida, usa essa descrição ao criar <xref:System.ServiceModel.Dispatcher.ChannelDispatcher>objetos para cada ponto de extremidade na descrição.</xref:System.ServiceModel.Dispatcher.ChannelDispatcher> </xref:System.ServiceModel.Description.ServiceDescription>       Use um objeto de ServiceHost para carregar um serviço, configurar pontos de extremidade, aplicar configurações de segurança e Iniciar ouvintes para manipular solicitações de entrada."
   example:
   - >-
     [!code-cs[S_SelfHost#1](~/add/codesnippet/csharp/t-system.servicemodel.se_0_1.cs)]
@@ -85,8 +85,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.ServiceHost&quot;></xref> class."
-  remarks: "There are two constructors used to create an instance of the <xref:System.ServiceModel.ServiceHost> class. Use the [ServiceHost(Type, Uri\\[\\])](assetId:///M:System.ServiceModel.ServiceHost.#ctor(System.Type,System.Uri[])?qualifyHint=False&autoUpgrade=False) constructor which takes the service type as an input parameter, most of the time. The host can use this to create new services as needed. Use the [ServiceHost(Object, Uri\\[\\])](assetId:///M:System.ServiceModel.ServiceHost.#ctor(System.Object,System.Uri[])?qualifyHint=False&autoUpgrade=False) constructor instead only when you want the service host to use a specific singleton instance of the service."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ServiceModel.ServiceHost&quot;> </xref> classe."
+  remarks: "Há dois construtores usados para criar uma instância da <xref:System.ServiceModel.ServiceHost>classe.</xref:System.ServiceModel.ServiceHost> Use o [ServiceHost (tipo, Uri\\[\\])](assetId:///M:System.ServiceModel.ServiceHost.#ctor(System.Type,System.Uri[])?qualifyHint=False&autoUpgrade=False) construtor que usa o tipo de serviço como um parâmetro de entrada, na maioria das vezes. O host pode usar isso para criar novos serviços, conforme necessário. Use o [ServiceHost (objeto, Uri\\[\\])](assetId:///M:System.ServiceModel.ServiceHost.#ctor(System.Object,System.Uri[])?qualifyHint=False&autoUpgrade=False) construtor em vez disso, somente quando desejar que o host de serviço para usar uma instância singleton específico do serviço."
   syntax:
     content: protected ServiceHost ();
     parameters: []
@@ -106,8 +106,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.ServiceHost&quot;></xref> class with the instance of the service and its base addresses specified."
-  remarks: "Use this constructor as an alternative to implementing a custom <xref:System.ServiceModel.Dispatcher.IInstanceContextInitializer?displayProperty=fullName> when you want to provide a specific object instance for use by a singleton service. You may want to use this overload when your service implementation type is difficult to construct (for example, if it does not implement a default public constructor that has no parameters).       Note that when an object is provided to this overload, some features related to the [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] instancing behavior work differently. For example, calling <xref:System.ServiceModel.InstanceContext.ReleaseServiceInstance%2A?displayProperty=fullName> have no effect when a well-known object instance is provided using this constructor overload. Similarly, any other instance release mechanism is ignored. The <xref:System.ServiceModel.ServiceHost> always behaves as if the <xref:System.ServiceModel.OperationBehaviorAttribute.ReleaseInstanceMode%2A?displayProperty=fullName> property is set to <xref:System.ServiceModel.ReleaseInstanceMode?displayProperty=fullName> for all operations."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ServiceModel.ServiceHost&quot;> </xref> classe com a instância do serviço e seus endereços de base especificados."
+  remarks: "Use este construtor como uma alternativa à implementação de uma <xref:System.ServiceModel.Dispatcher.IInstanceContextInitializer?displayProperty=fullName>quando quiser fornecer uma instância de objeto específico para uso por um serviço de singleton.</xref:System.ServiceModel.Dispatcher.IInstanceContextInitializer?displayProperty=fullName> É aconselhável usar essa sobrecarga ao seu tipo de implementação de serviço é difícil construir (por exemplo, se ele não implementa um construtor público padrão que não tem parâmetros).       Observe que quando um objeto é fornecido para essa sobrecarga, alguns recursos relacionados a [!INCLUDE[indigo1](~/add/includes/ajax-current-ext-md.md)] instância trabalho comportamento diferente. Por exemplo, chamar <xref:System.ServiceModel.InstanceContext.ReleaseServiceInstance%2A?displayProperty=fullName>não têm nenhum efeito quando uma instância de objeto conhecido é fornecida usando essa sobrecarga de construtor.</xref:System.ServiceModel.InstanceContext.ReleaseServiceInstance%2A?displayProperty=fullName> Da mesma forma, qualquer outro mecanismo de versão da instância é ignorado. O <xref:System.ServiceModel.ServiceHost>sempre se comporta como se o <xref:System.ServiceModel.OperationBehaviorAttribute.ReleaseInstanceMode%2A?displayProperty=fullName>está definida como <xref:System.ServiceModel.ReleaseInstanceMode?displayProperty=fullName>para todas as operações.</xref:System.ServiceModel.ReleaseInstanceMode?displayProperty=fullName> </xref:System.ServiceModel.OperationBehaviorAttribute.ReleaseInstanceMode%2A?displayProperty=fullName> </xref:System.ServiceModel.ServiceHost>"
   example:
   - >-
     [!code-cs[S_UEServiceHost2#1](~/add/codesnippet/csharp/m-system.servicemodel.se_2_1.cs)]
@@ -117,15 +117,15 @@ items:
     parameters:
     - id: singletonInstance
       type: System.Object
-      description: "The instance of the hosted service."
+      description: "A instância do serviço hospedado."
     - id: baseAddresses
       type: System.Uri[]
-      description: "An <xref:System.Array> of type <xref:System.Uri> that contains the base addresses for the hosted service."
+      description: "Um <xref:System.Array>do tipo <xref:System.Uri>que contém os endereços de base para o serviço hospedado.</xref:System.Uri> </xref:System.Array>"
   overload: System.ServiceModel.ServiceHost.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>singletonInstance</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>singletonInstance</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHost.#ctor(System.Type,System.Uri[])
@@ -140,8 +140,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Initializes a new instance of the <xref href=&quot;System.ServiceModel.ServiceHost&quot;></xref> class with the type of service and its base addresses specified."
-  remarks: "Use this constructor when you have the service type and you can create new instances of it when needed, even when you need a singleton instance. Use the [ServiceHost(Object, Uri\\[\\])](assetId:///M:System.ServiceModel.ServiceHost.#ctor(System.Object,System.Uri[])?qualifyHint=False&autoUpgrade=False) constructor instead only when you want the service host to use a specific singleton instance of the service."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.ServiceModel.ServiceHost&quot;> </xref> classe com o tipo de serviço e seus endereços de base especificados."
+  remarks: "Use este construtor quando você tem o tipo de serviço e você pode criar novas instâncias, quando necessário, até mesmo quando você precisa de uma instância singleton. Use o [ServiceHost (objeto, Uri\\[\\])](assetId:///M:System.ServiceModel.ServiceHost.#ctor(System.Object,System.Uri[])?qualifyHint=False&autoUpgrade=False) construtor em vez disso, somente quando desejar que o host de serviço para usar uma instância singleton específico do serviço."
   example:
   - "This sample illustrates how to use the <xref:System.ServiceModel.ServiceHost> class to host a Windows Communication Foundation service:  \n  \n [!code-vb[S_UEServiceHost#1](~/add/codesnippet/visualbasic/m-system.servicemodel.se_1_1.vb)]\n [!code-cs[S_UEServiceHost#1](~/add/codesnippet/csharp/m-system.servicemodel.se_1_1.cs)]"
   syntax:
@@ -149,15 +149,15 @@ items:
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The type of hosted service."
+      description: "O tipo de serviço hospedado."
     - id: baseAddresses
       type: System.Uri[]
-      description: "An array of type <xref:System.Uri> that contains the base addresses for the hosted service."
+      description: "Uma matriz do tipo <xref:System.Uri>que contém os endereços de base para o serviço hospedado.</xref:System.Uri>"
   overload: System.ServiceModel.ServiceHost.#ctor*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serviceType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serviceType</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHost.AddServiceEndpoint(System.Type,System.ServiceModel.Channels.Binding,System.String)
@@ -172,7 +172,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds a service endpoint to the hosted service with a specified contract, binding, and endpoint address."
+  summary: "Adiciona um ponto de extremidade de serviço para o serviço hospedado com um contrato especificado, a associação e o endereço do ponto de extremidade."
   remarks: ''
   example:
   - >-
@@ -183,21 +183,21 @@ items:
     parameters:
     - id: implementedContract
       type: System.Type
-      description: "The <xref:System.Type> of contract for the endpoint added."
+      description: "O <xref:System.Type>do contrato do ponto de extremidade adicionado.</xref:System.Type>"
     - id: binding
       type: System.ServiceModel.Channels.Binding
-      description: "The <xref:System.ServiceModel.Channels.Binding> for the endpoint added."
+      description: "O <xref:System.ServiceModel.Channels.Binding>para o ponto de extremidade adicionado.</xref:System.ServiceModel.Channels.Binding>"
     - id: address
       type: System.String
-      description: "The address for the endpoint added."
+      description: "O endereço do ponto de extremidade adicionado."
     return:
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The <xref:System.ServiceModel.Description.ServiceEndpoint> added to the hosted service."
+      description: "O <xref:System.ServiceModel.Description.ServiceEndpoint>adicionado para o serviço hospedado.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.ServiceHost.AddServiceEndpoint*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>implementedContract</code> or <code>binding</code> or <code>address</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>implementedContract</code>or <code>binding</code> or <code>address</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHost.AddServiceEndpoint(System.Type,System.ServiceModel.Channels.Binding,System.Uri)
@@ -212,7 +212,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds a service endpoint to the hosted service with a specified contract, binding, and URI that contains the endpoint address."
+  summary: "Adiciona um ponto de extremidade de serviço para o serviço hospedado com um contrato especificado, a associação e o URI que contém o endereço do ponto de extremidade."
   remarks: ''
   example:
   - >-
@@ -223,21 +223,21 @@ items:
     parameters:
     - id: implementedContract
       type: System.Type
-      description: "The <xref:System.Type> of contract for the endpoint added."
+      description: "O <xref:System.Type>do contrato do ponto de extremidade adicionado.</xref:System.Type>"
     - id: binding
       type: System.ServiceModel.Channels.Binding
-      description: "The <xref:System.ServiceModel.Channels.Binding> for the endpoint added."
+      description: "O <xref:System.ServiceModel.Channels.Binding>para o ponto de extremidade adicionado.</xref:System.ServiceModel.Channels.Binding>"
     - id: address
       type: System.Uri
-      description: "The <xref:System.Uri> that contains the address for the endpoint added."
+      description: "O <xref:System.Uri>que contém o endereço do ponto de extremidade adicionado.</xref:System.Uri>"
     return:
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The <xref:System.ServiceModel.Description.ServiceEndpoint> added to the hosted service."
+      description: "O <xref:System.ServiceModel.Description.ServiceEndpoint>adicionado para o serviço hospedado.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.ServiceHost.AddServiceEndpoint*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>implementedContract</code> or <code>binding</code> or <code>address</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>implementedContract</code>or <code>binding</code> or <code>address</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHost.AddServiceEndpoint(System.Type,System.ServiceModel.Channels.Binding,System.String,System.Uri)
@@ -252,8 +252,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds a service endpoint to the hosted service with a specified contract, binding, an endpoint address, and a URI on which the service listens."
-  remarks: "Use this version of the method when you have multiple endpoints that need to listen on the same, specified URI."
+  summary: "Adiciona um ponto de extremidade de serviço para o serviço hospedado com um contrato especificado, associação, um endereço de ponto de extremidade e um URI no qual o serviço de escuta."
+  remarks: "Usar esta versão do método quando você tiver vários pontos de extremidade que precisa para escutar na mesma, especificado URI."
   example:
   - >-
     [!code-vb[S_UEServiceHost#5](~/add/codesnippet/visualbasic/53ef03a0-4eb7-4902-b7b1-_1.vb)]
@@ -263,24 +263,24 @@ items:
     parameters:
     - id: implementedContract
       type: System.Type
-      description: "The <xref:System.Type> of contract for the endpoint added."
+      description: "O <xref:System.Type>do contrato do ponto de extremidade adicionado.</xref:System.Type>"
     - id: binding
       type: System.ServiceModel.Channels.Binding
-      description: "The <xref:System.ServiceModel.Channels.Binding> for the endpoint added."
+      description: "O <xref:System.ServiceModel.Channels.Binding>para o ponto de extremidade adicionado.</xref:System.ServiceModel.Channels.Binding>"
     - id: address
       type: System.String
-      description: "The endpoint address for the service."
+      description: "O endereço de ponto de extremidade para o serviço."
     - id: listenUri
       type: System.Uri
-      description: "The <xref:System.Uri> on which the service endpoints can listen."
+      description: "O <xref:System.Uri>no qual os pontos de extremidade de serviço podem escutar.</xref:System.Uri>"
     return:
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The <xref:System.ServiceModel.Description.ServiceEndpoint> added to the hosted service."
+      description: "O <xref:System.ServiceModel.Description.ServiceEndpoint>adicionado para o serviço hospedado.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.ServiceHost.AddServiceEndpoint*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>implementedContract</code> or <code>binding</code> or <code>address</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>implementedContract</code>or <code>binding</code> or <code>address</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHost.AddServiceEndpoint(System.Type,System.ServiceModel.Channels.Binding,System.Uri,System.Uri)
@@ -295,8 +295,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Adds a service endpoint to the hosted service with a specified contract, binding, a URI that contains the endpoint address, and a URI on which the service listens."
-  remarks: "Use this version of the method when you have multiple endpoints that need to listen on the same, specified URI."
+  summary: "Adiciona um ponto de extremidade de serviço para o serviço hospedado com um contrato especificado, associação, um URI que contém o endereço do ponto de extremidade e um URI no qual o serviço de escuta."
+  remarks: "Usar esta versão do método quando você tiver vários pontos de extremidade que precisa para escutar na mesma, especificado URI."
   example:
   - >-
     [!code-vb[S_UEServiceHost#6](~/add/codesnippet/visualbasic/681d17d9-9f10-449e-a378-_1.vb)]
@@ -306,27 +306,27 @@ items:
     parameters:
     - id: implementedContract
       type: System.Type
-      description: "The <xref:System.Type> of contract for the endpoint added."
+      description: "O <xref:System.Type>do contrato do ponto de extremidade adicionado.</xref:System.Type>"
     - id: binding
       type: System.ServiceModel.Channels.Binding
-      description: "The <xref:System.ServiceModel.Channels.Binding> for the endpoint added."
+      description: "O <xref:System.ServiceModel.Channels.Binding>para o ponto de extremidade adicionado.</xref:System.ServiceModel.Channels.Binding>"
     - id: address
       type: System.Uri
-      description: "The <xref:System.Uri> that contains the address for the endpoint added."
+      description: "O <xref:System.Uri>que contém o endereço do ponto de extremidade adicionado.</xref:System.Uri>"
     - id: listenUri
       type: System.Uri
-      description: "The <xref:System.Uri> on which the service endpoints can listen."
+      description: "O <xref:System.Uri>no qual os pontos de extremidade de serviço podem escutar.</xref:System.Uri>"
     return:
       type: System.ServiceModel.Description.ServiceEndpoint
-      description: "The <xref:System.ServiceModel.Description.ServiceEndpoint> added to the hosted service."
+      description: "O <xref:System.ServiceModel.Description.ServiceEndpoint>adicionado para o serviço hospedado.</xref:System.ServiceModel.Description.ServiceEndpoint>"
   overload: System.ServiceModel.ServiceHost.AddServiceEndpoint*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>implementedContract</code> or <code>binding</code> or <code>address</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>implementedContract</code>or <code>binding</code> or <code>address</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The contracts are not initialized or the contract keys cannot be found."
+    description: "Os contratos não são inicializados ou as chaves de contrato não podem ser encontradas."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHost.ApplyConfiguration
@@ -341,7 +341,7 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Loads the service description from the configuration file and applies it to the runtime being constructed."
+  summary: "Carrega a descrição do serviço do arquivo de configuração e aplica-se ao tempo de execução que está sendo construído."
   syntax:
     content: protected override void ApplyConfiguration ();
     parameters: []
@@ -361,22 +361,22 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Creates a description of the service hosted."
-  remarks: "This method is used to construct contract descriptions from customized programming models. Override the corresponding base class method, <xref:System.ServiceModel.ServiceHostBase.CreateDescription%28System.Collections.Generic.IDictionary%7BSystem.String%2CSystem.ServiceModel.Description.ContractDescription%7D%40%29>, to implement the customized model."
+  summary: "Cria uma descrição do serviço hospedado."
+  remarks: "Esse método é usado para construir descrições de contrato de modelos de programação personalizadas. Substitua o método de classe base correspondente, <xref:System.ServiceModel.ServiceHostBase.CreateDescription%28System.Collections.Generic.IDictionary%7BSystem.String%2CSystem.ServiceModel.Description.ContractDescription%7D%40%29>, para implementar o modelo personalizado.</xref:System.ServiceModel.ServiceHostBase.CreateDescription%28System.Collections.Generic.IDictionary%7BSystem.String%2CSystem.ServiceModel.Description.ContractDescription%7D%40%29>"
   syntax:
     content: protected override System.ServiceModel.Description.ServiceDescription CreateDescription (out System.Collections.Generic.IDictionary<string,System.ServiceModel.Description.ContractDescription> implementedContracts);
     parameters:
     - id: implementedContracts
       type: System.Collections.Generic.IDictionary{System.String,System.ServiceModel.Description.ContractDescription}
-      description: "The &lt;xref:System.Collections.Generic.IDictionary%602&gt; with key pairs of type (<xref:System.String>, <xref:System.ServiceModel.Description.ContractDescription>) that contains the keyed-contracts of the hosted service that have been implemented."
+      description: "O &lt;xref:System.Collections.Generic.IDictionary%602&gt; com pares de chave de tipo (<xref:System.String>, <xref:System.ServiceModel.Description.ContractDescription>) que contém os chaveado-contratos do serviço hospedado que foram implementados.</xref:System.ServiceModel.Description.ContractDescription> </xref:System.String>"
     return:
       type: System.ServiceModel.Description.ServiceDescription
-      description: "A <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;></xref> of the hosted service."
+      description: "Um <xref href=&quot;System.ServiceModel.Description.ServiceDescription&quot;> </xref> do serviço hospedado."
   overload: System.ServiceModel.ServiceHost.CreateDescription*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The type of service hosted is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "O tipo de serviço hospedado é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHost.InitializeDescription(System.Object,System.ServiceModel.UriSchemeKeyedCollection)
@@ -391,21 +391,21 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Initializes a description of the service hosted based on its instance and specified base addresses."
+  summary: "Inicializa uma descrição do serviço hospedado com base em sua instância e especificado de endereços base."
   syntax:
     content: protected void InitializeDescription (object singletonInstance, System.ServiceModel.UriSchemeKeyedCollection baseAddresses);
     parameters:
     - id: singletonInstance
       type: System.Object
-      description: "The instance of the hosted service."
+      description: "A instância do serviço hospedado."
     - id: baseAddresses
       type: System.ServiceModel.UriSchemeKeyedCollection
-      description: "The <xref href=&quot;System.ServiceModel.UriSchemeKeyedCollection&quot;></xref> that contains the base addresses for the hosted service."
+      description: "O <xref href=&quot;System.ServiceModel.UriSchemeKeyedCollection&quot;> </xref> que contém os endereços de base para o serviço hospedado."
   overload: System.ServiceModel.ServiceHost.InitializeDescription*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>singletonInstance</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>singletonInstance</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHost.InitializeDescription(System.Type,System.ServiceModel.UriSchemeKeyedCollection)
@@ -420,21 +420,21 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Initializes a description of the service hosted based on its type and specified base addresses."
+  summary: "Inicializa uma descrição do serviço hospedado com base em seu tipo e especificado de endereços base."
   syntax:
     content: protected void InitializeDescription (Type serviceType, System.ServiceModel.UriSchemeKeyedCollection baseAddresses);
     parameters:
     - id: serviceType
       type: System.Type
-      description: "The <xref:System.Type> of service hosted."
+      description: "O <xref:System.Type>do serviço hospedado.</xref:System.Type>"
     - id: baseAddresses
       type: System.ServiceModel.UriSchemeKeyedCollection
-      description: "The <xref href=&quot;System.ServiceModel.UriSchemeKeyedCollection&quot;></xref> that contains the base addresses for the hosted service."
+      description: "O <xref href=&quot;System.ServiceModel.UriSchemeKeyedCollection&quot;> </xref> que contém os endereços de base para o serviço hospedado."
   overload: System.ServiceModel.ServiceHost.InitializeDescription*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>serviceType</code> is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
+    description: "<code>serviceType</code>is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>."
   platform:
   - net462
 - uid: System.ServiceModel.ServiceHost.OnClosed
@@ -449,8 +449,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Disposes of disposable services that are being hosted when the service host is closed."
-  remarks: "When overriding the OnClosed method you must ensure the base.OnClosed method is called, even if an exception occurs. The following code illustrates how to do this.      ```   protected override void OnClosed()   {       try       {           if (FaultFlagService.faultFlag == ThrowDuring.OnClosed)           {               FaultFlagService.faultFlag = ThrowDuring.Never;               throw new ServiceActivationException(&quot;Faulting the service because FaultFlagService.faultFlag = ThrowDuring.OnClosed&quot;);           }       }       finally       {           base.OnClosed();       }   }      ```"
+  summary: "Descarta descartáveis serviços que estão sendo hospedados quando o host de serviço é fechado."
+  remarks: "Ao substituir o método OnClosed deve verificar se a base. Método OnClosed é chamado, mesmo que ocorra uma exceção. O código a seguir ilustra como fazer isso.      ```   protected override void OnClosed()   {       try       {           if (FaultFlagService.faultFlag == ThrowDuring.OnClosed)           {               FaultFlagService.faultFlag = ThrowDuring.Never;               throw new ServiceActivationException(&quot;Faulting the service because FaultFlagService.faultFlag = ThrowDuring.OnClosed&quot;);           }       }       finally       {           base.OnClosed();       }   }      ```"
   syntax:
     content: protected override void OnClosed ();
     parameters: []
@@ -470,13 +470,13 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel
-  summary: "Gets the singleton instance of the hosted service."
-  remarks: "Use the [ServiceHost(Object, Uri\\[\\])](assetId:///M:System.ServiceModel.ServiceHost.#ctor(System.Object,System.Uri[])?qualifyHint=False&autoUpgrade=False) constructor to initialize a singleton instance of the service to be hosted when you want to control the instance of the service that is used."
+  summary: "Obtém a instância singleton do serviço hospedado."
+  remarks: "Use o [ServiceHost (objeto, Uri\\[\\])](assetId:///M:System.ServiceModel.ServiceHost.#ctor(System.Object,System.Uri[])?qualifyHint=False&autoUpgrade=False) construtor para inicializar uma instância singleton do serviço a ser hospedado quando você deseja controlar a instância do serviço que é usado."
   syntax:
     content: public object SingletonInstance { get; }
     return:
       type: System.Object
-      description: "The hosted service object."
+      description: "O objeto de serviço hospedado."
   overload: System.ServiceModel.ServiceHost.SingletonInstance*
   exceptions: []
   platform:

@@ -14,7 +14,7 @@ items:
   nameWithType: DecoderExceptionFallbackBuffer
   fullName: System.Text.DecoderExceptionFallbackBuffer
   type: Class
-  summary: "Throws <xref:System.Text.DecoderFallbackException> when an encoded input byte sequence cannot be converted to a decoded output character. This class cannot be inherited."
+  summary: "Gera <xref:System.Text.DecoderFallbackException>quando uma sequência de bytes codificados de entrada não pode ser convertida em um caractere de saída decodificada.</xref:System.Text.DecoderFallbackException> Essa classe não pode ser herdada."
   remarks: "A common reason for an encoding or decoding operation to fail is if the underlying encoding class does not provide a mapping between a character and an equivalent byte sequence. If the input byte sequence cannot be converted to an output character, the decoding operation calls the [Fallback(Byte\\[\\], Int32)](assetId:///M:System.Text.DecoderExceptionFallbackBuffer.Fallback(System.Byte[],System.Int32)?qualifyHint=False&autoUpgrade=True) method, which throws <xref:System.Text.DecoderFallbackException>.  \n  \n The <xref:System.Text.DecoderFallbackBuffer?displayProperty=fullName> class, which represents a data buffer used in a decoding operation, is the base class for the DecoderExceptionFallbackBuffer class. However, instead of a data buffer, the DecoderExceptionFallbackBuffer class represents a standard behavior in which an exception is thrown if a decoding operation fails. No actual data buffer exists, and the members designed to manipulate such a buffer do no significant work."
   syntax:
     content: 'public sealed class DecoderExceptionFallbackBuffer : System.Text.DecoderFallbackBuffer'
@@ -36,7 +36,7 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Initializes a new instance of the <xref href=&quot;System.Text.DecoderExceptionFallbackBuffer&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Text.DecoderExceptionFallbackBuffer&quot;> </xref> classe."
   syntax:
     content: public DecoderExceptionFallbackBuffer ();
     parameters: []
@@ -56,25 +56,25 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Throws <xref:System.Text.DecoderFallbackException> when the input byte sequence cannot be decoded. The nominal return value is not used."
-  remarks: "The <xref:System.Text.Encoding.GetBytes%2A> and <xref:System.Text.Decoder.Convert%2A> methods call Fallback if they encounter an unknown byte in their input. In response, the Fallback method always throws <xref:System.Text.DecoderFallbackException> and displays the input data. The Fallback method nominally indicates whether an exception is thrown if an input byte sequence cannot be decoded."
+  summary: "Gera <xref:System.Text.DecoderFallbackException>quando a sequência de bytes de entrada não pode ser decodificada.</xref:System.Text.DecoderFallbackException> O valor de retorno nominal não é usado."
+  remarks: "O <xref:System.Text.Encoding.GetBytes%2A>e <xref:System.Text.Decoder.Convert%2A>métodos chamam Fallback se encontram um byte desconhecido na entrada.</xref:System.Text.Decoder.Convert%2A> </xref:System.Text.Encoding.GetBytes%2A> Em resposta, o método de Fallback sempre gera <xref:System.Text.DecoderFallbackException>e exibe os dados de entrada.</xref:System.Text.DecoderFallbackException> O método de Fallback uma indica se uma exceção será lançada se uma sequência de bytes de entrada não pode ser decodificada."
   syntax:
     content: public override bool Fallback (byte[] bytesUnknown, int index);
     parameters:
     - id: bytesUnknown
       type: System.Byte[]
-      description: "An input array of bytes."
+      description: "Uma matriz de entrada de bytes."
     - id: index
       type: System.Int32
-      description: "The index position of a byte in the input."
+      description: "A posição do índice de um byte na entrada."
     return:
       type: System.Boolean
-      description: "None. No value is returned because the Fallback method always throws an exception.       The nominal return value is <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>. A return value is defined, although it is unchanging, because this method implements an abstract method."
+      description: "Nenhuma. Nenhum valor é retornado porque o método de Fallback sempre lança uma exceção.       É o valor de retorno nominal <xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;> </xref>. Um valor de retorno é definido, embora seja inalterável, como esse método implementa um método abstrato."
   overload: System.Text.DecoderExceptionFallbackBuffer.Fallback*
   exceptions:
   - type: System.Text.DecoderFallbackException
     commentId: T:System.Text.DecoderFallbackException
-    description: "This method always throws an exception that reports the value and index position of the input byte that cannot be decoded."
+    description: "Esse método sempre gera uma exceção que informa a posição de índice e o valor de bytes de entrada que não podem ser decodificados."
   platform:
   - net462
 - uid: System.Text.DecoderExceptionFallbackBuffer.GetNextChar
@@ -89,14 +89,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Retrieves the next character in the exception data buffer."
-  remarks: "Because <xref:System.Text.DecoderExceptionFallbackBuffer> has no actual exception data buffer, the GetNextChar method always returns the Unicode NULL character."
+  summary: "Recupera o próximo caractere no buffer de dados de exceção."
+  remarks: "Porque <xref:System.Text.DecoderExceptionFallbackBuffer>não tem nenhum buffer de dados de exceção real, o método GetNextChar sempre retorna o caractere Unicode nulo.</xref:System.Text.DecoderExceptionFallbackBuffer>"
   syntax:
     content: public override char GetNextChar ();
     parameters: []
     return:
       type: System.Char
-      description: "The return value is always the Unicode character NULL (U+0000).       A return value is defined, although it is unchanging, because this method implements an abstract method."
+      description: "O valor de retorno sempre é o caractere Unicode NULL (U +&0000;).       Um valor de retorno é definido, embora seja inalterável, como esse método implementa um método abstrato."
   overload: System.Text.DecoderExceptionFallbackBuffer.GetNextChar*
   exceptions: []
   platform:
@@ -113,14 +113,14 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Causes the next call to <xref:System.Text.DecoderExceptionFallbackBuffer.GetNextChar*> to access the exception data buffer character position that is prior to the current position."
-  remarks: "Because <xref:System.Text.DecoderExceptionFallbackBuffer> has no actual exception data buffer, the MovePrevious method always returns `false`."
+  summary: "Faz com que a próxima chamada para <xref:System.Text.DecoderExceptionFallbackBuffer.GetNextChar*>para acessar a posição de caractere de buffer de dados de exceção que é anterior a posição atual.</xref:System.Text.DecoderExceptionFallbackBuffer.GetNextChar*>"
+  remarks: "Porque <xref:System.Text.DecoderExceptionFallbackBuffer>tem o buffer de dados sem exceção real, o método MovePrevious sempre retorna `false`.</xref:System.Text.DecoderExceptionFallbackBuffer>"
   syntax:
     content: public override bool MovePrevious ();
     parameters: []
     return:
       type: System.Boolean
-      description: "The return value is always <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>.       A return value is defined, although it is unchanging, because this method implements an abstract method."
+      description: "O valor de retorno é sempre <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.       Um valor de retorno é definido, embora seja inalterável, como esse método implementa um método abstrato."
   overload: System.Text.DecoderExceptionFallbackBuffer.MovePrevious*
   exceptions: []
   platform:
@@ -137,13 +137,13 @@ items:
   assemblies:
   - mscorlib
   namespace: System.Text
-  summary: "Gets the number of characters in the current <xref href=&quot;System.Text.DecoderExceptionFallbackBuffer&quot;></xref> object that remain to be processed."
-  remarks: "Because <xref:System.Text.DecoderExceptionFallbackBuffer> has no actual exception data buffer, the Remaining property always returns zero."
+  summary: "Obtém o número de caracteres no atual <xref href=&quot;System.Text.DecoderExceptionFallbackBuffer&quot;> </xref> objeto permanecer para serem processados."
+  remarks: "Porque <xref:System.Text.DecoderExceptionFallbackBuffer>não tem nenhum buffer de dados de exceção real, a propriedade restante sempre retorna zero.</xref:System.Text.DecoderExceptionFallbackBuffer>"
   syntax:
     content: public override int Remaining { get; }
     return:
       type: System.Int32
-      description: "The return value is always zero.       A return value is defined, although it is unchanging, because this method implements an abstract method."
+      description: "O valor de retorno sempre será zero.       Um valor de retorno é definido, embora seja inalterável, como esse método implementa um método abstrato."
   overload: System.Text.DecoderExceptionFallbackBuffer.Remaining*
   exceptions: []
   platform:

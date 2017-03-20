@@ -13,8 +13,8 @@ items:
   nameWithType: CompilerType
   fullName: System.Web.Compilation.CompilerType
   type: Class
-  summary: "Represents the compiler settings used within the ASP.NET build environment to generate and compile source code from a virtual path. This class cannot be inherited."
-  remarks: "Use the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A> property of a <xref:System.Web.Compilation.BuildProvider> implementation to examine the settings used to generate and compile source code from a virtual path for that build provider.       The ASP.NET build environment uses <xref:System.Web.Compilation.BuildProvider> objects to generate source code for custom file types within the project. Classes derived from <xref:System.Web.Compilation.BuildProvider> provide build details for source files, Web pages, resources, and other custom items. When the build provider requires a specific programming language, it overrides the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A> property and calls the <xref:System.Web.Compilation.BuildProvider.GetDefaultCompilerType%2A> method to return a CompilerType object for the supported programming language.       To set the CompilerType object within a build provider implementation, use the <xref:System.Web.Compilation.BuildProvider.GetDefaultCompilerType%2A> method or the <xref:System.Web.Compilation.BuildProvider.GetDefaultCompilerTypeForLanguage%2A> method.       The <xref:System.Web.Compilation.CompilerType.CodeDomProviderType%2A> property specifies the <xref:System.CodeDom.Compiler.CodeDomProvider> implementation used to generate and compile source code for a build provider. The <xref:System.Web.Compilation.CompilerType.CompilerParameters%2A> property defines the settings used to compile the source code into an assembly."
+  summary: "Representa as configurações de compilador usadas no ambiente de compilação do ASP.NET para gerar e compilar o código-fonte de um caminho virtual. Essa classe não pode ser herdada."
+  remarks: "Use o <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>propriedade de um <xref:System.Web.Compilation.BuildProvider>implementação para examinar as configurações usadas para gerar e compilar o código-fonte de um caminho virtual para o provedor de compilação.</xref:System.Web.Compilation.BuildProvider> </xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>       O ASP.NET usa do ambiente de compilação <xref:System.Web.Compilation.BuildProvider>objetos para gerar o código-fonte para os tipos de arquivos personalizados dentro do projeto.</xref:System.Web.Compilation.BuildProvider> Classes derivadas de <xref:System.Web.Compilation.BuildProvider>fornecer detalhes de compilação para arquivos de origem, páginas da Web, recursos e outros itens personalizados.</xref:System.Web.Compilation.BuildProvider> Quando o provedor de compilação requer uma linguagem de programação específica, ele substitui o <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>propriedade e chama o <xref:System.Web.Compilation.BuildProvider.GetDefaultCompilerType%2A>método para retornar um objeto CompilerType para a linguagem de programação com suporte.</xref:System.Web.Compilation.BuildProvider.GetDefaultCompilerType%2A> </xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>       Para definir o objeto CompilerType dentro de uma implementação de provedor de compilação, use o <xref:System.Web.Compilation.BuildProvider.GetDefaultCompilerType%2A>método ou o <xref:System.Web.Compilation.BuildProvider.GetDefaultCompilerTypeForLanguage%2A>método.</xref:System.Web.Compilation.BuildProvider.GetDefaultCompilerTypeForLanguage%2A> </xref:System.Web.Compilation.BuildProvider.GetDefaultCompilerType%2A>       O <xref:System.Web.Compilation.CompilerType.CodeDomProviderType%2A>propriedade especifica o <xref:System.CodeDom.Compiler.CodeDomProvider>implementação usada para gerar e compilar o código-fonte para um provedor de compilação.</xref:System.CodeDom.Compiler.CodeDomProvider> </xref:System.Web.Compilation.CompilerType.CodeDomProviderType%2A> O <xref:System.Web.Compilation.CompilerType.CompilerParameters%2A>propriedade define as configurações usadas para compilar o código-fonte em um assembly.</xref:System.Web.Compilation.CompilerType.CompilerParameters%2A>"
   example:
   - "The following code example illustrates a simple build provider implementation, inheriting from the abstract <xref:System.Web.Compilation.BuildProvider> base class. The build provider overrides the <xref:System.Web.Compilation.BuildProvider.CodeCompilerType%2A>, <xref:System.Web.Compilation.BuildProvider.GetGeneratedType%2A>, and <xref:System.Web.Compilation.BuildProvider.GenerateCode%2A> members of the base class.  \n  \n [!code-cs[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/csharp/t-system.web.compilation_4_1.cs)]\n [!code-vb[System.Web.Compilation_SampleBuildProvider#2](~/add/codesnippet/visualbasic/t-system.web.compilation_4_1.vb)]"
   syntax:
@@ -37,13 +37,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets a <xref:System.Type> for the configured <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;></xref> implementation."
-  remarks: "The CodeDomProviderType property specifies the <xref:System.CodeDom.Compiler.CodeDomProvider> implementation used to generate and compile source code for a build provider.       For example, if the build provider is configured to use the Visual Basic code provider in the .NET Framework, CodeDomProviderType returns a <xref:System.Type> for the <xref:Microsoft.VisualBasic.VBCodeProvider> class."
+  summary: "Obtém um <xref:System.Type>configurado <xref href=&quot;System.CodeDom.Compiler.CodeDomProvider&quot;> </xref> implementação.</xref:System.Type>"
+  remarks: "A propriedade CodeDomProviderType Especifica o <xref:System.CodeDom.Compiler.CodeDomProvider>implementação usada para gerar e compilar o código-fonte para um provedor de compilação.</xref:System.CodeDom.Compiler.CodeDomProvider>       Por exemplo, se o provedor de compilação está configurado para usar o provedor de código do Visual Basic no .NET Framework, CodeDomProviderType retorna um <xref:System.Type>para a <xref:Microsoft.VisualBasic.VBCodeProvider>classe.</xref:Microsoft.VisualBasic.VBCodeProvider> </xref:System.Type>"
   syntax:
     content: public Type CodeDomProviderType { get; }
     return:
       type: System.Type
-      description: "A read-only <xref:System.Type> that represents the configured code provider type."
+      description: "Somente leitura <xref:System.Type>que representa o tipo de provedor de código configurado.</xref:System.Type>"
   overload: System.Web.Compilation.CompilerType.CodeDomProviderType*
   exceptions: []
   platform:
@@ -60,13 +60,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets the settings and options used to compile source code into an assembly."
-  remarks: "Use the CompilerParameters property to examine the compiler options configured for the compiler. The CompilerParameters property specifies whether warnings are treated as errors, whether the compiler output includes debug information, and other compiler settings."
+  summary: "Obtém as configurações e opções usadas para compilar o código-fonte em um assembly."
+  remarks: "Use a propriedade CompilerParameters para examinar as opções de compilador configuradas para o compilador. A propriedade CompilerParameters Especifica se os avisos são tratados como erros, se a saída do compilador inclui informações de depuração e outras configurações de compilador."
   syntax:
     content: public System.CodeDom.Compiler.CompilerParameters CompilerParameters { get; }
     return:
       type: System.CodeDom.Compiler.CompilerParameters
-      description: "A read-only <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;></xref> object that represents the settings and options of the code compiler."
+      description: "Somente leitura <xref href=&quot;System.CodeDom.Compiler.CompilerParameters&quot;> </xref> objeto que representa as configurações e opções do compilador de código."
   overload: System.Web.Compilation.CompilerType.CompilerParameters*
   exceptions: []
   platform:
@@ -83,17 +83,17 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Determines whether the specified object represents the same code provider and compiler settings as the current instance of <xref href=&quot;System.Web.Compilation.CompilerType&quot;></xref>."
-  remarks: "The Equals method overrides the <xref:System.Object.Equals%2A?displayProperty=fullName> method.       Equals compares two instances based on their <xref:System.Web.Compilation.CompilerType.CodeDomProviderType%2A>, <xref:System.CodeDom.Compiler.CompilerParameters.WarningLevel%2A?displayProperty=fullName>, <xref:System.CodeDom.Compiler.CompilerParameters.CompilerOptions%2A?displayProperty=fullName>, and <xref:System.CodeDom.Compiler.CompilerParameters.IncludeDebugInformation%2A?displayProperty=fullName> properties."
+  summary: "Determina se o objeto especificado representa os mesmo código compilador e o provedor de configurações como a instância atual do <xref href=&quot;System.Web.Compilation.CompilerType&quot;> </xref>."
+  remarks: "O método Equals substitui o <xref:System.Object.Equals%2A?displayProperty=fullName>método.</xref:System.Object.Equals%2A?displayProperty=fullName>       Equals Compara duas instâncias com base em seus <xref:System.Web.Compilation.CompilerType.CodeDomProviderType%2A>, <xref:System.CodeDom.Compiler.CompilerParameters.WarningLevel%2A?displayProperty=fullName>, <xref:System.CodeDom.Compiler.CompilerParameters.CompilerOptions%2A?displayProperty=fullName>, e <xref:System.CodeDom.Compiler.CompilerParameters.IncludeDebugInformation%2A?displayProperty=fullName>Propriedades.</xref:System.CodeDom.Compiler.CompilerParameters.IncludeDebugInformation%2A?displayProperty=fullName> </xref:System.CodeDom.Compiler.CompilerParameters.CompilerOptions%2A?displayProperty=fullName> </xref:System.CodeDom.Compiler.CompilerParameters.WarningLevel%2A?displayProperty=fullName> </xref:System.Web.Compilation.CompilerType.CodeDomProviderType%2A>"
   syntax:
     content: public override bool Equals (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "The object to compare with the current instance of <xref href=&quot;System.Web.Compilation.CompilerType&quot;></xref>."
+      description: "O objeto a ser comparado com a instância atual do <xref href=&quot;System.Web.Compilation.CompilerType&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>o</code> is a <xref href=&quot;System.Web.Compilation.CompilerType&quot;></xref> object and its value is the same as this instance; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se <code> o </code> é um <xref href=&quot;System.Web.Compilation.CompilerType&quot;> </xref> objeto e seu valor é o mesmo que esta instância; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.Compilation.CompilerType.Equals*
   exceptions: []
   platform:
@@ -110,14 +110,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns the hash code for this instance."
-  remarks: "The GetHashCode method overrides the <xref:System.Object.GetHashCode%2A?displayProperty=fullName> method.       GetHashCode generates the same hash code for two objects that are equal according to the <xref:System.Web.Compilation.CompilerType.Equals%2A> method."
+  summary: "Retorna o código hash para essa instância."
+  remarks: "O método GetHashCode substitui o <xref:System.Object.GetHashCode%2A?displayProperty=fullName>método.</xref:System.Object.GetHashCode%2A?displayProperty=fullName>       GetHashCode gera o mesmo código de hash de dois objetos são iguais de acordo com o <xref:System.Web.Compilation.CompilerType.Equals%2A>método.</xref:System.Web.Compilation.CompilerType.Equals%2A>"
   syntax:
     content: public override int GetHashCode ();
     parameters: []
     return:
       type: System.Int32
-      description: "A 32-bit signed integer hash code for the current instance of <xref href=&quot;System.Web.Compilation.CompilerType&quot;></xref>, suitable for use in hashing algorithms and data structures, such as a hash table."
+      description: "Um código de hash de inteiro de 32 bits para a instância atual do <xref href=&quot;System.Web.Compilation.CompilerType&quot;> </xref>, adequado para uso em algoritmos e estruturas de dados, como uma tabela de hash de hash."
   overload: System.Web.Compilation.CompilerType.GetHashCode*
   exceptions: []
   platform:

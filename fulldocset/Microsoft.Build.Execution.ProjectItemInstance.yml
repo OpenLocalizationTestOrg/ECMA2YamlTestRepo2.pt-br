@@ -33,8 +33,8 @@ items:
   nameWithType: ProjectItemInstance
   fullName: Microsoft.Build.Execution.ProjectItemInstance
   type: Class
-  summary: "Wraps an evaluated item for build purposes."
-  remarks: "Does not store item element information, because all evaluation and verification has already been performed."
+  summary: "Encapsula um item avaliado para fins de compilação."
+  remarks: "Não armazena informações sobre o elemento item, porque todos os avaliação e verificação já foi executada."
   syntax:
     content: >-
       [System.Diagnostics.DebuggerDisplay("{ItemType}={EvaluatedInclude} #DirectMetadata={DirectMetadataCount})")]
@@ -59,12 +59,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the number of pieces of metadata on this item."
+  summary: "Obtém o número de itens de metadados neste item."
   syntax:
     content: public int DirectMetadataCount { get; }
     return:
       type: System.Int32
-      description: "Returns the number of pieces of metadata on this item."
+      description: "Retorna o número de itens de metadados neste item."
   overload: Microsoft.Build.Execution.ProjectItemInstance.DirectMetadataCount*
   exceptions: []
   platform:
@@ -81,12 +81,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the evaluated Include attribute value."
+  summary: "Obtém o valor do atributo Include avaliado."
   syntax:
     content: public string EvaluatedInclude { get; set; }
     return:
       type: System.String
-      description: "Returns the evaluated Include attribute value, which may be empty string."
+      description: "Retorna o valor do atributo Include avaliado, que pode ser a cadeia de caracteres vazia."
   overload: Microsoft.Build.Execution.ProjectItemInstance.EvaluatedInclude*
   exceptions: []
   platform:
@@ -103,17 +103,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Get the metadata with the given name, including metadata inherited from item definitions."
-  remarks: "Does not include any built-in metadata."
+  summary: "Obter os metadados com o nome fornecido, incluindo metadados herdado de definições do item."
+  remarks: "Não inclui quaisquer metadados internos."
   syntax:
     content: public Microsoft.Build.Execution.ProjectMetadataInstance GetMetadata (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the metadata."
+      description: "O nome dos metadados."
     return:
       type: Microsoft.Build.Execution.ProjectMetadataInstance
-      description: "Returns the metadata with the given name. Returns null if no metadata exists with that name."
+      description: "Retorna os metadados com o nome fornecido. Retorna nulo se nenhum metadado com esse nome."
   overload: Microsoft.Build.Execution.ProjectItemInstance.GetMetadata*
   exceptions: []
   platform:
@@ -130,17 +130,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the value of the metadata with the given name, including metadata inherited from item definitions."
-  remarks: "Includes built-in metadata.       To determine whether a piece of metadata is actually present but with an empty value, use <xref:Microsoft.Build.Execution.ProjectItemInstance.HasMetadata%2A>."
+  summary: "Obtém o valor dos metadados com o nome fornecido, incluindo metadados herdado de definições do item."
+  remarks: "Inclui metadados internos.       Para determinar se uma parte dos metadados está presente, mas com um valor vazio, use <xref:Microsoft.Build.Execution.ProjectItemInstance.HasMetadata%2A>.</xref:Microsoft.Build.Execution.ProjectItemInstance.HasMetadata%2A>"
   syntax:
     content: public string GetMetadataValue (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the metadata."
+      description: "O nome dos metadados."
     return:
       type: System.String
-      description: "Gets the value of the metadata with the given name, including metadata inherited from item definitions. Returns an empty string if no metadata exists with that name."
+      description: "Obtém o valor dos metadados com o nome fornecido, incluindo metadados herdado de definições do item. Retorna uma cadeia de caracteres vazia se não existem metadados com esse nome."
   overload: Microsoft.Build.Execution.ProjectItemInstance.GetMetadataValue*
   exceptions: []
   platform:
@@ -157,17 +157,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Determines whether the metadata with the given name is defined on this item (even if its value is empty string)."
-  remarks: "This searches built-in metadata and metadata from item definitions, because this method is used for batching, where it doesn&quot;t matter where the metadata originated."
+  summary: "Determina se os metadados com o nome fornecido está definido neste item (mesmo que seu valor é uma cadeia de caracteres vazia)."
+  remarks: "Pesquisa interno metadados e os metadados de definições de item, porque esse método é usado para processamento em lotes, onde não importa os metadados de origem."
   syntax:
     content: public bool HasMetadata (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the metadata."
+      description: "O nome dos metadados."
     return:
       type: System.Boolean
-      description: "Returns true if the metadata with the given name is defined on this item (even if its value is empty string); false otherwise."
+      description: "Retorna VERDADEIRO se os metadados com o nome fornecido está definido neste item (mesmo que seu valor é a cadeia de caracteres vazia); FALSO caso contrário."
   overload: Microsoft.Build.Execution.ProjectItemInstance.HasMetadata*
   exceptions: []
   platform:
@@ -184,13 +184,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the item type, for example &quot;Compile&quot;."
-  remarks: "This cannot be set, as it is used as the key into the project&quot;s items table."
+  summary: "Obtém o tipo de item, por exemplo &quot;Compilação&quot;."
+  remarks: "Não pode ser definida, pois ele é usado como a chave na tabela de itens do projeto."
   syntax:
     content: public string ItemType { get; }
     return:
       type: System.String
-      description: "Returns the item type, for example &quot;Compile&quot;."
+      description: "Retorna o tipo de item, por exemplo &quot;Compilação&quot;."
   overload: Microsoft.Build.Execution.ProjectItemInstance.ItemType*
   exceptions: []
   platform:
@@ -207,13 +207,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets an enumerator over the evaluated metadata of the item. This is a read-only collection."
-  remarks: "Does not include built-in metadata or metadata from item definitions.       To modify the metadata, use <xref:Microsoft.Build.Execution.ProjectItemInstance.SetMetadata%2A>."
+  summary: "Obtém um enumerador nos metadados do item avaliado. Esta é uma coleção somente leitura."
+  remarks: "Não inclui metadados internas ou metadados de definições de item.       Para modificar os metadados, use <xref:Microsoft.Build.Execution.ProjectItemInstance.SetMetadata%2A>.</xref:Microsoft.Build.Execution.ProjectItemInstance.SetMetadata%2A>"
   syntax:
     content: public System.Collections.Generic.IEnumerable<Microsoft.Build.Execution.ProjectMetadataInstance> Metadata { get; }
     return:
       type: System.Collections.Generic.IEnumerable{Microsoft.Build.Execution.ProjectMetadataInstance}
-      description: "Returns an enumerator over the evaluated metadata of the item."
+      description: "Retorna um enumerador sobre os metadados avaliado do item."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Metadata*
   exceptions: []
   platform:
@@ -230,13 +230,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the number of metadata entries, including metadata inherited from item definitions."
-  remarks: "Includes both custom and built-in metadata."
+  summary: "Obtém o número de entradas de metadados, incluindo metadados herdado de definições do item."
+  remarks: "Inclui metadados internos e personalizados."
   syntax:
     content: public int MetadataCount { get; }
     return:
       type: System.Int32
-      description: "Returns the number of metadata entries, including metadata inherited from item definitions"
+      description: "Retorna o número de entradas de metadados, incluindo metadados herdado de definições de item"
   overload: Microsoft.Build.Execution.ProjectItemInstance.MetadataCount*
   exceptions: []
   platform:
@@ -253,13 +253,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets all metadata names of this item, including metadata inherited from item definitions."
-  remarks: "Includes names of built-in metadata."
+  summary: "Obtém todos os nomes de metadados desse item, incluindo metadados herdado de definições do item."
+  remarks: "Inclui nomes de metadados internos."
   syntax:
     content: public System.Collections.Generic.ICollection<string> MetadataNames { get; }
     return:
       type: System.Collections.Generic.ICollection{System.String}
-      description: "Returns all metadata names of this item, including metadata inherited from item definitions."
+      description: "Retorna todos os nomes de metadados desse item, incluindo metadados herdado de definições do item."
   overload: Microsoft.Build.Execution.ProjectItemInstance.MetadataNames*
   exceptions: []
   platform:
@@ -277,14 +277,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem implementation. Gets the collection of custom metadata."
-  remarks: "-   Does not include built-in metadata.      -   This method should return a clone of the metadata.      -   Writing to this dictionary should not be reflected in the underlying item."
+  summary: "Implementação de ITaskItem. Obtém a coleção de metadados personalizados."
+  remarks: "-   Não inclui metadados internos.      -Este método deve retornar um clone dos metadados.      -Gravação para este dicionário não deve ser refletida no item subjacente."
   syntax:
     content: System.Collections.IDictionary ITaskItem.CloneCustomMetadata ();
     parameters: []
     return:
       type: System.Collections.IDictionary
-      description: "The collection of custom metadata."
+      description: "A coleção de metadados personalizados."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem#CloneCustomMetadata*
   exceptions: []
   platform:
@@ -302,14 +302,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem implementation. Copies the custom metadata entries to another item."
-  remarks: "Follow the guidelines below when implementing this method.      -   Do not overwrite the <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A> property.      -   Do not overwrite existing metadata entries.      -   Do not copy metadata entries that do not make sense on the destination item."
+  summary: "Implementação de ITaskItem. Copia as entradas de metadados personalizados para outro item."
+  remarks: "Siga as diretrizes abaixo para implementação deste método.      -Não substituir o <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>propriedade.</xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>      -Não substitua entradas de metadados existentes.      -Não copie entradas de metadados que não fazem sentido no item de destino."
   syntax:
     content: void ITaskItem.CopyMetadataTo (Microsoft.Build.Framework.ITaskItem destinationItem);
     parameters:
     - id: destinationItem
       type: Microsoft.Build.Framework.ITaskItem
-      description: "The item to copy the metadata entries to."
+      description: "Copiar as entradas de metadados para o item."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem#CopyMetadataTo*
   exceptions: []
   platform:
@@ -327,17 +327,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem implementation. Gets the value of the specified metadata entry."
-  remarks: "Should not return null if metadata is not present."
+  summary: "Implementação de ITaskItem. Obtém o valor da entrada de metadados especificado."
+  remarks: "Não deve retornar null se não houver metadados."
   syntax:
     content: string ITaskItem.GetMetadata (string metadataName);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The name of the metadata entry."
+      description: "O nome da entrada de metadados."
     return:
       type: System.String
-      description: "The value of the <code>attributeName</code> metadata."
+      description: "O valor de <code> attributeName </code> metadados."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem#GetMetadata*
   exceptions: []
   platform:
@@ -355,15 +355,15 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem implementation. Gets or sets the item specification."
-  remarks: "The item specification is an arbitrary string. If the item represents a file on disk, the item specification will be the path of that file.       The <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A> for the following item declaration in a project file is `File.cs`.      ```   <ItemGroup>       <Compile Include=&quot;File.cs&quot;/>   </ItemGroup>   ```"
+  summary: "Implementação de ITaskItem. Obtém ou define a especificação de item."
+  remarks: "A especificação de item é uma cadeia de caracteres arbitrária. Se o item representa um arquivo no disco, a especificação de item será o caminho do arquivo.       O <xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>para a seguinte declaração de item em um projeto do arquivo é `File.cs`.</xref:Microsoft.Build.Framework.ITaskItem.ItemSpec%2A>      ```   <ItemGroup>       <Compile Include=&quot;File.cs&quot;/>   </ItemGroup>   ```"
   example:
   - "The following example shows the code for a task that creates one or more directories.  \n  \n [!code-cs[msbuild_MakeDirTask#1](~/add/codesnippet/csharp/msbuild_MakeDirTask/msbuild_MakeDirTask.cs#1)]"
   syntax:
     content: string Microsoft.Build.Framework.ITaskItem.ItemSpec { get; set; }
     return:
       type: System.String
-      description: "The item specification."
+      description: "A especificação de item."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem#ItemSpec*
   exceptions: []
   platform:
@@ -381,12 +381,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem implementation. Gets the names of the metadata entries associated with the item."
+  summary: "Implementação de ITaskItem. Obtém os nomes das entradas de metadados associados ao item."
   syntax:
     content: System.Collections.ICollection Microsoft.Build.Framework.ITaskItem.MetadataNames { get; }
     return:
       type: System.Collections.ICollection
-      description: "The names of the metadata entries associated with the item."
+      description: "Os nomes das entradas de metadados associados ao item."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem#MetadataNames*
   exceptions: []
   platform:
@@ -404,16 +404,16 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem implementation. Adds or changes a custom metadata entry to the item."
+  summary: "Implementação de ITaskItem. Adiciona ou altera uma entrada de metadados personalizados para o item."
   syntax:
     content: void ITaskItem.SetMetadata (string metadataName, string metadataValue);
     parameters:
     - id: metadataName
       type: System.String
-      description: "Metadata name to be added or changed."
+      description: "Nome de metadados a serem adicionados ou alterados."
     - id: metadataValue
       type: System.String
-      description: "Metadata value to be added or changed."
+      description: "Valor de metadados a serem adicionados ou alterados."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem#SetMetadata*
   exceptions: []
   platform:
@@ -431,13 +431,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem2 implementation. Returns a clone of the metadata on this object.  Values returned are in their original escaped form."
+  summary: "Implementação de ITaskItem2. Retorna um clone dos metadados neste objeto.  Valores retornados são no formato original com caracteres de escape."
   syntax:
     content: System.Collections.IDictionary ITaskItem2.CloneCustomMetadataEscaped ();
     parameters: []
     return:
       type: System.Collections.IDictionary
-      description: "Returns the cloned metadata, with values&quot; escaping preserved."
+      description: "Retorna os metadados clonado, com valores escape preservados."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem2#CloneCustomMetadataEscaped*
   exceptions: []
   platform:
@@ -455,13 +455,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem2 implementation. Evaluated include value, escaped as necessary. May be empty string. Gets or sets the item include value e.g. for disk-based items this would be the file path."
-  remarks: "Taking the opportunity to fix the property name, although this doesn&quot;t make it obvious it&quot;s an improvement on ItemSpec."
+  summary: "Implementação de ITaskItem2. Avaliado incluem o valor de escape conforme necessário. Pode ser uma cadeia de caracteres vazia. Obtém ou define o item incluir valor, por exemplo, para itens com base em disco deve ser o caminho do arquivo."
+  remarks: "Aproveitando a oportunidade para corrigir o nome da propriedade, embora isso não faz óbvio é uma melhoria em ItemSpec."
   syntax:
     content: string Microsoft.Build.Framework.ITaskItem2.EvaluatedIncludeEscaped { get; set; }
     return:
       type: System.String
-      description: "Returns the item include value."
+      description: "Retorna o item incluir valor."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem2#EvaluatedIncludeEscaped*
   exceptions: []
   platform:
@@ -479,17 +479,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem2 implementation. Allows the values of metadata on the item to be queried."
-  remarks: "Taking the opportunity to fix the property name, although this doesn&quot;t make it obvious it&quot;s an improvement on GetMetadata."
+  summary: "Implementação de ITaskItem2. Permite que os valores de metadados no item a ser consultado."
+  remarks: "Aproveitando a oportunidade para corrigir o nome da propriedade, embora isso não faz óbvio é um aprimoramento GetMetadata."
   syntax:
     content: string ITaskItem2.GetMetadataValueEscaped (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The metadata to be queried."
+      description: "Os metadados a ser consultado."
     return:
       type: System.String
-      description: "Returns the escaped metadata value."
+      description: "Retorna o valor de metadados com caracteres de escape."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem2#GetMetadataValueEscaped*
   exceptions: []
   platform:
@@ -507,17 +507,17 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "ITaskItem2 implementation. Allows a piece of custom metadata to be set on the item. Assumes that the value passed in is unescaped, and escapes the value as necessary in order to maintain its value."
-  remarks: "Taking the opportunity to fix the property name, although this doesn&quot;t make it obvious it&quot;s an improvement on SetMetadata."
+  summary: "Implementação de ITaskItem2. Permite que uma parte dos metadados personalizados que devem ser definidas no item. Assume que o valor transmitido é sem escape e ignora o valor conforme necessário para manter seu valor."
+  remarks: "Aproveitando a oportunidade para corrigir o nome da propriedade, embora isso não faz óbvio é uma melhoria em SetMetadata."
   syntax:
     content: void ITaskItem2.SetMetadataValueLiteral (string metadataName, string metadataValue);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The metadata name."
+      description: "O nome de metadados."
     - id: metadataValue
       type: System.String
-      description: "The metadata value."
+      description: "O valor de metadados."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Microsoft#Build#Framework#ITaskItem2#SetMetadataValueLiteral*
   exceptions: []
   platform:
@@ -534,12 +534,12 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets the owning project."
+  summary: "Obtém o projeto proprietário."
   syntax:
     content: public Microsoft.Build.Execution.ProjectInstance Project { get; }
     return:
       type: Microsoft.Build.Execution.ProjectInstance
-      description: "Returns the owning project."
+      description: "Retorna o projeto proprietário."
   overload: Microsoft.Build.Execution.ProjectItemInstance.Project*
   exceptions: []
   platform:
@@ -556,14 +556,14 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Removes metadata with the given name."
-  remarks: "This method is used by TaskItem."
+  summary: "Remove metadados com o nome fornecido."
+  remarks: "Esse método é usado pelo TaskItem."
   syntax:
     content: public void RemoveMetadata (string metadataName);
     parameters:
     - id: metadataName
       type: System.String
-      description: "The metadata name."
+      description: "O nome de metadados."
   overload: Microsoft.Build.Execution.ProjectItemInstance.RemoveMetadata*
   exceptions: []
   platform:
@@ -580,13 +580,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Adds metadata with the given names and values. Overwrites any metadata with the same name already in the collection."
+  summary: "Adiciona metadados com os nomes e valores. Substitui todos os metadados com o mesmo nome já está na coleção."
   syntax:
     content: public void SetMetadata (System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<string,string>> metadataDictionary);
     parameters:
     - id: metadataDictionary
       type: System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}
-      description: "The metadata to add."
+      description: "Os metadados para adicionar."
   overload: Microsoft.Build.Execution.ProjectItemInstance.SetMetadata*
   exceptions: []
   platform:
@@ -603,19 +603,19 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Add metadata with the given name and value. Overwrites any metadata with the same name already in the collection."
+  summary: "Adicione metadados com o nome e valor. Substitui todos os metadados com o mesmo nome já está na coleção."
   syntax:
     content: public Microsoft.Build.Execution.ProjectMetadataInstance SetMetadata (string name, string evaluatedValue);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the metadata to add."
+      description: "O nome dos metadados em Adicionar."
     - id: evaluatedValue
       type: System.String
-      description: "The evaluated value of the metadata to add."
+      description: "Valor dos metadados em Adicionar."
     return:
       type: Microsoft.Build.Execution.ProjectMetadataInstance
-      description: "Returns the new metadata."
+      description: "Retorna os novos metadados."
   overload: Microsoft.Build.Execution.ProjectItemInstance.SetMetadata*
   exceptions: []
   platform:
@@ -632,13 +632,13 @@ items:
   assemblies:
   - Microsoft.Build
   namespace: Microsoft.Build.Execution
-  summary: "Gets a String that represents the current item."
+  summary: "Obtém uma cadeia de caracteres que representa o item atual."
   syntax:
     content: public override string ToString ();
     parameters: []
     return:
       type: System.String
-      description: "Returns a String that represents the current item."
+      description: "Retorna uma cadeia de caracteres que representa o item atual."
   overload: Microsoft.Build.Execution.ProjectItemInstance.ToString*
   exceptions: []
   platform:

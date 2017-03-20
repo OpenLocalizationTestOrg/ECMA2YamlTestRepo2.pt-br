@@ -11,7 +11,7 @@ items:
   nameWithType: BerConverter
   fullName: System.DirectoryServices.Protocols.BerConverter
   type: Class
-  summary: "The BerConverter class encodes and decodes structured data using basic encoding rules (BER)."
+  summary: "A classe BerConverter codifica e decodifica dados estruturados usando regras de codificação básicas (BER)."
   syntax:
     content: public sealed class BerConverter
   inheritance:
@@ -32,30 +32,30 @@ items:
   assemblies:
   - System.DirectoryServices.Protocols
   namespace: System.DirectoryServices.Protocols
-  summary: "The Decode method decodes a binary representation of the data, using BER, to retrieve structured data."
+  summary: "O método de decodificação decodifica uma representação binária dos dados, usando BER, para recuperar dados estruturados."
   syntax:
     content: public static object[] Decode (string format, byte[] value);
     parameters:
     - id: format
       type: System.String
-      description: "The format string."
+      description: "A cadeia de caracteres de formato."
     - id: value
       type: System.Byte[]
-      description: "An array of BER data."
+      description: "Uma matriz de dados BER."
     return:
       type: System.Object[]
-      description: "The decoded data."
+      description: "Os dados decodificados."
   overload: System.DirectoryServices.Protocols.BerConverter.Decode*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "The <code>format</code> parameter contains a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "O <code> format </code> parâmetro contém uma referência nula (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> no Visual Basic)."
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The <code>format</code> parameter contains an undefined character."
+    description: "O <code> format </code> parâmetro contém um caractere indefinido."
   - type: System.DirectoryServices.Protocols.BerConversionException
     commentId: T:System.DirectoryServices.Protocols.BerConversionException
-    description: "The underlying decoding fails. The decoding rules include the following.       <table><thead><tr><th> Code       </th><th> Corresponding Result       </th></tr></thead><tbody><tr><td> &quot;{&quot; &quot;}&quot; &quot;[&quot; &quot;]&quot; &quot;n&quot; &quot;x&quot;       </td><td> No corresponding result       </td></tr><tr><td> &quot;i&quot; &quot;e&quot;       </td><td> int       </td></tr><tr><td> &quot;b&quot;       </td><td> bool       </td></tr><tr><td> &quot;a&quot;       </td><td> string       </td></tr><tr><td> &quot;O&quot;       </td><td> byte[]       </td></tr><tr><td> &quot;B&quot;       </td><td> byte[] containing bit strings       </td></tr><tr><td> &quot;v&quot;       </td><td> string[]       </td></tr><tr><td> &quot;V&quot;       </td><td> byte[][]       </td></tr></tbody></table>"
+    description: "A falha de decodificação subjacente. As regras de decodificação incluem o seguinte.       <table><thead><tr><th> Código       </th><th> Resultado correspondente       </th></tr></thead><tbody><tr><td> &quot;{&quot; &quot;}&quot; &quot;[&quot; &quot;]&quot; &quot;n&quot; &quot;x&quot;       </td><td> Nenhum resultado correspondente       </td></tr><tr><td> &quot;i&quot; &quot;e&quot;       </td><td> int       </td></tr><tr><td> &quot;b&quot;       </td><td> bool       </td></tr><tr><td> &quot;a&quot;       </td><td> cadeia de caracteres       </td></tr><tr><td> &quot; L&quot;       </td><td> byte]       </td></tr><tr><td> &quot;B&quot;       </td><td> Byte [] que contém cadeias de caracteres de bit       </td></tr><tr><td> &quot;v&quot;       </td><td> cadeia de caracteres]       </td></tr><tr><td> &quot;V&quot;       </td><td> Byte []]       </td></tr></tbody></table>"
   platform:
   - net462
 - uid: System.DirectoryServices.Protocols.BerConverter.Encode(System.String,System.Object[])
@@ -70,20 +70,20 @@ items:
   assemblies:
   - System.DirectoryServices.Protocols
   namespace: System.DirectoryServices.Protocols
-  summary: "The Encode method encodes structured data, using BER, to retrieve a binary representation of the data."
-  remarks: "The following are valid format characters.       Encoding rules:      |Code|Corresponding Argument|   |----------|----------------------------|   |&quot;{&quot; &quot;}&quot; &quot;[&quot; &quot;]&quot; &quot;n&quot;|No corresponding argument|   |&quot;t&quot; &quot;i&quot; &quot;e&quot;|int|   |&quot;a&quot;|Octet string|   |&quot;b&quot;|bool|   |&quot;s&quot;|string|   |&quot;o&quot; &quot;X&quot;|byte[]|   |&quot;v&quot;|string[]|   |&quot;V&quot;|byte[][]|      > [!NOTE] >  &quot;v&quot; and &quot;V&quot; are special in that a double {} is required. For example, use {{v}} and {{V}}.      ## Exceptions      |Exception|Condition|   |---------------|---------------|   |ArgumentNullException|`format` is a null reference (`Nothing` in Visual Basic).|   |ArgumentException|This exception occurs in any one of the following conditions:<br /><br /> -   There are not enough arguments for the format string.<br />-   The format string argument is incorrect.<br />-   The format string contains an undefined character.|   |BerConversionException|Error processing return value.|"
+  summary: "O método de codificação codifica dados estruturados, usando BER, para recuperar uma representação binária dos dados."
+  remarks: "Estes são os caracteres de formato válido.       Regras de codificação: | Código | O argumento correspondente |   |----------|----------------------------|   |&quot; {&quot; &quot;}&quot; &quot;[&quot; &quot;]&quot; &quot;n&quot;| Nenhum argumento correspondente |   |&quot; t&quot; &quot;i&quot; &quot;e&quot; | int |   |&quot; um &quot; | Cadeia de caracteres de octeto |   |&quot; b&quot;| bool |   |&quot; s&quot;| cadeia de caracteres |   |&quot; L&quot; &quot;X&quot; | byte [] |   |&quot; v&quot;| string [] |   |&quot; V&quot;| byte [] [] |      > [!NOTE] > &quot;v&quot; e &quot;V&quot; são especiais em que um {} dupla é necessário. Por exemplo, use {{v}} e {{V}}.      ## Exceções | Exceção | Condição |   |---------------|---------------|   | ArgumentNullException | `format` é uma referência nula (`Nothing` no Visual Basic). |   | ArgumentException | Essa exceção ocorre em qualquer uma das seguintes condições:<br /><br /> -Não há argumentos suficientes para a cadeia de caracteres de formato.<br />-O argumento de cadeia de caracteres de formato está incorreto.<br />-A cadeia de caracteres de formato contém um caractere indefinido. |   | BerConversionException | Erro ao processar o valor de retorno. |"
   syntax:
     content: public static byte[] Encode (string format, object[] value);
     parameters:
     - id: format
       type: System.String
-      description: "The format string."
+      description: "A cadeia de caracteres de formato."
     - id: value
       type: System.Object[]
-      description: "An array of formatted data."
+      description: "Uma matriz de dados formatados."
     return:
       type: System.Byte[]
-      description: "An array of BER-encoded data."
+      description: "Uma matriz de dados codificados BER."
   overload: System.DirectoryServices.Protocols.BerConverter.Encode*
   exceptions: []
   platform:

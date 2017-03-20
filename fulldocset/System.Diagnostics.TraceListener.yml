@@ -41,7 +41,7 @@ items:
   nameWithType: TraceListener
   fullName: System.Diagnostics.TraceListener
   type: Class
-  summary: "Provides the <xref uid=&quot;langword_csharp_abstract&quot; name=&quot;abstract&quot; href=&quot;&quot;></xref> base class for the listeners who monitor trace and debug output."
+  summary: "Fornece o <xref uid=&quot;langword_csharp_abstract&quot; name=&quot;abstract&quot; href=&quot;&quot;> </xref> classe base para os ouvintes que monitoram o rastreamento e saída de depuração."
   remarks: "For examples of how to implement a TraceListener, see the <xref:System.Diagnostics.DefaultTraceListener>, <xref:System.Diagnostics.TextWriterTraceListener> and the <xref:System.Diagnostics.EventLogTraceListener> classes.  \n  \n You must enable tracing or debugging to use a trace listener. The following syntax is compiler specific. If you use compilers other than C# or Visual Basic, refer to the documentation for your compiler.  \n  \n-   To enable debugging in C#, add the `/d:DEBUG` flag to the compiler command line when you compile your code, or you can add `#define DEBUG` to the top of your file. In Visual Basic, add the `/d:DEBUG=True` flag to the compiler command line.  \n  \n-   To enable tracing in C#, add the `/d:TRACE` flag to the compiler command line when you compile your code, or add `#define TRACE` to the top of your file. In Visual Basic, add the `/d:TRACE=True` flag to the compiler command line.  \n  \n To add a trace listener, edit the configuration file that corresponds to the name of your application. Within this file, you can add a listener, set its type and set its parameter, remove a listener, or clear all the listeners previously set by the application. The configuration file should be formatted similar to the following example.  \n  \n```  \n<configuration>  \n  <system.diagnostics>  \n    <trace autoflush=\"false\" indentsize=\"4\">  \n      <listeners>  \n        <add name=\"myListener\" type=\"System.Diagnostics.TextWriterTraceListener\" initializeData=\"TextWriterOutput.log\" />  \n        <remove name=\"Default\" />  \n      </listeners>  \n    </trace>  \n  </system.diagnostics>  \n</configuration>  \n```  \n  \n For more information on using configuration files for tracing, see [\\&lt;system.diagnostics\\&gt;](../Topic/%3Csystem.diagnostics%3E%20Element.md)."
   syntax:
     content: 'public abstract class TraceListener : MarshalByRefObject, IDisposable'
@@ -69,8 +69,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class."
-  remarks: "The following table shows initial property values for an instance of <xref:System.Diagnostics.TraceListener>.      |Property|Default Value|   |--------------|-------------------|   |Name|The empty string (&quot;&quot;).|   |Indent|Zero.|   |IndentSize|Four spaces.|"
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe."
+  remarks: "A tabela a seguir mostra os valores de propriedade inicial para uma instância de <xref:System.Diagnostics.TraceListener>.</xref:System.Diagnostics.TraceListener>      | Propriedade | Valor padrão |   |--------------|-------------------|   | Nome | A cadeia de caracteres vazia (&quot;&quot;). | | Recuar | Zero. |   | IndentSize | Quatro espaços. |"
   syntax:
     content: protected TraceListener ();
     parameters: []
@@ -90,13 +90,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Initializes a new instance of the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class using the specified name as the listener."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe usando o nome especificado como o ouvinte."
   syntax:
     content: protected TraceListener (string name);
     parameters:
     - id: name
       type: System.String
-      description: "The name of the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref>."
+      description: "O nome do <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref>."
   overload: System.Diagnostics.TraceListener.#ctor*
   exceptions: []
   platform:
@@ -113,13 +113,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the custom trace listener attributes defined in the application configuration file."
-  remarks: "Classes that inherit from the <xref:System.Diagnostics.TraceListener> class can add custom attributes by overriding the <xref:System.Diagnostics.TraceListener.GetSupportedAttributes%2A> method and returning a string array of custom attribute names. The Attributes property identifies the custom attributes that are referenced in the application&quot;s configuration file. For example, in the following configuration file excerpt the <xref:System.Diagnostics.DelimitedListTraceListener> custom attribute &quot;delimiter&quot; is referenced. In this case, the Attributes property returns a <xref:System.Collections.Specialized.StringDictionary> containing the string &quot;delimiter&quot;.      ```   <listeners>     <add name=&quot;delimitedListener&quot;        type=&quot;System.Diagnostics.DelimitedListTraceListener&quot;        delimiter=&quot;:&quot;        initializeData=&quot;delimitedOutput.txt&quot;        traceOutputOptions=&quot;ProcessId, DateTime&quot; />     <remove name=&quot;Default&quot; />   </listeners>   ```       Unreferenced custom attributes are not enumerated.  For more information, see the <xref:System.Diagnostics.TraceListener.GetSupportedAttributes%2A> method."
+  summary: "Obtém os atributos de ouvinte de rastreamento personalizada definidos no arquivo de configuração do aplicativo."
+  remarks: "Classes que herdam o <xref:System.Diagnostics.TraceListener>classe pode adicionar atributos personalizados, substituindo o <xref:System.Diagnostics.TraceListener.GetSupportedAttributes%2A>método e retornar uma matriz de cadeia de caracteres de nomes de atributo personalizado.</xref:System.Diagnostics.TraceListener.GetSupportedAttributes%2A> </xref:System.Diagnostics.TraceListener> A propriedade Attributes identifica os atributos personalizados que são referenciados no arquivo de configuração do aplicativo. Por exemplo, no seguinte trecho do arquivo de configuração o <xref:System.Diagnostics.DelimitedListTraceListener>atributo personalizado &quot;delimitador&quot; é referenciado.</xref:System.Diagnostics.DelimitedListTraceListener> Nesse caso, a propriedade Attributes retorna um <xref:System.Collections.Specialized.StringDictionary>que contém a cadeia de caracteres &quot;delimitador&quot;.</xref:System.Collections.Specialized.StringDictionary>      ```   <listeners>     <add name=&quot;delimitedListener&quot;        type=&quot;System.Diagnostics.DelimitedListTraceListener&quot;        delimiter=&quot;:&quot;        initializeData=&quot;delimitedOutput.txt&quot;        traceOutputOptions=&quot;ProcessId, DateTime&quot; />     <remove name=&quot;Default&quot; />   </listeners>   ```Atributos personalizados não referenciados não são enumerados.  Para obter mais informações, consulte o <xref:System.Diagnostics.TraceListener.GetSupportedAttributes%2A>método.</xref:System.Diagnostics.TraceListener.GetSupportedAttributes%2A>"
   syntax:
     content: public System.Collections.Specialized.StringDictionary Attributes { get; }
     return:
       type: System.Collections.Specialized.StringDictionary
-      description: "A <xref href=&quot;System.Collections.Specialized.StringDictionary&quot;></xref> containing the custom attributes for the trace listener."
+      description: "Um <xref href=&quot;System.Collections.Specialized.StringDictionary&quot;> </xref> que contém os atributos personalizados para o ouvinte de rastreamento."
   overload: System.Diagnostics.TraceListener.Attributes*
   exceptions: []
   platform:
@@ -136,8 +136,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "When overridden in a derived class, closes the output stream so it no longer receives tracing or debugging output."
-  remarks: "Use this method when the output is going to a file, such as to the <xref:System.Diagnostics.TextWriterTraceListener>. After a call to this method, you must reinitialize the object."
+  summary: "Quando substituído em uma classe derivada, fecha o fluxo de saída para que ele não recebe a saída de rastreamento ou de depuração."
+  remarks: "Use este método quando a saída vai para um arquivo, como <xref:System.Diagnostics.TextWriterTraceListener>.</xref:System.Diagnostics.TextWriterTraceListener> Após uma chamada para esse método, você deve reinicializar o objeto."
   syntax:
     content: public virtual void Close ();
     parameters: []
@@ -157,8 +157,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Releases all resources used by the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref>."
-  remarks: "Calling Dispose allows the resources used by the <xref:System.Diagnostics.TraceListener> to be reallocated for other purposes. For more information about Dispose, see [Cleaning Up Unmanaged Resources](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Libera todos os recursos usados pelo <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref>."
+  remarks: "Chamar Dispose permite que os recursos usados pelo <xref:System.Diagnostics.TraceListener>para ser realocada para outros fins.</xref:System.Diagnostics.TraceListener> Para obter mais informações sobre Dispose, consulte [limpeza de recursos não gerenciados](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: public void Dispose ();
     parameters: []
@@ -178,14 +178,14 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Releases the unmanaged resources used by the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> and optionally releases the managed resources."
-  remarks: "This method is called by the public <xref:System.Diagnostics.TraceListener.Dispose%2A> method and the <xref:System.Object.Finalize%2A> method. `Dispose` invokes the protected <xref:System.Diagnostics.TraceListener.Dispose%2A> method with the `disposing` parameter set to `true`. <xref:System.Object.Finalize%2A> invokes `Dispose` with `disposing` set to `false`.       When the `disposing` parameter is `true`, this method releases all resources held by any managed objects that this <xref:System.Diagnostics.TraceListener> references. This method invokes the `Dispose` method of each referenced object."
+  summary: "Libera os recursos não gerenciados usados pelo <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> e, opcionalmente, libera os recursos gerenciados."
+  remarks: "Este método é chamado pelo público <xref:System.Diagnostics.TraceListener.Dispose%2A>método e o <xref:System.Object.Finalize%2A>método.</xref:System.Object.Finalize%2A> </xref:System.Diagnostics.TraceListener.Dispose%2A> `Dispose`invoca o protegido <xref:System.Diagnostics.TraceListener.Dispose%2A>método com o `disposing` parâmetro definido como `true`.</xref:System.Diagnostics.TraceListener.Dispose%2A> <xref:System.Object.Finalize%2A>invoca `Dispose` com `disposing` definido como `false`.</xref:System.Object.Finalize%2A>       Quando o `disposing` parâmetro é `true`, esse método libera todos os recursos mantidos por qualquer objeto gerenciado que este <xref:System.Diagnostics.TraceListener>referências.</xref:System.Diagnostics.TraceListener> Este método chama o `Dispose` método de cada objeto referenciado."
   syntax:
     content: protected virtual void Dispose (bool disposing);
     parameters:
     - id: disposing
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> to release both managed and unmanaged resources; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> to release only unmanaged resources."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>para liberar recursos gerenciados e não gerenciados; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> para liberar apenas recursos não gerenciados."
   overload: System.Diagnostics.TraceListener.Dispose*
   exceptions: []
   platform:
@@ -202,14 +202,14 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Emits an error message to the listener you create when you implement the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class."
-  remarks: "The default behavior is to display the specified message in a message box when the application is running in a user-interface mode, and to the <xref:System.Diagnostics.TraceListener> instances in a <xref:System.Diagnostics.TraceListenerCollection> collection. By default, the <xref:System.Diagnostics.TraceListenerCollection> collection has an instance of a <xref:System.Diagnostics.DefaultTraceListener>. You can customize this behavior by adding a <xref:System.Diagnostics.TraceListener> to or removing one from the collection."
+  summary: "Emite uma mensagem de erro para o ouvinte, você cria ao implementar o <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe."
+  remarks: "O comportamento padrão é exibir a mensagem especificada em uma caixa de mensagem quando o aplicativo é executado em um modo de interface do usuário e para o <xref:System.Diagnostics.TraceListener>instâncias em um <xref:System.Diagnostics.TraceListenerCollection>coleção.</xref:System.Diagnostics.TraceListenerCollection> </xref:System.Diagnostics.TraceListener> Por padrão, a <xref:System.Diagnostics.TraceListenerCollection>coleção tem uma instância de <xref:System.Diagnostics.DefaultTraceListener>.</xref:System.Diagnostics.DefaultTraceListener> </xref:System.Diagnostics.TraceListenerCollection> Você pode personalizar esse comportamento adicionando um <xref:System.Diagnostics.TraceListener>a ou remover uma da coleção.</xref:System.Diagnostics.TraceListener>"
   syntax:
     content: public virtual void Fail (string message);
     parameters:
     - id: message
       type: System.String
-      description: "A message to emit."
+      description: "Uma mensagem de emissão."
   overload: System.Diagnostics.TraceListener.Fail*
   exceptions: []
   platform:
@@ -226,17 +226,17 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Emits an error message and a detailed error message to the listener you create when you implement the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class."
-  remarks: "The default behavior is to display the message and detailed message in a message box when the application is running in a user-interface mode, and to the <xref:System.Diagnostics.TraceListener> instances in a <xref:System.Diagnostics.TraceListenerCollection> collection. By default, the <xref:System.Diagnostics.TraceListenerCollection> collection has an instance of a <xref:System.Diagnostics.DefaultTraceListener>. You can customize this behavior by adding a <xref:System.Diagnostics.TraceListener> to or removing one from the collection."
+  summary: "Emite um erro de mensagem e uma mensagem de erro detalhada para o ouvinte criar quando você implementa o <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe."
+  remarks: "O comportamento padrão é exibir a mensagem e a mensagem detalhada em uma caixa de mensagem quando o aplicativo é executado em um modo de interface do usuário e para o <xref:System.Diagnostics.TraceListener>instâncias em um <xref:System.Diagnostics.TraceListenerCollection>coleção.</xref:System.Diagnostics.TraceListenerCollection> </xref:System.Diagnostics.TraceListener> Por padrão, a <xref:System.Diagnostics.TraceListenerCollection>coleção tem uma instância de <xref:System.Diagnostics.DefaultTraceListener>.</xref:System.Diagnostics.DefaultTraceListener> </xref:System.Diagnostics.TraceListenerCollection> Você pode personalizar esse comportamento adicionando um <xref:System.Diagnostics.TraceListener>a ou remover uma da coleção.</xref:System.Diagnostics.TraceListener>"
   syntax:
     content: public virtual void Fail (string message, string detailMessage);
     parameters:
     - id: message
       type: System.String
-      description: "A message to emit."
+      description: "Uma mensagem de emissão."
     - id: detailMessage
       type: System.String
-      description: "A detailed message to emit."
+      description: "Uma mensagem detalhada de emissão."
   overload: System.Diagnostics.TraceListener.Fail*
   exceptions: []
   platform:
@@ -253,15 +253,15 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets and sets the trace filter for the trace listener."
-  remarks: "A trace filter can be added to a trace listener to provide a layer of screening beyond that provided to the trace source by switches. For example, the <xref:System.Diagnostics.EventTypeFilter> can be added to a trace listener to control the event types that are output by the listener.  Listeners that are called because the switch criteria are met can query their filter, if present, to determine if a trace is to be sent to output."
+  summary: "Obtém e define o filtro de rastreamento para o ouvinte de rastreamento."
+  remarks: "Um filtro de rastreamento pode ser adicionado a um ouvinte de rastreamento para fornecer uma camada de triagem além do fornecido para a origem de rastreamento por comutadores. Por exemplo, o <xref:System.Diagnostics.EventTypeFilter>pode ser adicionado a um ouvinte de rastreamento para controlar os tipos de eventos que são produzidas pelo ouvinte.</xref:System.Diagnostics.EventTypeFilter>  Os ouvintes que são chamados, porque os comutador critérios são atendidos podem consultar seus filtros, se estiver presente, para determinar se um rastreamento deve ser enviado para a saída."
   example:
   - "The following code example shows how to use the Filter property to add a source filter to a console trace listener. This code example is part of a larger example provided for the <xref:System.Diagnostics.TraceSource> class.  \n  \n [!code-cs[System.Diagnostics.TraceSource2#28](~/add/codesnippet/csharp/p-system.diagnostics.tra_6_1.cs)]\n [!code-vb[System.Diagnostics.TraceSource2#28](~/add/codesnippet/visualbasic/p-system.diagnostics.tra_6_1.vb)]"
   syntax:
     content: public System.Diagnostics.TraceFilter Filter { get; set; }
     return:
       type: System.Diagnostics.TraceFilter
-      description: "An object derived from the <xref href=&quot;System.Diagnostics.TraceFilter&quot;></xref> base class."
+      description: "Um objeto derivado de <xref href=&quot;System.Diagnostics.TraceFilter&quot;> </xref> classe base."
   overload: System.Diagnostics.TraceListener.Filter*
   exceptions: []
   platform:
@@ -278,7 +278,7 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "When overridden in a derived class, flushes the output buffer."
+  summary: "Quando substituído em uma classe derivada, libera o buffer de saída."
   syntax:
     content: public virtual void Flush ();
     parameters: []
@@ -298,8 +298,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets the custom attributes supported by the trace listener."
-  remarks: "The default implementation for GetSupportedAttributes returns `null`."
+  summary: "Obtém os atributos personalizados que suporte o ouvinte de rastreamento."
+  remarks: "Retorna a implementação padrão para GetSupportedAttributes `null`."
   example:
   - "The following code sample shows an override of the GetSupportedAttributes method for a custom trace listener.  \n  \n [!code-cs[System.Diagnostics.TraceListener.CustomAttributes#1](~/add/codesnippet/csharp/m-system.diagnostics.tra_22_1.cs)]\n [!code-vb[System.Diagnostics.TraceListener.CustomAttributes#1](~/add/codesnippet/visualbasic/m-system.diagnostics.tra_22_1.vb)]"
   syntax:
@@ -307,7 +307,7 @@ items:
     parameters: []
     return:
       type: System.String[]
-      description: "A string array naming the custom attributes supported by the trace listener, or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if there are no custom attributes."
+      description: "Uma matriz de cadeia de caracteres, os atributos personalizados que suporte o ouvinte de rastreamento de nomenclatura ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não houver nenhum atributo personalizado."
   overload: System.Diagnostics.TraceListener.GetSupportedAttributes*
   exceptions: []
   platform:
@@ -324,13 +324,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the indent level."
-  remarks: "The IndentLevel property represents the number of times that the indent specified by the <xref:System.Diagnostics.TraceListener.IndentSize%2A> property is applied. This property is stored on per-thread/per-request basis."
+  summary: "Obtém ou define o nível de recuo."
+  remarks: "A propriedade IndentLevel representa o número de vezes que o recuo especificado pelo <xref:System.Diagnostics.TraceListener.IndentSize%2A>propriedade é aplicada.</xref:System.Diagnostics.TraceListener.IndentSize%2A> Essa propriedade é armazenada em cada thread/por-solicitação."
   syntax:
     content: public int IndentLevel { get; set; }
     return:
       type: System.Int32
-      description: "The indent level. The default is zero."
+      description: "O nível de recuo. O padrão é zero."
   overload: System.Diagnostics.TraceListener.IndentLevel*
   exceptions: []
   platform:
@@ -347,18 +347,18 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the number of spaces in an indent."
-  remarks: "The property is stored on per-thread/per-request basis."
+  summary: "Obtém ou define o número de espaços em um recuo."
+  remarks: "A propriedade é armazenada em cada thread/por-solicitação."
   syntax:
     content: public int IndentSize { get; set; }
     return:
       type: System.Int32
-      description: "The number of spaces in an indent. The default is four spaces."
+      description: "O número de espaços em um recuo. O padrão é quatro espaços."
   overload: System.Diagnostics.TraceListener.IndentSize*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "Set operation failed because the value is less than zero."
+    description: "Defina a operação falhou porque o valor é menor que zero."
   platform:
   - net462
 - uid: System.Diagnostics.TraceListener.IsThreadSafe
@@ -373,13 +373,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets a value indicating whether the trace listener is thread safe."
-  remarks: "The value of IsThreadSafe is used to determine whether to use a global lock when writing to the listener. If the value of IsThreadSafe is `false`, the global lock is used regardless of the value of <xref:System.Diagnostics.Trace.UseGlobalLock%2A>. The global lock is not used only if the value of IsThreadSafe is `true` and the value of <xref:System.Diagnostics.Trace.UseGlobalLock%2A> is `false`. The default behavior is to use the global lock whenever writing to the listener."
+  summary: "Obtém um valor que indica se o ouvinte de rastreamento é thread safe."
+  remarks: "O valor de IsThreadSafe é usado para determinar se deve usar um bloqueio global ao gravar o ouvinte. Se o valor de IsThreadSafe for `false`, o bloqueio global é usado, independentemente do valor de <xref:System.Diagnostics.Trace.UseGlobalLock%2A>.</xref:System.Diagnostics.Trace.UseGlobalLock%2A> O bloqueio global não é usado somente se o valor de IsThreadSafe é `true` e o valor de <xref:System.Diagnostics.Trace.UseGlobalLock%2A>é `false`.</xref:System.Diagnostics.Trace.UseGlobalLock%2A> O comportamento padrão é usar global sempre que a gravação para o ouvinte de bloqueio."
   syntax:
     content: public virtual bool IsThreadSafe { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the trace listener is thread safe; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>. The default is <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o ouvinte de rastreamento é thread-safe; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>. O padrão é <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Diagnostics.TraceListener.IsThreadSafe*
   exceptions: []
   platform:
@@ -396,13 +396,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets a name for this <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref>."
-  remarks: "The name can be used to organize and access listeners in a <xref:System.Diagnostics.TraceListenerCollection> collection."
+  summary: "Obtém ou define um nome para este <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref>."
+  remarks: "O nome pode ser usado para organizar e acessar ouvintes em um <xref:System.Diagnostics.TraceListenerCollection>coleção.</xref:System.Diagnostics.TraceListenerCollection>"
   syntax:
     content: public virtual string Name { get; set; }
     return:
       type: System.String
-      description: "A name for this <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref>. The default is an empty string (&quot;&quot;)."
+      description: "Um nome para este <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref>. O padrão é uma cadeia de caracteres vazia (&quot;&quot;)."
   overload: System.Diagnostics.TraceListener.Name*
   exceptions: []
   platform:
@@ -419,13 +419,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets a value indicating whether to indent the output."
-  remarks: '**Note** The <xref:System.Diagnostics.TraceListener.WriteIndent%2A> method, called by the <xref:System.Diagnostics.DefaultTraceListener> and <xref:System.Diagnostics.TextWriterTraceListener> classes, sets the NeedIndent property value to `false` to prevent later, unnecessary indents. You must set the NeedIndent property to `true` each time you wish to indent trace output.'
+  summary: "Obtém ou define um valor que indica se recuar a saída."
+  remarks: '**Observação** o <xref:System.Diagnostics.TraceListener.WriteIndent%2A>método, chamado pelo <xref:System.Diagnostics.DefaultTraceListener>e <xref:System.Diagnostics.TextWriterTraceListener>classes, define o valor da propriedade NeedIndent `false` para evitar mais tarde, recuos desnecessários.</xref:System.Diagnostics.TextWriterTraceListener> </xref:System.Diagnostics.DefaultTraceListener> </xref:System.Diagnostics.TraceListener.WriteIndent%2A> Você deve definir a propriedade NeedIndent como `true` cada vez que você deseja recuar a saída de rastreamento.'
   syntax:
     content: protected bool NeedIndent { get; set; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the output should be indented; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a saída deve ser recuada; Caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Diagnostics.TraceListener.NeedIndent*
   exceptions: []
   platform:
@@ -442,26 +442,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a data object and event information to the listener specific output."
-  remarks: "> [!IMPORTANT] >  This method is not intended to be called directly by application code but by members of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data to output.       The default implementation writes the `eventCache`, `source`, `eventType` and `id` parameters in the header and footer of the trace. The `data` parameter is written as the body of the trace message. The `ToString` method of the data object is used to convert the object to a <xref:System.String>."
+  summary: "Grava o rastreamento de informações, informações de evento e do objeto de dados para a saída específica do ouvinte."
+  remarks: "> [!IMPORTANT]> Esse método não se destina a ser chamado diretamente pelo código do aplicativo, mas por membros do <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, e <xref:System.Diagnostics.TraceSource>classes para gravar dados de rastreamento de saída.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       As gravações de implementação padrão de `eventCache`, `source`, `eventType` e `id` parâmetros no cabeçalho e rodapé do rastreamento. O `data` parâmetro é escrito como o corpo da mensagem de rastreamento. O `ToString` método do objeto de dados é usado para converter o objeto <xref:System.String>.</xref:System.String>"
   syntax:
     content: public virtual void TraceData (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, object data);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: data
       type: System.Object
-      description: "The trace data to emit."
+      description: "Os dados de rastreamento para emitir."
   overload: System.Diagnostics.TraceListener.TraceData*
   exceptions: []
   platform:
@@ -478,26 +478,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, an array of data objects and event information to the listener specific output."
-  remarks: "> [!IMPORTANT] >  This method is not intended to be called directly by application code but by members of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data to output.       The default implementation writes the values of the `source`, `eventType` and `id` parameters as a header. The data objects are converted to strings using the `ToString` method of each object. The `eventCache` data is written as a footer, the nature of the output data being dependent on the value of the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property."
+  summary: "Grava informações de rastreamento, uma matriz de objetos de dados e informações de evento para a saída específica do ouvinte."
+  remarks: "> [!IMPORTANT]> Esse método não se destina a ser chamado diretamente pelo código do aplicativo, mas por membros do <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, e <xref:System.Diagnostics.TraceSource>classes para gravar dados de rastreamento de saída.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       A implementação padrão grava os valores de `source`, `eventType` e `id` parâmetros como um cabeçalho. Os objetos de dados são convertidos em cadeias de caracteres usando o `ToString` método de cada objeto. O `eventCache` dados são gravados como um rodapé, a natureza dos dados de saída seja dependente do valor da <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>propriedade.</xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>"
   syntax:
     content: public virtual void TraceData (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, object[] data);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: data
       type: System.Object[]
-      description: "An array of objects to emit as data."
+      description: "Uma matriz de objetos para a emissão de dados."
   overload: System.Diagnostics.TraceListener.TraceData*
   exceptions: []
   platform:
@@ -514,23 +514,23 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace and event information to the listener specific output."
-  remarks: "> [!IMPORTANT] >  This method is not intended to be called directly by application code but by members of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data to output.       The default implementation writes the values of the `source`, `eventType` and `id` parameters as a header. The `eventCache` data is written as a footer, the nature of the output data being dependent on the value of the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property."
+  summary: "Informações gravações de rastreamento e eventos para a saída específica do ouvinte."
+  remarks: "> [!IMPORTANT]> Esse método não se destina a ser chamado diretamente pelo código do aplicativo, mas por membros do <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, e <xref:System.Diagnostics.TraceSource>classes para gravar dados de rastreamento de saída.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       A implementação padrão grava os valores de `source`, `eventType` e `id` parâmetros como um cabeçalho. O `eventCache` dados são gravados como um rodapé, a natureza dos dados de saída seja dependente do valor da <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>propriedade.</xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>"
   syntax:
     content: public virtual void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
   overload: System.Diagnostics.TraceListener.TraceEvent*
   exceptions: []
   platform:
@@ -547,26 +547,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a message, and event information to the listener specific output."
-  remarks: "> [!IMPORTANT] >  This method is not intended to be called directly by application code but by members of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data to output.       The default implementation writes the values of the `source`, `eventType` and `id` parameters as a header, followed by the `message` data. The `eventCache` data is written as a footer, the nature of the output data being dependent on the value of the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property."
+  summary: "Grava informações de uma mensagem e informações de evento para a saída específica do ouvinte de rastreamento."
+  remarks: "> [!IMPORTANT]> Esse método não se destina a ser chamado diretamente pelo código do aplicativo, mas por membros do <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, e <xref:System.Diagnostics.TraceSource>classes para gravar dados de rastreamento de saída.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       A implementação padrão grava os valores da `source`, `eventType` e `id` parâmetros como um cabeçalho, seguido de `message` dados. O `eventCache` dados são gravados como um rodapé, a natureza dos dados de saída seja dependente do valor da <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>propriedade.</xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>"
   syntax:
     content: public virtual void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, string message);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
   overload: System.Diagnostics.TraceListener.TraceEvent*
   exceptions: []
   platform:
@@ -583,29 +583,29 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a formatted array of objects and event information to the listener specific output."
-  remarks: "> [!IMPORTANT] >  This method is not intended to be called directly by application code but by members of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data to output.       The default implementation writes the values of the `source`, `eventType` and `id` parameters as a header. The `args` object array is converted to a string using the <xref:System.String.Format%2A> method, passing the `format` string and `args` array to format the string as the message portion of the trace. The `eventCache` data is written as a footer, the nature of the output data being dependent on the value of the <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A> property."
+  summary: "Grava informações de rastreamento, uma matriz formatada de objetos e informações de evento para a saída específica do ouvinte."
+  remarks: "> [!IMPORTANT]> Esse método não se destina a ser chamado diretamente pelo código do aplicativo, mas por membros do <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, e <xref:System.Diagnostics.TraceSource>classes para gravar dados de rastreamento de saída.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       A implementação padrão grava os valores de `source`, `eventType` e `id` parâmetros como um cabeçalho. O `args` matriz de objeto é convertido em uma cadeia de caracteres usando o <xref:System.String.Format%2A>método, passando o `format` cadeia de caracteres e `args` matriz para a cadeia de caracteres de formato como a parte de mensagem de rastreamento.</xref:System.String.Format%2A> O `eventCache` dados são gravados como um rodapé, a natureza dos dados de saída seja dependente do valor da <xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>propriedade.</xref:System.Diagnostics.TraceListener.TraceOutputOptions%2A>"
   syntax:
     content: public virtual void TraceEvent (System.Diagnostics.TraceEventCache eventCache, string source, System.Diagnostics.TraceEventType eventType, int id, string format, object[] args);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: eventType
       type: System.Diagnostics.TraceEventType
-      description: "One of the <xref href=&quot;System.Diagnostics.TraceEventType&quot;></xref> values specifying the type of event that has caused the trace."
+      description: "Uma da <xref href=&quot;System.Diagnostics.TraceEventType&quot;> </xref> valores que especificam o tipo de evento que causou o rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: format
       type: System.String
-      description: "A format string that contains zero or more format items, which correspond to objects in the `args` array."
+      description: "Uma cadeia de caracteres de formato que contém zero ou mais itens de formato, que correspondem aos objetos na `args` matriz."
     - id: args
       type: System.Object[]
-      description: "An <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;></xref> array containing zero or more objects to format."
+      description: "Um <xref uid=&quot;langword_csharp_object&quot; name=&quot;object&quot; href=&quot;&quot;> </xref> matriz que contém zero ou mais objetos a serem formatados."
   overload: System.Diagnostics.TraceListener.TraceEvent*
   exceptions: []
   platform:
@@ -622,20 +622,20 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Gets or sets the trace output options."
-  remarks: "The TraceOutputOptions property determines the optional content of trace output. The property can be set in the configuration file or programmatically during execution to include additional data specifically for a section of code. For example, you can set the TraceOutputOptions property for the console trace listener to <xref:System.Diagnostics.TraceOptions?displayProperty=fullName> to add call stack information to the trace output.       The <xref:System.Diagnostics.TraceOptions> enumeration is not used by the following classes and methods:      -   The <xref:System.Diagnostics.EventLogTraceListener> class, because it can cause a large volume of data to be written to the log.      -   The `Write` and `WriteLine` methods of the <xref:System.Diagnostics.ConsoleTraceListener>, <xref:System.Diagnostics.DefaultTraceListener>, and <xref:System.Diagnostics.TextWriterTraceListener> classes.      -   The <xref:System.Diagnostics.TraceListener.Write%2A> and <xref:System.Diagnostics.TraceListener.WriteLine%2A> methods of the <xref:System.Diagnostics.TraceListener> class when they are not overridden in a derived class."
+  summary: "Obtém ou define opções de saída de rastreamento."
+  remarks: "A propriedade TraceOutputOptions determina o conteúdo opcional de saída de rastreamento. A propriedade pode ser definida no arquivo de configuração ou por meio de programação durante a execução para incluir dados adicionais especificamente para uma seção de código. Por exemplo, você pode definir a propriedade TraceOutputOptions para o ouvinte de rastreamento do console para <xref:System.Diagnostics.TraceOptions?displayProperty=fullName>para adicionar informações de pilha de chamadas para a saída de rastreamento.</xref:System.Diagnostics.TraceOptions?displayProperty=fullName>       O <xref:System.Diagnostics.TraceOptions>enumeração não é usada pelas seguintes classes e métodos:-a <xref:System.Diagnostics.EventLogTraceListener>classe, porque isso pode causar um grande volume de dados a serem gravados no log.</xref:System.Diagnostics.EventLogTraceListener> </xref:System.Diagnostics.TraceOptions>      -A `Write` e `WriteLine` métodos do <xref:System.Diagnostics.ConsoleTraceListener>, <xref:System.Diagnostics.DefaultTraceListener>, e <xref:System.Diagnostics.TextWriterTraceListener>classes.</xref:System.Diagnostics.TextWriterTraceListener> </xref:System.Diagnostics.DefaultTraceListener> </xref:System.Diagnostics.ConsoleTraceListener>      -O <xref:System.Diagnostics.TraceListener.Write%2A>e os <xref:System.Diagnostics.TraceListener.WriteLine%2A>métodos da <xref:System.Diagnostics.TraceListener>classe quando eles não são substituídos na classe derivada.</xref:System.Diagnostics.TraceListener> </xref:System.Diagnostics.TraceListener.WriteLine%2A> </xref:System.Diagnostics.TraceListener.Write%2A>"
   example:
   - "The following example shows the setting of the TraceOutputOptions property for a console trace listener. The console trace listener is one of the listeners enumerated in the <xref:System.Diagnostics.TraceSource.Listeners%2A> property of a trace source. This code example is part of a larger example provided for the <xref:System.Diagnostics.TraceSource> class.  \n  \n [!code-cs[System.Diagnostics.TraceSource2#16](~/add/codesnippet/csharp/p-system.diagnostics.tra_9_1.cs)]\n [!code-vb[System.Diagnostics.TraceSource2#16](~/add/codesnippet/visualbasic/p-system.diagnostics.tra_9_1.vb)]"
   syntax:
     content: public System.Diagnostics.TraceOptions TraceOutputOptions { get; set; }
     return:
       type: System.Diagnostics.TraceOptions
-      description: "A bitwise combination of the enumeration values. The default is <xref href=&quot;System.Diagnostics.TraceOptions&quot;></xref>."
+      description: "Uma combinação bit a bit dos valores de enumeração. O padrão é <xref href=&quot;System.Diagnostics.TraceOptions&quot;> </xref>."
   overload: System.Diagnostics.TraceListener.TraceOutputOptions*
   exceptions:
   - type: System.ArgumentOutOfRangeException
     commentId: T:System.ArgumentOutOfRangeException
-    description: "Set operation failed because the value is invalid."
+    description: "Falha na operação de conjunto, como o valor é inválido."
   platform:
   - net462
 - uid: System.Diagnostics.TraceListener.TraceTransfer(System.Diagnostics.TraceEventCache,System.String,System.Int32,System.String,System.Guid)
@@ -650,26 +650,26 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes trace information, a message, a related activity identity and event information to the listener specific output."
-  remarks: "> [!IMPORTANT] >  This method is not intended to be called directly by application code but by members of the <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, and <xref:System.Diagnostics.TraceSource> classes to write trace data to output.       The <xref:System.Diagnostics.XmlWriterTraceListener.TraceTransfer%2A> method is used for the correlation of related traces. The TraceTransfer method calls the <xref:System.Diagnostics.TraceListener.TraceEvent%2A> method to process the call, with the eventType level set to <xref:System.Diagnostics.TraceEventType> and the `relatedActivityId`<xref:System.Guid> as a string appended to the message."
+  summary: "Grava informações de rastreamento, uma mensagem, informações de identidade e eventos de atividade relacionada para a saída específica do ouvinte."
+  remarks: "> [!IMPORTANT]> Esse método não se destina a ser chamado diretamente pelo código do aplicativo, mas por membros do <xref:System.Diagnostics.Debug>, <xref:System.Diagnostics.Trace>, e <xref:System.Diagnostics.TraceSource>classes para gravar dados de rastreamento de saída.</xref:System.Diagnostics.TraceSource> </xref:System.Diagnostics.Trace> </xref:System.Diagnostics.Debug>       O <xref:System.Diagnostics.XmlWriterTraceListener.TraceTransfer%2A>método é usado para a correlação de rastreamento relacionado.</xref:System.Diagnostics.XmlWriterTraceListener.TraceTransfer%2A> As chamadas de método TraceTransfer o <xref:System.Diagnostics.TraceListener.TraceEvent%2A>método para processar a chamada com o nível de eventType definido como <xref:System.Diagnostics.TraceEventType>e `relatedActivityId` <xref:System.Guid>como uma cadeia de caracteres anexada à mensagem.</xref:System.Guid> </xref:System.Diagnostics.TraceEventType> </xref:System.Diagnostics.TraceListener.TraceEvent%2A>"
   syntax:
     content: public virtual void TraceTransfer (System.Diagnostics.TraceEventCache eventCache, string source, int id, string message, Guid relatedActivityId);
     parameters:
     - id: eventCache
       type: System.Diagnostics.TraceEventCache
-      description: "A <xref href=&quot;System.Diagnostics.TraceEventCache&quot;></xref> object that contains the current process ID, thread ID, and stack trace information."
+      description: "Um <xref href=&quot;System.Diagnostics.TraceEventCache&quot;> </xref> objeto que contém o atual ID do processo, ID do thread e informações de rastreamento de pilha."
     - id: source
       type: System.String
-      description: "A name used to identify the output, typically the name of the application that generated the trace event."
+      description: "Um nome usado para identificar a saída, normalmente o nome do aplicativo que gerou o evento de rastreamento."
     - id: id
       type: System.Int32
-      description: "A numeric identifier for the event."
+      description: "Um identificador numérico para o evento."
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
     - id: relatedActivityId
       type: System.Guid
-      description: "A <xref:System.Guid> object identifying a related activity."
+      description: "Um <xref:System.Guid>objeto identificando uma atividade relacionada.</xref:System.Guid>"
   overload: System.Diagnostics.TraceListener.TraceTransfer*
   exceptions: []
   platform:
@@ -686,13 +686,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes the value of the object&quot;s <xref:System.Object.ToString*> method to the listener you create when you implement the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class."
+  summary: "Grava o valor do objeto <xref:System.Object.ToString*>método para o ouvinte que você cria ao implementar o <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe</xref:System.Object.ToString*>"
   syntax:
     content: public virtual void Write (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "An <xref:System.Object> whose fully qualified class name you want to write."
+      description: "Um <xref:System.Object>cujo nome totalmente qualificado da classe que você deseja gravar.</xref:System.Object>"
   overload: System.Diagnostics.TraceListener.Write*
   exceptions: []
   platform:
@@ -709,13 +709,13 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "When overridden in a derived class, writes the specified message to the listener you create in the derived class."
+  summary: "Quando substituído em uma classe derivada, grava a mensagem especificada para o ouvinte que você criar na classe derivada."
   syntax:
     content: public abstract void Write (string message);
     parameters:
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
   overload: System.Diagnostics.TraceListener.Write*
   exceptions: []
   platform:
@@ -732,16 +732,16 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes a category name and the value of the object&quot;s <xref:System.Object.ToString*> method to the listener you create when you implement the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class."
+  summary: "Grava um nome de categoria e o valor do objeto <xref:System.Object.ToString*>método para o ouvinte que você cria ao implementar o <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe</xref:System.Object.ToString*>"
   syntax:
     content: public virtual void Write (object o, string category);
     parameters:
     - id: o
       type: System.Object
-      description: "An <xref:System.Object> whose fully qualified class name you want to write."
+      description: "Um <xref:System.Object>cujo nome totalmente qualificado da classe que você deseja gravar.</xref:System.Object>"
     - id: category
       type: System.String
-      description: "A category name used to organize the output."
+      description: "Um nome de categoria usado para organizar a saída."
   overload: System.Diagnostics.TraceListener.Write*
   exceptions: []
   platform:
@@ -758,16 +758,16 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes a category name and a message to the listener you create when you implement the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class."
+  summary: "Grava um nome de categoria e uma mensagem para o ouvinte criar quando você implementa o <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe."
   syntax:
     content: public virtual void Write (string message, string category);
     parameters:
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
     - id: category
       type: System.String
-      description: "A category name used to organize the output."
+      description: "Um nome de categoria usado para organizar a saída."
   overload: System.Diagnostics.TraceListener.Write*
   exceptions: []
   platform:
@@ -784,8 +784,8 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes the indent to the listener you create when you implement this class, and resets the <xref:System.Diagnostics.TraceListener.NeedIndent*> property to <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
-  remarks: "This method writes the indent and resets the <xref:System.Diagnostics.TraceListener.NeedIndent%2A> property to `false`. Call this method if <xref:System.Diagnostics.TraceListener.NeedIndent%2A> is `true` when you are overriding the <xref:System.Diagnostics.TraceListener.Write%2A> and <xref:System.Diagnostics.TraceListener.WriteLine%2A> methods. By default, this method uses blank spaces for indentation. The size of the indent is determined by the values of the <xref:System.Diagnostics.TraceListener.IndentSize%2A> and <xref:System.Diagnostics.TraceListener.IndentLevel%2A> properties. The <xref:System.Diagnostics.TraceListener.IndentLevel%2A> property represents the number of times the indent of the size specified by the <xref:System.Diagnostics.TraceListener.IndentSize%2A> property is applied. This method is called by the <xref:System.Diagnostics.DefaultTraceListener> and <xref:System.Diagnostics.TextWriterTraceListener> classes."
+  summary: "Grava o recuo para o ouvinte criar quando você implementar essa classe e redefine o <xref:System.Diagnostics.TraceListener.NeedIndent*>propriedade <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.Diagnostics.TraceListener.NeedIndent*>"
+  remarks: "Esse método grava o recuo e redefine o <xref:System.Diagnostics.TraceListener.NeedIndent%2A>propriedade `false`.</xref:System.Diagnostics.TraceListener.NeedIndent%2A> Chame este método se <xref:System.Diagnostics.TraceListener.NeedIndent%2A>é `true` quando você está substituindo o <xref:System.Diagnostics.TraceListener.Write%2A>e <xref:System.Diagnostics.TraceListener.WriteLine%2A>métodos.</xref:System.Diagnostics.TraceListener.WriteLine%2A> </xref:System.Diagnostics.TraceListener.Write%2A> </xref:System.Diagnostics.TraceListener.NeedIndent%2A> Por padrão, esse método usa espaços em branco para recuo. O tamanho do recuo é determinado pelos valores de <xref:System.Diagnostics.TraceListener.IndentSize%2A>e <xref:System.Diagnostics.TraceListener.IndentLevel%2A>Propriedades.</xref:System.Diagnostics.TraceListener.IndentLevel%2A> </xref:System.Diagnostics.TraceListener.IndentSize%2A> O <xref:System.Diagnostics.TraceListener.IndentLevel%2A>propriedade representa o número de vezes que o recuo do tamanho especificado pelo <xref:System.Diagnostics.TraceListener.IndentSize%2A>propriedade é aplicada.</xref:System.Diagnostics.TraceListener.IndentSize%2A> </xref:System.Diagnostics.TraceListener.IndentLevel%2A> Este método é chamado pelo <xref:System.Diagnostics.DefaultTraceListener>e <xref:System.Diagnostics.TextWriterTraceListener>classes.</xref:System.Diagnostics.TextWriterTraceListener> </xref:System.Diagnostics.DefaultTraceListener>"
   syntax:
     content: protected virtual void WriteIndent ();
     parameters: []
@@ -805,14 +805,14 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes the value of the object&quot;s <xref:System.Object.ToString*> method to the listener you create when you implement the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class, followed by a line terminator."
-  remarks: "The typical line terminator you might implement is a carriage return followed by a line feed (\\r )."
+  summary: "Grava o valor do objeto <xref:System.Object.ToString*>método para o ouvinte que você cria ao implementar o <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe, seguido por um terminador de linha.</xref:System.Object.ToString*>"
+  remarks: "O terminador de linha típicas que você pode implementar é um retorno de carro seguido por uma alimentação de linha (\\r)."
   syntax:
     content: public virtual void WriteLine (object o);
     parameters:
     - id: o
       type: System.Object
-      description: "An <xref:System.Object> whose fully qualified class name you want to write."
+      description: "Um <xref:System.Object>cujo nome totalmente qualificado da classe que você deseja gravar.</xref:System.Object>"
   overload: System.Diagnostics.TraceListener.WriteLine*
   exceptions: []
   platform:
@@ -829,14 +829,14 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "When overridden in a derived class, writes a message to the listener you create in the derived class, followed by a line terminator."
-  remarks: "The typical line terminator you might implement is a carriage return followed by a line feed (\\r )."
+  summary: "Quando substituído em uma classe derivada, grava uma mensagem para o ouvinte que você criar na classe derivada, seguido por um terminador de linha."
+  remarks: "O terminador de linha típicas que você pode implementar é um retorno de carro seguido por uma alimentação de linha (\\r)."
   syntax:
     content: public abstract void WriteLine (string message);
     parameters:
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
   overload: System.Diagnostics.TraceListener.WriteLine*
   exceptions: []
   platform:
@@ -853,17 +853,17 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes a category name and the value of the object&quot;s <xref:System.Object.ToString*> method to the listener you create when you implement the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class, followed by a line terminator."
-  remarks: "The typical line terminator you might implement is a carriage return followed by a line feed (\\r )."
+  summary: "Grava um nome de categoria e o valor do objeto <xref:System.Object.ToString*>método para o ouvinte que você cria ao implementar o <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe, seguido por um terminador de linha.</xref:System.Object.ToString*>"
+  remarks: "O terminador de linha típicas que você pode implementar é um retorno de carro seguido por uma alimentação de linha (\\r)."
   syntax:
     content: public virtual void WriteLine (object o, string category);
     parameters:
     - id: o
       type: System.Object
-      description: "An <xref:System.Object> whose fully qualified class name you want to write."
+      description: "Um <xref:System.Object>cujo nome totalmente qualificado da classe que você deseja gravar.</xref:System.Object>"
     - id: category
       type: System.String
-      description: "A category name used to organize the output."
+      description: "Um nome de categoria usado para organizar a saída."
   overload: System.Diagnostics.TraceListener.WriteLine*
   exceptions: []
   platform:
@@ -880,17 +880,17 @@ items:
   assemblies:
   - System
   namespace: System.Diagnostics
-  summary: "Writes a category name and a message to the listener you create when you implement the <xref href=&quot;System.Diagnostics.TraceListener&quot;></xref> class, followed by a line terminator."
-  remarks: "The typical line terminator you might implement is a carriage return followed by a line feed (\\r )."
+  summary: "Grava um nome de categoria e uma mensagem para o ouvinte criar quando você implementa o <xref href=&quot;System.Diagnostics.TraceListener&quot;> </xref> classe, seguido por um terminador de linha."
+  remarks: "O terminador de linha típicas que você pode implementar é um retorno de carro seguido por uma alimentação de linha (\\r)."
   syntax:
     content: public virtual void WriteLine (string message, string category);
     parameters:
     - id: message
       type: System.String
-      description: "A message to write."
+      description: "Uma mensagem a ser gravada."
     - id: category
       type: System.String
-      description: "A category name used to organize the output."
+      description: "Um nome de categoria usado para organizar a saída."
   overload: System.Diagnostics.TraceListener.WriteLine*
   exceptions: []
   platform:

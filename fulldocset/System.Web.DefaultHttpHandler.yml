@@ -18,8 +18,8 @@ items:
   nameWithType: DefaultHttpHandler
   fullName: System.Web.DefaultHttpHandler
   type: Class
-  summary: "Represents the properties and methods of a default HTTP handler."
-  remarks: "A DefaultHttpHandler object intercepts incoming requests in the HTTP pipeline when both request interception has been configured through Internet Information Services (IIS) 6.0 and no explicit  bindings apply to the requested extension.       Request interception can be set up through the wildcard application mapping feature introduced in IIS 6.0. For more information, search the [MSDN Library](http://go.microsoft.com/fwlink/?linkid=37118) for information about using wildcard application maps to remap a URL.       The DefaultHttpHandler class implements the <xref:System.Web.IHttpAsyncHandler> interface to provide asynchronous request processing. For general information about HTTP handlers, see [HTTP Handlers and HTTP Modules Overview](~/add/includes/ajax-current-ext-md.md). Additionally, for more information see the following:      -   About creating asynchronous HTTP handlers, see [Walkthrough: Creating an Asynchronous HTTP Handler](~/add/includes/ajax-current-ext-md.md).      -   About registering HTTP handlers, see [How to: Register HTTP Handlers](~/add/includes/ajax-current-ext-md.md).       Classes can derive from the DefaultHttpHandler class to provide customized handling of requests. An asynchronous HTTP handler that is derived from the DefaultHttpHandler could override the <xref:System.Web.DefaultHttpHandler.BeginProcessRequest%2A> method to change how requests are processed.       A DefaultHttpHandler does not use ASP.NET errors. Existing content that uses IIS errors or a propriety ISAPI custom error mechanism would work unchanged."
+  summary: "Representa as propriedades e métodos do manipulador HTTP padrão."
+  remarks: "Um objeto DefaultHttpHandler intercepta solicitações de entrada no pipeline HTTP quando interceptação de solicitação tiver sido configurada por meio de serviços de informações da Internet (IIS) 6.0 e nenhuma associação explícita se aplicam para a extensão solicitada.       Interceptação de solicitação pode ser configurada por meio do recurso de mapeamento de aplicativos de caractere curinga, introduzido no IIS 6.0. Para obter mais informações, pesquise o [MSDN Library](http://go.microsoft.com/fwlink/?linkid=37118) para obter informações sobre como usar mapas de aplicativos de curinga para remapear um URL.       A classe implementa DefaultHttpHandler o <xref:System.Web.IHttpAsyncHandler>interface para fornecer processamento assíncrono da solicitação.</xref:System.Web.IHttpAsyncHandler> Para obter informações gerais sobre os manipuladores HTTP, consulte [manipuladores HTTP e visão geral de módulos HTTP](~/add/includes/ajax-current-ext-md.md). Além disso, para obter mais informações, consulte o seguinte: - a sobre a criação de manipuladores HTTP assíncronos, consulte [passo a passo: Criando um manipulador HTTP assíncrono](~/add/includes/ajax-current-ext-md.md).      -Sobre o registro de manipuladores HTTP, consulte [como: registrar manipuladores de HTTP](~/add/includes/ajax-current-ext-md.md).       Classes podem derivar da classe DefaultHttpHandler para fornecer tratamento personalizado de solicitações. Um manipulador HTTP assíncrono que deriva de DefaultHttpHandler pode substituir o <xref:System.Web.DefaultHttpHandler.BeginProcessRequest%2A>método para alterar como as solicitações são processadas.</xref:System.Web.DefaultHttpHandler.BeginProcessRequest%2A>       Um DefaultHttpHandler não usa os erros ASP.NET. Existente conteúdo que usa os erros do IIS ou um mecanismo de erro personalizada de ISAPI de propriedade deve funcionar inalterada."
   example:
   - "The following code example demonstrates how to implement a customized HTTP handler by deriving from the DefaultHttpHandler class.  \n  \n [!code-vb[System.Web.DefaultHttpHandler#1](~/add/codesnippet/visualbasic/t-system.web.defaulthttp_1.vb)]\n [!code-cs[System.Web.DefaultHttpHandler#1](~/add/codesnippet/csharp/t-system.web.defaulthttp_1.cs)]"
   syntax:
@@ -43,7 +43,7 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.DefaultHttpHandler&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.DefaultHttpHandler&quot;> </xref> classe."
   syntax:
     content: public DefaultHttpHandler ();
     parameters: []
@@ -63,28 +63,28 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Initiates an asynchronous call to the HTTP handler."
-  remarks: "When creating an HTTP handler for asynchronous use, your handler must implement the asynchronous BeginProcessRequest and <xref:System.Web.DefaultHttpHandler.EndProcessRequest%2A> methods that are called asynchronously by ASP.NET."
+  summary: "Inicia uma chamada assíncrona para o manipulador HTTP."
+  remarks: "Ao criar um manipulador HTTP para uso assíncrono, o manipulador deve implementar o BeginProcessRequest assíncrona e <xref:System.Web.DefaultHttpHandler.EndProcessRequest%2A>métodos que são chamados de forma assíncrona pelo ASP.NET.</xref:System.Web.DefaultHttpHandler.EndProcessRequest%2A>"
   syntax:
     content: public virtual IAsyncResult BeginProcessRequest (System.Web.HttpContext context, AsyncCallback callback, object state);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "An object that provides references to intrinsic server objects that are used to service HTTP requests."
+      description: "Um objeto que fornece referências ao servidor intrínseco os objetos que são usados para atender a solicitações HTTP."
     - id: callback
       type: System.AsyncCallback
-      description: "The method to call when the asynchronous method call is complete. If `callback` is <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref>, the delegate is not called."
+      description: "O método para chamar quando a chamada de método assíncrono é concluída. Se `callback` é <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref>, o delegado não é chamado."
     - id: state
       type: System.Object
-      description: "Any state data that is needed to process the request."
+      description: "Quaisquer dados de estado que é necessário para processar a solicitação."
     return:
       type: System.IAsyncResult
-      description: "An <xref:System.IAsyncResult> that contains information about the status of the process."
+      description: "Um <xref:System.IAsyncResult>que contém informações sobre o status do processo.</xref:System.IAsyncResult>"
   overload: System.Web.DefaultHttpHandler.BeginProcessRequest*
   exceptions:
   - type: System.Web.HttpException
     commentId: T:System.Web.HttpException
-    description: "The preconditions for processing a request fail and either the requested file has the suffix .asp or the request was sent through POST."
+    description: "As pré-condições para o processamento de uma falha de solicitação e o arquivo solicitado tem o. asp sufixo ou a solicitação foi enviada por meio de POSTAGEM."
   platform:
   - net462
 - uid: System.Web.DefaultHttpHandler.Context
@@ -99,13 +99,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets the context that is associated with the current <xref href=&quot;System.Web.DefaultHttpHandler&quot;></xref> object."
-  remarks: "The Context property provides access to the current <xref:System.Web.HttpContext> object for derived classes. An <xref:System.Web.HttpContext> object provides access to the intrinsic <xref:System.Web.HttpApplication.Request%2A>, <xref:System.Web.HttpApplication.Response%2A>, and <xref:System.Web.HttpApplication.Server%2A> properties for the request. For more information about accessing contextual information, see <xref:System.Web.HttpContext>."
+  summary: "Obtém o contexto associado atual <xref href=&quot;System.Web.DefaultHttpHandler&quot;> </xref> objeto."
+  remarks: "A propriedade de contexto fornece acesso ao atual <xref:System.Web.HttpContext>objeto para classes derivadas.</xref:System.Web.HttpContext> Um <xref:System.Web.HttpContext>objeto fornece acesso a intrínseca <xref:System.Web.HttpApplication.Request%2A>, <xref:System.Web.HttpApplication.Response%2A>, e <xref:System.Web.HttpApplication.Server%2A>Propriedades para a solicitação.</xref:System.Web.HttpApplication.Server%2A> </xref:System.Web.HttpApplication.Response%2A> </xref:System.Web.HttpApplication.Request%2A> </xref:System.Web.HttpContext> Para obter mais informações sobre como acessar as informações contextuais, consulte <xref:System.Web.HttpContext>.</xref:System.Web.HttpContext>"
   syntax:
     content: protected System.Web.HttpContext Context { get; }
     return:
       type: System.Web.HttpContext
-      description: "An <xref href=&quot;System.Web.HttpContext&quot;></xref> object that contains the current context."
+      description: "Um <xref href=&quot;System.Web.HttpContext&quot;> </xref> objeto que contém o contexto atual."
   overload: System.Web.DefaultHttpHandler.Context*
   exceptions: []
   platform:
@@ -122,14 +122,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Provides an end method for an asynchronous process."
-  remarks: "You can use the EndProcessRequest method to throw any exceptions that are caught during the asynchronous process."
+  summary: "Fornece um método final para um processo assíncrono."
+  remarks: "Você pode usar o método EndProcessRequest gerar todas as exceções que são detectadas durante o processo assíncrono."
   syntax:
     content: public virtual void EndProcessRequest (IAsyncResult result);
     parameters:
     - id: result
       type: System.IAsyncResult
-      description: "An object that contains information about the status of the process."
+      description: "Um objeto que contém informações sobre o status do processo."
   overload: System.Web.DefaultHttpHandler.EndProcessRequest*
   exceptions: []
   platform:
@@ -146,13 +146,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets a collection of request headers and request values to transfer along with the request."
-  remarks: "The ExecuteUrlHeaders property returns an empty collection unless it is populated in a class that is derived from the <xref:System.Web.DefaultHttpHandler> class. The headers that are added are appended to the collection of headers in the request before passing the request back to Internet Information Services (IIS)."
+  summary: "Obtém uma coleção de cabeçalhos de solicitação e valores de solicitação para transferir junto com a solicitação."
+  remarks: "A propriedade ExecuteUrlHeaders retorna uma coleção vazia, a menos que ele é preenchido em uma classe derivada da <xref:System.Web.DefaultHttpHandler>classe</xref:System.Web.DefaultHttpHandler> de Os cabeçalhos que são adicionados são adicionados à coleção de cabeçalhos de solicitação antes de passar a solicitação de volta para Internet Information Services (IIS)."
   syntax:
     content: protected System.Collections.Specialized.NameValueCollection ExecuteUrlHeaders { get; }
     return:
       type: System.Collections.Specialized.NameValueCollection
-      description: "A <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;></xref> containing request headers and values."
+      description: "Um <xref href=&quot;System.Collections.Specialized.NameValueCollection&quot;> </xref> que contém cabeçalhos de solicitação e valores."
   overload: System.Web.DefaultHttpHandler.ExecuteUrlHeaders*
   exceptions: []
   platform:
@@ -169,13 +169,13 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Gets a Boolean value indicating that another request can use the current instance of the <xref href=&quot;System.Web.DefaultHttpHandler&quot;></xref> class."
-  remarks: "To explicitly set the IsReusable property to `true` or `false`, override the IsReusable property."
+  summary: "Obtém um valor booliano que indica se outra solicitação pode usar a instância atual do <xref href=&quot;System.Web.DefaultHttpHandler&quot;> </xref> classe."
+  remarks: "Para definir explicitamente a propriedade IsReusable `true` ou `false`, substitua a propriedade IsReusable."
   syntax:
     content: public virtual bool IsReusable { get; }
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Web.DefaultHttpHandler&quot;></xref> is reusable; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <xref href=&quot;System.Web.DefaultHttpHandler&quot;> </xref> for reutilizável; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Web.DefaultHttpHandler.IsReusable*
   exceptions: []
   platform:
@@ -192,8 +192,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Called when preconditions prevent the <xref href=&quot;System.Web.DefaultHttpHandler&quot;></xref> object from processing a request."
-  remarks: "Preconditions are specified by the client in the request-header fields and are evaluated on the Web server. For example, by using preconditions, clients can prevent a requested method (for example, GET) from being applied to a resource other than the one intended. For more information, see section 14, &quot;Header Field Definitions,&quot; in the [Hypertext Transfer Protocol -- HTTP/1.1](http://go.microsoft.com/fwlink/?LinkID=73147) specification on the World Wide Web Consortium (W3C) Web site.       The OnExecuteUrlPreconditionFailure method is called when preconditions prevent the <xref:System.Web.DefaultHttpHandler> object from processing a request. A deriving class might override the OnExecuteUrlPreconditionFailure method to throw an exception when the preconditions fail. The <xref:System.Web.DefaultHttpHandler> does not throw an exception in the OnExecuteUrlPreconditionFailure method.       Any of the following will cause the preconditions to fail:      -   Calling <xref:System.Web.HttpResponse.Write%2A?displayProperty=fullName>.      -   Calling <xref:System.Web.HttpResponse.AddHeader%2A?displayProperty=fullName>.      -   Calling <xref:System.Web.HttpResponse.Flush%2A?displayProperty=fullName>.      -   Changing the cache policy for the response.      -   Adding a <xref:System.IO.Stream> object as a filter to the <xref:System.Web.HttpResponse.Filter%2A?displayProperty=fullName> property."
+  summary: "Chamado quando as pré-condições impedem que o <xref href=&quot;System.Web.DefaultHttpHandler&quot;> </xref> objeto a partir de uma solicitação de processamento."
+  remarks: "Pré-condições são especificadas pelo cliente nos campos de cabeçalho de solicitação e são avaliadas no servidor Web. Por exemplo, usando pré-condições, os clientes podem impedir um método solicitado (por exemplo, GET) que está sendo aplicada a um recurso diferente da pretendida. Para obter mais informações, consulte a seção 14, &quot;Definições de campo de cabeçalho&quot;, no [Hypertext Transfer Protocol--HTTP/1.1](http://go.microsoft.com/fwlink/?LinkID=73147) especificação no site da World Wide Web Consortium (W3C).       O método OnExecuteUrlPreconditionFailure é chamado quando as pré-condições impedem que o <xref:System.Web.DefaultHttpHandler>objeto do processamento de uma solicitação.</xref:System.Web.DefaultHttpHandler> Uma classe derivada pode substituir o método OnExecuteUrlPreconditionFailure para gerar uma exceção quando as pré-condições falharem. O <xref:System.Web.DefaultHttpHandler>não gerará uma exceção no método OnExecuteUrlPreconditionFailure.</xref:System.Web.DefaultHttpHandler>       Qualquer um dos seguintes fará com que as pré-condições falha:-chamando <xref:System.Web.HttpResponse.Write%2A?displayProperty=fullName>.</xref:System.Web.HttpResponse.Write%2A?displayProperty=fullName>      -Chamando <xref:System.Web.HttpResponse.AddHeader%2A?displayProperty=fullName>.</xref:System.Web.HttpResponse.AddHeader%2A?displayProperty=fullName>      -Chamando <xref:System.Web.HttpResponse.Flush%2A?displayProperty=fullName>.</xref:System.Web.HttpResponse.Flush%2A?displayProperty=fullName>      -Alterar a política de cache para a resposta.      -Adicionar uma <xref:System.IO.Stream>objeto como um filtro para o <xref:System.Web.HttpResponse.Filter%2A?displayProperty=fullName>propriedade.</xref:System.Web.HttpResponse.Filter%2A?displayProperty=fullName> </xref:System.IO.Stream>"
   syntax:
     content: public virtual void OnExecuteUrlPreconditionFailure ();
     parameters: []
@@ -213,14 +213,14 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Overrides the target URL for the current request."
-  remarks: "The OverrideExecuteUrlPath method returns `null` unless it is overridden in a class that is derived from the <xref:System.Web.DefaultHttpHandler> class.       The OverrideExecuteUrlPath method is called only if ASP.NET is running in worker process isolation mode on IIS 6.0, and if the response was not modified before the <xref:System.Web.DefaultHttpHandler> object was called. The response is modified by any of the following:      -   Calling <xref:System.Web.HttpResponse.Write%2A?displayProperty=fullName>.      -   Calling <xref:System.Web.HttpResponse.AddHeader%2A?displayProperty=fullName>.      -   Calling <xref:System.Web.HttpResponse.Flush%2A?displayProperty=fullName>.      -   Changing the cache policy for the response.      -   Adding a <xref:System.IO.Stream> object as a filter to the <xref:System.Web.HttpResponse.Filter%2A?displayProperty=fullName> property."
+  summary: "Substitui a URL de destino para a solicitação atual."
+  remarks: "O método OverrideExecuteUrlPath retorna `null` , a menos que ele seja substituído em uma classe derivada da <xref:System.Web.DefaultHttpHandler>classe</xref:System.Web.DefaultHttpHandler> de       O método OverrideExecuteUrlPath é chamado somente se estiver em execução no modo de isolamento do processo de trabalho ASP.NET no IIS 6.0, e se a resposta não foi modificado antes do <xref:System.Web.DefaultHttpHandler>objeto foi chamado.</xref:System.Web.DefaultHttpHandler> A resposta é modificada por qualquer um dos seguintes:-chamando <xref:System.Web.HttpResponse.Write%2A?displayProperty=fullName>.</xref:System.Web.HttpResponse.Write%2A?displayProperty=fullName>      -Chamando <xref:System.Web.HttpResponse.AddHeader%2A?displayProperty=fullName>.</xref:System.Web.HttpResponse.AddHeader%2A?displayProperty=fullName>      -Chamando <xref:System.Web.HttpResponse.Flush%2A?displayProperty=fullName>.</xref:System.Web.HttpResponse.Flush%2A?displayProperty=fullName>      -Alterar a política de cache para a resposta.      -Adicionar uma <xref:System.IO.Stream>objeto como um filtro para o <xref:System.Web.HttpResponse.Filter%2A?displayProperty=fullName>propriedade.</xref:System.Web.HttpResponse.Filter%2A?displayProperty=fullName> </xref:System.IO.Stream>"
   syntax:
     content: public virtual string OverrideExecuteUrlPath ();
     parameters: []
     return:
       type: System.String
-      description: "The overridden URL to use in the request; or <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;></xref> if an overridden URL is not provided."
+      description: "A URL substituída para uso na solicitação; ou <xref uid=&quot;langword_csharp_null&quot; name=&quot;null&quot; href=&quot;&quot;> </xref> se não for fornecido um URL substituído."
   overload: System.Web.DefaultHttpHandler.OverrideExecuteUrlPath*
   exceptions: []
   platform:
@@ -237,19 +237,19 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web
-  summary: "Enables a <xref href=&quot;System.Web.DefaultHttpHandler&quot;></xref> object to process of HTTP Web requests."
-  remarks: "The ProcessRequest method should not be called synchronously. Classes that are derived from the <xref:System.Web.DefaultHttpHandler> class can override the ProcessRequest to provide customized request processing."
+  summary: "Permite que um <xref href=&quot;System.Web.DefaultHttpHandler&quot;> </xref> o objeto para o processo de solicitações de HTTP da Web."
+  remarks: "O método ProcessRequest não deve ser chamado de forma síncrona. Classes que derivam de <xref:System.Web.DefaultHttpHandler>classe pode substituir o ProcessRequest para fornecer processamento de solicitação personalizado.</xref:System.Web.DefaultHttpHandler>"
   syntax:
     content: public virtual void ProcessRequest (System.Web.HttpContext context);
     parameters:
     - id: context
       type: System.Web.HttpContext
-      description: "An object that provides references to intrinsic server objects used to service HTTP requests."
+      description: "Um objeto que fornece referências a objetos do servidor intrínsecos usados para atender solicitações HTTP."
   overload: System.Web.DefaultHttpHandler.ProcessRequest*
   exceptions:
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The ProcessRequest is called synchronously."
+    description: "O ProcessRequest é chamada de forma síncrona."
   platform:
   - net462
 references:

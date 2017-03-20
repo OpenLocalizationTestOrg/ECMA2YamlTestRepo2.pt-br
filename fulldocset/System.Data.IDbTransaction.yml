@@ -13,8 +13,8 @@ items:
   nameWithType: IDbTransaction
   fullName: System.Data.IDbTransaction
   type: Interface
-  summary: "Represents a transaction to be performed at a data source, and is implemented by .NET Framework data providers that access relational databases."
-  remarks: "The IDbTransaction interface allows an inheriting class to implement a Transaction class, which represents the transaction to be performed at a data source. For more information about Transaction classes, see [Transactions and Concurrency](~/add/includes/ajax-current-ext-md.md).       An application does not create an instance of the IDbTransaction interface directly, but creates an instance of a class that inherits IDbTransaction.       Classes that inherit IDbTransaction must implement the inherited members, and typically define additional members to add provider-specific functionality. For example, the IDbTransaction interface defines the <xref:System.Data.IDbTransaction.Commit%2A> method. In turn, the <xref:System.Data.OleDb.OleDbTransaction> class inherits this property, and also defines the <xref:System.Data.OleDb.OleDbTransaction.Begin%2A> method."
+  summary: "Representa uma transação a ser executada em uma fonte de dados e é implementado por provedores de dados .NET Framework que acessam bancos de dados relacionais."
+  remarks: "A interface IDbTransaction permite que uma classe de herança para implementar uma classe de transação, que representa a transação a ser executada em uma fonte de dados. Para obter mais informações sobre classes de transação, consulte [transações e simultaneidade](~/add/includes/ajax-current-ext-md.md).       Um aplicativo não cria uma instância da interface IDbTransaction diretamente, mas cria uma instância de uma classe que herda IDbTransaction.       Classes que herdam IDbTransaction devem implementar os membros herdados e geralmente definem membros adicionais para adicionar funcionalidade específica do provedor. Por exemplo, a interface IDbTransaction define o <xref:System.Data.IDbTransaction.Commit%2A>método.</xref:System.Data.IDbTransaction.Commit%2A> Por sua vez, a <xref:System.Data.OleDb.OleDbTransaction>classe herda essa propriedade e também define o <xref:System.Data.OleDb.OleDbTransaction.Begin%2A>método.</xref:System.Data.OleDb.OleDbTransaction.Begin%2A> </xref:System.Data.OleDb.OleDbTransaction>"
   example:
   - "The following example creates instances of the derived classes, <xref:System.Data.SqlClient.SqlConnection> and <xref:System.Data.SqlClient.SqlTransaction>. It also demonstrates how to use the <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>, <xref:System.Data.SqlClient.SqlTransaction.Commit%2A>, and <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> methods.  \n  \n [!code-cs[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/csharp/t-system.data.idbtransac_1.cs)]\n [!code-vb[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/visualbasic/t-system.data.idbtransac_1.vb)]"
   syntax:
@@ -35,7 +35,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Commits the database transaction."
+  summary: "Confirma a transação de banco de dados."
   remarks: ''
   example:
   - "The following example creates instances of the derived classes, <xref:System.Data.SqlClient.SqlConnection> and a <xref:System.Data.SqlClient.SqlTransaction>. It also demonstrates how to use the <xref:System.Data.SqlClient.SqlTransaction.Commit%2A>, <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>, and <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> methods.  \n  \n [!code-cs[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/csharp/m-system.data.idbtransac_0_1.cs)]\n [!code-vb[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/visualbasic/m-system.data.idbtransac_0_1.vb)]"
@@ -46,10 +46,10 @@ items:
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An error occurred while trying to commit the transaction."
+    description: "Ocorreu um erro ao tentar confirmar a transação."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "A transação já foi confirmada ou revertida.       - ou - a conexão for interrompida."
   platform:
   - net462
 - uid: System.Data.IDbTransaction.Connection
@@ -64,13 +64,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Specifies the Connection object to associate with the transaction."
-  remarks: "A single application may have multiple database connections, each with zero or more transactions. This property enables you to determine the connection object associated with a particular transaction."
+  summary: "Especifica o objeto de Conexão associado à transação."
+  remarks: "Um único aplicativo pode ter várias conexões de banco de dados, cada uma com zero ou mais transações. Essa propriedade permite que você determine o objeto de conexão associado a uma transação específica."
   syntax:
     content: public System.Data.IDbConnection Connection { get; }
     return:
       type: System.Data.IDbConnection
-      description: "The Connection object to associate with the transaction."
+      description: "O objeto de Conexão associado à transação."
   overload: System.Data.IDbTransaction.Connection*
   exceptions: []
   platform:
@@ -87,13 +87,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Specifies the <xref href=&quot;System.Data.IsolationLevel&quot;></xref> for this transaction."
-  remarks: "Parallel transactions are not supported. Therefore, the <xref:System.Data.IsolationLevel> applies to the entire transaction."
+  summary: "Especifica o <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> para esta transação."
+  remarks: "Não há suporte para transações paralelas. Portanto, o <xref:System.Data.IsolationLevel>se aplica a toda a transação.</xref:System.Data.IsolationLevel>"
   syntax:
     content: public System.Data.IsolationLevel IsolationLevel { get; }
     return:
       type: System.Data.IsolationLevel
-      description: "The <xref href=&quot;System.Data.IsolationLevel&quot;></xref> for this transaction. The default is <xref uid=&quot;langword_csharp_ReadCommitted&quot; name=&quot;ReadCommitted&quot; href=&quot;&quot;></xref>."
+      description: "O <xref href=&quot;System.Data.IsolationLevel&quot;> </xref> para esta transação. O padrão é <xref uid=&quot;langword_csharp_ReadCommitted&quot; name=&quot;ReadCommitted&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.IDbTransaction.IsolationLevel*
   exceptions: []
   platform:
@@ -110,8 +110,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data
-  summary: "Rolls back a transaction from a pending state."
-  remarks: "The transaction can only be rolled back from a pending state (after <xref:System.Data.IDbConnection.BeginTransaction%2A> has been called, but before <xref:System.Data.IDbTransaction.Commit%2A> is called)."
+  summary: "Reverte uma transação de um estado pendente."
+  remarks: "A transação pode somente ser revertida de um estado pendente (após <xref:System.Data.IDbConnection.BeginTransaction%2A>foi chamado, mas antes <xref:System.Data.IDbTransaction.Commit%2A>é chamado).</xref:System.Data.IDbTransaction.Commit%2A> </xref:System.Data.IDbConnection.BeginTransaction%2A>"
   example:
   - "The following example creates instances of the derived classes, <xref:System.Data.SqlClient.SqlConnection> and a <xref:System.Data.SqlClient.SqlTransaction>. It also demonstrates how to use the <xref:System.Data.SqlClient.SqlConnection.BeginTransaction%2A>, <xref:System.Data.SqlClient.SqlTransaction.Commit%2A>, and <xref:System.Data.SqlClient.SqlTransaction.Rollback%2A> methods.  \n  \n [!code-cs[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/csharp/m-system.data.idbtransac_1_1.cs)]\n [!code-vb[Classic WebData SqlConnection.BeginTransaction Example#1](~/add/codesnippet/visualbasic/m-system.data.idbtransac_1_1.vb)]"
   syntax:
@@ -121,10 +121,10 @@ items:
   exceptions:
   - type: System.Exception
     commentId: T:System.Exception
-    description: "An error occurred while trying to commit the transaction."
+    description: "Ocorreu um erro ao tentar confirmar a transação."
   - type: System.InvalidOperationException
     commentId: T:System.InvalidOperationException
-    description: "The transaction has already been committed or rolled back.       -or-       The connection is broken."
+    description: "A transação já foi confirmada ou revertida.       - ou - a conexão for interrompida."
   platform:
   - net462
 references:

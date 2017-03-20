@@ -12,8 +12,8 @@ items:
   nameWithType: WebSuccessAuditEvent
   fullName: System.Web.Management.WebSuccessAuditEvent
   type: Class
-  summary: "Provides information about successful security events."
-  remarks: "ASP.NET health monitoring allows production and operations staff to manage deployed Web applications. The <xref:System.Web.Management> namespace contains the health event types responsible for packaging application health-status data and the provider types responsible for processing this data. It also contains supporting types that help during the management of health events.       The WebSuccessAuditEvent class is used when a successful security-related operation occurs. An example of this is a successful URL authorization for a Web request.       The following list describes the features for which events of type WebSuccessAuditEvent are raised by ASP.NET:      -   File Authorization. Successful conditions are audited. File authorization is only attempted by ASP.NET when a Windows Identity is associated with the request. The related event audit code is <xref:System.Web.Management.WebEventCodes.AuditFileAuthorizationSuccess>.      -   URL Authorization. It signifies access of a URL resource for which authorization is granted. Successful conditions are audited. The related event audit code is <xref:System.Web.Management.WebEventCodes.AuditUrlAuthorizationSuccess>.      -   Other security conditions. The following is a list of the related event codes:          -   <xref:System.Web.Management.WebEventCodes.AuditFormsAuthenticationSuccess>          -   <xref:System.Web.Management.WebEventCodes.AuditMembershipAuthenticationSuccess>       When a WebSuccessAuditEvent is raised, ASP.NET health monitoring increments the related Audit Success Events Raised performance counter and then checks the `healthMonitoring` configuration to determine whether any providers subscribe to the event. If providers subscribe to the event, ASP.NET dispatches the event to them for processing.      > [!NOTE] >  To view the Audit Success Event Raised performance counter in System Monitor (PerfMon), in the **Add Counters** window select **ASP.NET** from the **Performance object** drop-down list, select the **Audit Success Event Raised** performance counter, and click the **Add** button. For more information, see [Monitoring ASP.NET Application Performance](~/add/includes/ajax-current-ext-md.md).       Because success audits represent an expected condition, you may not want to subscribe to them. You can subscribe to them in order to provide access auditing for the site.      > [!NOTE] >  In most cases you will be able to use the ASP.NET health-monitoring types as implemented, and you will control the health-monitoring system by specifying values in the `healthMonitoring` configuration section. You can also derive from the health-monitoring types to create your own custom events and providers. For an example of deriving from the WebSuccessAuditEvent class, see the example provided in this topic."
+  summary: "Fornece informações sobre eventos de segurança com êxito."
+  remarks: "Monitoramento de integridade do ASP.NET permite que a equipe de produção e operações gerenciar a implantação de aplicativos da Web. O <xref:System.Web.Management>namespace contém os tipos de evento de integridade responsáveis pela compactação de dados de status de integridade do aplicativo e os tipos de provedor responsáveis pelo processamento de dados.</xref:System.Web.Management> Ele também contém tipos de suporte para ajudá-lo durante o gerenciamento de eventos de integridade.       A classe WebSuccessAuditEvent é usada quando ocorre uma operação bem-sucedida relacionadas à segurança. Um exemplo disso é uma autorização bem-sucedida de URL para uma solicitação da Web.       A lista a seguir descreve os recursos para os eventos do tipo WebSuccessAuditEvent são gerados pelo ASP.NET:-autorização do arquivo. Condições bem-sucedida são auditadas. Autorização do arquivo é tentada somente pelo ASP.NET quando uma identidade do Windows está associada à solicitação. O código de auditoria do evento relacionado é <xref:System.Web.Management.WebEventCodes.AuditFileAuthorizationSuccess>.</xref:System.Web.Management.WebEventCodes.AuditFileAuthorizationSuccess>      -URL autorização. Isso significa que o acesso de um recurso de URL para o qual a autorização é concedida. Condições bem-sucedida são auditadas. O código de auditoria do evento relacionado é <xref:System.Web.Management.WebEventCodes.AuditUrlAuthorizationSuccess>.</xref:System.Web.Management.WebEventCodes.AuditUrlAuthorizationSuccess>      -Outras condições de segurança. A seguir está uma lista dos códigos de evento relacionadas:- <xref:System.Web.Management.WebEventCodes.AuditFormsAuthenticationSuccess>- <xref:System.Web.Management.WebEventCodes.AuditMembershipAuthenticationSuccess>WebSuccessAuditEvent um quando é gerado, o monitoramento de integridade do ASP.NET incrementa o contador de desempenho de eventos de sucesso de auditoria gerados relacionado e verificações de, em seguida, o `healthMonitoring` configuração para determinar se os provedores de assinam o evento.</xref:System.Web.Management.WebEventCodes.AuditMembershipAuthenticationSuccess> </xref:System.Web.Management.WebEventCodes.AuditFormsAuthenticationSuccess> Se os provedores de assinem o evento, o ASP.NET despacha o evento-los para processamento.      > [!NOTE] > Para exibir o contador de desempenho do evento de sucesso de auditoria gerado no Monitor do sistema (PerfMon), no **adicionar contadores** janela Selecione **ASP.NET** do **objeto de desempenho** lista suspensa, selecione o **auditoria sucesso gerado** contador de desempenho e clique no **adicionar** botão. Para obter mais informações, consulte [monitoramento do desempenho do aplicativo ASP.NET](~/add/includes/ajax-current-ext-md.md).       Como as auditorias com êxito representam uma condição esperada, não convém assiná-los. Você pode assiná-los para fornecer acesso a auditoria para o site.      > [!NOTE] > Na maioria dos casos, você será capaz de usar os tipos de monitoramento de integridade do ASP.NET, conforme implementado e controlará o sistema de monitoramento de integridade, especificando valores a `healthMonitoring` seção de configuração. Você também pode derivar dos tipos de monitoramento de integridade para criar seus próprios eventos personalizados e provedores. Para obter um exemplo de derivar da classe WebSuccessAuditEvent, consulte o exemplo fornecido neste tópico."
   example:
   - "The following code example shows how to derive from the WebSuccessAuditEvent class to create a custom audit event.  \n  \n [!code-vb[System.Web.Management.WebSuccessAuditEvent#1](~/add/codesnippet/visualbasic/t-system.web.management._9_1.vb)]\n [!code-cs[System.Web.Management.WebSuccessAuditEvent#1](~/add/codesnippet/csharp/t-system.web.management._9_1.cs)]  \n  \n The following example is an excerpt of the configuration file that enables ASP.NET health monitoring to use the event.  \n  \n```  \n<healthMonitoring   \n..enabled=\"true\"  \n..heartBeatInterval=\"0\">   \n  <providers>  \n    <add name=\"EventLogProvider\"   \n    type=\"System.Web.Management.EventLogWebEventProvider,  \n    System.Web,Version=2.0.3600.0,Culture=neutral,  \n    PublicKeyToken=b03f5f7f11d50a3a\"/>  \n  </providers>  \n  <eventMappings>  \n    <add  name=\"SampleWebSuccessAuditEvent\"   \n      type=\"SamplesAspNet.SampleWebSuccessAuditEvent,  \n      websuccessauditevent,Version=1.0.1663.31140,   \n      Culture=neutral,   \n      PublicKeyToken=0d1fa0f69d94de96,   \n      processorArchitecture=MSIL\"/>  \n  </eventMappings>  \n  <rules>  \n    <add name=\"Custom Failure Audit Default\"  \n      eventName=\" SampleWebFailureAuditEvent \"  \n      provider=\"EventLogProvider\"  \n      profile=\"Default\"/>    \n  </rules>  \n</healthMonitoring>  \n```"
   syntax:
@@ -56,8 +56,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Management.WebSuccessAuditEvent&quot;></xref> class using the supplied parameters."
-  remarks: "This constructor is used internally by the ASP.NET health-monitoring system. You will never use it to instantiate a <xref:System.Web.Management.WebSuccessAuditEvent> object, but you can call this constructor when implementing your own event type that inherits from this class.      > [!NOTE] >  The WebSuccessAuditEvent constructor is not intended to be used directly from your code. It is called by ASP.NET. You can call the WebSuccessAuditEvent constructor when deriving from the <xref:System.Web.Management.WebSuccessAuditEvent> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.Management.WebSuccessAuditEvent&quot;> </xref> classe usando os parâmetros fornecidos."
+  remarks: "Este construtor é usado internamente pelo sistema de monitoramento de integridade do ASP.NET. Você nunca usará para criar uma instância de um <xref:System.Web.Management.WebSuccessAuditEvent>objeto, mas você pode chamar esse construtor ao implementar seu próprio tipo de evento que é herdada desta classe.</xref:System.Web.Management.WebSuccessAuditEvent>      > [!NOTE] > WebSuccessAuditEvent o construtor não se destina a ser usado diretamente no seu código. Ele é chamado pelo ASP.NET. Você pode chamar o construtor WebSuccessAuditEvent ao derivar da <xref:System.Web.Management.WebSuccessAuditEvent>classe</xref:System.Web.Management.WebSuccessAuditEvent> de"
   example:
   - "The following code example shows how to call this constructor in the `SampleWebSuccessAuditEvent` class. This code example is part of a larger example provided for the <xref:System.Web.Management.WebSuccessAuditEvent> class.  \n  \n [!code-vb[System.Web.Management.WebSuccessAuditEvent#2](~/add/codesnippet/visualbasic/5c3da28f-d581-4e89-9969-_1.vb)]\n [!code-cs[System.Web.Management.WebSuccessAuditEvent#2](~/add/codesnippet/csharp/5c3da28f-d581-4e89-9969-_1.cs)]"
   syntax:
@@ -65,13 +65,13 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: "The event description."
+      description: "A descrição do evento."
     - id: eventSource
       type: System.Object
-      description: "The object that is the source of the event."
+      description: "O objeto que é a origem do evento."
     - id: eventCode
       type: System.Int32
-      description: "The code associated with the event. When you implement a custom event, the event code must be greater than <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref>."
+      description: "O código associado ao evento. Quando você implementa um evento personalizado, o código de evento deve ser maior que <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref>."
   overload: System.Web.Management.WebSuccessAuditEvent.#ctor*
   exceptions: []
   platform:
@@ -88,8 +88,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Initializes a new instance of the <xref href=&quot;System.Web.Management.WebSuccessAuditEvent&quot;></xref> class using the supplied parameters."
-  remarks: "This constructor is used internally by the ASP.NET health-monitoring system. You will never use it to instantiate a <xref:System.Web.Management.WebSuccessAuditEvent> object, but you can call this constructor when implementing your own event type that inherits from this class.      > [!NOTE] >  The WebSuccessAuditEvent constructor is not intended to be used directly from your code. It is called by ASP.NET. You can call the WebSuccessAuditEvent constructor when deriving from the <xref:System.Web.Management.WebSuccessAuditEvent> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Web.Management.WebSuccessAuditEvent&quot;> </xref> classe usando os parâmetros fornecidos."
+  remarks: "Este construtor é usado internamente pelo sistema de monitoramento de integridade do ASP.NET. Você nunca usará para criar uma instância de um <xref:System.Web.Management.WebSuccessAuditEvent>objeto, mas você pode chamar esse construtor ao implementar seu próprio tipo de evento que é herdada desta classe.</xref:System.Web.Management.WebSuccessAuditEvent>      > [!NOTE] > WebSuccessAuditEvent o construtor não se destina a ser usado diretamente no seu código. Ele é chamado pelo ASP.NET. Você pode chamar o construtor WebSuccessAuditEvent ao derivar da <xref:System.Web.Management.WebSuccessAuditEvent>classe</xref:System.Web.Management.WebSuccessAuditEvent> de"
   example:
   - "The following code example shows how to call this constructor in the `SampleWebSuccessAuditEvent` class. This code example is part of a larger example provided for the <xref:System.Web.Management.WebSuccessAuditEvent> class.  \n  \n [!code-vb[System.Web.Management.WebSuccessAuditEvent#3](~/add/codesnippet/visualbasic/eb3e15a7-d3d9-41f8-b6c1-_1.vb)]\n [!code-cs[System.Web.Management.WebSuccessAuditEvent#3](~/add/codesnippet/csharp/eb3e15a7-d3d9-41f8-b6c1-_1.cs)]"
   syntax:
@@ -97,16 +97,16 @@ items:
     parameters:
     - id: message
       type: System.String
-      description: "The event description."
+      description: "A descrição do evento."
     - id: eventSource
       type: System.Object
-      description: "The object that is the source of the event."
+      description: "O objeto que é a origem do evento."
     - id: eventCode
       type: System.Int32
-      description: "The code associated with the event. When you implement a custom event, the event code must be greater than <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;></xref>."
+      description: "O código associado ao evento. Quando você implementa um evento personalizado, o código de evento deve ser maior que <xref href=&quot;System.Web.Management.WebEventCodes.WebExtendedBase&quot;> </xref>."
     - id: eventDetailCode
       type: System.Int32
-      description: "The <xref href=&quot;System.Web.Management.WebEventCodes&quot;></xref> value that specifies the detailed identifier for the event."
+      description: "O <xref href=&quot;System.Web.Management.WebEventCodes&quot;> </xref> valor que especifica o identificador detalhado para o evento."
   overload: System.Web.Management.WebSuccessAuditEvent.#ctor*
   exceptions: []
   platform:
@@ -123,8 +123,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Management
-  summary: "Increments the Audit Success Events Raised performance counter."
-  remarks: "The Audit Success Events Raised performance counter tracks the number of successful audit events raised since the application started. This method also calls the parent <xref:System.Web.Management.WebBaseEvent.IncrementPerfCounters%2A> method, which increments the Events Raised counter. This counter tracks the total number of events raised.       To view these performance counters in System Monitor (PerfMon), in the **Add Counters** window select **ASP.NET** from the **Performance object** drop-down list, select the performance counter you want to view, and click the **Add** button. For more information, see [Monitoring ASP.NET Application Performance](~/add/includes/ajax-current-ext-md.md)."
+  summary: "Incrementa o contador de desempenho eventos de sucesso de auditoria gerados."
+  remarks: "O contador de desempenho gerado de eventos de sucesso de auditoria controla o número de eventos de auditoria com êxito gerados desde que o aplicativo foi iniciado. Este método também chama o pai <xref:System.Web.Management.WebBaseEvent.IncrementPerfCounters%2A>método, o que incrementa o contador de eventos gerados.</xref:System.Web.Management.WebBaseEvent.IncrementPerfCounters%2A> Este contador controla o número total de eventos gerados.       Para exibir esses contadores de desempenho no Monitor do sistema (PerfMon), no **adicionar contadores** janela Selecione **ASP.NET** do **objeto de desempenho** lista suspensa, selecione o contador de desempenho que você deseja exibir e, em seguida, clique no **adicionar** botão. Para obter mais informações, consulte [monitoramento do desempenho do aplicativo ASP.NET](~/add/includes/ajax-current-ext-md.md)."
   syntax:
     content: protected override void IncrementPerfCounters ();
     parameters: []

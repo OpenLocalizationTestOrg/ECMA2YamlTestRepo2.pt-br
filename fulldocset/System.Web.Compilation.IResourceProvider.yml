@@ -11,8 +11,8 @@ items:
   nameWithType: IResourceProvider
   fullName: System.Web.Compilation.IResourceProvider
   type: Interface
-  summary: "Defines the interface a class must implement to act as a resource provider."
-  remarks: 'A resource provider facilitates the retrieving of values from a resource file. When an expression of the form `<%$ Resources: classKey, resourceKey %>` is encountered during page parsing, the resource provider returns the localized value for the resource. The <xref:System.Web.Compilation.ResourceProviderFactory> class creates instances of IResourceProvider objects for use in retrieving the values.'
+  summary: "Define a interface de que uma classe deve implementar para atuar como um provedor de recursos."
+  remarks: 'Um provedor de recursos facilita a recuperação de valores de um arquivo de recurso. Quando uma expressão do formulário `<%$ Resources: classKey, resourceKey %>` é encontrado durante a análise da página, o provedor de recursos retorna o valor localizado do recurso. O <xref:System.Web.Compilation.ResourceProviderFactory>classe cria instâncias de objetos IResourceProvider para uso ao recuperar os valores.</xref:System.Web.Compilation.ResourceProviderFactory>'
   example:
   - "The following code example shows a customized resource provider factory that retrieves cached values. The resource provider factory creates an instance of a class that implements IResourceProvider.  \n  \n [!code-vb[System.Web.Compilation.ResourceProviderFactory#2](~/add/codesnippet/visualbasic/t-system.web.compilation_5_1.vb)]\n [!code-cs[System.Web.Compilation.ResourceProviderFactory#2](~/add/codesnippet/csharp/t-system.web.compilation_5_1.cs)]"
   syntax:
@@ -32,8 +32,8 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Returns a resource object for the key and culture."
-  remarks: "When implemented, the GetObject method returns the localized value for a resource key based on the current culture. The implementing class could retrieve the <xref:System.Globalization.CultureInfo.CurrentUICulture%2A> property if a value for the `culture` parameter is not passed in."
+  summary: "Retorna um objeto de recurso para a chave e a cultura."
+  remarks: "Quando implementada, o método GetObject retorna o valor localizado de uma chave de recurso com base na cultura atual. A classe de implementação foi possível recuperar o <xref:System.Globalization.CultureInfo.CurrentUICulture%2A>propriedade se um valor para o `culture` parâmetro não foi passado.</xref:System.Globalization.CultureInfo.CurrentUICulture%2A>"
   example:
   - "The following code example shows a customized resource provider factory that retrieves cached values. The resource provider factory creates an instance of a customized resource provider that implements <xref:System.Web.Compilation.IResourceProvider>. The resource provider includes a customized GetObject method.  \n  \n [!code-vb[System.Web.Compilation.ResourceProviderFactory#2](~/add/codesnippet/visualbasic/2a0e17d4-2039-481b-ab7e-_1.vb)]\n [!code-cs[System.Web.Compilation.ResourceProviderFactory#2](~/add/codesnippet/csharp/2a0e17d4-2039-481b-ab7e-_1.cs)]"
   syntax:
@@ -41,13 +41,13 @@ items:
     parameters:
     - id: resourceKey
       type: System.String
-      description: "The key identifying a particular resource."
+      description: "A chave que identifica um recurso específico."
     - id: culture
       type: System.Globalization.CultureInfo
-      description: "The culture identifying a localized value for the resource."
+      description: "A cultura que identifica um valor localizado do recurso."
     return:
       type: System.Object
-      description: "An <xref:System.Object> that contains the resource value for the <code>resourceKey</code> and <code>culture</code>."
+      description: "Um <xref:System.Object>que contém o valor do recurso para o <code> resourceKey </code> e <code> culture </code>.</xref:System.Object>"
   overload: System.Web.Compilation.IResourceProvider.GetObject*
   exceptions: []
   platform:
@@ -64,15 +64,15 @@ items:
   assemblies:
   - System.Web
   namespace: System.Web.Compilation
-  summary: "Gets an object to read resource values from a source."
-  remarks: "An <xref:System.Resources.IResourceReader> object reads sequential name/value pairs from a source. The <xref:System.Resources.ResourceReader> and <xref:System.Resources.ResXResourceReader> classes provide default <xref:System.Resources.IResourceReader> interface implementation for reading from .resources and .resx files, respectively. Other implementations of the <xref:System.Web.Compilation.IResourceProvider> interface could read from any source containing resource values."
+  summary: "Obtém um objeto para ler valores de recursos de uma fonte."
+  remarks: "Um <xref:System.Resources.IResourceReader>objeto lê os pares nome/valor sequencial de uma fonte.</xref:System.Resources.IResourceReader> O <xref:System.Resources.ResourceReader>e <xref:System.Resources.ResXResourceReader>classes fornecem padrão <xref:System.Resources.IResourceReader>interface implementação para leitura de arquivos. Resources e. resx, respectivamente.</xref:System.Resources.IResourceReader> </xref:System.Resources.ResXResourceReader> </xref:System.Resources.ResourceReader> Outras implementações do <xref:System.Web.Compilation.IResourceProvider>interface pode ler de qualquer fonte que contém valores de recursos.</xref:System.Web.Compilation.IResourceProvider>"
   example:
   - "The following code example shows a customized resource provider factory that retrieves cached values. The resource provider factory creates an instance of a customized resource provider that implements <xref:System.Web.Compilation.IResourceProvider>. The resource provider includes a customized ResourceReader property.  \n  \n [!code-vb[System.Web.Compilation.ResourceProviderFactory#2](~/add/codesnippet/visualbasic/p-system.web.compilation_5_1.vb)]\n [!code-cs[System.Web.Compilation.ResourceProviderFactory#2](~/add/codesnippet/csharp/p-system.web.compilation_5_1.cs)]"
   syntax:
     content: public System.Resources.IResourceReader ResourceReader { get; }
     return:
       type: System.Resources.IResourceReader
-      description: "The <xref href=&quot;System.Resources.IResourceReader&quot;></xref> associated with the current resource provider."
+      description: "O <xref href=&quot;System.Resources.IResourceReader&quot;> </xref> associado com o provedor de recursos atual."
   overload: System.Web.Compilation.IResourceProvider.ResourceReader*
   exceptions: []
   platform:

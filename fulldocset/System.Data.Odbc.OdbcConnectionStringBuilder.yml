@@ -19,8 +19,8 @@ items:
   nameWithType: OdbcConnectionStringBuilder
   fullName: System.Data.Odbc.OdbcConnectionStringBuilder
   type: Class
-  summary: "Provides a simple way to create and manage the contents of connection strings used by the <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;></xref> class."
-  remarks: "The connection string builders let developers programmatically create syntactically correct connection strings, and parse and rebuild existing connection strings, using properties and methods of the class. The connection string builder provides strongly typed properties corresponding to the known key/value pairs allowed by ODBC connections, and developers can add arbitrary key/value pairs for any other connection string values.       Developers needing to create connection strings as part of applications can use the OdbcConnectionStringBuilder class to build and modify connection strings. The class also makes it easy to manage connection strings stored in an application configuration file. OdbcConnectionStringBuilder performs checks only for the limited set of known key/value pairs. Therefore, this class can be used to create invalid connection strings. The following table lists the specific known keys together with their corresponding properties within the OdbcConnectionStringBuilder class, and their default values. Besides these specific values, developers can add any key/value pairs to the collection that is contained within the OdbcConnectionStringBuilder instance.      |Key|Property|Comment|Default value|   |---------|--------------|-------------|-------------------|   |Driver|<xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A>|Developers should not include the braces surrounding the driver name when they set the <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A> property. The OdbcConnectionStringBuilder instance adds braces as needed.|Empty string|   |DSN|<xref:System.Data.Odbc.OdbcConnectionStringBuilder.Dsn%2A>||Empty string|       If any value (other than the <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A> value) within the connection string contains a semicolon (;), the OdbcConnectionStringBuilder surrounds the value with quotation marks in the connection string. In order to avoid this issue with the <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A> value that frequently contains a semicolon, the OdbcConnectionStringBuilder class always surrounds this value with braces. The ODBC specification indicates that driver values that contain semicolons must be surrounded with braces, and this class handles this for you.       The <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Item%2A> property handles attempts to insert malicious code. For example, the following code, using the default <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Item%2A> property (the indexer, in C#) correctly escapes the nested key/value pair.       [Visual Basic]      ```   Dim builder As _    New System.Data.Odbc.OdbcConnectionStringBuilder   &quot; Take advantage of the Driver property.    builder.Driver = &quot;SQL Server&quot;   builder(&quot;Server&quot;) = &quot;MyServer;NewValue=Bad&quot;   Console.WriteLine(builder.ConnectionString)   ```       [C#]      ```   System.Data.Odbc.OdbcConnectionStringBuilder builder =      new System.Data.Odbc.OdbcConnectionStringBuilder();   // Take advantage of the Driver property.    builder.Driver = &quot;SQL Server&quot;;   builder[&quot;Server&quot;] = &quot;MyServer;NewValue=Bad&quot;;   Console.WriteLine(builder.ConnectionString);   ```       The result is the following connection string that handles the invalid value in a safe manner:      ```   Driver={SQL Server};Server=&quot;MyServer;NewValue=Bad&quot;   ```"
+  summary: "Fornece uma maneira simple de criar e gerenciar o conteúdo de cadeias de caracteres de conexão usadas pelo <xref href=&quot;System.Data.Odbc.OdbcConnection&quot;> </xref> classe."
+  remarks: "Os construtores de cadeia de caracteres de conexão permitem que os desenvolvedores programaticamente criar cadeias de caracteres de conexão sintaticamente correto e analisar e recriar as cadeias de caracteres de conexão existente, usando as propriedades e métodos da classe. O construtor de cadeia de caracteres de conexão fornece fortemente tipada propriedades correspondentes para os pares chave/valor conhecido permitido por conexões ODBC e os desenvolvedores podem adicionar pares de chave/valor arbitrário para outros valores de cadeia de caracteres de conexão.       Os desenvolvedores que precisam criar cadeias de caracteres de conexão como parte dos aplicativos podem usar a classe OdbcConnectionStringBuilder para criar e modificar cadeias de caracteres de conexão. A classe também torna fácil de gerenciar cadeias de caracteres de conexão armazenadas em um arquivo de configuração do aplicativo. OdbcConnectionStringBuilder executa verificações somente para o conjunto limitado de pares chave/valor conhecido. Portanto, essa classe pode ser usada para criar cadeias de caracteres de conexão inválido. A tabela a seguir lista as chaves conhecidas específicas junto com suas propriedades correspondentes na classe OdbcConnectionStringBuilder e seus valores padrão. Além desses valores específicos, os desenvolvedores podem adicionar qualquer pares chave/valor na coleção que está contido dentro da instância de OdbcConnectionStringBuilder.      | Chave | Propriedade | Comentário | Valor padrão |   |---------|--------------|-------------|-------------------|   | Driver | <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A>| Os desenvolvedores não devem incluir os colchetes ao redor do nome do driver quando eles definem o <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A>propriedade.</xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A> </xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A> A instância OdbcConnectionStringBuilder adiciona chaves conforme necessário. | Cadeia de caracteres vazia |   | DSN | <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Dsn%2A>|| Cadeia de caracteres vazia |       Se qualquer valor (diferente de <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A>valor) dentro de conexão a cadeia de caracteres contém um ponto e vírgula (;), o OdbcConnectionStringBuilder envolve o valor entre aspas na cadeia de conexão.</xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A> </xref:System.Data.Odbc.OdbcConnectionStringBuilder.Dsn%2A> Para evitar esse problema com o <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A>esse valor com colchetes ao redor do valor que contém um ponto e vírgula, a classe OdbcConnectionStringBuilder sempre, com frequência.</xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A> A especificação de ODBC indica que valores de driver que contenham ponto e vírgula devem estar entre chaves, e essa classe trata isso para você.       O <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Item%2A>propriedade manipula as tentativas de inserir um código mal-intencionado.</xref:System.Data.Odbc.OdbcConnectionStringBuilder.Item%2A> Por exemplo, o código a seguir, usando o padrão <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Item%2A>propriedade (o indexador, em c#) corretamente ignora o par chave/valor aninhado.</xref:System.Data.Odbc.OdbcConnectionStringBuilder.Item%2A>       [Visual Basic]      ```   Dim builder As _    New System.Data.Odbc.OdbcConnectionStringBuilder   &quot; Take advantage of the Driver property.    builder.Driver = &quot;SQL Server&quot;   builder(&quot;Server&quot;) = &quot;MyServer;NewValue=Bad&quot;   Console.WriteLine(builder.ConnectionString)   ``` [C#] ```   System.Data.Odbc.OdbcConnectionStringBuilder builder =      new System.Data.Odbc.OdbcConnectionStringBuilder();   // Take advantage of the Driver property.    builder.Driver = &quot;SQL Server&quot;;   builder[&quot;Server&quot;] = &quot;MyServer;NewValue=Bad&quot;;   Console.WriteLine(builder.ConnectionString);   ``` o resultado é a seguinte cadeia de conexão que trata o valor inválido de maneira segura:```   Driver={SQL Server};Server=&quot;MyServer;NewValue=Bad&quot;   ```"
   example:
   - "The following console application builds connection strings for several ODBC databases. First, the example creates a connection string for a Microsoft Access database. It then creates a connection string for an IBM DB2 database. The example also parses an existing connection string, and demonstrates various ways of manipulating the contents of the connection string.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how OdbcConnectionStringBuilder works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-cs[DataWorks OdbcConnectionStringBuilder#1](~/add/codesnippet/csharp/t-system.data.odbc.odbcc_2_1.cs)]\n [!code-vb[DataWorks OdbcConnectionStringBuilder#1](~/add/codesnippet/visualbasic/t-system.data.odbc.odbcc_2_1.vb)]"
   syntax:
@@ -84,7 +84,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref> class."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref> classe."
   syntax:
     content: public OdbcConnectionStringBuilder ();
     parameters: []
@@ -104,8 +104,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Initializes a new instance of the <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref> class. The provided connection string provides the data for the instance&quot;s internal connection information."
-  remarks: "You can pass a connection string in the constructor, or you can set the <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> property explicitly. The behavior is the same either way."
+  summary: "Inicializa uma nova instância do <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref> classe. A cadeia de caracteres de conexão fornecido fornece os dados para obter informações de conexão interna da instância."
+  remarks: "Você pode passar uma cadeia de caracteres de conexão no construtor, ou você pode definir o <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A>propriedade explicitamente.</xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> O comportamento é o mesmo de qualquer forma."
   example:
   - "The following example creates multiple <xref:System.Data.Odbc.OdbcConnectionStringBuilder> instances, passing a different connection string to the constructor in each case. Note that the ordering of elements within the connection string may be modified when you retrieve the <xref:System.Data.Common.DbConnectionStringBuilder.ConnectionString%2A> property. Also note that keys other than the predefined \"Dsn\" and \"Driver\" keys are converted to lowercase by the <xref:System.Data.Odbc.OdbcConnectionStringBuilder> class.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how <xref:System.Data.Odbc.OdbcConnectionStringBuilder> works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-cs[DataWorks OdbcConnectionStringBuilder.Multiple#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcc_5_1.cs)]\n [!code-vb[DataWorks OdbcConnectionStringBuilder.Multiple#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_5_1.vb)]"
   syntax:
@@ -113,12 +113,12 @@ items:
     parameters:
     - id: connectionString
       type: System.String
-      description: "The basis for the object&quot;s internal connection information. Parsed into key/value pairs."
+      description: "A base de informações de conexão interna do objeto. Analisado em pares chave/valor."
   overload: System.Data.Odbc.OdbcConnectionStringBuilder.#ctor*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The connection string is incorrectly formatted (perhaps missing the required &quot;=&quot; within a key/value pair)."
+    description: "A cadeia de caracteres de conexão está formatada incorretamente (talvez sem o necessário &quot;=&quot; dentro de um par chave/valor)."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnectionStringBuilder.Clear
@@ -133,8 +133,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Clears the contents of the <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref> instance."
-  remarks: "The Clear method removes all key/value pairs from the <xref:System.Data.Odbc.OdbcConnectionStringBuilder> and resets the <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A> and <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Dsn%2A> properties to their default values. The Clear method also sets the <xref:System.Data.Common.DbConnectionStringBuilder.Count%2A> property to 0 and the <xref:System.Data.Odbc.OdbcConnectionStringBuilder.ConnectionString> property to an empty string."
+  summary: "Limpa o conteúdo do <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref> instância."
+  remarks: "O método Clear remove todos os pares chave/valor da <xref:System.Data.Odbc.OdbcConnectionStringBuilder>e redefine o <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A>e <xref:System.Data.Odbc.OdbcConnectionStringBuilder.Dsn%2A>propriedades com seus valores padrão.</xref:System.Data.Odbc.OdbcConnectionStringBuilder.Dsn%2A> </xref:System.Data.Odbc.OdbcConnectionStringBuilder.Driver%2A> </xref:System.Data.Odbc.OdbcConnectionStringBuilder> O método Clear também define o <xref:System.Data.Common.DbConnectionStringBuilder.Count%2A>propriedade como 0 e o <xref:System.Data.Odbc.OdbcConnectionStringBuilder.ConnectionString>propriedade como uma cadeia de caracteres vazia.</xref:System.Data.Odbc.OdbcConnectionStringBuilder.ConnectionString> </xref:System.Data.Common.DbConnectionStringBuilder.Count%2A>"
   example:
   - >-
     [!code-vb[DataWorks OdbcConnectionStringBuilder.Clear#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_8_1.vb)]
@@ -158,7 +158,7 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Determines whether the <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref> contains a specific key."
+  summary: "Determina se o <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref> contém uma chave específica."
   remarks: ''
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnectionStringBuilder> instance, sets some of its properties, and then tries to determine whether various keys exist within the object by calling the ContainsKey method.  \n  \n [!code-vb[DataWorks OdbcConnectionStringBuilder.ContainsKey#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_2_1.vb)]\n [!code-cs[DataWorks OdbcConnectionStringBuilder.ContainsKey#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcc_2_1.cs)]"
@@ -167,15 +167,15 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key to locate in the <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref>."
+      description: "A chave a ser localizado no <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref> contains an element that has the specified key; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref> contém um elemento que foi especificado chave; caso contrário <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Odbc.OdbcConnectionStringBuilder.ContainsKey*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> is null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>keyword</code>é nulo (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> no Visual Basic)."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnectionStringBuilder.Driver
@@ -190,13 +190,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the name of the ODBC driver associated with the connection."
-  remarks: "If the value passed in is null when you try to set the property, the Driver property is reset. If the value has not been set and the developer tries to retrieve the property, the return value is `String.Empty`. This property corresponds to the &quot;Driver&quot; key within the connection string."
+  summary: "Obtém ou define o nome do driver ODBC associado com a conexão."
+  remarks: "Se o valor passado é nulo quando você tentar definir a propriedade, a propriedade do Driver é redefinida. Se o valor não foi definido e o desenvolvedor tenta recuperar a propriedade, o valor de retorno é `String.Empty`. Essa propriedade corresponde à chave de &quot;Driver&quot; na cadeia de caracteres de conexão."
   syntax:
     content: public string Driver { get; set; }
     return:
       type: System.String
-      description: "The value of the Driver property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "O valor da propriedade de Driver, ou <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> se nenhum foi fornecido."
   overload: System.Data.Odbc.OdbcConnectionStringBuilder.Driver*
   exceptions: []
   platform:
@@ -213,13 +213,13 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the name of the data source name (DSN) associated with the connection."
-  remarks: "If the value passed in is null when you try to set the property, the Dsn property is reset. If the value has not been set and the developer tries to retrieve the property, the return value is `String.Empty`. This property corresponds to the &quot;Dsn&quot; key within the connection string."
+  summary: "Obtém ou define o nome do que o nome da fonte de dados (DSN) associado com a conexão."
+  remarks: "Se o valor passado é nulo quando você tentar definir a propriedade, a propriedade de Dsn é redefinida. Se o valor não foi definido e o desenvolvedor tenta recuperar a propriedade, o valor de retorno é `String.Empty`. Essa propriedade corresponde à chave &quot;Dsn&quot; na cadeia de caracteres de conexão."
   syntax:
     content: public string Dsn { get; set; }
     return:
       type: System.String
-      description: "The value of the Dsn property, or <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;></xref> if none has been supplied."
+      description: "O valor da propriedade Dsn, ou <xref uid=&quot;langword_csharp_String.Empty&quot; name=&quot;String.Empty&quot; href=&quot;&quot;> </xref> se nenhum foi fornecido."
   overload: System.Data.Odbc.OdbcConnectionStringBuilder.Dsn*
   exceptions: []
   platform:
@@ -236,8 +236,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets or sets the value associated with the specified key. In C#, this property is the indexer."
-  remarks: "When you set this property, if the specified key already exists in the dictionary, the value is replaced; otherwise, a new element is created."
+  summary: "Obtém ou define o valor associado com a chave especificada. No c#, essa propriedade é o indexador."
+  remarks: "Quando você definir essa propriedade, se a chave especificada já existe no dicionário, o valor será substituído; Caso contrário, um novo elemento é criado."
   example:
   - "The following code, in a console application, creates a new <xref:System.Data.Odbc.OdbcConnectionStringBuilder> and adds key/value pairs to its connection string, using the Item property.  \n  \n [!code-vb[DataWorks OdbcConnectionStringBuilder.Item#1](~/add/codesnippet/visualbasic/p-system.data.odbc.odbcc_2_1.vb)]\n [!code-cs[DataWorks OdbcConnectionStringBuilder.Item#1](~/add/codesnippet/csharp/p-system.data.odbc.odbcc_2_1.cs)]"
   syntax:
@@ -245,18 +245,18 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key of the item to get or set."
+      description: "A chave do item a ser obtido ou definido."
     return:
       type: System.Object
-      description: "The value associated with the specified key."
+      description: "O valor associado com a chave especificada."
   overload: System.Data.Odbc.OdbcConnectionStringBuilder.Item*
   exceptions:
   - type: System.ArgumentException
     commentId: T:System.ArgumentException
-    description: "The connection string is incorrectly formatted (perhaps missing the required &quot;=&quot; within a key/value pair)."
+    description: "A cadeia de caracteres de conexão está formatada incorretamente (talvez sem o necessário &quot;=&quot; dentro de um par chave/valor)."
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> is a null reference (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>keyword</code>é uma referência nula (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> no Visual Basic)."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnectionStringBuilder.Keys
@@ -271,15 +271,15 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Gets an <xref:System.Collections.ICollection> that contains the keys in the <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref>."
-  remarks: "The order of the values in the <xref:System.Collections.ICollection> is the same order as the associated values in the <xref:System.Collections.ICollection> returned by the <xref:System.Data.Common.DbConnectionStringBuilder.Values%2A> property."
+  summary: "Obtém um <xref:System.Collections.ICollection>que contém as chaves de <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref>.</xref:System.Collections.ICollection>"
+  remarks: "A ordem dos valores no <xref:System.Collections.ICollection>é a mesma ordem que os valores associados a <xref:System.Collections.ICollection>retornado pelo <xref:System.Data.Common.DbConnectionStringBuilder.Values%2A>propriedade.</xref:System.Data.Common.DbConnectionStringBuilder.Values%2A> </xref:System.Collections.ICollection> </xref:System.Collections.ICollection>"
   example:
   - "The following console application example creates a new <xref:System.Data.Odbc.OdbcConnectionStringBuilder>. The code loops through the <xref:System.Collections.ICollection> returned by the Keys property displaying the key/value pairs.  \n  \n> [!NOTE]\n>  This example includes a password to demonstrate how <xref:System.Data.Odbc.OdbcConnectionStringBuilder> works with connection strings. In your applications, we recommend that you use Windows Authentication. If you must use a password, do not include a hard-coded password in your application.  \n  \n [!code-vb[DataWorks OdbcConnectionStringBuilder.Keys#1](~/add/codesnippet/visualbasic/p-system.data.odbc.odbcc_0_1.vb)]\n [!code-cs[DataWorks OdbcConnectionStringBuilder.Keys#1](~/add/codesnippet/csharp/p-system.data.odbc.odbcc_0_1.cs)]"
   syntax:
     content: public override System.Collections.ICollection Keys { get; }
     return:
       type: System.Collections.ICollection
-      description: "An <xref:System.Collections.ICollection> that contains the keys in the <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref>."
+      description: "Um <xref:System.Collections.ICollection>que contém as chaves de <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref>.</xref:System.Collections.ICollection>"
   overload: System.Data.Odbc.OdbcConnectionStringBuilder.Keys*
   exceptions: []
   platform:
@@ -296,8 +296,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Removes the entry with the specified key from the <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref> instance."
-  remarks: "Because the Remove method returns a value that indicates its success, it is not required to look for the existence of a key before trying to remove the key/value pair from the <xref:System.Data.Odbc.OdbcConnectionStringBuilder> instance."
+  summary: "Remove a entrada com a chave especificada do <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref> instância."
+  remarks: "Como o método Remove retorna um valor que indica o sucesso, não é necessário para procurar a existência de uma chave antes de tentar remover o par chave/valor da <xref:System.Data.Odbc.OdbcConnectionStringBuilder>instância.</xref:System.Data.Odbc.OdbcConnectionStringBuilder>"
   example:
   - "The following example creates an <xref:System.Data.Odbc.OdbcConnectionStringBuilder> instance and demonstrates the behavior of the Remove method.  \n  \n [!code-cs[DataWorks OdbcConnectionStringBuilder.Remove#1](~/add/codesnippet/csharp/m-system.data.odbc.odbcc_7_1.cs)]\n [!code-vb[DataWorks OdbcConnectionStringBuilder.Remove#1](~/add/codesnippet/visualbasic/m-system.data.odbc.odbcc_7_1.vb)]"
   syntax:
@@ -305,15 +305,15 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key of the key/value pair to be removed from the connection string in this <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref>."
+      description: "A chave do par chave/valor a ser removido da cadeia de conexão neste <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref>."
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the key existed within the connection string and was removed; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref> if the key did not exist."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se a chave existe na cadeia de caracteres de conexão e foi removida; <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref> se a chave não existe."
   overload: System.Data.Odbc.OdbcConnectionStringBuilder.Remove*
   exceptions:
   - type: System.ArgumentNullException
     commentId: T:System.ArgumentNullException
-    description: "<code>keyword</code> is null (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;></xref> in Visual Basic)."
+    description: "<code>keyword</code>é nulo (<xref uid=&quot;langword_csharp_Nothing&quot; name=&quot;Nothing&quot; href=&quot;&quot;> </xref> no Visual Basic)."
   platform:
   - net462
 - uid: System.Data.Odbc.OdbcConnectionStringBuilder.TryGetValue(System.String,System.Object@)
@@ -328,8 +328,8 @@ items:
   assemblies:
   - System.Data
   namespace: System.Data.Odbc
-  summary: "Retrieves a value corresponding to the supplied key from this <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;></xref>."
-  remarks: "The TryGetValue method lets developers safely retrieve a value from a <xref:System.Data.Odbc.OdbcConnectionStringBuilder> without needing to verify that the supplied key name is a valid key name. Because TryGetValue does not raise an exception when you pass in a nonexistent key, you do not have to look for a key before retrieving its value. Calling TryGetValue with a nonexistent key places the value null (`Nothing` in Visual Basic) in the `value` parameter."
+  summary: "Recupera um valor correspondente para a chave fornecida neste <xref href=&quot;System.Data.Odbc.OdbcConnectionStringBuilder&quot;> </xref>."
+  remarks: "O método TryGetValue permite que os desenvolvedores recuperar com segurança um valor de um <xref:System.Data.Odbc.OdbcConnectionStringBuilder>sem a necessidade de verificar se o nome de chave fornecido é um nome de chave válido.</xref:System.Data.Odbc.OdbcConnectionStringBuilder> Porque TryGetValue não gera uma exceção quando você passar uma chave que não existe, não é necessário que procurar uma chave antes de recuperar seu valor. Chamando TryGetValue com uma chave inexistente coloca o valor null (`Nothing` no Visual Basic) no `value` parâmetro."
   example:
   - "The following example demonstrates the behavior of the TryGetValue method.  \n  \n [!code-vb[DataWorks OdbcConnectionStringBuilder.TryGetValue#1](~/add/codesnippet/visualbasic/43cb7fd0-7a9f-4e91-821e-_1.vb)]\n [!code-cs[DataWorks OdbcConnectionStringBuilder.TryGetValue#1](~/add/codesnippet/csharp/43cb7fd0-7a9f-4e91-821e-_1.cs)]"
   syntax:
@@ -337,13 +337,13 @@ items:
     parameters:
     - id: keyword
       type: System.String
-      description: "The key of the item to retrieve."
+      description: "A chave do item a ser recuperado."
     - id: value
       type: System.Object
-      description: "The value corresponding to `keyword.`"
+      description: "O valor correspondente a`keyword.`"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if <code>keyword</code> was found within the connection string; otherwise <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se <code> keyword </code> foi encontrado na cadeia de caracteres de conexão; caso contrário <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>."
   overload: System.Data.Odbc.OdbcConnectionStringBuilder.TryGetValue*
   exceptions: []
   platform:

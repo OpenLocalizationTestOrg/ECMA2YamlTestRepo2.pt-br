@@ -13,8 +13,8 @@ items:
   nameWithType: MessageFilter
   fullName: System.ServiceModel.Dispatcher.MessageFilter
   type: Class
-  summary: "<xref uid=&quot;langword_csharp_abstract&quot; name=&quot;abstract&quot; href=&quot;&quot;></xref> base class for different classes of filters used to query messages."
-  remarks: "MessageFilter is an `abstract` class that developers implement in order to specify the criteria to use for inspecting messages. Typically, filters are used by an endpoint application to determine what to do with a message based on an examination of some part of the message. A queuing process, for example, can use an XPath 1.0 query to check the priority element of a known header to determine whether to move a message to the front of the queue.       Filters are stored in a filter table that implements <xref:System.ServiceModel.Dispatcher.IMessageFilterTable%601>. Each filter in the table is associated with specified filter data that can be used to indicate what actions to take if a message matches the filter. The <xref:System.ServiceModel.Dispatcher.MessageFilter.Match%2A> methods are used to determine if a message satisfies a filter.       The criteria used by a filter cannot be changed once the filter is constructed because the filter tables have no way to detect a change. The only way to modify the criteria of a filter is to construct a new one and delete the existing filter.       The following classes implement the `abstract`MessageFilter class:      -   <xref:System.ServiceModel.Dispatcher.XPathMessageFilter> uses an XPath 1.0 expression to specify the criteria for a match.      -   <xref:System.ServiceModel.Dispatcher.MatchAllMessageFilter> matches all messages.      -   <xref:System.ServiceModel.Dispatcher.MatchNoneMessageFilter> matches none of the messages.      -   <xref:System.ServiceModel.Dispatcher.ActionMessageFilter> tests whether the action of a message is one of a specified set of actions.      -   <xref:System.ServiceModel.Dispatcher.EndpointAddressMessageFilter> tests whether a message satisfies a specified endpoint address.       <xref:System.ServiceModel.Channels.ChannelListenerBase%601> is an `abstract` base class that you can use for writing non-queuing listeners."
+  summary: "<xref uid=&quot;langword_csharp_abstract&quot; name=&quot;abstract&quot; href=&quot;&quot;></xref>classe base para classes diferentes de filtros usados para consultar mensagens."
+  remarks: "MessageFilter é um `abstract` que implementam os desenvolvedores de classe para especificar os critérios usados para inspecionar mensagens. Normalmente, os filtros são usados por um aplicativo de ponto de extremidade para determinar o que fazer com uma mensagem com base em um exame de alguma parte da mensagem. Um processo de enfileiramento de mensagens, por exemplo, pode usar uma consulta XPath 1.0 para verificar se o elemento de prioridade de um cabeçalho conhecido para determinar se deve mover uma mensagem para o início da fila.       Os filtros são armazenados em uma tabela de filtro que implementa <xref:System.ServiceModel.Dispatcher.IMessageFilterTable%601>.</xref:System.ServiceModel.Dispatcher.IMessageFilterTable%601> Cada filtro na tabela é associado a dados do filtro especificado que podem ser usados para indicar quais ações a serem tomadas se uma mensagem corresponde ao filtro. O <xref:System.ServiceModel.Dispatcher.MessageFilter.Match%2A>métodos são usados para determinar se uma mensagem satisfaz um filtro.</xref:System.ServiceModel.Dispatcher.MessageFilter.Match%2A>       Os critérios usados por um filtro não podem ser alterados depois que o filtro é construído porque as tabelas de filtro não têm nenhuma maneira de detectar uma alteração. É a única maneira de modificar os critérios de filtro criar um novo e excluir o filtro existente.       As classes a seguir implementam o `abstract`classe MessageFilter:- <xref:System.ServiceModel.Dispatcher.XPathMessageFilter>usa uma expressão XPath 1.0 para especificar os critérios para uma correspondência.</xref:System.ServiceModel.Dispatcher.XPathMessageFilter>      - <xref:System.ServiceModel.Dispatcher.MatchAllMessageFilter>corresponde a todas as mensagens.</xref:System.ServiceModel.Dispatcher.MatchAllMessageFilter>      - <xref:System.ServiceModel.Dispatcher.MatchNoneMessageFilter>corresponde a nenhuma das mensagens.</xref:System.ServiceModel.Dispatcher.MatchNoneMessageFilter>      - <xref:System.ServiceModel.Dispatcher.ActionMessageFilter>testa se a ação de uma mensagem é parte de um conjunto especificado de ações.</xref:System.ServiceModel.Dispatcher.ActionMessageFilter>      - <xref:System.ServiceModel.Dispatcher.EndpointAddressMessageFilter>testa se uma mensagem satisfaz um endereço de ponto de extremidade especificado.</xref:System.ServiceModel.Dispatcher.EndpointAddressMessageFilter>       <xref:System.ServiceModel.Channels.ChannelListenerBase%601>é um `abstract` classe base que você pode usar para criar ouvintes não enfileiramento de mensagens.</xref:System.ServiceModel.Channels.ChannelListenerBase%601>"
   syntax:
     content: >-
       [System.Runtime.Serialization.DataContract]
@@ -46,8 +46,8 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When called in a derived class, initializes a new instance of the <xref href=&quot;System.ServiceModel.Dispatcher.MessageFilter&quot;></xref> class."
-  remarks: "The constructor is protected so that only filters that derive from <xref:System.ServiceModel.Dispatcher.MessageFilter> can be instantiated."
+  summary: "Quando chamado em uma classe derivada, inicializa uma nova instância do <xref href=&quot;System.ServiceModel.Dispatcher.MessageFilter&quot;> </xref> classe."
+  remarks: "O construtor está protegido de modo que apenas filtros que derivam de <xref:System.ServiceModel.Dispatcher.MessageFilter>pode ser instanciado.</xref:System.ServiceModel.Dispatcher.MessageFilter>"
   syntax:
     content: protected MessageFilter ();
     parameters: []
@@ -72,7 +72,7 @@ items:
     parameters: []
     return:
       type: System.ServiceModel.Dispatcher.IMessageFilterTable{FilterData}
-      description: "To be added."
+      description: "A ser adicionado."
   overload: System.ServiceModel.Dispatcher.MessageFilter.CreateFilterTable<FilterData>*
   exceptions: []
   platform:
@@ -89,17 +89,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, tests whether a message satisfies the filter criteria. The body cannot be examined."
-  remarks: "This method cannot inspect the contents of the message body."
+  summary: "Quando substituído em uma classe derivada, testa se uma mensagem satisfaz os critérios de filtro. O corpo não pode ser examinado."
+  remarks: "Este método não pode inspecionar o conteúdo do corpo da mensagem."
   syntax:
     content: public abstract bool Match (System.ServiceModel.Channels.Message message);
     parameters:
     - id: message
       type: System.ServiceModel.Channels.Message
-      description: "The <xref:System.ServiceModel.Channels.Message> object to test."
+      description: "O <xref:System.ServiceModel.Channels.Message>objeto para teste.</xref:System.ServiceModel.Channels.Message>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref:System.ServiceModel.Channels.Message> object satisfies the filter criteria; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <xref:System.ServiceModel.Channels.Message>objeto satisfaz os critérios de filtro; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.ServiceModel.Channels.Message>"
   overload: System.ServiceModel.Dispatcher.MessageFilter.Match*
   exceptions: []
   platform:
@@ -116,17 +116,17 @@ items:
   assemblies:
   - System.ServiceModel
   namespace: System.ServiceModel.Dispatcher
-  summary: "When overridden in a derived class, tests whether a buffered message satisfies the criteria of a filter."
-  remarks: "The message must be fully buffered if the body is to be inspected by the filter. The body of the <xref:System.ServiceModel.Channels.MessageBuffer> is fully buffered and therefore can be inspected by a filter. The body of a <xref:System.ServiceModel.Channels.Message> that has not been fully buffered may be consumed by the filter inspection. The header element of a <xref:System.ServiceModel.Channels.Message> is automatically buffered and therefore can be inspected without being consumed."
+  summary: "Quando substituído em uma classe derivada, testa se uma mensagem em buffer satisfaz os critérios de filtro."
+  remarks: "A mensagem deve ser totalmente armazenada em buffer se o corpo deve ser inspecionado pelo filtro. O corpo do <xref:System.ServiceModel.Channels.MessageBuffer>totalmente armazenado em buffer e, portanto, pode ser inspecionado por um filtro.</xref:System.ServiceModel.Channels.MessageBuffer> O corpo de um <xref:System.ServiceModel.Channels.Message>que não foi totalmente em buffer podem ser consumidos pela inspeção do filtro.</xref:System.ServiceModel.Channels.Message> O elemento de cabeçalho de um <xref:System.ServiceModel.Channels.Message>são automaticamente armazenados em buffer e, portanto, pode ser inspecionado sem ser consumido.</xref:System.ServiceModel.Channels.Message>"
   syntax:
     content: public abstract bool Match (System.ServiceModel.Channels.MessageBuffer buffer);
     parameters:
     - id: buffer
       type: System.ServiceModel.Channels.MessageBuffer
-      description: "The <xref:System.ServiceModel.Channels.MessageBuffer> object to test."
+      description: "O <xref:System.ServiceModel.Channels.MessageBuffer>objeto para teste.</xref:System.ServiceModel.Channels.MessageBuffer>"
     return:
       type: System.Boolean
-      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref> if the <xref:System.ServiceModel.Channels.MessageBuffer> object satisfies the filter criteria; otherwise, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;></xref>."
+      description: "<xref uid=&quot;langword_csharp_true&quot; name=&quot;true&quot; href=&quot;&quot;></xref>Se o <xref:System.ServiceModel.Channels.MessageBuffer>objeto satisfaz os critérios de filtro; caso contrário, <xref uid=&quot;langword_csharp_false&quot; name=&quot;false&quot; href=&quot;&quot;> </xref>.</xref:System.ServiceModel.Channels.MessageBuffer>"
   overload: System.ServiceModel.Dispatcher.MessageFilter.Match*
   exceptions: []
   platform:
